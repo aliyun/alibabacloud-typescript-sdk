@@ -3975,6 +3975,7 @@ export class ListGitRepositoriesRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   platform?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -3983,6 +3984,7 @@ export class ListGitRepositoriesRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       platform: 'Platform',
+      regionId: 'RegionId',
     };
   }
 
@@ -3994,6 +3996,7 @@ export class ListGitRepositoriesRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       platform: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5804,6 +5807,7 @@ export class ListTemplatesRequest extends $tea.Model {
   createdDateAfter?: string;
   createdDateBefore?: string;
   hasTrigger?: boolean;
+  isExample?: boolean;
   isFavorite?: boolean;
   maxResults?: number;
   nextToken?: string;
@@ -5823,6 +5827,7 @@ export class ListTemplatesRequest extends $tea.Model {
       createdDateAfter: 'CreatedDateAfter',
       createdDateBefore: 'CreatedDateBefore',
       hasTrigger: 'HasTrigger',
+      isExample: 'IsExample',
       isFavorite: 'IsFavorite',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -5845,6 +5850,7 @@ export class ListTemplatesRequest extends $tea.Model {
       createdDateAfter: 'string',
       createdDateBefore: 'string',
       hasTrigger: 'boolean',
+      isExample: 'boolean',
       isFavorite: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
@@ -5871,6 +5877,7 @@ export class ListTemplatesShrinkRequest extends $tea.Model {
   createdDateAfter?: string;
   createdDateBefore?: string;
   hasTrigger?: boolean;
+  isExample?: boolean;
   isFavorite?: boolean;
   maxResults?: number;
   nextToken?: string;
@@ -5890,6 +5897,7 @@ export class ListTemplatesShrinkRequest extends $tea.Model {
       createdDateAfter: 'CreatedDateAfter',
       createdDateBefore: 'CreatedDateBefore',
       hasTrigger: 'HasTrigger',
+      isExample: 'IsExample',
       isFavorite: 'IsFavorite',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -5912,6 +5920,7 @@ export class ListTemplatesShrinkRequest extends $tea.Model {
       createdDateAfter: 'string',
       createdDateBefore: 'string',
       hasTrigger: 'boolean',
+      isExample: 'boolean',
       isFavorite: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
@@ -11228,6 +11237,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Cancels an execution.
+   *
+   * @param request CancelExecutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelExecutionResponse
+   */
   async cancelExecutionWithOptions(request: CancelExecutionRequest, runtime: $Util.RuntimeOptions): Promise<CancelExecutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11256,11 +11272,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelExecutionResponse>(await this.callApi(params, req, runtime), new CancelExecutionResponse({}));
   }
 
+  /**
+   * @summary Cancels an execution.
+   *
+   * @param request CancelExecutionRequest
+   * @return CancelExecutionResponse
+   */
   async cancelExecution(request: CancelExecutionRequest): Promise<CancelExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelExecutionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the resource group to which a cloud resource belongs.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11297,11 +11326,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
+  /**
+   * @summary Modifies the resource group to which a cloud resource belongs.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
+   */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Continues deploying an application group when an error occurs for calling the DeployApplicationGroup operation. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request ContinueDeployApplicationGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ContinueDeployApplicationGroupResponse
+   */
   async continueDeployApplicationGroupWithOptions(request: ContinueDeployApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<ContinueDeployApplicationGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11338,11 +11380,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ContinueDeployApplicationGroupResponse>(await this.callApi(params, req, runtime), new ContinueDeployApplicationGroupResponse({}));
   }
 
+  /**
+   * @summary Continues deploying an application group when an error occurs for calling the DeployApplicationGroup operation. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request ContinueDeployApplicationGroupRequest
+   * @return ContinueDeployApplicationGroupResponse
+   */
   async continueDeployApplicationGroup(request: ContinueDeployApplicationGroupRequest): Promise<ContinueDeployApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.continueDeployApplicationGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param tmpReq CreateApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApplicationResponse
+   */
   async createApplicationWithOptions(tmpReq: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateApplicationShrinkRequest({ });
@@ -11405,11 +11460,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
   }
 
+  /**
+   * @summary Creates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request CreateApplicationRequest
+   * @return CreateApplicationResponse
+   */
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request CreateApplicationGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApplicationGroupResponse
+   */
   async createApplicationGroupWithOptions(request: CreateApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11466,11 +11534,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateApplicationGroupResponse>(await this.callApi(params, req, runtime), new CreateApplicationGroupResponse({}));
   }
 
+  /**
+   * @summary Creates an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request CreateApplicationGroupRequest
+   * @return CreateApplicationGroupResponse
+   */
   async createApplicationGroup(request: CreateApplicationGroupRequest): Promise<CreateApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createApplicationGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an O\\\\\\\\\\\\&M Item.
+   *
+   * @param tmpReq CreateOpsItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateOpsItemResponse
+   */
   async createOpsItemWithOptions(tmpReq: CreateOpsItemRequest, runtime: $Util.RuntimeOptions): Promise<CreateOpsItemResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateOpsItemShrinkRequest({ });
@@ -11549,11 +11630,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOpsItemResponse>(await this.callApi(params, req, runtime), new CreateOpsItemResponse({}));
   }
 
+  /**
+   * @summary Creates an O\\\\\\\\\\\\&M Item.
+   *
+   * @param request CreateOpsItemRequest
+   * @return CreateOpsItemResponse
+   */
   async createOpsItem(request: CreateOpsItemRequest): Promise<CreateOpsItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOpsItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a common parameter.
+   *
+   * @param tmpReq CreateParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateParameterResponse
+   */
   async createParameterWithOptions(tmpReq: CreateParameterRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateParameterShrinkRequest({ });
@@ -11616,11 +11710,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateParameterResponse>(await this.callApi(params, req, runtime), new CreateParameterResponse({}));
   }
 
+  /**
+   * @summary Creates a common parameter.
+   *
+   * @param request CreateParameterRequest
+   * @return CreateParameterResponse
+   */
   async createParameter(request: CreateParameterRequest): Promise<CreateParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a patch baseline.
+   *
+   * @param tmpReq CreatePatchBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePatchBaselineResponse
+   */
   async createPatchBaselineWithOptions(tmpReq: CreatePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<CreatePatchBaselineResponse> {
     Util.validateModel(tmpReq);
     let request = new CreatePatchBaselineShrinkRequest({ });
@@ -11711,11 +11818,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePatchBaselineResponse>(await this.callApi(params, req, runtime), new CreatePatchBaselineResponse({}));
   }
 
+  /**
+   * @summary Creates a patch baseline.
+   *
+   * @param request CreatePatchBaselineRequest
+   * @return CreatePatchBaselineResponse
+   */
   async createPatchBaseline(request: CreatePatchBaselineRequest): Promise<CreatePatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPatchBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+   *
+   * @param tmpReq CreateSecretParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSecretParameterResponse
+   */
   async createSecretParameterWithOptions(tmpReq: CreateSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecretParameterResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateSecretParameterShrinkRequest({ });
@@ -11786,11 +11906,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSecretParameterResponse>(await this.callApi(params, req, runtime), new CreateSecretParameterResponse({}));
   }
 
+  /**
+   * @summary Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+   *
+   * @param request CreateSecretParameterRequest
+   * @return CreateSecretParameterResponse
+   */
   async createSecretParameter(request: CreateSecretParameterRequest): Promise<CreateSecretParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSecretParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a desired-state configuration.
+   *
+   * @param tmpReq CreateStateConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateStateConfigurationResponse
+   */
   async createStateConfigurationWithOptions(tmpReq: CreateStateConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<CreateStateConfigurationResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateStateConfigurationShrinkRequest({ });
@@ -11865,11 +11998,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateStateConfigurationResponse>(await this.callApi(params, req, runtime), new CreateStateConfigurationResponse({}));
   }
 
+  /**
+   * @summary Creates a desired-state configuration.
+   *
+   * @param request CreateStateConfigurationRequest
+   * @return CreateStateConfigurationResponse
+   */
   async createStateConfiguration(request: CreateStateConfigurationRequest): Promise<CreateStateConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createStateConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Creates a template.
+   *
+   * @param tmpReq CreateTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTemplateResponse
+   */
   async createTemplateWithOptions(tmpReq: CreateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateTemplateShrinkRequest({ });
@@ -11920,11 +12066,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
+  /**
+   * @summary Creates a template.
+   *
+   * @param request CreateTemplateRequest
+   * @return CreateTemplateResponse
+   */
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request DeleteApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApplicationResponse
+   */
   async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -11961,11 +12120,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
   }
 
+  /**
+   * @summary Deletes an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request DeleteApplicationRequest
+   * @return DeleteApplicationResponse
+   */
   async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an application group. You can call this operation only for the application groups which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request DeleteApplicationGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApplicationGroupResponse
+   */
   async deleteApplicationGroupWithOptions(request: DeleteApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12002,11 +12174,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteApplicationGroupResponse>(await this.callApi(params, req, runtime), new DeleteApplicationGroupResponse({}));
   }
 
+  /**
+   * @summary Deletes an application group. You can call this operation only for the application groups which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request DeleteApplicationGroupRequest
+   * @return DeleteApplicationGroupResponse
+   */
   async deleteApplicationGroup(request: DeleteApplicationGroupRequest): Promise<DeleteApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteApplicationGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes multiple executions.
+   *
+   * @param request DeleteExecutionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteExecutionsResponse
+   */
   async deleteExecutionsWithOptions(request: DeleteExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExecutionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12035,11 +12220,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteExecutionsResponse>(await this.callApi(params, req, runtime), new DeleteExecutionsResponse({}));
   }
 
+  /**
+   * @summary Deletes multiple executions.
+   *
+   * @param request DeleteExecutionsRequest
+   * @return DeleteExecutionsResponse
+   */
   async deleteExecutions(request: DeleteExecutionsRequest): Promise<DeleteExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteExecutionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a common parameter.
+   *
+   * @param request DeleteParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteParameterResponse
+   */
   async deleteParameterWithOptions(request: DeleteParameterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12068,11 +12266,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteParameterResponse>(await this.callApi(params, req, runtime), new DeleteParameterResponse({}));
   }
 
+  /**
+   * @summary Deletes a common parameter.
+   *
+   * @param request DeleteParameterRequest
+   * @return DeleteParameterResponse
+   */
   async deleteParameter(request: DeleteParameterRequest): Promise<DeleteParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a patch baseline.
+   *
+   * @param request DeletePatchBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePatchBaselineResponse
+   */
   async deletePatchBaselineWithOptions(request: DeletePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<DeletePatchBaselineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12101,11 +12312,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePatchBaselineResponse>(await this.callApi(params, req, runtime), new DeletePatchBaselineResponse({}));
   }
 
+  /**
+   * @summary Deletes a patch baseline.
+   *
+   * @param request DeletePatchBaselineRequest
+   * @return DeletePatchBaselineResponse
+   */
   async deletePatchBaseline(request: DeletePatchBaselineRequest): Promise<DeletePatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePatchBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+   *
+   * @param request DeleteSecretParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSecretParameterResponse
+   */
   async deleteSecretParameterWithOptions(request: DeleteSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecretParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12134,11 +12358,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSecretParameterResponse>(await this.callApi(params, req, runtime), new DeleteSecretParameterResponse({}));
   }
 
+  /**
+   * @summary Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+   *
+   * @param request DeleteSecretParameterRequest
+   * @return DeleteSecretParameterResponse
+   */
   async deleteSecretParameter(request: DeleteSecretParameterRequest): Promise<DeleteSecretParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSecretParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes multiple desired-state configurations at a time.
+   *
+   * @param request DeleteStateConfigurationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteStateConfigurationsResponse
+   */
   async deleteStateConfigurationsWithOptions(request: DeleteStateConfigurationsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStateConfigurationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12171,11 +12408,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteStateConfigurationsResponse>(await this.callApi(params, req, runtime), new DeleteStateConfigurationsResponse({}));
   }
 
+  /**
+   * @summary Deletes multiple desired-state configurations at a time.
+   *
+   * @param request DeleteStateConfigurationsRequest
+   * @return DeleteStateConfigurationsResponse
+   */
   async deleteStateConfigurations(request: DeleteStateConfigurationsRequest): Promise<DeleteStateConfigurationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteStateConfigurationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes a template.
+   *
+   * @param request DeleteTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTemplateResponse
+   */
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12208,11 +12458,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
+  /**
+   * @summary Deletes a template.
+   *
+   * @param request DeleteTemplateRequest
+   * @return DeleteTemplateResponse
+   */
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deletes multiple templates.
+   *
+   * @param request DeleteTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTemplatesResponse
+   */
   async deleteTemplatesWithOptions(request: DeleteTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12245,11 +12508,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplatesResponse>(await this.callApi(params, req, runtime), new DeleteTemplatesResponse({}));
   }
 
+  /**
+   * @summary Deletes multiple templates.
+   *
+   * @param request DeleteTemplatesRequest
+   * @return DeleteTemplatesResponse
+   */
   async deleteTemplates(request: DeleteTemplatesRequest): Promise<DeleteTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Deploys an application group. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request DeployApplicationGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeployApplicationGroupResponse
+   */
   async deployApplicationGroupWithOptions(request: DeployApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeployApplicationGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12286,11 +12562,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeployApplicationGroupResponse>(await this.callApi(params, req, runtime), new DeployApplicationGroupResponse({}));
   }
 
+  /**
+   * @summary Deploys an application group. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request DeployApplicationGroupRequest
+   * @return DeployApplicationGroupResponse
+   */
   async deployApplicationGroup(request: DeployApplicationGroupRequest): Promise<DeployApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deployApplicationGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询应用分组资源成本
+   *
+   * @param request DescribeApplicationGroupBillRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApplicationGroupBillResponse
+   */
   async describeApplicationGroupBillWithOptions(request: DescribeApplicationGroupBillRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationGroupBillResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12339,11 +12628,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApplicationGroupBillResponse>(await this.callApi(params, req, runtime), new DescribeApplicationGroupBillResponse({}));
   }
 
+  /**
+   * @summary 查询应用分组资源成本
+   *
+   * @param request DescribeApplicationGroupBillRequest
+   * @return DescribeApplicationGroupBillResponse
+   */
   async describeApplicationGroupBill(request: DescribeApplicationGroupBillRequest): Promise<DescribeApplicationGroupBillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApplicationGroupBillWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries supported regions.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12372,11 +12674,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries supported regions.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Resource Access Management (RAM) policy required for template execution.
+   *
+   * @param request GenerateExecutionPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateExecutionPolicyResponse
+   */
   async generateExecutionPolicyWithOptions(request: GenerateExecutionPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateExecutionPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12417,11 +12732,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateExecutionPolicyResponse>(await this.callApi(params, req, runtime), new GenerateExecutionPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries the Resource Access Management (RAM) policy required for template execution.
+   *
+   * @param request GenerateExecutionPolicyRequest
+   * @return GenerateExecutionPolicyResponse
+   */
   async generateExecutionPolicy(request: GenerateExecutionPolicyRequest): Promise<GenerateExecutionPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateExecutionPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request GetApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApplicationResponse
+   */
   async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12450,11 +12778,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
   }
 
+  /**
+   * @summary Queries the information of an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request GetApplicationRequest
+   * @return GetApplicationResponse
+   */
   async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request GetApplicationGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetApplicationGroupResponse
+   */
   async getApplicationGroupWithOptions(request: GetApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12487,11 +12828,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetApplicationGroupResponse>(await this.callApi(params, req, runtime), new GetApplicationGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request GetApplicationGroupRequest
+   * @return GetApplicationGroupResponse
+   */
   async getApplicationGroup(request: GetApplicationGroupRequest): Promise<GetApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getApplicationGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the template of an execution, including the content of the template.
+   *
+   * @param request GetExecutionTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetExecutionTemplateResponse
+   */
   async getExecutionTemplateWithOptions(request: GetExecutionTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetExecutionTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12520,11 +12874,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetExecutionTemplateResponse>(await this.callApi(params, req, runtime), new GetExecutionTemplateResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the template of an execution, including the content of the template.
+   *
+   * @param request GetExecutionTemplateRequest
+   * @return GetExecutionTemplateResponse
+   */
   async getExecutionTemplate(request: GetExecutionTemplateRequest): Promise<GetExecutionTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getExecutionTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the properties of a configuration list.
+   *
+   * @param request GetInventorySchemaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInventorySchemaResponse
+   */
   async getInventorySchemaWithOptions(request: GetInventorySchemaRequest, runtime: $Util.RuntimeOptions): Promise<GetInventorySchemaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12565,11 +12932,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInventorySchemaResponse>(await this.callApi(params, req, runtime), new GetInventorySchemaResponse({}));
   }
 
+  /**
+   * @summary Queries the properties of a configuration list.
+   *
+   * @param request GetInventorySchemaRequest
+   * @return GetInventorySchemaResponse
+   */
   async getInventorySchema(request: GetInventorySchemaRequest): Promise<GetInventorySchemaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInventorySchemaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details of an O\\\\\\\\\\\\&M item.
+   *
+   * @param request GetOpsItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOpsItemResponse
+   */
   async getOpsItemWithOptions(request: GetOpsItemRequest, runtime: $Util.RuntimeOptions): Promise<GetOpsItemResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12598,11 +12978,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOpsItemResponse>(await this.callApi(params, req, runtime), new GetOpsItemResponse({}));
   }
 
+  /**
+   * @summary Queries the details of an O\\\\\\\\\\\\&M item.
+   *
+   * @param request GetOpsItemRequest
+   * @return GetOpsItemResponse
+   */
   async getOpsItem(request: GetOpsItemRequest): Promise<GetOpsItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOpsItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a common parameter and its value.
+   *
+   * @param request GetParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetParameterResponse
+   */
   async getParameterWithOptions(request: GetParameterRequest, runtime: $Util.RuntimeOptions): Promise<GetParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12639,11 +13032,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetParameterResponse>(await this.callApi(params, req, runtime), new GetParameterResponse({}));
   }
 
+  /**
+   * @summary Queries a common parameter and its value.
+   *
+   * @param request GetParameterRequest
+   * @return GetParameterResponse
+   */
   async getParameter(request: GetParameterRequest): Promise<GetParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about one or more parameters.
+   *
+   * @param request GetParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetParametersResponse
+   */
   async getParametersWithOptions(request: GetParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12672,11 +13078,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetParametersResponse>(await this.callApi(params, req, runtime), new GetParametersResponse({}));
   }
 
+  /**
+   * @summary Queries the information about one or more parameters.
+   *
+   * @param request GetParametersRequest
+   * @return GetParametersResponse
+   */
   async getParameters(request: GetParametersRequest): Promise<GetParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries one or more parameters by path.
+   *
+   * @param request GetParametersByPathRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetParametersByPathResponse
+   */
   async getParametersByPathWithOptions(request: GetParametersByPathRequest, runtime: $Util.RuntimeOptions): Promise<GetParametersByPathResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12717,11 +13136,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetParametersByPathResponse>(await this.callApi(params, req, runtime), new GetParametersByPathResponse({}));
   }
 
+  /**
+   * @summary Queries one or more parameters by path.
+   *
+   * @param request GetParametersByPathRequest
+   * @return GetParametersByPathResponse
+   */
   async getParametersByPath(request: GetParametersByPathRequest): Promise<GetParametersByPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getParametersByPathWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of a patch baseline.
+   *
+   * @param request GetPatchBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPatchBaselineResponse
+   */
   async getPatchBaselineWithOptions(request: GetPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetPatchBaselineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12750,11 +13182,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPatchBaselineResponse>(await this.callApi(params, req, runtime), new GetPatchBaselineResponse({}));
   }
 
+  /**
+   * @summary Queries the information of a patch baseline.
+   *
+   * @param request GetPatchBaselineRequest
+   * @return GetPatchBaselineResponse
+   */
   async getPatchBaseline(request: GetPatchBaselineRequest): Promise<GetPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPatchBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   *
+   * @param request GetSecretParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSecretParameterResponse
+   */
   async getSecretParameterWithOptions(request: GetSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12791,11 +13236,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSecretParameterResponse>(await this.callApi(params, req, runtime), new GetSecretParameterResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   *
+   * @param request GetSecretParameterRequest
+   * @return GetSecretParameterResponse
+   */
   async getSecretParameter(request: GetSecretParameterRequest): Promise<GetSecretParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSecretParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   *
+   * @param request GetSecretParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSecretParametersResponse
+   */
   async getSecretParametersWithOptions(request: GetSecretParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12828,11 +13286,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSecretParametersResponse>(await this.callApi(params, req, runtime), new GetSecretParametersResponse({}));
   }
 
+  /**
+   * @summary Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   *
+   * @param request GetSecretParametersRequest
+   * @return GetSecretParametersResponse
+   */
   async getSecretParameters(request: GetSecretParametersRequest): Promise<GetSecretParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSecretParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   *
+   * @param request GetSecretParametersByPathRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSecretParametersByPathResponse
+   */
   async getSecretParametersByPathWithOptions(request: GetSecretParametersByPathRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretParametersByPathResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12877,11 +13348,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSecretParametersByPathResponse>(await this.callApi(params, req, runtime), new GetSecretParametersByPathResponse({}));
   }
 
+  /**
+   * @summary Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   *
+   * @param request GetSecretParametersByPathRequest
+   * @return GetSecretParametersByPathResponse
+   */
   async getSecretParametersByPath(request: GetSecretParametersByPathRequest): Promise<GetSecretParametersByPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSecretParametersByPathWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the settings of the delivery feature.
+   *
+   * @param request GetServiceSettingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetServiceSettingsResponse
+   */
   async getServiceSettingsWithOptions(request: GetServiceSettingsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceSettingsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12906,11 +13390,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceSettingsResponse>(await this.callApi(params, req, runtime), new GetServiceSettingsResponse({}));
   }
 
+  /**
+   * @summary Queries the settings of the delivery feature.
+   *
+   * @param request GetServiceSettingsRequest
+   * @return GetServiceSettingsResponse
+   */
   async getServiceSettings(request: GetServiceSettingsRequest): Promise<GetServiceSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getServiceSettingsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a template, including the content of the template.
+   *
+   * @param request GetTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetTemplateResponse
+   */
   async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12943,11 +13440,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a template, including the content of the template.
+   *
+   * @param request GetTemplateRequest
+   * @return GetTemplateResponse
+   */
   async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the available actions, including atomic actions and cloud product actions.
+   *
+   * @param request ListActionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListActionsResponse
+   */
   async listActionsWithOptions(request: ListActionsRequest, runtime: $Util.RuntimeOptions): Promise<ListActionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -12984,11 +13494,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListActionsResponse>(await this.callApi(params, req, runtime), new ListActionsResponse({}));
   }
 
+  /**
+   * @summary Queries the available actions, including atomic actions and cloud product actions.
+   *
+   * @param request ListActionsRequest
+   * @return ListActionsResponse
+   */
   async listActions(request: ListActionsRequest): Promise<ListActionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listActionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of application groups. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request ListApplicationGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationGroupsResponse
+   */
   async listApplicationGroupsWithOptions(request: ListApplicationGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13041,11 +13564,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationGroupsResponse>(await this.callApi(params, req, runtime), new ListApplicationGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of application groups. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request ListApplicationGroupsRequest
+   * @return ListApplicationGroupsResponse
+   */
   async listApplicationGroups(request: ListApplicationGroupsRequest): Promise<ListApplicationGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of applications. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param tmpReq ListApplicationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationsResponse
+   */
   async listApplicationsWithOptions(tmpReq: ListApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListApplicationsShrinkRequest({ });
@@ -13100,17 +13636,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of applications. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request ListApplicationsRequest
+   * @return ListApplicationsResponse
+   */
   async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationsWithOptions(request, runtime);
   }
 
   /**
-    * ****
-    *
-    * @param request ListExecutionLogsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListExecutionLogsResponse
+   * @summary Queries the logs of an execution.
+   *
+   * @description ****
+   *
+   * @param request ListExecutionLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExecutionLogsResponse
    */
   async listExecutionLogsWithOptions(request: ListExecutionLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionLogsResponse> {
     Util.validateModel(request);
@@ -13157,16 +13701,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ****
-    *
-    * @param request ListExecutionLogsRequest
-    * @return ListExecutionLogsResponse
+   * @summary Queries the logs of an execution.
+   *
+   * @description ****
+   *
+   * @param request ListExecutionLogsRequest
+   * @return ListExecutionLogsResponse
    */
   async listExecutionLogs(request: ListExecutionLogsRequest): Promise<ListExecutionLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExecutionLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries high-risk tasks in the execution of a template.
+   *
+   * @param request ListExecutionRiskyTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExecutionRiskyTasksResponse
+   */
   async listExecutionRiskyTasksWithOptions(request: ListExecutionRiskyTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionRiskyTasksResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13195,11 +13748,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExecutionRiskyTasksResponse>(await this.callApi(params, req, runtime), new ListExecutionRiskyTasksResponse({}));
   }
 
+  /**
+   * @summary Queries high-risk tasks in the execution of a template.
+   *
+   * @param request ListExecutionRiskyTasksRequest
+   * @return ListExecutionRiskyTasksResponse
+   */
   async listExecutionRiskyTasks(request: ListExecutionRiskyTasksRequest): Promise<ListExecutionRiskyTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExecutionRiskyTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries executions. Multiple methods are supported to filter executions.
+   *
+   * @param tmpReq ListExecutionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListExecutionsResponse
+   */
   async listExecutionsWithOptions(tmpReq: ListExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListExecutionsShrinkRequest({ });
@@ -13326,11 +13892,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListExecutionsResponse>(await this.callApi(params, req, runtime), new ListExecutionsResponse({}));
   }
 
+  /**
+   * @summary Queries executions. Multiple methods are supported to filter executions.
+   *
+   * @param request ListExecutionsRequest
+   * @return ListExecutionsResponse
+   */
   async listExecutions(request: ListExecutionsRequest): Promise<ListExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listExecutionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取仓库信息
+   *
+   * @param request ListGitRepositoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGitRepositoriesResponse
+   */
   async listGitRepositoriesWithOptions(request: ListGitRepositoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListGitRepositoriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13358,6 +13937,10 @@ export default class Client extends OpenApi {
       query["Platform"] = request.platform;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -13375,11 +13958,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGitRepositoriesResponse>(await this.callApi(params, req, runtime), new ListGitRepositoriesResponse({}));
   }
 
+  /**
+   * @summary 获取仓库信息
+   *
+   * @param request ListGitRepositoriesRequest
+   * @return ListGitRepositoriesResponse
+   */
   async listGitRepositories(request: ListGitRepositoriesRequest): Promise<ListGitRepositoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGitRepositoriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the patches of an instance.
+   *
+   * @param request ListInstancePatchStatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancePatchStatesResponse
+   */
   async listInstancePatchStatesWithOptions(request: ListInstancePatchStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancePatchStatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13416,11 +14012,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancePatchStatesResponse>(await this.callApi(params, req, runtime), new ListInstancePatchStatesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the patches of an instance.
+   *
+   * @param request ListInstancePatchStatesRequest
+   * @return ListInstancePatchStatesResponse
+   */
   async listInstancePatchStates(request: ListInstancePatchStatesRequest): Promise<ListInstancePatchStatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstancePatchStatesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the patches of an instance.
+   *
+   * @param request ListInstancePatchesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancePatchesResponse
+   */
   async listInstancePatchesWithOptions(request: ListInstancePatchesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancePatchesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13461,11 +14070,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancePatchesResponse>(await this.callApi(params, req, runtime), new ListInstancePatchesResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the patches of an instance.
+   *
+   * @param request ListInstancePatchesRequest
+   * @return ListInstancePatchesResponse
+   */
   async listInstancePatches(request: ListInstancePatchesRequest): Promise<ListInstancePatchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstancePatchesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of an Elastic Compute Service (ECS) instance.
+   *
+   * @param request ListInventoryEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInventoryEntriesResponse
+   */
   async listInventoryEntriesWithOptions(request: ListInventoryEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListInventoryEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13510,11 +14132,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInventoryEntriesResponse>(await this.callApi(params, req, runtime), new ListInventoryEntriesResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of an Elastic Compute Service (ECS) instance.
+   *
+   * @param request ListInventoryEntriesRequest
+   * @return ListInventoryEntriesResponse
+   */
   async listInventoryEntries(request: ListInventoryEntriesRequest): Promise<ListInventoryEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInventoryEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries O\\&M items.
+   *
+   * @param tmpReq ListOpsItemsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOpsItemsResponse
+   */
   async listOpsItemsWithOptions(tmpReq: ListOpsItemsRequest, runtime: $Util.RuntimeOptions): Promise<ListOpsItemsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListOpsItemsShrinkRequest({ });
@@ -13569,11 +14204,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOpsItemsResponse>(await this.callApi(params, req, runtime), new ListOpsItemsResponse({}));
   }
 
+  /**
+   * @summary Queries O\\&M items.
+   *
+   * @param request ListOpsItemsRequest
+   * @return ListOpsItemsResponse
+   */
   async listOpsItems(request: ListOpsItemsRequest): Promise<ListOpsItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOpsItemsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the versions of a common parameter.
+   *
+   * @param request ListParameterVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListParameterVersionsResponse
+   */
   async listParameterVersionsWithOptions(request: ListParameterVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListParameterVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13614,11 +14262,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListParameterVersionsResponse>(await this.callApi(params, req, runtime), new ListParameterVersionsResponse({}));
   }
 
+  /**
+   * @summary Queries the versions of a common parameter.
+   *
+   * @param request ListParameterVersionsRequest
+   * @return ListParameterVersionsResponse
+   */
   async listParameterVersions(request: ListParameterVersionsRequest): Promise<ListParameterVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listParameterVersionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries common parameters. Multiple methods are supported to filter common parameters.
+   *
+   * @param tmpReq ListParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListParametersResponse
+   */
   async listParametersWithOptions(tmpReq: ListParametersRequest, runtime: $Util.RuntimeOptions): Promise<ListParametersResponse> {
     Util.validateModel(tmpReq);
     let request = new ListParametersShrinkRequest({ });
@@ -13693,11 +14354,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListParametersResponse>(await this.callApi(params, req, runtime), new ListParametersResponse({}));
   }
 
+  /**
+   * @summary Queries common parameters. Multiple methods are supported to filter common parameters.
+   *
+   * @param request ListParametersRequest
+   * @return ListParametersResponse
+   */
   async listParameters(request: ListParametersRequest): Promise<ListParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of patch baselines.
+   *
+   * @param tmpReq ListPatchBaselinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPatchBaselinesResponse
+   */
   async listPatchBaselinesWithOptions(tmpReq: ListPatchBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListPatchBaselinesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListPatchBaselinesShrinkRequest({ });
@@ -13776,11 +14450,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPatchBaselinesResponse>(await this.callApi(params, req, runtime), new ListPatchBaselinesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of patch baselines.
+   *
+   * @param request ListPatchBaselinesRequest
+   * @return ListPatchBaselinesResponse
+   */
   async listPatchBaselines(request: ListPatchBaselinesRequest): Promise<ListPatchBaselinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPatchBaselinesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+   *
+   * @param request ListResourceExecutionStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListResourceExecutionStatusResponse
+   */
   async listResourceExecutionStatusWithOptions(request: ListResourceExecutionStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceExecutionStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13817,11 +14504,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceExecutionStatusResponse>(await this.callApi(params, req, runtime), new ListResourceExecutionStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+   *
+   * @param request ListResourceExecutionStatusRequest
+   * @return ListResourceExecutionStatusResponse
+   */
   async listResourceExecutionStatus(request: ListResourceExecutionStatusRequest): Promise<ListResourceExecutionStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listResourceExecutionStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries versions of an encryption parameter.
+   *
+   * @param request ListSecretParameterVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSecretParameterVersionsResponse
+   */
   async listSecretParameterVersionsWithOptions(request: ListSecretParameterVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretParameterVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -13866,17 +14566,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSecretParameterVersionsResponse>(await this.callApi(params, req, runtime), new ListSecretParameterVersionsResponse({}));
   }
 
+  /**
+   * @summary Queries versions of an encryption parameter.
+   *
+   * @param request ListSecretParameterVersionsRequest
+   * @return ListSecretParameterVersionsResponse
+   */
   async listSecretParameterVersions(request: ListSecretParameterVersionsRequest): Promise<ListSecretParameterVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSecretParameterVersionsWithOptions(request, runtime);
   }
 
   /**
-    * Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
-    *
-    * @param tmpReq ListSecretParametersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListSecretParametersResponse
+   * @summary Queries common parameters. Multiple types of queries are supported.
+   *
+   * @description Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
+   *
+   * @param tmpReq ListSecretParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSecretParametersResponse
    */
   async listSecretParametersWithOptions(tmpReq: ListSecretParametersRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretParametersResponse> {
     Util.validateModel(tmpReq);
@@ -13945,16 +14653,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
-    *
-    * @param request ListSecretParametersRequest
-    * @return ListSecretParametersResponse
+   * @summary Queries common parameters. Multiple types of queries are supported.
+   *
+   * @description Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
+   *
+   * @param request ListSecretParametersRequest
+   * @return ListSecretParametersResponse
    */
   async listSecretParameters(request: ListSecretParametersRequest): Promise<ListSecretParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSecretParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries desired-state configurations.
+   *
+   * @param tmpReq ListStateConfigurationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListStateConfigurationsResponse
+   */
   async listStateConfigurationsWithOptions(tmpReq: ListStateConfigurationsRequest, runtime: $Util.RuntimeOptions): Promise<ListStateConfigurationsResponse> {
     Util.validateModel(tmpReq);
     let request = new ListStateConfigurationsShrinkRequest({ });
@@ -14013,11 +14730,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListStateConfigurationsResponse>(await this.callApi(params, req, runtime), new ListStateConfigurationsResponse({}));
   }
 
+  /**
+   * @summary Queries desired-state configurations.
+   *
+   * @param request ListStateConfigurationsRequest
+   * @return ListStateConfigurationsResponse
+   */
   async listStateConfigurations(request: ListStateConfigurationsRequest): Promise<ListStateConfigurationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listStateConfigurationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tags.
+   *
+   * @param request ListTagKeysRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagKeysResponse
+   */
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14054,11 +14784,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
+  /**
+   * @summary Queries the tags.
+   *
+   * @param request ListTagKeysRequest
+   * @return ListTagKeysResponse
+   */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the tags that are added to one or more resources.
+   *
+   * @param tmpReq ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
+   */
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTagResourcesShrinkRequest({ });
@@ -14109,11 +14852,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries the tags that are added to one or more resources.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
+   */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the values of created tags.
+   *
+   * @param request ListTagValuesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagValuesResponse
+   */
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14154,11 +14910,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
   }
 
+  /**
+   * @summary Queries the values of created tags.
+   *
+   * @param request ListTagValuesRequest
+   * @return ListTagValuesResponse
+   */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries task executions. Multiple methods are supported to filter task executions.
+   *
+   * @param request ListTaskExecutionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTaskExecutionsResponse
+   */
   async listTaskExecutionsWithOptions(request: ListTaskExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskExecutionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14243,11 +15012,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskExecutionsResponse>(await this.callApi(params, req, runtime), new ListTaskExecutionsResponse({}));
   }
 
+  /**
+   * @summary Queries task executions. Multiple methods are supported to filter task executions.
+   *
+   * @param request ListTaskExecutionsRequest
+   * @return ListTaskExecutionsResponse
+   */
   async listTaskExecutions(request: ListTaskExecutionsRequest): Promise<ListTaskExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskExecutionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of versions of a template.
+   *
+   * @param request ListTemplateVersionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTemplateVersionsResponse
+   */
   async listTemplateVersionsWithOptions(request: ListTemplateVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateVersionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14288,11 +15070,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTemplateVersionsResponse>(await this.callApi(params, req, runtime), new ListTemplateVersionsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of versions of a template.
+   *
+   * @param request ListTemplateVersionsRequest
+   * @return ListTemplateVersionsResponse
+   */
   async listTemplateVersions(request: ListTemplateVersionsRequest): Promise<ListTemplateVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTemplateVersionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries templates. Multiple methods are supported to filter templates.
+   *
+   * @param tmpReq ListTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTemplatesResponse
+   */
   async listTemplatesWithOptions(tmpReq: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListTemplatesShrinkRequest({ });
@@ -14320,6 +15115,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.hasTrigger)) {
       query["HasTrigger"] = request.hasTrigger;
+    }
+
+    if (!Util.isUnset(request.isExample)) {
+      query["IsExample"] = request.isExample;
     }
 
     if (!Util.isUnset(request.isFavorite)) {
@@ -14387,20 +15186,28 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
+  /**
+   * @summary Queries templates. Multiple methods are supported to filter templates.
+   *
+   * @param request ListTemplatesRequest
+   * @return ListTemplatesResponse
+   */
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTemplatesWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to notify an execution in the following scenarios:
-    * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
-    * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
-    * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
-    *
-    * @param request NotifyExecutionRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return NotifyExecutionResponse
+   * @summary Notifies an execution in the Waiting state of the subsequent operations.
+   *
+   * @description You can call this operation to notify an execution in the following scenarios:
+   * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
+   * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
+   * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
+   *
+   * @param request NotifyExecutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return NotifyExecutionResponse
    */
   async notifyExecutionWithOptions(request: NotifyExecutionRequest, runtime: $Util.RuntimeOptions): Promise<NotifyExecutionResponse> {
     Util.validateModel(request);
@@ -14463,19 +15270,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to notify an execution in the following scenarios:
-    * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
-    * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
-    * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
-    *
-    * @param request NotifyExecutionRequest
-    * @return NotifyExecutionResponse
+   * @summary Notifies an execution in the Waiting state of the subsequent operations.
+   *
+   * @description You can call this operation to notify an execution in the following scenarios:
+   * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
+   * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
+   * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
+   *
+   * @param request NotifyExecutionRequest
+   * @return NotifyExecutionResponse
    */
   async notifyExecution(request: NotifyExecutionRequest): Promise<NotifyExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.notifyExecutionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Registers the default patch baseline.
+   *
+   * @param request RegisterDefaultPatchBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RegisterDefaultPatchBaselineResponse
+   */
   async registerDefaultPatchBaselineWithOptions(request: RegisterDefaultPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDefaultPatchBaselineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14504,11 +15320,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RegisterDefaultPatchBaselineResponse>(await this.callApi(params, req, runtime), new RegisterDefaultPatchBaselineResponse({}));
   }
 
+  /**
+   * @summary Registers the default patch baseline.
+   *
+   * @param request RegisterDefaultPatchBaselineRequest
+   * @return RegisterDefaultPatchBaselineResponse
+   */
   async registerDefaultPatchBaseline(request: RegisterDefaultPatchBaselineRequest): Promise<RegisterDefaultPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerDefaultPatchBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details or aggregate information of a configuration inventory.
+   *
+   * @param request SearchInventoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SearchInventoryResponse
+   */
   async searchInventoryWithOptions(request: SearchInventoryRequest, runtime: $Util.RuntimeOptions): Promise<SearchInventoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14549,11 +15378,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SearchInventoryResponse>(await this.callApi(params, req, runtime), new SearchInventoryResponse({}));
   }
 
+  /**
+   * @summary Queries the details or aggregate information of a configuration inventory.
+   *
+   * @param request SearchInventoryRequest
+   * @return SearchInventoryResponse
+   */
   async searchInventory(request: SearchInventoryRequest): Promise<SearchInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchInventoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables or disables the feature of delivering template execution records and sets the storage location.
+   *
+   * @param request SetServiceSettingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetServiceSettingsResponse
+   */
   async setServiceSettingsWithOptions(request: SetServiceSettingsRequest, runtime: $Util.RuntimeOptions): Promise<SetServiceSettingsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14602,11 +15444,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SetServiceSettingsResponse>(await this.callApi(params, req, runtime), new SetServiceSettingsResponse({}));
   }
 
+  /**
+   * @summary Enables or disables the feature of delivering template execution records and sets the storage location.
+   *
+   * @param request SetServiceSettingsRequest
+   * @return SetServiceSettingsResponse
+   */
   async setServiceSettings(request: SetServiceSettingsRequest): Promise<SetServiceSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setServiceSettingsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Starts an execution.
+   *
+   * @param tmpReq StartExecutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartExecutionResponse
+   */
   async startExecutionWithOptions(tmpReq: StartExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StartExecutionResponse> {
     Util.validateModel(tmpReq);
     let request = new StartExecutionShrinkRequest({ });
@@ -14689,11 +15544,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartExecutionResponse>(await this.callApi(params, req, runtime), new StartExecutionResponse({}));
   }
 
+  /**
+   * @summary Starts an execution.
+   *
+   * @param request StartExecutionRequest
+   * @return StartExecutionResponse
+   */
   async startExecution(request: StartExecutionRequest): Promise<StartExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startExecutionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Adds tags to one or more resources.
+   *
+   * @param tmpReq TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
+   */
   async tagResourcesWithOptions(tmpReq: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new TagResourcesShrinkRequest({ });
@@ -14740,11 +15608,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
+  /**
+   * @summary Adds tags to one or more resources.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
+   */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Debugs a started execution that contains an event trigger task or alert trigger task. If the operation is called, a message body is sent to the event trigger task or alert trigger task. After the trigger task receives the message body, the trigger task generates a new child execution.
+   *
+   * @param request TriggerExecutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TriggerExecutionResponse
+   */
   async triggerExecutionWithOptions(request: TriggerExecutionRequest, runtime: $Util.RuntimeOptions): Promise<TriggerExecutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14785,11 +15666,24 @@ export default class Client extends OpenApi {
     return $tea.cast<TriggerExecutionResponse>(await this.callApi(params, req, runtime), new TriggerExecutionResponse({}));
   }
 
+  /**
+   * @summary Debugs a started execution that contains an event trigger task or alert trigger task. If the operation is called, a message body is sent to the event trigger task or alert trigger task. After the trigger task receives the message body, the trigger task generates a new child execution.
+   *
+   * @param request TriggerExecutionRequest
+   * @return TriggerExecutionResponse
+   */
   async triggerExecution(request: TriggerExecutionRequest): Promise<TriggerExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.triggerExecutionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from one or more resources.
+   *
+   * @param tmpReq UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(tmpReq);
     let request = new UntagResourcesShrinkRequest({ });
@@ -14840,11 +15734,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from one or more resources.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param tmpReq UpdateApplicationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateApplicationResponse
+   */
   async updateApplicationWithOptions(tmpReq: UpdateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateApplicationShrinkRequest({ });
@@ -14899,11 +15806,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateApplicationResponse>(await this.callApi(params, req, runtime), new UpdateApplicationResponse({}));
   }
 
+  /**
+   * @summary Updates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request UpdateApplicationRequest
+   * @return UpdateApplicationResponse
+   */
   async updateApplication(request: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateApplicationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the information of an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request UpdateApplicationGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateApplicationGroupResponse
+   */
   async updateApplicationGroupWithOptions(request: UpdateApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14940,11 +15860,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateApplicationGroupResponse>(await this.callApi(params, req, runtime), new UpdateApplicationGroupResponse({}));
   }
 
+  /**
+   * @summary Updates the information of an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   *
+   * @param request UpdateApplicationGroupRequest
+   * @return UpdateApplicationGroupResponse
+   */
   async updateApplicationGroup(request: UpdateApplicationGroupRequest): Promise<UpdateApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateApplicationGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates an execution.
+   *
+   * @param request UpdateExecutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateExecutionResponse
+   */
   async updateExecutionWithOptions(request: UpdateExecutionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateExecutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -14993,11 +15926,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateExecutionResponse>(await this.callApi(params, req, runtime), new UpdateExecutionResponse({}));
   }
 
+  /**
+   * @summary Updates an execution.
+   *
+   * @param request UpdateExecutionRequest
+   * @return UpdateExecutionResponse
+   */
   async updateExecution(request: UpdateExecutionRequest): Promise<UpdateExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateExecutionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies an O\\\\\\\\\\\\&M item.
+   *
+   * @param tmpReq UpdateOpsItemRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateOpsItemResponse
+   */
   async updateOpsItemWithOptions(tmpReq: UpdateOpsItemRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOpsItemResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateOpsItemShrinkRequest({ });
@@ -15084,11 +16030,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOpsItemResponse>(await this.callApi(params, req, runtime), new UpdateOpsItemResponse({}));
   }
 
+  /**
+   * @summary Modifies an O\\\\\\\\\\\\&M item.
+   *
+   * @param request UpdateOpsItemRequest
+   * @return UpdateOpsItemResponse
+   */
   async updateOpsItem(request: UpdateOpsItemRequest): Promise<UpdateOpsItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateOpsItemWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a common parameter.
+   *
+   * @param request UpdateParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateParameterResponse
+   */
   async updateParameterWithOptions(request: UpdateParameterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15133,11 +16092,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateParameterResponse>(await this.callApi(params, req, runtime), new UpdateParameterResponse({}));
   }
 
+  /**
+   * @summary Updates a common parameter.
+   *
+   * @param request UpdateParameterRequest
+   * @return UpdateParameterResponse
+   */
   async updateParameter(request: UpdateParameterRequest): Promise<UpdateParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a patch baseline.
+   *
+   * @param tmpReq UpdatePatchBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePatchBaselineResponse
+   */
   async updatePatchBaselineWithOptions(tmpReq: UpdatePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePatchBaselineResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdatePatchBaselineShrinkRequest({ });
@@ -15224,11 +16196,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePatchBaselineResponse>(await this.callApi(params, req, runtime), new UpdatePatchBaselineResponse({}));
   }
 
+  /**
+   * @summary Updates a patch baseline.
+   *
+   * @param request UpdatePatchBaselineRequest
+   * @return UpdatePatchBaselineResponse
+   */
   async updatePatchBaseline(request: UpdatePatchBaselineRequest): Promise<UpdatePatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePatchBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates an encryption parameter.
+   *
+   * @param tmpReq UpdateSecretParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSecretParameterResponse
+   */
   async updateSecretParameterWithOptions(tmpReq: UpdateSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSecretParameterResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateSecretParameterShrinkRequest({ });
@@ -15279,11 +16264,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSecretParameterResponse>(await this.callApi(params, req, runtime), new UpdateSecretParameterResponse({}));
   }
 
+  /**
+   * @summary Updates an encryption parameter.
+   *
+   * @param request UpdateSecretParameterRequest
+   * @return UpdateSecretParameterResponse
+   */
   async updateSecretParameter(request: UpdateSecretParameterRequest): Promise<UpdateSecretParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSecretParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates a desired-state configuration.
+   *
+   * @param tmpReq UpdateStateConfigurationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateStateConfigurationResponse
+   */
   async updateStateConfigurationWithOptions(tmpReq: UpdateStateConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStateConfigurationResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateStateConfigurationShrinkRequest({ });
@@ -15358,11 +16356,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateStateConfigurationResponse>(await this.callApi(params, req, runtime), new UpdateStateConfigurationResponse({}));
   }
 
+  /**
+   * @summary Updates a desired-state configuration.
+   *
+   * @param request UpdateStateConfigurationRequest
+   * @return UpdateStateConfigurationResponse
+   */
   async updateStateConfiguration(request: UpdateStateConfigurationRequest): Promise<UpdateStateConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateStateConfigurationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Updates the information about an existing template.
+   *
+   * @param tmpReq UpdateTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTemplateResponse
+   */
   async updateTemplateWithOptions(tmpReq: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateTemplateShrinkRequest({ });
@@ -15413,11 +16424,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
+  /**
+   * @summary Updates the information about an existing template.
+   *
+   * @param request UpdateTemplateRequest
+   * @return UpdateTemplateResponse
+   */
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Check whether a template is valid.
+   *
+   * @param request ValidateTemplateContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ValidateTemplateContentResponse
+   */
   async validateTemplateContentWithOptions(request: ValidateTemplateContentRequest, runtime: $Util.RuntimeOptions): Promise<ValidateTemplateContentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -15450,6 +16474,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidateTemplateContentResponse>(await this.callApi(params, req, runtime), new ValidateTemplateContentResponse({}));
   }
 
+  /**
+   * @summary Check whether a template is valid.
+   *
+   * @param request ValidateTemplateContentRequest
+   * @return ValidateTemplateContentResponse
+   */
   async validateTemplateContent(request: ValidateTemplateContentRequest): Promise<ValidateTemplateContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.validateTemplateContentWithOptions(request, runtime);
