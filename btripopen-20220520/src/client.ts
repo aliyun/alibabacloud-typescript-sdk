@@ -5157,6 +5157,124 @@ export class CarSceneQueryResponse extends $tea.Model {
   }
 }
 
+export class ChannelCorpCreateHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChannelCorpCreateRequest extends $tea.Model {
+  administratorName?: string;
+  administratorPhone?: string;
+  city?: string;
+  corpName?: string;
+  province?: string;
+  scope?: number;
+  thirdCorpId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administratorName: 'administrator_name',
+      administratorPhone: 'administrator_phone',
+      city: 'city',
+      corpName: 'corp_name',
+      province: 'province',
+      scope: 'scope',
+      thirdCorpId: 'third_corp_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administratorName: 'string',
+      administratorPhone: 'string',
+      city: 'string',
+      corpName: 'string',
+      province: 'string',
+      scope: 'number',
+      thirdCorpId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChannelCorpCreateResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: ChannelCorpCreateResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: ChannelCorpCreateResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChannelCorpCreateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChannelCorpCreateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChannelCorpCreateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CitySearchHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsBtripSoCorpToken?: string;
@@ -9825,12 +9943,16 @@ export class FlightModifyOrderDetailV2Request extends $tea.Model {
   modifyApplyId?: string;
   needQueryServiceFee?: boolean;
   orderId?: string;
+  outModifyApplyId?: string;
+  outOrderId?: string;
   static names(): { [key: string]: string } {
     return {
       isvName: 'isv_name',
       modifyApplyId: 'modify_apply_id',
       needQueryServiceFee: 'need_query_service_fee',
       orderId: 'order_id',
+      outModifyApplyId: 'out_modify_apply_id',
+      outOrderId: 'out_order_id',
     };
   }
 
@@ -9840,6 +9962,8 @@ export class FlightModifyOrderDetailV2Request extends $tea.Model {
       modifyApplyId: 'string',
       needQueryServiceFee: 'boolean',
       orderId: 'string',
+      outModifyApplyId: 'string',
+      outOrderId: 'string',
     };
   }
 
@@ -11812,11 +11936,15 @@ export class FlightRefundDetailV2Headers extends $tea.Model {
 export class FlightRefundDetailV2Request extends $tea.Model {
   isvName?: string;
   orderId?: string;
+  outOrderId?: string;
+  outRefundApplyId?: string;
   refundApplyId?: string;
   static names(): { [key: string]: string } {
     return {
       isvName: 'isv_name',
       orderId: 'order_id',
+      outOrderId: 'out_order_id',
+      outRefundApplyId: 'out_refund_apply_id',
       refundApplyId: 'refund_apply_id',
     };
   }
@@ -11825,6 +11953,8 @@ export class FlightRefundDetailV2Request extends $tea.Model {
     return {
       isvName: 'string',
       orderId: 'string',
+      outOrderId: 'string',
+      outRefundApplyId: 'string',
       refundApplyId: 'string',
     };
   }
@@ -13580,6 +13710,258 @@ export class HotelOrderCancelResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: HotelOrderCancelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeApplyHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeApplyRequest extends $tea.Model {
+  btripUserId?: string;
+  disOrderId?: string;
+  reason?: string;
+  roomInfoList?: HotelOrderChangeApplyRequestRoomInfoList[];
+  saleOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      btripUserId: 'btrip_user_id',
+      disOrderId: 'dis_order_id',
+      reason: 'reason',
+      roomInfoList: 'room_info_list',
+      saleOrderId: 'sale_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      btripUserId: 'string',
+      disOrderId: 'string',
+      reason: 'string',
+      roomInfoList: { 'type': 'array', 'itemType': HotelOrderChangeApplyRequestRoomInfoList },
+      saleOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeApplyShrinkRequest extends $tea.Model {
+  btripUserId?: string;
+  disOrderId?: string;
+  reason?: string;
+  roomInfoListShrink?: string;
+  saleOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      btripUserId: 'btrip_user_id',
+      disOrderId: 'dis_order_id',
+      reason: 'reason',
+      roomInfoListShrink: 'room_info_list',
+      saleOrderId: 'sale_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      btripUserId: 'string',
+      disOrderId: 'string',
+      reason: 'string',
+      roomInfoListShrink: 'string',
+      saleOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeApplyResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: HotelOrderChangeApplyResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: HotelOrderChangeApplyResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeApplyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HotelOrderChangeApplyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HotelOrderChangeApplyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeDetailHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeDetailRequest extends $tea.Model {
+  btripUserId?: string;
+  changeOrderId?: string;
+  disOrderId?: string;
+  saleOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      btripUserId: 'btrip_user_id',
+      changeOrderId: 'change_order_id',
+      disOrderId: 'dis_order_id',
+      saleOrderId: 'sale_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      btripUserId: 'string',
+      changeOrderId: 'string',
+      disOrderId: 'string',
+      saleOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeDetailResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  module?: HotelOrderChangeDetailResponseBodyModule;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: HotelOrderChangeDetailResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HotelOrderChangeDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HotelOrderChangeDetailResponseBody,
     };
   }
 
@@ -27175,6 +27557,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
   remark?: string;
   serviceFee?: string;
   telephone?: string;
+  trainAccelerationPackageInvoiceFee?: string;
   trainInvoiceFee?: string;
   vehicleInvoiceFee?: string;
   static names(): { [key: string]: string } {
@@ -27198,6 +27581,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
       remark: 'remark',
       serviceFee: 'service_fee',
       telephone: 'telephone',
+      trainAccelerationPackageInvoiceFee: 'train_acceleration_package_invoice_fee',
       trainInvoiceFee: 'train_invoice_fee',
       vehicleInvoiceFee: 'vehicle_invoice_fee',
     };
@@ -27224,6 +27608,7 @@ export class ApplyInvoiceTaskRequestInvoiceTaskList extends $tea.Model {
       remark: 'string',
       serviceFee: 'string',
       telephone: 'string',
+      trainAccelerationPackageInvoiceFee: 'string',
       trainInvoiceFee: 'string',
       vehicleInvoiceFee: 'string',
     };
@@ -30058,6 +30443,37 @@ export class CarSceneQueryResponseBodyModule extends $tea.Model {
       scenarioTemplateId: 'string',
       scenarioTemplateName: 'string',
       state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChannelCorpCreateResponseBodyModule extends $tea.Model {
+  administratorName?: string;
+  administratorPhone?: string;
+  corpId?: string;
+  corpName?: string;
+  openAgentId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administratorName: 'administrator_name',
+      administratorPhone: 'administrator_phone',
+      corpId: 'corp_id',
+      corpName: 'corp_name',
+      openAgentId: 'open_agent_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administratorName: 'string',
+      administratorPhone: 'string',
+      corpId: 'string',
+      corpName: 'string',
+      openAgentId: 'string',
     };
   }
 
@@ -44992,6 +45408,155 @@ export class HotelOrderCancelResponseBodyModule extends $tea.Model {
   }
 }
 
+export class HotelOrderChangeApplyRequestRoomInfoList extends $tea.Model {
+  cancelDate?: string[];
+  roomNo?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cancelDate: 'cancel_date',
+      roomNo: 'room_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancelDate: { 'type': 'array', 'itemType': 'string' },
+      roomNo: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeApplyResponseBodyModule extends $tea.Model {
+  changeOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeOrderId: 'change_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeDetailResponseBodyModuleRoomInfoListRoomDailyRefundInfos extends $tea.Model {
+  checkInDate?: string;
+  penaltyPrice?: number;
+  price?: number;
+  refundPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkInDate: 'check_in_date',
+      penaltyPrice: 'penalty_price',
+      price: 'price',
+      refundPrice: 'refund_price',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkInDate: 'string',
+      penaltyPrice: 'number',
+      price: 'number',
+      refundPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeDetailResponseBodyModuleRoomInfoList extends $tea.Model {
+  cancelDate?: string[];
+  roomDailyRefundInfos?: HotelOrderChangeDetailResponseBodyModuleRoomInfoListRoomDailyRefundInfos[];
+  roomNo?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cancelDate: 'cancel_date',
+      roomDailyRefundInfos: 'room_daily_refund_infos',
+      roomNo: 'room_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancelDate: { 'type': 'array', 'itemType': 'string' },
+      roomDailyRefundInfos: { 'type': 'array', 'itemType': HotelOrderChangeDetailResponseBodyModuleRoomInfoListRoomDailyRefundInfos },
+      roomNo: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderChangeDetailResponseBodyModule extends $tea.Model {
+  changeOrderId?: string;
+  changeType?: number;
+  corpId?: string;
+  disOrderId?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  reason?: string;
+  remarks?: string;
+  roomInfoList?: HotelOrderChangeDetailResponseBodyModuleRoomInfoList[];
+  saleOrderId?: string;
+  source?: number;
+  status?: number;
+  workOrderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      changeOrderId: 'change_order_id',
+      changeType: 'change_type',
+      corpId: 'corp_id',
+      disOrderId: 'dis_order_id',
+      gmtCreate: 'gmt_create',
+      gmtModified: 'gmt_modified',
+      reason: 'reason',
+      remarks: 'remarks',
+      roomInfoList: 'room_info_list',
+      saleOrderId: 'sale_order_id',
+      source: 'source',
+      status: 'status',
+      workOrderId: 'work_order_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      changeOrderId: 'string',
+      changeType: 'number',
+      corpId: 'string',
+      disOrderId: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      reason: 'string',
+      remarks: 'string',
+      roomInfoList: { 'type': 'array', 'itemType': HotelOrderChangeDetailResponseBodyModuleRoomInfoList },
+      saleOrderId: 'string',
+      source: 'number',
+      status: 'number',
+      workOrderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelOrderCreateRequestInvoiceInfo extends $tea.Model {
   buyerAdd?: string;
   buyerBankAcc?: string;
@@ -59374,6 +59939,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
   remark?: string;
   serviceFee?: string;
   telephone?: string;
+  trainAccelerationPackageInvoiceFee?: string;
   trainInvoiceFee?: string;
   vehicleInvoiceFee?: string;
   static names(): { [key: string]: string } {
@@ -59397,6 +59963,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
       remark: 'remark',
       serviceFee: 'service_fee',
       telephone: 'telephone',
+      trainAccelerationPackageInvoiceFee: 'train_acceleration_package_invoice_fee',
       trainInvoiceFee: 'train_invoice_fee',
       vehicleInvoiceFee: 'vehicle_invoice_fee',
     };
@@ -59423,6 +59990,7 @@ export class WaitApplyInvoiceTaskDetailQueryResponseBodyModule extends $tea.Mode
       remark: 'string',
       serviceFee: 'string',
       telephone: 'string',
+      trainAccelerationPackageInvoiceFee: 'string',
       trainInvoiceFee: 'string',
       vehicleInvoiceFee: 'string',
     };
@@ -61627,6 +62195,84 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CarSceneQueryHeaders({ });
     return await this.carSceneQueryWithOptions(headers, runtime);
+  }
+
+  /**
+   * @summary 渠道商创建企业
+   *
+   * @param request ChannelCorpCreateRequest
+   * @param headers ChannelCorpCreateHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChannelCorpCreateResponse
+   */
+  async channelCorpCreateWithOptions(request: ChannelCorpCreateRequest, headers: ChannelCorpCreateHeaders, runtime: $Util.RuntimeOptions): Promise<ChannelCorpCreateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.administratorName)) {
+      body["administrator_name"] = request.administratorName;
+    }
+
+    if (!Util.isUnset(request.administratorPhone)) {
+      body["administrator_phone"] = request.administratorPhone;
+    }
+
+    if (!Util.isUnset(request.city)) {
+      body["city"] = request.city;
+    }
+
+    if (!Util.isUnset(request.corpName)) {
+      body["corp_name"] = request.corpName;
+    }
+
+    if (!Util.isUnset(request.province)) {
+      body["province"] = request.province;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      body["scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.thirdCorpId)) {
+      body["third_corp_id"] = request.thirdCorpId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChannelCorpCreate",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/corp/v1/channelCorps`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChannelCorpCreateResponse>(await this.callApi(params, req, runtime), new ChannelCorpCreateResponse({}));
+  }
+
+  /**
+   * @summary 渠道商创建企业
+   *
+   * @param request ChannelCorpCreateRequest
+   * @return ChannelCorpCreateResponse
+   */
+  async channelCorpCreate(request: ChannelCorpCreateRequest): Promise<ChannelCorpCreateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ChannelCorpCreateHeaders({ });
+    return await this.channelCorpCreateWithOptions(request, headers, runtime);
   }
 
   /**
@@ -64365,6 +65011,14 @@ export default class Client extends OpenApi {
       query["order_id"] = request.orderId;
     }
 
+    if (!Util.isUnset(request.outModifyApplyId)) {
+      query["out_modify_apply_id"] = request.outModifyApplyId;
+    }
+
+    if (!Util.isUnset(request.outOrderId)) {
+      query["out_order_id"] = request.outOrderId;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -65535,6 +66189,14 @@ export default class Client extends OpenApi {
       query["order_id"] = request.orderId;
     }
 
+    if (!Util.isUnset(request.outOrderId)) {
+      query["out_order_id"] = request.outOrderId;
+    }
+
+    if (!Util.isUnset(request.outRefundApplyId)) {
+      query["out_refund_apply_id"] = request.outRefundApplyId;
+    }
+
     if (!Util.isUnset(request.refundApplyId)) {
       query["refund_apply_id"] = request.refundApplyId;
     }
@@ -66588,6 +67250,148 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelOrderCancelHeaders({ });
     return await this.hotelOrderCancelWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 酒店订单修改申请
+   *
+   * @param tmpReq HotelOrderChangeApplyRequest
+   * @param headers HotelOrderChangeApplyHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelOrderChangeApplyResponse
+   */
+  async hotelOrderChangeApplyWithOptions(tmpReq: HotelOrderChangeApplyRequest, headers: HotelOrderChangeApplyHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderChangeApplyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new HotelOrderChangeApplyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.roomInfoList)) {
+      request.roomInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.roomInfoList, "room_info_list", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.btripUserId)) {
+      body["btrip_user_id"] = request.btripUserId;
+    }
+
+    if (!Util.isUnset(request.disOrderId)) {
+      body["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.reason)) {
+      body["reason"] = request.reason;
+    }
+
+    if (!Util.isUnset(request.roomInfoListShrink)) {
+      body["room_info_list"] = request.roomInfoListShrink;
+    }
+
+    if (!Util.isUnset(request.saleOrderId)) {
+      body["sale_order_id"] = request.saleOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "HotelOrderChangeApply",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-hotel/v1/orders/action/change/apply`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<HotelOrderChangeApplyResponse>(await this.callApi(params, req, runtime), new HotelOrderChangeApplyResponse({}));
+  }
+
+  /**
+   * @summary 酒店订单修改申请
+   *
+   * @param request HotelOrderChangeApplyRequest
+   * @return HotelOrderChangeApplyResponse
+   */
+  async hotelOrderChangeApply(request: HotelOrderChangeApplyRequest): Promise<HotelOrderChangeApplyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new HotelOrderChangeApplyHeaders({ });
+    return await this.hotelOrderChangeApplyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 酒店订单修改详情
+   *
+   * @param request HotelOrderChangeDetailRequest
+   * @param headers HotelOrderChangeDetailHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HotelOrderChangeDetailResponse
+   */
+  async hotelOrderChangeDetailWithOptions(request: HotelOrderChangeDetailRequest, headers: HotelOrderChangeDetailHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderChangeDetailResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.btripUserId)) {
+      body["btrip_user_id"] = request.btripUserId;
+    }
+
+    if (!Util.isUnset(request.changeOrderId)) {
+      body["change_order_id"] = request.changeOrderId;
+    }
+
+    if (!Util.isUnset(request.disOrderId)) {
+      body["dis_order_id"] = request.disOrderId;
+    }
+
+    if (!Util.isUnset(request.saleOrderId)) {
+      body["sale_order_id"] = request.saleOrderId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "HotelOrderChangeDetail",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-hotel/v1/orders/action/change/detail`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<HotelOrderChangeDetailResponse>(await this.callApi(params, req, runtime), new HotelOrderChangeDetailResponse({}));
+  }
+
+  /**
+   * @summary 酒店订单修改详情
+   *
+   * @param request HotelOrderChangeDetailRequest
+   * @return HotelOrderChangeDetailResponse
+   */
+  async hotelOrderChangeDetail(request: HotelOrderChangeDetailRequest): Promise<HotelOrderChangeDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new HotelOrderChangeDetailHeaders({ });
+    return await this.hotelOrderChangeDetailWithOptions(request, headers, runtime);
   }
 
   /**
