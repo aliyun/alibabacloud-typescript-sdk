@@ -4829,6 +4829,7 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
   interval?: string;
   key?: string;
   startTime?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
@@ -4836,6 +4837,7 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
       interval: 'Interval',
       key: 'Key',
       startTime: 'StartTime',
+      type: 'Type',
     };
   }
 
@@ -4846,6 +4848,7 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
       interval: 'string',
       key: 'string',
       startTime: 'string',
+      type: 'string',
     };
   }
 
@@ -20545,6 +20548,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApi.OpenApiRequest({
