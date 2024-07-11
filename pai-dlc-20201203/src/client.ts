@@ -1644,6 +1644,9 @@ export class Tensorboard extends $tea.Model {
   gmtFinishTime?: string;
   gmtModifyTime?: string;
   jobId?: string;
+  priority?: string;
+  quotaId?: string;
+  quotaName?: string;
   reasonCode?: string;
   reasonMessage?: string;
   requestId?: string;
@@ -1664,6 +1667,9 @@ export class Tensorboard extends $tea.Model {
       gmtFinishTime: 'GmtFinishTime',
       gmtModifyTime: 'GmtModifyTime',
       jobId: 'JobId',
+      priority: 'Priority',
+      quotaId: 'QuotaId',
+      quotaName: 'QuotaName',
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
       requestId: 'RequestId',
@@ -1687,6 +1693,9 @@ export class Tensorboard extends $tea.Model {
       gmtFinishTime: 'string',
       gmtModifyTime: 'string',
       jobId: 'string',
+      priority: 'string',
+      quotaId: 'string',
+      quotaName: 'string',
       reasonCode: 'string',
       reasonMessage: 'string',
       requestId: 'string',
@@ -1950,6 +1959,8 @@ export class CreateTensorboardRequest extends $tea.Model {
   maxRunningTimeMinutes?: number;
   memory?: number;
   options?: string;
+  priority?: string;
+  quotaId?: string;
   sourceId?: string;
   sourceType?: string;
   summaryPath?: string;
@@ -1969,6 +1980,8 @@ export class CreateTensorboardRequest extends $tea.Model {
       maxRunningTimeMinutes: 'MaxRunningTimeMinutes',
       memory: 'Memory',
       options: 'Options',
+      priority: 'Priority',
+      quotaId: 'QuotaId',
       sourceId: 'SourceId',
       sourceType: 'SourceType',
       summaryPath: 'SummaryPath',
@@ -1991,6 +2004,8 @@ export class CreateTensorboardRequest extends $tea.Model {
       maxRunningTimeMinutes: 'number',
       memory: 'number',
       options: 'string',
+      priority: 'string',
+      quotaId: 'string',
       sourceId: 'string',
       sourceType: 'string',
       summaryPath: 'string',
@@ -3381,6 +3396,7 @@ export class ListTensorboardsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   paymentType?: string;
+  quotaId?: string;
   showOwn?: boolean;
   sortBy?: string;
   sourceId?: string;
@@ -3401,6 +3417,7 @@ export class ListTensorboardsRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       paymentType: 'PaymentType',
+      quotaId: 'QuotaId',
       showOwn: 'ShowOwn',
       sortBy: 'SortBy',
       sourceId: 'SourceId',
@@ -3424,6 +3441,7 @@ export class ListTensorboardsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       paymentType: 'string',
+      quotaId: 'string',
       showOwn: 'boolean',
       sortBy: 'string',
       sourceId: 'string',
@@ -4330,6 +4348,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.options)) {
       body["Options"] = request.options;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.quotaId)) {
+      body["QuotaId"] = request.quotaId;
     }
 
     if (!Util.isUnset(request.sourceId)) {
@@ -5287,6 +5313,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.paymentType)) {
       query["PaymentType"] = request.paymentType;
+    }
+
+    if (!Util.isUnset(request.quotaId)) {
+      query["QuotaId"] = request.quotaId;
     }
 
     if (!Util.isUnset(request.showOwn)) {

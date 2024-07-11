@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/pai-dlc20201203",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
