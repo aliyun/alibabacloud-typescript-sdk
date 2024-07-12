@@ -1200,11 +1200,13 @@ export class ExportModelFeatureTrainingSetFGTableResponse extends $tea.Model {
 export class ExportModelFeatureTrainingSetTableRequest extends $tea.Model {
   featureViewConfig?: { [key: string]: FeatureViewConfigValue };
   labelInputConfig?: ExportModelFeatureTrainingSetTableRequestLabelInputConfig;
+  realTimeIterateInterval?: number;
   trainingSetConfig?: ExportModelFeatureTrainingSetTableRequestTrainingSetConfig;
   static names(): { [key: string]: string } {
     return {
       featureViewConfig: 'FeatureViewConfig',
       labelInputConfig: 'LabelInputConfig',
+      realTimeIterateInterval: 'RealTimeIterateInterval',
       trainingSetConfig: 'TrainingSetConfig',
     };
   }
@@ -1213,6 +1215,7 @@ export class ExportModelFeatureTrainingSetTableRequest extends $tea.Model {
     return {
       featureViewConfig: { 'type': 'map', 'keyType': 'string', 'valueType': FeatureViewConfigValue },
       labelInputConfig: ExportModelFeatureTrainingSetTableRequestLabelInputConfig,
+      realTimeIterateInterval: 'number',
       trainingSetConfig: ExportModelFeatureTrainingSetTableRequestTrainingSetConfig,
     };
   }
@@ -6711,6 +6714,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.labelInputConfig)) {
       body["LabelInputConfig"] = request.labelInputConfig;
+    }
+
+    if (!Util.isUnset(request.realTimeIterateInterval)) {
+      body["RealTimeIterateInterval"] = request.realTimeIterateInterval;
     }
 
     if (!Util.isUnset(request.trainingSetConfig)) {
