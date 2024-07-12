@@ -606,11 +606,13 @@ export class UpdateInstanceNameResponse extends $tea.Model {
 }
 
 export class UpdatePublicNetworkStatusRequest extends $tea.Model {
+  cidr?: string;
   componentType?: string;
   instanceId?: string;
   publicNetworkEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
+      cidr: 'Cidr',
       componentType: 'ComponentType',
       instanceId: 'InstanceId',
       publicNetworkEnabled: 'PublicNetworkEnabled',
@@ -619,6 +621,7 @@ export class UpdatePublicNetworkStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cidr: 'string',
       componentType: 'string',
       instanceId: 'string',
       publicNetworkEnabled: 'boolean',
@@ -1387,6 +1390,10 @@ export default class Client extends OpenApi {
   async updatePublicNetworkStatusWithOptions(request: UpdatePublicNetworkStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePublicNetworkStatusResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cidr)) {
+      query["Cidr"] = request.cidr;
+    }
+
     if (!Util.isUnset(request.componentType)) {
       query["ComponentType"] = request.componentType;
     }
