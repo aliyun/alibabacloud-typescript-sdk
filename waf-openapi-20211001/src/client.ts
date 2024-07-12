@@ -8,6 +8,81 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ChangeResourceGroupRequest extends $tea.Model {
+  newResourceGroupId?: string;
+  regionId?: string;
+  resourceId?: string;
+  resourceManagerResourceGroupId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newResourceGroupId: 'NewResourceGroupId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newResourceGroupId: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ClearMajorProtectionBlackIpRequest extends $tea.Model {
   instanceId?: string;
   regionId?: string;
@@ -11312,6 +11387,64 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * @summary ChangeResourceGroup
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChangeResourceGroup",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * @summary ChangeResourceGroup
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
   /**
