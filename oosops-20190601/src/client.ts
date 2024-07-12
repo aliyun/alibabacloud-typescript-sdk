@@ -77,9 +77,9 @@ export class AuditPublicTemplateRegistrationResponseBody extends $tea.Model {
 }
 
 export class AuditPublicTemplateRegistrationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AuditPublicTemplateRegistrationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AuditPublicTemplateRegistrationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -173,9 +173,9 @@ export class CreateActionResponseBody extends $tea.Model {
 }
 
 export class CreateActionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateActionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateActionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -257,9 +257,9 @@ export class CreatePublicParameterResponseBody extends $tea.Model {
 }
 
 export class CreatePublicParameterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePublicParameterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePublicParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -338,9 +338,9 @@ export class CreatePublicPatchBaselineResponseBody extends $tea.Model {
 }
 
 export class CreatePublicPatchBaselineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePublicPatchBaselineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePublicPatchBaselineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -365,6 +365,7 @@ export class CreatePublicPatchBaselineResponse extends $tea.Model {
 export class CreatePublicTemplateRequest extends $tea.Model {
   category?: string;
   content?: string;
+  isExample?: boolean;
   popularity?: number;
   publisher?: string;
   regionId?: string;
@@ -373,6 +374,7 @@ export class CreatePublicTemplateRequest extends $tea.Model {
     return {
       category: 'Category',
       content: 'Content',
+      isExample: 'IsExample',
       popularity: 'Popularity',
       publisher: 'Publisher',
       regionId: 'RegionId',
@@ -384,6 +386,7 @@ export class CreatePublicTemplateRequest extends $tea.Model {
     return {
       category: 'string',
       content: 'string',
+      isExample: 'boolean',
       popularity: 'number',
       publisher: 'string',
       regionId: 'string',
@@ -419,9 +422,9 @@ export class CreatePublicTemplateResponseBody extends $tea.Model {
 }
 
 export class CreatePublicTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreatePublicTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePublicTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -485,9 +488,9 @@ export class DeleteFailureMsgResponseBody extends $tea.Model {
 }
 
 export class DeleteFailureMsgResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteFailureMsgResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFailureMsgResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -551,9 +554,9 @@ export class DeletePublicParameterResponseBody extends $tea.Model {
 }
 
 export class DeletePublicParameterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePublicParameterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePublicParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -614,9 +617,9 @@ export class DeletePublicPatchBaselineResponseBody extends $tea.Model {
 }
 
 export class DeletePublicPatchBaselineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePublicPatchBaselineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePublicPatchBaselineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -680,9 +683,9 @@ export class DeletePublicTemplateResponseBody extends $tea.Model {
 }
 
 export class DeletePublicTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeletePublicTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePublicTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -824,9 +827,9 @@ export class DoCheckResourceResponseBody extends $tea.Model {
 }
 
 export class DoCheckResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DoCheckResourceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DoCheckResourceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -908,9 +911,9 @@ export class GetActionResponseBody extends $tea.Model {
 }
 
 export class GetActionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetActionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetActionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -983,9 +986,9 @@ export class GetFlowControlResponseBody extends $tea.Model {
 }
 
 export class GetFlowControlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetFlowControlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetFlowControlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1055,9 +1058,9 @@ export class GetPublicParameterResponseBody extends $tea.Model {
 }
 
 export class GetPublicParameterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPublicParameterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPublicParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1124,9 +1127,9 @@ export class GetPublicPatchBaselineResponseBody extends $tea.Model {
 }
 
 export class GetPublicPatchBaselineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPublicPatchBaselineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPublicPatchBaselineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1199,9 +1202,9 @@ export class GetPublicTemplateResponseBody extends $tea.Model {
 }
 
 export class GetPublicTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetPublicTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPublicTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1274,9 +1277,9 @@ export class GetQuotaResponseBody extends $tea.Model {
 }
 
 export class GetQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1349,9 +1352,9 @@ export class GetUserExecutionTemplateResponseBody extends $tea.Model {
 }
 
 export class GetUserExecutionTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserExecutionTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserExecutionTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1427,9 +1430,9 @@ export class GetUserTemplateResponseBody extends $tea.Model {
 }
 
 export class GetUserTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetUserTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1508,9 +1511,9 @@ export class ListActionsResponseBody extends $tea.Model {
 }
 
 export class ListActionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListActionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListActionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1555,9 +1558,9 @@ export class ListDefaultQuotaResponseBody extends $tea.Model {
 }
 
 export class ListDefaultQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDefaultQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDefaultQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1633,9 +1636,9 @@ export class ListFailureMsgsResponseBody extends $tea.Model {
 }
 
 export class ListFailureMsgsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListFailureMsgsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListFailureMsgsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1723,9 +1726,9 @@ export class ListOOSLogsResponseBody extends $tea.Model {
 }
 
 export class ListOOSLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListOOSLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOOSLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1822,9 +1825,9 @@ export class ListPublicParametersResponseBody extends $tea.Model {
 }
 
 export class ListPublicParametersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPublicParametersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPublicParametersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1909,9 +1912,9 @@ export class ListPublicPatchBaselinesResponseBody extends $tea.Model {
 }
 
 export class ListPublicPatchBaselinesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPublicPatchBaselinesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPublicPatchBaselinesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1996,9 +1999,9 @@ export class ListPublicTemplateRegistrationsResponseBody extends $tea.Model {
 }
 
 export class ListPublicTemplateRegistrationsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPublicTemplateRegistrationsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPublicTemplateRegistrationsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2024,6 +2027,7 @@ export class ListPublicTemplatesRequest extends $tea.Model {
   createdBy?: string;
   createdDateAfter?: string;
   createdDateBefore?: string;
+  isExample?: boolean;
   maxResults?: number;
   nextToken?: string;
   popularity?: number;
@@ -2038,6 +2042,7 @@ export class ListPublicTemplatesRequest extends $tea.Model {
       createdBy: 'CreatedBy',
       createdDateAfter: 'CreatedDateAfter',
       createdDateBefore: 'CreatedDateBefore',
+      isExample: 'IsExample',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       popularity: 'Popularity',
@@ -2055,6 +2060,7 @@ export class ListPublicTemplatesRequest extends $tea.Model {
       createdBy: 'string',
       createdDateAfter: 'string',
       createdDateBefore: 'string',
+      isExample: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       popularity: 'number',
@@ -2101,9 +2107,9 @@ export class ListPublicTemplatesResponseBody extends $tea.Model {
 }
 
 export class ListPublicTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListPublicTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPublicTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2191,9 +2197,9 @@ export class ListUserExecutionLogsResponseBody extends $tea.Model {
 }
 
 export class ListUserExecutionLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserExecutionLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserExecutionLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2314,9 +2320,9 @@ export class ListUserExecutionsResponseBody extends $tea.Model {
 }
 
 export class ListUserExecutionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserExecutionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserExecutionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2398,9 +2404,9 @@ export class ListUserInstancePatchStatesResponseBody extends $tea.Model {
 }
 
 export class ListUserInstancePatchStatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserInstancePatchStatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserInstancePatchStatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2482,9 +2488,9 @@ export class ListUserInstancePatchesResponseBody extends $tea.Model {
 }
 
 export class ListUserInstancePatchesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserInstancePatchesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserInstancePatchesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2584,9 +2590,9 @@ export class ListUserInventoryEntriesResponseBody extends $tea.Model {
 }
 
 export class ListUserInventoryEntriesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserInventoryEntriesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserInventoryEntriesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2704,9 +2710,9 @@ export class ListUserTaskExecutionsResponseBody extends $tea.Model {
 }
 
 export class ListUserTaskExecutionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserTaskExecutionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserTaskExecutionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2818,9 +2824,9 @@ export class ListUserTemplatesResponseBody extends $tea.Model {
 }
 
 export class ListUserTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListUserTemplatesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserTemplatesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2887,9 +2893,9 @@ export class ResetTimerTriggerExecutionResponseBody extends $tea.Model {
 }
 
 export class ResetTimerTriggerExecutionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetTimerTriggerExecutionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetTimerTriggerExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2959,9 +2965,9 @@ export class ResetUserExecutionResponseBody extends $tea.Model {
 }
 
 export class ResetUserExecutionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetUserExecutionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetUserExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3034,9 +3040,9 @@ export class SetFlowControlResponseBody extends $tea.Model {
 }
 
 export class SetFlowControlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetFlowControlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetFlowControlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3112,9 +3118,9 @@ export class SetQuotaResponseBody extends $tea.Model {
 }
 
 export class SetQuotaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SetQuotaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetQuotaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3181,9 +3187,9 @@ export class TerminateUserExecutionResponseBody extends $tea.Model {
 }
 
 export class TerminateUserExecutionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TerminateUserExecutionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TerminateUserExecutionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3277,9 +3283,9 @@ export class UpdateActionResponseBody extends $tea.Model {
 }
 
 export class UpdateActionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateActionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateActionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3352,9 +3358,9 @@ export class UpdatePublicParameterResponseBody extends $tea.Model {
 }
 
 export class UpdatePublicParameterResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePublicParameterResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePublicParameterResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3430,9 +3436,9 @@ export class UpdatePublicPatchBaselineResponseBody extends $tea.Model {
 }
 
 export class UpdatePublicPatchBaselineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePublicPatchBaselineResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePublicPatchBaselineResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3511,9 +3517,9 @@ export class UpdatePublicTemplateResponseBody extends $tea.Model {
 }
 
 export class UpdatePublicTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdatePublicTemplateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePublicTemplateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3598,9 +3604,9 @@ export class ValidatePublicTemplateContentResponseBody extends $tea.Model {
 }
 
 export class ValidatePublicTemplateContentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ValidatePublicTemplateContentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ValidatePublicTemplateContentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4924,6 +4930,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AuditPublicTemplateRegistrationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AuditPublicTemplateRegistrationResponse
+   */
   async auditPublicTemplateRegistrationWithOptions(request: AuditPublicTemplateRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<AuditPublicTemplateRegistrationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4960,11 +4971,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AuditPublicTemplateRegistrationResponse>(await this.callApi(params, req, runtime), new AuditPublicTemplateRegistrationResponse({}));
   }
 
+  /**
+   * @param request AuditPublicTemplateRegistrationRequest
+   * @return AuditPublicTemplateRegistrationResponse
+   */
   async auditPublicTemplateRegistration(request: AuditPublicTemplateRegistrationRequest): Promise<AuditPublicTemplateRegistrationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.auditPublicTemplateRegistrationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateActionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateActionResponse
+   */
   async createActionWithOptions(request: CreateActionRequest, runtime: $Util.RuntimeOptions): Promise<CreateActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5005,11 +5025,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateActionResponse>(await this.callApi(params, req, runtime), new CreateActionResponse({}));
   }
 
+  /**
+   * @param request CreateActionRequest
+   * @return CreateActionResponse
+   */
   async createAction(request: CreateActionRequest): Promise<CreateActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createActionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建一个公共参数。
+   *
+   * @param request CreatePublicParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePublicParameterResponse
+   */
   async createPublicParameterWithOptions(request: CreatePublicParameterRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublicParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5058,11 +5089,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePublicParameterResponse>(await this.callApi(params, req, runtime), new CreatePublicParameterResponse({}));
   }
 
+  /**
+   * @summary 创建一个公共参数。
+   *
+   * @param request CreatePublicParameterRequest
+   * @return CreatePublicParameterResponse
+   */
   async createPublicParameter(request: CreatePublicParameterRequest): Promise<CreatePublicParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPublicParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreatePublicPatchBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePublicPatchBaselineResponse
+   */
   async createPublicPatchBaselineWithOptions(request: CreatePublicPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublicPatchBaselineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5107,11 +5149,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePublicPatchBaselineResponse>(await this.callApi(params, req, runtime), new CreatePublicPatchBaselineResponse({}));
   }
 
+  /**
+   * @param request CreatePublicPatchBaselineRequest
+   * @return CreatePublicPatchBaselineResponse
+   */
   async createPublicPatchBaseline(request: CreatePublicPatchBaselineRequest): Promise<CreatePublicPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPublicPatchBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreatePublicTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePublicTemplateResponse
+   */
   async createPublicTemplateWithOptions(request: CreatePublicTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreatePublicTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5121,6 +5172,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.content)) {
       query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.isExample)) {
+      query["IsExample"] = request.isExample;
     }
 
     if (!Util.isUnset(request.popularity)) {
@@ -5156,11 +5211,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreatePublicTemplateResponse>(await this.callApi(params, req, runtime), new CreatePublicTemplateResponse({}));
   }
 
+  /**
+   * @param request CreatePublicTemplateRequest
+   * @return CreatePublicTemplateResponse
+   */
   async createPublicTemplate(request: CreatePublicTemplateRequest): Promise<CreatePublicTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPublicTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteFailureMsgRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFailureMsgResponse
+   */
   async deleteFailureMsgWithOptions(request: DeleteFailureMsgRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFailureMsgResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5189,11 +5253,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteFailureMsgResponse>(await this.callApi(params, req, runtime), new DeleteFailureMsgResponse({}));
   }
 
+  /**
+   * @param request DeleteFailureMsgRequest
+   * @return DeleteFailureMsgResponse
+   */
   async deleteFailureMsg(request: DeleteFailureMsgRequest): Promise<DeleteFailureMsgResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteFailureMsgWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除公共参数。
+   *
+   * @param request DeletePublicParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePublicParameterResponse
+   */
   async deletePublicParameterWithOptions(request: DeletePublicParameterRequest, runtime: $Util.RuntimeOptions): Promise<DeletePublicParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5222,11 +5297,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePublicParameterResponse>(await this.callApi(params, req, runtime), new DeletePublicParameterResponse({}));
   }
 
+  /**
+   * @summary 删除公共参数。
+   *
+   * @param request DeletePublicParameterRequest
+   * @return DeletePublicParameterResponse
+   */
   async deletePublicParameter(request: DeletePublicParameterRequest): Promise<DeletePublicParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePublicParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeletePublicPatchBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePublicPatchBaselineResponse
+   */
   async deletePublicPatchBaselineWithOptions(request: DeletePublicPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<DeletePublicPatchBaselineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5251,11 +5337,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePublicPatchBaselineResponse>(await this.callApi(params, req, runtime), new DeletePublicPatchBaselineResponse({}));
   }
 
+  /**
+   * @param request DeletePublicPatchBaselineRequest
+   * @return DeletePublicPatchBaselineResponse
+   */
   async deletePublicPatchBaseline(request: DeletePublicPatchBaselineRequest): Promise<DeletePublicPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePublicPatchBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeletePublicTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePublicTemplateResponse
+   */
   async deletePublicTemplateWithOptions(request: DeletePublicTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeletePublicTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5284,11 +5379,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePublicTemplateResponse>(await this.callApi(params, req, runtime), new DeletePublicTemplateResponse({}));
   }
 
+  /**
+   * @param request DeletePublicTemplateRequest
+   * @return DeletePublicTemplateResponse
+   */
   async deletePublicTemplate(request: DeletePublicTemplateRequest): Promise<DeletePublicTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePublicTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DoCheckResourceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DoCheckResourceResponse
+   */
   async doCheckResourceWithOptions(request: DoCheckResourceRequest, runtime: $Util.RuntimeOptions): Promise<DoCheckResourceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5365,11 +5469,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DoCheckResourceResponse>(await this.callApi(params, req, runtime), new DoCheckResourceResponse({}));
   }
 
+  /**
+   * @param request DoCheckResourceRequest
+   * @return DoCheckResourceResponse
+   */
   async doCheckResource(request: DoCheckResourceRequest): Promise<DoCheckResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.doCheckResourceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取action的详细信息
+   *
+   * @param request GetActionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetActionResponse
+   */
   async getActionWithOptions(request: GetActionRequest, runtime: $Util.RuntimeOptions): Promise<GetActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5398,11 +5513,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetActionResponse>(await this.callApi(params, req, runtime), new GetActionResponse({}));
   }
 
+  /**
+   * @summary 获取action的详细信息
+   *
+   * @param request GetActionRequest
+   * @return GetActionResponse
+   */
   async getAction(request: GetActionRequest): Promise<GetActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getActionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetFlowControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetFlowControlResponse
+   */
   async getFlowControlWithOptions(request: GetFlowControlRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowControlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5439,11 +5565,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetFlowControlResponse>(await this.callApi(params, req, runtime), new GetFlowControlResponse({}));
   }
 
+  /**
+   * @param request GetFlowControlRequest
+   * @return GetFlowControlResponse
+   */
   async getFlowControl(request: GetFlowControlRequest): Promise<GetFlowControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getFlowControlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取一个公共参数，包括参数值。
+   *
+   * @param request GetPublicParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPublicParameterResponse
+   */
   async getPublicParameterWithOptions(request: GetPublicParameterRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5476,11 +5613,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPublicParameterResponse>(await this.callApi(params, req, runtime), new GetPublicParameterResponse({}));
   }
 
+  /**
+   * @summary 获取一个公共参数，包括参数值。
+   *
+   * @param request GetPublicParameterRequest
+   * @return GetPublicParameterResponse
+   */
   async getPublicParameter(request: GetPublicParameterRequest): Promise<GetPublicParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPublicParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetPublicPatchBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPublicPatchBaselineResponse
+   */
   async getPublicPatchBaselineWithOptions(request: GetPublicPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicPatchBaselineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5509,11 +5657,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPublicPatchBaselineResponse>(await this.callApi(params, req, runtime), new GetPublicPatchBaselineResponse({}));
   }
 
+  /**
+   * @param request GetPublicPatchBaselineRequest
+   * @return GetPublicPatchBaselineResponse
+   */
   async getPublicPatchBaseline(request: GetPublicPatchBaselineRequest): Promise<GetPublicPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPublicPatchBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetPublicTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPublicTemplateResponse
+   */
   async getPublicTemplateWithOptions(request: GetPublicTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5546,11 +5703,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPublicTemplateResponse>(await this.callApi(params, req, runtime), new GetPublicTemplateResponse({}));
   }
 
+  /**
+   * @param request GetPublicTemplateRequest
+   * @return GetPublicTemplateResponse
+   */
   async getPublicTemplate(request: GetPublicTemplateRequest): Promise<GetPublicTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPublicTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetQuotaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQuotaResponse
+   */
   async getQuotaWithOptions(request: GetQuotaRequest, runtime: $Util.RuntimeOptions): Promise<GetQuotaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5583,11 +5749,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQuotaResponse>(await this.callApi(params, req, runtime), new GetQuotaResponse({}));
   }
 
+  /**
+   * @param request GetQuotaRequest
+   * @return GetQuotaResponse
+   */
   async getQuota(request: GetQuotaRequest): Promise<GetQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQuotaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetUserExecutionTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserExecutionTemplateResponse
+   */
   async getUserExecutionTemplateWithOptions(request: GetUserExecutionTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetUserExecutionTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5620,11 +5795,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserExecutionTemplateResponse>(await this.callApi(params, req, runtime), new GetUserExecutionTemplateResponse({}));
   }
 
+  /**
+   * @param request GetUserExecutionTemplateRequest
+   * @return GetUserExecutionTemplateResponse
+   */
   async getUserExecutionTemplate(request: GetUserExecutionTemplateRequest): Promise<GetUserExecutionTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserExecutionTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetUserTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetUserTemplateResponse
+   */
   async getUserTemplateWithOptions(request: GetUserTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetUserTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5661,11 +5845,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetUserTemplateResponse>(await this.callApi(params, req, runtime), new GetUserTemplateResponse({}));
   }
 
+  /**
+   * @param request GetUserTemplateRequest
+   * @return GetUserTemplateResponse
+   */
   async getUserTemplate(request: GetUserTemplateRequest): Promise<GetUserTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getUserTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListActionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListActionsResponse
+   */
   async listActionsWithOptions(request: ListActionsRequest, runtime: $Util.RuntimeOptions): Promise<ListActionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5702,11 +5895,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListActionsResponse>(await this.callApi(params, req, runtime), new ListActionsResponse({}));
   }
 
+  /**
+   * @param request ListActionsRequest
+   * @return ListActionsResponse
+   */
   async listActions(request: ListActionsRequest): Promise<ListActionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listActionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListDefaultQuotaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDefaultQuotaResponse
+   */
   async listDefaultQuotaWithOptions(runtime: $Util.RuntimeOptions): Promise<ListDefaultQuotaResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -5723,11 +5925,19 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDefaultQuotaResponse>(await this.callApi(params, req, runtime), new ListDefaultQuotaResponse({}));
   }
 
+  /**
+   * @return ListDefaultQuotaResponse
+   */
   async listDefaultQuota(): Promise<ListDefaultQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDefaultQuotaWithOptions(runtime);
   }
 
+  /**
+   * @param request ListFailureMsgsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListFailureMsgsResponse
+   */
   async listFailureMsgsWithOptions(request: ListFailureMsgsRequest, runtime: $Util.RuntimeOptions): Promise<ListFailureMsgsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5760,11 +5970,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListFailureMsgsResponse>(await this.callApi(params, req, runtime), new ListFailureMsgsResponse({}));
   }
 
+  /**
+   * @param request ListFailureMsgsRequest
+   * @return ListFailureMsgsResponse
+   */
   async listFailureMsgs(request: ListFailureMsgsRequest): Promise<ListFailureMsgsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFailureMsgsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListOOSLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOOSLogsResponse
+   */
   async listOOSLogsWithOptions(request: ListOOSLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListOOSLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5813,11 +6032,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOOSLogsResponse>(await this.callApi(params, req, runtime), new ListOOSLogsResponse({}));
   }
 
+  /**
+   * @param request ListOOSLogsRequest
+   * @return ListOOSLogsResponse
+   */
   async listOOSLogs(request: ListOOSLogsRequest): Promise<ListOOSLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOOSLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询公共参数。支持多种查询
+   *
+   * @param request ListPublicParametersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPublicParametersResponse
+   */
   async listPublicParametersWithOptions(request: ListPublicParametersRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicParametersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5874,11 +6104,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPublicParametersResponse>(await this.callApi(params, req, runtime), new ListPublicParametersResponse({}));
   }
 
+  /**
+   * @summary 查询公共参数。支持多种查询
+   *
+   * @param request ListPublicParametersRequest
+   * @return ListPublicParametersResponse
+   */
   async listPublicParameters(request: ListPublicParametersRequest): Promise<ListPublicParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPublicParametersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListPublicPatchBaselinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPublicPatchBaselinesResponse
+   */
   async listPublicPatchBaselinesWithOptions(request: ListPublicPatchBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicPatchBaselinesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5923,11 +6164,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPublicPatchBaselinesResponse>(await this.callApi(params, req, runtime), new ListPublicPatchBaselinesResponse({}));
   }
 
+  /**
+   * @param request ListPublicPatchBaselinesRequest
+   * @return ListPublicPatchBaselinesResponse
+   */
   async listPublicPatchBaselines(request: ListPublicPatchBaselinesRequest): Promise<ListPublicPatchBaselinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPublicPatchBaselinesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListPublicTemplateRegistrationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPublicTemplateRegistrationsResponse
+   */
   async listPublicTemplateRegistrationsWithOptions(request: ListPublicTemplateRegistrationsRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicTemplateRegistrationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5972,11 +6222,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPublicTemplateRegistrationsResponse>(await this.callApi(params, req, runtime), new ListPublicTemplateRegistrationsResponse({}));
   }
 
+  /**
+   * @param request ListPublicTemplateRegistrationsRequest
+   * @return ListPublicTemplateRegistrationsResponse
+   */
   async listPublicTemplateRegistrations(request: ListPublicTemplateRegistrationsRequest): Promise<ListPublicTemplateRegistrationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPublicTemplateRegistrationsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListPublicTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPublicTemplatesResponse
+   */
   async listPublicTemplatesWithOptions(request: ListPublicTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5990,6 +6249,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.createdDateBefore)) {
       query["CreatedDateBefore"] = request.createdDateBefore;
+    }
+
+    if (!Util.isUnset(request.isExample)) {
+      query["IsExample"] = request.isExample;
     }
 
     if (!Util.isUnset(request.maxResults)) {
@@ -6045,11 +6308,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPublicTemplatesResponse>(await this.callApi(params, req, runtime), new ListPublicTemplatesResponse({}));
   }
 
+  /**
+   * @param request ListPublicTemplatesRequest
+   * @return ListPublicTemplatesResponse
+   */
   async listPublicTemplates(request: ListPublicTemplatesRequest): Promise<ListPublicTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPublicTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListUserExecutionLogsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserExecutionLogsResponse
+   */
   async listUserExecutionLogsWithOptions(request: ListUserExecutionLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserExecutionLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6098,11 +6370,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserExecutionLogsResponse>(await this.callApi(params, req, runtime), new ListUserExecutionLogsResponse({}));
   }
 
+  /**
+   * @param request ListUserExecutionLogsRequest
+   * @return ListUserExecutionLogsResponse
+   */
   async listUserExecutionLogs(request: ListUserExecutionLogsRequest): Promise<ListUserExecutionLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserExecutionLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListUserExecutionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserExecutionsResponse
+   */
   async listUserExecutionsWithOptions(request: ListUserExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserExecutionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6195,11 +6476,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserExecutionsResponse>(await this.callApi(params, req, runtime), new ListUserExecutionsResponse({}));
   }
 
+  /**
+   * @param request ListUserExecutionsRequest
+   * @return ListUserExecutionsResponse
+   */
   async listUserExecutions(request: ListUserExecutionsRequest): Promise<ListUserExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserExecutionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListUserInstancePatchStatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserInstancePatchStatesResponse
+   */
   async listUserInstancePatchStatesWithOptions(request: ListUserInstancePatchStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserInstancePatchStatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6240,11 +6530,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserInstancePatchStatesResponse>(await this.callApi(params, req, runtime), new ListUserInstancePatchStatesResponse({}));
   }
 
+  /**
+   * @param request ListUserInstancePatchStatesRequest
+   * @return ListUserInstancePatchStatesResponse
+   */
   async listUserInstancePatchStates(request: ListUserInstancePatchStatesRequest): Promise<ListUserInstancePatchStatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserInstancePatchStatesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListUserInstancePatchesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserInstancePatchesResponse
+   */
   async listUserInstancePatchesWithOptions(request: ListUserInstancePatchesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserInstancePatchesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6285,11 +6584,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserInstancePatchesResponse>(await this.callApi(params, req, runtime), new ListUserInstancePatchesResponse({}));
   }
 
+  /**
+   * @param request ListUserInstancePatchesRequest
+   * @return ListUserInstancePatchesResponse
+   */
   async listUserInstancePatches(request: ListUserInstancePatchesRequest): Promise<ListUserInstancePatchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserInstancePatchesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListUserInventoryEntriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserInventoryEntriesResponse
+   */
   async listUserInventoryEntriesWithOptions(request: ListUserInventoryEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserInventoryEntriesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6338,11 +6646,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserInventoryEntriesResponse>(await this.callApi(params, req, runtime), new ListUserInventoryEntriesResponse({}));
   }
 
+  /**
+   * @param request ListUserInventoryEntriesRequest
+   * @return ListUserInventoryEntriesResponse
+   */
   async listUserInventoryEntries(request: ListUserInventoryEntriesRequest): Promise<ListUserInventoryEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserInventoryEntriesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListUserTaskExecutionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserTaskExecutionsResponse
+   */
   async listUserTaskExecutionsWithOptions(request: ListUserTaskExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserTaskExecutionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6431,11 +6748,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserTaskExecutionsResponse>(await this.callApi(params, req, runtime), new ListUserTaskExecutionsResponse({}));
   }
 
+  /**
+   * @param request ListUserTaskExecutionsRequest
+   * @return ListUserTaskExecutionsResponse
+   */
   async listUserTaskExecutions(request: ListUserTaskExecutionsRequest): Promise<ListUserTaskExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserTaskExecutionsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListUserTemplatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserTemplatesResponse
+   */
   async listUserTemplatesWithOptions(request: ListUserTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListUserTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6516,11 +6842,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUserTemplatesResponse>(await this.callApi(params, req, runtime), new ListUserTemplatesResponse({}));
   }
 
+  /**
+   * @param request ListUserTemplatesRequest
+   * @return ListUserTemplatesResponse
+   */
   async listUserTemplates(request: ListUserTemplatesRequest): Promise<ListUserTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUserTemplatesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResetTimerTriggerExecutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetTimerTriggerExecutionResponse
+   */
   async resetTimerTriggerExecutionWithOptions(request: ResetTimerTriggerExecutionRequest, runtime: $Util.RuntimeOptions): Promise<ResetTimerTriggerExecutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6553,11 +6888,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetTimerTriggerExecutionResponse>(await this.callApi(params, req, runtime), new ResetTimerTriggerExecutionResponse({}));
   }
 
+  /**
+   * @param request ResetTimerTriggerExecutionRequest
+   * @return ResetTimerTriggerExecutionResponse
+   */
   async resetTimerTriggerExecution(request: ResetTimerTriggerExecutionRequest): Promise<ResetTimerTriggerExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetTimerTriggerExecutionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ResetUserExecutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetUserExecutionResponse
+   */
   async resetUserExecutionWithOptions(request: ResetUserExecutionRequest, runtime: $Util.RuntimeOptions): Promise<ResetUserExecutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6594,11 +6938,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetUserExecutionResponse>(await this.callApi(params, req, runtime), new ResetUserExecutionResponse({}));
   }
 
+  /**
+   * @param request ResetUserExecutionRequest
+   * @return ResetUserExecutionResponse
+   */
   async resetUserExecution(request: ResetUserExecutionRequest): Promise<ResetUserExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetUserExecutionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetFlowControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetFlowControlResponse
+   */
   async setFlowControlWithOptions(request: SetFlowControlRequest, runtime: $Util.RuntimeOptions): Promise<SetFlowControlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6639,11 +6992,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SetFlowControlResponse>(await this.callApi(params, req, runtime), new SetFlowControlResponse({}));
   }
 
+  /**
+   * @param request SetFlowControlRequest
+   * @return SetFlowControlResponse
+   */
   async setFlowControl(request: SetFlowControlRequest): Promise<SetFlowControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setFlowControlWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SetQuotaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SetQuotaResponse
+   */
   async setQuotaWithOptions(request: SetQuotaRequest, runtime: $Util.RuntimeOptions): Promise<SetQuotaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6680,11 +7042,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SetQuotaResponse>(await this.callApi(params, req, runtime), new SetQuotaResponse({}));
   }
 
+  /**
+   * @param request SetQuotaRequest
+   * @return SetQuotaResponse
+   */
   async setQuota(request: SetQuotaRequest): Promise<SetQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setQuotaWithOptions(request, runtime);
   }
 
+  /**
+   * @param request TerminateUserExecutionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TerminateUserExecutionResponse
+   */
   async terminateUserExecutionWithOptions(request: TerminateUserExecutionRequest, runtime: $Util.RuntimeOptions): Promise<TerminateUserExecutionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6717,11 +7088,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TerminateUserExecutionResponse>(await this.callApi(params, req, runtime), new TerminateUserExecutionResponse({}));
   }
 
+  /**
+   * @param request TerminateUserExecutionRequest
+   * @return TerminateUserExecutionResponse
+   */
   async terminateUserExecution(request: TerminateUserExecutionRequest): Promise<TerminateUserExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.terminateUserExecutionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateActionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateActionResponse
+   */
   async updateActionWithOptions(request: UpdateActionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateActionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6762,11 +7142,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateActionResponse>(await this.callApi(params, req, runtime), new UpdateActionResponse({}));
   }
 
+  /**
+   * @param request UpdateActionRequest
+   * @return UpdateActionResponse
+   */
   async updateAction(request: UpdateActionRequest): Promise<UpdateActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateActionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新一个已存在的公共参数。
+   *
+   * @param request UpdatePublicParameterRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePublicParameterResponse
+   */
   async updatePublicParameterWithOptions(request: UpdatePublicParameterRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePublicParameterResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6803,11 +7194,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePublicParameterResponse>(await this.callApi(params, req, runtime), new UpdatePublicParameterResponse({}));
   }
 
+  /**
+   * @summary 更新一个已存在的公共参数。
+   *
+   * @param request UpdatePublicParameterRequest
+   * @return UpdatePublicParameterResponse
+   */
   async updatePublicParameter(request: UpdatePublicParameterRequest): Promise<UpdatePublicParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePublicParameterWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdatePublicPatchBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePublicPatchBaselineResponse
+   */
   async updatePublicPatchBaselineWithOptions(request: UpdatePublicPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePublicPatchBaselineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6848,11 +7250,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePublicPatchBaselineResponse>(await this.callApi(params, req, runtime), new UpdatePublicPatchBaselineResponse({}));
   }
 
+  /**
+   * @param request UpdatePublicPatchBaselineRequest
+   * @return UpdatePublicPatchBaselineResponse
+   */
   async updatePublicPatchBaseline(request: UpdatePublicPatchBaselineRequest): Promise<UpdatePublicPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePublicPatchBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdatePublicTemplateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdatePublicTemplateResponse
+   */
   async updatePublicTemplateWithOptions(request: UpdatePublicTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePublicTemplateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6897,11 +7308,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdatePublicTemplateResponse>(await this.callApi(params, req, runtime), new UpdatePublicTemplateResponse({}));
   }
 
+  /**
+   * @param request UpdatePublicTemplateRequest
+   * @return UpdatePublicTemplateResponse
+   */
   async updatePublicTemplate(request: UpdatePublicTemplateRequest): Promise<UpdatePublicTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePublicTemplateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ValidatePublicTemplateContentRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ValidatePublicTemplateContentResponse
+   */
   async validatePublicTemplateContentWithOptions(request: ValidatePublicTemplateContentRequest, runtime: $Util.RuntimeOptions): Promise<ValidatePublicTemplateContentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6938,6 +7358,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ValidatePublicTemplateContentResponse>(await this.callApi(params, req, runtime), new ValidatePublicTemplateContentResponse({}));
   }
 
+  /**
+   * @param request ValidatePublicTemplateContentRequest
+   * @return ValidatePublicTemplateContentResponse
+   */
   async validatePublicTemplateContent(request: ValidatePublicTemplateContentRequest): Promise<ValidatePublicTemplateContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.validatePublicTemplateContentWithOptions(request, runtime);
