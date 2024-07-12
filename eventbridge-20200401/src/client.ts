@@ -5088,6 +5088,149 @@ export class CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters extend
   }
 }
 
+export class CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkDashVectorParametersPartition extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkDashVectorParametersVector extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEventStreamingRequestSinkSinkDashVectorParameters extends $tea.Model {
+  apiKey?: string;
+  collection?: string;
+  dashVectorSchemaParameters?: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters;
+  instanceId?: string;
+  network?: string;
+  operation?: string;
+  partition?: CreateEventStreamingRequestSinkSinkDashVectorParametersPartition;
+  primaryKeyId?: CreateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId;
+  vector?: CreateEventStreamingRequestSinkSinkDashVectorParametersVector;
+  static names(): { [key: string]: string } {
+    return {
+      apiKey: 'ApiKey',
+      collection: 'Collection',
+      dashVectorSchemaParameters: 'DashVectorSchemaParameters',
+      instanceId: 'InstanceId',
+      network: 'Network',
+      operation: 'Operation',
+      partition: 'Partition',
+      primaryKeyId: 'PrimaryKeyId',
+      vector: 'Vector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiKey: 'string',
+      collection: 'string',
+      dashVectorSchemaParameters: CreateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters,
+      instanceId: 'string',
+      network: 'string',
+      operation: 'string',
+      partition: CreateEventStreamingRequestSinkSinkDashVectorParametersPartition,
+      primaryKeyId: CreateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId,
+      vector: CreateEventStreamingRequestSinkSinkDashVectorParametersVector,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateEventStreamingRequestSinkSinkDataHubParametersBody extends $tea.Model {
   form?: string;
   template?: string;
@@ -7027,6 +7170,7 @@ export class CreateEventStreamingRequestSinkSinkSLSParameters extends $tea.Model
 export class CreateEventStreamingRequestSink extends $tea.Model {
   sinkCustomizedKafkaConnectorParameters?: CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters;
   sinkCustomizedKafkaParameters?: CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters;
+  sinkDashVectorParameters?: CreateEventStreamingRequestSinkSinkDashVectorParameters;
   sinkDataHubParameters?: CreateEventStreamingRequestSinkSinkDataHubParameters;
   sinkFcParameters?: CreateEventStreamingRequestSinkSinkFcParameters;
   sinkFnfParameters?: CreateEventStreamingRequestSinkSinkFnfParameters;
@@ -7040,6 +7184,7 @@ export class CreateEventStreamingRequestSink extends $tea.Model {
     return {
       sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
+      sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
@@ -7056,6 +7201,7 @@ export class CreateEventStreamingRequestSink extends $tea.Model {
     return {
       sinkCustomizedKafkaConnectorParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters,
       sinkCustomizedKafkaParameters: CreateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
+      sinkDashVectorParameters: CreateEventStreamingRequestSinkSinkDashVectorParameters,
       sinkDataHubParameters: CreateEventStreamingRequestSinkSinkDataHubParameters,
       sinkFcParameters: CreateEventStreamingRequestSinkSinkFcParameters,
       sinkFnfParameters: CreateEventStreamingRequestSinkSinkFnfParameters,
@@ -8767,6 +8913,149 @@ export class GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters 
   }
 }
 
+export class GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersDashVectorSchemaParameters extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersPartition extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersPrimaryKeyId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersVector extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters extends $tea.Model {
+  apiKey?: string;
+  collection?: string;
+  dashVectorSchemaParameters?: GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersDashVectorSchemaParameters;
+  instanceId?: string;
+  network?: string;
+  operation?: string;
+  partition?: GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersPartition;
+  primaryKeyId?: GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersPrimaryKeyId;
+  vector?: GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersVector;
+  static names(): { [key: string]: string } {
+    return {
+      apiKey: 'ApiKey',
+      collection: 'Collection',
+      dashVectorSchemaParameters: 'DashVectorSchemaParameters',
+      instanceId: 'InstanceId',
+      network: 'Network',
+      operation: 'Operation',
+      partition: 'Partition',
+      primaryKeyId: 'PrimaryKeyId',
+      vector: 'Vector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiKey: 'string',
+      collection: 'string',
+      dashVectorSchemaParameters: GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersDashVectorSchemaParameters,
+      instanceId: 'string',
+      network: 'string',
+      operation: 'string',
+      partition: GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersPartition,
+      primaryKeyId: GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersPrimaryKeyId,
+      vector: GetEventStreamingResponseBodyDataSinkSinkDashVectorParametersVector,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventStreamingResponseBodyDataSinkSinkDataHubParametersBody extends $tea.Model {
   form?: string;
   template?: string;
@@ -10410,6 +10699,7 @@ export class GetEventStreamingResponseBodyDataSinkSinkSLSParameters extends $tea
 export class GetEventStreamingResponseBodyDataSink extends $tea.Model {
   sinkCustomizedKafkaConnectorParameters?: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters;
   sinkCustomizedKafkaParameters?: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters;
+  sinkDashVectorParameters?: GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters;
   sinkDataHubParameters?: GetEventStreamingResponseBodyDataSinkSinkDataHubParameters;
   sinkFcParameters?: GetEventStreamingResponseBodyDataSinkSinkFcParameters;
   sinkFnfParameters?: GetEventStreamingResponseBodyDataSinkSinkFnfParameters;
@@ -10422,6 +10712,7 @@ export class GetEventStreamingResponseBodyDataSink extends $tea.Model {
     return {
       sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
+      sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
@@ -10437,6 +10728,7 @@ export class GetEventStreamingResponseBodyDataSink extends $tea.Model {
     return {
       sinkCustomizedKafkaConnectorParameters: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaConnectorParameters,
       sinkCustomizedKafkaParameters: GetEventStreamingResponseBodyDataSinkSinkCustomizedKafkaParameters,
+      sinkDashVectorParameters: GetEventStreamingResponseBodyDataSinkSinkDashVectorParameters,
       sinkDataHubParameters: GetEventStreamingResponseBodyDataSinkSinkDataHubParameters,
       sinkFcParameters: GetEventStreamingResponseBodyDataSinkSinkFcParameters,
       sinkFnfParameters: GetEventStreamingResponseBodyDataSinkSinkFnfParameters,
@@ -12055,6 +12347,149 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomize
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParameters extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersPartition extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersPrimaryKeyId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersVector extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters extends $tea.Model {
+  apiKey?: string;
+  collection?: string;
+  dashVectorSchemaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParameters;
+  instanceId?: string;
+  network?: string;
+  operation?: string;
+  partition?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersPartition;
+  primaryKeyId?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersPrimaryKeyId;
+  vector?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersVector;
+  static names(): { [key: string]: string } {
+    return {
+      apiKey: 'ApiKey',
+      collection: 'Collection',
+      dashVectorSchemaParameters: 'DashVectorSchemaParameters',
+      instanceId: 'InstanceId',
+      network: 'Network',
+      operation: 'Operation',
+      partition: 'Partition',
+      primaryKeyId: 'PrimaryKeyId',
+      vector: 'Vector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiKey: 'string',
+      collection: 'string',
+      dashVectorSchemaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersDashVectorSchemaParameters,
+      instanceId: 'string',
+      network: 'string',
+      operation: 'string',
+      partition: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersPartition,
+      primaryKeyId: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersPrimaryKeyId,
+      vector: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParametersVector,
     };
   }
 
@@ -13706,6 +14141,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkSLSParame
 export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $tea.Model {
   sinkCustomizedKafkaConnectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters;
   sinkCustomizedKafkaParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters;
+  sinkDashVectorParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters;
   sinkDataHubParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters;
   sinkFcParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters;
   sinkFnfParameters?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters;
@@ -13718,6 +14154,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $tea
     return {
       sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
+      sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
@@ -13733,6 +14170,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSink extends $tea
     return {
       sinkCustomizedKafkaConnectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaConnectorParameters,
       sinkCustomizedKafkaParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkCustomizedKafkaParameters,
+      sinkDashVectorParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDashVectorParameters,
       sinkDataHubParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkDataHubParameters,
       sinkFcParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFcParameters,
       sinkFnfParameters: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters,
@@ -16051,6 +16489,149 @@ export class UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters extend
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDashVectorParametersPartition extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDashVectorParametersVector extends $tea.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventStreamingRequestSinkSinkDashVectorParameters extends $tea.Model {
+  apiKey?: string;
+  collection?: string;
+  dashVectorSchemaParameters?: UpdateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters;
+  instanceId?: string;
+  network?: string;
+  operation?: string;
+  partition?: UpdateEventStreamingRequestSinkSinkDashVectorParametersPartition;
+  primaryKeyId?: UpdateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId;
+  vector?: UpdateEventStreamingRequestSinkSinkDashVectorParametersVector;
+  static names(): { [key: string]: string } {
+    return {
+      apiKey: 'ApiKey',
+      collection: 'Collection',
+      dashVectorSchemaParameters: 'DashVectorSchemaParameters',
+      instanceId: 'InstanceId',
+      network: 'Network',
+      operation: 'Operation',
+      partition: 'Partition',
+      primaryKeyId: 'PrimaryKeyId',
+      vector: 'Vector',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiKey: 'string',
+      collection: 'string',
+      dashVectorSchemaParameters: UpdateEventStreamingRequestSinkSinkDashVectorParametersDashVectorSchemaParameters,
+      instanceId: 'string',
+      network: 'string',
+      operation: 'string',
+      partition: UpdateEventStreamingRequestSinkSinkDashVectorParametersPartition,
+      primaryKeyId: UpdateEventStreamingRequestSinkSinkDashVectorParametersPrimaryKeyId,
+      vector: UpdateEventStreamingRequestSinkSinkDashVectorParametersVector,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkDataHubParametersBody extends $tea.Model {
   form?: string;
   template?: string;
@@ -17990,6 +18571,7 @@ export class UpdateEventStreamingRequestSinkSinkSLSParameters extends $tea.Model
 export class UpdateEventStreamingRequestSink extends $tea.Model {
   sinkCustomizedKafkaConnectorParameters?: UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters;
   sinkCustomizedKafkaParameters?: UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters;
+  sinkDashVectorParameters?: UpdateEventStreamingRequestSinkSinkDashVectorParameters;
   sinkDataHubParameters?: UpdateEventStreamingRequestSinkSinkDataHubParameters;
   sinkFcParameters?: UpdateEventStreamingRequestSinkSinkFcParameters;
   sinkFnfParameters?: UpdateEventStreamingRequestSinkSinkFnfParameters;
@@ -18003,6 +18585,7 @@ export class UpdateEventStreamingRequestSink extends $tea.Model {
     return {
       sinkCustomizedKafkaConnectorParameters: 'SinkCustomizedKafkaConnectorParameters',
       sinkCustomizedKafkaParameters: 'SinkCustomizedKafkaParameters',
+      sinkDashVectorParameters: 'SinkDashVectorParameters',
       sinkDataHubParameters: 'SinkDataHubParameters',
       sinkFcParameters: 'SinkFcParameters',
       sinkFnfParameters: 'SinkFnfParameters',
@@ -18019,6 +18602,7 @@ export class UpdateEventStreamingRequestSink extends $tea.Model {
     return {
       sinkCustomizedKafkaConnectorParameters: UpdateEventStreamingRequestSinkSinkCustomizedKafkaConnectorParameters,
       sinkCustomizedKafkaParameters: UpdateEventStreamingRequestSinkSinkCustomizedKafkaParameters,
+      sinkDashVectorParameters: UpdateEventStreamingRequestSinkSinkDashVectorParameters,
       sinkDataHubParameters: UpdateEventStreamingRequestSinkSinkDataHubParameters,
       sinkFcParameters: UpdateEventStreamingRequestSinkSinkFcParameters,
       sinkFnfParameters: UpdateEventStreamingRequestSinkSinkFnfParameters,
