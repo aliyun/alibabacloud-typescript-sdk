@@ -26040,6 +26040,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   *
    * @param request CreateScriptRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreateScriptResponse
@@ -26081,6 +26083,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   *
    * @param request CreateScriptRequest
    * @return CreateScriptResponse
    */
@@ -26244,6 +26248,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   *
    * @param request DeleteScriptRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DeleteScriptResponse
@@ -26285,6 +26291,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Deletes a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   *
    * @param request DeleteScriptRequest
    * @return DeleteScriptResponse
    */
@@ -29853,10 +29861,6 @@ export default class Client extends OpenApi {
   async updateApplicationConfigsWithOptions(request: UpdateApplicationConfigsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.applicationConfigs)) {
-      query["ApplicationConfigs"] = request.applicationConfigs;
-    }
-
     if (!Util.isUnset(request.applicationName)) {
       query["ApplicationName"] = request.applicationName;
     }
@@ -29893,8 +29897,19 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationConfigs)) {
+      bodyFlat["ApplicationConfigs"] = request.applicationConfigs;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateApplicationConfigs",
@@ -29920,6 +29935,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   *
    * @param tmpReq UpdateScriptRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UpdateScriptResponse
@@ -29971,6 +29988,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Updates a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+   *
    * @param request UpdateScriptRequest
    * @return UpdateScriptResponse
    */
