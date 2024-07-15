@@ -2017,6 +2017,7 @@ export class PathConfig extends $tea.Model {
 
 export class ProvisionConfig extends $tea.Model {
   alwaysAllocateCPU?: boolean;
+  alwaysAllocateGPU?: boolean;
   current?: number;
   currentError?: string;
   functionArn?: string;
@@ -2026,6 +2027,7 @@ export class ProvisionConfig extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alwaysAllocateCPU: 'alwaysAllocateCPU',
+      alwaysAllocateGPU: 'alwaysAllocateGPU',
       current: 'current',
       currentError: 'currentError',
       functionArn: 'functionArn',
@@ -2038,6 +2040,7 @@ export class ProvisionConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alwaysAllocateCPU: 'boolean',
+      alwaysAllocateGPU: 'boolean',
       current: 'number',
       currentError: 'string',
       functionArn: 'string',
@@ -2120,12 +2123,14 @@ export class PutConcurrencyInput extends $tea.Model {
 
 export class PutProvisionConfigInput extends $tea.Model {
   alwaysAllocateCPU?: boolean;
+  alwaysAllocateGPU?: boolean;
   scheduledActions?: ScheduledAction[];
   target?: number;
   targetTrackingPolicies?: TargetTrackingPolicy[];
   static names(): { [key: string]: string } {
     return {
       alwaysAllocateCPU: 'alwaysAllocateCPU',
+      alwaysAllocateGPU: 'alwaysAllocateGPU',
       scheduledActions: 'scheduledActions',
       target: 'target',
       targetTrackingPolicies: 'targetTrackingPolicies',
@@ -2135,6 +2140,7 @@ export class PutProvisionConfigInput extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alwaysAllocateCPU: 'boolean',
+      alwaysAllocateGPU: 'boolean',
       scheduledActions: { 'type': 'array', 'itemType': ScheduledAction },
       target: 'number',
       targetTrackingPolicies: { 'type': 'array', 'itemType': TargetTrackingPolicy },
