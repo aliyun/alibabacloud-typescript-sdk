@@ -856,6 +856,138 @@ export class CheckServiceRoleResponse extends $tea.Model {
   }
 }
 
+export class CleanClusterUserPermissionsRequest extends $tea.Model {
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      force: 'Force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CleanClusterUserPermissionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CleanUserPermissionsRequest extends $tea.Model {
+  clusterIds?: string[];
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clusterIds: 'ClusterIds',
+      force: 'Force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterIds: { 'type': 'array', 'itemType': 'string' },
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CleanUserPermissionsShrinkRequest extends $tea.Model {
+  clusterIdsShrink?: string;
+  force?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clusterIdsShrink: 'ClusterIds',
+      force: 'Force',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterIdsShrink: 'string',
+      force: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CleanUserPermissionsResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CleanUserPermissionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CleanUserPermissionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CleanUserPermissionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAutoscalingConfigRequest extends $tea.Model {
   coolDownDuration?: string;
   daemonsetEvictionForNodes?: boolean;
@@ -5828,6 +5960,75 @@ export class ListClusterChecksResponse extends $tea.Model {
   }
 }
 
+export class ListClusterKubeconfigStatesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterKubeconfigStatesResponseBody extends $tea.Model {
+  page?: ListClusterKubeconfigStatesResponseBodyPage;
+  states?: ListClusterKubeconfigStatesResponseBodyStates[];
+  static names(): { [key: string]: string } {
+    return {
+      page: 'page',
+      states: 'states',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      page: ListClusterKubeconfigStatesResponseBodyPage,
+      states: { 'type': 'array', 'itemType': ListClusterKubeconfigStatesResponseBodyStates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterKubeconfigStatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClusterKubeconfigStatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClusterKubeconfigStatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOperationPlansRequest extends $tea.Model {
   clusterId?: string;
   type?: string;
@@ -5998,6 +6199,75 @@ export class ListTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserKubeConfigStatesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'page_number',
+      pageSize: 'page_size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserKubeConfigStatesResponseBody extends $tea.Model {
+  page?: ListUserKubeConfigStatesResponseBodyPage;
+  states?: ListUserKubeConfigStatesResponseBodyStates[];
+  static names(): { [key: string]: string } {
+    return {
+      page: 'page',
+      states: 'states',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      page: ListUserKubeConfigStatesResponseBodyPage,
+      states: { 'type': 'array', 'itemType': ListUserKubeConfigStatesResponseBodyStates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserKubeConfigStatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserKubeConfigStatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserKubeConfigStatesResponseBody,
     };
   }
 
@@ -13063,6 +13333,71 @@ export class ListClusterChecksResponseBodyChecks extends $tea.Model {
   }
 }
 
+export class ListClusterKubeconfigStatesResponseBodyPage extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'page_number',
+      pageSize: 'page_size',
+      totalCount: 'total_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClusterKubeconfigStatesResponseBodyStates extends $tea.Model {
+  accountDisplayName?: string;
+  accountId?: string;
+  accountName?: string;
+  accountState?: string;
+  accountType?: string;
+  certExpireTime?: string;
+  certState?: string;
+  revokable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accountDisplayName: 'account_display_name',
+      accountId: 'account_id',
+      accountName: 'account_name',
+      accountState: 'account_state',
+      accountType: 'account_type',
+      certExpireTime: 'cert_expire_time',
+      certState: 'cert_state',
+      revokable: 'revokable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountDisplayName: 'string',
+      accountId: 'string',
+      accountName: 'string',
+      accountState: 'string',
+      accountType: 'string',
+      certExpireTime: 'string',
+      certState: 'string',
+      revokable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOperationPlansResponseBodyPlans extends $tea.Model {
   clusterId?: string;
   created?: string;
@@ -13145,6 +13480,62 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserKubeConfigStatesResponseBodyPage extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'page_number',
+      pageSize: 'page_size',
+      totalCount: 'total_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserKubeConfigStatesResponseBodyStates extends $tea.Model {
+  certExpireTime?: string;
+  certState?: string;
+  clusterId?: string;
+  clusterName?: string;
+  clusterState?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certExpireTime: 'cert_expire_time',
+      certState: 'cert_state',
+      clusterId: 'cluster_id',
+      clusterName: 'cluster_name',
+      clusterState: 'cluster_state',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certExpireTime: 'string',
+      certState: 'string',
+      clusterId: 'string',
+      clusterName: 'string',
+      clusterState: 'string',
     };
   }
 
@@ -14469,6 +14860,106 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.checkServiceRoleWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 清理某个用户在某个集群的证书以及权限
+   *
+   * @param request CleanClusterUserPermissionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CleanClusterUserPermissionsResponse
+   */
+  async cleanClusterUserPermissionsWithOptions(ClusterId: string, Uid: string, request: CleanClusterUserPermissionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CleanClusterUserPermissionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CleanClusterUserPermissions",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/cluster/${OpenApiUtil.getEncodeParam(ClusterId)}/user/${OpenApiUtil.getEncodeParam(Uid)}/permissions`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CleanClusterUserPermissionsResponse>(await this.callApi(params, req, runtime), new CleanClusterUserPermissionsResponse({}));
+  }
+
+  /**
+   * @summary 清理某个用户在某个集群的证书以及权限
+   *
+   * @param request CleanClusterUserPermissionsRequest
+   * @return CleanClusterUserPermissionsResponse
+   */
+  async cleanClusterUserPermissions(ClusterId: string, Uid: string, request: CleanClusterUserPermissionsRequest): Promise<CleanClusterUserPermissionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cleanClusterUserPermissionsWithOptions(ClusterId, Uid, request, headers, runtime);
+  }
+
+  /**
+   * @summary 清除某个用户的证书以及相关RBAC权限
+   *
+   * @param tmpReq CleanUserPermissionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CleanUserPermissionsResponse
+   */
+  async cleanUserPermissionsWithOptions(Uid: string, tmpReq: CleanUserPermissionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CleanUserPermissionsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CleanUserPermissionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.clusterIds)) {
+      request.clusterIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterIds, "ClusterIds", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clusterIdsShrink)) {
+      query["ClusterIds"] = request.clusterIdsShrink;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CleanUserPermissions",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/users/${OpenApiUtil.getEncodeParam(Uid)}/permissions`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CleanUserPermissionsResponse>(await this.callApi(params, req, runtime), new CleanUserPermissionsResponse({}));
+  }
+
+  /**
+   * @summary 清除某个用户的证书以及相关RBAC权限
+   *
+   * @param request CleanUserPermissionsRequest
+   * @return CleanUserPermissionsResponse
+   */
+  async cleanUserPermissions(Uid: string, request: CleanUserPermissionsRequest): Promise<CleanUserPermissionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cleanUserPermissionsWithOptions(Uid, request, headers, runtime);
   }
 
   /**
@@ -18618,6 +19109,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 获取当前集群已下发的用户Kubeconfig的状态列表
+   *
+   * @param request ListClusterKubeconfigStatesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListClusterKubeconfigStatesResponse
+   */
+  async listClusterKubeconfigStatesWithOptions(ClusterId: string, request: ListClusterKubeconfigStatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterKubeconfigStatesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListClusterKubeconfigStates",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(ClusterId)}/kubeconfig/states`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClusterKubeconfigStatesResponse>(await this.callApi(params, req, runtime), new ListClusterKubeconfigStatesResponse({}));
+  }
+
+  /**
+   * @summary 获取当前集群已下发的用户Kubeconfig的状态列表
+   *
+   * @param request ListClusterKubeconfigStatesRequest
+   * @return ListClusterKubeconfigStatesResponse
+   */
+  async listClusterKubeconfigStates(ClusterId: string, request: ListClusterKubeconfigStatesRequest): Promise<ListClusterKubeconfigStatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listClusterKubeconfigStatesWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  /**
    * @summary 获取自动运维执行计划列表
    *
    * @param request ListOperationPlansRequest
@@ -18735,6 +19275,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询单用户所有集群的证书状态
+   *
+   * @param request ListUserKubeConfigStatesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUserKubeConfigStatesResponse
+   */
+  async listUserKubeConfigStatesWithOptions(Uid: string, request: ListUserKubeConfigStatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserKubeConfigStatesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["page_number"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["page_size"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserKubeConfigStates",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/users/${OpenApiUtil.getEncodeParam(Uid)}/kubeconfig/states`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserKubeConfigStatesResponse>(await this.callApi(params, req, runtime), new ListUserKubeConfigStatesResponse({}));
+  }
+
+  /**
+   * @summary 查询单用户所有集群的证书状态
+   *
+   * @param request ListUserKubeConfigStatesRequest
+   * @return ListUserKubeConfigStatesResponse
+   */
+  async listUserKubeConfigStates(Uid: string, request: ListUserKubeConfigStatesRequest): Promise<ListUserKubeConfigStatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listUserKubeConfigStatesWithOptions(Uid, request, headers, runtime);
   }
 
   /**
