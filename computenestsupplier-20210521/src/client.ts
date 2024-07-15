@@ -3052,6 +3052,7 @@ export class UpdateServiceRequest extends $tea.Model {
   alarmMetadata?: string;
   approvalType?: string;
   clientToken?: string;
+  commodity?: UpdateServiceRequestCommodity;
   deployMetadata?: string;
   deployType?: string;
   duration?: number;
@@ -3077,6 +3078,7 @@ export class UpdateServiceRequest extends $tea.Model {
       alarmMetadata: 'AlarmMetadata',
       approvalType: 'ApprovalType',
       clientToken: 'ClientToken',
+      commodity: 'Commodity',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
       duration: 'Duration',
@@ -3105,6 +3107,7 @@ export class UpdateServiceRequest extends $tea.Model {
       alarmMetadata: 'string',
       approvalType: 'string',
       clientToken: 'string',
+      commodity: UpdateServiceRequestCommodity,
       deployMetadata: 'string',
       deployType: 'string',
       duration: 'number',
@@ -3137,6 +3140,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
   alarmMetadata?: string;
   approvalType?: string;
   clientToken?: string;
+  commodityShrink?: string;
   deployMetadata?: string;
   deployType?: string;
   duration?: number;
@@ -3162,6 +3166,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
       alarmMetadata: 'AlarmMetadata',
       approvalType: 'ApprovalType',
       clientToken: 'ClientToken',
+      commodityShrink: 'Commodity',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
       duration: 'Duration',
@@ -3190,6 +3195,7 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
       alarmMetadata: 'string',
       approvalType: 'string',
       clientToken: 'string',
+      commodityShrink: 'string',
       deployMetadata: 'string',
       deployType: 'string',
       duration: 'number',
@@ -3264,11 +3270,13 @@ export class UpdateServiceResponse extends $tea.Model {
 
 export class UpdateServiceInstanceAttributeRequest extends $tea.Model {
   endTime?: string;
+  licenseData?: UpdateServiceInstanceAttributeRequestLicenseData;
   regionId?: string;
   serviceInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      licenseData: 'LicenseData',
       regionId: 'RegionId',
       serviceInstanceId: 'ServiceInstanceId',
     };
@@ -3277,6 +3285,35 @@ export class UpdateServiceInstanceAttributeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'string',
+      licenseData: UpdateServiceInstanceAttributeRequestLicenseData,
+      regionId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceAttributeShrinkRequest extends $tea.Model {
+  endTime?: string;
+  licenseDataShrink?: string;
+  regionId?: string;
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      licenseDataShrink: 'LicenseData',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      licenseDataShrink: 'string',
       regionId: 'string',
       serviceInstanceId: 'string',
     };
@@ -5495,6 +5532,137 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
   }
 }
 
+export class UpdateServiceRequestCommodityComponentsMappings extends $tea.Model {
+  mappings?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappings: 'Mappings',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappings: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommodityMeteringEntityExtraInfos extends $tea.Model {
+  entityId?: string;
+  metricName?: string;
+  promql?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityId: 'EntityId',
+      metricName: 'MetricName',
+      promql: 'Promql',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityId: 'string',
+      metricName: 'string',
+      promql: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommodityMeteringEntityMappings extends $tea.Model {
+  entityIds?: string[];
+  specificationName?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityIds: 'EntityIds',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityIds: { 'type': 'array', 'itemType': 'string' },
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommoditySpecificationMappings extends $tea.Model {
+  specificationCode?: string;
+  specificationName?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specificationCode: 'SpecificationCode',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specificationCode: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequestCommodity extends $tea.Model {
+  componentsMappings?: UpdateServiceRequestCommodityComponentsMappings[];
+  meteringEntityExtraInfos?: UpdateServiceRequestCommodityMeteringEntityExtraInfos[];
+  meteringEntityMappings?: UpdateServiceRequestCommodityMeteringEntityMappings[];
+  saasBoostConfig?: string;
+  specificationMappings?: UpdateServiceRequestCommoditySpecificationMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      componentsMappings: 'ComponentsMappings',
+      meteringEntityExtraInfos: 'MeteringEntityExtraInfos',
+      meteringEntityMappings: 'MeteringEntityMappings',
+      saasBoostConfig: 'SaasBoostConfig',
+      specificationMappings: 'SpecificationMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentsMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityComponentsMappings },
+      meteringEntityExtraInfos: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityMeteringEntityExtraInfos },
+      meteringEntityMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommodityMeteringEntityMappings },
+      saasBoostConfig: 'string',
+      specificationMappings: { 'type': 'array', 'itemType': UpdateServiceRequestCommoditySpecificationMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceRequestServiceInfoAgreements extends $tea.Model {
   name?: string;
   url?: string;
@@ -5626,6 +5794,25 @@ export class UpdateServiceShrinkRequestServiceInfo extends $tea.Model {
   }
 }
 
+export class UpdateServiceInstanceAttributeRequestLicenseData extends $tea.Model {
+  customData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customData: 'CustomData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -5708,6 +5895,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Redeploys a service instance after the service instance failed to be deployed.
+   *
    * @param request ContinueDeployServiceInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ContinueDeployServiceInstanceResponse
@@ -5753,6 +5942,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Redeploys a service instance after the service instance failed to be deployed.
+   *
    * @param request ContinueDeployServiceInstanceRequest
    * @return ContinueDeployServiceInstanceResponse
    */
@@ -5762,7 +5953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建部署物
+   * @summary Creates a deployment package.
    *
    * @param tmpReq CreateArtifactRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -5831,7 +6022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建部署物
+   * @summary Creates a deployment package.
    *
    * @param request CreateArtifactRequest
    * @return CreateArtifactResponse
@@ -5842,7 +6033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建新服务版本
+   * @summary Creates a service.
    *
    * @param request CreateServiceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -5973,7 +6164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建新服务版本
+   * @summary Creates a service.
    *
    * @param request CreateServiceRequest
    * @return CreateServiceResponse
@@ -5984,7 +6175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 商家侧创建服务实例
+   * @summary Creates and deploys a service instance.
    *
    * @param tmpReq CreateServiceInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6069,7 +6260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 商家侧创建服务实例
+   * @summary Creates and deploys a service instance.
    *
    * @param request CreateServiceInstanceRequest
    * @return CreateServiceInstanceResponse
@@ -6080,7 +6271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除部署物
+   * @summary Deletes an artifact.
    *
    * @param request DeleteArtifactRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6115,7 +6306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除部署物
+   * @summary Deletes an artifact.
    *
    * @param request DeleteArtifactRequest
    * @return DeleteArtifactResponse
@@ -6180,6 +6371,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Deletes a service instance.
+   *
    * @param request DeleteServiceInstancesRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DeleteServiceInstancesResponse
@@ -6217,6 +6410,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Deletes a service instance.
+   *
    * @param request DeleteServiceInstancesRequest
    * @return DeleteServiceInstancesResponse
    */
@@ -6226,6 +6421,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Deploys a service instance.
+   *
    * @param request DeployServiceInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DeployServiceInstanceResponse
@@ -6263,6 +6460,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Deploys a service instance.
+   *
    * @param request DeployServiceInstanceRequest
    * @return DeployServiceInstanceResponse
    */
@@ -6272,7 +6471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取部署物信息
+   * @summary Queries the information about a deployment package.
    *
    * @param request GetArtifactRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6311,7 +6510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取部署物信息
+   * @summary Queries the information about a deployment package.
    *
    * @param request GetArtifactRequest
    * @return GetArtifactResponse
@@ -6322,7 +6521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取部署物仓库访问凭证
+   * @summary Queries the credentials that are required to upload a deployment package.
    *
    * @param request GetArtifactRepositoryCredentialsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6357,7 +6556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取部署物仓库访问凭证
+   * @summary Queries the credentials that are required to upload a deployment package.
    *
    * @param request GetArtifactRepositoryCredentialsRequest
    * @return GetArtifactRepositoryCredentialsResponse
@@ -6368,7 +6567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询服务详情
+   * @summary Queries the information about a service.
    *
    * @param request GetServiceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6419,7 +6618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询服务详情
+   * @summary Queries the information about a service.
    *
    * @param request GetServiceRequest
    * @return GetServiceResponse
@@ -6430,7 +6629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 计算巢服务部署询价
+   * @summary Queries the estimated price for creating a service instance.
    *
    * @param tmpReq GetServiceEstimateCostRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6503,7 +6702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 计算巢服务部署询价
+   * @summary Queries the estimated price for creating a service instance.
    *
    * @param request GetServiceEstimateCostRequest
    * @return GetServiceEstimateCostResponse
@@ -6514,6 +6713,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the information about a service instance.
+   *
    * @param request GetServiceInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetServiceInstanceResponse
@@ -6547,6 +6748,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the information about a service instance.
+   *
    * @param request GetServiceInstanceRequest
    * @return GetServiceInstanceResponse
    */
@@ -6556,7 +6759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取ROS模板参数限制
+   * @summary Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
    *
    * @param request GetServiceTemplateParameterConstraintsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6619,7 +6822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取ROS模板参数限制
+   * @summary Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
    *
    * @param request GetServiceTemplateParameterConstraintsRequest
    * @return GetServiceTemplateParameterConstraintsResponse
@@ -6630,6 +6833,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Obtain the AccessKey pair of uploaded files.
+   *
    * @param request GetUploadCredentialsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetUploadCredentialsResponse
@@ -6663,6 +6868,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Obtain the AccessKey pair of uploaded files.
+   *
    * @param request GetUploadCredentialsRequest
    * @return GetUploadCredentialsResponse
    */
@@ -6672,7 +6879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 展示部署物
+   * @summary Queries a list of images uploaded to Container Registry.
    *
    * @param request ListAcrImageRepositoriesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6715,7 +6922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 展示部署物
+   * @summary Queries a list of images uploaded to Container Registry.
    *
    * @param request ListAcrImageRepositoriesRequest
    * @return ListAcrImageRepositoriesResponse
@@ -6726,7 +6933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 展示部署物
+   * @summary Queries the versions of images that are uploaded to the image repository.
    *
    * @param request ListAcrImageTagsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6769,7 +6976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 展示部署物
+   * @summary Queries the versions of images that are uploaded to the image repository.
    *
    * @param request ListAcrImageTagsRequest
    * @return ListAcrImageTagsResponse
@@ -6780,7 +6987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 展示部署物版本
+   * @summary Queries the version information about a deployment package.
    *
    * @param request ListArtifactVersionsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6819,7 +7026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 展示部署物版本
+   * @summary Queries the version information about a deployment package.
    *
    * @param request ListArtifactVersionsRequest
    * @return ListArtifactVersionsResponse
@@ -6830,7 +7037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 展示部署物
+   * @summary Queries a list of deployment packages.
    *
    * @param request ListArtifactsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6877,7 +7084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 展示部署物
+   * @summary Queries a list of deployment packages.
    *
    * @param request ListArtifactsRequest
    * @return ListArtifactsResponse
@@ -6888,6 +7095,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries a list of service instances.
+   *
    * @param request ListServiceInstancesRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ListServiceInstancesResponse
@@ -6941,6 +7150,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries a list of service instances.
+   *
    * @param request ListServiceInstancesRequest
    * @return ListServiceInstancesResponse
    */
@@ -6950,7 +7161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 商家获取服务使用申请接口
+   * @summary Queries the applications for using a service.
    *
    * @param request ListServiceUsagesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -6993,7 +7204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 商家获取服务使用申请接口
+   * @summary Queries the applications for using a service.
    *
    * @param request ListServiceUsagesRequest
    * @return ListServiceUsagesResponse
@@ -7004,7 +7215,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询服务
+   * @summary Queries a list of services.
    *
    * @param request ListServicesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -7059,7 +7270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询服务
+   * @summary Queries a list of services.
    *
    * @param request ListServicesRequest
    * @return ListServicesResponse
@@ -7070,7 +7281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改服务实例资源
+   * @summary Modifies the resource information about a service instance.
    *
    * @param request ModifyServiceInstanceResourcesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -7109,7 +7320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改服务实例资源
+   * @summary Modifies the resource information about a service instance.
    *
    * @param request ModifyServiceInstanceResourcesRequest
    * @return ModifyServiceInstanceResourcesResponse
@@ -7120,6 +7331,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Pushes metering data of an Alibaba Cloud Marketplace commodity.
+   *
    * @param request PushMeteringDataRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return PushMeteringDataResponse
@@ -7153,6 +7366,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Pushes metering data of an Alibaba Cloud Marketplace commodity.
+   *
    * @param request PushMeteringDataRequest
    * @return PushMeteringDataResponse
    */
@@ -7162,6 +7377,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Registers an artifact.
+   *
    * @param request RegisterServiceRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return RegisterServiceResponse
@@ -7199,6 +7416,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Registers an artifact.
+   *
    * @param request RegisterServiceRequest
    * @return RegisterServiceResponse
    */
@@ -7250,7 +7469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 重启服务实例
+   * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
    *
    * @param request RestartServiceInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -7289,7 +7508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 重启服务实例
+   * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
    *
    * @param request RestartServiceInstanceRequest
    * @return RestartServiceInstanceResponse
@@ -7300,7 +7519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动服务实例
+   * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
    *
    * @param request StartServiceInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -7339,7 +7558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动服务实例
+   * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
    *
    * @param request StartServiceInstanceRequest
    * @return StartServiceInstanceResponse
@@ -7350,7 +7569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止服务实例
+   * @summary When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
    *
    * @param request StopServiceInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -7389,7 +7608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止服务实例
+   * @summary When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
    *
    * @param request StopServiceInstanceRequest
    * @return StopServiceInstanceResponse
@@ -7400,7 +7619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新部署物
+   * @summary Updates a deployment package.
    *
    * @param tmpReq UpdateArtifactRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -7453,7 +7672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新部署物
+   * @summary Updates a deployment package.
    *
    * @param request UpdateArtifactRequest
    * @return UpdateArtifactResponse
@@ -7464,6 +7683,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Upgrades a service.
+   *
    * @param tmpReq UpdateServiceRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UpdateServiceResponse
@@ -7472,6 +7693,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateServiceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.commodity)) {
+      request.commodityShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commodity, "Commodity", "json");
+    }
+
     if (!Util.isUnset(tmpReq.updateOption)) {
       request.updateOptionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateOption, "UpdateOption", "json");
     }
@@ -7487,6 +7712,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.commodityShrink)) {
+      query["Commodity"] = request.commodityShrink;
     }
 
     if (!Util.isUnset(request.deployMetadata)) {
@@ -7587,6 +7816,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Upgrades a service.
+   *
    * @param request UpdateServiceRequest
    * @return UpdateServiceResponse
    */
@@ -7596,17 +7827,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新服务实例属性
+   * @summary Updates the properties of a service instance.
    *
-   * @param request UpdateServiceInstanceAttributeRequest
+   * @param tmpReq UpdateServiceInstanceAttributeRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UpdateServiceInstanceAttributeResponse
    */
-  async updateServiceInstanceAttributeWithOptions(request: UpdateServiceInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceAttributeResponse> {
-    Util.validateModel(request);
+  async updateServiceInstanceAttributeWithOptions(tmpReq: UpdateServiceInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceAttributeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateServiceInstanceAttributeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.licenseData)) {
+      request.licenseDataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.licenseData, "LicenseData", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.licenseDataShrink)) {
+      query["LicenseData"] = request.licenseDataShrink;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -7635,7 +7876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新服务实例属性
+   * @summary Updates the properties of a service instance.
    *
    * @param request UpdateServiceInstanceAttributeRequest
    * @return UpdateServiceInstanceAttributeResponse
@@ -7714,6 +7955,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Upgrades a service instance.
+   *
    * @param tmpReq UpgradeServiceInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return UpgradeServiceInstanceResponse
@@ -7769,6 +8012,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Upgrades a service instance.
+   *
    * @param request UpgradeServiceInstanceRequest
    * @return UpgradeServiceInstanceResponse
    */
