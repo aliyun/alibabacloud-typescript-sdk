@@ -68,9 +68,9 @@ export class AddDNSAuthorizationRuleResponseBody extends $tea.Model {
 }
 
 export class AddDNSAuthorizationRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddDNSAuthorizationRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDNSAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -152,9 +152,9 @@ export class AddGroupDnsAuthorizationRuleResponseBody extends $tea.Model {
 }
 
 export class AddGroupDnsAuthorizationRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddGroupDnsAuthorizationRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddGroupDnsAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -227,9 +227,9 @@ export class AddWirelessCloudConnectorToGroupResponseBody extends $tea.Model {
 }
 
 export class AddWirelessCloudConnectorToGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddWirelessCloudConnectorToGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddWirelessCloudConnectorToGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -308,9 +308,9 @@ export class AttachVpcToNetLinkResponseBody extends $tea.Model {
 }
 
 export class AttachVpcToNetLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachVpcToNetLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachVpcToNetLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -404,9 +404,9 @@ export class CreateAuthorizationRuleResponseBody extends $tea.Model {
 }
 
 export class CreateAuthorizationRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAuthorizationRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -503,9 +503,9 @@ export class CreateBatchOperateCardsTaskResponseBody extends $tea.Model {
 }
 
 export class CreateBatchOperateCardsTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateBatchOperateCardsTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBatchOperateCardsTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -599,9 +599,9 @@ export class CreateGroupAuthorizationRuleResponseBody extends $tea.Model {
 }
 
 export class CreateGroupAuthorizationRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateGroupAuthorizationRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateGroupAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -671,9 +671,9 @@ export class CreateIoTCloudConnectorBackhaulRouteResponseBody extends $tea.Model
 }
 
 export class CreateIoTCloudConnectorBackhaulRouteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateIoTCloudConnectorBackhaulRouteResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIoTCloudConnectorBackhaulRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -761,9 +761,9 @@ export class CreateWirelessCloudConnectorResponseBody extends $tea.Model {
 }
 
 export class CreateWirelessCloudConnectorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateWirelessCloudConnectorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWirelessCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -839,9 +839,9 @@ export class CreateWirelessCloudConnectorGroupResponseBody extends $tea.Model {
 }
 
 export class CreateWirelessCloudConnectorGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateWirelessCloudConnectorGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWirelessCloudConnectorGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -911,9 +911,9 @@ export class DeleteAuthorizationRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteAuthorizationRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAuthorizationRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -983,9 +983,9 @@ export class DeleteBatchOperateCardsTaskResponseBody extends $tea.Model {
 }
 
 export class DeleteBatchOperateCardsTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteBatchOperateCardsTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBatchOperateCardsTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1055,9 +1055,9 @@ export class DeleteGroupAuthorizationRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteGroupAuthorizationRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteGroupAuthorizationRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteGroupAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1127,9 +1127,9 @@ export class DeleteIoTCloudConnectorBackhaulRouteResponseBody extends $tea.Model
 }
 
 export class DeleteIoTCloudConnectorBackhaulRouteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteIoTCloudConnectorBackhaulRouteResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIoTCloudConnectorBackhaulRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1196,9 +1196,9 @@ export class DeleteWirelessCloudConnectorResponseBody extends $tea.Model {
 }
 
 export class DeleteWirelessCloudConnectorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteWirelessCloudConnectorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteWirelessCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1265,9 +1265,9 @@ export class DeleteWirelessCloudConnectorGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteWirelessCloudConnectorGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteWirelessCloudConnectorGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteWirelessCloudConnectorGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1337,9 +1337,9 @@ export class DetachVpcFromNetLinkResponseBody extends $tea.Model {
 }
 
 export class DetachVpcFromNetLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DetachVpcFromNetLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachVpcFromNetLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1409,9 +1409,9 @@ export class FailCardsResponseBody extends $tea.Model {
 }
 
 export class FailCardsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FailCardsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FailCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1541,9 +1541,9 @@ export class GetCardResponseBody extends $tea.Model {
 }
 
 export class GetCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1607,9 +1607,9 @@ export class GetCardLockReasonResponseBody extends $tea.Model {
 }
 
 export class GetCardLockReasonResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCardLockReasonResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCardLockReasonResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1623,6 +1623,75 @@ export class GetCardLockReasonResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCardLockReasonResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateCustomerInfomationRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateCustomerInfomationResponseBody extends $tea.Model {
+  canBuyCard?: string;
+  requestId?: string;
+  URL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      canBuyCard: 'CanBuyCard',
+      requestId: 'RequestId',
+      URL: 'URL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canBuyCard: 'string',
+      requestId: 'string',
+      URL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateCustomerInfomationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCreateCustomerInfomationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCreateCustomerInfomationResponseBody,
     };
   }
 
@@ -1679,9 +1748,9 @@ export class GetCreateCustomerInformationResponseBody extends $tea.Model {
 }
 
 export class GetCreateCustomerInformationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCreateCustomerInformationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCreateCustomerInformationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1775,9 +1844,9 @@ export class GetDiagnoseResultForSingleCardResponseBody extends $tea.Model {
 }
 
 export class GetDiagnoseResultForSingleCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDiagnoseResultForSingleCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDiagnoseResultForSingleCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1886,9 +1955,9 @@ export class GetWirelessCloudConnectorResponseBody extends $tea.Model {
 }
 
 export class GetWirelessCloudConnectorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetWirelessCloudConnectorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWirelessCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1961,9 +2030,9 @@ export class GrantNetLinkResponseBody extends $tea.Model {
 }
 
 export class GrantNetLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GrantNetLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GrantNetLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1977,6 +2046,162 @@ export class GrantNetLinkResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GrantNetLinkResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InnerLimitRateCardsRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  iccids?: string[];
+  innerApi?: boolean;
+  regionId?: string;
+  task?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      iccids: 'Iccids',
+      innerApi: 'InnerApi',
+      regionId: 'RegionId',
+      task: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      iccids: { 'type': 'array', 'itemType': 'string' },
+      innerApi: 'boolean',
+      regionId: 'string',
+      task: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InnerLimitRateCardsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InnerLimitRateCardsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InnerLimitRateCardsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InnerLimitRateCardsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InnerStopCardsRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  iccids?: string[];
+  innerApi?: boolean;
+  regionId?: string;
+  task?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      iccids: 'Iccids',
+      innerApi: 'InnerApi',
+      regionId: 'RegionId',
+      task: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      iccids: { 'type': 'array', 'itemType': 'string' },
+      innerApi: 'boolean',
+      regionId: 'string',
+      task: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InnerStopCardsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InnerStopCardsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InnerStopCardsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: InnerStopCardsResponseBody,
     };
   }
 
@@ -2048,9 +2273,9 @@ export class ListAPNsResponseBody extends $tea.Model {
 }
 
 export class ListAPNsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAPNsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAPNsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2159,9 +2384,9 @@ export class ListAuthorizationRulesResponseBody extends $tea.Model {
 }
 
 export class ListAuthorizationRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAuthorizationRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAuthorizationRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2249,9 +2474,9 @@ export class ListBatchOperateCardsTasksResponseBody extends $tea.Model {
 }
 
 export class ListBatchOperateCardsTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListBatchOperateCardsTasksResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListBatchOperateCardsTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2321,9 +2546,9 @@ export class ListCardAreaLimitSupportAreaResponseBody extends $tea.Model {
 }
 
 export class ListCardAreaLimitSupportAreaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCardAreaLimitSupportAreaResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCardAreaLimitSupportAreaResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2393,9 +2618,9 @@ export class ListCardDayUsagesResponseBody extends $tea.Model {
 }
 
 export class ListCardDayUsagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCardDayUsagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCardDayUsagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2465,9 +2690,9 @@ export class ListCardUsagesResponseBody extends $tea.Model {
 }
 
 export class ListCardUsagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCardUsagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCardUsagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2573,9 +2798,9 @@ export class ListCardsResponseBody extends $tea.Model {
 }
 
 export class ListCardsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListCardsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2663,9 +2888,9 @@ export class ListDataPackagesResponseBody extends $tea.Model {
 }
 
 export class ListDataPackagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDataPackagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataPackagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2756,9 +2981,9 @@ export class ListDiagnoseInfoForSingleCardResponseBody extends $tea.Model {
 }
 
 export class ListDiagnoseInfoForSingleCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDiagnoseInfoForSingleCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDiagnoseInfoForSingleCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2867,9 +3092,9 @@ export class ListGroupAuthorizationRulesResponseBody extends $tea.Model {
 }
 
 export class ListGroupAuthorizationRulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListGroupAuthorizationRulesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGroupAuthorizationRulesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2942,9 +3167,9 @@ export class ListIoTCloudConnectorBackhaulRouteResponseBody extends $tea.Model {
 }
 
 export class ListIoTCloudConnectorBackhaulRouteResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListIoTCloudConnectorBackhaulRouteResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIoTCloudConnectorBackhaulRouteResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3032,9 +3257,9 @@ export class ListOrdersResponseBody extends $tea.Model {
 }
 
 export class ListOrdersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListOrdersResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOrdersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3101,9 +3326,9 @@ export class ListRegionsResponseBody extends $tea.Model {
 }
 
 export class ListRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3191,9 +3416,9 @@ export class ListWirelessCloudConnectorGroupsResponseBody extends $tea.Model {
 }
 
 export class ListWirelessCloudConnectorGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListWirelessCloudConnectorGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWirelessCloudConnectorGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3290,9 +3515,9 @@ export class ListWirelessCloudConnectorsResponseBody extends $tea.Model {
 }
 
 export class ListWirelessCloudConnectorsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListWirelessCloudConnectorsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWirelessCloudConnectorsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3356,9 +3581,9 @@ export class ListZonesResponseBody extends $tea.Model {
 }
 
 export class ListZonesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListZonesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListZonesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3428,9 +3653,9 @@ export class LockCardsResponseBody extends $tea.Model {
 }
 
 export class LockCardsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LockCardsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LockCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3503,9 +3728,9 @@ export class ModifyWirelessCloudConnectorFeatureResponseBody extends $tea.Model 
 }
 
 export class ModifyWirelessCloudConnectorFeatureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyWirelessCloudConnectorFeatureResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyWirelessCloudConnectorFeatureResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3566,9 +3791,9 @@ export class OpenCc5gServiceResponseBody extends $tea.Model {
 }
 
 export class OpenCc5gServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: OpenCc5gServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OpenCc5gServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3638,9 +3863,9 @@ export class RebindCardsResponseBody extends $tea.Model {
 }
 
 export class RebindCardsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RebindCardsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RebindCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3713,9 +3938,9 @@ export class RemoveWirelessCloudConnectorFromGroupResponseBody extends $tea.Mode
 }
 
 export class RemoveWirelessCloudConnectorFromGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveWirelessCloudConnectorFromGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveWirelessCloudConnectorFromGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3788,9 +4013,9 @@ export class ResetAreaLimitCardsResponseBody extends $tea.Model {
 }
 
 export class ResetAreaLimitCardsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetAreaLimitCardsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetAreaLimitCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3860,9 +4085,9 @@ export class ResumeCardsResponseBody extends $tea.Model {
 }
 
 export class ResumeCardsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResumeCardsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResumeCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3932,9 +4157,9 @@ export class RevokeNetLinkResponseBody extends $tea.Model {
 }
 
 export class RevokeNetLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RevokeNetLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeNetLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4004,9 +4229,9 @@ export class StopCardsResponseBody extends $tea.Model {
 }
 
 export class StopCardsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopCardsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4088,9 +4313,9 @@ export class SubmitDiagnoseTaskForSingleCardResponseBody extends $tea.Model {
 }
 
 export class SubmitDiagnoseTaskForSingleCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SubmitDiagnoseTaskForSingleCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitDiagnoseTaskForSingleCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4157,9 +4382,9 @@ export class SwitchWirelessCloudConnectorToBusinessResponseBody extends $tea.Mod
 }
 
 export class SwitchWirelessCloudConnectorToBusinessResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SwitchWirelessCloudConnectorToBusinessResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchWirelessCloudConnectorToBusinessResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4229,9 +4454,9 @@ export class UnlockCardsResponseBody extends $tea.Model {
 }
 
 export class UnlockCardsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnlockCardsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnlockCardsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4322,9 +4547,9 @@ export class UpdateAuthorizationRuleResponseBody extends $tea.Model {
 }
 
 export class UpdateAuthorizationRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAuthorizationRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4418,9 +4643,9 @@ export class UpdateBatchOperateCardsTaskResponseBody extends $tea.Model {
 }
 
 export class UpdateBatchOperateCardsTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateBatchOperateCardsTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBatchOperateCardsTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4496,9 +4721,9 @@ export class UpdateCardResponseBody extends $tea.Model {
 }
 
 export class UpdateCardResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateCardResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateCardResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4580,9 +4805,9 @@ export class UpdateDNSAuthorizationRuleResponseBody extends $tea.Model {
 }
 
 export class UpdateDNSAuthorizationRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateDNSAuthorizationRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDNSAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4673,9 +4898,9 @@ export class UpdateGroupAuthorizationRuleResponseBody extends $tea.Model {
 }
 
 export class UpdateGroupAuthorizationRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateGroupAuthorizationRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGroupAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4757,9 +4982,9 @@ export class UpdateGroupDnsAuthorizationRuleResponseBody extends $tea.Model {
 }
 
 export class UpdateGroupDnsAuthorizationRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateGroupDnsAuthorizationRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGroupDnsAuthorizationRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4832,9 +5057,9 @@ export class UpdateWirelessCloudConnectorResponseBody extends $tea.Model {
 }
 
 export class UpdateWirelessCloudConnectorResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateWirelessCloudConnectorResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateWirelessCloudConnectorResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4907,9 +5132,9 @@ export class UpdateWirelessCloudConnectorGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateWirelessCloudConnectorGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateWirelessCloudConnectorGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateWirelessCloudConnectorGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5866,6 +6091,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 添加5G高速上云服务实例的DNS授权规则
+   *
+   * @param request AddDNSAuthorizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddDNSAuthorizationRuleResponse
+   */
   async addDNSAuthorizationRuleWithOptions(request: AddDNSAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddDNSAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5914,11 +6146,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddDNSAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new AddDNSAuthorizationRuleResponse({}));
   }
 
+  /**
+   * @summary 添加5G高速上云服务实例的DNS授权规则
+   *
+   * @param request AddDNSAuthorizationRuleRequest
+   * @return AddDNSAuthorizationRuleResponse
+   */
   async addDNSAuthorizationRule(request: AddDNSAuthorizationRuleRequest): Promise<AddDNSAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addDNSAuthorizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 添加5G高速上云服务实例组的DNS授权规则
+   *
+   * @param request AddGroupDnsAuthorizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddGroupDnsAuthorizationRuleResponse
+   */
   async addGroupDnsAuthorizationRuleWithOptions(request: AddGroupDnsAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<AddGroupDnsAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5967,11 +6212,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddGroupDnsAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new AddGroupDnsAuthorizationRuleResponse({}));
   }
 
+  /**
+   * @summary 添加5G高速上云服务实例组的DNS授权规则
+   *
+   * @param request AddGroupDnsAuthorizationRuleRequest
+   * @return AddGroupDnsAuthorizationRuleResponse
+   */
   async addGroupDnsAuthorizationRule(request: AddGroupDnsAuthorizationRuleRequest): Promise<AddGroupDnsAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addGroupDnsAuthorizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 添加5G高速上云服务实例到组
+   *
+   * @param request AddWirelessCloudConnectorToGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddWirelessCloudConnectorToGroupResponse
+   */
   async addWirelessCloudConnectorToGroupWithOptions(request: AddWirelessCloudConnectorToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddWirelessCloudConnectorToGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6012,11 +6270,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AddWirelessCloudConnectorToGroupResponse>(await this.callApi(params, req, runtime), new AddWirelessCloudConnectorToGroupResponse({}));
   }
 
+  /**
+   * @summary 添加5G高速上云服务实例到组
+   *
+   * @param request AddWirelessCloudConnectorToGroupRequest
+   * @return AddWirelessCloudConnectorToGroupResponse
+   */
   async addWirelessCloudConnectorToGroup(request: AddWirelessCloudConnectorToGroupRequest): Promise<AddWirelessCloudConnectorToGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addWirelessCloudConnectorToGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建5G高速上云服务实例下的网络连接
+   *
+   * @param request AttachVpcToNetLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachVpcToNetLinkResponse
+   */
   async attachVpcToNetLinkWithOptions(request: AttachVpcToNetLinkRequest, runtime: $Util.RuntimeOptions): Promise<AttachVpcToNetLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6065,11 +6336,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachVpcToNetLinkResponse>(await this.callApi(params, req, runtime), new AttachVpcToNetLinkResponse({}));
   }
 
+  /**
+   * @summary 创建5G高速上云服务实例下的网络连接
+   *
+   * @param request AttachVpcToNetLinkRequest
+   * @return AttachVpcToNetLinkResponse
+   */
   async attachVpcToNetLink(request: AttachVpcToNetLinkRequest): Promise<AttachVpcToNetLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachVpcToNetLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建5G高速上云服务实例的授权规则
+   *
+   * @param request CreateAuthorizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAuthorizationRuleResponse
+   */
   async createAuthorizationRuleWithOptions(request: CreateAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6134,11 +6418,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new CreateAuthorizationRuleResponse({}));
   }
 
+  /**
+   * @summary 创建5G高速上云服务实例的授权规则
+   *
+   * @param request CreateAuthorizationRuleRequest
+   * @return CreateAuthorizationRuleResponse
+   */
   async createAuthorizationRule(request: CreateAuthorizationRuleRequest): Promise<CreateAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAuthorizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建批量操作卡任务
+   *
+   * @param request CreateBatchOperateCardsTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBatchOperateCardsTaskResponse
+   */
   async createBatchOperateCardsTaskWithOptions(request: CreateBatchOperateCardsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateBatchOperateCardsTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6203,11 +6500,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBatchOperateCardsTaskResponse>(await this.callApi(params, req, runtime), new CreateBatchOperateCardsTaskResponse({}));
   }
 
+  /**
+   * @summary 创建批量操作卡任务
+   *
+   * @param request CreateBatchOperateCardsTaskRequest
+   * @return CreateBatchOperateCardsTaskResponse
+   */
   async createBatchOperateCardsTask(request: CreateBatchOperateCardsTaskRequest): Promise<CreateBatchOperateCardsTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBatchOperateCardsTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建5G高速上云服务实例组的授权规则
+   *
+   * @param request CreateGroupAuthorizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGroupAuthorizationRuleResponse
+   */
   async createGroupAuthorizationRuleWithOptions(request: CreateGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6272,11 +6582,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGroupAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new CreateGroupAuthorizationRuleResponse({}));
   }
 
+  /**
+   * @summary 创建5G高速上云服务实例组的授权规则
+   *
+   * @param request CreateGroupAuthorizationRuleRequest
+   * @return CreateGroupAuthorizationRuleResponse
+   */
   async createGroupAuthorizationRule(request: CreateGroupAuthorizationRuleRequest): Promise<CreateGroupAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGroupAuthorizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 下发iotcc实例的回程路由
+   *
+   * @param request CreateIoTCloudConnectorBackhaulRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIoTCloudConnectorBackhaulRouteResponse
+   */
   async createIoTCloudConnectorBackhaulRouteWithOptions(request: CreateIoTCloudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorBackhaulRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6313,11 +6636,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateIoTCloudConnectorBackhaulRouteResponse>(await this.callApi(params, req, runtime), new CreateIoTCloudConnectorBackhaulRouteResponse({}));
   }
 
+  /**
+   * @summary 下发iotcc实例的回程路由
+   *
+   * @param request CreateIoTCloudConnectorBackhaulRouteRequest
+   * @return CreateIoTCloudConnectorBackhaulRouteResponse
+   */
   async createIoTCloudConnectorBackhaulRoute(request: CreateIoTCloudConnectorBackhaulRouteRequest): Promise<CreateIoTCloudConnectorBackhaulRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createIoTCloudConnectorBackhaulRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建5G高速上云服务实例
+   *
+   * @param request CreateWirelessCloudConnectorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWirelessCloudConnectorResponse
+   */
   async createWirelessCloudConnectorWithOptions(request: CreateWirelessCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<CreateWirelessCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6374,11 +6710,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWirelessCloudConnectorResponse>(await this.callApi(params, req, runtime), new CreateWirelessCloudConnectorResponse({}));
   }
 
+  /**
+   * @summary 创建5G高速上云服务实例
+   *
+   * @param request CreateWirelessCloudConnectorRequest
+   * @return CreateWirelessCloudConnectorResponse
+   */
   async createWirelessCloudConnector(request: CreateWirelessCloudConnectorRequest): Promise<CreateWirelessCloudConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWirelessCloudConnectorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建5G高速上云服务实例组
+   *
+   * @param request CreateWirelessCloudConnectorGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWirelessCloudConnectorGroupResponse
+   */
   async createWirelessCloudConnectorGroupWithOptions(request: CreateWirelessCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateWirelessCloudConnectorGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6419,11 +6768,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWirelessCloudConnectorGroupResponse>(await this.callApi(params, req, runtime), new CreateWirelessCloudConnectorGroupResponse({}));
   }
 
+  /**
+   * @summary 创建5G高速上云服务实例组
+   *
+   * @param request CreateWirelessCloudConnectorGroupRequest
+   * @return CreateWirelessCloudConnectorGroupResponse
+   */
   async createWirelessCloudConnectorGroup(request: CreateWirelessCloudConnectorGroupRequest): Promise<CreateWirelessCloudConnectorGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWirelessCloudConnectorGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除5G高速上云服务实例的授权规则
+   *
+   * @param request DeleteAuthorizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAuthorizationRuleResponse
+   */
   async deleteAuthorizationRuleWithOptions(request: DeleteAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6460,11 +6822,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new DeleteAuthorizationRuleResponse({}));
   }
 
+  /**
+   * @summary 删除5G高速上云服务实例的授权规则
+   *
+   * @param request DeleteAuthorizationRuleRequest
+   * @return DeleteAuthorizationRuleResponse
+   */
   async deleteAuthorizationRule(request: DeleteAuthorizationRuleRequest): Promise<DeleteAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAuthorizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除批量操作卡任务
+   *
+   * @param request DeleteBatchOperateCardsTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBatchOperateCardsTaskResponse
+   */
   async deleteBatchOperateCardsTaskWithOptions(request: DeleteBatchOperateCardsTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBatchOperateCardsTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6501,11 +6876,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBatchOperateCardsTaskResponse>(await this.callApi(params, req, runtime), new DeleteBatchOperateCardsTaskResponse({}));
   }
 
+  /**
+   * @summary 删除批量操作卡任务
+   *
+   * @param request DeleteBatchOperateCardsTaskRequest
+   * @return DeleteBatchOperateCardsTaskResponse
+   */
   async deleteBatchOperateCardsTask(request: DeleteBatchOperateCardsTaskRequest): Promise<DeleteBatchOperateCardsTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBatchOperateCardsTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除5G高速上云服务实例组的授权规则
+   *
+   * @param request DeleteGroupAuthorizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGroupAuthorizationRuleResponse
+   */
   async deleteGroupAuthorizationRuleWithOptions(request: DeleteGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6542,11 +6930,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGroupAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new DeleteGroupAuthorizationRuleResponse({}));
   }
 
+  /**
+   * @summary 删除5G高速上云服务实例组的授权规则
+   *
+   * @param request DeleteGroupAuthorizationRuleRequest
+   * @return DeleteGroupAuthorizationRuleResponse
+   */
   async deleteGroupAuthorizationRule(request: DeleteGroupAuthorizationRuleRequest): Promise<DeleteGroupAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGroupAuthorizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除iotcc实例的回程路由
+   *
+   * @param request DeleteIoTCloudConnectorBackhaulRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIoTCloudConnectorBackhaulRouteResponse
+   */
   async deleteIoTCloudConnectorBackhaulRouteWithOptions(request: DeleteIoTCloudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIoTCloudConnectorBackhaulRouteResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6583,11 +6984,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteIoTCloudConnectorBackhaulRouteResponse>(await this.callApi(params, req, runtime), new DeleteIoTCloudConnectorBackhaulRouteResponse({}));
   }
 
+  /**
+   * @summary 删除iotcc实例的回程路由
+   *
+   * @param request DeleteIoTCloudConnectorBackhaulRouteRequest
+   * @return DeleteIoTCloudConnectorBackhaulRouteResponse
+   */
   async deleteIoTCloudConnectorBackhaulRoute(request: DeleteIoTCloudConnectorBackhaulRouteRequest): Promise<DeleteIoTCloudConnectorBackhaulRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIoTCloudConnectorBackhaulRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除5G高速上云服务实例
+   *
+   * @param request DeleteWirelessCloudConnectorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWirelessCloudConnectorResponse
+   */
   async deleteWirelessCloudConnectorWithOptions(request: DeleteWirelessCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWirelessCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6620,11 +7034,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWirelessCloudConnectorResponse>(await this.callApi(params, req, runtime), new DeleteWirelessCloudConnectorResponse({}));
   }
 
+  /**
+   * @summary 删除5G高速上云服务实例
+   *
+   * @param request DeleteWirelessCloudConnectorRequest
+   * @return DeleteWirelessCloudConnectorResponse
+   */
   async deleteWirelessCloudConnector(request: DeleteWirelessCloudConnectorRequest): Promise<DeleteWirelessCloudConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWirelessCloudConnectorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除5G高速上云服务实例分组
+   *
+   * @param request DeleteWirelessCloudConnectorGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWirelessCloudConnectorGroupResponse
+   */
   async deleteWirelessCloudConnectorGroupWithOptions(request: DeleteWirelessCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWirelessCloudConnectorGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6657,11 +7084,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWirelessCloudConnectorGroupResponse>(await this.callApi(params, req, runtime), new DeleteWirelessCloudConnectorGroupResponse({}));
   }
 
+  /**
+   * @summary 删除5G高速上云服务实例分组
+   *
+   * @param request DeleteWirelessCloudConnectorGroupRequest
+   * @return DeleteWirelessCloudConnectorGroupResponse
+   */
   async deleteWirelessCloudConnectorGroup(request: DeleteWirelessCloudConnectorGroupRequest): Promise<DeleteWirelessCloudConnectorGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWirelessCloudConnectorGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 解除5G高速上云服务实例下的网络连接和VPC的绑定
+   *
+   * @param request DetachVpcFromNetLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachVpcFromNetLinkResponse
+   */
   async detachVpcFromNetLinkWithOptions(request: DetachVpcFromNetLinkRequest, runtime: $Util.RuntimeOptions): Promise<DetachVpcFromNetLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6698,11 +7138,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetachVpcFromNetLinkResponse>(await this.callApi(params, req, runtime), new DetachVpcFromNetLinkResponse({}));
   }
 
+  /**
+   * @summary 解除5G高速上云服务实例下的网络连接和VPC的绑定
+   *
+   * @param request DetachVpcFromNetLinkRequest
+   * @return DetachVpcFromNetLinkResponse
+   */
   async detachVpcFromNetLink(request: DetachVpcFromNetLinkRequest): Promise<DetachVpcFromNetLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachVpcFromNetLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 卡注销接口
+   *
+   * @param request FailCardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return FailCardsResponse
+   */
   async failCardsWithOptions(request: FailCardsRequest, runtime: $Util.RuntimeOptions): Promise<FailCardsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6739,11 +7192,24 @@ export default class Client extends OpenApi {
     return $tea.cast<FailCardsResponse>(await this.callApi(params, req, runtime), new FailCardsResponse({}));
   }
 
+  /**
+   * @summary 卡注销接口
+   *
+   * @param request FailCardsRequest
+   * @return FailCardsResponse
+   */
   async failCards(request: FailCardsRequest): Promise<FailCardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.failCardsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例的详细连接信息
+   *
+   * @param request GetCardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCardResponse
+   */
   async getCardWithOptions(request: GetCardRequest, runtime: $Util.RuntimeOptions): Promise<GetCardResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6764,11 +7230,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCardResponse>(await this.callApi(params, req, runtime), new GetCardResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例的详细连接信息
+   *
+   * @param request GetCardRequest
+   * @return GetCardResponse
+   */
   async getCard(request: GetCardRequest): Promise<GetCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询卡锁定停机的原因
+   *
+   * @param request GetCardLockReasonRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCardLockReasonResponse
+   */
   async getCardLockReasonWithOptions(request: GetCardLockReasonRequest, runtime: $Util.RuntimeOptions): Promise<GetCardLockReasonResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6789,11 +7268,58 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCardLockReasonResponse>(await this.callApi(params, req, runtime), new GetCardLockReasonResponse({}));
   }
 
+  /**
+   * @summary 查询卡锁定停机的原因
+   *
+   * @param request GetCardLockReasonRequest
+   * @return GetCardLockReasonResponse
+   */
   async getCardLockReason(request: GetCardLockReasonRequest): Promise<GetCardLockReasonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCardLockReasonWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetCreateCustomerInfomationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCreateCustomerInfomationResponse
+   */
+  async getCreateCustomerInfomationWithOptions(request: GetCreateCustomerInfomationRequest, runtime: $Util.RuntimeOptions): Promise<GetCreateCustomerInfomationResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCreateCustomerInfomation",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCreateCustomerInfomationResponse>(await this.callApi(params, req, runtime), new GetCreateCustomerInfomationResponse({}));
+  }
+
+  /**
+   * @param request GetCreateCustomerInfomationRequest
+   * @return GetCreateCustomerInfomationResponse
+   */
+  async getCreateCustomerInfomation(request: GetCreateCustomerInfomationRequest): Promise<GetCreateCustomerInfomationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCreateCustomerInfomationWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 获取录入客户资料的相关信息
+   *
+   * @param request GetCreateCustomerInformationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCreateCustomerInformationResponse
+   */
   async getCreateCustomerInformationWithOptions(request: GetCreateCustomerInformationRequest, runtime: $Util.RuntimeOptions): Promise<GetCreateCustomerInformationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6814,11 +7340,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCreateCustomerInformationResponse>(await this.callApi(params, req, runtime), new GetCreateCustomerInformationResponse({}));
   }
 
+  /**
+   * @summary 获取录入客户资料的相关信息
+   *
+   * @param request GetCreateCustomerInformationRequest
+   * @return GetCreateCustomerInformationResponse
+   */
   async getCreateCustomerInformation(request: GetCreateCustomerInformationRequest): Promise<GetCreateCustomerInformationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCreateCustomerInformationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询单卡诊断结果
+   *
+   * @param request GetDiagnoseResultForSingleCardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDiagnoseResultForSingleCardResponse
+   */
   async getDiagnoseResultForSingleCardWithOptions(request: GetDiagnoseResultForSingleCardRequest, runtime: $Util.RuntimeOptions): Promise<GetDiagnoseResultForSingleCardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6847,11 +7386,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDiagnoseResultForSingleCardResponse>(await this.callApi(params, req, runtime), new GetDiagnoseResultForSingleCardResponse({}));
   }
 
+  /**
+   * @summary 查询单卡诊断结果
+   *
+   * @param request GetDiagnoseResultForSingleCardRequest
+   * @return GetDiagnoseResultForSingleCardResponse
+   */
   async getDiagnoseResultForSingleCard(request: GetDiagnoseResultForSingleCardRequest): Promise<GetDiagnoseResultForSingleCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDiagnoseResultForSingleCardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例详情
+   *
+   * @param request GetWirelessCloudConnectorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetWirelessCloudConnectorResponse
+   */
   async getWirelessCloudConnectorWithOptions(request: GetWirelessCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<GetWirelessCloudConnectorResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6872,11 +7424,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWirelessCloudConnectorResponse>(await this.callApi(params, req, runtime), new GetWirelessCloudConnectorResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例详情
+   *
+   * @param request GetWirelessCloudConnectorRequest
+   * @return GetWirelessCloudConnectorResponse
+   */
   async getWirelessCloudConnector(request: GetWirelessCloudConnectorRequest): Promise<GetWirelessCloudConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWirelessCloudConnectorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 分享授权网络连接
+   *
+   * @param request GrantNetLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GrantNetLinkResponse
+   */
   async grantNetLinkWithOptions(request: GrantNetLinkRequest, runtime: $Util.RuntimeOptions): Promise<GrantNetLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6917,11 +7482,140 @@ export default class Client extends OpenApi {
     return $tea.cast<GrantNetLinkResponse>(await this.callApi(params, req, runtime), new GrantNetLinkResponse({}));
   }
 
+  /**
+   * @summary 分享授权网络连接
+   *
+   * @param request GrantNetLinkRequest
+   * @return GrantNetLinkResponse
+   */
   async grantNetLink(request: GrantNetLinkRequest): Promise<GrantNetLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.grantNetLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @param request InnerLimitRateCardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InnerLimitRateCardsResponse
+   */
+  async innerLimitRateCardsWithOptions(request: InnerLimitRateCardsRequest, runtime: $Util.RuntimeOptions): Promise<InnerLimitRateCardsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.iccids)) {
+      query["Iccids"] = request.iccids;
+    }
+
+    if (!Util.isUnset(request.innerApi)) {
+      query["InnerApi"] = request.innerApi;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.task)) {
+      query["Task"] = request.task;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InnerLimitRateCards",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InnerLimitRateCardsResponse>(await this.callApi(params, req, runtime), new InnerLimitRateCardsResponse({}));
+  }
+
+  /**
+   * @param request InnerLimitRateCardsRequest
+   * @return InnerLimitRateCardsResponse
+   */
+  async innerLimitRateCards(request: InnerLimitRateCardsRequest): Promise<InnerLimitRateCardsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.innerLimitRateCardsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request InnerStopCardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InnerStopCardsResponse
+   */
+  async innerStopCardsWithOptions(request: InnerStopCardsRequest, runtime: $Util.RuntimeOptions): Promise<InnerStopCardsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.iccids)) {
+      query["Iccids"] = request.iccids;
+    }
+
+    if (!Util.isUnset(request.innerApi)) {
+      query["InnerApi"] = request.innerApi;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.task)) {
+      query["Task"] = request.task;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "InnerStopCards",
+      version: "2022-03-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InnerStopCardsResponse>(await this.callApi(params, req, runtime), new InnerStopCardsResponse({}));
+  }
+
+  /**
+   * @param request InnerStopCardsRequest
+   * @return InnerStopCardsResponse
+   */
+  async innerStopCards(request: InnerStopCardsRequest): Promise<InnerStopCardsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.innerStopCardsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 查询5G高速上云服务支持的APN列表
+   *
+   * @param request ListAPNsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAPNsResponse
+   */
   async listAPNsWithOptions(request: ListAPNsRequest, runtime: $Util.RuntimeOptions): Promise<ListAPNsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6942,11 +7636,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAPNsResponse>(await this.callApi(params, req, runtime), new ListAPNsResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务支持的APN列表
+   *
+   * @param request ListAPNsRequest
+   * @return ListAPNsResponse
+   */
   async listAPNs(request: ListAPNsRequest): Promise<ListAPNsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAPNsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例的授权规则列表
+   *
+   * @param request ListAuthorizationRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAuthorizationRulesResponse
+   */
   async listAuthorizationRulesWithOptions(request: ListAuthorizationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthorizationRulesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6967,11 +7674,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAuthorizationRulesResponse>(await this.callApi(params, req, runtime), new ListAuthorizationRulesResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例的授权规则列表
+   *
+   * @param request ListAuthorizationRulesRequest
+   * @return ListAuthorizationRulesResponse
+   */
   async listAuthorizationRules(request: ListAuthorizationRulesRequest): Promise<ListAuthorizationRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAuthorizationRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询批量操作卡任务列表
+   *
+   * @param request ListBatchOperateCardsTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBatchOperateCardsTasksResponse
+   */
   async listBatchOperateCardsTasksWithOptions(request: ListBatchOperateCardsTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListBatchOperateCardsTasksResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -6992,11 +7712,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBatchOperateCardsTasksResponse>(await this.callApi(params, req, runtime), new ListBatchOperateCardsTasksResponse({}));
   }
 
+  /**
+   * @summary 查询批量操作卡任务列表
+   *
+   * @param request ListBatchOperateCardsTasksRequest
+   * @return ListBatchOperateCardsTasksResponse
+   */
   async listBatchOperateCardsTasks(request: ListBatchOperateCardsTasksRequest): Promise<ListBatchOperateCardsTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBatchOperateCardsTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务物联网卡区域解锁支持区域
+   *
+   * @param request ListCardAreaLimitSupportAreaRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCardAreaLimitSupportAreaResponse
+   */
   async listCardAreaLimitSupportAreaWithOptions(request: ListCardAreaLimitSupportAreaRequest, runtime: $Util.RuntimeOptions): Promise<ListCardAreaLimitSupportAreaResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7017,11 +7750,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCardAreaLimitSupportAreaResponse>(await this.callApi(params, req, runtime), new ListCardAreaLimitSupportAreaResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务物联网卡区域解锁支持区域
+   *
+   * @param request ListCardAreaLimitSupportAreaRequest
+   * @return ListCardAreaLimitSupportAreaResponse
+   */
   async listCardAreaLimitSupportArea(request: ListCardAreaLimitSupportAreaRequest): Promise<ListCardAreaLimitSupportAreaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCardAreaLimitSupportAreaWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例的卡单日流量信息列表
+   *
+   * @param request ListCardDayUsagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCardDayUsagesResponse
+   */
   async listCardDayUsagesWithOptions(request: ListCardDayUsagesRequest, runtime: $Util.RuntimeOptions): Promise<ListCardDayUsagesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7042,11 +7788,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCardDayUsagesResponse>(await this.callApi(params, req, runtime), new ListCardDayUsagesResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例的卡单日流量信息列表
+   *
+   * @param request ListCardDayUsagesRequest
+   * @return ListCardDayUsagesResponse
+   */
   async listCardDayUsages(request: ListCardDayUsagesRequest): Promise<ListCardDayUsagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCardDayUsagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例的流量信息列表
+   *
+   * @param request ListCardUsagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCardUsagesResponse
+   */
   async listCardUsagesWithOptions(request: ListCardUsagesRequest, runtime: $Util.RuntimeOptions): Promise<ListCardUsagesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7067,11 +7826,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCardUsagesResponse>(await this.callApi(params, req, runtime), new ListCardUsagesResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例的流量信息列表
+   *
+   * @param request ListCardUsagesRequest
+   * @return ListCardUsagesResponse
+   */
   async listCardUsages(request: ListCardUsagesRequest): Promise<ListCardUsagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCardUsagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例的连接列表
+   *
+   * @param request ListCardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCardsResponse
+   */
   async listCardsWithOptions(request: ListCardsRequest, runtime: $Util.RuntimeOptions): Promise<ListCardsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7092,11 +7864,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCardsResponse>(await this.callApi(params, req, runtime), new ListCardsResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例的连接列表
+   *
+   * @param request ListCardsRequest
+   * @return ListCardsResponse
+   */
   async listCards(request: ListCardsRequest): Promise<ListCardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCardsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例下的带宽包列表
+   *
+   * @param request ListDataPackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataPackagesResponse
+   */
   async listDataPackagesWithOptions(request: ListDataPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataPackagesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7117,11 +7902,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataPackagesResponse>(await this.callApi(params, req, runtime), new ListDataPackagesResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例下的带宽包列表
+   *
+   * @param request ListDataPackagesRequest
+   * @return ListDataPackagesResponse
+   */
   async listDataPackages(request: ListDataPackagesRequest): Promise<ListDataPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataPackagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询单卡诊断信息列表
+   *
+   * @param request ListDiagnoseInfoForSingleCardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDiagnoseInfoForSingleCardResponse
+   */
   async listDiagnoseInfoForSingleCardWithOptions(request: ListDiagnoseInfoForSingleCardRequest, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseInfoForSingleCardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7170,11 +7968,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDiagnoseInfoForSingleCardResponse>(await this.callApi(params, req, runtime), new ListDiagnoseInfoForSingleCardResponse({}));
   }
 
+  /**
+   * @summary 查询单卡诊断信息列表
+   *
+   * @param request ListDiagnoseInfoForSingleCardRequest
+   * @return ListDiagnoseInfoForSingleCardResponse
+   */
   async listDiagnoseInfoForSingleCard(request: ListDiagnoseInfoForSingleCardRequest): Promise<ListDiagnoseInfoForSingleCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDiagnoseInfoForSingleCardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例组的授权规则列表
+   *
+   * @param request ListGroupAuthorizationRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupAuthorizationRulesResponse
+   */
   async listGroupAuthorizationRulesWithOptions(request: ListGroupAuthorizationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupAuthorizationRulesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7195,11 +8006,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupAuthorizationRulesResponse>(await this.callApi(params, req, runtime), new ListGroupAuthorizationRulesResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例组的授权规则列表
+   *
+   * @param request ListGroupAuthorizationRulesRequest
+   * @return ListGroupAuthorizationRulesResponse
+   */
   async listGroupAuthorizationRules(request: ListGroupAuthorizationRulesRequest): Promise<ListGroupAuthorizationRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupAuthorizationRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询iotcc实例回程路由
+   *
+   * @param request ListIoTCloudConnectorBackhaulRouteRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIoTCloudConnectorBackhaulRouteResponse
+   */
   async listIoTCloudConnectorBackhaulRouteWithOptions(request: ListIoTCloudConnectorBackhaulRouteRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorBackhaulRouteResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7220,11 +8044,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIoTCloudConnectorBackhaulRouteResponse>(await this.callApi(params, req, runtime), new ListIoTCloudConnectorBackhaulRouteResponse({}));
   }
 
+  /**
+   * @summary 查询iotcc实例回程路由
+   *
+   * @param request ListIoTCloudConnectorBackhaulRouteRequest
+   * @return ListIoTCloudConnectorBackhaulRouteResponse
+   */
   async listIoTCloudConnectorBackhaulRoute(request: ListIoTCloudConnectorBackhaulRouteRequest): Promise<ListIoTCloudConnectorBackhaulRouteResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIoTCloudConnectorBackhaulRouteWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例下的订单列表
+   *
+   * @param request ListOrdersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOrdersResponse
+   */
   async listOrdersWithOptions(request: ListOrdersRequest, runtime: $Util.RuntimeOptions): Promise<ListOrdersResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7245,11 +8082,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOrdersResponse>(await this.callApi(params, req, runtime), new ListOrdersResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例下的订单列表
+   *
+   * @param request ListOrdersRequest
+   * @return ListOrdersResponse
+   */
   async listOrders(request: ListOrdersRequest): Promise<ListOrdersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOrdersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务支持的REGION
+   *
+   * @param request ListRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRegionsResponse
+   */
   async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7270,11 +8120,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务支持的REGION
+   *
+   * @param request ListRegionsRequest
+   * @return ListRegionsResponse
+   */
   async listRegions(request: ListRegionsRequest): Promise<ListRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例分组列表
+   *
+   * @param request ListWirelessCloudConnectorGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWirelessCloudConnectorGroupsResponse
+   */
   async listWirelessCloudConnectorGroupsWithOptions(request: ListWirelessCloudConnectorGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListWirelessCloudConnectorGroupsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7295,11 +8158,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWirelessCloudConnectorGroupsResponse>(await this.callApi(params, req, runtime), new ListWirelessCloudConnectorGroupsResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例分组列表
+   *
+   * @param request ListWirelessCloudConnectorGroupsRequest
+   * @return ListWirelessCloudConnectorGroupsResponse
+   */
   async listWirelessCloudConnectorGroups(request: ListWirelessCloudConnectorGroupsRequest): Promise<ListWirelessCloudConnectorGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWirelessCloudConnectorGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例列表
+   *
+   * @param request ListWirelessCloudConnectorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWirelessCloudConnectorsResponse
+   */
   async listWirelessCloudConnectorsWithOptions(request: ListWirelessCloudConnectorsRequest, runtime: $Util.RuntimeOptions): Promise<ListWirelessCloudConnectorsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7320,11 +8196,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWirelessCloudConnectorsResponse>(await this.callApi(params, req, runtime), new ListWirelessCloudConnectorsResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务实例列表
+   *
+   * @param request ListWirelessCloudConnectorsRequest
+   * @return ListWirelessCloudConnectorsResponse
+   */
   async listWirelessCloudConnectors(request: ListWirelessCloudConnectorsRequest): Promise<ListWirelessCloudConnectorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWirelessCloudConnectorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询5G高速上云服务支持的可用区
+   *
+   * @param request ListZonesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListZonesResponse
+   */
   async listZonesWithOptions(request: ListZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListZonesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -7345,11 +8234,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListZonesResponse>(await this.callApi(params, req, runtime), new ListZonesResponse({}));
   }
 
+  /**
+   * @summary 查询5G高速上云服务支持的可用区
+   *
+   * @param request ListZonesRequest
+   * @return ListZonesResponse
+   */
   async listZones(request: ListZonesRequest): Promise<ListZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listZonesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 运营商侧卡停机
+   *
+   * @param request LockCardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LockCardsResponse
+   */
   async lockCardsWithOptions(request: LockCardsRequest, runtime: $Util.RuntimeOptions): Promise<LockCardsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7386,11 +8288,24 @@ export default class Client extends OpenApi {
     return $tea.cast<LockCardsResponse>(await this.callApi(params, req, runtime), new LockCardsResponse({}));
   }
 
+  /**
+   * @summary 运营商侧卡停机
+   *
+   * @param request LockCardsRequest
+   * @return LockCardsResponse
+   */
   async lockCards(request: LockCardsRequest): Promise<LockCardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.lockCardsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改5G高速上云服务实例属性
+   *
+   * @param request ModifyWirelessCloudConnectorFeatureRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyWirelessCloudConnectorFeatureResponse
+   */
   async modifyWirelessCloudConnectorFeatureWithOptions(request: ModifyWirelessCloudConnectorFeatureRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWirelessCloudConnectorFeatureResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7431,11 +8346,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyWirelessCloudConnectorFeatureResponse>(await this.callApi(params, req, runtime), new ModifyWirelessCloudConnectorFeatureResponse({}));
   }
 
+  /**
+   * @summary 修改5G高速上云服务实例属性
+   *
+   * @param request ModifyWirelessCloudConnectorFeatureRequest
+   * @return ModifyWirelessCloudConnectorFeatureResponse
+   */
   async modifyWirelessCloudConnectorFeature(request: ModifyWirelessCloudConnectorFeatureRequest): Promise<ModifyWirelessCloudConnectorFeatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyWirelessCloudConnectorFeatureWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开通5G高速上云服务
+   *
+   * @param request OpenCc5gServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenCc5gServiceResponse
+   */
   async openCc5gServiceWithOptions(request: OpenCc5gServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenCc5gServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7460,11 +8388,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenCc5gServiceResponse>(await this.callApi(params, req, runtime), new OpenCc5gServiceResponse({}));
   }
 
+  /**
+   * @summary 开通5G高速上云服务
+   *
+   * @param request OpenCc5gServiceRequest
+   * @return OpenCc5gServiceResponse
+   */
   async openCc5gService(request: OpenCc5gServiceRequest): Promise<OpenCc5gServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openCc5gServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 物联网卡换绑解锁操作
+   *
+   * @param request RebindCardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RebindCardsResponse
+   */
   async rebindCardsWithOptions(request: RebindCardsRequest, runtime: $Util.RuntimeOptions): Promise<RebindCardsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7501,11 +8442,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RebindCardsResponse>(await this.callApi(params, req, runtime), new RebindCardsResponse({}));
   }
 
+  /**
+   * @summary 物联网卡换绑解锁操作
+   *
+   * @param request RebindCardsRequest
+   * @return RebindCardsResponse
+   */
   async rebindCards(request: RebindCardsRequest): Promise<RebindCardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebindCardsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 从组里移除5G高速上云服务实例
+   *
+   * @param request RemoveWirelessCloudConnectorFromGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveWirelessCloudConnectorFromGroupResponse
+   */
   async removeWirelessCloudConnectorFromGroupWithOptions(request: RemoveWirelessCloudConnectorFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveWirelessCloudConnectorFromGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7546,11 +8500,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveWirelessCloudConnectorFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveWirelessCloudConnectorFromGroupResponse({}));
   }
 
+  /**
+   * @summary 从组里移除5G高速上云服务实例
+   *
+   * @param request RemoveWirelessCloudConnectorFromGroupRequest
+   * @return RemoveWirelessCloudConnectorFromGroupResponse
+   */
   async removeWirelessCloudConnectorFromGroup(request: RemoveWirelessCloudConnectorFromGroupRequest): Promise<RemoveWirelessCloudConnectorFromGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeWirelessCloudConnectorFromGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 重置单卡区域限制
+   *
+   * @param request ResetAreaLimitCardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResetAreaLimitCardsResponse
+   */
   async resetAreaLimitCardsWithOptions(request: ResetAreaLimitCardsRequest, runtime: $Util.RuntimeOptions): Promise<ResetAreaLimitCardsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7591,11 +8558,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetAreaLimitCardsResponse>(await this.callApi(params, req, runtime), new ResetAreaLimitCardsResponse({}));
   }
 
+  /**
+   * @summary 重置单卡区域限制
+   *
+   * @param request ResetAreaLimitCardsRequest
+   * @return ResetAreaLimitCardsResponse
+   */
   async resetAreaLimitCards(request: ResetAreaLimitCardsRequest): Promise<ResetAreaLimitCardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAreaLimitCardsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 激活单卡运营商侧卡状态恢复
+   *
+   * @param request ResumeCardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ResumeCardsResponse
+   */
   async resumeCardsWithOptions(request: ResumeCardsRequest, runtime: $Util.RuntimeOptions): Promise<ResumeCardsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7632,11 +8612,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeCardsResponse>(await this.callApi(params, req, runtime), new ResumeCardsResponse({}));
   }
 
+  /**
+   * @summary 激活单卡运营商侧卡状态恢复
+   *
+   * @param request ResumeCardsRequest
+   * @return ResumeCardsResponse
+   */
   async resumeCards(request: ResumeCardsRequest): Promise<ResumeCardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeCardsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 撤销分享授权网络连接
+   *
+   * @param request RevokeNetLinkRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevokeNetLinkResponse
+   */
   async revokeNetLinkWithOptions(request: RevokeNetLinkRequest, runtime: $Util.RuntimeOptions): Promise<RevokeNetLinkResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7673,11 +8666,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RevokeNetLinkResponse>(await this.callApi(params, req, runtime), new RevokeNetLinkResponse({}));
   }
 
+  /**
+   * @summary 撤销分享授权网络连接
+   *
+   * @param request RevokeNetLinkRequest
+   * @return RevokeNetLinkResponse
+   */
   async revokeNetLink(request: RevokeNetLinkRequest): Promise<RevokeNetLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revokeNetLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 运营商侧卡停机
+   *
+   * @param request StopCardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopCardsResponse
+   */
   async stopCardsWithOptions(request: StopCardsRequest, runtime: $Util.RuntimeOptions): Promise<StopCardsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7714,11 +8720,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopCardsResponse>(await this.callApi(params, req, runtime), new StopCardsResponse({}));
   }
 
+  /**
+   * @summary 运营商侧卡停机
+   *
+   * @param request StopCardsRequest
+   * @return StopCardsResponse
+   */
   async stopCards(request: StopCardsRequest): Promise<StopCardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopCardsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 开启cciot单卡一键诊断
+   *
+   * @param request SubmitDiagnoseTaskForSingleCardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitDiagnoseTaskForSingleCardResponse
+   */
   async submitDiagnoseTaskForSingleCardWithOptions(request: SubmitDiagnoseTaskForSingleCardRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDiagnoseTaskForSingleCardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7767,11 +8786,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitDiagnoseTaskForSingleCardResponse>(await this.callApi(params, req, runtime), new SubmitDiagnoseTaskForSingleCardResponse({}));
   }
 
+  /**
+   * @summary 开启cciot单卡一键诊断
+   *
+   * @param request SubmitDiagnoseTaskForSingleCardRequest
+   * @return SubmitDiagnoseTaskForSingleCardResponse
+   */
   async submitDiagnoseTaskForSingleCard(request: SubmitDiagnoseTaskForSingleCardRequest): Promise<SubmitDiagnoseTaskForSingleCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitDiagnoseTaskForSingleCardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 切换cc5g实例商业类型到商业版
+   *
+   * @param request SwitchWirelessCloudConnectorToBusinessRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SwitchWirelessCloudConnectorToBusinessResponse
+   */
   async switchWirelessCloudConnectorToBusinessWithOptions(request: SwitchWirelessCloudConnectorToBusinessRequest, runtime: $Util.RuntimeOptions): Promise<SwitchWirelessCloudConnectorToBusinessResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7804,11 +8836,24 @@ export default class Client extends OpenApi {
     return $tea.cast<SwitchWirelessCloudConnectorToBusinessResponse>(await this.callApi(params, req, runtime), new SwitchWirelessCloudConnectorToBusinessResponse({}));
   }
 
+  /**
+   * @summary 切换cc5g实例商业类型到商业版
+   *
+   * @param request SwitchWirelessCloudConnectorToBusinessRequest
+   * @return SwitchWirelessCloudConnectorToBusinessResponse
+   */
   async switchWirelessCloudConnectorToBusiness(request: SwitchWirelessCloudConnectorToBusinessRequest): Promise<SwitchWirelessCloudConnectorToBusinessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchWirelessCloudConnectorToBusinessWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量解锁卡
+   *
+   * @param request UnlockCardsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnlockCardsResponse
+   */
   async unlockCardsWithOptions(request: UnlockCardsRequest, runtime: $Util.RuntimeOptions): Promise<UnlockCardsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7845,11 +8890,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnlockCardsResponse>(await this.callApi(params, req, runtime), new UnlockCardsResponse({}));
   }
 
+  /**
+   * @summary 批量解锁卡
+   *
+   * @param request UnlockCardsRequest
+   * @return UnlockCardsResponse
+   */
   async unlockCards(request: UnlockCardsRequest): Promise<UnlockCardsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unlockCardsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新5G高速上云服务实例的授权规则
+   *
+   * @param request UpdateAuthorizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAuthorizationRuleResponse
+   */
   async updateAuthorizationRuleWithOptions(request: UpdateAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7914,11 +8972,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new UpdateAuthorizationRuleResponse({}));
   }
 
+  /**
+   * @summary 更新5G高速上云服务实例的授权规则
+   *
+   * @param request UpdateAuthorizationRuleRequest
+   * @return UpdateAuthorizationRuleResponse
+   */
   async updateAuthorizationRule(request: UpdateAuthorizationRuleRequest): Promise<UpdateAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAuthorizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改批量操作卡任务
+   *
+   * @param request UpdateBatchOperateCardsTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBatchOperateCardsTaskResponse
+   */
   async updateBatchOperateCardsTaskWithOptions(request: UpdateBatchOperateCardsTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBatchOperateCardsTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7987,11 +9058,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBatchOperateCardsTaskResponse>(await this.callApi(params, req, runtime), new UpdateBatchOperateCardsTaskResponse({}));
   }
 
+  /**
+   * @summary 修改批量操作卡任务
+   *
+   * @param request UpdateBatchOperateCardsTaskRequest
+   * @return UpdateBatchOperateCardsTaskResponse
+   */
   async updateBatchOperateCardsTask(request: UpdateBatchOperateCardsTaskRequest): Promise<UpdateBatchOperateCardsTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBatchOperateCardsTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改5G高速上云服务实例的连接描述和名称信息
+   *
+   * @param request UpdateCardRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCardResponse
+   */
   async updateCardWithOptions(request: UpdateCardRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8036,11 +9120,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCardResponse>(await this.callApi(params, req, runtime), new UpdateCardResponse({}));
   }
 
+  /**
+   * @summary 修改5G高速上云服务实例的连接描述和名称信息
+   *
+   * @param request UpdateCardRequest
+   * @return UpdateCardResponse
+   */
   async updateCard(request: UpdateCardRequest): Promise<UpdateCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCardWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新5G高速上云服务实例的DNS授权规则
+   *
+   * @param request UpdateDNSAuthorizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDNSAuthorizationRuleResponse
+   */
   async updateDNSAuthorizationRuleWithOptions(request: UpdateDNSAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDNSAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8093,11 +9190,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDNSAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new UpdateDNSAuthorizationRuleResponse({}));
   }
 
+  /**
+   * @summary 更新5G高速上云服务实例的DNS授权规则
+   *
+   * @param request UpdateDNSAuthorizationRuleRequest
+   * @return UpdateDNSAuthorizationRuleResponse
+   */
   async updateDNSAuthorizationRule(request: UpdateDNSAuthorizationRuleRequest): Promise<UpdateDNSAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDNSAuthorizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新5G高速上云服务实例组的授权规则
+   *
+   * @param request UpdateGroupAuthorizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGroupAuthorizationRuleResponse
+   */
   async updateGroupAuthorizationRuleWithOptions(request: UpdateGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8162,11 +9272,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGroupAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new UpdateGroupAuthorizationRuleResponse({}));
   }
 
+  /**
+   * @summary 更新5G高速上云服务实例组的授权规则
+   *
+   * @param request UpdateGroupAuthorizationRuleRequest
+   * @return UpdateGroupAuthorizationRuleResponse
+   */
   async updateGroupAuthorizationRule(request: UpdateGroupAuthorizationRuleRequest): Promise<UpdateGroupAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGroupAuthorizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新5G高速上云服务实例组的DNS授权规则
+   *
+   * @param request UpdateGroupDnsAuthorizationRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGroupDnsAuthorizationRuleResponse
+   */
   async updateGroupDnsAuthorizationRuleWithOptions(request: UpdateGroupDnsAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupDnsAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8219,11 +9342,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGroupDnsAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new UpdateGroupDnsAuthorizationRuleResponse({}));
   }
 
+  /**
+   * @summary 更新5G高速上云服务实例组的DNS授权规则
+   *
+   * @param request UpdateGroupDnsAuthorizationRuleRequest
+   * @return UpdateGroupDnsAuthorizationRuleResponse
+   */
   async updateGroupDnsAuthorizationRule(request: UpdateGroupDnsAuthorizationRuleRequest): Promise<UpdateGroupDnsAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGroupDnsAuthorizationRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改5G高速上云服务实例
+   *
+   * @param request UpdateWirelessCloudConnectorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWirelessCloudConnectorResponse
+   */
   async updateWirelessCloudConnectorWithOptions(request: UpdateWirelessCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWirelessCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8264,11 +9400,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWirelessCloudConnectorResponse>(await this.callApi(params, req, runtime), new UpdateWirelessCloudConnectorResponse({}));
   }
 
+  /**
+   * @summary 修改5G高速上云服务实例
+   *
+   * @param request UpdateWirelessCloudConnectorRequest
+   * @return UpdateWirelessCloudConnectorResponse
+   */
   async updateWirelessCloudConnector(request: UpdateWirelessCloudConnectorRequest): Promise<UpdateWirelessCloudConnectorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWirelessCloudConnectorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改5G高速上云服务实例分组
+   *
+   * @param request UpdateWirelessCloudConnectorGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWirelessCloudConnectorGroupResponse
+   */
   async updateWirelessCloudConnectorGroupWithOptions(request: UpdateWirelessCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWirelessCloudConnectorGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8309,6 +9458,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWirelessCloudConnectorGroupResponse>(await this.callApi(params, req, runtime), new UpdateWirelessCloudConnectorGroupResponse({}));
   }
 
+  /**
+   * @summary 修改5G高速上云服务实例分组
+   *
+   * @param request UpdateWirelessCloudConnectorGroupRequest
+   * @return UpdateWirelessCloudConnectorGroupResponse
+   */
   async updateWirelessCloudConnectorGroup(request: UpdateWirelessCloudConnectorGroupRequest): Promise<UpdateWirelessCloudConnectorGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWirelessCloudConnectorGroupWithOptions(request, runtime);
