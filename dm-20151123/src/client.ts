@@ -1812,6 +1812,7 @@ export class GetSuppressionListLevelResponse extends $tea.Model {
 }
 
 export class GetTrackListRequest extends $tea.Model {
+  accountName?: string;
   endTime?: string;
   offset?: string;
   offsetCreateTime?: string;
@@ -1822,9 +1823,11 @@ export class GetTrackListRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   startTime?: string;
+  tagName?: string;
   total?: string;
   static names(): { [key: string]: string } {
     return {
+      accountName: 'AccountName',
       endTime: 'EndTime',
       offset: 'Offset',
       offsetCreateTime: 'OffsetCreateTime',
@@ -1835,12 +1838,14 @@ export class GetTrackListRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       startTime: 'StartTime',
+      tagName: 'TagName',
       total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accountName: 'string',
       endTime: 'string',
       offset: 'string',
       offsetCreateTime: 'string',
@@ -1851,6 +1856,7 @@ export class GetTrackListRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       startTime: 'string',
+      tagName: 'string',
       total: 'string',
     };
   }
@@ -5937,6 +5943,10 @@ export default class Client extends OpenApi {
   async getTrackListWithOptions(request: GetTrackListRequest, runtime: $Util.RuntimeOptions): Promise<GetTrackListResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
     if (!Util.isUnset(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
@@ -5975,6 +5985,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.startTime)) {
       query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tagName)) {
+      query["TagName"] = request.tagName;
     }
 
     if (!Util.isUnset(request.total)) {
