@@ -363,6 +363,184 @@ export class CreateIndexResponse extends $tea.Model {
   }
 }
 
+export class DeleteIndexRequest extends $tea.Model {
+  indexId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexId: 'IndexId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndexResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndexResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndexDocumentRequest extends $tea.Model {
+  documentIds?: string[];
+  indexId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentIds: 'DocumentIds',
+      indexId: 'IndexId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentIds: { 'type': 'array', 'itemType': 'string' },
+      indexId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndexDocumentShrinkRequest extends $tea.Model {
+  documentIdsShrink?: string;
+  indexId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentIdsShrink: 'DocumentIds',
+      indexId: 'IndexId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentIdsShrink: 'string',
+      indexId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndexDocumentResponseBody extends $tea.Model {
+  code?: string;
+  data?: DeleteIndexDocumentResponseBodyData;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DeleteIndexDocumentResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndexDocumentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIndexDocumentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIndexDocumentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileResponseBody extends $tea.Model {
   code?: string;
   data?: DescribeFileResponseBodyData;
@@ -495,6 +673,270 @@ export class GetIndexJobStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetIndexJobStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChunksRequest extends $tea.Model {
+  fields?: string[];
+  filed?: string;
+  indexId?: string;
+  pageNum?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fields: 'Fields',
+      filed: 'Filed',
+      indexId: 'IndexId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fields: { 'type': 'array', 'itemType': 'string' },
+      filed: 'string',
+      indexId: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChunksResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListChunksResponseBodyData;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListChunksResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChunksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListChunksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListChunksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndexDocumentsRequest extends $tea.Model {
+  documentName?: string;
+  documentStatus?: string;
+  indexId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      documentName: 'DocumentName',
+      documentStatus: 'DocumentStatus',
+      indexId: 'IndexId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentName: 'string',
+      documentStatus: 'string',
+      indexId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndexDocumentsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListIndexDocumentsResponseBodyData;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListIndexDocumentsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndexDocumentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIndexDocumentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIndexDocumentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndicesRequest extends $tea.Model {
+  indexName?: string;
+  pageNumber?: string;
+  pageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indexName: 'IndexName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indexName: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndicesResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListIndicesResponseBodyData;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListIndicesResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndicesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIndicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIndicesResponseBody,
     };
   }
 
@@ -975,6 +1417,25 @@ export class CreateIndexResponseBodyData extends $tea.Model {
   }
 }
 
+export class DeleteIndexDocumentResponseBodyData extends $tea.Model {
+  deletedDocument?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      deletedDocument: 'DeletedDocument',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deletedDocument: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFileResponseBodyData extends $tea.Model {
   categoryId?: string;
   createTime?: string;
@@ -1063,6 +1524,213 @@ export class GetIndexJobStatusResponseBodyData extends $tea.Model {
       documents: { 'type': 'array', 'itemType': GetIndexJobStatusResponseBodyDataDocuments },
       jobId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChunksResponseBodyDataNodes extends $tea.Model {
+  metadata?: any;
+  score?: number;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metadata: 'Metadata',
+      score: 'Score',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metadata: 'any',
+      score: 'number',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChunksResponseBodyData extends $tea.Model {
+  nodes?: ListChunksResponseBodyDataNodes[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': ListChunksResponseBodyDataNodes },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndexDocumentsResponseBodyDataDocuments extends $tea.Model {
+  code?: string;
+  documentType?: string;
+  id?: string;
+  message?: string;
+  name?: string;
+  size?: number;
+  sourceId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      documentType: 'DocumentType',
+      id: 'Id',
+      message: 'Message',
+      name: 'Name',
+      size: 'Size',
+      sourceId: 'SourceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      documentType: 'string',
+      id: 'string',
+      message: 'string',
+      name: 'string',
+      size: 'number',
+      sourceId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndexDocumentsResponseBodyData extends $tea.Model {
+  documents?: ListIndexDocumentsResponseBodyDataDocuments[];
+  indexId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      documents: 'Documents',
+      indexId: 'IndexId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documents: { 'type': 'array', 'itemType': ListIndexDocumentsResponseBodyDataDocuments },
+      indexId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndicesResponseBodyDataIndices extends $tea.Model {
+  chunkSize?: number;
+  description?: string;
+  documentIds?: string[];
+  embeddingModelName?: string;
+  id?: string;
+  name?: string;
+  overlapSize?: number;
+  rerankMinScore?: string;
+  rerankModelName?: string;
+  separator?: string;
+  sinkInstanceId?: string;
+  sinkRegion?: string;
+  sinkType?: string;
+  sourceType?: string;
+  structureType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chunkSize: 'ChunkSize',
+      description: 'Description',
+      documentIds: 'DocumentIds',
+      embeddingModelName: 'EmbeddingModelName',
+      id: 'Id',
+      name: 'Name',
+      overlapSize: 'OverlapSize',
+      rerankMinScore: 'RerankMinScore',
+      rerankModelName: 'RerankModelName',
+      separator: 'Separator',
+      sinkInstanceId: 'SinkInstanceId',
+      sinkRegion: 'SinkRegion',
+      sinkType: 'SinkType',
+      sourceType: 'SourceType',
+      structureType: 'StructureType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chunkSize: 'number',
+      description: 'string',
+      documentIds: { 'type': 'array', 'itemType': 'string' },
+      embeddingModelName: 'string',
+      id: 'string',
+      name: 'string',
+      overlapSize: 'number',
+      rerankMinScore: 'string',
+      rerankModelName: 'string',
+      separator: 'string',
+      sinkInstanceId: 'string',
+      sinkRegion: 'string',
+      sinkType: 'string',
+      sourceType: 'string',
+      structureType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndicesResponseBodyData extends $tea.Model {
+  indices?: ListIndicesResponseBodyDataIndices[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      indices: 'Indices',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indices: { 'type': 'array', 'itemType': ListIndicesResponseBodyDataIndices },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -1443,6 +2111,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 删除Index
+   *
+   * @param request DeleteIndexRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIndexResponse
+   */
+  async deleteIndexWithOptions(WorkspaceId: string, request: DeleteIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.indexId)) {
+      query["IndexId"] = request.indexId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIndex",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/index/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIndexResponse>(await this.callApi(params, req, runtime), new DeleteIndexResponse({}));
+  }
+
+  /**
+   * @summary 删除Index
+   *
+   * @param request DeleteIndexRequest
+   * @return DeleteIndexResponse
+   */
+  async deleteIndex(WorkspaceId: string, request: DeleteIndexRequest): Promise<DeleteIndexResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteIndexWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 删除index doc
+   *
+   * @param tmpReq DeleteIndexDocumentRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIndexDocumentResponse
+   */
+  async deleteIndexDocumentWithOptions(WorkspaceId: string, tmpReq: DeleteIndexDocumentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexDocumentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteIndexDocumentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.documentIds)) {
+      request.documentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentIds, "DocumentIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentIdsShrink)) {
+      query["DocumentIds"] = request.documentIdsShrink;
+    }
+
+    if (!Util.isUnset(request.indexId)) {
+      query["IndexId"] = request.indexId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIndexDocument",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/index/delete_index_document`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIndexDocumentResponse>(await this.callApi(params, req, runtime), new DeleteIndexDocumentResponse({}));
+  }
+
+  /**
+   * @summary 删除index doc
+   *
+   * @param request DeleteIndexDocumentRequest
+   * @return DeleteIndexDocumentResponse
+   */
+  async deleteIndexDocument(WorkspaceId: string, request: DeleteIndexDocumentRequest): Promise<DeleteIndexDocumentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteIndexDocumentWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * @summary 获取文档基本信息，包括文档名称、类型、状态等。
    *
    * @param headers map
@@ -1525,6 +2293,181 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIndexJobStatusWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary Chunk
+   *
+   * @param request ListChunksRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListChunksResponse
+   */
+  async listChunksWithOptions(WorkspaceId: string, request: ListChunksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListChunksResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fields)) {
+      body["Fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.filed)) {
+      body["Filed"] = request.filed;
+    }
+
+    if (!Util.isUnset(request.indexId)) {
+      body["IndexId"] = request.indexId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListChunks",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/index/list_chunks`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChunksResponse>(await this.callApi(params, req, runtime), new ListChunksResponse({}));
+  }
+
+  /**
+   * @summary Chunk
+   *
+   * @param request ListChunksRequest
+   * @return ListChunksResponse
+   */
+  async listChunks(WorkspaceId: string, request: ListChunksRequest): Promise<ListChunksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listChunksWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询Index文件
+   *
+   * @param request ListIndexDocumentsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIndexDocumentsResponse
+   */
+  async listIndexDocumentsWithOptions(WorkspaceId: string, request: ListIndexDocumentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexDocumentsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentName)) {
+      query["DocumentName"] = request.documentName;
+    }
+
+    if (!Util.isUnset(request.documentStatus)) {
+      query["DocumentStatus"] = request.documentStatus;
+    }
+
+    if (!Util.isUnset(request.indexId)) {
+      query["IndexId"] = request.indexId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIndexDocuments",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/index/list_index_documents`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIndexDocumentsResponse>(await this.callApi(params, req, runtime), new ListIndexDocumentsResponse({}));
+  }
+
+  /**
+   * @summary 查询Index文件
+   *
+   * @param request ListIndexDocumentsRequest
+   * @return ListIndexDocumentsResponse
+   */
+  async listIndexDocuments(WorkspaceId: string, request: ListIndexDocumentsRequest): Promise<ListIndexDocumentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIndexDocumentsWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 查询pipeline
+   *
+   * @param request ListIndicesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIndicesResponse
+   */
+  async listIndicesWithOptions(WorkspaceId: string, request: ListIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndicesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.indexName)) {
+      query["IndexName"] = request.indexName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIndices",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/index/list_indices`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIndicesResponse>(await this.callApi(params, req, runtime), new ListIndicesResponse({}));
+  }
+
+  /**
+   * @summary 查询pipeline
+   *
+   * @param request ListIndicesRequest
+   * @return ListIndicesResponse
+   */
+  async listIndices(WorkspaceId: string, request: ListIndicesRequest): Promise<ListIndicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIndicesWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**
