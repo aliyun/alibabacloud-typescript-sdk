@@ -7841,12 +7841,14 @@ export class ReportABMetricGroupResponse extends $tea.Model {
 export class SplitTrafficControlTargetRequest extends $tea.Model {
   environment?: string;
   instanceId?: string;
+  setPoints?: number[];
   setValues?: number[];
   timePoints?: number[];
   static names(): { [key: string]: string } {
     return {
       environment: 'Environment',
       instanceId: 'InstanceId',
+      setPoints: 'SetPoints',
       setValues: 'SetValues',
       timePoints: 'TimePoints',
     };
@@ -7856,6 +7858,7 @@ export class SplitTrafficControlTargetRequest extends $tea.Model {
     return {
       environment: 'string',
       instanceId: 'string',
+      setPoints: { 'type': 'array', 'itemType': 'number' },
       setValues: { 'type': 'array', 'itemType': 'number' },
       timePoints: { 'type': 'array', 'itemType': 'number' },
     };
@@ -10276,10 +10279,12 @@ export class GetTableMetaResponseBodyFields extends $tea.Model {
 }
 
 export class GetTrafficControlTargetResponseBodySplitParts extends $tea.Model {
+  setPoints?: number[];
   setValues?: number[];
   timePoints?: number[];
   static names(): { [key: string]: string } {
     return {
+      setPoints: 'SetPoints',
       setValues: 'SetValues',
       timePoints: 'TimePoints',
     };
@@ -10287,6 +10292,7 @@ export class GetTrafficControlTargetResponseBodySplitParts extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      setPoints: { 'type': 'array', 'itemType': 'number' },
       setValues: { 'type': 'array', 'itemType': 'number' },
       timePoints: { 'type': 'array', 'itemType': 'number' },
     };
@@ -10299,10 +10305,12 @@ export class GetTrafficControlTargetResponseBodySplitParts extends $tea.Model {
 
 export class GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts extends $tea.Model {
   setPoints?: number[];
+  setValues?: number[];
   timePoints?: number[];
   static names(): { [key: string]: string } {
     return {
       setPoints: 'SetPoints',
+      setValues: 'SetValues',
       timePoints: 'TimePoints',
     };
   }
@@ -10310,6 +10318,7 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts ex
   static types(): { [key: string]: any } {
     return {
       setPoints: { 'type': 'array', 'itemType': 'number' },
+      setValues: { 'type': 'array', 'itemType': 'number' },
       timePoints: { 'type': 'array', 'itemType': 'number' },
     };
   }
@@ -17429,6 +17438,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.setPoints)) {
+      body["SetPoints"] = request.setPoints;
     }
 
     if (!Util.isUnset(request.setValues)) {
