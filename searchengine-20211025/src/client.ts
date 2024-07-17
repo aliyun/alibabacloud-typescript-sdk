@@ -9304,6 +9304,121 @@ export class GetIndexVersionResponseBodyResult extends $tea.Model {
   }
 }
 
+export class GetInstanceResponseBodyResultNetwork extends $tea.Model {
+  allow?: string;
+  endpoint?: string;
+  publicEndpoint?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allow: 'allow',
+      endpoint: 'endpoint',
+      publicEndpoint: 'publicEndpoint',
+      vSwitchId: 'vSwitchId',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allow: 'string',
+      endpoint: 'string',
+      publicEndpoint: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyResultSpecQrsResource extends $tea.Model {
+  category?: string;
+  cpu?: number;
+  disk?: number;
+  mem?: number;
+  nodeCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      cpu: 'cpu',
+      disk: 'disk',
+      mem: 'mem',
+      nodeCount: 'nodeCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      cpu: 'number',
+      disk: 'number',
+      mem: 'number',
+      nodeCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyResultSpecSearchResource extends $tea.Model {
+  category?: string;
+  cpu?: number;
+  disk?: number;
+  mem?: number;
+  nodeCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      cpu: 'cpu',
+      disk: 'disk',
+      mem: 'mem',
+      nodeCount: 'nodeCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      cpu: 'number',
+      disk: 'number',
+      mem: 'number',
+      nodeCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyResultSpec extends $tea.Model {
+  qrsResource?: GetInstanceResponseBodyResultSpecQrsResource;
+  searchResource?: GetInstanceResponseBodyResultSpecSearchResource;
+  static names(): { [key: string]: string } {
+    return {
+      qrsResource: 'qrsResource',
+      searchResource: 'searchResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qrsResource: GetInstanceResponseBodyResultSpecQrsResource,
+      searchResource: GetInstanceResponseBodyResultSpecSearchResource,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyResultTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -9331,28 +9446,42 @@ export class GetInstanceResponseBodyResult extends $tea.Model {
   commodityCode?: string;
   createTime?: string;
   description?: string;
+  edition?: string;
   expiredTime?: string;
   inDebt?: boolean;
   instanceId?: string;
   lockMode?: string;
+  network?: GetInstanceResponseBodyResultNetwork;
+  newMode?: boolean;
+  noQrs?: boolean;
   resourceGroupId?: string;
+  spec?: GetInstanceResponseBodyResultSpec;
   status?: string;
   tags?: GetInstanceResponseBodyResultTags[];
   updateTime?: string;
+  userName?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       chargeType: 'chargeType',
       commodityCode: 'commodityCode',
       createTime: 'createTime',
       description: 'description',
+      edition: 'edition',
       expiredTime: 'expiredTime',
       inDebt: 'inDebt',
       instanceId: 'instanceId',
       lockMode: 'lockMode',
+      network: 'network',
+      newMode: 'newMode',
+      noQrs: 'noQrs',
       resourceGroupId: 'resourceGroupId',
+      spec: 'spec',
       status: 'status',
       tags: 'tags',
       updateTime: 'updateTime',
+      userName: 'userName',
+      version: 'version',
     };
   }
 
@@ -9362,14 +9491,21 @@ export class GetInstanceResponseBodyResult extends $tea.Model {
       commodityCode: 'string',
       createTime: 'string',
       description: 'string',
+      edition: 'string',
       expiredTime: 'string',
       inDebt: 'boolean',
       instanceId: 'string',
       lockMode: 'string',
+      network: GetInstanceResponseBodyResultNetwork,
+      newMode: 'boolean',
+      noQrs: 'boolean',
       resourceGroupId: 'string',
+      spec: GetInstanceResponseBodyResultSpec,
       status: 'string',
       tags: { 'type': 'array', 'itemType': GetInstanceResponseBodyResultTags },
       updateTime: 'string',
+      userName: 'string',
+      version: 'string',
     };
   }
 
@@ -10789,12 +10925,16 @@ export class ListInstancesRequestTags extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyResultNetwork extends $tea.Model {
+  allow?: string;
   endpoint?: string;
+  publicEndpoint?: string;
   vSwitchId?: string;
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      allow: 'allow',
       endpoint: 'endpoint',
+      publicEndpoint: 'publicEndpoint',
       vSwitchId: 'vSwitchId',
       vpcId: 'vpcId',
     };
@@ -10802,9 +10942,95 @@ export class ListInstancesResponseBodyResultNetwork extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allow: 'string',
       endpoint: 'string',
+      publicEndpoint: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyResultSpecQrsResource extends $tea.Model {
+  category?: string;
+  cpu?: number;
+  disk?: number;
+  mem?: number;
+  nodeCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      cpu: 'cpu',
+      disk: 'disk',
+      mem: 'mem',
+      nodeCount: 'nodeCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      cpu: 'number',
+      disk: 'number',
+      mem: 'number',
+      nodeCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyResultSpecSearchResource extends $tea.Model {
+  category?: string;
+  cpu?: number;
+  disk?: number;
+  mem?: number;
+  nodeCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      cpu: 'cpu',
+      disk: 'disk',
+      mem: 'mem',
+      nodeCount: 'nodeCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      cpu: 'number',
+      disk: 'number',
+      mem: 'number',
+      nodeCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyResultSpec extends $tea.Model {
+  qrsResource?: ListInstancesResponseBodyResultSpecQrsResource;
+  searchResource?: ListInstancesResponseBodyResultSpecSearchResource;
+  static names(): { [key: string]: string } {
+    return {
+      qrsResource: 'qrsResource',
+      searchResource: 'searchResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qrsResource: ListInstancesResponseBodyResultSpecQrsResource,
+      searchResource: ListInstancesResponseBodyResultSpecSearchResource,
     };
   }
 
@@ -10840,30 +11066,40 @@ export class ListInstancesResponseBodyResult extends $tea.Model {
   commodityCode?: string;
   createTime?: string;
   description?: string;
+  edition?: string;
   expiredTime?: string;
   inDebt?: boolean;
   instanceId?: string;
   lockMode?: string;
   network?: ListInstancesResponseBodyResultNetwork;
+  noQrs?: boolean;
   resourceGroupId?: string;
+  spec?: ListInstancesResponseBodyResultSpec;
   status?: string;
   tags?: ListInstancesResponseBodyResultTags[];
   updateTime?: string;
+  userName?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       chargeType: 'chargeType',
       commodityCode: 'commodityCode',
       createTime: 'createTime',
       description: 'description',
+      edition: 'edition',
       expiredTime: 'expiredTime',
       inDebt: 'inDebt',
       instanceId: 'instanceId',
       lockMode: 'lockMode',
       network: 'network',
+      noQrs: 'noQrs',
       resourceGroupId: 'resourceGroupId',
+      spec: 'spec',
       status: 'status',
       tags: 'tags',
       updateTime: 'updateTime',
+      userName: 'userName',
+      version: 'version',
     };
   }
 
@@ -10873,15 +11109,20 @@ export class ListInstancesResponseBodyResult extends $tea.Model {
       commodityCode: 'string',
       createTime: 'string',
       description: 'string',
+      edition: 'string',
       expiredTime: 'string',
       inDebt: 'boolean',
       instanceId: 'string',
       lockMode: 'string',
       network: ListInstancesResponseBodyResultNetwork,
+      noQrs: 'boolean',
       resourceGroupId: 'string',
+      spec: ListInstancesResponseBodyResultSpec,
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListInstancesResponseBodyResultTags },
       updateTime: 'string',
+      userName: 'string',
+      version: 'string',
     };
   }
 
@@ -12223,9 +12464,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Creates a cluster.
    *
-   * @description ### Method
+   * @description ### [](#method)Method
    * `POST`
-   * ### URI
+   * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/clusters`
    *
    * @param request CreateClusterRequest
@@ -12277,9 +12518,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Creates a cluster.
    *
-   * @description ### Method
+   * @description ### [](#method)Method
    * `POST`
-   * ### URI
+   * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/clusters`
    *
    * @param request CreateClusterRequest
@@ -12609,9 +12850,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Creates a Havenask instance.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * `POST`
-   * ### URI
+   * ### [](#uri)URI
    * `/api/instances?dryRun=false`
    *
    * @param request CreateInstanceRequest
@@ -12655,9 +12896,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Creates a Havenask instance.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * `POST`
-   * ### URI
+   * ### [](#uri)URI
    * `/api/instances?dryRun=false`
    *
    * @param request CreateInstanceRequest
@@ -12670,7 +12911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开通公网域名
+   * @summary Creates a public endpoint.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
@@ -12695,7 +12936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开通公网域名
+   * @summary Creates a public endpoint.
    *
    * @return CreatePublicUrlResponse
    */
@@ -12751,7 +12992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建索引V2
+   * @summary Creates an index table.
    *
    * @param request CreateTableRequest
    * @param headers map
@@ -12822,7 +13063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建索引V2
+   * @summary Creates an index table.
    *
    * @param request CreateTableRequest
    * @return CreateTableResponse
@@ -13231,7 +13472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除公网域名
+   * @summary Deletes a public endpoint.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
@@ -13256,7 +13497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除公网域名
+   * @summary Deletes a public endpoint.
    *
    * @return DeletePublicUrlResponse
    */
@@ -13299,7 +13540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除索引表V2
+   * @summary Deletes an index table.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
@@ -13324,7 +13565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除索引表V2
+   * @summary Deletes an index table.
    *
    * @return DeleteTableResponse
    */
@@ -13335,6 +13576,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries available regions.
+   *
    * @param request DescribeRegionsRequest
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
@@ -13366,6 +13609,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries available regions.
+   *
    * @param request DescribeRegionsRequest
    * @return DescribeRegionsResponse
    */
@@ -13495,7 +13740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a dictionary.
+   * @summary Queries the information about an advanced configuration.
    *
    * @description ## Method
    *     GET
@@ -13533,7 +13778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a dictionary.
+   * @summary Queries the information about an advanced configuration.
    *
    * @description ## Method
    *     GET
@@ -13550,7 +13795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information in a specified advanced configuration file.
+   * @summary Queries the information about an advanced configuration file.
    *
    * @description ## Method
    *     GET
@@ -13588,7 +13833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information in a specified advanced configuration file.
+   * @summary Queries the information about an advanced configuration file.
    *
    * @description ## Method
    *     GET
@@ -13861,7 +14106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries details about the version information of an index table.
+   * @summary Queries the details of an index table version.
    *
    * @description ## Method
    *     GET
@@ -13899,7 +14144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries details about the version information of an index table.
+   * @summary Queries the details of an index table version.
    *
    * @description ## Method
    *     GET
@@ -13952,7 +14197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取索引在线生效策略
+   * @summary Queries the online effective policy of an index.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
@@ -13977,7 +14222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取索引在线生效策略
+   * @summary Queries the online effective policy of an index.
    *
    * @return GetIndexOnlineStrategyResponse
    */
@@ -13988,7 +14233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about index versions that the current index version can be rolled back to.
+   * @summary Queries the information about index versions that the current index version can be rolled back to.
    *
    * @description ## Method
    *     GET
@@ -14018,7 +14263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the information about index versions that the current index version can be rolled back to.
+   * @summary Queries the information about index versions that the current index version can be rolled back to.
    *
    * @description ## Method
    *     GET
@@ -14034,7 +14279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an instance based on a specified instance ID.
+   * @summary Queries the details of an instance based on the instance ID.
    *
    * @description ### Method
    * `GET`
@@ -14064,7 +14309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an instance based on a specified instance ID.
+   * @summary Queries the details of an instance based on the instance ID.
    *
    * @description ### Method
    * `GET`
@@ -14174,7 +14419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取索引表信息V2
+   * @summary Queries the information about an index table.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
@@ -14199,7 +14444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取索引表信息V2
+   * @summary Queries the information about an index table.
    *
    * @return GetTableResponse
    */
@@ -14210,7 +14455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据generationId获取某个索引版本状态V2
+   * @summary Queries the status of an index version based on the ID of the full index version.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
@@ -14235,7 +14480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据generationId获取某个索引版本状态V2
+   * @summary Queries the status of an index version based on the ID of the full index version.
    *
    * @return GetTableGenerationResponse
    */
@@ -14246,7 +14491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the file list in an advanced configuration directory.
+   * @summary Queries the files in an advanced configuration directory.
    *
    * @description ## Method
    * `GET`
@@ -14284,7 +14529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the file list in an advanced configuration directory.
+   * @summary Queries the files in an advanced configuration directory.
    *
    * @description ## Method
    * `GET`
@@ -14442,7 +14687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Displays cluster tasks .
+   * @summary Queries cluster tasks.
    *
    * @description ### Method
    * ```java
@@ -14476,7 +14721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Displays cluster tasks .
+   * @summary Queries cluster tasks.
    *
    * @description ### Method
    * ```java
@@ -14550,7 +14795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the schema information of a specified data source.
+   * @summary Queries the schema information about a data source.
    *
    * @description ## Method
    * `GET`
@@ -14580,7 +14825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the schema information of a specified data source.
+   * @summary Queries the schema information about a data source.
    *
    * @description ## Method
    * `GET`
@@ -14598,11 +14843,11 @@ export default class Client extends OpenApi {
   /**
    * @summary Displays data source tasks.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * ```java
    * GET
    * ```
-   * ### URI
+   * ### [](#uri)URI
    * ```java
    * /openapi/ha3/instances/{instanceId}/data-source-tasks
    * ```
@@ -14632,11 +14877,11 @@ export default class Client extends OpenApi {
   /**
    * @summary Displays data source tasks.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * ```java
    * GET
    * ```
-   * ### URI
+   * ### [](#uri)URI
    * ```java
    * /openapi/ha3/instances/{instanceId}/data-source-tasks
    * ```
@@ -14728,7 +14973,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the data restoration version of a data source.
+   * @summary Queries the historical index versions of a data source.
    *
    * @description ### Method
    * `GET`
@@ -14770,7 +15015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the data restoration version of a data source.
+   * @summary Queries the historical index versions of a data source.
    *
    * @description ### Method
    * `GET`
@@ -14874,7 +15119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries instances.
+   * @summary Queries the specifications of an instance.
    *
    * @description ### Method
    * `GET`
@@ -14912,7 +15157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries instances.
+   * @summary Queries the specifications of an instance.
    *
    * @description ### Method
    * `GET`
@@ -14929,12 +15174,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries instances.
+   * @summary Queries a list of instances.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * `GET`
-   * ### URI
-   * `/openapi/[code]/instances`
+   * ### [](#uri)URI
+   * `/openapi/ha3/instances`
    *
    * @param tmpReq ListInstancesRequest
    * @param headers map
@@ -14997,12 +15242,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries instances.
+   * @summary Queries a list of instances.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * `GET`
-   * ### URI
-   * `/openapi/[code]/instances`
+   * ### [](#uri)URI
+   * `/openapi/ha3/instances`
    *
    * @param request ListInstancesRequest
    * @return ListInstancesResponse
@@ -15075,7 +15320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the details of online configurations.
+   * @summary Queries the details of an online configuration.
    *
    * @description ### Method
    * ```java
@@ -15117,7 +15362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the details of online configurations.
+   * @summary Queries the details of an online configuration.
    *
    * @description ### Method
    * ```java
@@ -15223,9 +15468,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the query result.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * `GET`
-   * ### URI
+   * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
    *
    * @param request ListQueryResultRequest
@@ -15265,9 +15510,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Queries the query result.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * `GET`
-   * ### URI
+   * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
    *
    * @param request ListQueryResultRequest
@@ -15404,7 +15649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取索引generation列表V2
+   * @summary Queries a list of index versions.
    *
    * @param headers map
    * @param runtime runtime options for this request RuntimeOptions
@@ -15429,7 +15674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取索引generation列表V2
+   * @summary Queries a list of index versions.
    *
    * @return ListTableGenerationsResponse
    */
@@ -15440,7 +15685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取索引列表V2
+   * @summary Queries a list of index tables.
    *
    * @param request ListTablesRequest
    * @param headers map
@@ -15473,7 +15718,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取索引列表V2
+   * @summary Queries a list of index tables.
    *
    * @param request ListTablesRequest
    * @return ListTablesResponse
@@ -15833,9 +16078,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the description of a specified cluster.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * `PUT`
-   * ### URI
+   * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
    *
    * @param request ModifyClusterDescRequest
@@ -15871,9 +16116,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the description of a specified cluster.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * `PUT`
-   * ### URI
+   * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
    *
    * @param request ModifyClusterDescRequest
@@ -15969,7 +16214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the online configurations of a cluster.
+   * @summary Modifies the online configuration of a cluster.
    *
    * @description ### Method
    * `PUT`
@@ -16011,7 +16256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the online configurations of a cluster.
+   * @summary Modifies the online configuration of a cluster.
    *
    * @description ### Method
    * `PUT`
@@ -16255,7 +16500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改索引在线策略
+   * @summary Modifies an online policy of an index.
    *
    * @param request ModifyIndexOnlineStrategyRequest
    * @param headers map
@@ -16288,7 +16533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改索引在线策略
+   * @summary Modifies an online policy of an index.
    *
    * @param request ModifyIndexOnlineStrategyRequest
    * @return ModifyIndexOnlineStrategyResponse
@@ -16369,9 +16614,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the index version of a cluster (an index version rollback).
    *
-   * @description ## Method
+   * @description ## [](#)Method
    *     PUT
-   * ## URI
+   * ## [](#uri)URI
    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
    *
    * @param request ModifyIndexVersionRequest
@@ -16402,9 +16647,9 @@ export default class Client extends OpenApi {
   /**
    * @summary Modifies the index version of a cluster (an index version rollback).
    *
-   * @description ## Method
+   * @description ## [](#)Method
    *     PUT
-   * ## URI
+   * ## [](#uri)URI
    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
    *
    * @param request ModifyIndexVersionRequest
@@ -16726,7 +16971,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改索引V2
+   * @summary Modifies an index table.
    *
    * @param request ModifyTableRequest
    * @param headers map
@@ -16789,7 +17034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改索引V2
+   * @summary Modifies an index table.
    *
    * @param request ModifyTableRequest
    * @return ModifyTableResponse
@@ -17032,7 +17277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 索引重建V2
+   * @summary Rebuilds an index.
    *
    * @param request ReindexRequest
    * @param headers map
@@ -17073,7 +17318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 索引重建V2
+   * @summary Rebuilds an index.
    *
    * @param request ReindexRequest
    * @return ReindexResponse
@@ -17246,11 +17491,11 @@ export default class Client extends OpenApi {
   /**
    * @summary Stops an FSM task.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * ```java
    * PUT
    * ```
-   * ### URI
+   * ### [](#uri)URI
    * ```java
    * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
    * ```
@@ -17280,11 +17525,11 @@ export default class Client extends OpenApi {
   /**
    * @summary Stops an FSM task.
    *
-   * @description ### Method
+   * @description ### [](#)Method
    * ```java
    * PUT
    * ```
-   * ### URI
+   * ### [](#uri)URI
    * ```java
    * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
    * ```
