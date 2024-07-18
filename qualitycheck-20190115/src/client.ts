@@ -938,84 +938,6 @@ export class AddRuleV4Response extends $tea.Model {
   }
 }
 
-export class AddThesaurusForApiRequest extends $tea.Model {
-  baseMeAgentId?: number;
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddThesaurusForApiResponseBody extends $tea.Model {
-  code?: string;
-  data?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddThesaurusForApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddThesaurusForApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddThesaurusForApiResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AssignReviewerRequest extends $tea.Model {
   baseMeAgentId?: number;
   jsonStr?: string;
@@ -2048,81 +1970,6 @@ export class DelRuleCategoryResponse extends $tea.Model {
   }
 }
 
-export class DelThesaurusForApiRequest extends $tea.Model {
-  baseMeAgentId?: number;
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DelThesaurusForApiResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DelThesaurusForApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DelThesaurusForApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DelThesaurusForApiResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteAsrVocabRequest extends $tea.Model {
   baseMeAgentId?: number;
   jsonStr?: string;
@@ -3140,81 +2987,6 @@ export class DeleteTaskAssignRuleResponse extends $tea.Model {
   }
 }
 
-export class DeleteUserRequest extends $tea.Model {
-  baseMeAgentId?: number;
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteWarningConfigRequest extends $tea.Model {
   baseMeAgentId?: number;
   jsonStr?: string;
@@ -3360,84 +3132,6 @@ export class DeleteWarningStrategyConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteWarningStrategyConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EditThesaurusForApiRequest extends $tea.Model {
-  baseMeAgentId?: number;
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EditThesaurusForApiResponseBody extends $tea.Model {
-  code?: string;
-  data?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EditThesaurusForApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EditThesaurusForApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EditThesaurusForApiResponseBody,
     };
   }
 
@@ -3672,93 +3366,6 @@ export class GetCustomizationConfigListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCustomizationConfigListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHitResultRequest extends $tea.Model {
-  baseMeAgentId?: number;
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHitResultResponseBody extends $tea.Model {
-  code?: string;
-  count?: number;
-  data?: GetHitResultResponseBodyData;
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      count: 'Count',
-      data: 'Data',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      count: 'number',
-      data: GetHitResultResponseBodyData,
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHitResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetHitResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetHitResultResponseBody,
     };
   }
 
@@ -4574,87 +4181,6 @@ export class GetRuleV4Response extends $tea.Model {
   }
 }
 
-export class GetRuleV4StrRequest extends $tea.Model {
-  isSchemeData?: number;
-  ruleId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      isSchemeData: 'IsSchemeData',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isSchemeData: 'number',
-      ruleId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRuleV4StrResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRuleV4StrResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetRuleV4StrResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetRuleV4StrResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRulesCountListRequest extends $tea.Model {
   baseMeAgentId?: number;
   businessName?: string;
@@ -5067,84 +4593,6 @@ export class GetSyncResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSyncResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetThesaurusBySynonymForApiRequest extends $tea.Model {
-  baseMeAgentId?: number;
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetThesaurusBySynonymForApiResponseBody extends $tea.Model {
-  code?: string;
-  data?: GetThesaurusBySynonymForApiResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetThesaurusBySynonymForApiResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetThesaurusBySynonymForApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetThesaurusBySynonymForApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetThesaurusBySynonymForApiResponseBody,
     };
   }
 
@@ -5621,90 +5069,6 @@ export class ListAsrVocabResponse extends $tea.Model {
   }
 }
 
-export class ListBusinessSpacesRequest extends $tea.Model {
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBusinessSpacesResponseBody extends $tea.Model {
-  code?: string;
-  currentPage?: number;
-  data?: ListBusinessSpacesResponseBodyData[];
-  message?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      currentPage: 'CurrentPage',
-      data: 'Data',
-      message: 'Message',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      currentPage: 'number',
-      data: { 'type': 'array', 'itemType': ListBusinessSpacesResponseBodyData },
-      message: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBusinessSpacesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListBusinessSpacesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListBusinessSpacesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListDataSetRequest extends $tea.Model {
   baseMeAgentId?: number;
   jsonStr?: string;
@@ -5970,84 +5334,6 @@ export class ListQualityCheckSchemeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListQualityCheckSchemeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRolesRequest extends $tea.Model {
-  baseMeAgentId?: number;
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRolesResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListRolesResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListRolesResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRolesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListRolesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListRolesResponseBody,
     };
   }
 
@@ -6924,84 +6210,6 @@ export class ListWarningStrategyConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListWarningStrategyConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartAsrTaskRequest extends $tea.Model {
-  baseMeAgentId?: number;
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartAsrTaskResponseBody extends $tea.Model {
-  code?: string;
-  data?: RestartAsrTaskResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: RestartAsrTaskResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartAsrTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RestartAsrTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RestartAsrTaskResponseBody,
     };
   }
 
@@ -8909,81 +8117,6 @@ export class UpdateUserResponse extends $tea.Model {
   }
 }
 
-export class UpdateUserConfigRequest extends $tea.Model {
-  baseMeAgentId?: number;
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserConfigResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateUserConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateUserConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateUserConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateWarningConfigRequest extends $tea.Model {
   baseMeAgentId?: number;
   jsonStr?: string;
@@ -10218,15 +9351,18 @@ export class SchemeCheckTypeTaskFlowScoreInfoList extends $tea.Model {
 
 export class AddRuleCategoryResponseBodyData extends $tea.Model {
   select?: boolean;
+  type?: number;
   static names(): { [key: string]: string } {
     return {
       select: 'Select',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       select: 'boolean',
+      type: 'number',
     };
   }
 
@@ -10596,47 +9732,6 @@ export class GetCustomizationConfigListResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       modelCustomizationDataSetPo: { 'type': 'array', 'itemType': GetCustomizationConfigListResponseBodyDataModelCustomizationDataSetPo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHitResultResponseBodyDataResultInfo extends $tea.Model {
-  rid?: number;
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      rid: 'Rid',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rid: 'number',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHitResultResponseBodyData extends $tea.Model {
-  resultInfo?: GetHitResultResponseBodyDataResultInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      resultInfo: 'ResultInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resultInfo: { 'type': 'array', 'itemType': GetHitResultResponseBodyDataResultInfo },
     };
   }
 
@@ -11972,6 +11067,159 @@ export class GetResultResponseBodyDataResultInfoRecording extends $tea.Model {
   }
 }
 
+export class GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRule extends $tea.Model {
+  rid?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rid: 'Rid',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rid: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistory extends $tea.Model {
+  comments?: string;
+  complainResult?: number;
+  oldScore?: number;
+  operator?: number;
+  operatorName?: string;
+  reviewManagerType?: string;
+  reviewResult?: number;
+  reviewRightRule?: GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRule;
+  score?: number;
+  time?: number;
+  timeStr?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      comments: 'Comments',
+      complainResult: 'ComplainResult',
+      oldScore: 'OldScore',
+      operator: 'Operator',
+      operatorName: 'OperatorName',
+      reviewManagerType: 'ReviewManagerType',
+      reviewResult: 'ReviewResult',
+      reviewRightRule: 'ReviewRightRule',
+      score: 'Score',
+      time: 'Time',
+      timeStr: 'TimeStr',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comments: 'string',
+      complainResult: 'number',
+      oldScore: 'number',
+      operator: 'number',
+      operatorName: 'string',
+      reviewManagerType: 'string',
+      reviewResult: 'number',
+      reviewRightRule: GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistoryReviewRightRule,
+      score: 'number',
+      time: 'number',
+      timeStr: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoReviewHistoryList extends $tea.Model {
+  reviewHistory?: GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistory[];
+  static names(): { [key: string]: string } {
+    return {
+      reviewHistory: 'ReviewHistory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reviewHistory: { 'type': 'array', 'itemType': GetResultResponseBodyDataResultInfoReviewHistoryListReviewHistory },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoReviewTypeIdListReviewTypeIdListReviewKeyIdList extends $tea.Model {
+  reviewKeyIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      reviewKeyIdList: 'ReviewKeyIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reviewKeyIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoReviewTypeIdListReviewTypeIdList extends $tea.Model {
+  reviewKeyIdList?: GetResultResponseBodyDataResultInfoReviewTypeIdListReviewTypeIdListReviewKeyIdList;
+  reviewTypeId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      reviewKeyIdList: 'ReviewKeyIdList',
+      reviewTypeId: 'ReviewTypeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reviewKeyIdList: GetResultResponseBodyDataResultInfoReviewTypeIdListReviewTypeIdListReviewKeyIdList,
+      reviewTypeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultResponseBodyDataResultInfoReviewTypeIdList extends $tea.Model {
+  reviewTypeIdList?: GetResultResponseBodyDataResultInfoReviewTypeIdListReviewTypeIdList[];
+  static names(): { [key: string]: string } {
+    return {
+      reviewTypeIdList: 'ReviewTypeIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reviewTypeIdList: { 'type': 'array', 'itemType': GetResultResponseBodyDataResultInfoReviewTypeIdListReviewTypeIdList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResultResponseBodyDataResultInfoSchemeIdList extends $tea.Model {
   schemeIdList?: number[];
   static names(): { [key: string]: string } {
@@ -12023,11 +11271,13 @@ export class GetResultResponseBodyDataResultInfo extends $tea.Model {
   lastDataId?: string;
   recording?: GetResultResponseBodyDataResultInfoRecording;
   resolver?: string;
+  reviewHistoryList?: GetResultResponseBodyDataResultInfoReviewHistoryList;
   reviewResult?: number;
   reviewStatus?: number;
   reviewTime?: string;
   reviewTimeLong?: string;
   reviewType?: number;
+  reviewTypeIdList?: GetResultResponseBodyDataResultInfoReviewTypeIdList;
   reviewer?: string;
   schemeIdList?: GetResultResponseBodyDataResultInfoSchemeIdList;
   schemeNameList?: GetResultResponseBodyDataResultInfoSchemeNameList;
@@ -12049,11 +11299,13 @@ export class GetResultResponseBodyDataResultInfo extends $tea.Model {
       lastDataId: 'LastDataId',
       recording: 'Recording',
       resolver: 'Resolver',
+      reviewHistoryList: 'ReviewHistoryList',
       reviewResult: 'ReviewResult',
       reviewStatus: 'ReviewStatus',
       reviewTime: 'ReviewTime',
       reviewTimeLong: 'ReviewTimeLong',
       reviewType: 'ReviewType',
+      reviewTypeIdList: 'ReviewTypeIdList',
       reviewer: 'Reviewer',
       schemeIdList: 'SchemeIdList',
       schemeNameList: 'SchemeNameList',
@@ -12078,11 +11330,13 @@ export class GetResultResponseBodyDataResultInfo extends $tea.Model {
       lastDataId: 'string',
       recording: GetResultResponseBodyDataResultInfoRecording,
       resolver: 'string',
+      reviewHistoryList: GetResultResponseBodyDataResultInfoReviewHistoryList,
       reviewResult: 'number',
       reviewStatus: 'number',
       reviewTime: 'string',
       reviewTimeLong: 'string',
       reviewType: 'number',
+      reviewTypeIdList: GetResultResponseBodyDataResultInfoReviewTypeIdList,
       reviewer: 'string',
       schemeIdList: GetResultResponseBodyDataResultInfoSchemeIdList,
       schemeNameList: GetResultResponseBodyDataResultInfoSchemeNameList,
@@ -12590,21 +11844,53 @@ export class GetResultToReviewResponseBodyDataManualScoreInfoList extends $tea.M
   }
 }
 
+export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRule extends $tea.Model {
+  rid?: number;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      rid: 'Rid',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rid: 'number',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistory extends $tea.Model {
+  comments?: string;
   complainResult?: number;
   oldScore?: number;
+  operator?: number;
   operatorName?: string;
+  reviewManagerType?: string;
   reviewResult?: number;
+  reviewRightRule?: GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRule;
   score?: number;
+  time?: number;
   timeStr?: string;
   type?: number;
   static names(): { [key: string]: string } {
     return {
+      comments: 'Comments',
       complainResult: 'ComplainResult',
       oldScore: 'OldScore',
+      operator: 'Operator',
       operatorName: 'OperatorName',
+      reviewManagerType: 'ReviewManagerType',
       reviewResult: 'ReviewResult',
+      reviewRightRule: 'ReviewRightRule',
       score: 'Score',
+      time: 'Time',
       timeStr: 'TimeStr',
       type: 'Type',
     };
@@ -12612,11 +11898,16 @@ export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistory ext
 
   static types(): { [key: string]: any } {
     return {
+      comments: 'string',
       complainResult: 'number',
       oldScore: 'number',
+      operator: 'number',
       operatorName: 'string',
+      reviewManagerType: 'string',
       reviewResult: 'number',
+      reviewRightRule: GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRule,
       score: 'number',
+      time: 'number',
       timeStr: 'string',
       type: 'number',
     };
@@ -12646,6 +11937,66 @@ export class GetResultToReviewResponseBodyDataReviewHistoryList extends $tea.Mod
   }
 }
 
+export class GetResultToReviewResponseBodyDataReviewTypeIdListReviewTypeIdListReviewKeyIdList extends $tea.Model {
+  reviewKeyIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      reviewKeyIdList: 'ReviewKeyIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reviewKeyIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultToReviewResponseBodyDataReviewTypeIdListReviewTypeIdList extends $tea.Model {
+  reviewKeyIdList?: GetResultToReviewResponseBodyDataReviewTypeIdListReviewTypeIdListReviewKeyIdList;
+  reviewTypeId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      reviewKeyIdList: 'ReviewKeyIdList',
+      reviewTypeId: 'ReviewTypeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reviewKeyIdList: GetResultToReviewResponseBodyDataReviewTypeIdListReviewTypeIdListReviewKeyIdList,
+      reviewTypeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResultToReviewResponseBodyDataReviewTypeIdList extends $tea.Model {
+  reviewTypeIdList?: GetResultToReviewResponseBodyDataReviewTypeIdListReviewTypeIdList[];
+  static names(): { [key: string]: string } {
+    return {
+      reviewTypeIdList: 'ReviewTypeIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reviewTypeIdList: { 'type': 'array', 'itemType': GetResultToReviewResponseBodyDataReviewTypeIdListReviewTypeIdList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResultToReviewResponseBodyData extends $tea.Model {
   audioScheme?: string;
   audioURL?: string;
@@ -12656,6 +12007,7 @@ export class GetResultToReviewResponseBodyData extends $tea.Model {
   hitRuleReviewInfoList?: GetResultToReviewResponseBodyDataHitRuleReviewInfoList;
   manualScoreInfoList?: GetResultToReviewResponseBodyDataManualScoreInfoList;
   reviewHistoryList?: GetResultToReviewResponseBodyDataReviewHistoryList;
+  reviewTypeIdList?: GetResultToReviewResponseBodyDataReviewTypeIdList;
   status?: number;
   totalScore?: number;
   vid?: string;
@@ -12670,6 +12022,7 @@ export class GetResultToReviewResponseBodyData extends $tea.Model {
       hitRuleReviewInfoList: 'HitRuleReviewInfoList',
       manualScoreInfoList: 'ManualScoreInfoList',
       reviewHistoryList: 'ReviewHistoryList',
+      reviewTypeIdList: 'ReviewTypeIdList',
       status: 'Status',
       totalScore: 'TotalScore',
       vid: 'Vid',
@@ -12687,6 +12040,7 @@ export class GetResultToReviewResponseBodyData extends $tea.Model {
       hitRuleReviewInfoList: GetResultToReviewResponseBodyDataHitRuleReviewInfoList,
       manualScoreInfoList: GetResultToReviewResponseBodyDataManualScoreInfoList,
       reviewHistoryList: GetResultToReviewResponseBodyDataReviewHistoryList,
+      reviewTypeIdList: GetResultToReviewResponseBodyDataReviewTypeIdList,
       status: 'number',
       totalScore: 'number',
       vid: 'string',
@@ -14009,69 +13363,6 @@ export class GetSyncResultResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetThesaurusBySynonymForApiResponseBodyDataThesaurusPoSynonymList extends $tea.Model {
-  synonymList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      synonymList: 'SynonymList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      synonymList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetThesaurusBySynonymForApiResponseBodyDataThesaurusPo extends $tea.Model {
-  business?: string;
-  id?: number;
-  synonymList?: GetThesaurusBySynonymForApiResponseBodyDataThesaurusPoSynonymList;
-  static names(): { [key: string]: string } {
-    return {
-      business: 'Business',
-      id: 'Id',
-      synonymList: 'SynonymList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      business: 'string',
-      id: 'number',
-      synonymList: GetThesaurusBySynonymForApiResponseBodyDataThesaurusPoSynonymList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetThesaurusBySynonymForApiResponseBodyData extends $tea.Model {
-  thesaurusPo?: GetThesaurusBySynonymForApiResponseBodyDataThesaurusPo[];
-  static names(): { [key: string]: string } {
-    return {
-      thesaurusPo: 'ThesaurusPo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      thesaurusPo: { 'type': 'array', 'itemType': GetThesaurusBySynonymForApiResponseBodyDataThesaurusPo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetWarningStrategyConfigResponseBodyDataWarningStrategyListWarningStrategyListRange extends $tea.Model {
   rangeNum?: number;
   type?: number;
@@ -14282,67 +13573,6 @@ export class ListAsrVocabResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       asrVocab: { 'type': 'array', 'itemType': ListAsrVocabResponseBodyDataAsrVocab },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBusinessSpacesResponseBodyData extends $tea.Model {
-  aliUid?: number;
-  businessSpaceCode?: string;
-  businessSpaceName?: string;
-  currentStatus?: number;
-  endTime?: string;
-  id?: number;
-  language?: string;
-  loginUserType?: number;
-  orderInstanceId?: string;
-  productType?: string;
-  roleName?: string;
-  startTime?: string;
-  subAliUid?: number;
-  xspaceCommodityCode?: string;
-  xspaceProductCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      businessSpaceCode: 'BusinessSpaceCode',
-      businessSpaceName: 'BusinessSpaceName',
-      currentStatus: 'CurrentStatus',
-      endTime: 'EndTime',
-      id: 'Id',
-      language: 'Language',
-      loginUserType: 'LoginUserType',
-      orderInstanceId: 'OrderInstanceId',
-      productType: 'ProductType',
-      roleName: 'RoleName',
-      startTime: 'StartTime',
-      subAliUid: 'SubAliUid',
-      xspaceCommodityCode: 'XspaceCommodityCode',
-      xspaceProductCode: 'XspaceProductCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'number',
-      businessSpaceCode: 'string',
-      businessSpaceName: 'string',
-      currentStatus: 'number',
-      endTime: 'string',
-      id: 'number',
-      language: 'string',
-      loginUserType: 'number',
-      orderInstanceId: 'string',
-      productType: 'string',
-      roleName: 'string',
-      startTime: 'string',
-      subAliUid: 'number',
-      xspaceCommodityCode: 'string',
-      xspaceProductCode: 'string',
     };
   }
 
@@ -14741,59 +13971,6 @@ export class ListQualityCheckSchemeResponseBodyData extends $tea.Model {
       updateTime: 'string',
       updateUserName: 'string',
       version: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRolesResponseBodyDataRole extends $tea.Model {
-  createTime?: string;
-  displayName?: string;
-  id?: number;
-  level?: number;
-  name?: string;
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      displayName: 'DisplayName',
-      id: 'Id',
-      level: 'Level',
-      name: 'Name',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      displayName: 'string',
-      id: 'number',
-      level: 'number',
-      name: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRolesResponseBodyData extends $tea.Model {
-  role?: ListRolesResponseBodyDataRole[];
-  static names(): { [key: string]: string } {
-    return {
-      role: 'Role',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      role: { 'type': 'array', 'itemType': ListRolesResponseBodyDataRole },
     };
   }
 
@@ -16252,50 +15429,6 @@ export class ListWarningStrategyConfigResponseBodyData extends $tea.Model {
   }
 }
 
-export class RestartAsrTaskResponseBodyDataRestartResult extends $tea.Model {
-  data?: string;
-  message?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartAsrTaskResponseBodyData extends $tea.Model {
-  restartResult?: RestartAsrTaskResponseBodyDataRestartResult[];
-  static names(): { [key: string]: string } {
-    return {
-      restartResult: 'RestartResult',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      restartResult: { 'type': 'array', 'itemType': RestartAsrTaskResponseBodyDataRestartResult },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RevertAssignedSessionResponseBodyMessages extends $tea.Model {
   message?: string[];
   static names(): { [key: string]: string } {
@@ -17393,6 +16526,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AddBusinessCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddBusinessCategoryResponse
+   */
   async addBusinessCategoryWithOptions(request: AddBusinessCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddBusinessCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17421,11 +16559,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AddBusinessCategoryResponse>(await this.callApi(params, req, runtime), new AddBusinessCategoryResponse({}));
   }
 
+  /**
+   * @param request AddBusinessCategoryRequest
+   * @return AddBusinessCategoryResponse
+   */
   async addBusinessCategory(request: AddBusinessCategoryRequest): Promise<AddBusinessCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addBusinessCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request AddRuleCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddRuleCategoryResponse
+   */
   async addRuleCategoryWithOptions(request: AddRuleCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddRuleCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17454,11 +16601,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddRuleCategoryResponse>(await this.callApi(params, req, runtime), new AddRuleCategoryResponse({}));
   }
 
+  /**
+   * @param request AddRuleCategoryRequest
+   * @return AddRuleCategoryResponse
+   */
   async addRuleCategory(request: AddRuleCategoryRequest): Promise<AddRuleCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addRuleCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @summary V4创建规则
+   *
+   * @param request AddRuleV4Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddRuleV4Response
+   */
   async addRuleV4WithOptions(request: AddRuleV4Request, runtime: $Util.RuntimeOptions): Promise<AddRuleV4Response> {
     Util.validateModel(request);
     let query = { };
@@ -17493,44 +16651,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddRuleV4Response>(await this.callApi(params, req, runtime), new AddRuleV4Response({}));
   }
 
+  /**
+   * @summary V4创建规则
+   *
+   * @param request AddRuleV4Request
+   * @return AddRuleV4Response
+   */
   async addRuleV4(request: AddRuleV4Request): Promise<AddRuleV4Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addRuleV4WithOptions(request, runtime);
   }
 
-  async addThesaurusForApiWithOptions(request: AddThesaurusForApiRequest, runtime: $Util.RuntimeOptions): Promise<AddThesaurusForApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "AddThesaurusForApi",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<AddThesaurusForApiResponse>(await this.callApi(params, req, runtime), new AddThesaurusForApiResponse({}));
-  }
-
-  async addThesaurusForApi(request: AddThesaurusForApiRequest): Promise<AddThesaurusForApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addThesaurusForApiWithOptions(request, runtime);
-  }
-
+  /**
+   * @param request AssignReviewerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssignReviewerResponse
+   */
   async assignReviewerWithOptions(request: AssignReviewerRequest, runtime: $Util.RuntimeOptions): Promise<AssignReviewerResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17559,11 +16695,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AssignReviewerResponse>(await this.callApi(params, req, runtime), new AssignReviewerResponse({}));
   }
 
+  /**
+   * @param request AssignReviewerRequest
+   * @return AssignReviewerResponse
+   */
   async assignReviewer(request: AssignReviewerRequest): Promise<AssignReviewerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.assignReviewerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 会话组批量分配
+   *
+   * @param request AssignReviewerBySessionGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssignReviewerBySessionGroupResponse
+   */
   async assignReviewerBySessionGroupWithOptions(request: AssignReviewerBySessionGroupRequest, runtime: $Util.RuntimeOptions): Promise<AssignReviewerBySessionGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17592,11 +16739,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AssignReviewerBySessionGroupResponse>(await this.callApi(params, req, runtime), new AssignReviewerBySessionGroupResponse({}));
   }
 
+  /**
+   * @summary 会话组批量分配
+   *
+   * @param request AssignReviewerBySessionGroupRequest
+   * @return AssignReviewerBySessionGroupResponse
+   */
   async assignReviewerBySessionGroup(request: AssignReviewerBySessionGroupRequest): Promise<AssignReviewerBySessionGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.assignReviewerBySessionGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 批量复核
+   *
+   * @param request BatchSubmitReviewInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BatchSubmitReviewInfoResponse
+   */
   async batchSubmitReviewInfoWithOptions(request: BatchSubmitReviewInfoRequest, runtime: $Util.RuntimeOptions): Promise<BatchSubmitReviewInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17625,11 +16785,22 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchSubmitReviewInfoResponse>(await this.callApi(params, req, runtime), new BatchSubmitReviewInfoResponse({}));
   }
 
+  /**
+   * @summary 批量复核
+   *
+   * @param request BatchSubmitReviewInfoRequest
+   * @return BatchSubmitReviewInfoResponse
+   */
   async batchSubmitReviewInfo(request: BatchSubmitReviewInfoRequest): Promise<BatchSubmitReviewInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchSubmitReviewInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateAsrVocabRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAsrVocabResponse
+   */
   async createAsrVocabWithOptions(request: CreateAsrVocabRequest, runtime: $Util.RuntimeOptions): Promise<CreateAsrVocabResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17658,11 +16829,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAsrVocabResponse>(await this.callApi(params, req, runtime), new CreateAsrVocabResponse({}));
   }
 
+  /**
+   * @param request CreateAsrVocabRequest
+   * @return CreateAsrVocabResponse
+   */
   async createAsrVocab(request: CreateAsrVocabRequest): Promise<CreateAsrVocabResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAsrVocabWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建质检方案中的质检维度
+   *
+   * @param request CreateCheckTypeToSchemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCheckTypeToSchemeResponse
+   */
   async createCheckTypeToSchemeWithOptions(request: CreateCheckTypeToSchemeRequest, runtime: $Util.RuntimeOptions): Promise<CreateCheckTypeToSchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17691,11 +16873,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateCheckTypeToSchemeResponse>(await this.callApi(params, req, runtime), new CreateCheckTypeToSchemeResponse({}));
   }
 
+  /**
+   * @summary 创建质检方案中的质检维度
+   *
+   * @param request CreateCheckTypeToSchemeRequest
+   * @return CreateCheckTypeToSchemeResponse
+   */
   async createCheckTypeToScheme(request: CreateCheckTypeToSchemeRequest): Promise<CreateCheckTypeToSchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createCheckTypeToSchemeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新增质检方案
+   *
+   * @param request CreateQualityCheckSchemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateQualityCheckSchemeResponse
+   */
   async createQualityCheckSchemeWithOptions(request: CreateQualityCheckSchemeRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityCheckSchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17724,11 +16919,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQualityCheckSchemeResponse>(await this.callApi(params, req, runtime), new CreateQualityCheckSchemeResponse({}));
   }
 
+  /**
+   * @summary 新增质检方案
+   *
+   * @param request CreateQualityCheckSchemeRequest
+   * @return CreateQualityCheckSchemeResponse
+   */
   async createQualityCheckScheme(request: CreateQualityCheckSchemeRequest): Promise<CreateQualityCheckSchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQualityCheckSchemeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 新建质检任务
+   *
+   * @param request CreateSchemeTaskConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSchemeTaskConfigResponse
+   */
   async createSchemeTaskConfigWithOptions(request: CreateSchemeTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchemeTaskConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17757,11 +16965,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSchemeTaskConfigResponse>(await this.callApi(params, req, runtime), new CreateSchemeTaskConfigResponse({}));
   }
 
+  /**
+   * @summary 新建质检任务
+   *
+   * @param request CreateSchemeTaskConfigRequest
+   * @return CreateSchemeTaskConfigResponse
+   */
   async createSchemeTaskConfig(request: CreateSchemeTaskConfigRequest): Promise<CreateSchemeTaskConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSchemeTaskConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateSkillGroupConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSkillGroupConfigResponse
+   */
   async createSkillGroupConfigWithOptions(request: CreateSkillGroupConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateSkillGroupConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17790,11 +17009,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSkillGroupConfigResponse>(await this.callApi(params, req, runtime), new CreateSkillGroupConfigResponse({}));
   }
 
+  /**
+   * @param request CreateSkillGroupConfigRequest
+   * @return CreateSkillGroupConfigResponse
+   */
   async createSkillGroupConfig(request: CreateSkillGroupConfigRequest): Promise<CreateSkillGroupConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSkillGroupConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateTaskAssignRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateTaskAssignRuleResponse
+   */
   async createTaskAssignRuleWithOptions(request: CreateTaskAssignRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateTaskAssignRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17823,17 +17051,21 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTaskAssignRuleResponse>(await this.callApi(params, req, runtime), new CreateTaskAssignRuleResponse({}));
   }
 
+  /**
+   * @param request CreateTaskAssignRuleRequest
+   * @return CreateTaskAssignRuleResponse
+   */
   async createTaskAssignRule(request: CreateTaskAssignRuleRequest): Promise<CreateTaskAssignRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTaskAssignRuleWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateUserRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateUserResponse
+   * @deprecated OpenAPI CreateUser is deprecated
+   *
+   * @param request CreateUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateUserResponse
    */
   // Deprecated
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
@@ -17865,10 +17097,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated
-    *
-    * @param request CreateUserRequest
-    * @return CreateUserResponse
+   * @deprecated OpenAPI CreateUser is deprecated
+   *
+   * @param request CreateUserRequest
+   * @return CreateUserResponse
    */
   // Deprecated
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
@@ -17876,6 +17108,11 @@ export default class Client extends OpenApi {
     return await this.createUserWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateWarningConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWarningConfigResponse
+   */
   async createWarningConfigWithOptions(request: CreateWarningConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateWarningConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17904,11 +17141,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWarningConfigResponse>(await this.callApi(params, req, runtime), new CreateWarningConfigResponse({}));
   }
 
+  /**
+   * @param request CreateWarningConfigRequest
+   * @return CreateWarningConfigResponse
+   */
   async createWarningConfig(request: CreateWarningConfigRequest): Promise<CreateWarningConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWarningConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary  预警策略-新增
+   *
+   * @param request CreateWarningStrategyConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateWarningStrategyConfigResponse
+   */
   async createWarningStrategyConfigWithOptions(request: CreateWarningStrategyConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateWarningStrategyConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17937,11 +17185,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWarningStrategyConfigResponse>(await this.callApi(params, req, runtime), new CreateWarningStrategyConfigResponse({}));
   }
 
+  /**
+   * @summary  预警策略-新增
+   *
+   * @param request CreateWarningStrategyConfigRequest
+   * @return CreateWarningStrategyConfigResponse
+   */
   async createWarningStrategyConfig(request: CreateWarningStrategyConfigRequest): Promise<CreateWarningStrategyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWarningStrategyConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DelRuleCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DelRuleCategoryResponse
+   */
   async delRuleCategoryWithOptions(request: DelRuleCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DelRuleCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -17970,44 +17229,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DelRuleCategoryResponse>(await this.callApi(params, req, runtime), new DelRuleCategoryResponse({}));
   }
 
+  /**
+   * @param request DelRuleCategoryRequest
+   * @return DelRuleCategoryResponse
+   */
   async delRuleCategory(request: DelRuleCategoryRequest): Promise<DelRuleCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.delRuleCategoryWithOptions(request, runtime);
   }
 
-  async delThesaurusForApiWithOptions(request: DelThesaurusForApiRequest, runtime: $Util.RuntimeOptions): Promise<DelThesaurusForApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DelThesaurusForApi",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DelThesaurusForApiResponse>(await this.callApi(params, req, runtime), new DelThesaurusForApiResponse({}));
-  }
-
-  async delThesaurusForApi(request: DelThesaurusForApiRequest): Promise<DelThesaurusForApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.delThesaurusForApiWithOptions(request, runtime);
-  }
-
+  /**
+   * @param request DeleteAsrVocabRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAsrVocabResponse
+   */
   async deleteAsrVocabWithOptions(request: DeleteAsrVocabRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAsrVocabResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18036,11 +17271,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAsrVocabResponse>(await this.callApi(params, req, runtime), new DeleteAsrVocabResponse({}));
   }
 
+  /**
+   * @param request DeleteAsrVocabRequest
+   * @return DeleteAsrVocabResponse
+   */
   async deleteAsrVocab(request: DeleteAsrVocabRequest): Promise<DeleteAsrVocabResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAsrVocabWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteBusinessCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBusinessCategoryResponse
+   */
   async deleteBusinessCategoryWithOptions(request: DeleteBusinessCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBusinessCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18069,11 +17313,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBusinessCategoryResponse>(await this.callApi(params, req, runtime), new DeleteBusinessCategoryResponse({}));
   }
 
+  /**
+   * @param request DeleteBusinessCategoryRequest
+   * @return DeleteBusinessCategoryResponse
+   */
   async deleteBusinessCategory(request: DeleteBusinessCategoryRequest): Promise<DeleteBusinessCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteBusinessCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteCustomizationConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomizationConfigResponse
+   */
   async deleteCustomizationConfigWithOptions(request: DeleteCustomizationConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomizationConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18102,11 +17355,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteCustomizationConfigResponse>(await this.callApi(params, req, runtime), new DeleteCustomizationConfigResponse({}));
   }
 
+  /**
+   * @param request DeleteCustomizationConfigRequest
+   * @return DeleteCustomizationConfigResponse
+   */
   async deleteCustomizationConfig(request: DeleteCustomizationConfigRequest): Promise<DeleteCustomizationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomizationConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteDataSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDataSetResponse
+   */
   async deleteDataSetWithOptions(request: DeleteDataSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18135,11 +17397,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDataSetResponse>(await this.callApi(params, req, runtime), new DeleteDataSetResponse({}));
   }
 
+  /**
+   * @param request DeleteDataSetRequest
+   * @return DeleteDataSetResponse
+   */
   async deleteDataSet(request: DeleteDataSetRequest): Promise<DeleteDataSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataSetWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeletePrecisionTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePrecisionTaskResponse
+   */
   async deletePrecisionTaskWithOptions(request: DeletePrecisionTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeletePrecisionTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18168,11 +17439,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePrecisionTaskResponse>(await this.callApi(params, req, runtime), new DeletePrecisionTaskResponse({}));
   }
 
+  /**
+   * @param request DeletePrecisionTaskRequest
+   * @return DeletePrecisionTaskResponse
+   */
   async deletePrecisionTask(request: DeletePrecisionTaskRequest): Promise<DeletePrecisionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deletePrecisionTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除质检方案
+   *
+   * @param request DeleteQualityCheckSchemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteQualityCheckSchemeResponse
+   */
   async deleteQualityCheckSchemeWithOptions(request: DeleteQualityCheckSchemeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityCheckSchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18201,11 +17483,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteQualityCheckSchemeResponse>(await this.callApi(params, req, runtime), new DeleteQualityCheckSchemeResponse({}));
   }
 
+  /**
+   * @summary 删除质检方案
+   *
+   * @param request DeleteQualityCheckSchemeRequest
+   * @return DeleteQualityCheckSchemeResponse
+   */
   async deleteQualityCheckScheme(request: DeleteQualityCheckSchemeRequest): Promise<DeleteQualityCheckSchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQualityCheckSchemeWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
+   *
+   * @summary 删除规则
+   *
+   * @param request DeleteRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRuleResponse
+   */
+  // Deprecated
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18244,11 +17542,27 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRuleResponse>(await this.callApi(params, req, runtime), new DeleteRuleResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
+   *
+   * @summary 删除规则
+   *
+   * @param request DeleteRuleRequest
+   * @return DeleteRuleResponse
+   */
+  // Deprecated
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @summary V4删除规则
+   *
+   * @param request DeleteRuleV4Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteRuleV4Response
+   */
   async deleteRuleV4WithOptions(request: DeleteRuleV4Request, runtime: $Util.RuntimeOptions): Promise<DeleteRuleV4Response> {
     Util.validateModel(request);
     let query = { };
@@ -18283,11 +17597,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteRuleV4Response>(await this.callApi(params, req, runtime), new DeleteRuleV4Response({}));
   }
 
+  /**
+   * @summary V4删除规则
+   *
+   * @param request DeleteRuleV4Request
+   * @return DeleteRuleV4Response
+   */
   async deleteRuleV4(request: DeleteRuleV4Request): Promise<DeleteRuleV4Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRuleV4WithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除质检任务
+   *
+   * @param request DeleteSchemeTaskConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSchemeTaskConfigResponse
+   */
   async deleteSchemeTaskConfigWithOptions(request: DeleteSchemeTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchemeTaskConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18316,11 +17643,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSchemeTaskConfigResponse>(await this.callApi(params, req, runtime), new DeleteSchemeTaskConfigResponse({}));
   }
 
+  /**
+   * @summary 删除质检任务
+   *
+   * @param request DeleteSchemeTaskConfigRequest
+   * @return DeleteSchemeTaskConfigResponse
+   */
   async deleteSchemeTaskConfig(request: DeleteSchemeTaskConfigRequest): Promise<DeleteSchemeTaskConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSchemeTaskConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI DeleteScoreForApi is deprecated
+   *
+   * @param request DeleteScoreForApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteScoreForApiResponse
+   */
+  // Deprecated
   async deleteScoreForApiWithOptions(request: DeleteScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18349,11 +17690,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteScoreForApiResponse>(await this.callApi(params, req, runtime), new DeleteScoreForApiResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI DeleteScoreForApi is deprecated
+   *
+   * @param request DeleteScoreForApiRequest
+   * @return DeleteScoreForApiResponse
+   */
+  // Deprecated
   async deleteScoreForApi(request: DeleteScoreForApiRequest): Promise<DeleteScoreForApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteScoreForApiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteSkillGroupConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSkillGroupConfigResponse
+   */
   async deleteSkillGroupConfigWithOptions(request: DeleteSkillGroupConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSkillGroupConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18382,11 +17735,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSkillGroupConfigResponse>(await this.callApi(params, req, runtime), new DeleteSkillGroupConfigResponse({}));
   }
 
+  /**
+   * @param request DeleteSkillGroupConfigRequest
+   * @return DeleteSkillGroupConfigResponse
+   */
   async deleteSkillGroupConfig(request: DeleteSkillGroupConfigRequest): Promise<DeleteSkillGroupConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSkillGroupConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI DeleteSubScoreForApi is deprecated
+   *
+   * @param request DeleteSubScoreForApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSubScoreForApiResponse
+   */
+  // Deprecated
   async deleteSubScoreForApiWithOptions(request: DeleteSubScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18415,11 +17780,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSubScoreForApiResponse>(await this.callApi(params, req, runtime), new DeleteSubScoreForApiResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI DeleteSubScoreForApi is deprecated
+   *
+   * @param request DeleteSubScoreForApiRequest
+   * @return DeleteSubScoreForApiResponse
+   */
+  // Deprecated
   async deleteSubScoreForApi(request: DeleteSubScoreForApiRequest): Promise<DeleteSubScoreForApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSubScoreForApiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteTaskAssignRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteTaskAssignRuleResponse
+   */
   async deleteTaskAssignRuleWithOptions(request: DeleteTaskAssignRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTaskAssignRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18448,59 +17825,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTaskAssignRuleResponse>(await this.callApi(params, req, runtime), new DeleteTaskAssignRuleResponse({}));
   }
 
+  /**
+   * @param request DeleteTaskAssignRuleRequest
+   * @return DeleteTaskAssignRuleResponse
+   */
   async deleteTaskAssignRule(request: DeleteTaskAssignRuleRequest): Promise<DeleteTaskAssignRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteTaskAssignRuleWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request DeleteUserRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteUserResponse
+   * @param request DeleteWarningConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWarningConfigResponse
    */
-  // Deprecated
-  async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteUser",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request DeleteUserRequest
-    * @return DeleteUserResponse
-   */
-  // Deprecated
-  async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteUserWithOptions(request, runtime);
-  }
-
   async deleteWarningConfigWithOptions(request: DeleteWarningConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWarningConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18529,11 +17867,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWarningConfigResponse>(await this.callApi(params, req, runtime), new DeleteWarningConfigResponse({}));
   }
 
+  /**
+   * @param request DeleteWarningConfigRequest
+   * @return DeleteWarningConfigResponse
+   */
   async deleteWarningConfig(request: DeleteWarningConfigRequest): Promise<DeleteWarningConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWarningConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary  预警策略-删除
+   *
+   * @param request DeleteWarningStrategyConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteWarningStrategyConfigResponse
+   */
   async deleteWarningStrategyConfigWithOptions(request: DeleteWarningStrategyConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWarningStrategyConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18562,44 +17911,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteWarningStrategyConfigResponse>(await this.callApi(params, req, runtime), new DeleteWarningStrategyConfigResponse({}));
   }
 
+  /**
+   * @summary  预警策略-删除
+   *
+   * @param request DeleteWarningStrategyConfigRequest
+   * @return DeleteWarningStrategyConfigResponse
+   */
   async deleteWarningStrategyConfig(request: DeleteWarningStrategyConfigRequest): Promise<DeleteWarningStrategyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteWarningStrategyConfigWithOptions(request, runtime);
   }
 
-  async editThesaurusForApiWithOptions(request: EditThesaurusForApiRequest, runtime: $Util.RuntimeOptions): Promise<EditThesaurusForApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "EditThesaurusForApi",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<EditThesaurusForApiResponse>(await this.callApi(params, req, runtime), new EditThesaurusForApiResponse({}));
-  }
-
-  async editThesaurusForApi(request: EditThesaurusForApiRequest): Promise<EditThesaurusForApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.editThesaurusForApiWithOptions(request, runtime);
-  }
-
+  /**
+   * @param request GetAsrVocabRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAsrVocabResponse
+   */
   async getAsrVocabWithOptions(request: GetAsrVocabRequest, runtime: $Util.RuntimeOptions): Promise<GetAsrVocabResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18628,11 +17955,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsrVocabResponse>(await this.callApi(params, req, runtime), new GetAsrVocabResponse({}));
   }
 
+  /**
+   * @param request GetAsrVocabRequest
+   * @return GetAsrVocabResponse
+   */
   async getAsrVocab(request: GetAsrVocabRequest): Promise<GetAsrVocabResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAsrVocabWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetBusinessCategoryListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBusinessCategoryListResponse
+   */
   async getBusinessCategoryListWithOptions(request: GetBusinessCategoryListRequest, runtime: $Util.RuntimeOptions): Promise<GetBusinessCategoryListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18661,11 +17997,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBusinessCategoryListResponse>(await this.callApi(params, req, runtime), new GetBusinessCategoryListResponse({}));
   }
 
+  /**
+   * @param request GetBusinessCategoryListRequest
+   * @return GetBusinessCategoryListResponse
+   */
   async getBusinessCategoryList(request: GetBusinessCategoryListRequest): Promise<GetBusinessCategoryListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBusinessCategoryListWithOptions(request, runtime);
   }
 
+  /**
+   * @summary GetCustomizationConfigList HSF_HTTP
+   *
+   * @param request GetCustomizationConfigListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetCustomizationConfigListResponse
+   */
   async getCustomizationConfigListWithOptions(request: GetCustomizationConfigListRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomizationConfigListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18694,44 +18041,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCustomizationConfigListResponse>(await this.callApi(params, req, runtime), new GetCustomizationConfigListResponse({}));
   }
 
+  /**
+   * @summary GetCustomizationConfigList HSF_HTTP
+   *
+   * @param request GetCustomizationConfigListRequest
+   * @return GetCustomizationConfigListResponse
+   */
   async getCustomizationConfigList(request: GetCustomizationConfigListRequest): Promise<GetCustomizationConfigListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCustomizationConfigListWithOptions(request, runtime);
   }
 
-  async getHitResultWithOptions(request: GetHitResultRequest, runtime: $Util.RuntimeOptions): Promise<GetHitResultResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetHitResult",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetHitResultResponse>(await this.callApi(params, req, runtime), new GetHitResultResponse({}));
-  }
-
-  async getHitResult(request: GetHitResultRequest): Promise<GetHitResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getHitResultWithOptions(request, runtime);
-  }
-
+  /**
+   * @param request GetNextResultToVerifyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetNextResultToVerifyResponse
+   */
   async getNextResultToVerifyWithOptions(request: GetNextResultToVerifyRequest, runtime: $Util.RuntimeOptions): Promise<GetNextResultToVerifyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18760,11 +18085,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNextResultToVerifyResponse>(await this.callApi(params, req, runtime), new GetNextResultToVerifyResponse({}));
   }
 
+  /**
+   * @param request GetNextResultToVerifyRequest
+   * @return GetNextResultToVerifyResponse
+   */
   async getNextResultToVerify(request: GetNextResultToVerifyRequest): Promise<GetNextResultToVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNextResultToVerifyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetPrecisionTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetPrecisionTaskResponse
+   */
   async getPrecisionTaskWithOptions(request: GetPrecisionTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetPrecisionTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18793,11 +18127,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPrecisionTaskResponse>(await this.callApi(params, req, runtime), new GetPrecisionTaskResponse({}));
   }
 
+  /**
+   * @param request GetPrecisionTaskRequest
+   * @return GetPrecisionTaskResponse
+   */
   async getPrecisionTask(request: GetPrecisionTaskRequest): Promise<GetPrecisionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPrecisionTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取质检方案
+   *
+   * @param request GetQualityCheckSchemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetQualityCheckSchemeResponse
+   */
   async getQualityCheckSchemeWithOptions(request: GetQualityCheckSchemeRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityCheckSchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18826,11 +18171,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityCheckSchemeResponse>(await this.callApi(params, req, runtime), new GetQualityCheckSchemeResponse({}));
   }
 
+  /**
+   * @summary 获取质检方案
+   *
+   * @param request GetQualityCheckSchemeRequest
+   * @return GetQualityCheckSchemeResponse
+   */
   async getQualityCheckScheme(request: GetQualityCheckSchemeRequest): Promise<GetQualityCheckSchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityCheckSchemeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetResultResponse
+   */
   async getResultWithOptions(request: GetResultRequest, runtime: $Util.RuntimeOptions): Promise<GetResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18859,11 +18215,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResultResponse>(await this.callApi(params, req, runtime), new GetResultResponse({}));
   }
 
+  /**
+   * @param request GetResultRequest
+   * @return GetResultResponse
+   */
   async getResult(request: GetResultRequest): Promise<GetResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResultWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetResultToReviewRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetResultToReviewResponse
+   */
   async getResultToReviewWithOptions(request: GetResultToReviewRequest, runtime: $Util.RuntimeOptions): Promise<GetResultToReviewResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18892,11 +18257,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResultToReviewResponse>(await this.callApi(params, req, runtime), new GetResultToReviewResponse({}));
   }
 
+  /**
+   * @param request GetResultToReviewRequest
+   * @return GetResultToReviewResponse
+   */
   async getResultToReview(request: GetResultToReviewRequest): Promise<GetResultToReviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResultToReviewWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+   *
+   * @param request GetRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRuleResponse
+   */
+  // Deprecated
   async getRuleWithOptions(request: GetRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18925,11 +18302,28 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRuleResponse>(await this.callApi(params, req, runtime), new GetRuleResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+   *
+   * @param request GetRuleRequest
+   * @return GetRuleResponse
+   */
+  // Deprecated
   async getRule(request: GetRuleRequest): Promise<GetRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+   *
+   * @summary 获取规则
+   *
+   * @param request GetRuleByIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRuleByIdResponse
+   */
+  // Deprecated
   async getRuleByIdWithOptions(request: GetRuleByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleByIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18960,11 +18354,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRuleByIdResponse>(await this.callApi(params, req, runtime), new GetRuleByIdResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+   *
+   * @summary 获取规则
+   *
+   * @param request GetRuleByIdRequest
+   * @return GetRuleByIdResponse
+   */
+  // Deprecated
   async getRuleById(request: GetRuleByIdRequest): Promise<GetRuleByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRuleByIdWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetRuleCategoryRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRuleCategoryResponse
+   */
   async getRuleCategoryWithOptions(request: GetRuleCategoryRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleCategoryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18993,11 +18401,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRuleCategoryResponse>(await this.callApi(params, req, runtime), new GetRuleCategoryResponse({}));
   }
 
+  /**
+   * @param request GetRuleCategoryRequest
+   * @return GetRuleCategoryResponse
+   */
   async getRuleCategory(request: GetRuleCategoryRequest): Promise<GetRuleCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRuleCategoryWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+   *
+   * @param request GetRuleDetailRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRuleDetailResponse
+   */
+  // Deprecated
   async getRuleDetailWithOptions(request: GetRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19026,11 +18446,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRuleDetailResponse>(await this.callApi(params, req, runtime), new GetRuleDetailResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
+   *
+   * @param request GetRuleDetailRequest
+   * @return GetRuleDetailResponse
+   */
+  // Deprecated
   async getRuleDetail(request: GetRuleDetailRequest): Promise<GetRuleDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRuleDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @summary V4获取规则
+   *
+   * @param request GetRuleV4Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRuleV4Response
+   */
   async getRuleV4WithOptions(request: GetRuleV4Request, runtime: $Util.RuntimeOptions): Promise<GetRuleV4Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19055,59 +18489,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRuleV4Response>(await this.callApi(params, req, runtime), new GetRuleV4Response({}));
   }
 
+  /**
+   * @summary V4获取规则
+   *
+   * @param request GetRuleV4Request
+   * @return GetRuleV4Response
+   */
   async getRuleV4(request: GetRuleV4Request): Promise<GetRuleV4Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRuleV4WithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : GetRuleV4Str is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
-    *
-    * @param request GetRuleV4StrRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return GetRuleV4StrResponse
+   * @summary 获得规则列表
+   *
+   * @param request GetRulesCountListRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRulesCountListResponse
    */
-  // Deprecated
-  async getRuleV4StrWithOptions(request: GetRuleV4StrRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleV4StrResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.isSchemeData)) {
-      body["IsSchemeData"] = request.isSchemeData;
-    }
-
-    if (!Util.isUnset(request.ruleId)) {
-      body["RuleId"] = request.ruleId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetRuleV4Str",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetRuleV4StrResponse>(await this.callApi(params, req, runtime), new GetRuleV4StrResponse({}));
-  }
-
-  /**
-    * @deprecated : GetRuleV4Str is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
-    *
-    * @param request GetRuleV4StrRequest
-    * @return GetRuleV4StrResponse
-   */
-  // Deprecated
-  async getRuleV4Str(request: GetRuleV4StrRequest): Promise<GetRuleV4StrResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getRuleV4StrWithOptions(request, runtime);
-  }
-
   async getRulesCountListWithOptions(request: GetRulesCountListRequest, runtime: $Util.RuntimeOptions): Promise<GetRulesCountListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19234,11 +18633,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRulesCountListResponse>(await this.callApi(params, req, runtime), new GetRulesCountListResponse({}));
   }
 
+  /**
+   * @summary 获得规则列表
+   *
+   * @param request GetRulesCountListRequest
+   * @return GetRulesCountListResponse
+   */
   async getRulesCountList(request: GetRulesCountListRequest): Promise<GetRulesCountListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRulesCountListWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI GetScoreInfo is deprecated
+   *
+   * @param request GetScoreInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetScoreInfoResponse
+   */
+  // Deprecated
   async getScoreInfoWithOptions(request: GetScoreInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetScoreInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19267,11 +18680,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetScoreInfoResponse>(await this.callApi(params, req, runtime), new GetScoreInfoResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI GetScoreInfo is deprecated
+   *
+   * @param request GetScoreInfoRequest
+   * @return GetScoreInfoResponse
+   */
+  // Deprecated
   async getScoreInfo(request: GetScoreInfoRequest): Promise<GetScoreInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getScoreInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetSkillGroupConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSkillGroupConfigResponse
+   */
   async getSkillGroupConfigWithOptions(request: GetSkillGroupConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19300,11 +18725,23 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSkillGroupConfigResponse>(await this.callApi(params, req, runtime), new GetSkillGroupConfigResponse({}));
   }
 
+  /**
+   * @param request GetSkillGroupConfigRequest
+   * @return GetSkillGroupConfigResponse
+   */
   async getSkillGroupConfig(request: GetSkillGroupConfigRequest): Promise<GetSkillGroupConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSkillGroupConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead.
+   *
+   * @param request GetSyncResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSyncResultResponse
+   */
+  // Deprecated
   async getSyncResultWithOptions(request: GetSyncResultRequest, runtime: $Util.RuntimeOptions): Promise<GetSyncResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19333,44 +18770,25 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSyncResultResponse>(await this.callApi(params, req, runtime), new GetSyncResultResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead.
+   *
+   * @param request GetSyncResultRequest
+   * @return GetSyncResultResponse
+   */
+  // Deprecated
   async getSyncResult(request: GetSyncResultRequest): Promise<GetSyncResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSyncResultWithOptions(request, runtime);
   }
 
-  async getThesaurusBySynonymForApiWithOptions(request: GetThesaurusBySynonymForApiRequest, runtime: $Util.RuntimeOptions): Promise<GetThesaurusBySynonymForApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetThesaurusBySynonymForApi",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetThesaurusBySynonymForApiResponse>(await this.callApi(params, req, runtime), new GetThesaurusBySynonymForApiResponse({}));
-  }
-
-  async getThesaurusBySynonymForApi(request: GetThesaurusBySynonymForApiRequest): Promise<GetThesaurusBySynonymForApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getThesaurusBySynonymForApiWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary 预警策略-详情
+   *
+   * @param request GetWarningStrategyConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetWarningStrategyConfigResponse
+   */
   async getWarningStrategyConfigWithOptions(request: GetWarningStrategyConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetWarningStrategyConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19399,11 +18817,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetWarningStrategyConfigResponse>(await this.callApi(params, req, runtime), new GetWarningStrategyConfigResponse({}));
   }
 
+  /**
+   * @summary 预警策略-详情
+   *
+   * @param request GetWarningStrategyConfigRequest
+   * @return GetWarningStrategyConfigResponse
+   */
   async getWarningStrategyConfig(request: GetWarningStrategyConfigRequest): Promise<GetWarningStrategyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWarningStrategyConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request HandleComplaintRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return HandleComplaintResponse
+   */
   async handleComplaintWithOptions(request: HandleComplaintRequest, runtime: $Util.RuntimeOptions): Promise<HandleComplaintResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19432,11 +18861,23 @@ export default class Client extends OpenApi {
     return $tea.cast<HandleComplaintResponse>(await this.callApi(params, req, runtime), new HandleComplaintResponse({}));
   }
 
+  /**
+   * @param request HandleComplaintRequest
+   * @return HandleComplaintResponse
+   */
   async handleComplaint(request: HandleComplaintRequest): Promise<HandleComplaintResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.handleComplaintWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI InsertScoreForApi is deprecated
+   *
+   * @param request InsertScoreForApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsertScoreForApiResponse
+   */
+  // Deprecated
   async insertScoreForApiWithOptions(request: InsertScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<InsertScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19465,11 +18906,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertScoreForApiResponse>(await this.callApi(params, req, runtime), new InsertScoreForApiResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI InsertScoreForApi is deprecated
+   *
+   * @param request InsertScoreForApiRequest
+   * @return InsertScoreForApiResponse
+   */
+  // Deprecated
   async insertScoreForApi(request: InsertScoreForApiRequest): Promise<InsertScoreForApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.insertScoreForApiWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI InsertSubScoreForApi is deprecated
+   *
+   * @param request InsertSubScoreForApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InsertSubScoreForApiResponse
+   */
+  // Deprecated
   async insertSubScoreForApiWithOptions(request: InsertSubScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<InsertSubScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19498,11 +18954,26 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertSubScoreForApiResponse>(await this.callApi(params, req, runtime), new InsertSubScoreForApiResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI InsertSubScoreForApi is deprecated
+   *
+   * @param request InsertSubScoreForApiRequest
+   * @return InsertSubScoreForApiResponse
+   */
+  // Deprecated
   async insertSubScoreForApi(request: InsertSubScoreForApiRequest): Promise<InsertSubScoreForApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.insertSubScoreForApiWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
+   *
+   * @param request InvalidRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return InvalidRuleResponse
+   */
+  // Deprecated
   async invalidRuleWithOptions(request: InvalidRuleRequest, runtime: $Util.RuntimeOptions): Promise<InvalidRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19531,11 +19002,23 @@ export default class Client extends OpenApi {
     return $tea.cast<InvalidRuleResponse>(await this.callApi(params, req, runtime), new InvalidRuleResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
+   *
+   * @param request InvalidRuleRequest
+   * @return InvalidRuleResponse
+   */
+  // Deprecated
   async invalidRule(request: InvalidRuleRequest): Promise<InvalidRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.invalidRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListAsrVocabRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAsrVocabResponse
+   */
   async listAsrVocabWithOptions(request: ListAsrVocabRequest, runtime: $Util.RuntimeOptions): Promise<ListAsrVocabResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19564,55 +19047,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAsrVocabResponse>(await this.callApi(params, req, runtime), new ListAsrVocabResponse({}));
   }
 
+  /**
+   * @param request ListAsrVocabRequest
+   * @return ListAsrVocabResponse
+   */
   async listAsrVocab(request: ListAsrVocabRequest): Promise<ListAsrVocabResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAsrVocabWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated
-    *
-    * @param request ListBusinessSpacesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListBusinessSpacesResponse
+   * @summary 获取数据集列表
+   *
+   * @param request ListDataSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDataSetResponse
    */
-  // Deprecated
-  async listBusinessSpacesWithOptions(request: ListBusinessSpacesRequest, runtime: $Util.RuntimeOptions): Promise<ListBusinessSpacesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListBusinessSpaces",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListBusinessSpacesResponse>(await this.callApi(params, req, runtime), new ListBusinessSpacesResponse({}));
-  }
-
-  /**
-    * @deprecated
-    *
-    * @param request ListBusinessSpacesRequest
-    * @return ListBusinessSpacesResponse
-   */
-  // Deprecated
-  async listBusinessSpaces(request: ListBusinessSpacesRequest): Promise<ListBusinessSpacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listBusinessSpacesWithOptions(request, runtime);
-  }
-
   async listDataSetWithOptions(request: ListDataSetRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19641,11 +19091,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDataSetResponse>(await this.callApi(params, req, runtime), new ListDataSetResponse({}));
   }
 
+  /**
+   * @summary 获取数据集列表
+   *
+   * @param request ListDataSetRequest
+   * @return ListDataSetResponse
+   */
   async listDataSet(request: ListDataSetRequest): Promise<ListDataSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataSetWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListPrecisionTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListPrecisionTaskResponse
+   */
   async listPrecisionTaskWithOptions(request: ListPrecisionTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListPrecisionTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19674,11 +19135,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListPrecisionTaskResponse>(await this.callApi(params, req, runtime), new ListPrecisionTaskResponse({}));
   }
 
+  /**
+   * @param request ListPrecisionTaskRequest
+   * @return ListPrecisionTaskResponse
+   */
   async listPrecisionTask(request: ListPrecisionTaskRequest): Promise<ListPrecisionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPrecisionTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 质检方案列表
+   *
+   * @param request ListQualityCheckSchemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListQualityCheckSchemeResponse
+   */
   async listQualityCheckSchemeWithOptions(request: ListQualityCheckSchemeRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityCheckSchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19707,44 +19179,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListQualityCheckSchemeResponse>(await this.callApi(params, req, runtime), new ListQualityCheckSchemeResponse({}));
   }
 
+  /**
+   * @summary 质检方案列表
+   *
+   * @param request ListQualityCheckSchemeRequest
+   * @return ListQualityCheckSchemeResponse
+   */
   async listQualityCheckScheme(request: ListQualityCheckSchemeRequest): Promise<ListQualityCheckSchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listQualityCheckSchemeWithOptions(request, runtime);
   }
 
-  async listRolesWithOptions(request: ListRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListRoles",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListRolesResponse>(await this.callApi(params, req, runtime), new ListRolesResponse({}));
-  }
-
-  async listRoles(request: ListRolesRequest): Promise<ListRolesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listRolesWithOptions(request, runtime);
-  }
-
+  /**
+   * @deprecated OpenAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead.
+   *
+   * @param request ListRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRulesResponse
+   */
+  // Deprecated
   async listRulesWithOptions(request: ListRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19773,11 +19226,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRulesResponse>(await this.callApi(params, req, runtime), new ListRulesResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead.
+   *
+   * @param request ListRulesRequest
+   * @return ListRulesResponse
+   */
+  // Deprecated
   async listRules(request: ListRulesRequest): Promise<ListRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary V4获得规则列表
+   *
+   * @param request ListRulesV4Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRulesV4Response
+   */
   async listRulesV4WithOptions(request: ListRulesV4Request, runtime: $Util.RuntimeOptions): Promise<ListRulesV4Response> {
     Util.validateModel(request);
     let query = { };
@@ -19904,11 +19371,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRulesV4Response>(await this.callApi(params, req, runtime), new ListRulesV4Response({}));
   }
 
+  /**
+   * @summary V4获得规则列表
+   *
+   * @param request ListRulesV4Request
+   * @return ListRulesV4Response
+   */
   async listRulesV4(request: ListRulesV4Request): Promise<ListRulesV4Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRulesV4WithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取质检任务列表
+   *
+   * @param request ListSchemeTaskConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSchemeTaskConfigResponse
+   */
   async listSchemeTaskConfigWithOptions(request: ListSchemeTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListSchemeTaskConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19937,11 +19417,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSchemeTaskConfigResponse>(await this.callApi(params, req, runtime), new ListSchemeTaskConfigResponse({}));
   }
 
+  /**
+   * @summary 获取质检任务列表
+   *
+   * @param request ListSchemeTaskConfigRequest
+   * @return ListSchemeTaskConfigResponse
+   */
   async listSchemeTaskConfig(request: ListSchemeTaskConfigRequest): Promise<ListSchemeTaskConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSchemeTaskConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取会话组列表
+   *
+   * @param request ListSessionGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSessionGroupResponse
+   */
   async listSessionGroupWithOptions(request: ListSessionGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListSessionGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19970,11 +19463,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSessionGroupResponse>(await this.callApi(params, req, runtime), new ListSessionGroupResponse({}));
   }
 
+  /**
+   * @summary 获取会话组列表
+   *
+   * @param request ListSessionGroupRequest
+   * @return ListSessionGroupResponse
+   */
   async listSessionGroup(request: ListSessionGroupRequest): Promise<ListSessionGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSessionGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListSkillGroupConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSkillGroupConfigResponse
+   */
   async listSkillGroupConfigWithOptions(request: ListSkillGroupConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20003,11 +19507,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSkillGroupConfigResponse>(await this.callApi(params, req, runtime), new ListSkillGroupConfigResponse({}));
   }
 
+  /**
+   * @param request ListSkillGroupConfigRequest
+   * @return ListSkillGroupConfigResponse
+   */
   async listSkillGroupConfig(request: ListSkillGroupConfigRequest): Promise<ListSkillGroupConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSkillGroupConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListTaskAssignRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTaskAssignRulesResponse
+   */
   async listTaskAssignRulesWithOptions(request: ListTaskAssignRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskAssignRulesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20036,11 +19549,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskAssignRulesResponse>(await this.callApi(params, req, runtime), new ListTaskAssignRulesResponse({}));
   }
 
+  /**
+   * @param request ListTaskAssignRulesRequest
+   * @return ListTaskAssignRulesResponse
+   */
   async listTaskAssignRules(request: ListTaskAssignRulesRequest): Promise<ListTaskAssignRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskAssignRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListUsersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListUsersResponse
+   */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20069,11 +19591,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
+  /**
+   * @param request ListUsersRequest
+   * @return ListUsersResponse
+   */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListWarningConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWarningConfigResponse
+   */
   async listWarningConfigWithOptions(request: ListWarningConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListWarningConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20102,11 +19633,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWarningConfigResponse>(await this.callApi(params, req, runtime), new ListWarningConfigResponse({}));
   }
 
+  /**
+   * @param request ListWarningConfigRequest
+   * @return ListWarningConfigResponse
+   */
   async listWarningConfig(request: ListWarningConfigRequest): Promise<ListWarningConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWarningConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary  预警策略-列表
+   *
+   * @param request ListWarningStrategyConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListWarningStrategyConfigResponse
+   */
   async listWarningStrategyConfigWithOptions(request: ListWarningStrategyConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListWarningStrategyConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20135,44 +19677,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWarningStrategyConfigResponse>(await this.callApi(params, req, runtime), new ListWarningStrategyConfigResponse({}));
   }
 
+  /**
+   * @summary  预警策略-列表
+   *
+   * @param request ListWarningStrategyConfigRequest
+   * @return ListWarningStrategyConfigResponse
+   */
   async listWarningStrategyConfig(request: ListWarningStrategyConfigRequest): Promise<ListWarningStrategyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listWarningStrategyConfigWithOptions(request, runtime);
   }
 
-  async restartAsrTaskWithOptions(request: RestartAsrTaskRequest, runtime: $Util.RuntimeOptions): Promise<RestartAsrTaskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RestartAsrTask",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RestartAsrTaskResponse>(await this.callApi(params, req, runtime), new RestartAsrTaskResponse({}));
-  }
-
-  async restartAsrTask(request: RestartAsrTaskRequest): Promise<RestartAsrTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.restartAsrTaskWithOptions(request, runtime);
-  }
-
+  /**
+   * @summary 批量回收
+   *
+   * @param request RevertAssignedSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevertAssignedSessionResponse
+   */
   async revertAssignedSessionWithOptions(request: RevertAssignedSessionRequest, runtime: $Util.RuntimeOptions): Promise<RevertAssignedSessionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20201,11 +19723,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RevertAssignedSessionResponse>(await this.callApi(params, req, runtime), new RevertAssignedSessionResponse({}));
   }
 
+  /**
+   * @summary 批量回收
+   *
+   * @param request RevertAssignedSessionRequest
+   * @return RevertAssignedSessionResponse
+   */
   async revertAssignedSession(request: RevertAssignedSessionRequest): Promise<RevertAssignedSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revertAssignedSessionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 会话组批量回收
+   *
+   * @param request RevertAssignedSessionGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RevertAssignedSessionGroupResponse
+   */
   async revertAssignedSessionGroupWithOptions(request: RevertAssignedSessionGroupRequest, runtime: $Util.RuntimeOptions): Promise<RevertAssignedSessionGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20234,11 +19769,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RevertAssignedSessionGroupResponse>(await this.callApi(params, req, runtime), new RevertAssignedSessionGroupResponse({}));
   }
 
+  /**
+   * @summary 会话组批量回收
+   *
+   * @param request RevertAssignedSessionGroupRequest
+   * @return RevertAssignedSessionGroupResponse
+   */
   async revertAssignedSessionGroup(request: RevertAssignedSessionGroupRequest): Promise<RevertAssignedSessionGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revertAssignedSessionGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveConfigDataSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveConfigDataSetResponse
+   */
   async saveConfigDataSetWithOptions(request: SaveConfigDataSetRequest, runtime: $Util.RuntimeOptions): Promise<SaveConfigDataSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20267,11 +19813,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveConfigDataSetResponse>(await this.callApi(params, req, runtime), new SaveConfigDataSetResponse({}));
   }
 
+  /**
+   * @param request SaveConfigDataSetRequest
+   * @return SaveConfigDataSetResponse
+   */
   async saveConfigDataSet(request: SaveConfigDataSetRequest): Promise<SaveConfigDataSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveConfigDataSetWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SubmitComplaintRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitComplaintResponse
+   */
   async submitComplaintWithOptions(request: SubmitComplaintRequest, runtime: $Util.RuntimeOptions): Promise<SubmitComplaintResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20300,11 +19855,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitComplaintResponse>(await this.callApi(params, req, runtime), new SubmitComplaintResponse({}));
   }
 
+  /**
+   * @param request SubmitComplaintRequest
+   * @return SubmitComplaintResponse
+   */
   async submitComplaint(request: SubmitComplaintRequest): Promise<SubmitComplaintResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitComplaintWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SubmitPrecisionTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitPrecisionTaskResponse
+   */
   async submitPrecisionTaskWithOptions(request: SubmitPrecisionTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitPrecisionTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20333,11 +19897,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitPrecisionTaskResponse>(await this.callApi(params, req, runtime), new SubmitPrecisionTaskResponse({}));
   }
 
+  /**
+   * @param request SubmitPrecisionTaskRequest
+   * @return SubmitPrecisionTaskResponse
+   */
   async submitPrecisionTask(request: SubmitPrecisionTaskRequest): Promise<SubmitPrecisionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitPrecisionTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SubmitQualityCheckTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitQualityCheckTaskResponse
+   */
   async submitQualityCheckTaskWithOptions(request: SubmitQualityCheckTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitQualityCheckTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20366,11 +19939,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitQualityCheckTaskResponse>(await this.callApi(params, req, runtime), new SubmitQualityCheckTaskResponse({}));
   }
 
+  /**
+   * @param request SubmitQualityCheckTaskRequest
+   * @return SubmitQualityCheckTaskResponse
+   */
   async submitQualityCheckTask(request: SubmitQualityCheckTaskRequest): Promise<SubmitQualityCheckTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitQualityCheckTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SubmitReviewInfoRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SubmitReviewInfoResponse
+   */
   async submitReviewInfoWithOptions(request: SubmitReviewInfoRequest, runtime: $Util.RuntimeOptions): Promise<SubmitReviewInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20399,11 +19981,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SubmitReviewInfoResponse>(await this.callApi(params, req, runtime), new SubmitReviewInfoResponse({}));
   }
 
+  /**
+   * @param request SubmitReviewInfoRequest
+   * @return SubmitReviewInfoResponse
+   */
   async submitReviewInfo(request: SubmitReviewInfoRequest): Promise<SubmitReviewInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitReviewInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SyncQualityCheckRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SyncQualityCheckResponse
+   */
   async syncQualityCheckWithOptions(request: SyncQualityCheckRequest, runtime: $Util.RuntimeOptions): Promise<SyncQualityCheckResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20432,11 +20023,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SyncQualityCheckResponse>(await this.callApi(params, req, runtime), new SyncQualityCheckResponse({}));
   }
 
+  /**
+   * @param request SyncQualityCheckRequest
+   * @return SyncQualityCheckResponse
+   */
   async syncQualityCheck(request: SyncQualityCheckRequest): Promise<SyncQualityCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.syncQualityCheckWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 测试规则
+   *
+   * @param request TestRuleV4Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TestRuleV4Response
+   */
   async testRuleV4WithOptions(request: TestRuleV4Request, runtime: $Util.RuntimeOptions): Promise<TestRuleV4Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20465,11 +20067,22 @@ export default class Client extends OpenApi {
     return $tea.cast<TestRuleV4Response>(await this.callApi(params, req, runtime), new TestRuleV4Response({}));
   }
 
+  /**
+   * @summary 测试规则
+   *
+   * @param request TestRuleV4Request
+   * @return TestRuleV4Response
+   */
   async testRuleV4(request: TestRuleV4Request): Promise<TestRuleV4Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.testRuleV4WithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateAsrVocabRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAsrVocabResponse
+   */
   async updateAsrVocabWithOptions(request: UpdateAsrVocabRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAsrVocabResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20498,11 +20111,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAsrVocabResponse>(await this.callApi(params, req, runtime), new UpdateAsrVocabResponse({}));
   }
 
+  /**
+   * @param request UpdateAsrVocabRequest
+   * @return UpdateAsrVocabResponse
+   */
   async updateAsrVocab(request: UpdateAsrVocabRequest): Promise<UpdateAsrVocabResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAsrVocabWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新质检方案中的质检维度
+   *
+   * @param request UpdateCheckTypeToSchemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCheckTypeToSchemeResponse
+   */
   async updateCheckTypeToSchemeWithOptions(request: UpdateCheckTypeToSchemeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCheckTypeToSchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20531,11 +20155,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCheckTypeToSchemeResponse>(await this.callApi(params, req, runtime), new UpdateCheckTypeToSchemeResponse({}));
   }
 
+  /**
+   * @summary 更新质检方案中的质检维度
+   *
+   * @param request UpdateCheckTypeToSchemeRequest
+   * @return UpdateCheckTypeToSchemeResponse
+   */
   async updateCheckTypeToScheme(request: UpdateCheckTypeToSchemeRequest): Promise<UpdateCheckTypeToSchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCheckTypeToSchemeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新会话随录数据
+   *
+   * @param request UpdateQualityCheckDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateQualityCheckDataResponse
+   */
   async updateQualityCheckDataWithOptions(request: UpdateQualityCheckDataRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityCheckDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20564,11 +20201,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateQualityCheckDataResponse>(await this.callApi(params, req, runtime), new UpdateQualityCheckDataResponse({}));
   }
 
+  /**
+   * @summary 更新会话随录数据
+   *
+   * @param request UpdateQualityCheckDataRequest
+   * @return UpdateQualityCheckDataResponse
+   */
   async updateQualityCheckData(request: UpdateQualityCheckDataRequest): Promise<UpdateQualityCheckDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateQualityCheckDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新质检方案
+   *
+   * @param request UpdateQualityCheckSchemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateQualityCheckSchemeResponse
+   */
   async updateQualityCheckSchemeWithOptions(request: UpdateQualityCheckSchemeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityCheckSchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20597,11 +20247,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateQualityCheckSchemeResponse>(await this.callApi(params, req, runtime), new UpdateQualityCheckSchemeResponse({}));
   }
 
+  /**
+   * @summary 更新质检方案
+   *
+   * @param request UpdateQualityCheckSchemeRequest
+   * @return UpdateQualityCheckSchemeResponse
+   */
   async updateQualityCheckScheme(request: UpdateQualityCheckSchemeRequest): Promise<UpdateQualityCheckSchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateQualityCheckSchemeWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
+   *
+   * @param request UpdateRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRuleResponse
+   */
+  // Deprecated
   async updateRuleWithOptions(request: UpdateRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20630,11 +20294,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRuleResponse>(await this.callApi(params, req, runtime), new UpdateRuleResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
+   *
+   * @param request UpdateRuleRequest
+   * @return UpdateRuleResponse
+   */
+  // Deprecated
   async updateRule(request: UpdateRuleRequest): Promise<UpdateRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
+   *
+   * @summary 更新规则
+   *
+   * @param request UpdateRuleByIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRuleByIdResponse
+   */
+  // Deprecated
   async updateRuleByIdWithOptions(request: UpdateRuleByIdRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleByIdResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20677,11 +20358,27 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRuleByIdResponse>(await this.callApi(params, req, runtime), new UpdateRuleByIdResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
+   *
+   * @summary 更新规则
+   *
+   * @param request UpdateRuleByIdRequest
+   * @return UpdateRuleByIdResponse
+   */
+  // Deprecated
   async updateRuleById(request: UpdateRuleByIdRequest): Promise<UpdateRuleByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRuleByIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新质检方案的规则
+   *
+   * @param request UpdateRuleToSchemeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRuleToSchemeResponse
+   */
   async updateRuleToSchemeWithOptions(request: UpdateRuleToSchemeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRuleToSchemeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20710,11 +20407,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRuleToSchemeResponse>(await this.callApi(params, req, runtime), new UpdateRuleToSchemeResponse({}));
   }
 
+  /**
+   * @summary 更新质检方案的规则
+   *
+   * @param request UpdateRuleToSchemeRequest
+   * @return UpdateRuleToSchemeResponse
+   */
   async updateRuleToScheme(request: UpdateRuleToSchemeRequest): Promise<UpdateRuleToSchemeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRuleToSchemeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary V4更新规则
+   *
+   * @param request UpdateRuleV4Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateRuleV4Response
+   */
   async updateRuleV4WithOptions(request: UpdateRuleV4Request, runtime: $Util.RuntimeOptions): Promise<UpdateRuleV4Response> {
     Util.validateModel(request);
     let query = { };
@@ -20749,11 +20459,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateRuleV4Response>(await this.callApi(params, req, runtime), new UpdateRuleV4Response({}));
   }
 
+  /**
+   * @summary V4更新规则
+   *
+   * @param request UpdateRuleV4Request
+   * @return UpdateRuleV4Response
+   */
   async updateRuleV4(request: UpdateRuleV4Request): Promise<UpdateRuleV4Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRuleV4WithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建质检任务
+   *
+   * @param request UpdateSchemeTaskConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSchemeTaskConfigResponse
+   */
   async updateSchemeTaskConfigWithOptions(request: UpdateSchemeTaskConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSchemeTaskConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20782,11 +20505,25 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSchemeTaskConfigResponse>(await this.callApi(params, req, runtime), new UpdateSchemeTaskConfigResponse({}));
   }
 
+  /**
+   * @summary 创建质检任务
+   *
+   * @param request UpdateSchemeTaskConfigRequest
+   * @return UpdateSchemeTaskConfigResponse
+   */
   async updateSchemeTaskConfig(request: UpdateSchemeTaskConfigRequest): Promise<UpdateSchemeTaskConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSchemeTaskConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI UpdateScoreForApi is deprecated
+   *
+   * @param request UpdateScoreForApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateScoreForApiResponse
+   */
+  // Deprecated
   async updateScoreForApiWithOptions(request: UpdateScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20815,11 +20552,23 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateScoreForApiResponse>(await this.callApi(params, req, runtime), new UpdateScoreForApiResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI UpdateScoreForApi is deprecated
+   *
+   * @param request UpdateScoreForApiRequest
+   * @return UpdateScoreForApiResponse
+   */
+  // Deprecated
   async updateScoreForApi(request: UpdateScoreForApiRequest): Promise<UpdateScoreForApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateScoreForApiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateSkillGroupConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSkillGroupConfigResponse
+   */
   async updateSkillGroupConfigWithOptions(request: UpdateSkillGroupConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSkillGroupConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20848,11 +20597,23 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSkillGroupConfigResponse>(await this.callApi(params, req, runtime), new UpdateSkillGroupConfigResponse({}));
   }
 
+  /**
+   * @param request UpdateSkillGroupConfigRequest
+   * @return UpdateSkillGroupConfigResponse
+   */
   async updateSkillGroupConfig(request: UpdateSkillGroupConfigRequest): Promise<UpdateSkillGroupConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSkillGroupConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @deprecated OpenAPI UpdateSubScoreForApi is deprecated
+   *
+   * @param request UpdateSubScoreForApiRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSubScoreForApiResponse
+   */
+  // Deprecated
   async updateSubScoreForApiWithOptions(request: UpdateSubScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubScoreForApiResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20881,11 +20642,23 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSubScoreForApiResponse>(await this.callApi(params, req, runtime), new UpdateSubScoreForApiResponse({}));
   }
 
+  /**
+   * @deprecated OpenAPI UpdateSubScoreForApi is deprecated
+   *
+   * @param request UpdateSubScoreForApiRequest
+   * @return UpdateSubScoreForApiResponse
+   */
+  // Deprecated
   async updateSubScoreForApi(request: UpdateSubScoreForApiRequest): Promise<UpdateSubScoreForApiResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSubScoreForApiWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateSyncQualityCheckDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateSyncQualityCheckDataResponse
+   */
   async updateSyncQualityCheckDataWithOptions(request: UpdateSyncQualityCheckDataRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSyncQualityCheckDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20914,11 +20687,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSyncQualityCheckDataResponse>(await this.callApi(params, req, runtime), new UpdateSyncQualityCheckDataResponse({}));
   }
 
+  /**
+   * @param request UpdateSyncQualityCheckDataRequest
+   * @return UpdateSyncQualityCheckDataResponse
+   */
   async updateSyncQualityCheckData(request: UpdateSyncQualityCheckDataRequest): Promise<UpdateSyncQualityCheckDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSyncQualityCheckDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateTaskAssignRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateTaskAssignRuleResponse
+   */
   async updateTaskAssignRuleWithOptions(request: UpdateTaskAssignRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskAssignRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20947,11 +20729,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateTaskAssignRuleResponse>(await this.callApi(params, req, runtime), new UpdateTaskAssignRuleResponse({}));
   }
 
+  /**
+   * @param request UpdateTaskAssignRuleRequest
+   * @return UpdateTaskAssignRuleResponse
+   */
   async updateTaskAssignRule(request: UpdateTaskAssignRuleRequest): Promise<UpdateTaskAssignRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateTaskAssignRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UpdateUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateUserResponse
+   */
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20980,44 +20771,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
   }
 
+  /**
+   * @param request UpdateUserRequest
+   * @return UpdateUserResponse
+   */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);
   }
 
-  async updateUserConfigWithOptions(request: UpdateUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserConfigResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateUserConfig",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateUserConfigResponse>(await this.callApi(params, req, runtime), new UpdateUserConfigResponse({}));
-  }
-
-  async updateUserConfig(request: UpdateUserConfigRequest): Promise<UpdateUserConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateUserConfigWithOptions(request, runtime);
-  }
-
+  /**
+   * @param request UpdateWarningConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWarningConfigResponse
+   */
   async updateWarningConfigWithOptions(request: UpdateWarningConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWarningConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21046,11 +20813,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWarningConfigResponse>(await this.callApi(params, req, runtime), new UpdateWarningConfigResponse({}));
   }
 
+  /**
+   * @param request UpdateWarningConfigRequest
+   * @return UpdateWarningConfigResponse
+   */
   async updateWarningConfig(request: UpdateWarningConfigRequest): Promise<UpdateWarningConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWarningConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary  预警策略-更新
+   *
+   * @param request UpdateWarningStrategyConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateWarningStrategyConfigResponse
+   */
   async updateWarningStrategyConfigWithOptions(request: UpdateWarningStrategyConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWarningStrategyConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21079,11 +20857,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateWarningStrategyConfigResponse>(await this.callApi(params, req, runtime), new UpdateWarningStrategyConfigResponse({}));
   }
 
+  /**
+   * @summary  预警策略-更新
+   *
+   * @param request UpdateWarningStrategyConfigRequest
+   * @return UpdateWarningStrategyConfigResponse
+   */
   async updateWarningStrategyConfig(request: UpdateWarningStrategyConfigRequest): Promise<UpdateWarningStrategyConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateWarningStrategyConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request UploadAudioDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadAudioDataResponse
+   */
   async uploadAudioDataWithOptions(request: UploadAudioDataRequest, runtime: $Util.RuntimeOptions): Promise<UploadAudioDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21112,17 +20901,23 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadAudioDataResponse>(await this.callApi(params, req, runtime), new UploadAudioDataResponse({}));
   }
 
+  /**
+   * @param request UploadAudioDataRequest
+   * @return UploadAudioDataResponse
+   */
   async uploadAudioData(request: UploadAudioDataRequest): Promise<UploadAudioDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadAudioDataWithOptions(request, runtime);
   }
 
   /**
-    * @deprecated : UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
-    *
-    * @param request UploadDataRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UploadDataResponse
+   * @deprecated OpenAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
+   *
+   * @summary 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
+   *
+   * @param request UploadDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadDataResponse
    */
   // Deprecated
   async uploadDataWithOptions(request: UploadDataRequest, runtime: $Util.RuntimeOptions): Promise<UploadDataResponse> {
@@ -21154,10 +20949,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * @deprecated : UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
-    *
-    * @param request UploadDataRequest
-    * @return UploadDataResponse
+   * @deprecated OpenAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead.
+   *
+   * @summary 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
+   *
+   * @param request UploadDataRequest
+   * @return UploadDataResponse
    */
   // Deprecated
   async uploadData(request: UploadDataRequest): Promise<UploadDataResponse> {
@@ -21165,6 +20962,13 @@ export default class Client extends OpenApi {
     return await this.uploadDataWithOptions(request, runtime);
   }
 
+  /**
+   * @summary http_hsf
+   *
+   * @param request UploadDataSyncRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadDataSyncResponse
+   */
   async uploadDataSyncWithOptions(request: UploadDataSyncRequest, runtime: $Util.RuntimeOptions): Promise<UploadDataSyncResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21193,11 +20997,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadDataSyncResponse>(await this.callApi(params, req, runtime), new UploadDataSyncResponse({}));
   }
 
+  /**
+   * @summary http_hsf
+   *
+   * @param request UploadDataSyncRequest
+   * @return UploadDataSyncResponse
+   */
   async uploadDataSync(request: UploadDataSyncRequest): Promise<UploadDataSyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadDataSyncWithOptions(request, runtime);
   }
 
+  /**
+   * @summary UploadDataV4
+   *
+   * @param request UploadDataV4Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadDataV4Response
+   */
   async uploadDataV4WithOptions(request: UploadDataV4Request, runtime: $Util.RuntimeOptions): Promise<UploadDataV4Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21226,11 +21043,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadDataV4Response>(await this.callApi(params, req, runtime), new UploadDataV4Response({}));
   }
 
+  /**
+   * @summary UploadDataV4
+   *
+   * @param request UploadDataV4Request
+   * @return UploadDataV4Response
+   */
   async uploadDataV4(request: UploadDataV4Request): Promise<UploadDataV4Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadDataV4WithOptions(request, runtime);
   }
 
+  /**
+   * @param request UploadRuleRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UploadRuleResponse
+   */
   async uploadRuleWithOptions(request: UploadRuleRequest, runtime: $Util.RuntimeOptions): Promise<UploadRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21259,11 +21087,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UploadRuleResponse>(await this.callApi(params, req, runtime), new UploadRuleResponse({}));
   }
 
+  /**
+   * @param request UploadRuleRequest
+   * @return UploadRuleResponse
+   */
   async uploadRule(request: UploadRuleRequest): Promise<UploadRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request VerifyFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifyFileResponse
+   */
   async verifyFileWithOptions(request: VerifyFileRequest, runtime: $Util.RuntimeOptions): Promise<VerifyFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21292,11 +21129,20 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifyFileResponse>(await this.callApi(params, req, runtime), new VerifyFileResponse({}));
   }
 
+  /**
+   * @param request VerifyFileRequest
+   * @return VerifyFileResponse
+   */
   async verifyFile(request: VerifyFileRequest): Promise<VerifyFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyFileWithOptions(request, runtime);
   }
 
+  /**
+   * @param request VerifySentenceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return VerifySentenceResponse
+   */
   async verifySentenceWithOptions(request: VerifySentenceRequest, runtime: $Util.RuntimeOptions): Promise<VerifySentenceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21325,6 +21171,10 @@ export default class Client extends OpenApi {
     return $tea.cast<VerifySentenceResponse>(await this.callApi(params, req, runtime), new VerifySentenceResponse({}));
   }
 
+  /**
+   * @param request VerifySentenceRequest
+   * @return VerifySentenceResponse
+   */
   async verifySentence(request: VerifySentenceRequest): Promise<VerifySentenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifySentenceWithOptions(request, runtime);
