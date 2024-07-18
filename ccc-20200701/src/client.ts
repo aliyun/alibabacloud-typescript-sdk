@@ -9721,6 +9721,150 @@ export class ListCallDetailRecordsResponse extends $tea.Model {
   }
 }
 
+export class ListCallDetailRecordsV2Request extends $tea.Model {
+  accessChannelTypeList?: string;
+  agentId?: string;
+  broker?: string;
+  calledNumber?: string;
+  callingNumber?: string;
+  contactDispositionList?: string;
+  contactIdList?: string;
+  contactTypeList?: string;
+  earlyMediaStateList?: string;
+  endTime?: number;
+  firstAgentId?: string;
+  instanceId?: string;
+  mediaType?: string;
+  number?: string;
+  orderByField?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  satisfactionDescriptionList?: string;
+  satisfactionRateList?: string;
+  satisfactionSurveyChannel?: string;
+  searchPattern?: string;
+  skillGroupIdList?: string;
+  sortOrder?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelTypeList: 'AccessChannelTypeList',
+      agentId: 'AgentId',
+      broker: 'Broker',
+      calledNumber: 'CalledNumber',
+      callingNumber: 'CallingNumber',
+      contactDispositionList: 'ContactDispositionList',
+      contactIdList: 'ContactIdList',
+      contactTypeList: 'ContactTypeList',
+      earlyMediaStateList: 'EarlyMediaStateList',
+      endTime: 'EndTime',
+      firstAgentId: 'FirstAgentId',
+      instanceId: 'InstanceId',
+      mediaType: 'MediaType',
+      number: 'Number',
+      orderByField: 'OrderByField',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      satisfactionDescriptionList: 'SatisfactionDescriptionList',
+      satisfactionRateList: 'SatisfactionRateList',
+      satisfactionSurveyChannel: 'SatisfactionSurveyChannel',
+      searchPattern: 'SearchPattern',
+      skillGroupIdList: 'SkillGroupIdList',
+      sortOrder: 'SortOrder',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelTypeList: 'string',
+      agentId: 'string',
+      broker: 'string',
+      calledNumber: 'string',
+      callingNumber: 'string',
+      contactDispositionList: 'string',
+      contactIdList: 'string',
+      contactTypeList: 'string',
+      earlyMediaStateList: 'string',
+      endTime: 'number',
+      firstAgentId: 'string',
+      instanceId: 'string',
+      mediaType: 'string',
+      number: 'string',
+      orderByField: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      satisfactionDescriptionList: 'string',
+      satisfactionRateList: 'string',
+      satisfactionSurveyChannel: 'string',
+      searchPattern: 'string',
+      skillGroupIdList: 'string',
+      sortOrder: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallDetailRecordsV2ResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListCallDetailRecordsV2ResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListCallDetailRecordsV2ResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallDetailRecordsV2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCallDetailRecordsV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCallDetailRecordsV2ResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCallTagsRequest extends $tea.Model {
   instanceId?: string;
   pageNumber?: number;
@@ -25341,6 +25485,206 @@ export class ListCallDetailRecordsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListCallDetailRecordsV2ResponseBodyDataList extends $tea.Model {
+  accessChannelName?: string;
+  accessChannelType?: string;
+  accessChannelUserId?: string;
+  accessChannelUserName?: string;
+  additionalBroker?: string;
+  agentIds?: string;
+  agentNames?: string;
+  broker?: string;
+  callDuration?: string;
+  calledNumber?: string;
+  calleeLocation?: string;
+  callerLocation?: string;
+  callingNumber?: string;
+  clientAppName?: string;
+  clientIpAddress?: string;
+  clientLocation?: string;
+  clientUserAgent?: string;
+  contactDisposition?: string;
+  contactId?: string;
+  contactType?: string;
+  dialingTime?: number;
+  earlyMediaState?: string;
+  earlyMediaText?: string;
+  establishedTime?: number;
+  firstResponseTime?: number;
+  heldTime?: number;
+  instanceId?: string;
+  ivrTime?: number;
+  mediaType?: string;
+  messagesSent?: number;
+  messagesSentByAgent?: number;
+  messagesSentByCustomer?: number;
+  offSiteAgentIds?: string;
+  offsiteAgentDestinationNumbers?: string;
+  offsiteAgentOriginatorNumbers?: string;
+  queueTime?: number;
+  recordingDuration?: number;
+  recordingReady?: boolean;
+  releaseInitiator?: string;
+  releaseReason?: string;
+  releaseTime?: number;
+  ringTime?: number;
+  satisfactionDescription?: string;
+  satisfactionIndex?: number;
+  satisfactionSurveyChannel?: string;
+  satisfactionSurveyOffered?: boolean;
+  skillGroupIds?: string;
+  skillGroupNames?: string;
+  startTime?: number;
+  talkTime?: number;
+  transferCount?: number;
+  waitTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelName: 'AccessChannelName',
+      accessChannelType: 'AccessChannelType',
+      accessChannelUserId: 'AccessChannelUserId',
+      accessChannelUserName: 'AccessChannelUserName',
+      additionalBroker: 'AdditionalBroker',
+      agentIds: 'AgentIds',
+      agentNames: 'AgentNames',
+      broker: 'Broker',
+      callDuration: 'CallDuration',
+      calledNumber: 'CalledNumber',
+      calleeLocation: 'CalleeLocation',
+      callerLocation: 'CallerLocation',
+      callingNumber: 'CallingNumber',
+      clientAppName: 'ClientAppName',
+      clientIpAddress: 'ClientIpAddress',
+      clientLocation: 'ClientLocation',
+      clientUserAgent: 'ClientUserAgent',
+      contactDisposition: 'ContactDisposition',
+      contactId: 'ContactId',
+      contactType: 'ContactType',
+      dialingTime: 'DialingTime',
+      earlyMediaState: 'EarlyMediaState',
+      earlyMediaText: 'EarlyMediaText',
+      establishedTime: 'EstablishedTime',
+      firstResponseTime: 'FirstResponseTime',
+      heldTime: 'HeldTime',
+      instanceId: 'InstanceId',
+      ivrTime: 'IvrTime',
+      mediaType: 'MediaType',
+      messagesSent: 'MessagesSent',
+      messagesSentByAgent: 'MessagesSentByAgent',
+      messagesSentByCustomer: 'MessagesSentByCustomer',
+      offSiteAgentIds: 'OffSiteAgentIds',
+      offsiteAgentDestinationNumbers: 'OffsiteAgentDestinationNumbers',
+      offsiteAgentOriginatorNumbers: 'OffsiteAgentOriginatorNumbers',
+      queueTime: 'QueueTime',
+      recordingDuration: 'RecordingDuration',
+      recordingReady: 'RecordingReady',
+      releaseInitiator: 'ReleaseInitiator',
+      releaseReason: 'ReleaseReason',
+      releaseTime: 'ReleaseTime',
+      ringTime: 'RingTime',
+      satisfactionDescription: 'SatisfactionDescription',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionSurveyChannel: 'SatisfactionSurveyChannel',
+      satisfactionSurveyOffered: 'SatisfactionSurveyOffered',
+      skillGroupIds: 'SkillGroupIds',
+      skillGroupNames: 'SkillGroupNames',
+      startTime: 'StartTime',
+      talkTime: 'TalkTime',
+      transferCount: 'TransferCount',
+      waitTime: 'WaitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelName: 'string',
+      accessChannelType: 'string',
+      accessChannelUserId: 'string',
+      accessChannelUserName: 'string',
+      additionalBroker: 'string',
+      agentIds: 'string',
+      agentNames: 'string',
+      broker: 'string',
+      callDuration: 'string',
+      calledNumber: 'string',
+      calleeLocation: 'string',
+      callerLocation: 'string',
+      callingNumber: 'string',
+      clientAppName: 'string',
+      clientIpAddress: 'string',
+      clientLocation: 'string',
+      clientUserAgent: 'string',
+      contactDisposition: 'string',
+      contactId: 'string',
+      contactType: 'string',
+      dialingTime: 'number',
+      earlyMediaState: 'string',
+      earlyMediaText: 'string',
+      establishedTime: 'number',
+      firstResponseTime: 'number',
+      heldTime: 'number',
+      instanceId: 'string',
+      ivrTime: 'number',
+      mediaType: 'string',
+      messagesSent: 'number',
+      messagesSentByAgent: 'number',
+      messagesSentByCustomer: 'number',
+      offSiteAgentIds: 'string',
+      offsiteAgentDestinationNumbers: 'string',
+      offsiteAgentOriginatorNumbers: 'string',
+      queueTime: 'number',
+      recordingDuration: 'number',
+      recordingReady: 'boolean',
+      releaseInitiator: 'string',
+      releaseReason: 'string',
+      releaseTime: 'number',
+      ringTime: 'number',
+      satisfactionDescription: 'string',
+      satisfactionIndex: 'number',
+      satisfactionSurveyChannel: 'string',
+      satisfactionSurveyOffered: 'boolean',
+      skillGroupIds: 'string',
+      skillGroupNames: 'string',
+      startTime: 'number',
+      talkTime: 'number',
+      transferCount: 'number',
+      waitTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallDetailRecordsV2ResponseBodyData extends $tea.Model {
+  list?: ListCallDetailRecordsV2ResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListCallDetailRecordsV2ResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCallTagsResponseBodyDataList extends $tea.Model {
   instanceId?: string;
   tagName?: string;
@@ -40739,6 +41083,136 @@ export default class Client extends OpenApi {
   async listCallDetailRecords(request: ListCallDetailRecordsRequest): Promise<ListCallDetailRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCallDetailRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ListCallDetailRecordsV2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCallDetailRecordsV2Response
+   */
+  async listCallDetailRecordsV2WithOptions(request: ListCallDetailRecordsV2Request, runtime: $Util.RuntimeOptions): Promise<ListCallDetailRecordsV2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessChannelTypeList)) {
+      query["AccessChannelTypeList"] = request.accessChannelTypeList;
+    }
+
+    if (!Util.isUnset(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!Util.isUnset(request.broker)) {
+      query["Broker"] = request.broker;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.callingNumber)) {
+      query["CallingNumber"] = request.callingNumber;
+    }
+
+    if (!Util.isUnset(request.contactDispositionList)) {
+      query["ContactDispositionList"] = request.contactDispositionList;
+    }
+
+    if (!Util.isUnset(request.contactIdList)) {
+      query["ContactIdList"] = request.contactIdList;
+    }
+
+    if (!Util.isUnset(request.contactTypeList)) {
+      query["ContactTypeList"] = request.contactTypeList;
+    }
+
+    if (!Util.isUnset(request.earlyMediaStateList)) {
+      query["EarlyMediaStateList"] = request.earlyMediaStateList;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.firstAgentId)) {
+      query["FirstAgentId"] = request.firstAgentId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    if (!Util.isUnset(request.orderByField)) {
+      query["OrderByField"] = request.orderByField;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.satisfactionDescriptionList)) {
+      query["SatisfactionDescriptionList"] = request.satisfactionDescriptionList;
+    }
+
+    if (!Util.isUnset(request.satisfactionRateList)) {
+      query["SatisfactionRateList"] = request.satisfactionRateList;
+    }
+
+    if (!Util.isUnset(request.satisfactionSurveyChannel)) {
+      query["SatisfactionSurveyChannel"] = request.satisfactionSurveyChannel;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
+    if (!Util.isUnset(request.skillGroupIdList)) {
+      query["SkillGroupIdList"] = request.skillGroupIdList;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCallDetailRecordsV2",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCallDetailRecordsV2Response>(await this.callApi(params, req, runtime), new ListCallDetailRecordsV2Response({}));
+  }
+
+  /**
+   * @param request ListCallDetailRecordsV2Request
+   * @return ListCallDetailRecordsV2Response
+   */
+  async listCallDetailRecordsV2(request: ListCallDetailRecordsV2Request): Promise<ListCallDetailRecordsV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCallDetailRecordsV2WithOptions(request, runtime);
   }
 
   /**
