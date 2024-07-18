@@ -2030,6 +2030,147 @@ export class CancelScheduleConferenceResponse extends $tea.Model {
   }
 }
 
+export class CheckAlibabaStaffHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: CheckAlibabaStaffHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: CheckAlibabaStaffHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAlibabaStaffShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAlibabaStaffRequest extends $tea.Model {
+  mobile?: string;
+  tenantContext?: CheckAlibabaStaffRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'Mobile',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      tenantContext: CheckAlibabaStaffRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAlibabaStaffShrinkRequest extends $tea.Model {
+  mobile?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'Mobile',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAlibabaStaffResponseBody extends $tea.Model {
+  isAlibabaStaff?: boolean;
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isAlibabaStaff: 'isAlibabaStaff',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isAlibabaStaff: 'boolean',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAlibabaStaffResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckAlibabaStaffResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckAlibabaStaffResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckUserIsGroupMemberHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: CheckUserIsGroupMemberHeadersAccountContext;
@@ -27812,6 +27953,186 @@ export class UpdateUserAvatarResponse extends $tea.Model {
   }
 }
 
+export class UpdateVideoConferenceSettingHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: UpdateVideoConferenceSettingHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: UpdateVideoConferenceSettingHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVideoConferenceSettingShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVideoConferenceSettingRequest extends $tea.Model {
+  allowUnmuteSelf?: boolean;
+  autoTransferHost?: boolean;
+  forbiddenShareScreen?: boolean;
+  lockConference?: boolean;
+  muteAll?: boolean;
+  onlyInternalEmployeesJoin?: boolean;
+  tenantContext?: UpdateVideoConferenceSettingRequestTenantContext;
+  conferenceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowUnmuteSelf: 'AllowUnmuteSelf',
+      autoTransferHost: 'AutoTransferHost',
+      forbiddenShareScreen: 'ForbiddenShareScreen',
+      lockConference: 'LockConference',
+      muteAll: 'MuteAll',
+      onlyInternalEmployeesJoin: 'OnlyInternalEmployeesJoin',
+      tenantContext: 'TenantContext',
+      conferenceId: 'conferenceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowUnmuteSelf: 'boolean',
+      autoTransferHost: 'boolean',
+      forbiddenShareScreen: 'boolean',
+      lockConference: 'boolean',
+      muteAll: 'boolean',
+      onlyInternalEmployeesJoin: 'boolean',
+      tenantContext: UpdateVideoConferenceSettingRequestTenantContext,
+      conferenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVideoConferenceSettingShrinkRequest extends $tea.Model {
+  allowUnmuteSelf?: boolean;
+  autoTransferHost?: boolean;
+  forbiddenShareScreen?: boolean;
+  lockConference?: boolean;
+  muteAll?: boolean;
+  onlyInternalEmployeesJoin?: boolean;
+  tenantContextShrink?: string;
+  conferenceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowUnmuteSelf: 'AllowUnmuteSelf',
+      autoTransferHost: 'AutoTransferHost',
+      forbiddenShareScreen: 'ForbiddenShareScreen',
+      lockConference: 'LockConference',
+      muteAll: 'MuteAll',
+      onlyInternalEmployeesJoin: 'OnlyInternalEmployeesJoin',
+      tenantContextShrink: 'TenantContext',
+      conferenceId: 'conferenceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowUnmuteSelf: 'boolean',
+      autoTransferHost: 'boolean',
+      forbiddenShareScreen: 'boolean',
+      lockConference: 'boolean',
+      muteAll: 'boolean',
+      onlyInternalEmployeesJoin: 'boolean',
+      tenantContextShrink: 'string',
+      conferenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVideoConferenceSettingResponseBody extends $tea.Model {
+  caseResult?: string;
+  code?: string;
+  requestId?: string;
+  vendorRequestId?: string;
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseResult: 'caseResult',
+      code: 'code',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseResult: 'string',
+      code: 'string',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVideoConferenceSettingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVideoConferenceSettingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateVideoConferenceSettingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWorkspaceDocMembersHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: UpdateWorkspaceDocMembersHeadersAccountContext;
@@ -29103,6 +29424,44 @@ export class CancelScheduleConferenceHeadersAccountContext extends $tea.Model {
 }
 
 export class CancelScheduleConferenceRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAlibabaStaffHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAlibabaStaffRequestTenantContext extends $tea.Model {
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43130,6 +43489,44 @@ export class UpdateUserAvatarHeadersAccountContext extends $tea.Model {
   }
 }
 
+export class UpdateVideoConferenceSettingHeadersAccountContext extends $tea.Model {
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVideoConferenceSettingRequestTenantContext extends $tea.Model {
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWorkspaceDocMembersHeadersAccountContext extends $tea.Model {
   accountId?: string;
   static names(): { [key: string]: string } {
@@ -44420,6 +44817,76 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CancelScheduleConferenceHeaders({ });
     return await this.cancelScheduleConferenceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 校验阿里员工
+   *
+   * @param tmpReq CheckAlibabaStaffRequest
+   * @param tmpHeader CheckAlibabaStaffHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CheckAlibabaStaffResponse
+   */
+  async checkAlibabaStaffWithOptions(tmpReq: CheckAlibabaStaffRequest, tmpHeader: CheckAlibabaStaffHeaders, runtime: $Util.RuntimeOptions): Promise<CheckAlibabaStaffResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CheckAlibabaStaffShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new CheckAlibabaStaffShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.mobile)) {
+      body["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckAlibabaStaff",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/checkAlibabaStaff`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckAlibabaStaffResponse>(await this.callApi(params, req, runtime), new CheckAlibabaStaffResponse({}));
+  }
+
+  /**
+   * @summary 校验阿里员工
+   *
+   * @param request CheckAlibabaStaffRequest
+   * @return CheckAlibabaStaffResponse
+   */
+  async checkAlibabaStaff(request: CheckAlibabaStaffRequest): Promise<CheckAlibabaStaffResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CheckAlibabaStaffHeaders({ });
+    return await this.checkAlibabaStaffWithOptions(request, headers, runtime);
   }
 
   /**
@@ -58448,6 +58915,100 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateUserAvatarHeaders({ });
     return await this.updateUserAvatarWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @summary 设置正在进行中的视频会议属性
+   *
+   * @param tmpReq UpdateVideoConferenceSettingRequest
+   * @param tmpHeader UpdateVideoConferenceSettingHeaders
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateVideoConferenceSettingResponse
+   */
+  async updateVideoConferenceSettingWithOptions(tmpReq: UpdateVideoConferenceSettingRequest, tmpHeader: UpdateVideoConferenceSettingHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateVideoConferenceSettingResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateVideoConferenceSettingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new UpdateVideoConferenceSettingShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.allowUnmuteSelf)) {
+      body["AllowUnmuteSelf"] = request.allowUnmuteSelf;
+    }
+
+    if (!Util.isUnset(request.autoTransferHost)) {
+      body["AutoTransferHost"] = request.autoTransferHost;
+    }
+
+    if (!Util.isUnset(request.forbiddenShareScreen)) {
+      body["ForbiddenShareScreen"] = request.forbiddenShareScreen;
+    }
+
+    if (!Util.isUnset(request.lockConference)) {
+      body["LockConference"] = request.lockConference;
+    }
+
+    if (!Util.isUnset(request.muteAll)) {
+      body["MuteAll"] = request.muteAll;
+    }
+
+    if (!Util.isUnset(request.onlyInternalEmployeesJoin)) {
+      body["OnlyInternalEmployeesJoin"] = request.onlyInternalEmployeesJoin;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateVideoConferenceSetting",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/updateVideoConferenceSetting`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateVideoConferenceSettingResponse>(await this.callApi(params, req, runtime), new UpdateVideoConferenceSettingResponse({}));
+  }
+
+  /**
+   * @summary 设置正在进行中的视频会议属性
+   *
+   * @param request UpdateVideoConferenceSettingRequest
+   * @return UpdateVideoConferenceSettingResponse
+   */
+  async updateVideoConferenceSetting(request: UpdateVideoConferenceSettingRequest): Promise<UpdateVideoConferenceSettingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new UpdateVideoConferenceSettingHeaders({ });
+    return await this.updateVideoConferenceSettingWithOptions(request, headers, runtime);
   }
 
   /**
