@@ -1507,6 +1507,7 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
   networkConfig?: GetServiceInstanceResponseBodyNetworkConfig;
   operatedServiceInstanceId?: string;
   operationEndTime?: string;
+  operationExtraInfo?: string;
   operationStartTime?: string;
   outputs?: string;
   parameters?: string;
@@ -1542,6 +1543,7 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
       networkConfig: 'NetworkConfig',
       operatedServiceInstanceId: 'OperatedServiceInstanceId',
       operationEndTime: 'OperationEndTime',
+      operationExtraInfo: 'OperationExtraInfo',
       operationStartTime: 'OperationStartTime',
       outputs: 'Outputs',
       parameters: 'Parameters',
@@ -1580,6 +1582,7 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
       networkConfig: GetServiceInstanceResponseBodyNetworkConfig,
       operatedServiceInstanceId: 'string',
       operationEndTime: 'string',
+      operationExtraInfo: 'string',
       operationStartTime: 'string',
       outputs: 'string',
       parameters: 'string',
