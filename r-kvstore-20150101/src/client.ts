@@ -377,6 +377,7 @@ export class CreateAccountRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
@@ -390,6 +391,7 @@ export class CreateAccountRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      sourceBiz: 'SourceBiz',
     };
   }
 
@@ -406,6 +408,7 @@ export class CreateAccountRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      sourceBiz: 'string',
     };
   }
 
@@ -1504,6 +1507,7 @@ export class DeleteAccountRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
@@ -1513,6 +1517,7 @@ export class DeleteAccountRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      sourceBiz: 'SourceBiz',
     };
   }
 
@@ -1525,6 +1530,7 @@ export class DeleteAccountRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      sourceBiz: 'string',
     };
   }
 
@@ -2094,6 +2100,126 @@ export class DescribeActiveOperationTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeActiveOperationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksRequest extends $tea.Model {
+  allowCancel?: number;
+  allowChange?: number;
+  changeLevel?: string;
+  dbType?: string;
+  insName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  productId?: string;
+  region?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  status?: number;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      dbType: 'DbType',
+      insName: 'InsName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productId: 'ProductId',
+      region: 'Region',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      status: 'Status',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCancel: 'number',
+      allowChange: 'number',
+      changeLevel: 'string',
+      dbType: 'string',
+      insName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      productId: 'string',
+      region: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      status: 'number',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
+  items?: DescribeActiveOperationTasksResponseBodyItems[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalRecordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeActiveOperationTasksResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalRecordCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActiveOperationTasksResponseBody,
     };
   }
 
@@ -7154,6 +7280,7 @@ export class GrantAccountPrivilegeRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
@@ -7164,6 +7291,7 @@ export class GrantAccountPrivilegeRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      sourceBiz: 'SourceBiz',
     };
   }
 
@@ -7177,6 +7305,7 @@ export class GrantAccountPrivilegeRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      sourceBiz: 'string',
     };
   }
 
@@ -7589,6 +7718,7 @@ export class ModifyAccountDescriptionRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
@@ -7599,6 +7729,7 @@ export class ModifyAccountDescriptionRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      sourceBiz: 'SourceBiz',
     };
   }
 
@@ -7612,6 +7743,7 @@ export class ModifyAccountDescriptionRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      sourceBiz: 'string',
     };
   }
 
@@ -7674,6 +7806,7 @@ export class ModifyAccountPasswordRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
@@ -7685,6 +7818,7 @@ export class ModifyAccountPasswordRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      sourceBiz: 'SourceBiz',
     };
   }
 
@@ -7699,6 +7833,7 @@ export class ModifyAccountPasswordRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      sourceBiz: 'string',
     };
   }
 
@@ -7827,6 +7962,93 @@ export class ModifyActiveOperationTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyActiveOperationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksRequest extends $tea.Model {
+  ids?: string;
+  immediateStart?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  switchTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      immediateStart: 'ImmediateStart',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      switchTime: 'SwitchTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      immediateStart: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      switchTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
+  ids?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyActiveOperationTasksResponseBody,
     };
   }
 
@@ -10400,6 +10622,7 @@ export class ResetAccountPasswordRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  sourceBiz?: string;
   static names(): { [key: string]: string } {
     return {
       accountName: 'AccountName',
@@ -10410,6 +10633,7 @@ export class ResetAccountPasswordRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      sourceBiz: 'SourceBiz',
     };
   }
 
@@ -10423,6 +10647,7 @@ export class ResetAccountPasswordRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      sourceBiz: 'string',
     };
   }
 
@@ -11676,6 +11901,106 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $tea.Model {
       status: 'number',
       switchTime: 'string',
       taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
+  allowCancel?: string;
+  allowChange?: string;
+  changeLevel?: string;
+  changeLevelEn?: string;
+  changeLevelZh?: string;
+  createdTime?: string;
+  currentAVZ?: string;
+  dbType?: string;
+  dbVersion?: string;
+  deadline?: string;
+  id?: number;
+  impact?: string;
+  impactEn?: string;
+  impactZh?: string;
+  insComment?: string;
+  insName?: string;
+  modifiedTime?: string;
+  prepareInterval?: string;
+  region?: string;
+  resultInfo?: string;
+  startTime?: string;
+  status?: number;
+  subInsNames?: string[];
+  switchTime?: string;
+  taskParams?: string;
+  taskType?: string;
+  taskTypeEn?: string;
+  taskTypeZh?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      changeLevelEn: 'ChangeLevelEn',
+      changeLevelZh: 'ChangeLevelZh',
+      createdTime: 'CreatedTime',
+      currentAVZ: 'CurrentAVZ',
+      dbType: 'DbType',
+      dbVersion: 'DbVersion',
+      deadline: 'Deadline',
+      id: 'Id',
+      impact: 'Impact',
+      impactEn: 'ImpactEn',
+      impactZh: 'ImpactZh',
+      insComment: 'InsComment',
+      insName: 'InsName',
+      modifiedTime: 'ModifiedTime',
+      prepareInterval: 'PrepareInterval',
+      region: 'Region',
+      resultInfo: 'ResultInfo',
+      startTime: 'StartTime',
+      status: 'Status',
+      subInsNames: 'SubInsNames',
+      switchTime: 'SwitchTime',
+      taskParams: 'TaskParams',
+      taskType: 'TaskType',
+      taskTypeEn: 'TaskTypeEn',
+      taskTypeZh: 'TaskTypeZh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCancel: 'string',
+      allowChange: 'string',
+      changeLevel: 'string',
+      changeLevelEn: 'string',
+      changeLevelZh: 'string',
+      createdTime: 'string',
+      currentAVZ: 'string',
+      dbType: 'string',
+      dbVersion: 'string',
+      deadline: 'string',
+      id: 'number',
+      impact: 'string',
+      impactEn: 'string',
+      impactZh: 'string',
+      insComment: 'string',
+      insName: 'string',
+      modifiedTime: 'string',
+      prepareInterval: 'string',
+      region: 'string',
+      resultInfo: 'string',
+      startTime: 'string',
+      status: 'number',
+      subInsNames: { 'type': 'array', 'itemType': 'string' },
+      switchTime: 'string',
+      taskParams: 'string',
+      taskType: 'string',
+      taskTypeEn: 'string',
+      taskTypeZh: 'string',
     };
   }
 
@@ -13622,6 +13947,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
   capacity?: number;
   chargeType?: string;
   cloudType?: string;
+  computingType?: string;
   config?: string;
   connectionDomain?: string;
   connectionMode?: string;
@@ -13663,6 +13989,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
       capacity: 'Capacity',
       chargeType: 'ChargeType',
       cloudType: 'CloudType',
+      computingType: 'ComputingType',
       config: 'Config',
       connectionDomain: 'ConnectionDomain',
       connectionMode: 'ConnectionMode',
@@ -13707,6 +14034,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
       capacity: 'number',
       chargeType: 'string',
       cloudType: 'string',
+      computingType: 'string',
       config: 'string',
       connectionDomain: 'string',
       connectionMode: 'string',
@@ -16158,6 +16486,10 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    if (!Util.isUnset(request.sourceBiz)) {
+      query["SourceBiz"] = request.sourceBiz;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17155,6 +17487,10 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    if (!Util.isUnset(request.sourceBiz)) {
+      query["SourceBiz"] = request.sourceBiz;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17638,6 +17974,104 @@ export default class Client extends OpenApi {
   async describeActiveOperationTask(request: DescribeActiveOperationTaskRequest): Promise<DescribeActiveOperationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeActiveOperationTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request DescribeActiveOperationTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeActiveOperationTasksResponse
+   */
+  async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allowCancel)) {
+      query["AllowCancel"] = request.allowCancel;
+    }
+
+    if (!Util.isUnset(request.allowChange)) {
+      query["AllowChange"] = request.allowChange;
+    }
+
+    if (!Util.isUnset(request.changeLevel)) {
+      query["ChangeLevel"] = request.changeLevel;
+    }
+
+    if (!Util.isUnset(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!Util.isUnset(request.insName)) {
+      query["InsName"] = request.insName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeActiveOperationTasks",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * @param request DescribeActiveOperationTasksRequest
+   * @return DescribeActiveOperationTasksResponse
+   */
+  async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeActiveOperationTasksWithOptions(request, runtime);
   }
 
   /**
@@ -21618,6 +22052,10 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    if (!Util.isUnset(request.sourceBiz)) {
+      query["SourceBiz"] = request.sourceBiz;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21992,6 +22430,10 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    if (!Util.isUnset(request.sourceBiz)) {
+      query["SourceBiz"] = request.sourceBiz;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -22066,6 +22508,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sourceBiz)) {
+      query["SourceBiz"] = request.sourceBiz;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -22164,6 +22610,72 @@ export default class Client extends OpenApi {
   async modifyActiveOperationTask(request: ModifyActiveOperationTaskRequest): Promise<ModifyActiveOperationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyActiveOperationTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request ModifyActiveOperationTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyActiveOperationTasksResponse
+   */
+  async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.immediateStart)) {
+      query["ImmediateStart"] = request.immediateStart;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyActiveOperationTasks",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * @param request ModifyActiveOperationTasksRequest
+   * @return ModifyActiveOperationTasksResponse
+   */
+  async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyActiveOperationTasksWithOptions(request, runtime);
   }
 
   /**
@@ -22325,7 +22837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改小版本自动升级开关
+   * @summary Modifies the setting related to the automatic update of minor versions for an instance.
    *
    * @param request ModifyDBInstanceAutoUpgradeRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -22380,7 +22892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改小版本自动升级开关
+   * @summary Modifies the setting related to the automatic update of minor versions for an instance.
    *
    * @param request ModifyDBInstanceAutoUpgradeRequest
    * @return ModifyDBInstanceAutoUpgradeResponse
@@ -24464,6 +24976,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sourceBiz)) {
+      query["SourceBiz"] = request.sourceBiz;
     }
 
     let req = new $OpenApi.OpenApiRequest({
