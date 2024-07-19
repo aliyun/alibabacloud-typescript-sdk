@@ -3632,6 +3632,8 @@ export class CreatePolicyGroupRequest extends $tea.Model {
   cameraRedirect?: string;
   clientType?: CreatePolicyGroupRequestClientType[];
   clipboard?: string;
+  deviceRedirects?: CreatePolicyGroupRequestDeviceRedirects[];
+  deviceRules?: CreatePolicyGroupRequestDeviceRules[];
   domainList?: string;
   domainResolveRule?: CreatePolicyGroupRequestDomainResolveRule[];
   domainResolveRuleType?: string;
@@ -3688,6 +3690,8 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       cameraRedirect: 'CameraRedirect',
       clientType: 'ClientType',
       clipboard: 'Clipboard',
+      deviceRedirects: 'DeviceRedirects',
+      deviceRules: 'DeviceRules',
       domainList: 'DomainList',
       domainResolveRule: 'DomainResolveRule',
       domainResolveRuleType: 'DomainResolveRuleType',
@@ -3747,6 +3751,8 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       cameraRedirect: 'string',
       clientType: { 'type': 'array', 'itemType': CreatePolicyGroupRequestClientType },
       clipboard: 'string',
+      deviceRedirects: { 'type': 'array', 'itemType': CreatePolicyGroupRequestDeviceRedirects },
+      deviceRules: { 'type': 'array', 'itemType': CreatePolicyGroupRequestDeviceRules },
       domainList: 'string',
       domainResolveRule: { 'type': 'array', 'itemType': CreatePolicyGroupRequestDomainResolveRule },
       domainResolveRuleType: 'string',
@@ -5454,6 +5460,7 @@ export class DescribeBundlesRequest extends $tea.Model {
   fotaChannel?: string;
   fromDesktopGroup?: boolean;
   gpuCount?: number;
+  gpuDriverType?: string;
   imageId?: string[];
   maxResults?: number;
   memorySize?: number;
@@ -5476,6 +5483,7 @@ export class DescribeBundlesRequest extends $tea.Model {
       fotaChannel: 'FotaChannel',
       fromDesktopGroup: 'FromDesktopGroup',
       gpuCount: 'GpuCount',
+      gpuDriverType: 'GpuDriverType',
       imageId: 'ImageId',
       maxResults: 'MaxResults',
       memorySize: 'MemorySize',
@@ -5501,6 +5509,7 @@ export class DescribeBundlesRequest extends $tea.Model {
       fotaChannel: 'string',
       fromDesktopGroup: 'boolean',
       gpuCount: 'number',
+      gpuDriverType: 'string',
       imageId: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       memorySize: 'number',
@@ -6823,6 +6832,7 @@ export class DescribeDesktopTypesRequest extends $tea.Model {
   desktopIdForModify?: string;
   desktopTypeId?: string;
   gpuCount?: number;
+  gpuDriverType?: string;
   instanceTypeFamily?: string;
   memorySize?: number;
   orderType?: string;
@@ -6835,6 +6845,7 @@ export class DescribeDesktopTypesRequest extends $tea.Model {
       desktopIdForModify: 'DesktopIdForModify',
       desktopTypeId: 'DesktopTypeId',
       gpuCount: 'GpuCount',
+      gpuDriverType: 'GpuDriverType',
       instanceTypeFamily: 'InstanceTypeFamily',
       memorySize: 'MemorySize',
       orderType: 'OrderType',
@@ -6850,6 +6861,7 @@ export class DescribeDesktopTypesRequest extends $tea.Model {
       desktopIdForModify: 'string',
       desktopTypeId: 'string',
       gpuCount: 'number',
+      gpuDriverType: 'string',
       instanceTypeFamily: 'string',
       memorySize: 'number',
       orderType: 'string',
@@ -14475,6 +14487,8 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
   cameraRedirect?: string;
   clientType?: ModifyPolicyGroupRequestClientType[];
   clipboard?: string;
+  deviceRedirects?: ModifyPolicyGroupRequestDeviceRedirects[];
+  deviceRules?: ModifyPolicyGroupRequestDeviceRules[];
   domainList?: string;
   domainResolveRule?: ModifyPolicyGroupRequestDomainResolveRule[];
   domainResolveRuleType?: string;
@@ -14534,6 +14548,8 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       cameraRedirect: 'CameraRedirect',
       clientType: 'ClientType',
       clipboard: 'Clipboard',
+      deviceRedirects: 'DeviceRedirects',
+      deviceRules: 'DeviceRules',
       domainList: 'DomainList',
       domainResolveRule: 'DomainResolveRule',
       domainResolveRuleType: 'DomainResolveRuleType',
@@ -14596,6 +14612,8 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       cameraRedirect: 'string',
       clientType: { 'type': 'array', 'itemType': ModifyPolicyGroupRequestClientType },
       clipboard: 'string',
+      deviceRedirects: { 'type': 'array', 'itemType': ModifyPolicyGroupRequestDeviceRedirects },
+      deviceRules: { 'type': 'array', 'itemType': ModifyPolicyGroupRequestDeviceRules },
       domainList: 'string',
       domainResolveRule: { 'type': 'array', 'itemType': ModifyPolicyGroupRequestDomainResolveRule },
       domainResolveRuleType: 'string',
@@ -18023,6 +18041,62 @@ export class CreatePolicyGroupRequestClientType extends $tea.Model {
   }
 }
 
+export class CreatePolicyGroupRequestDeviceRedirects extends $tea.Model {
+  deviceType?: string;
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceType: 'DeviceType',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceType: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePolicyGroupRequestDeviceRules extends $tea.Model {
+  deviceName?: string;
+  devicePid?: string;
+  deviceType?: string;
+  deviceVid?: string;
+  optCommand?: string;
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      devicePid: 'DevicePid',
+      deviceType: 'DeviceType',
+      deviceVid: 'DeviceVid',
+      optCommand: 'OptCommand',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      devicePid: 'string',
+      deviceType: 'string',
+      deviceVid: 'string',
+      optCommand: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePolicyGroupRequestDomainResolveRule extends $tea.Model {
   description?: string;
   domain?: string;
@@ -20850,6 +20924,62 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes ext
   }
 }
 
+export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects extends $tea.Model {
+  deviceType?: string;
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceType: 'DeviceType',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceType: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules extends $tea.Model {
+  deviceName?: string;
+  devicePid?: string;
+  deviceType?: string;
+  deviceVid?: string;
+  optCommand?: string;
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      devicePid: 'DevicePid',
+      deviceType: 'DeviceType',
+      deviceVid: 'DeviceVid',
+      optCommand: 'OptCommand',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      devicePid: 'string',
+      deviceType: 'string',
+      deviceVid: 'string',
+      optCommand: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule extends $tea.Model {
   description?: string;
   domain?: string;
@@ -20952,6 +21082,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
   cpuRateLimit?: number;
   cpuSampleDuration?: number;
   cpuSingleRateLimit?: number;
+  deviceRedirects?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects[];
+  deviceRules?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules[];
   displayMode?: string;
   domainList?: string;
   domainResolveRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule[];
@@ -21036,6 +21168,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       cpuRateLimit: 'CpuRateLimit',
       cpuSampleDuration: 'CpuSampleDuration',
       cpuSingleRateLimit: 'CpuSingleRateLimit',
+      deviceRedirects: 'DeviceRedirects',
+      deviceRules: 'DeviceRules',
       displayMode: 'DisplayMode',
       domainList: 'DomainList',
       domainResolveRule: 'DomainResolveRule',
@@ -21123,6 +21257,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       cpuRateLimit: 'number',
       cpuSampleDuration: 'number',
       cpuSingleRateLimit: 'number',
+      deviceRedirects: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects },
+      deviceRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules },
       displayMode: 'string',
       domainList: 'string',
       domainResolveRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule },
@@ -22804,6 +22940,62 @@ export class ModifyPolicyGroupRequestClientType extends $tea.Model {
     return {
       clientType: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestDeviceRedirects extends $tea.Model {
+  deviceType?: string;
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceType: 'DeviceType',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceType: 'string',
+      redirectType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPolicyGroupRequestDeviceRules extends $tea.Model {
+  deviceName?: string;
+  devicePid?: string;
+  deviceType?: string;
+  deviceVid?: string;
+  optCommand?: string;
+  redirectType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      devicePid: 'DevicePid',
+      deviceType: 'DeviceType',
+      deviceVid: 'DeviceVid',
+      optCommand: 'OptCommand',
+      redirectType: 'RedirectType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      devicePid: 'string',
+      deviceType: 'string',
+      deviceVid: 'string',
+      optCommand: 'string',
+      redirectType: 'string',
     };
   }
 
@@ -26081,6 +26273,14 @@ export default class Client extends OpenApi {
       query["Clipboard"] = request.clipboard;
     }
 
+    if (!Util.isUnset(request.deviceRedirects)) {
+      query["DeviceRedirects"] = request.deviceRedirects;
+    }
+
+    if (!Util.isUnset(request.deviceRules)) {
+      query["DeviceRules"] = request.deviceRules;
+    }
+
     if (!Util.isUnset(request.domainList)) {
       query["DomainList"] = request.domainList;
     }
@@ -27543,6 +27743,10 @@ export default class Client extends OpenApi {
       query["GpuCount"] = request.gpuCount;
     }
 
+    if (!Util.isUnset(request.gpuDriverType)) {
+      query["GpuDriverType"] = request.gpuDriverType;
+    }
+
     if (!Util.isUnset(request.imageId)) {
       query["ImageId"] = request.imageId;
     }
@@ -28585,6 +28789,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.gpuCount)) {
       query["GpuCount"] = request.gpuCount;
+    }
+
+    if (!Util.isUnset(request.gpuDriverType)) {
+      query["GpuDriverType"] = request.gpuDriverType;
     }
 
     if (!Util.isUnset(request.instanceTypeFamily)) {
@@ -34605,6 +34813,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clipboard)) {
       query["Clipboard"] = request.clipboard;
+    }
+
+    if (!Util.isUnset(request.deviceRedirects)) {
+      query["DeviceRedirects"] = request.deviceRedirects;
+    }
+
+    if (!Util.isUnset(request.deviceRules)) {
+      query["DeviceRules"] = request.deviceRules;
     }
 
     if (!Util.isUnset(request.domainList)) {
