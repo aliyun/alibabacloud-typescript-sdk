@@ -99,6 +99,8 @@ export class Group extends $tea.Model {
 
 export class Instance extends $tea.Model {
   currentAmount?: number;
+  externalIP?: string;
+  externalInstancePort?: number;
   hostIP?: string;
   hostName?: string;
   innerIP?: string;
@@ -115,13 +117,17 @@ export class Instance extends $tea.Model {
   restartCount?: number;
   role?: string;
   startAt?: string;
+  startTime?: string;
   status?: string;
   tenantHostIP?: string;
   tenantInstanceIP?: string;
   totalProcesses?: number;
+  zone?: string;
   static names(): { [key: string]: string } {
     return {
       currentAmount: 'CurrentAmount',
+      externalIP: 'ExternalIP',
+      externalInstancePort: 'ExternalInstancePort',
       hostIP: 'HostIP',
       hostName: 'HostName',
       innerIP: 'InnerIP',
@@ -138,16 +144,20 @@ export class Instance extends $tea.Model {
       restartCount: 'RestartCount',
       role: 'Role',
       startAt: 'StartAt',
+      startTime: 'StartTime',
       status: 'Status',
       tenantHostIP: 'TenantHostIP',
       tenantInstanceIP: 'TenantInstanceIP',
       totalProcesses: 'TotalProcesses',
+      zone: 'Zone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       currentAmount: 'number',
+      externalIP: 'string',
+      externalInstancePort: 'number',
       hostIP: 'string',
       hostName: 'string',
       innerIP: 'string',
@@ -164,10 +174,12 @@ export class Instance extends $tea.Model {
       restartCount: 'number',
       role: 'string',
       startAt: 'string',
+      startTime: 'string',
       status: 'string',
       tenantHostIP: 'string',
       tenantInstanceIP: 'string',
       totalProcesses: 'number',
+      zone: 'string',
     };
   }
 
@@ -191,6 +203,7 @@ export class Resource extends $tea.Model {
   resourceType?: string;
   status?: string;
   updateTime?: string;
+  vendor?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -207,6 +220,7 @@ export class Resource extends $tea.Model {
       resourceType: 'ResourceType',
       status: 'Status',
       updateTime: 'UpdateTime',
+      vendor: 'Vendor',
     };
   }
 
@@ -226,6 +240,7 @@ export class Resource extends $tea.Model {
       resourceType: 'string',
       status: 'string',
       updateTime: 'string',
+      vendor: 'string',
     };
   }
 
@@ -6431,6 +6446,14 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary Clones a service.
+   *
+   * @param request CloneServiceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CloneServiceResponse
+   */
   async cloneServiceWithOptions(ClusterId: string, ServiceName: string, request: CloneServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneServiceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6451,12 +6474,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CloneServiceResponse>(await this.callApi(params, req, runtime), new CloneServiceResponse({}));
   }
 
+  /**
+   * @summary Clones a service.
+   *
+   * @param request CloneServiceRequest
+   * @return CloneServiceResponse
+   */
   async cloneService(ClusterId: string, ServiceName: string, request: CloneServiceRequest): Promise<CloneServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cloneServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CommitServiceResponse
+   */
   async commitServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CommitServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6475,12 +6511,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CommitServiceResponse>(await this.callApi(params, req, runtime), new CommitServiceResponse({}));
   }
 
+  /**
+   * @summary Commits the Worker0 container in the custom container service and deploys the container as a new image.
+   *
+   * @return CommitServiceResponse
+   */
   async commitService(ClusterId: string, ServiceName: string): Promise<CommitServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.commitServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Creates an application service.
+   *
+   * @param request CreateAppServiceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppServiceResponse
+   */
   async createAppServiceWithOptions(request: CreateAppServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAppServiceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6536,12 +6585,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppServiceResponse>(await this.callApi(params, req, runtime), new CreateAppServiceResponse({}));
   }
 
+  /**
+   * @summary Creates an application service.
+   *
+   * @param request CreateAppServiceRequest
+   * @return CreateAppServiceResponse
+   */
   async createAppService(request: CreateAppServiceRequest): Promise<CreateAppServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAppServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a stress testing task.
+   *
+   * @param request CreateBenchmarkTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBenchmarkTaskResponse
+   */
   async createBenchmarkTaskWithOptions(request: CreateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateBenchmarkTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -6562,12 +6625,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new CreateBenchmarkTaskResponse({}));
   }
 
+  /**
+   * @summary Creates a stress testing task.
+   *
+   * @param request CreateBenchmarkTaskRequest
+   * @return CreateBenchmarkTaskResponse
+   */
   async createBenchmarkTask(request: CreateBenchmarkTaskRequest): Promise<CreateBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createBenchmarkTaskWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a private gateway. You can create a private gateway only in a self-managed resource group.
+   *
+   * @param request CreateGatewayRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGatewayResponse
+   */
   async createGatewayWithOptions(request: CreateGatewayRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6611,12 +6688,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGatewayResponse>(await this.callApi(params, req, runtime), new CreateGatewayResponse({}));
   }
 
+  /**
+   * @summary Creates a private gateway. You can create a private gateway only in a self-managed resource group.
+   *
+   * @param request CreateGatewayRequest
+   * @return CreateGatewayResponse
+   */
   async createGateway(request: CreateGatewayRequest): Promise<CreateGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createGatewayWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates an internal endpoint of a private gateway.
+   *
+   * @param request CreateGatewayIntranetLinkedVpcRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateGatewayIntranetLinkedVpcResponse
+   */
   async createGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayIntranetLinkedVpcResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -6646,6 +6737,12 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new CreateGatewayIntranetLinkedVpcResponse({}));
   }
 
+  /**
+   * @summary Creates an internal endpoint of a private gateway.
+   *
+   * @param request CreateGatewayIntranetLinkedVpcRequest
+   * @return CreateGatewayIntranetLinkedVpcResponse
+   */
   async createGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcRequest): Promise<CreateGatewayIntranetLinkedVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -6653,12 +6750,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, make sure that you are familiar with the [billing](~~144261~~) of Elastic Algorithm Service (EAS).
-    *
-    * @param request CreateResourceRequest
-    * @param headers map
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateResourceResponse
+   * @summary Creates a resource group.
+   *
+   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+   *
+   * @param request CreateResourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateResourceResponse
    */
   async createResourceWithOptions(request: CreateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceResponse> {
     Util.validateModel(request);
@@ -6714,10 +6813,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **Before you call this operation, make sure that you are familiar with the [billing](~~144261~~) of Elastic Algorithm Service (EAS).
-    *
-    * @param request CreateResourceRequest
-    * @return CreateResourceResponse
+   * @summary Creates a resource group.
+   *
+   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+   *
+   * @param request CreateResourceRequest
+   * @return CreateResourceResponse
    */
   async createResource(request: CreateResourceRequest): Promise<CreateResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6725,6 +6826,14 @@ export default class Client extends OpenApi {
     return await this.createResourceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Creates instances in a dedicated resource group.
+   *
+   * @param request CreateResourceInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateResourceInstancesResponse
+   */
   async createResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: CreateResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceInstancesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6774,12 +6883,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateResourceInstancesResponse>(await this.callApi(params, req, runtime), new CreateResourceInstancesResponse({}));
   }
 
+  /**
+   * @summary Creates instances in a dedicated resource group.
+   *
+   * @param request CreateResourceInstancesRequest
+   * @return CreateResourceInstancesResponse
+   */
   async createResourceInstances(ClusterId: string, ResourceId: string, request: CreateResourceInstancesRequest): Promise<CreateResourceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Enables the LogShipper feature of Log Service for a resource group.
+   *
+   * @param request CreateResourceLogRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateResourceLogResponse
+   */
   async createResourceLogWithOptions(ClusterId: string, ResourceId: string, request: CreateResourceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceLogResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6809,12 +6932,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateResourceLogResponse>(await this.callApi(params, req, runtime), new CreateResourceLogResponse({}));
   }
 
+  /**
+   * @summary Enables the LogShipper feature of Log Service for a resource group.
+   *
+   * @param request CreateResourceLogRequest
+   * @return CreateResourceLogResponse
+   */
   async createResourceLog(ClusterId: string, ResourceId: string, request: CreateResourceLogRequest): Promise<CreateResourceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceLogWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Creates a model service in Elastic Algorithm Service (EAS).
+   *
+   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+   *
+   * @param tmpReq CreateServiceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceResponse
+   */
   async createServiceWithOptions(tmpReq: CreateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateServiceShrinkRequest({ });
@@ -6855,12 +6994,28 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
   }
 
+  /**
+   * @summary Creates a model service in Elastic Algorithm Service (EAS).
+   *
+   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+   *
+   * @param request CreateServiceRequest
+   * @return CreateServiceResponse
+   */
   async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Enables the Autoscaler feature and creates an Autoscaler controller for a service.
+   *
+   * @param request CreateServiceAutoScalerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceAutoScalerResponse
+   */
   async createServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceAutoScalerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6898,12 +7053,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new CreateServiceAutoScalerResponse({}));
   }
 
+  /**
+   * @summary Enables the Autoscaler feature and creates an Autoscaler controller for a service.
+   *
+   * @param request CreateServiceAutoScalerRequest
+   * @return CreateServiceAutoScalerResponse
+   */
   async createServiceAutoScaler(ClusterId: string, ServiceName: string, request: CreateServiceAutoScalerRequest): Promise<CreateServiceAutoScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
+   *
+   * @param request CreateServiceCronScalerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceCronScalerResponse
+   */
   async createServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceCronScalerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6933,12 +7102,26 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceCronScalerResponse>(await this.callApi(params, req, runtime), new CreateServiceCronScalerResponse({}));
   }
 
+  /**
+   * @summary Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
+   *
+   * @param request CreateServiceCronScalerRequest
+   * @return CreateServiceCronScalerResponse
+   */
   async createServiceCronScaler(ClusterId: string, ServiceName: string, request: CreateServiceCronScalerRequest): Promise<CreateServiceCronScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
+   *
+   * @param request CreateServiceMirrorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceMirrorResponse
+   */
   async createServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceMirrorResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6968,12 +7151,25 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateServiceMirrorResponse>(await this.callApi(params, req, runtime), new CreateServiceMirrorResponse({}));
   }
 
+  /**
+   * @summary Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
+   *
+   * @param request CreateServiceMirrorRequest
+   * @return CreateServiceMirrorResponse
+   */
   async createServiceMirror(ClusterId: string, ServiceName: string, request: CreateServiceMirrorRequest): Promise<CreateServiceMirrorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a stress testing task.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBenchmarkTaskResponse
+   */
   async deleteBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBenchmarkTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -6992,12 +7188,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new DeleteBenchmarkTaskResponse({}));
   }
 
+  /**
+   * @summary Deletes a stress testing task.
+   *
+   * @return DeleteBenchmarkTaskResponse
+   */
   async deleteBenchmarkTask(ClusterId: string, TaskName: string): Promise<DeleteBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a private gateway.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayResponse
+   */
   async deleteGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7016,12 +7224,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayResponse>(await this.callApi(params, req, runtime), new DeleteGatewayResponse({}));
   }
 
+  /**
+   * @summary Deletes a private gateway.
+   *
+   * @return DeleteGatewayResponse
+   */
   async deleteGateway(ClusterId: string, GatewayId: string): Promise<DeleteGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteGatewayWithOptions(ClusterId, GatewayId, headers, runtime);
   }
 
+  /**
+   * @summary 删除网关内网访问端点
+   *
+   * @param request DeleteGatewayIntranetLinkedVpcRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteGatewayIntranetLinkedVpcResponse
+   */
   async deleteGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayIntranetLinkedVpcResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7051,12 +7272,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIntranetLinkedVpcResponse({}));
   }
 
+  /**
+   * @summary 删除网关内网访问端点
+   *
+   * @param request DeleteGatewayIntranetLinkedVpcRequest
+   * @return DeleteGatewayIntranetLinkedVpcResponse
+   */
   async deleteGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcRequest): Promise<DeleteGatewayIntranetLinkedVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a resource group that contains no resources or instances.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteResourceResponse
+   */
   async deleteResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7075,12 +7309,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResourceResponse>(await this.callApi(params, req, runtime), new DeleteResourceResponse({}));
   }
 
+  /**
+   * @summary Deletes a resource group that contains no resources or instances.
+   *
+   * @return DeleteResourceResponse
+   */
   async deleteResource(ClusterId: string, ResourceId: string): Promise<DeleteResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceWithOptions(ClusterId, ResourceId, headers, runtime);
   }
 
+  /**
+   * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteResourceDLinkResponse
+   */
   async deleteResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceDLinkResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7099,12 +7345,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResourceDLinkResponse>(await this.callApi(params, req, runtime), new DeleteResourceDLinkResponse({}));
   }
 
+  /**
+   * @summary Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
+   *
+   * @return DeleteResourceDLinkResponse
+   */
   async deleteResourceDLink(ClusterId: string, ResourceId: string): Promise<DeleteResourceDLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
   }
 
+  /**
+   * @summary Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
+   *
+   * @param request DeleteResourceInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteResourceInstancesResponse
+   */
   async deleteResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: DeleteResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7134,12 +7393,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResourceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteResourceInstancesResponse({}));
   }
 
+  /**
+   * @summary Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
+   *
+   * @param request DeleteResourceInstancesRequest
+   * @return DeleteResourceInstancesResponse
+   */
   async deleteResourceInstances(ClusterId: string, ResourceId: string, request: DeleteResourceInstancesRequest): Promise<DeleteResourceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteResourceLogResponse
+   */
   async deleteResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceLogResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7158,12 +7430,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteResourceLogResponse>(await this.callApi(params, req, runtime), new DeleteResourceLogResponse({}));
   }
 
+  /**
+   * @summary Disables the LogShipper feature of Log Service for a dedicated resource group.
+   *
+   * @return DeleteResourceLogResponse
+   */
   async deleteResourceLog(ClusterId: string, ResourceId: string): Promise<DeleteResourceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
   }
 
+  /**
+   * @summary Deletes a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServiceResponse
+   */
   async deleteServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7182,12 +7466,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
   }
 
+  /**
+   * @summary Deletes a service.
+   *
+   * @return DeleteServiceResponse
+   */
   async deleteService(ClusterId: string, ServiceName: string): Promise<DeleteServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServiceAutoScalerResponse
+   */
   async deleteServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceAutoScalerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7206,12 +7502,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new DeleteServiceAutoScalerResponse({}));
   }
 
+  /**
+   * @summary Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
+   *
+   * @return DeleteServiceAutoScalerResponse
+   */
   async deleteServiceAutoScaler(ClusterId: string, ServiceName: string): Promise<DeleteServiceAutoScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Disables the Cronscaler feature for a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServiceCronScalerResponse
+   */
   async deleteServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceCronScalerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7230,12 +7538,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceCronScalerResponse>(await this.callApi(params, req, runtime), new DeleteServiceCronScalerResponse({}));
   }
 
+  /**
+   * @summary Disables the Cronscaler feature for a service.
+   *
+   * @return DeleteServiceCronScalerResponse
+   */
   async deleteServiceCronScaler(ClusterId: string, ServiceName: string): Promise<DeleteServiceCronScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Restarts the instances of a service.
+   *
+   * @param request DeleteServiceInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServiceInstancesResponse
+   */
   async deleteServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: DeleteServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7269,12 +7590,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
   }
 
+  /**
+   * @summary Restarts the instances of a service.
+   *
+   * @param request DeleteServiceInstancesRequest
+   * @return DeleteServiceInstancesResponse
+   */
   async deleteServiceInstances(ClusterId: string, ServiceName: string, request: DeleteServiceInstancesRequest): Promise<DeleteServiceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceInstancesWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Deletes existing service tags.
+   *
+   * @param tmpReq DeleteServiceLabelRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServiceLabelResponse
+   */
   async deleteServiceLabelWithOptions(ClusterId: string, ServiceName: string, tmpReq: DeleteServiceLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceLabelResponse> {
     Util.validateModel(tmpReq);
     let request = new DeleteServiceLabelShrinkRequest({ });
@@ -7306,12 +7641,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceLabelResponse>(await this.callApi(params, req, runtime), new DeleteServiceLabelResponse({}));
   }
 
+  /**
+   * @summary Deletes existing service tags.
+   *
+   * @param request DeleteServiceLabelRequest
+   * @return DeleteServiceLabelResponse
+   */
   async deleteServiceLabel(ClusterId: string, ServiceName: string, request: DeleteServiceLabelRequest): Promise<DeleteServiceLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceLabelWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Disables the traffic mirroring feature for a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteServiceMirrorResponse
+   */
   async deleteServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceMirrorResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7330,12 +7678,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteServiceMirrorResponse>(await this.callApi(params, req, runtime), new DeleteServiceMirrorResponse({}));
   }
 
+  /**
+   * @summary Disables the traffic mirroring feature for a service.
+   *
+   * @return DeleteServiceMirrorResponse
+   */
   async deleteServiceMirror(ClusterId: string, ServiceName: string): Promise<DeleteServiceMirrorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Queries details about the configurations of a stress testing task.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBenchmarkTaskResponse
+   */
   async describeBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeBenchmarkTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7354,12 +7714,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new DescribeBenchmarkTaskResponse({}));
   }
 
+  /**
+   * @summary Queries details about the configurations of a stress testing task.
+   *
+   * @return DescribeBenchmarkTaskResponse
+   */
   async describeBenchmarkTask(ClusterId: string, TaskName: string): Promise<DescribeBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
   }
 
+  /**
+   * @summary Queries the report of a stress testing task.
+   *
+   * @param request DescribeBenchmarkTaskReportRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBenchmarkTaskReportResponse
+   */
   async describeBenchmarkTaskReportWithOptions(ClusterId: string, TaskName: string, request: DescribeBenchmarkTaskReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeBenchmarkTaskReportResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7385,12 +7758,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBenchmarkTaskReportResponse>(await this.callApi(params, req, runtime), new DescribeBenchmarkTaskReportResponse({}));
   }
 
+  /**
+   * @summary Queries the report of a stress testing task.
+   *
+   * @param request DescribeBenchmarkTaskReportRequest
+   * @return DescribeBenchmarkTaskReportResponse
+   */
   async describeBenchmarkTaskReport(ClusterId: string, TaskName: string, request: DescribeBenchmarkTaskReportRequest): Promise<DescribeBenchmarkTaskReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeBenchmarkTaskReportWithOptions(ClusterId, TaskName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the details of a private gateway.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGatewayResponse
+   */
   async describeGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGatewayResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7409,12 +7795,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGatewayResponse>(await this.callApi(params, req, runtime), new DescribeGatewayResponse({}));
   }
 
+  /**
+   * @summary Queries the details of a private gateway.
+   *
+   * @return DescribeGatewayResponse
+   */
   async describeGateway(ClusterId: string, GatewayId: string): Promise<DescribeGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeGatewayWithOptions(ClusterId, GatewayId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about a service group.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeGroupResponse
+   */
   async describeGroupWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGroupResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7433,12 +7831,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeGroupResponse>(await this.callApi(params, req, runtime), new DescribeGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a service group.
+   *
+   * @return DescribeGroupResponse
+   */
   async describeGroup(ClusterId: string, GroupName: string): Promise<DescribeGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeGroupWithOptions(ClusterId, GroupName, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about a resource group.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourceResponse
+   */
   async describeResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7457,12 +7867,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResourceResponse>(await this.callApi(params, req, runtime), new DescribeResourceResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a resource group.
+   *
+   * @return DescribeResourceResponse
+   */
   async describeResource(ClusterId: string, ResourceId: string): Promise<DescribeResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeResourceWithOptions(ClusterId, ResourceId, headers, runtime);
   }
 
+  /**
+   * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourceDLinkResponse
+   */
   async describeResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceDLinkResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7481,12 +7903,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResourceDLinkResponse>(await this.callApi(params, req, runtime), new DescribeResourceDLinkResponse({}));
   }
 
+  /**
+   * @summary Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
+   *
+   * @return DescribeResourceDLinkResponse
+   */
   async describeResourceDLink(ClusterId: string, ResourceId: string): Promise<DescribeResourceDLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeResourceLogResponse
+   */
   async describeResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceLogResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7505,12 +7939,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeResourceLogResponse>(await this.callApi(params, req, runtime), new DescribeResourceLogResponse({}));
   }
 
+  /**
+   * @summary Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
+   *
+   * @return DescribeResourceLogResponse
+   */
   async describeResourceLog(ClusterId: string, ResourceId: string): Promise<DescribeResourceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
   }
 
+  /**
+   * @summary Queries the details about a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServiceResponse
+   */
   async describeServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7529,12 +7975,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceResponse>(await this.callApi(params, req, runtime), new DescribeServiceResponse({}));
   }
 
+  /**
+   * @summary Queries the details about a service.
+   *
+   * @return DescribeServiceResponse
+   */
   async describeService(ClusterId: string, ServiceName: string): Promise<DescribeServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Queries information about the Autoscaler configurations of a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServiceAutoScalerResponse
+   */
   async describeServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceAutoScalerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7553,12 +8011,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new DescribeServiceAutoScalerResponse({}));
   }
 
+  /**
+   * @summary Queries information about the Autoscaler configurations of a service.
+   *
+   * @return DescribeServiceAutoScalerResponse
+   */
   async describeServiceAutoScaler(ClusterId: string, ServiceName: string): Promise<DescribeServiceAutoScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServiceCronScalerResponse
+   */
   async describeServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceCronScalerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7577,12 +8047,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceCronScalerResponse>(await this.callApi(params, req, runtime), new DescribeServiceCronScalerResponse({}));
   }
 
+  /**
+   * @summary Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
+   *
+   * @return DescribeServiceCronScalerResponse
+   */
   async describeServiceCronScaler(ClusterId: string, ServiceName: string): Promise<DescribeServiceCronScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Queries the diagnostics details of a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServiceDiagnosisResponse
+   */
   async describeServiceDiagnosisWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceDiagnosisResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7601,12 +8083,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceDiagnosisResponse>(await this.callApi(params, req, runtime), new DescribeServiceDiagnosisResponse({}));
   }
 
+  /**
+   * @summary Queries the diagnostics details of a service.
+   *
+   * @return DescribeServiceDiagnosisResponse
+   */
   async describeServiceDiagnosis(ClusterId: string, ServiceName: string): Promise<DescribeServiceDiagnosisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceDiagnosisWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Queries information about recent service deployment events.
+   *
+   * @param request DescribeServiceEventRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServiceEventResponse
+   */
   async describeServiceEventWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceEventRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceEventResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7652,12 +8147,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceEventResponse>(await this.callApi(params, req, runtime), new DescribeServiceEventResponse({}));
   }
 
+  /**
+   * @summary Queries information about recent service deployment events.
+   *
+   * @param request DescribeServiceEventRequest
+   * @return DescribeServiceEventResponse
+   */
   async describeServiceEvent(ClusterId: string, ServiceName: string, request: DescribeServiceEventRequest): Promise<DescribeServiceEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceEventWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServiceInstanceDiagnosisResponse
+   */
   async describeServiceInstanceDiagnosisWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceInstanceDiagnosisResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7676,12 +8184,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceInstanceDiagnosisResponse>(await this.callApi(params, req, runtime), new DescribeServiceInstanceDiagnosisResponse({}));
   }
 
+  /**
+   * @summary Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
+   *
+   * @return DescribeServiceInstanceDiagnosisResponse
+   */
   async describeServiceInstanceDiagnosis(ClusterId: string, ServiceName: string, InstanceName: string): Promise<DescribeServiceInstanceDiagnosisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceInstanceDiagnosisWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about the logs of a service.
+   *
+   * @param request DescribeServiceLogRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServiceLogResponse
+   */
   async describeServiceLogWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceLogResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7739,12 +8260,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceLogResponse>(await this.callApi(params, req, runtime), new DescribeServiceLogResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the logs of a service.
+   *
+   * @param request DescribeServiceLogRequest
+   * @return DescribeServiceLogResponse
+   */
   async describeServiceLog(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest): Promise<DescribeServiceLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceLogWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries details about the traffic mirroring settings of a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeServiceMirrorResponse
+   */
   async describeServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceMirrorResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7763,12 +8297,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeServiceMirrorResponse>(await this.callApi(params, req, runtime), new DescribeServiceMirrorResponse({}));
   }
 
+  /**
+   * @summary Queries details about the traffic mirroring settings of a service.
+   *
+   * @return DescribeServiceMirrorResponse
+   */
   async describeServiceMirror(ClusterId: string, ServiceName: string): Promise<DescribeServiceMirrorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
+   *
+   * @param request DescribeSpotDiscountHistoryRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSpotDiscountHistoryResponse
+   */
   async describeSpotDiscountHistoryWithOptions(request: DescribeSpotDiscountHistoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSpotDiscountHistoryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7798,12 +8345,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeSpotDiscountHistoryResponse>(await this.callApi(params, req, runtime), new DescribeSpotDiscountHistoryResponse({}));
   }
 
+  /**
+   * @summary Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
+   *
+   * @param request DescribeSpotDiscountHistoryRequest
+   * @return DescribeSpotDiscountHistoryResponse
+   */
   async describeSpotDiscountHistory(request: DescribeSpotDiscountHistoryRequest): Promise<DescribeSpotDiscountHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeSpotDiscountHistoryWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Switches a container service to development mode or exits development mode.
+   *
+   * @param request DevelopServiceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DevelopServiceResponse
+   */
   async developServiceWithOptions(ClusterId: string, ServiceName: string, request: DevelopServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DevelopServiceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7829,12 +8390,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DevelopServiceResponse>(await this.callApi(params, req, runtime), new DevelopServiceResponse({}));
   }
 
+  /**
+   * @summary Switches a container service to development mode or exits development mode.
+   *
+   * @param request DevelopServiceRequest
+   * @return DevelopServiceResponse
+   */
   async developService(ClusterId: string, ServiceName: string, request: DevelopServiceRequest): Promise<DevelopServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.developServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of stress testing tasks that are created by the current user.
+   *
+   * @param request ListBenchmarkTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBenchmarkTaskResponse
+   */
   async listBenchmarkTaskWithOptions(request: ListBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListBenchmarkTaskResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7872,12 +8447,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new ListBenchmarkTaskResponse({}));
   }
 
+  /**
+   * @summary Queries a list of stress testing tasks that are created by the current user.
+   *
+   * @param request ListBenchmarkTaskRequest
+   * @return ListBenchmarkTaskResponse
+   */
   async listBenchmarkTask(request: ListBenchmarkTaskRequest): Promise<ListBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listBenchmarkTaskWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of the internal endpoints of a private gateway.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGatewayIntranetLinkedVpcResponse
+   */
   async listGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayIntranetLinkedVpcResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -7896,12 +8484,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new ListGatewayIntranetLinkedVpcResponse({}));
   }
 
+  /**
+   * @summary Queries a list of the internal endpoints of a private gateway.
+   *
+   * @return ListGatewayIntranetLinkedVpcResponse
+   */
   async listGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string): Promise<ListGatewayIntranetLinkedVpcResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, headers, runtime);
   }
 
+  /**
+   * @summary Queries created service groups.
+   *
+   * @param request ListGroupsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupsResponse
+   */
   async listGroupsWithOptions(request: ListGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7939,12 +8540,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries created service groups.
+   *
+   * @param request ListGroupsRequest
+   * @return ListGroupsResponse
+   */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGroupsWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of workers in a resource group.
+   *
+   * @param request ListResourceInstanceWorkerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListResourceInstanceWorkerResponse
+   */
   async listResourceInstanceWorkerWithOptions(ClusterId: string, ResourceId: string, InstanceName: string, request: ListResourceInstanceWorkerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceInstanceWorkerResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -7974,12 +8589,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceInstanceWorkerResponse>(await this.callApi(params, req, runtime), new ListResourceInstanceWorkerResponse({}));
   }
 
+  /**
+   * @summary Queries a list of workers in a resource group.
+   *
+   * @param request ListResourceInstanceWorkerRequest
+   * @return ListResourceInstanceWorkerResponse
+   */
   async listResourceInstanceWorker(ClusterId: string, ResourceId: string, InstanceName: string, request: ListResourceInstanceWorkerRequest): Promise<ListResourceInstanceWorkerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourceInstanceWorkerWithOptions(ClusterId, ResourceId, InstanceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of instances in a dedicated resource group.
+   *
+   * @param request ListResourceInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListResourceInstancesResponse
+   */
   async listResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: ListResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8041,12 +8670,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceInstancesResponse>(await this.callApi(params, req, runtime), new ListResourceInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of instances in a dedicated resource group.
+   *
+   * @param request ListResourceInstancesRequest
+   * @return ListResourceInstancesResponse
+   */
   async listResourceInstances(ClusterId: string, ResourceId: string, request: ListResourceInstancesRequest): Promise<ListResourceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of services that are deployed in the dedicated resource group.
+   *
+   * @param request ListResourceServicesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListResourceServicesResponse
+   */
   async listResourceServicesWithOptions(ClusterId: string, ResourceId: string, request: ListResourceServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceServicesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8076,12 +8719,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceServicesResponse>(await this.callApi(params, req, runtime), new ListResourceServicesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of services that are deployed in the dedicated resource group.
+   *
+   * @param request ListResourceServicesRequest
+   * @return ListResourceServicesResponse
+   */
   async listResourceServices(ClusterId: string, ResourceId: string, request: ListResourceServicesRequest): Promise<ListResourceServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourceServicesWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of dedicated resource groups for the current user.
+   *
+   * @param request ListResourcesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListResourcesResponse
+   */
   async listResourcesWithOptions(request: ListResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8123,12 +8780,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourcesResponse>(await this.callApi(params, req, runtime), new ListResourcesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of dedicated resource groups for the current user.
+   *
+   * @param request ListResourcesRequest
+   * @return ListResourcesResponse
+   */
   async listResources(request: ListResourcesRequest): Promise<ListResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourcesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the containers of a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceContainersResponse
+   */
   async listServiceContainersWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceContainersResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8147,12 +8817,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceContainersResponse>(await this.callApi(params, req, runtime), new ListServiceContainersResponse({}));
   }
 
+  /**
+   * @summary Queries the containers of a service.
+   *
+   * @return ListServiceContainersResponse
+   */
   async listServiceContainers(ClusterId: string, ServiceName: string, InstanceName: string): Promise<ListServiceContainersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceContainersWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
   }
 
+  /**
+   * @summary Queries instances of a service.
+   *
+   * @param request ListServiceInstancesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceInstancesResponse
+   */
   async listServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: ListServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceInstancesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8226,12 +8909,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
   }
 
+  /**
+   * @summary Queries instances of a service.
+   *
+   * @param request ListServiceInstancesRequest
+   * @return ListServiceInstancesResponse
+   */
   async listServiceInstances(ClusterId: string, ServiceName: string, request: ListServiceInstancesRequest): Promise<ListServiceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceInstancesWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries the information about the historical versions of a service.
+   *
+   * @param request ListServiceVersionsRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceVersionsResponse
+   */
   async listServiceVersionsWithOptions(ClusterId: string, ServiceName: string, request: ListServiceVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceVersionsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8261,12 +8958,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceVersionsResponse>(await this.callApi(params, req, runtime), new ListServiceVersionsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the historical versions of a service.
+   *
+   * @param request ListServiceVersionsRequest
+   * @return ListServiceVersionsResponse
+   */
   async listServiceVersions(ClusterId: string, ServiceName: string, request: ListServiceVersionsRequest): Promise<ListServiceVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceVersionsWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Queries a list of services that are created by the current user.
+   *
+   * @param tmpReq ListServicesRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServicesResponse
+   */
   async listServicesWithOptions(tmpReq: ListServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
     Util.validateModel(tmpReq);
     let request = new ListServicesShrinkRequest({ });
@@ -8354,12 +9065,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
   }
 
+  /**
+   * @summary Queries a list of services that are created by the current user.
+   *
+   * @param request ListServicesRequest
+   * @return ListServicesResponse
+   */
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServicesWithOptions(request, headers, runtime);
   }
 
+  /**
+   * @summary Performs canary release or blue-green release of a service.
+   *
+   * @param request ReleaseServiceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReleaseServiceResponse
+   */
   async releaseServiceWithOptions(ClusterId: string, ServiceName: string, request: ReleaseServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReleaseServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8389,12 +9114,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ReleaseServiceResponse>(await this.callApi(params, req, runtime), new ReleaseServiceResponse({}));
   }
 
+  /**
+   * @summary Performs canary release or blue-green release of a service.
+   *
+   * @param request ReleaseServiceRequest
+   * @return ReleaseServiceResponse
+   */
   async releaseService(ClusterId: string, ServiceName: string, request: ReleaseServiceRequest): Promise<ReleaseServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.releaseServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Restarts a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RestartServiceResponse
+   */
   async restartServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8413,12 +9151,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartServiceResponse>(await this.callApi(params, req, runtime), new RestartServiceResponse({}));
   }
 
+  /**
+   * @summary Restarts a service.
+   *
+   * @return RestartServiceResponse
+   */
   async restartService(ClusterId: string, ServiceName: string): Promise<RestartServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.restartServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Starts a stress testing task.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartBenchmarkTaskResponse
+   */
   async startBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartBenchmarkTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8437,12 +9187,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new StartBenchmarkTaskResponse({}));
   }
 
+  /**
+   * @summary Starts a stress testing task.
+   *
+   * @return StartBenchmarkTaskResponse
+   */
   async startBenchmarkTask(ClusterId: string, TaskName: string): Promise<StartBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
   }
 
+  /**
+   * @summary Starts a service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StartServiceResponse
+   */
   async startServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8461,12 +9223,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartServiceResponse>(await this.callApi(params, req, runtime), new StartServiceResponse({}));
   }
 
+  /**
+   * @summary Starts a service.
+   *
+   * @return StartServiceResponse
+   */
   async startService(ClusterId: string, ServiceName: string): Promise<StartServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Stops a stress testing task.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopBenchmarkTaskResponse
+   */
   async stopBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopBenchmarkTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8485,12 +9259,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new StopBenchmarkTaskResponse({}));
   }
 
+  /**
+   * @summary Stops a stress testing task.
+   *
+   * @return StopBenchmarkTaskResponse
+   */
   async stopBenchmarkTask(ClusterId: string, TaskName: string): Promise<StopBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
   }
 
+  /**
+   * @summary Stops a running service.
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return StopServiceResponse
+   */
   async stopServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopServiceResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -8509,12 +9295,25 @@ export default class Client extends OpenApi {
     return $tea.cast<StopServiceResponse>(await this.callApi(params, req, runtime), new StopServiceResponse({}));
   }
 
+  /**
+   * @summary Stops a running service.
+   *
+   * @return StopServiceResponse
+   */
   async stopService(ClusterId: string, ServiceName: string): Promise<StopServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
+  /**
+   * @summary Updates an application service.
+   *
+   * @param request UpdateAppServiceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAppServiceResponse
+   */
   async updateAppServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateAppServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAppServiceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8566,12 +9365,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAppServiceResponse>(await this.callApi(params, req, runtime), new UpdateAppServiceResponse({}));
   }
 
+  /**
+   * @summary Updates an application service.
+   *
+   * @param request UpdateAppServiceRequest
+   * @return UpdateAppServiceResponse
+   */
   async updateAppService(ClusterId: string, ServiceName: string, request: UpdateAppServiceRequest): Promise<UpdateAppServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAppServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates a stress testing task.
+   *
+   * @param request UpdateBenchmarkTaskRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBenchmarkTaskResponse
+   */
   async updateBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, request: UpdateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateBenchmarkTaskResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -8592,12 +9405,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new UpdateBenchmarkTaskResponse({}));
   }
 
+  /**
+   * @summary Updates a stress testing task.
+   *
+   * @param request UpdateBenchmarkTaskRequest
+   * @return UpdateBenchmarkTaskResponse
+   */
   async updateBenchmarkTask(ClusterId: string, TaskName: string, request: UpdateBenchmarkTaskRequest): Promise<UpdateBenchmarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
   }
 
+  /**
+   * @summary Update a private gateway.
+   *
+   * @param request UpdateGatewayRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateGatewayResponse
+   */
   async updateGatewayWithOptions(GatewayId: string, ClusterId: string, request: UpdateGatewayRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8635,12 +9462,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateGatewayResponse>(await this.callApi(params, req, runtime), new UpdateGatewayResponse({}));
   }
 
+  /**
+   * @summary Update a private gateway.
+   *
+   * @param request UpdateGatewayRequest
+   * @return UpdateGatewayResponse
+   */
   async updateGateway(GatewayId: string, ClusterId: string, request: UpdateGatewayRequest): Promise<UpdateGatewayResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateGatewayWithOptions(GatewayId, ClusterId, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
+   *
+   * @param request UpdateResourceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateResourceResponse
+   */
   async updateResourceWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8670,12 +9511,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateResourceResponse>(await this.callApi(params, req, runtime), new UpdateResourceResponse({}));
   }
 
+  /**
+   * @summary Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
+   *
+   * @param request UpdateResourceRequest
+   * @return UpdateResourceResponse
+   */
   async updateResource(ClusterId: string, ResourceId: string, request: UpdateResourceRequest): Promise<UpdateResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
+   *
+   * @param request UpdateResourceDLinkRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateResourceDLinkResponse
+   */
   async updateResourceDLinkWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceDLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceDLinkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8713,12 +9568,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateResourceDLinkResponse>(await this.callApi(params, req, runtime), new UpdateResourceDLinkResponse({}));
   }
 
+  /**
+   * @summary Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
+   *
+   * @param request UpdateResourceDLinkRequest
+   * @return UpdateResourceDLinkResponse
+   */
   async updateResourceDLink(ClusterId: string, ResourceId: string, request: UpdateResourceDLinkRequest): Promise<UpdateResourceDLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceDLinkWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the service scheduling status of an instance in a dedicated resource group.
+   *
+   * @param request UpdateResourceInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateResourceInstanceResponse
+   */
   async updateResourceInstanceWithOptions(ClusterId: string, ResourceId: string, InstanceId: string, request: UpdateResourceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8744,12 +9613,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateResourceInstanceResponse>(await this.callApi(params, req, runtime), new UpdateResourceInstanceResponse({}));
   }
 
+  /**
+   * @summary Updates the service scheduling status of an instance in a dedicated resource group.
+   *
+   * @param request UpdateResourceInstanceRequest
+   * @return UpdateResourceInstanceResponse
+   */
   async updateResourceInstance(ClusterId: string, ResourceId: string, InstanceId: string, request: UpdateResourceInstanceRequest): Promise<UpdateResourceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceInstanceWithOptions(ClusterId, ResourceId, InstanceId, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
+   *
+   * @param request UpdateServiceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceResponse
+   */
   async updateServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -8776,12 +9659,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
   }
 
+  /**
+   * @summary Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
+   *
+   * @param request UpdateServiceRequest
+   * @return UpdateServiceResponse
+   */
   async updateService(ClusterId: string, ServiceName: string, request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the Autoscaler configurations of a service.
+   *
+   * @param request UpdateServiceAutoScalerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceAutoScalerResponse
+   */
   async updateServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceAutoScalerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8819,12 +9716,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new UpdateServiceAutoScalerResponse({}));
   }
 
+  /**
+   * @summary Updates the Autoscaler configurations of a service.
+   *
+   * @param request UpdateServiceAutoScalerRequest
+   * @return UpdateServiceAutoScalerResponse
+   */
   async updateServiceAutoScaler(ClusterId: string, ServiceName: string, request: UpdateServiceAutoScalerRequest): Promise<UpdateServiceAutoScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
+   *
+   * @param request UpdateServiceCronScalerRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceCronScalerResponse
+   */
   async updateServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceCronScalerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8854,12 +9765,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceCronScalerResponse>(await this.callApi(params, req, runtime), new UpdateServiceCronScalerResponse({}));
   }
 
+  /**
+   * @summary Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
+   *
+   * @param request UpdateServiceCronScalerRequest
+   * @return UpdateServiceCronScalerResponse
+   */
   async updateServiceCronScaler(ClusterId: string, ServiceName: string, request: UpdateServiceCronScalerRequest): Promise<UpdateServiceCronScalerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates attributes of service instances. Only isolation can be performed for service instances.
+   *
+   * @param request UpdateServiceInstanceRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceInstanceResponse
+   */
   async updateServiceInstanceWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: UpdateServiceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8885,12 +9810,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceResponse({}));
   }
 
+  /**
+   * @summary Updates attributes of service instances. Only isolation can be performed for service instances.
+   *
+   * @param request UpdateServiceInstanceRequest
+   * @return UpdateServiceInstanceResponse
+   */
   async updateServiceInstance(ClusterId: string, ServiceName: string, InstanceName: string, request: UpdateServiceInstanceRequest): Promise<UpdateServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceInstanceWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Adds service tags or updates existing service tags.
+   *
+   * @param request UpdateServiceLabelRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceLabelResponse
+   */
   async updateServiceLabelWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceLabelResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8916,12 +9855,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceLabelResponse>(await this.callApi(params, req, runtime), new UpdateServiceLabelResponse({}));
   }
 
+  /**
+   * @summary Adds service tags or updates existing service tags.
+   *
+   * @param request UpdateServiceLabelRequest
+   * @return UpdateServiceLabelResponse
+   */
   async updateServiceLabel(ClusterId: string, ServiceName: string, request: UpdateServiceLabelRequest): Promise<UpdateServiceLabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceLabelWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the traffic mirroring configurations of a service.
+   *
+   * @param request UpdateServiceMirrorRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceMirrorResponse
+   */
   async updateServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceMirrorResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8951,12 +9904,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceMirrorResponse>(await this.callApi(params, req, runtime), new UpdateServiceMirrorResponse({}));
   }
 
+  /**
+   * @summary Updates the traffic mirroring configurations of a service.
+   *
+   * @param request UpdateServiceMirrorRequest
+   * @return UpdateServiceMirrorResponse
+   */
   async updateServiceMirror(ClusterId: string, ServiceName: string, request: UpdateServiceMirrorRequest): Promise<UpdateServiceMirrorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the safety lock of a service to minimize misoperations on the service.
+   *
+   * @param request UpdateServiceSafetyLockRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceSafetyLockResponse
+   */
   async updateServiceSafetyLockWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceSafetyLockRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceSafetyLockResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -8982,12 +9949,26 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceSafetyLockResponse>(await this.callApi(params, req, runtime), new UpdateServiceSafetyLockResponse({}));
   }
 
+  /**
+   * @summary Updates the safety lock of a service to minimize misoperations on the service.
+   *
+   * @param request UpdateServiceSafetyLockRequest
+   * @return UpdateServiceSafetyLockResponse
+   */
   async updateServiceSafetyLock(ClusterId: string, ServiceName: string, request: UpdateServiceSafetyLockRequest): Promise<UpdateServiceSafetyLockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceSafetyLockWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
+  /**
+   * @summary Updates the version of a service or rolls back the service to a specific version.
+   *
+   * @param request UpdateServiceVersionRequest
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceVersionResponse
+   */
   async updateServiceVersionWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceVersionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -9013,6 +9994,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateServiceVersionResponse>(await this.callApi(params, req, runtime), new UpdateServiceVersionResponse({}));
   }
 
+  /**
+   * @summary Updates the version of a service or rolls back the service to a specific version.
+   *
+   * @param request UpdateServiceVersionRequest
+   * @return UpdateServiceVersionResponse
+   */
   async updateServiceVersion(ClusterId: string, ServiceName: string, request: UpdateServiceVersionRequest): Promise<UpdateServiceVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
