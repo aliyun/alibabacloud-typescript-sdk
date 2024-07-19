@@ -11544,12 +11544,14 @@ export class GetTxtRecordForVerifyRequest extends $tea.Model {
 
 export class GetTxtRecordForVerifyResponseBody extends $tea.Model {
   domainName?: string;
+  parentDomainName?: string;
   RR?: string;
   requestId?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
+      parentDomainName: 'ParentDomainName',
       RR: 'RR',
       requestId: 'RequestId',
       value: 'Value',
@@ -11559,6 +11561,7 @@ export class GetTxtRecordForVerifyResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
+      parentDomainName: 'string',
       RR: 'string',
       requestId: 'string',
       value: 'string',
@@ -23554,6 +23557,7 @@ export class DescribePdnsUserInfoResponseBodyUserInfo extends $tea.Model {
   pdnsId?: number;
   serviceType?: string;
   state?: string;
+  statisticSwitchStatus?: string;
   stoppedService?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23561,6 +23565,7 @@ export class DescribePdnsUserInfoResponseBodyUserInfo extends $tea.Model {
       pdnsId: 'PdnsId',
       serviceType: 'ServiceType',
       state: 'State',
+      statisticSwitchStatus: 'StatisticSwitchStatus',
       stoppedService: 'StoppedService',
     };
   }
@@ -23571,6 +23576,7 @@ export class DescribePdnsUserInfoResponseBodyUserInfo extends $tea.Model {
       pdnsId: 'number',
       serviceType: 'string',
       state: 'string',
+      statisticSwitchStatus: 'string',
       stoppedService: 'string',
     };
   }
