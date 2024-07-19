@@ -10952,6 +10952,93 @@ export class ListDocumentsResponse extends $tea.Model {
   }
 }
 
+export class ListGroupChatMessagesRequest extends $tea.Model {
+  instanceId?: string;
+  jobId?: string;
+  nextPageToken?: string;
+  pageSize?: number;
+  sortOrder?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      jobId: 'JobId',
+      nextPageToken: 'NextPageToken',
+      pageSize: 'PageSize',
+      sortOrder: 'SortOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      jobId: 'string',
+      nextPageToken: 'string',
+      pageSize: 'number',
+      sortOrder: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupChatMessagesResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListGroupChatMessagesResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListGroupChatMessagesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupChatMessagesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGroupChatMessagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGroupChatMessagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHistoricalAgentReportRequest extends $tea.Model {
   agentIdList?: string;
   instanceId?: string;
@@ -26375,6 +26462,68 @@ export class ListDocumentsResponseBodyData extends $tea.Model {
       nextPageToken: 'string',
       schema: ListDocumentsResponseBodyDataSchema,
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupChatMessagesResponseBodyDataMessages extends $tea.Model {
+  content?: string;
+  jobId?: string;
+  recalled?: boolean;
+  senderAvatarUrl?: string;
+  senderId?: string;
+  senderName?: string;
+  senderType?: string;
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      jobId: 'JobId',
+      recalled: 'Recalled',
+      senderAvatarUrl: 'SenderAvatarUrl',
+      senderId: 'SenderId',
+      senderName: 'SenderName',
+      senderType: 'SenderType',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      jobId: 'string',
+      recalled: 'boolean',
+      senderAvatarUrl: 'string',
+      senderId: 'string',
+      senderName: 'string',
+      senderType: 'string',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupChatMessagesResponseBodyData extends $tea.Model {
+  messages?: ListGroupChatMessagesResponseBodyDataMessages[];
+  nextPageToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messages: 'Messages',
+      nextPageToken: 'NextPageToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messages: { 'type': 'array', 'itemType': ListGroupChatMessagesResponseBodyDataMessages },
+      nextPageToken: 'string',
     };
   }
 
@@ -41861,6 +42010,64 @@ export default class Client extends OpenApi {
   async listDocuments(request: ListDocumentsRequest): Promise<ListDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDocumentsWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary ListGroupChatMessages
+   *
+   * @param request ListGroupChatMessagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListGroupChatMessagesResponse
+   */
+  async listGroupChatMessagesWithOptions(request: ListGroupChatMessagesRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupChatMessagesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.nextPageToken)) {
+      query["NextPageToken"] = request.nextPageToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGroupChatMessages",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupChatMessagesResponse>(await this.callApi(params, req, runtime), new ListGroupChatMessagesResponse({}));
+  }
+
+  /**
+   * @summary ListGroupChatMessages
+   *
+   * @param request ListGroupChatMessagesRequest
+   * @return ListGroupChatMessagesResponse
+   */
+  async listGroupChatMessages(request: ListGroupChatMessagesRequest): Promise<ListGroupChatMessagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGroupChatMessagesWithOptions(request, runtime);
   }
 
   /**
