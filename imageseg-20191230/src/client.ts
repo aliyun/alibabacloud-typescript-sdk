@@ -80,9 +80,9 @@ export class ChangeSkyResponseBody extends $tea.Model {
 }
 
 export class ChangeSkyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeSkyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeSkyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -146,9 +146,9 @@ export class GetAsyncJobResultResponseBody extends $tea.Model {
 }
 
 export class GetAsyncJobResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAsyncJobResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAsyncJobResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -231,9 +231,9 @@ export class ParseFaceResponseBody extends $tea.Model {
 }
 
 export class ParseFaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ParseFaceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ParseFaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -322,9 +322,9 @@ export class RefineMaskResponseBody extends $tea.Model {
 }
 
 export class RefineMaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefineMaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefineMaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -413,9 +413,9 @@ export class SegmentBodyResponseBody extends $tea.Model {
 }
 
 export class SegmentBodyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentBodyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentBodyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -440,11 +440,13 @@ export class SegmentBodyResponse extends $tea.Model {
 export class SegmentClothRequest extends $tea.Model {
   clothClass?: string[];
   imageURL?: string;
+  outMode?: number;
   returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       clothClass: 'ClothClass',
       imageURL: 'ImageURL',
+      outMode: 'OutMode',
       returnForm: 'ReturnForm',
     };
   }
@@ -453,6 +455,7 @@ export class SegmentClothRequest extends $tea.Model {
     return {
       clothClass: { 'type': 'array', 'itemType': 'string' },
       imageURL: 'string',
+      outMode: 'number',
       returnForm: 'string',
     };
   }
@@ -465,11 +468,13 @@ export class SegmentClothRequest extends $tea.Model {
 export class SegmentClothAdvanceRequest extends $tea.Model {
   clothClass?: string[];
   imageURLObject?: Readable;
+  outMode?: number;
   returnForm?: string;
   static names(): { [key: string]: string } {
     return {
       clothClass: 'ClothClass',
       imageURLObject: 'ImageURL',
+      outMode: 'OutMode',
       returnForm: 'ReturnForm',
     };
   }
@@ -478,6 +483,7 @@ export class SegmentClothAdvanceRequest extends $tea.Model {
     return {
       clothClass: { 'type': 'array', 'itemType': 'string' },
       imageURLObject: 'Readable',
+      outMode: 'number',
       returnForm: 'string',
     };
   }
@@ -510,9 +516,9 @@ export class SegmentClothResponseBody extends $tea.Model {
 }
 
 export class SegmentClothResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentClothResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentClothResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -601,9 +607,9 @@ export class SegmentCommodityResponseBody extends $tea.Model {
 }
 
 export class SegmentCommodityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentCommodityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentCommodityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -692,9 +698,9 @@ export class SegmentCommonImageResponseBody extends $tea.Model {
 }
 
 export class SegmentCommonImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentCommonImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentCommonImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -783,9 +789,9 @@ export class SegmentFoodResponseBody extends $tea.Model {
 }
 
 export class SegmentFoodResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentFoodResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentFoodResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -868,9 +874,9 @@ export class SegmentHDBodyResponseBody extends $tea.Model {
 }
 
 export class SegmentHDBodyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentHDBodyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentHDBodyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -956,9 +962,9 @@ export class SegmentHDCommonImageResponseBody extends $tea.Model {
 }
 
 export class SegmentHDCommonImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentHDCommonImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentHDCommonImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1041,9 +1047,9 @@ export class SegmentHDSkyResponseBody extends $tea.Model {
 }
 
 export class SegmentHDSkyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentHDSkyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentHDSkyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1126,9 +1132,9 @@ export class SegmentHairResponseBody extends $tea.Model {
 }
 
 export class SegmentHairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentHairResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentHairResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1217,9 +1223,9 @@ export class SegmentHeadResponseBody extends $tea.Model {
 }
 
 export class SegmentHeadResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentHeadResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentHeadResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1302,9 +1308,9 @@ export class SegmentSceneResponseBody extends $tea.Model {
 }
 
 export class SegmentSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentSceneResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentSceneResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1387,9 +1393,9 @@ export class SegmentSkinResponseBody extends $tea.Model {
 }
 
 export class SegmentSkinResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentSkinResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentSkinResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1472,9 +1478,9 @@ export class SegmentSkyResponseBody extends $tea.Model {
 }
 
 export class SegmentSkyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SegmentSkyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SegmentSkyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1982,6 +1988,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request ChangeSkyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeSkyResponse
+   */
   async changeSkyWithOptions(request: ChangeSkyRequest, runtime: $Util.RuntimeOptions): Promise<ChangeSkyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2010,6 +2021,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeSkyResponse>(await this.callApi(params, req, runtime), new ChangeSkyResponse({}));
   }
 
+  /**
+   * @param request ChangeSkyRequest
+   * @return ChangeSkyResponse
+   */
   async changeSky(request: ChangeSkyRequest): Promise<ChangeSkyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeSkyWithOptions(request, runtime);
@@ -2022,7 +2037,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2046,12 +2061,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2115,6 +2131,11 @@ export default class Client extends OpenApi {
     return changeSkyResp;
   }
 
+  /**
+   * @param request GetAsyncJobResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAsyncJobResultResponse
+   */
   async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2139,11 +2160,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsyncJobResultResponse>(await this.callApi(params, req, runtime), new GetAsyncJobResultResponse({}));
   }
 
+  /**
+   * @param request GetAsyncJobResultRequest
+   * @return GetAsyncJobResultResponse
+   */
   async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAsyncJobResultWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ParseFaceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ParseFaceResponse
+   */
   async parseFaceWithOptions(request: ParseFaceRequest, runtime: $Util.RuntimeOptions): Promise<ParseFaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2168,6 +2198,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ParseFaceResponse>(await this.callApi(params, req, runtime), new ParseFaceResponse({}));
   }
 
+  /**
+   * @param request ParseFaceRequest
+   * @return ParseFaceResponse
+   */
   async parseFace(request: ParseFaceRequest): Promise<ParseFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.parseFaceWithOptions(request, runtime);
@@ -2180,7 +2214,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2204,12 +2238,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2247,6 +2282,11 @@ export default class Client extends OpenApi {
     return parseFaceResp;
   }
 
+  /**
+   * @param request RefineMaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RefineMaskResponse
+   */
   async refineMaskWithOptions(request: RefineMaskRequest, runtime: $Util.RuntimeOptions): Promise<RefineMaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -2275,6 +2315,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RefineMaskResponse>(await this.callApi(params, req, runtime), new RefineMaskResponse({}));
   }
 
+  /**
+   * @param request RefineMaskRequest
+   * @return RefineMaskResponse
+   */
   async refineMask(request: RefineMaskRequest): Promise<RefineMaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refineMaskWithOptions(request, runtime);
@@ -2287,7 +2331,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2311,12 +2355,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2380,6 +2425,11 @@ export default class Client extends OpenApi {
     return refineMaskResp;
   }
 
+  /**
+   * @param request SegmentBodyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentBodyResponse
+   */
   async segmentBodyWithOptions(request: SegmentBodyRequest, runtime: $Util.RuntimeOptions): Promise<SegmentBodyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2408,6 +2458,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentBodyResponse>(await this.callApi(params, req, runtime), new SegmentBodyResponse({}));
   }
 
+  /**
+   * @param request SegmentBodyRequest
+   * @return SegmentBodyResponse
+   */
   async segmentBody(request: SegmentBodyRequest): Promise<SegmentBodyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentBodyWithOptions(request, runtime);
@@ -2420,7 +2474,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2444,12 +2498,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2487,6 +2542,11 @@ export default class Client extends OpenApi {
     return segmentBodyResp;
   }
 
+  /**
+   * @param request SegmentClothRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentClothResponse
+   */
   async segmentClothWithOptions(request: SegmentClothRequest, runtime: $Util.RuntimeOptions): Promise<SegmentClothResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2496,6 +2556,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.imageURL)) {
       query["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.outMode)) {
+      query["OutMode"] = request.outMode;
     }
 
     if (!Util.isUnset(request.returnForm)) {
@@ -2519,6 +2583,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentClothResponse>(await this.callApi(params, req, runtime), new SegmentClothResponse({}));
   }
 
+  /**
+   * @param request SegmentClothRequest
+   * @return SegmentClothResponse
+   */
   async segmentCloth(request: SegmentClothRequest): Promise<SegmentClothResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentClothWithOptions(request, runtime);
@@ -2531,7 +2599,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2555,12 +2623,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2598,6 +2667,11 @@ export default class Client extends OpenApi {
     return segmentClothResp;
   }
 
+  /**
+   * @param request SegmentCommodityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentCommodityResponse
+   */
   async segmentCommodityWithOptions(request: SegmentCommodityRequest, runtime: $Util.RuntimeOptions): Promise<SegmentCommodityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2626,6 +2700,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentCommodityResponse>(await this.callApi(params, req, runtime), new SegmentCommodityResponse({}));
   }
 
+  /**
+   * @param request SegmentCommodityRequest
+   * @return SegmentCommodityResponse
+   */
   async segmentCommodity(request: SegmentCommodityRequest): Promise<SegmentCommodityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentCommodityWithOptions(request, runtime);
@@ -2638,7 +2716,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2662,12 +2740,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2705,6 +2784,11 @@ export default class Client extends OpenApi {
     return segmentCommodityResp;
   }
 
+  /**
+   * @param request SegmentCommonImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentCommonImageResponse
+   */
   async segmentCommonImageWithOptions(request: SegmentCommonImageRequest, runtime: $Util.RuntimeOptions): Promise<SegmentCommonImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2733,6 +2817,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentCommonImageResponse>(await this.callApi(params, req, runtime), new SegmentCommonImageResponse({}));
   }
 
+  /**
+   * @param request SegmentCommonImageRequest
+   * @return SegmentCommonImageResponse
+   */
   async segmentCommonImage(request: SegmentCommonImageRequest): Promise<SegmentCommonImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentCommonImageWithOptions(request, runtime);
@@ -2745,7 +2833,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2769,12 +2857,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2812,6 +2901,11 @@ export default class Client extends OpenApi {
     return segmentCommonImageResp;
   }
 
+  /**
+   * @param request SegmentFoodRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentFoodResponse
+   */
   async segmentFoodWithOptions(request: SegmentFoodRequest, runtime: $Util.RuntimeOptions): Promise<SegmentFoodResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2840,6 +2934,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentFoodResponse>(await this.callApi(params, req, runtime), new SegmentFoodResponse({}));
   }
 
+  /**
+   * @param request SegmentFoodRequest
+   * @return SegmentFoodResponse
+   */
   async segmentFood(request: SegmentFoodRequest): Promise<SegmentFoodResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentFoodWithOptions(request, runtime);
@@ -2852,7 +2950,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2876,12 +2974,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -2919,6 +3018,11 @@ export default class Client extends OpenApi {
     return segmentFoodResp;
   }
 
+  /**
+   * @param request SegmentHDBodyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentHDBodyResponse
+   */
   async segmentHDBodyWithOptions(request: SegmentHDBodyRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDBodyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2943,6 +3047,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentHDBodyResponse>(await this.callApi(params, req, runtime), new SegmentHDBodyResponse({}));
   }
 
+  /**
+   * @param request SegmentHDBodyRequest
+   * @return SegmentHDBodyResponse
+   */
   async segmentHDBody(request: SegmentHDBodyRequest): Promise<SegmentHDBodyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentHDBodyWithOptions(request, runtime);
@@ -2955,7 +3063,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -2979,12 +3087,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3022,6 +3131,11 @@ export default class Client extends OpenApi {
     return segmentHDBodyResp;
   }
 
+  /**
+   * @param request SegmentHDCommonImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentHDCommonImageResponse
+   */
   async segmentHDCommonImageWithOptions(request: SegmentHDCommonImageRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDCommonImageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3046,6 +3160,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentHDCommonImageResponse>(await this.callApi(params, req, runtime), new SegmentHDCommonImageResponse({}));
   }
 
+  /**
+   * @param request SegmentHDCommonImageRequest
+   * @return SegmentHDCommonImageResponse
+   */
   async segmentHDCommonImage(request: SegmentHDCommonImageRequest): Promise<SegmentHDCommonImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentHDCommonImageWithOptions(request, runtime);
@@ -3058,7 +3176,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3082,12 +3200,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3125,6 +3244,11 @@ export default class Client extends OpenApi {
     return segmentHDCommonImageResp;
   }
 
+  /**
+   * @param request SegmentHDSkyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentHDSkyResponse
+   */
   async segmentHDSkyWithOptions(request: SegmentHDSkyRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHDSkyResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3149,6 +3273,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentHDSkyResponse>(await this.callApi(params, req, runtime), new SegmentHDSkyResponse({}));
   }
 
+  /**
+   * @param request SegmentHDSkyRequest
+   * @return SegmentHDSkyResponse
+   */
   async segmentHDSky(request: SegmentHDSkyRequest): Promise<SegmentHDSkyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentHDSkyWithOptions(request, runtime);
@@ -3161,7 +3289,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3185,12 +3313,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3228,6 +3357,11 @@ export default class Client extends OpenApi {
     return segmentHDSkyResp;
   }
 
+  /**
+   * @param request SegmentHairRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentHairResponse
+   */
   async segmentHairWithOptions(request: SegmentHairRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHairResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3252,6 +3386,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentHairResponse>(await this.callApi(params, req, runtime), new SegmentHairResponse({}));
   }
 
+  /**
+   * @param request SegmentHairRequest
+   * @return SegmentHairResponse
+   */
   async segmentHair(request: SegmentHairRequest): Promise<SegmentHairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentHairWithOptions(request, runtime);
@@ -3264,7 +3402,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3288,12 +3426,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3331,6 +3470,11 @@ export default class Client extends OpenApi {
     return segmentHairResp;
   }
 
+  /**
+   * @param request SegmentHeadRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentHeadResponse
+   */
   async segmentHeadWithOptions(request: SegmentHeadRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHeadResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3359,6 +3503,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentHeadResponse>(await this.callApi(params, req, runtime), new SegmentHeadResponse({}));
   }
 
+  /**
+   * @param request SegmentHeadRequest
+   * @return SegmentHeadResponse
+   */
   async segmentHead(request: SegmentHeadRequest): Promise<SegmentHeadResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentHeadWithOptions(request, runtime);
@@ -3371,7 +3519,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3395,12 +3543,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3438,6 +3587,11 @@ export default class Client extends OpenApi {
     return segmentHeadResp;
   }
 
+  /**
+   * @param request SegmentSceneRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentSceneResponse
+   */
   async segmentSceneWithOptions(request: SegmentSceneRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSceneResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3462,6 +3616,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentSceneResponse>(await this.callApi(params, req, runtime), new SegmentSceneResponse({}));
   }
 
+  /**
+   * @param request SegmentSceneRequest
+   * @return SegmentSceneResponse
+   */
   async segmentScene(request: SegmentSceneRequest): Promise<SegmentSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentSceneWithOptions(request, runtime);
@@ -3474,7 +3632,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3498,12 +3656,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3541,6 +3700,11 @@ export default class Client extends OpenApi {
     return segmentSceneResp;
   }
 
+  /**
+   * @param request SegmentSkinRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentSkinResponse
+   */
   async segmentSkinWithOptions(request: SegmentSkinRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSkinResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3565,6 +3729,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentSkinResponse>(await this.callApi(params, req, runtime), new SegmentSkinResponse({}));
   }
 
+  /**
+   * @param request SegmentSkinRequest
+   * @return SegmentSkinResponse
+   */
   async segmentSkin(request: SegmentSkinRequest): Promise<SegmentSkinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentSkinWithOptions(request, runtime);
@@ -3577,7 +3745,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3601,12 +3769,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
@@ -3644,6 +3813,11 @@ export default class Client extends OpenApi {
     return segmentSkinResp;
   }
 
+  /**
+   * @param request SegmentSkyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SegmentSkyResponse
+   */
   async segmentSkyWithOptions(request: SegmentSkyRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSkyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3668,6 +3842,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SegmentSkyResponse>(await this.callApi(params, req, runtime), new SegmentSkyResponse({}));
   }
 
+  /**
+   * @param request SegmentSkyRequest
+   * @return SegmentSkyResponse
+   */
   async segmentSky(request: SegmentSkyRequest): Promise<SegmentSkyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.segmentSkyWithOptions(request, runtime);
@@ -3680,7 +3858,7 @@ export default class Client extends OpenApi {
     let securityToken = await this._credential.getSecurityToken();
     let credentialType = this._credential.getType();
     let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
+    if (Util.empty(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
     }
 
@@ -3704,12 +3882,13 @@ export default class Client extends OpenApi {
     });
     let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
     let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
       type: "access_key",
       protocol: this._protocol,
       regionId: this._regionId,
     });
-    let ossClient : OSS = null;
+    let ossClient : OSS = new OSS(ossConfig);
     let fileObj = new $FileForm.FileField({ });
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
