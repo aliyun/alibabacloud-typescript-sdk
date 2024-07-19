@@ -9185,6 +9185,7 @@ export class NodepoolScalingGroup extends $tea.Model {
   periodUnit?: string;
   platform?: string;
   privatePoolOptions?: NodepoolScalingGroupPrivatePoolOptions;
+  ramRoleName?: string;
   rdsInstances?: string[];
   scalingPolicy?: string;
   securityGroupId?: string;
@@ -9228,6 +9229,7 @@ export class NodepoolScalingGroup extends $tea.Model {
       periodUnit: 'period_unit',
       platform: 'platform',
       privatePoolOptions: 'private_pool_options',
+      ramRoleName: 'ram_role_name',
       rdsInstances: 'rds_instances',
       scalingPolicy: 'scaling_policy',
       securityGroupId: 'security_group_id',
@@ -9274,6 +9276,7 @@ export class NodepoolScalingGroup extends $tea.Model {
       periodUnit: 'string',
       platform: 'string',
       privatePoolOptions: NodepoolScalingGroupPrivatePoolOptions,
+      ramRoleName: 'string',
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
       scalingPolicy: 'string',
       securityGroupId: 'string',
