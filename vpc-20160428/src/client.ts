@@ -4577,6 +4577,7 @@ export class CreateExpressConnectTrafficQosRuleResponse extends $tea.Model {
 export class CreateFailoverTestJobRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
+  dryRun?: boolean;
   jobDuration?: number;
   jobType?: string;
   name?: string;
@@ -4590,6 +4591,7 @@ export class CreateFailoverTestJobRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       description: 'Description',
+      dryRun: 'DryRun',
       jobDuration: 'JobDuration',
       jobType: 'JobType',
       name: 'Name',
@@ -4606,6 +4608,7 @@ export class CreateFailoverTestJobRequest extends $tea.Model {
     return {
       clientToken: 'string',
       description: 'string',
+      dryRun: 'boolean',
       jobDuration: 'number',
       jobType: 'string',
       name: 'string',
@@ -35893,6 +35896,7 @@ export class UpdateDhcpOptionsSetAttributeResponse extends $tea.Model {
 export class UpdateFailoverTestJobRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
+  dryRun?: boolean;
   jobDuration?: number;
   jobId?: string;
   name?: string;
@@ -35905,6 +35909,7 @@ export class UpdateFailoverTestJobRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       description: 'Description',
+      dryRun: 'DryRun',
       jobDuration: 'JobDuration',
       jobId: 'JobId',
       name: 'Name',
@@ -35920,6 +35925,7 @@ export class UpdateFailoverTestJobRequest extends $tea.Model {
     return {
       clientToken: 'string',
       description: 'string',
+      dryRun: 'boolean',
       jobDuration: 'number',
       jobId: 'string',
       name: 'string',
@@ -55224,6 +55230,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.jobDuration)) {
       query["JobDuration"] = request.jobDuration;
     }
@@ -71758,7 +71768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询IP地址池功能的开通状态。
+   * @summary Queries whether the IP address pool feature is enabled.
    *
    * @param request GetPublicIpAddressPoolServiceStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -71813,7 +71823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询IP地址池功能的开通状态。
+   * @summary Queries whether the IP address pool feature is enabled.
    *
    * @param request GetPublicIpAddressPoolServiceStatusRequest
    * @return GetPublicIpAddressPoolServiceStatusResponse
@@ -73439,7 +73449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the available IP address pools.
+   * @summary Queries available IP address pools.
    *
    * @param request ListPublicIpAddressPoolsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -73526,7 +73536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the available IP address pools.
+   * @summary Queries available IP address pools.
    *
    * @param request ListPublicIpAddressPoolsRequest
    * @return ListPublicIpAddressPoolsResponse
@@ -82143,6 +82153,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.jobDuration)) {
