@@ -168,7 +168,6 @@ export class AppStackTask extends $tea.Model {
 
 export class Application extends $tea.Model {
   requestId?: string;
-  applicationID?: string;
   applicationId?: string;
   applicationName?: string;
   args?: string;
@@ -222,7 +221,6 @@ export class Application extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      applicationID: 'applicationID',
       applicationId: 'applicationId',
       applicationName: 'applicationName',
       args: 'args',
@@ -279,7 +277,6 @@ export class Application extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      applicationID: 'string',
       applicationId: 'string',
       applicationName: 'string',
       args: 'string',
