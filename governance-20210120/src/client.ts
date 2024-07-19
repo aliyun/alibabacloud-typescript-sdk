@@ -734,12 +734,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
-    * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
-    *
-    * @param request EnrollAccountRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return EnrollAccountResponse
+   * @summary Enrolls an account. You can create a new account or manage an existing account in the account factory.
+   *
+   * @description You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+   * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+   *
+   * @param request EnrollAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnrollAccountResponse
    */
   async enrollAccountWithOptions(request: EnrollAccountRequest, runtime: $Util.RuntimeOptions): Promise<EnrollAccountResponse> {
     Util.validateModel(request);
@@ -798,17 +800,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
-    * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
-    *
-    * @param request EnrollAccountRequest
-    * @return EnrollAccountResponse
+   * @summary Enrolls an account. You can create a new account or manage an existing account in the account factory.
+   *
+   * @description You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+   * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+   *
+   * @param request EnrollAccountRequest
+   * @return EnrollAccountResponse
    */
   async enrollAccount(request: EnrollAccountRequest): Promise<EnrollAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enrollAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains the details of an account factory baseline.
+   *
+   * @param request GetAccountFactoryBaselineRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAccountFactoryBaselineResponse
+   */
   async getAccountFactoryBaselineWithOptions(request: GetAccountFactoryBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountFactoryBaselineResponse> {
     Util.validateModel(request);
     let query = { };
@@ -837,11 +848,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new GetAccountFactoryBaselineResponse({}));
   }
 
+  /**
+   * @summary Obtains the details of an account factory baseline.
+   *
+   * @param request GetAccountFactoryBaselineRequest
+   * @return GetAccountFactoryBaselineResponse
+   */
   async getAccountFactoryBaseline(request: GetAccountFactoryBaselineRequest): Promise<GetAccountFactoryBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccountFactoryBaselineWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the details about an account that is enrolled in the account factory.
+   *
+   * @param request GetEnrolledAccountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetEnrolledAccountResponse
+   */
   async getEnrolledAccountWithOptions(request: GetEnrolledAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetEnrolledAccountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -870,11 +894,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEnrolledAccountResponse>(await this.callApi(params, req, runtime), new GetEnrolledAccountResponse({}));
   }
 
+  /**
+   * @summary Queries the details about an account that is enrolled in the account factory.
+   *
+   * @param request GetEnrolledAccountRequest
+   * @return GetEnrolledAccountResponse
+   */
   async getEnrolledAccount(request: GetEnrolledAccountRequest): Promise<GetEnrolledAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getEnrolledAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Obtains a list of baselines in the account factory.
+   *
+   * @param request ListAccountFactoryBaselinesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAccountFactoryBaselinesResponse
+   */
   async listAccountFactoryBaselinesWithOptions(request: ListAccountFactoryBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountFactoryBaselinesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -907,11 +944,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAccountFactoryBaselinesResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselinesResponse({}));
   }
 
+  /**
+   * @summary Obtains a list of baselines in the account factory.
+   *
+   * @param request ListAccountFactoryBaselinesRequest
+   * @return ListAccountFactoryBaselinesResponse
+   */
   async listAccountFactoryBaselines(request: ListAccountFactoryBaselinesRequest): Promise<ListAccountFactoryBaselinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAccountFactoryBaselinesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of accounts that are enrolled in the account factory.
+   *
+   * @param request ListEnrolledAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEnrolledAccountsResponse
+   */
   async listEnrolledAccountsWithOptions(request: ListEnrolledAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnrolledAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -944,6 +994,12 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEnrolledAccountsResponse>(await this.callApi(params, req, runtime), new ListEnrolledAccountsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of accounts that are enrolled in the account factory.
+   *
+   * @param request ListEnrolledAccountsRequest
+   * @return ListEnrolledAccountsResponse
+   */
   async listEnrolledAccounts(request: ListEnrolledAccountsRequest): Promise<ListEnrolledAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnrolledAccountsWithOptions(request, runtime);
