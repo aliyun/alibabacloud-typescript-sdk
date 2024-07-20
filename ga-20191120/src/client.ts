@@ -2232,6 +2232,7 @@ export class CreateEndpointGroupRequest extends $tea.Model {
   endpointConfigurations?: CreateEndpointGroupRequestEndpointConfigurations[];
   endpointGroupRegion?: string;
   endpointGroupType?: string;
+  endpointProtocolVersion?: string;
   endpointRequestProtocol?: string;
   healthCheckEnabled?: boolean;
   healthCheckIntervalSeconds?: number;
@@ -2253,6 +2254,7 @@ export class CreateEndpointGroupRequest extends $tea.Model {
       endpointConfigurations: 'EndpointConfigurations',
       endpointGroupRegion: 'EndpointGroupRegion',
       endpointGroupType: 'EndpointGroupType',
+      endpointProtocolVersion: 'EndpointProtocolVersion',
       endpointRequestProtocol: 'EndpointRequestProtocol',
       healthCheckEnabled: 'HealthCheckEnabled',
       healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
@@ -2277,6 +2279,7 @@ export class CreateEndpointGroupRequest extends $tea.Model {
       endpointConfigurations: { 'type': 'array', 'itemType': CreateEndpointGroupRequestEndpointConfigurations },
       endpointGroupRegion: 'string',
       endpointGroupType: 'string',
+      endpointProtocolVersion: 'string',
       endpointRequestProtocol: 'string',
       healthCheckEnabled: 'boolean',
       healthCheckIntervalSeconds: 'number',
@@ -5591,6 +5594,7 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
   endpointGroupRegion?: string;
   endpointGroupType?: string;
   endpointGroupUnconfirmedIpList?: string[];
+  endpointProtocolVersion?: string;
   endpointRequestProtocol?: string;
   forwardingRuleIds?: string[];
   healthCheckEnabled?: boolean;
@@ -5624,6 +5628,7 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
       endpointGroupRegion: 'EndpointGroupRegion',
       endpointGroupType: 'EndpointGroupType',
       endpointGroupUnconfirmedIpList: 'EndpointGroupUnconfirmedIpList',
+      endpointProtocolVersion: 'EndpointProtocolVersion',
       endpointRequestProtocol: 'EndpointRequestProtocol',
       forwardingRuleIds: 'ForwardingRuleIds',
       healthCheckEnabled: 'HealthCheckEnabled',
@@ -5660,6 +5665,7 @@ export class DescribeEndpointGroupResponseBody extends $tea.Model {
       endpointGroupRegion: 'string',
       endpointGroupType: 'string',
       endpointGroupUnconfirmedIpList: { 'type': 'array', 'itemType': 'string' },
+      endpointProtocolVersion: 'string',
       endpointRequestProtocol: 'string',
       forwardingRuleIds: { 'type': 'array', 'itemType': 'string' },
       healthCheckEnabled: 'boolean',
@@ -9579,10 +9585,12 @@ export class ListDomainsResponse extends $tea.Model {
 }
 
 export class ListEndpointGroupIpAddressCidrBlocksRequest extends $tea.Model {
+  acceleratorId?: string;
   endpointGroupRegion?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      acceleratorId: 'AcceleratorId',
       endpointGroupRegion: 'EndpointGroupRegion',
       regionId: 'RegionId',
     };
@@ -9590,6 +9598,7 @@ export class ListEndpointGroupIpAddressCidrBlocksRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acceleratorId: 'string',
       endpointGroupRegion: 'string',
       regionId: 'string',
     };
@@ -12440,6 +12449,7 @@ export class UpdateEndpointGroupRequest extends $tea.Model {
   endpointConfigurations?: UpdateEndpointGroupRequestEndpointConfigurations[];
   endpointGroupId?: string;
   endpointGroupRegion?: string;
+  endpointProtocolVersion?: string;
   endpointRequestProtocol?: string;
   healthCheckEnabled?: boolean;
   healthCheckIntervalSeconds?: number;
@@ -12458,6 +12468,7 @@ export class UpdateEndpointGroupRequest extends $tea.Model {
       endpointConfigurations: 'EndpointConfigurations',
       endpointGroupId: 'EndpointGroupId',
       endpointGroupRegion: 'EndpointGroupRegion',
+      endpointProtocolVersion: 'EndpointProtocolVersion',
       endpointRequestProtocol: 'EndpointRequestProtocol',
       healthCheckEnabled: 'HealthCheckEnabled',
       healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
@@ -12479,6 +12490,7 @@ export class UpdateEndpointGroupRequest extends $tea.Model {
       endpointConfigurations: { 'type': 'array', 'itemType': UpdateEndpointGroupRequestEndpointConfigurations },
       endpointGroupId: 'string',
       endpointGroupRegion: 'string',
+      endpointProtocolVersion: 'string',
       endpointRequestProtocol: 'string',
       healthCheckEnabled: 'boolean',
       healthCheckIntervalSeconds: 'number',
@@ -13803,6 +13815,7 @@ export class CreateEndpointGroupsRequestEndpointGroupConfigurations extends $tea
   endpointGroupName?: string;
   endpointGroupRegion?: string;
   endpointGroupType?: string;
+  endpointProtocolVersion?: string;
   endpointRequestProtocol?: string;
   healthCheckEnabled?: boolean;
   healthCheckIntervalSeconds?: number;
@@ -13823,6 +13836,7 @@ export class CreateEndpointGroupsRequestEndpointGroupConfigurations extends $tea
       endpointGroupName: 'EndpointGroupName',
       endpointGroupRegion: 'EndpointGroupRegion',
       endpointGroupType: 'EndpointGroupType',
+      endpointProtocolVersion: 'EndpointProtocolVersion',
       endpointRequestProtocol: 'EndpointRequestProtocol',
       healthCheckEnabled: 'HealthCheckEnabled',
       healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
@@ -13846,6 +13860,7 @@ export class CreateEndpointGroupsRequestEndpointGroupConfigurations extends $tea
       endpointGroupName: 'string',
       endpointGroupRegion: 'string',
       endpointGroupType: 'string',
+      endpointProtocolVersion: 'string',
       endpointRequestProtocol: 'string',
       healthCheckEnabled: 'boolean',
       healthCheckIntervalSeconds: 'number',
@@ -14308,6 +14323,7 @@ export class CreateListenerRequestEndpointGroupConfigurations extends $tea.Model
   endpointGroupName?: string;
   endpointGroupRegion?: string;
   endpointGroupType?: string;
+  endpointProtocolVersion?: string;
   endpointRequestProtocol?: string;
   healthCheckEnabled?: boolean;
   healthCheckIntervalSeconds?: number;
@@ -14326,6 +14342,7 @@ export class CreateListenerRequestEndpointGroupConfigurations extends $tea.Model
       endpointGroupName: 'EndpointGroupName',
       endpointGroupRegion: 'EndpointGroupRegion',
       endpointGroupType: 'EndpointGroupType',
+      endpointProtocolVersion: 'EndpointProtocolVersion',
       endpointRequestProtocol: 'EndpointRequestProtocol',
       healthCheckEnabled: 'HealthCheckEnabled',
       healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
@@ -14347,6 +14364,7 @@ export class CreateListenerRequestEndpointGroupConfigurations extends $tea.Model
       endpointGroupName: 'string',
       endpointGroupRegion: 'string',
       endpointGroupType: 'string',
+      endpointProtocolVersion: 'string',
       endpointRequestProtocol: 'string',
       healthCheckEnabled: 'boolean',
       healthCheckIntervalSeconds: 'number',
@@ -17290,6 +17308,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
   endpointGroupRegion?: string;
   endpointGroupType?: string;
   endpointGroupUnconfirmedIpList?: string[];
+  endpointProtocolVersion?: string;
   endpointRequestProtocol?: string;
   forwardingRuleIds?: string[];
   healthCheckEnabled?: boolean;
@@ -17317,6 +17336,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
       endpointGroupRegion: 'EndpointGroupRegion',
       endpointGroupType: 'EndpointGroupType',
       endpointGroupUnconfirmedIpList: 'EndpointGroupUnconfirmedIpList',
+      endpointProtocolVersion: 'EndpointProtocolVersion',
       endpointRequestProtocol: 'EndpointRequestProtocol',
       forwardingRuleIds: 'ForwardingRuleIds',
       healthCheckEnabled: 'HealthCheckEnabled',
@@ -17347,6 +17367,7 @@ export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
       endpointGroupRegion: 'string',
       endpointGroupType: 'string',
       endpointGroupUnconfirmedIpList: { 'type': 'array', 'itemType': 'string' },
+      endpointProtocolVersion: 'string',
       endpointRequestProtocol: 'string',
       forwardingRuleIds: { 'type': 'array', 'itemType': 'string' },
       healthCheckEnabled: 'boolean',
@@ -18292,6 +18313,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $tea
   endpointGroupDescription?: string;
   endpointGroupId?: string;
   endpointGroupName?: string;
+  endpointProtocolVersion?: string;
   endpointRequestProtocol?: string;
   healthCheckEnabled?: boolean;
   healthCheckIntervalSeconds?: number;
@@ -18309,6 +18331,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $tea
       endpointGroupDescription: 'EndpointGroupDescription',
       endpointGroupId: 'EndpointGroupId',
       endpointGroupName: 'EndpointGroupName',
+      endpointProtocolVersion: 'EndpointProtocolVersion',
       endpointRequestProtocol: 'EndpointRequestProtocol',
       healthCheckEnabled: 'HealthCheckEnabled',
       healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
@@ -18329,6 +18352,7 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $tea
       endpointGroupDescription: 'string',
       endpointGroupId: 'string',
       endpointGroupName: 'string',
+      endpointProtocolVersion: 'string',
       endpointRequestProtocol: 'string',
       healthCheckEnabled: 'boolean',
       healthCheckIntervalSeconds: 'number',
@@ -18671,14 +18695,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL to which you want to add IP entries.
-    *     *   If the ACL is in the **configuring** state, it indicates that IP entries are added to the ACL. In this case, you can perform only query operations.
-    *     *   If the ACL is in the **active** state, it indicates that IP entries are added to the ACL.
-    * *   The **AddEntriesToAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request AddEntriesToAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AddEntriesToAclResponse
+   * @summary Adds IP addresses or CIDR blocks to an access control list (ACL). You can add IP addresses or CIDR blocks to an ACL and configure a whitelist or blacklist to allow or deny requests from clients.
+   *
+   * @description *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](https://help.aliyun.com/document_detail/258292.html) or [ListAcls](https://help.aliyun.com/document_detail/258291.html) operation to query the status of the ACL to which you want to add IP entries.
+   *     *   If the ACL is in the **configuring** state, it indicates that IP entries are added to the ACL. In this case, you can perform only query operations.
+   *     *   If the ACL is in the **active** state, it indicates that IP entries are added to the ACL.
+   * *   The **AddEntriesToAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request AddEntriesToAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AddEntriesToAclResponse
    */
   async addEntriesToAclWithOptions(request: AddEntriesToAclRequest, runtime: $Util.RuntimeOptions): Promise<AddEntriesToAclResponse> {
     Util.validateModel(request);
@@ -18721,13 +18747,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL to which you want to add IP entries.
-    *     *   If the ACL is in the **configuring** state, it indicates that IP entries are added to the ACL. In this case, you can perform only query operations.
-    *     *   If the ACL is in the **active** state, it indicates that IP entries are added to the ACL.
-    * *   The **AddEntriesToAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request AddEntriesToAclRequest
-    * @return AddEntriesToAclResponse
+   * @summary Adds IP addresses or CIDR blocks to an access control list (ACL). You can add IP addresses or CIDR blocks to an ACL and configure a whitelist or blacklist to allow or deny requests from clients.
+   *
+   * @description *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](https://help.aliyun.com/document_detail/258292.html) or [ListAcls](https://help.aliyun.com/document_detail/258291.html) operation to query the status of the ACL to which you want to add IP entries.
+   *     *   If the ACL is in the **configuring** state, it indicates that IP entries are added to the ACL. In this case, you can perform only query operations.
+   *     *   If the ACL is in the **active** state, it indicates that IP entries are added to the ACL.
+   * *   The **AddEntriesToAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request AddEntriesToAclRequest
+   * @return AddEntriesToAclResponse
    */
   async addEntriesToAcl(request: AddEntriesToAclRequest): Promise<AddEntriesToAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18735,15 +18763,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
-    *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
-    *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
-    * *   The **AssociateAclsWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request AssociateAclsWithListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateAclsWithListenerResponse
+   * @summary Associates access control lists (ACLs) with a listener.
+   *
+   * @description ## Description
+   * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the state of the listener with which you attempt to associate an ACL.
+   *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
+   *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
+   * *   The **AssociateAclsWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request AssociateAclsWithListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateAclsWithListenerResponse
    */
   async associateAclsWithListenerWithOptions(request: AssociateAclsWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAclsWithListenerResponse> {
     Util.validateModel(request);
@@ -18790,14 +18820,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
-    *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
-    *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
-    * *   The **AssociateAclsWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request AssociateAclsWithListenerRequest
-    * @return AssociateAclsWithListenerResponse
+   * @summary Associates access control lists (ACLs) with a listener.
+   *
+   * @description ## Description
+   * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the state of the listener with which you attempt to associate an ACL.
+   *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
+   *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
+   * *   The **AssociateAclsWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request AssociateAclsWithListenerRequest
+   * @return AssociateAclsWithListenerResponse
    */
   async associateAclsWithListener(request: AssociateAclsWithListenerRequest): Promise<AssociateAclsWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18805,15 +18837,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only HTTPS listeners can be associated with additional certificates.
-    * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the listener with which you want to associate an additional certificate.
-    *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
-    *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
-    * *   The **AssociateAdditionalCertificatesWithListener** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request AssociateAdditionalCertificatesWithListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AssociateAdditionalCertificatesWithListenerResponse
+   * @summary Associates additional certificates with an HTTPS listener. You can associate multiple certificates with an HTTPS listener and configure virtual endpoint groups and forwarding rules to accelerate access to multiple HTTPS-capable domain names.
+   *
+   * @description *   Only HTTPS listeners can be associated with additional certificates.
+   * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the status of the listener with which you want to associate an additional certificate.
+   *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
+   *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
+   * *   The **AssociateAdditionalCertificatesWithListener** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request AssociateAdditionalCertificatesWithListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateAdditionalCertificatesWithListenerResponse
    */
   async associateAdditionalCertificatesWithListenerWithOptions(request: AssociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
@@ -18856,14 +18890,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Only HTTPS listeners can be associated with additional certificates.
-    * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the listener with which you want to associate an additional certificate.
-    *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
-    *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
-    * *   The **AssociateAdditionalCertificatesWithListener** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request AssociateAdditionalCertificatesWithListenerRequest
-    * @return AssociateAdditionalCertificatesWithListenerResponse
+   * @summary Associates additional certificates with an HTTPS listener. You can associate multiple certificates with an HTTPS listener and configure virtual endpoint groups and forwarding rules to accelerate access to multiple HTTPS-capable domain names.
+   *
+   * @description *   Only HTTPS listeners can be associated with additional certificates.
+   * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the status of the listener with which you want to associate an additional certificate.
+   *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
+   *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
+   * *   The **AssociateAdditionalCertificatesWithListener** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request AssociateAdditionalCertificatesWithListenerRequest
+   * @return AssociateAdditionalCertificatesWithListenerResponse
    */
   async associateAdditionalCertificatesWithListener(request: AssociateAdditionalCertificatesWithListenerRequest): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18871,15 +18907,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   **AttachDdosToAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
-    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is associated with the GA instance.
-    * *   You cannot repeatedly call the **AttachDdosToAccelerator** operation for the same GA instance within a specific period of time.
-    *
-    * @param request AttachDdosToAcceleratorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachDdosToAcceleratorResponse
+   * @summary Associates an Anti-DDoS Pro or Anti-DDoS Premium instance with a Global Accelerator (GA) instance.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   **AttachDdosToAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) or [ListAccelerators](https://help.aliyun.com/document_detail/153236.html) operation to query the status of the GA instance.
+   *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is associated with the GA instance.
+   * *   You cannot repeatedly call the **AttachDdosToAccelerator** operation for the same GA instance within a specific period of time.
+   *
+   * @param request AttachDdosToAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachDdosToAcceleratorResponse
    */
   async attachDdosToAcceleratorWithOptions(request: AttachDdosToAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<AttachDdosToAcceleratorResponse> {
     Util.validateModel(request);
@@ -18918,14 +18956,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   **AttachDdosToAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
-    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is associated with the GA instance.
-    * *   You cannot repeatedly call the **AttachDdosToAccelerator** operation for the same GA instance within a specific period of time.
-    *
-    * @param request AttachDdosToAcceleratorRequest
-    * @return AttachDdosToAcceleratorResponse
+   * @summary Associates an Anti-DDoS Pro or Anti-DDoS Premium instance with a Global Accelerator (GA) instance.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   **AttachDdosToAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) or [ListAccelerators](https://help.aliyun.com/document_detail/153236.html) operation to query the status of the GA instance.
+   *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is being associated with the GA instance. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro or Anti-DDoS Premium instance is associated with the GA instance.
+   * *   You cannot repeatedly call the **AttachDdosToAccelerator** operation for the same GA instance within a specific period of time.
+   *
+   * @param request AttachDdosToAcceleratorRequest
+   * @return AttachDdosToAcceleratorResponse
    */
   async attachDdosToAccelerator(request: AttachDdosToAcceleratorRequest): Promise<AttachDdosToAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18933,14 +18973,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **AttachLogStoreToEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, it indicates that a Logstore is being associated with the group. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that a Logstore is associated with the group.
-    * *   The **AttachLogStoreToEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request AttachLogStoreToEndpointGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return AttachLogStoreToEndpointGroupResponse
+   * @summary Associates a Log Service Logstore with an endpoint group.
+   *
+   * @description *   **AttachLogStoreToEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the state of an endpoint group.
+   *     *   If the endpoint group is in the **updating** state, it indicates that a Logstore is being associated with the group. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that a Logstore is associated with the group.
+   * *   The **AttachLogStoreToEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request AttachLogStoreToEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AttachLogStoreToEndpointGroupResponse
    */
   async attachLogStoreToEndpointGroupWithOptions(request: AttachLogStoreToEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachLogStoreToEndpointGroupResponse> {
     Util.validateModel(request);
@@ -18995,13 +19037,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **AttachLogStoreToEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, it indicates that a Logstore is being associated with the group. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that a Logstore is associated with the group.
-    * *   The **AttachLogStoreToEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request AttachLogStoreToEndpointGroupRequest
-    * @return AttachLogStoreToEndpointGroupResponse
+   * @summary Associates a Log Service Logstore with an endpoint group.
+   *
+   * @description *   **AttachLogStoreToEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the state of an endpoint group.
+   *     *   If the endpoint group is in the **updating** state, it indicates that a Logstore is being associated with the group. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that a Logstore is associated with the group.
+   * *   The **AttachLogStoreToEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request AttachLogStoreToEndpointGroupRequest
+   * @return AttachLogStoreToEndpointGroupResponse
    */
   async attachLogStoreToEndpointGroup(request: AttachLogStoreToEndpointGroupRequest): Promise<AttachLogStoreToEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19009,14 +19053,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan that you want to associate.
-    *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
-    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
-    * *   The **BandwidthPackageAddAccelerator** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request BandwidthPackageAddAcceleratorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return BandwidthPackageAddAcceleratorResponse
+   * @summary Associates a bandwidth plan with a Global Accelerator (GA) instance.
+   *
+   * @description *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](https://help.aliyun.com/document_detail/153241.html) operation to query the status of the bandwidth plan that you want to associate.
+   *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
+   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
+   * *   The **BandwidthPackageAddAccelerator** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request BandwidthPackageAddAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BandwidthPackageAddAcceleratorResponse
    */
   async bandwidthPackageAddAcceleratorWithOptions(request: BandwidthPackageAddAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<BandwidthPackageAddAcceleratorResponse> {
     Util.validateModel(request);
@@ -19051,13 +19097,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan that you want to associate.
-    *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
-    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
-    * *   The **BandwidthPackageAddAccelerator** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request BandwidthPackageAddAcceleratorRequest
-    * @return BandwidthPackageAddAcceleratorResponse
+   * @summary Associates a bandwidth plan with a Global Accelerator (GA) instance.
+   *
+   * @description *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](https://help.aliyun.com/document_detail/153241.html) operation to query the status of the bandwidth plan that you want to associate.
+   *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
+   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
+   * *   The **BandwidthPackageAddAccelerator** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request BandwidthPackageAddAcceleratorRequest
+   * @return BandwidthPackageAddAcceleratorResponse
    */
   async bandwidthPackageAddAccelerator(request: BandwidthPackageAddAcceleratorRequest): Promise<BandwidthPackageAddAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19065,14 +19113,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **BandwidthPackageRemoveAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan that you attempt to disassociate.
-    *     *   If the bandwidth plan is in the **unbinding** state, it indicates that the bandwidth plan is being disassociated. In this case, you can perform only query operations.
-    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is disassociated.
-    * *   The **BandwidthPackageRemoveAccelerator** cannot be called repeatedly for the same GA instance.
-    *
-    * @param request BandwidthPackageRemoveAcceleratorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return BandwidthPackageRemoveAcceleratorResponse
+   * @summary Disassociates a bandwidth plan from a Global Accelerator (GA) instance.
+   *
+   * @description *   **BandwidthPackageRemoveAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](https://help.aliyun.com/document_detail/153241.html) operation to query the status of the bandwidth plan that you attempt to disassociate.
+   *     *   If the bandwidth plan is in the **unbinding** state, it indicates that the bandwidth plan is being disassociated. In this case, you can perform only query operations.
+   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is disassociated.
+   * *   The **BandwidthPackageRemoveAccelerator** cannot be called repeatedly for the same GA instance.
+   *
+   * @param request BandwidthPackageRemoveAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BandwidthPackageRemoveAcceleratorResponse
    */
   async bandwidthPackageRemoveAcceleratorWithOptions(request: BandwidthPackageRemoveAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<BandwidthPackageRemoveAcceleratorResponse> {
     Util.validateModel(request);
@@ -19107,13 +19157,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **BandwidthPackageRemoveAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan that you attempt to disassociate.
-    *     *   If the bandwidth plan is in the **unbinding** state, it indicates that the bandwidth plan is being disassociated. In this case, you can perform only query operations.
-    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is disassociated.
-    * *   The **BandwidthPackageRemoveAccelerator** cannot be called repeatedly for the same GA instance.
-    *
-    * @param request BandwidthPackageRemoveAcceleratorRequest
-    * @return BandwidthPackageRemoveAcceleratorResponse
+   * @summary Disassociates a bandwidth plan from a Global Accelerator (GA) instance.
+   *
+   * @description *   **BandwidthPackageRemoveAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](https://help.aliyun.com/document_detail/153241.html) operation to query the status of the bandwidth plan that you attempt to disassociate.
+   *     *   If the bandwidth plan is in the **unbinding** state, it indicates that the bandwidth plan is being disassociated. In this case, you can perform only query operations.
+   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is disassociated.
+   * *   The **BandwidthPackageRemoveAccelerator** cannot be called repeatedly for the same GA instance.
+   *
+   * @param request BandwidthPackageRemoveAcceleratorRequest
+   * @return BandwidthPackageRemoveAcceleratorResponse
    */
   async bandwidthPackageRemoveAccelerator(request: BandwidthPackageRemoveAcceleratorRequest): Promise<BandwidthPackageRemoveAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19121,11 +19173,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request ChangeResourceGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ChangeResourceGroupResponse
+   * @summary Changes the resource group to which a Global Accelerator (GA) resource belongs.
+   *
+   * @description The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ChangeResourceGroupResponse
    */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
@@ -19168,10 +19222,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request ChangeResourceGroupRequest
-    * @return ChangeResourceGroupResponse
+   * @summary Changes the resource group to which a Global Accelerator (GA) resource belongs.
+   *
+   * @description The **ChangeResourceGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request ChangeResourceGroupRequest
+   * @return ChangeResourceGroupResponse
    */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19179,14 +19235,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ConfigEndpointProbe** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
-    *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
-    * *   The **ConfigEndpointProbe** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request ConfigEndpointProbeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ConfigEndpointProbeResponse
+   * @summary Configures latency monitoring for an endpoint.
+   *
+   * @description *   **ConfigEndpointProbe** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the status of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
+   *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
+   * *   The **ConfigEndpointProbe** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request ConfigEndpointProbeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ConfigEndpointProbeResponse
    */
   async configEndpointProbeWithOptions(request: ConfigEndpointProbeRequest, runtime: $Util.RuntimeOptions): Promise<ConfigEndpointProbeResponse> {
     Util.validateModel(request);
@@ -19241,13 +19299,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **ConfigEndpointProbe** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
-    *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
-    * *   The **ConfigEndpointProbe** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request ConfigEndpointProbeRequest
-    * @return ConfigEndpointProbeResponse
+   * @summary Configures latency monitoring for an endpoint.
+   *
+   * @description *   **ConfigEndpointProbe** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the status of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
+   *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
+   * *   The **ConfigEndpointProbe** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request ConfigEndpointProbeRequest
+   * @return ConfigEndpointProbeResponse
    */
   async configEndpointProbe(request: ConfigEndpointProbeRequest): Promise<ConfigEndpointProbeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19255,14 +19315,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
-    * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
-    * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
-    *
-    * @param request CreateAcceleratorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAcceleratorResponse
+   * @summary Creates a Global Accelerator (GA) instance.
+   *
+   * @description ## Description
+   * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the state of a GA instance.
+   * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
+   * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
+   *
+   * @param request CreateAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAcceleratorResponse
    */
   async createAcceleratorWithOptions(request: CreateAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<CreateAcceleratorResponse> {
     Util.validateModel(request);
@@ -19353,13 +19415,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
-    * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
-    * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
-    *
-    * @param request CreateAcceleratorRequest
-    * @return CreateAcceleratorResponse
+   * @summary Creates a Global Accelerator (GA) instance.
+   *
+   * @description ## Description
+   * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the state of a GA instance.
+   * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
+   * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
+   *
+   * @param request CreateAcceleratorRequest
+   * @return CreateAcceleratorResponse
    */
   async createAccelerator(request: CreateAcceleratorRequest): Promise<CreateAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19367,13 +19431,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the state of an ACL.
-    * *   If the ACL is in the **init** state, the ACL is being created. In this case, you can only perform only query operations.
-    * *   If the ACL is in the **active** state, the ACL is created.
-    *
-    * @param request CreateAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateAclResponse
+   * @summary Creates an access control list (ACL).
+   *
+   * @description **CreateAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](https://help.aliyun.com/document_detail/258292.html) or [ListAcls](https://help.aliyun.com/document_detail/258291.html) operation to query the state of an ACL.
+   * *   If the ACL is in the **init** state, the ACL is being created. In this case, you can only perform only query operations.
+   * *   If the ACL is in the **active** state, the ACL is created.
+   *
+   * @param request CreateAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAclResponse
    */
   async createAclWithOptions(request: CreateAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateAclResponse> {
     Util.validateModel(request);
@@ -19428,12 +19494,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the state of an ACL.
-    * *   If the ACL is in the **init** state, the ACL is being created. In this case, you can only perform only query operations.
-    * *   If the ACL is in the **active** state, the ACL is created.
-    *
-    * @param request CreateAclRequest
-    * @return CreateAclResponse
+   * @summary Creates an access control list (ACL).
+   *
+   * @description **CreateAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](https://help.aliyun.com/document_detail/258292.html) or [ListAcls](https://help.aliyun.com/document_detail/258291.html) operation to query the state of an ACL.
+   * *   If the ACL is in the **init** state, the ACL is being created. In this case, you can only perform only query operations.
+   * *   If the ACL is in the **active** state, the ACL is created.
+   *
+   * @param request CreateAclRequest
+   * @return CreateAclResponse
    */
   async createAcl(request: CreateAclRequest): Promise<CreateAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19441,19 +19509,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the **CreateApplicationMonitor** operation to create an origin probing task. An origin probing task monitors the network quality between a client and an origin server and checks the availability of the origin server.
-    * Before you call this operation, take note of the following items:
-    * *   You can create origin detection tasks only for subscription Standard Global Accelerator (GA) instances whose specification is Medium Ⅰ.
-    * *   You cannot create an origin probe task for a UDP listener.
-    * *   The service port of the URL or IP address that is probed must be within the listening port range.
-    * *   **CreateApplicationMonitor** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to query the status of the origin probing task.
-    *     *   If the origin probing task is in the **init** state, it indicates that the task is being created. You can perform only query operations.
-    *     *   If the origin probing task is in the **active** state, it indicates that the task is created.
-    * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    *
-    * @param request CreateApplicationMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateApplicationMonitorResponse
+   * @summary Creates an origin probing task.
+   *
+   * @description You can call the **CreateApplicationMonitor** operation to create an origin probing task. An origin probing task monitors the network quality between a client and an origin server and checks the availability of the origin server.
+   * Before you call this operation, take note of the following items:
+   * *   You can create origin detection tasks only for subscription Standard Global Accelerator (GA) instances whose specification is Medium Ⅰ.
+   * *   You cannot create an origin probe task for a UDP listener.
+   * *   The service port of the URL or IP address that is probed must be within the listening port range.
+   * *   **CreateApplicationMonitor** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeApplicationMonitor](https://help.aliyun.com/document_detail/408463.html) or [ListApplicationMonitor](https://help.aliyun.com/document_detail/408462.html) operation to query the status of the origin probing task.
+   *     *   If the origin probing task is in the **init** state, it indicates that the task is being created. You can perform only query operations.
+   *     *   If the origin probing task is in the **active** state, it indicates that the task is created.
+   * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+   *
+   * @param request CreateApplicationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateApplicationMonitorResponse
    */
   async createApplicationMonitorWithOptions(request: CreateApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationMonitorResponse> {
     Util.validateModel(request);
@@ -19520,18 +19590,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the **CreateApplicationMonitor** operation to create an origin probing task. An origin probing task monitors the network quality between a client and an origin server and checks the availability of the origin server.
-    * Before you call this operation, take note of the following items:
-    * *   You can create origin detection tasks only for subscription Standard Global Accelerator (GA) instances whose specification is Medium Ⅰ.
-    * *   You cannot create an origin probe task for a UDP listener.
-    * *   The service port of the URL or IP address that is probed must be within the listening port range.
-    * *   **CreateApplicationMonitor** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to query the status of the origin probing task.
-    *     *   If the origin probing task is in the **init** state, it indicates that the task is being created. You can perform only query operations.
-    *     *   If the origin probing task is in the **active** state, it indicates that the task is created.
-    * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    *
-    * @param request CreateApplicationMonitorRequest
-    * @return CreateApplicationMonitorResponse
+   * @summary Creates an origin probing task.
+   *
+   * @description You can call the **CreateApplicationMonitor** operation to create an origin probing task. An origin probing task monitors the network quality between a client and an origin server and checks the availability of the origin server.
+   * Before you call this operation, take note of the following items:
+   * *   You can create origin detection tasks only for subscription Standard Global Accelerator (GA) instances whose specification is Medium Ⅰ.
+   * *   You cannot create an origin probe task for a UDP listener.
+   * *   The service port of the URL or IP address that is probed must be within the listening port range.
+   * *   **CreateApplicationMonitor** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeApplicationMonitor](https://help.aliyun.com/document_detail/408463.html) or [ListApplicationMonitor](https://help.aliyun.com/document_detail/408462.html) operation to query the status of the origin probing task.
+   *     *   If the origin probing task is in the **init** state, it indicates that the task is being created. You can perform only query operations.
+   *     *   If the origin probing task is in the **active** state, it indicates that the task is created.
+   * *   The **CreateApplicationMonitor** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+   *
+   * @param request CreateApplicationMonitorRequest
+   * @return CreateApplicationMonitorResponse
    */
   async createApplicationMonitor(request: CreateApplicationMonitorRequest): Promise<CreateApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19539,19 +19611,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To use Global Accelerator (GA) for acceleration, you must purchase a basic bandwidth plan. A basic bandwidth plan supports the following bandwidth types:
-    * *   **Basic**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service is deployed on Alibaba Cloud.
-    * *   **Enhanced**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud.
-    * *   **Premium**: Both the default acceleration region and the default service region are outside the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud. If you want to accelerate data transfer for clients in the Chinese mainland, you must select China (Hong Kong) as the acceleration region.
-    * When you call this operation, take note of the following items:
-    * *   **CreateBandwidthPackage** is an asynchronous operation. After you send a request, the system returns the ID of a bandwidth plan, but the bandwidth plan is still being created in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan.
-    *     *   If the bandwidth plan is in the **init** state, it indicates that the bandwidth plan is being created. In this case, you can perform only query operations.
-    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is created.
-    * *   The **CreateBandwidthPackage** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request CreateBandwidthPackageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBandwidthPackageResponse
+   * @summary Creates a bandwidth plan.
+   *
+   * @description To use Global Accelerator (GA) for acceleration, you must purchase a basic bandwidth plan. A basic bandwidth plan supports the following bandwidth types:
+   * *   **Basic**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service is deployed on Alibaba Cloud.
+   * *   **Enhanced**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud.
+   * *   **Premium**: Both the default acceleration region and the default service region are outside the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud. If you want to accelerate data transfer for clients in the Chinese mainland, you must select China (Hong Kong) as the acceleration region.
+   * When you call this operation, take note of the following items:
+   * *   **CreateBandwidthPackage** is an asynchronous operation. After you send a request, the system returns the ID of a bandwidth plan, but the bandwidth plan is still being created in the system background. You can call the [DescribeBandwidthPackage](https://help.aliyun.com/document_detail/153241.html) operation to query the status of the bandwidth plan.
+   *     *   If the bandwidth plan is in the **init** state, it indicates that the bandwidth plan is being created. In this case, you can perform only query operations.
+   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is created.
+   * *   The **CreateBandwidthPackage** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request CreateBandwidthPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBandwidthPackageResponse
    */
   async createBandwidthPackageWithOptions(request: CreateBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateBandwidthPackageResponse> {
     Util.validateModel(request);
@@ -19650,18 +19724,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To use Global Accelerator (GA) for acceleration, you must purchase a basic bandwidth plan. A basic bandwidth plan supports the following bandwidth types:
-    * *   **Basic**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service is deployed on Alibaba Cloud.
-    * *   **Enhanced**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud.
-    * *   **Premium**: Both the default acceleration region and the default service region are outside the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud. If you want to accelerate data transfer for clients in the Chinese mainland, you must select China (Hong Kong) as the acceleration region.
-    * When you call this operation, take note of the following items:
-    * *   **CreateBandwidthPackage** is an asynchronous operation. After you send a request, the system returns the ID of a bandwidth plan, but the bandwidth plan is still being created in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan.
-    *     *   If the bandwidth plan is in the **init** state, it indicates that the bandwidth plan is being created. In this case, you can perform only query operations.
-    *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is created.
-    * *   The **CreateBandwidthPackage** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request CreateBandwidthPackageRequest
-    * @return CreateBandwidthPackageResponse
+   * @summary Creates a bandwidth plan.
+   *
+   * @description To use Global Accelerator (GA) for acceleration, you must purchase a basic bandwidth plan. A basic bandwidth plan supports the following bandwidth types:
+   * *   **Basic**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service is deployed on Alibaba Cloud.
+   * *   **Enhanced**: Both the default acceleration region and the default service region are in the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud.
+   * *   **Premium**: Both the default acceleration region and the default service region are outside the Chinese mainland. The accelerated service can be deployed on and off Alibaba Cloud. If you want to accelerate data transfer for clients in the Chinese mainland, you must select China (Hong Kong) as the acceleration region.
+   * When you call this operation, take note of the following items:
+   * *   **CreateBandwidthPackage** is an asynchronous operation. After you send a request, the system returns the ID of a bandwidth plan, but the bandwidth plan is still being created in the system background. You can call the [DescribeBandwidthPackage](https://help.aliyun.com/document_detail/153241.html) operation to query the status of the bandwidth plan.
+   *     *   If the bandwidth plan is in the **init** state, it indicates that the bandwidth plan is being created. In this case, you can perform only query operations.
+   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is created.
+   * *   The **CreateBandwidthPackage** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request CreateBandwidthPackageRequest
+   * @return CreateBandwidthPackageResponse
    */
   async createBandwidthPackage(request: CreateBandwidthPackageRequest): Promise<CreateBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19669,14 +19745,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateBasicAccelerateIp** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) operation to query the status of an accelerated IP address:
-    *     *   If no status information is returned, the accelerated IP address is being created. In this case, you can perform only query operations.
-    *     *   If the accelerated IP address is in the **active** state, the accelerated IP address is created.
-    * *   The **CreateBasicAccelerateIp** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request CreateBasicAccelerateIpRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBasicAccelerateIpResponse
+   * @summary Creates an accelerated IP address for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **CreateBasicAccelerateIp** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerateIp](https://help.aliyun.com/document_detail/466794.html) operation to query the status of an accelerated IP address:
+   *     *   If no status information is returned, the accelerated IP address is being created. In this case, you can perform only query operations.
+   *     *   If the accelerated IP address is in the **active** state, the accelerated IP address is created.
+   * *   The **CreateBasicAccelerateIp** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request CreateBasicAccelerateIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBasicAccelerateIpResponse
    */
   async createBasicAccelerateIpWithOptions(request: CreateBasicAccelerateIpRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAccelerateIpResponse> {
     Util.validateModel(request);
@@ -19715,13 +19793,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateBasicAccelerateIp** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) operation to query the status of an accelerated IP address:
-    *     *   If no status information is returned, the accelerated IP address is being created. In this case, you can perform only query operations.
-    *     *   If the accelerated IP address is in the **active** state, the accelerated IP address is created.
-    * *   The **CreateBasicAccelerateIp** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request CreateBasicAccelerateIpRequest
-    * @return CreateBasicAccelerateIpResponse
+   * @summary Creates an accelerated IP address for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **CreateBasicAccelerateIp** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetBasicAccelerateIp](https://help.aliyun.com/document_detail/466794.html) operation to query the status of an accelerated IP address:
+   *     *   If no status information is returned, the accelerated IP address is being created. In this case, you can perform only query operations.
+   *     *   If the accelerated IP address is in the **active** state, the accelerated IP address is created.
+   * *   The **CreateBasicAccelerateIp** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request CreateBasicAccelerateIpRequest
+   * @return CreateBasicAccelerateIpResponse
    */
   async createBasicAccelerateIp(request: CreateBasicAccelerateIpRequest): Promise<CreateBasicAccelerateIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19729,14 +19809,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status between the accelerated IP address and endpoint.
-    *     *   If the status of the accelerated IP address and endpoint is **binding**, the accelerated IP address is being associated with the endpoint. In this case, you can query the accelerated IP address and endpoint but cannot perform other operations.
-    *     *   If the status of the accelerated IP address and endpoint is **bound** and the status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP address is associated with the endpoint.
-    * *   The **CreateBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
-    *
-    * @param request CreateBasicAccelerateIpEndpointRelationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBasicAccelerateIpEndpointRelationResponse
+   * @summary Creates a mapping between an accelerated IP address and an endpoint for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **CreateBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](https://help.aliyun.com/document_detail/466794.html) or [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) API operation to query the status of an accelerated IP address or an endpoint to determine the association status between the accelerated IP address and endpoint.
+   *     *   If the status of the accelerated IP address and endpoint is **binding**, the accelerated IP address is being associated with the endpoint. In this case, you can query the accelerated IP address and endpoint but cannot perform other operations.
+   *     *   If the status of the accelerated IP address and endpoint is **bound** and the status returned by the [ListBasicAccelerateIpEndpointRelations](https://help.aliyun.com/document_detail/466803.html) API operation is **active**, the accelerated IP address is associated with the endpoint.
+   * *   The **CreateBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+   *
+   * @param request CreateBasicAccelerateIpEndpointRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBasicAccelerateIpEndpointRelationResponse
    */
   async createBasicAccelerateIpEndpointRelationWithOptions(request: CreateBasicAccelerateIpEndpointRelationRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAccelerateIpEndpointRelationResponse> {
     Util.validateModel(request);
@@ -19779,13 +19861,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status between the accelerated IP address and endpoint.
-    *     *   If the status of the accelerated IP address and endpoint is **binding**, the accelerated IP address is being associated with the endpoint. In this case, you can query the accelerated IP address and endpoint but cannot perform other operations.
-    *     *   If the status of the accelerated IP address and endpoint is **bound** and the status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP address is associated with the endpoint.
-    * *   The **CreateBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
-    *
-    * @param request CreateBasicAccelerateIpEndpointRelationRequest
-    * @return CreateBasicAccelerateIpEndpointRelationResponse
+   * @summary Creates a mapping between an accelerated IP address and an endpoint for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **CreateBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](https://help.aliyun.com/document_detail/466794.html) or [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) API operation to query the status of an accelerated IP address or an endpoint to determine the association status between the accelerated IP address and endpoint.
+   *     *   If the status of the accelerated IP address and endpoint is **binding**, the accelerated IP address is being associated with the endpoint. In this case, you can query the accelerated IP address and endpoint but cannot perform other operations.
+   *     *   If the status of the accelerated IP address and endpoint is **bound** and the status returned by the [ListBasicAccelerateIpEndpointRelations](https://help.aliyun.com/document_detail/466803.html) API operation is **active**, the accelerated IP address is associated with the endpoint.
+   * *   The **CreateBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+   *
+   * @param request CreateBasicAccelerateIpEndpointRelationRequest
+   * @return CreateBasicAccelerateIpEndpointRelationResponse
    */
   async createBasicAccelerateIpEndpointRelation(request: CreateBasicAccelerateIpEndpointRelationRequest): Promise<CreateBasicAccelerateIpEndpointRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19793,14 +19877,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **CreateBasicAccelerateIpEndpointRelations** is asynchronous. After you send a request, the system returns a request ID and runs the task in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status.
-    *     *   If an accelerated IP address and the endpoint are in the **binding** state, the accelerated IP address is being associated with the endpoint. In this case, you can only query the accelerated IP address and endpoint, but cannot perform other operations.
-    *     *   If all the accelerated IP addresses and the endpoint are in the **bound** state, and the association status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP addresses are associated with the endpoints.
-    * *   The **CreateBasicAccelerateIpEndpointRelations** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
-    *
-    * @param request CreateBasicAccelerateIpEndpointRelationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBasicAccelerateIpEndpointRelationsResponse
+   * @summary Creates mappings between accelerated IP addresses and endpoints for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   The **CreateBasicAccelerateIpEndpointRelations** is asynchronous. After you send a request, the system returns a request ID and runs the task in the system background. You can call the [GetBasicAccelerateIp](https://help.aliyun.com/document_detail/466794.html) or [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) API operation to query the status of an accelerated IP address or an endpoint to determine the association status.
+   *     *   If an accelerated IP address and the endpoint are in the **binding** state, the accelerated IP address is being associated with the endpoint. In this case, you can only query the accelerated IP address and endpoint, but cannot perform other operations.
+   *     *   If all the accelerated IP addresses and the endpoint are in the **bound** state, and the association status returned by the [ListBasicAccelerateIpEndpointRelations](https://help.aliyun.com/document_detail/466803.html) API operation is **active**, the accelerated IP addresses are associated with the endpoints.
+   * *   The **CreateBasicAccelerateIpEndpointRelations** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+   *
+   * @param request CreateBasicAccelerateIpEndpointRelationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBasicAccelerateIpEndpointRelationsResponse
    */
   async createBasicAccelerateIpEndpointRelationsWithOptions(request: CreateBasicAccelerateIpEndpointRelationsRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAccelerateIpEndpointRelationsResponse> {
     Util.validateModel(request);
@@ -19839,13 +19925,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **CreateBasicAccelerateIpEndpointRelations** is asynchronous. After you send a request, the system returns a request ID and runs the task in the system background. You can call the [GetBasicAccelerateIp](~~466794~~) or [ListBasicEndpoints](~~466831~~) API operation to query the status of an accelerated IP address or an endpoint to determine the association status.
-    *     *   If an accelerated IP address and the endpoint are in the **binding** state, the accelerated IP address is being associated with the endpoint. In this case, you can only query the accelerated IP address and endpoint, but cannot perform other operations.
-    *     *   If all the accelerated IP addresses and the endpoint are in the **bound** state, and the association status returned by the [ListBasicAccelerateIpEndpointRelations](~~466803~~) API operation is **active**, the accelerated IP addresses are associated with the endpoints.
-    * *   The **CreateBasicAccelerateIpEndpointRelations** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
-    *
-    * @param request CreateBasicAccelerateIpEndpointRelationsRequest
-    * @return CreateBasicAccelerateIpEndpointRelationsResponse
+   * @summary Creates mappings between accelerated IP addresses and endpoints for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   The **CreateBasicAccelerateIpEndpointRelations** is asynchronous. After you send a request, the system returns a request ID and runs the task in the system background. You can call the [GetBasicAccelerateIp](https://help.aliyun.com/document_detail/466794.html) or [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) API operation to query the status of an accelerated IP address or an endpoint to determine the association status.
+   *     *   If an accelerated IP address and the endpoint are in the **binding** state, the accelerated IP address is being associated with the endpoint. In this case, you can only query the accelerated IP address and endpoint, but cannot perform other operations.
+   *     *   If all the accelerated IP addresses and the endpoint are in the **bound** state, and the association status returned by the [ListBasicAccelerateIpEndpointRelations](https://help.aliyun.com/document_detail/466803.html) API operation is **active**, the accelerated IP addresses are associated with the endpoints.
+   * *   The **CreateBasicAccelerateIpEndpointRelations** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+   *
+   * @param request CreateBasicAccelerateIpEndpointRelationsRequest
+   * @return CreateBasicAccelerateIpEndpointRelationsResponse
    */
   async createBasicAccelerateIpEndpointRelations(request: CreateBasicAccelerateIpEndpointRelationsRequest): Promise<CreateBasicAccelerateIpEndpointRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19853,13 +19941,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of the task.
-    * *   If the basic GA instance is in the **init** state, it indicates that the basic GA instance is being created. In this case, you can perform only query operations.
-    * *   If the basic GA instance is in the **active** state, it indicates that the basic GA instance is created.
-    *
-    * @param request CreateBasicAcceleratorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBasicAcceleratorResponse
+   * @summary Basic Global Accelerator (GA) instances leverage the immense bandwidth of the high-quality global network of Alibaba Cloud to provide end-to-end acceleration services. You can use basic GA instances to accelerate content delivery at Layer 3 (IP). You can call the CreateBasicAccelerator operation to create a basic GA instance.
+   *
+   * @description **CreateBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](https://help.aliyun.com/document_detail/353188.html) or [ListBasicAccelerators](https://help.aliyun.com/document_detail/353189.html) operation to query the status of the task.
+   * *   If the basic GA instance is in the **init** state, it indicates that the basic GA instance is being created. In this case, you can perform only query operations.
+   * *   If the basic GA instance is in the **active** state, it indicates that the basic GA instance is created.
+   *
+   * @param request CreateBasicAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBasicAcceleratorResponse
    */
   async createBasicAcceleratorWithOptions(request: CreateBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAcceleratorResponse> {
     Util.validateModel(request);
@@ -19938,12 +20028,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **CreateBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) or [ListBasicAccelerators](~~353189~~) operation to query the status of the task.
-    * *   If the basic GA instance is in the **init** state, it indicates that the basic GA instance is being created. In this case, you can perform only query operations.
-    * *   If the basic GA instance is in the **active** state, it indicates that the basic GA instance is created.
-    *
-    * @param request CreateBasicAcceleratorRequest
-    * @return CreateBasicAcceleratorResponse
+   * @summary Basic Global Accelerator (GA) instances leverage the immense bandwidth of the high-quality global network of Alibaba Cloud to provide end-to-end acceleration services. You can use basic GA instances to accelerate content delivery at Layer 3 (IP). You can call the CreateBasicAccelerator operation to create a basic GA instance.
+   *
+   * @description **CreateBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](https://help.aliyun.com/document_detail/353188.html) or [ListBasicAccelerators](https://help.aliyun.com/document_detail/353189.html) operation to query the status of the task.
+   * *   If the basic GA instance is in the **init** state, it indicates that the basic GA instance is being created. In this case, you can perform only query operations.
+   * *   If the basic GA instance is in the **active** state, it indicates that the basic GA instance is created.
+   *
+   * @param request CreateBasicAcceleratorRequest
+   * @return CreateBasicAcceleratorResponse
    */
   async createBasicAccelerator(request: CreateBasicAcceleratorRequest): Promise<CreateBasicAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19951,14 +20043,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of an endpoint.
-    *     *   If the endpoint is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
-    *     *   If the endpoint is in the **active** state, the endpoint is created.
-    * *   The **CreateBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
-    *
-    * @param request CreateBasicEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBasicEndpointResponse
+   * @summary Creates an endpoint for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **CreateBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) API operation to query the status of an endpoint.
+   *     *   If the endpoint is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+   *     *   If the endpoint is in the **active** state, the endpoint is created.
+   * *   The **CreateBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
+   *
+   * @param request CreateBasicEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBasicEndpointResponse
    */
   async createBasicEndpointWithOptions(request: CreateBasicEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicEndpointResponse> {
     Util.validateModel(request);
@@ -20021,13 +20115,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) API operation to query the status of an endpoint.
-    *     *   If the endpoint is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
-    *     *   If the endpoint is in the **active** state, the endpoint is created.
-    * *   The **CreateBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
-    *
-    * @param request CreateBasicEndpointRequest
-    * @return CreateBasicEndpointResponse
+   * @summary Creates an endpoint for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **CreateBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) API operation to query the status of an endpoint.
+   *     *   If the endpoint is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+   *     *   If the endpoint is in the **active** state, the endpoint is created.
+   * *   The **CreateBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
+   *
+   * @param request CreateBasicEndpointRequest
+   * @return CreateBasicEndpointResponse
    */
   async createBasicEndpoint(request: CreateBasicEndpointRequest): Promise<CreateBasicEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20035,14 +20131,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns an endpoint group ID and runs the task in the background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the status of the task.
-    *     *   If the endpoint group is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, the endpoint group is created.
-    * *   You cannot call the **CreateBasicEndpointGroup** operation again on the same GA instance before the previous request is completed.
-    *
-    * @param request CreateBasicEndpointGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBasicEndpointGroupResponse
+   * @summary Creates an endpoint group for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **CreateBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns an endpoint group ID and runs the task in the background. You can call the [GetBasicEndpointGroup](https://help.aliyun.com/document_detail/362984.html) operation to query the status of the task.
+   *     *   If the endpoint group is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, the endpoint group is created.
+   * *   You cannot call the **CreateBasicEndpointGroup** operation again on the same GA instance before the previous request is completed.
+   *
+   * @param request CreateBasicEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBasicEndpointGroupResponse
    */
   async createBasicEndpointGroupWithOptions(request: CreateBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicEndpointGroupResponse> {
     Util.validateModel(request);
@@ -20101,13 +20199,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns an endpoint group ID and runs the task in the background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the status of the task.
-    *     *   If the endpoint group is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, the endpoint group is created.
-    * *   You cannot call the **CreateBasicEndpointGroup** operation again on the same GA instance before the previous request is completed.
-    *
-    * @param request CreateBasicEndpointGroupRequest
-    * @return CreateBasicEndpointGroupResponse
+   * @summary Creates an endpoint group for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **CreateBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns an endpoint group ID and runs the task in the background. You can call the [GetBasicEndpointGroup](https://help.aliyun.com/document_detail/362984.html) operation to query the status of the task.
+   *     *   If the endpoint group is in the **init** state, the endpoint is being created. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, the endpoint group is created.
+   * *   You cannot call the **CreateBasicEndpointGroup** operation again on the same GA instance before the previous request is completed.
+   *
+   * @param request CreateBasicEndpointGroupRequest
+   * @return CreateBasicEndpointGroupResponse
    */
   async createBasicEndpointGroup(request: CreateBasicEndpointGroupRequest): Promise<CreateBasicEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20115,12 +20215,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateBasicEndpoints** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) operation to query the status of endpoints. - If one or more endpoints are in the **init** state, it indicates that the endpoints are being created. In this case, you can continue to perform query operations on the endpoints. If all endpoints are in the **active** state, it indicates that the endpoints are created.
-    * *   You cannot call the **CreateBasicEndpoints** operation again on the same GA instance before the previous operation is complete.
-    *
-    * @param request CreateBasicEndpointsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBasicEndpointsResponse
+   * @summary Creates multiple endpoints for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **CreateBasicEndpoints** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) operation to query the status of endpoints. - If one or more endpoints are in the **init** state, it indicates that the endpoints are being created. In this case, you can continue to perform query operations on the endpoints. If all endpoints are in the **active** state, it indicates that the endpoints are created.
+   * *   You cannot call the **CreateBasicEndpoints** operation again on the same GA instance before the previous operation is complete.
+   *
+   * @param request CreateBasicEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBasicEndpointsResponse
    */
   async createBasicEndpointsWithOptions(request: CreateBasicEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicEndpointsResponse> {
     Util.validateModel(request);
@@ -20163,11 +20265,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateBasicEndpoints** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) operation to query the status of endpoints. - If one or more endpoints are in the **init** state, it indicates that the endpoints are being created. In this case, you can continue to perform query operations on the endpoints. If all endpoints are in the **active** state, it indicates that the endpoints are created.
-    * *   You cannot call the **CreateBasicEndpoints** operation again on the same GA instance before the previous operation is complete.
-    *
-    * @param request CreateBasicEndpointsRequest
-    * @return CreateBasicEndpointsResponse
+   * @summary Creates multiple endpoints for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **CreateBasicEndpoints** is an asynchronous operation. After you call this operation, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) operation to query the status of endpoints. - If one or more endpoints are in the **init** state, it indicates that the endpoints are being created. In this case, you can continue to perform query operations on the endpoints. If all endpoints are in the **active** state, it indicates that the endpoints are created.
+   * *   You cannot call the **CreateBasicEndpoints** operation again on the same GA instance before the previous operation is complete.
+   *
+   * @param request CreateBasicEndpointsRequest
+   * @return CreateBasicEndpointsResponse
    */
   async createBasicEndpoints(request: CreateBasicEndpointsRequest): Promise<CreateBasicEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20175,16 +20279,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Take note of the following limits:
-    * *   You can specify only one acceleration region for each basic GA instance, and only IPv4 clients can connect to basic GA instances.
-    * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns an acceleration region ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of the task.
-    *     *   If the acceleration region is in the **init** state, the acceleration region is being created. In this case, you can perform only query operations.
-    *     *   If the acceleration region is in the **active** state, the acceleration region is created.
-    * *   You cannot call the **CreateBasicIpSet** operation again on the same GA instance before the previous task is completed.
-    *
-    * @param request CreateBasicIpSetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateBasicIpSetResponse
+   * @summary Creates an acceleration region for a basic Global Accelerator (GA) instance.
+   *
+   * @description Take note of the following limits:
+   * *   You can specify only one acceleration region for each basic GA instance, and only IPv4 clients can connect to basic GA instances.
+   * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns an acceleration region ID and runs the task in the background. You can call the [GetBasicIpSet](https://help.aliyun.com/document_detail/362987.html) operation to query the status of the task.
+   *     *   If the acceleration region is in the **init** state, the acceleration region is being created. In this case, you can perform only query operations.
+   *     *   If the acceleration region is in the **active** state, the acceleration region is created.
+   * *   You cannot call the **CreateBasicIpSet** operation again on the same GA instance before the previous task is completed.
+   *
+   * @param request CreateBasicIpSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateBasicIpSetResponse
    */
   async createBasicIpSetWithOptions(request: CreateBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicIpSetResponse> {
     Util.validateModel(request);
@@ -20231,15 +20337,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Take note of the following limits:
-    * *   You can specify only one acceleration region for each basic GA instance, and only IPv4 clients can connect to basic GA instances.
-    * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns an acceleration region ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of the task.
-    *     *   If the acceleration region is in the **init** state, the acceleration region is being created. In this case, you can perform only query operations.
-    *     *   If the acceleration region is in the **active** state, the acceleration region is created.
-    * *   You cannot call the **CreateBasicIpSet** operation again on the same GA instance before the previous task is completed.
-    *
-    * @param request CreateBasicIpSetRequest
-    * @return CreateBasicIpSetResponse
+   * @summary Creates an acceleration region for a basic Global Accelerator (GA) instance.
+   *
+   * @description Take note of the following limits:
+   * *   You can specify only one acceleration region for each basic GA instance, and only IPv4 clients can connect to basic GA instances.
+   * *   **CreateBasicIpSet** is an asynchronous operation. After you send a request, the system returns an acceleration region ID and runs the task in the background. You can call the [GetBasicIpSet](https://help.aliyun.com/document_detail/362987.html) operation to query the status of the task.
+   *     *   If the acceleration region is in the **init** state, the acceleration region is being created. In this case, you can perform only query operations.
+   *     *   If the acceleration region is in the **active** state, the acceleration region is created.
+   * *   You cannot call the **CreateBasicIpSet** operation again on the same GA instance before the previous task is completed.
+   *
+   * @param request CreateBasicIpSetRequest
+   * @return CreateBasicIpSetResponse
    */
   async createBasicIpSet(request: CreateBasicIpSetRequest): Promise<CreateBasicIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20247,11 +20355,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * readAndWrite
-    *
-    * @param request CreateCustomRoutingEndpointGroupDestinationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateCustomRoutingEndpointGroupDestinationsResponse
+   * @summary After you configure a custom routing listener for a Global Accelerator (GA) instance, the GA instance generates a port mapping table based on the listener port range, mapping information (protocols and port ranges) of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to the specified IP addresses and ports in the vSwitches.
+   * You can call this operation to create mappings for an endpoint group of a custom routing listener. Take note of the following items:
+   * *   **CreateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of the task.
+   *     *   If the endpoint group is in the **updating** state, it indicates that the mappings are being created for the endpoint group. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that the mappings are created for the endpoint group.
+   * *   You cannot call the **CreateCustomRoutingEndpointGroupDestinations** operation again on the same GA instance before the previous task is completed.
+   * ### Prerequisites
+   * Make sure that the following prerequisites are met before you call this operation:
+   * *   A standard GA instance is created. For more information, see [CreateAccelerator](https://help.aliyun.com/document_detail/206786.html).
+   * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://help.aliyun.com/document_detail/153239.html).
+   * *   An application is deployed as an endpoint to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+   * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://help.aliyun.com/document_detail/153253.html).
+   * *   An endpoint group is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://help.aliyun.com/document_detail/449363.html).
+   *
+   * @description readAndWrite
+   *
+   * @param request CreateCustomRoutingEndpointGroupDestinationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomRoutingEndpointGroupDestinationsResponse
    */
   async createCustomRoutingEndpointGroupDestinationsWithOptions(request: CreateCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointGroupDestinationsResponse> {
     Util.validateModel(request);
@@ -20294,10 +20416,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * readAndWrite
-    *
-    * @param request CreateCustomRoutingEndpointGroupDestinationsRequest
-    * @return CreateCustomRoutingEndpointGroupDestinationsResponse
+   * @summary After you configure a custom routing listener for a Global Accelerator (GA) instance, the GA instance generates a port mapping table based on the listener port range, mapping information (protocols and port ranges) of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to the specified IP addresses and ports in the vSwitches.
+   * You can call this operation to create mappings for an endpoint group of a custom routing listener. Take note of the following items:
+   * *   **CreateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of the task.
+   *     *   If the endpoint group is in the **updating** state, it indicates that the mappings are being created for the endpoint group. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that the mappings are created for the endpoint group.
+   * *   You cannot call the **CreateCustomRoutingEndpointGroupDestinations** operation again on the same GA instance before the previous task is completed.
+   * ### Prerequisites
+   * Make sure that the following prerequisites are met before you call this operation:
+   * *   A standard GA instance is created. For more information, see [CreateAccelerator](https://help.aliyun.com/document_detail/206786.html).
+   * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://help.aliyun.com/document_detail/153239.html).
+   * *   An application is deployed as an endpoint to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+   * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. The custom routing listener feature is in invitational preview. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.11182188.console-base-top.dworkorder.18ae4882n3v6ZW#/ticket/createIndex). For information about how to create a custom routing listener, see [CreateListener](https://help.aliyun.com/document_detail/153253.html).
+   * *   An endpoint group is created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://help.aliyun.com/document_detail/449363.html).
+   *
+   * @description readAndWrite
+   *
+   * @param request CreateCustomRoutingEndpointGroupDestinationsRequest
+   * @return CreateCustomRoutingEndpointGroupDestinationsResponse
    */
   async createCustomRoutingEndpointGroupDestinations(request: CreateCustomRoutingEndpointGroupDestinationsRequest): Promise<CreateCustomRoutingEndpointGroupDestinationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20305,25 +20441,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Global Accelerator (GA) forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.
-    * *   After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
-    * *   After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
-    * You can call this operation to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](~~153259~~).
-    * When you call this operation, take note of the following items:
-    * *   **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) or [ListCustomRoutingEndpointGroups](~~449374~~) operation to query the status of the endpoint groups that are associated with custom routing listeners.
-    *     *   If one or more endpoint groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
-    *     *   If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
-    * *   The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    * ### Prerequisites
-    * Make sure that the following requirements are met before you call this operation:
-    * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
-    * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
-    * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
-    *
-    * @param request CreateCustomRoutingEndpointGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateCustomRoutingEndpointGroupsResponse
+   * @summary Creates endpoint groups for a custom routing listener.
+   *
+   * @description Global Accelerator (GA) forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.
+   * *   After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
+   * *   After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+   * You can call this operation to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](https://help.aliyun.com/document_detail/153259.html).
+   * When you call this operation, take note of the following items:
+   * *   **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) or [ListCustomRoutingEndpointGroups](https://help.aliyun.com/document_detail/449374.html) operation to query the status of the endpoint groups that are associated with custom routing listeners.
+   *     *   If one or more endpoint groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
+   *     *   If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
+   * *   The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+   * ### Prerequisites
+   * Make sure that the following requirements are met before you call this operation:
+   * *   A standard GA instance is created. For more information, see [CreateAccelerator](https://help.aliyun.com/document_detail/206786.html).
+   * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://help.aliyun.com/document_detail/153239.html).
+   * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+   * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](https://help.aliyun.com/document_detail/153253.html).
+   *
+   * @param request CreateCustomRoutingEndpointGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomRoutingEndpointGroupsResponse
    */
   async createCustomRoutingEndpointGroupsWithOptions(request: CreateCustomRoutingEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointGroupsResponse> {
     Util.validateModel(request);
@@ -20370,24 +20508,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Global Accelerator (GA) forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.
-    * *   After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
-    * *   After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
-    * You can call this operation to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](~~153259~~).
-    * When you call this operation, take note of the following items:
-    * *   **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) or [ListCustomRoutingEndpointGroups](~~449374~~) operation to query the status of the endpoint groups that are associated with custom routing listeners.
-    *     *   If one or more endpoint groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
-    *     *   If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
-    * *   The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    * ### Prerequisites
-    * Make sure that the following requirements are met before you call this operation:
-    * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
-    * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
-    * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
-    *
-    * @param request CreateCustomRoutingEndpointGroupsRequest
-    * @return CreateCustomRoutingEndpointGroupsResponse
+   * @summary Creates endpoint groups for a custom routing listener.
+   *
+   * @description Global Accelerator (GA) forwards client requests to endpoints in an endpoint group based on the routing type of the listener that is associated with the endpoint group.
+   * *   After you configure an intelligent routing listener for a GA instance, the GA instance selects a nearby and healthy endpoint group and forwards client requests to a healthy endpoint in the endpoint group.
+   * *   After you configure a custom routing listener for a GA instance, the instance generates a port mapping table based on the listener port range, protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+   * You can call this operation to create endpoint groups for custom routing listeners. For information about how to create endpoint groups for intelligent routing listeners, see [CreateEndpointGroup](https://help.aliyun.com/document_detail/153259.html).
+   * When you call this operation, take note of the following items:
+   * *   **CreateCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) or [ListCustomRoutingEndpointGroups](https://help.aliyun.com/document_detail/449374.html) operation to query the status of the endpoint groups that are associated with custom routing listeners.
+   *     *   If one or more endpoint groups are in the **init** state, it indicates that the endpoint groups are being created. In this case, you can perform only query operations.
+   *     *   If all endpoint groups are in the **active** state, it indicates that the endpoint groups are created.
+   * *   The **CreateCustomRoutingEndpointGroups** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+   * ### Prerequisites
+   * Make sure that the following requirements are met before you call this operation:
+   * *   A standard GA instance is created. For more information, see [CreateAccelerator](https://help.aliyun.com/document_detail/206786.html).
+   * *   A bandwidth plan is associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://help.aliyun.com/document_detail/153239.html).
+   * *   An application is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+   * *   The permissions to use custom routing listeners are acquired and a custom routing listener is created for the GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](https://help.aliyun.com/document_detail/153253.html).
+   *
+   * @param request CreateCustomRoutingEndpointGroupsRequest
+   * @return CreateCustomRoutingEndpointGroupsResponse
    */
   async createCustomRoutingEndpointGroups(request: CreateCustomRoutingEndpointGroupsRequest): Promise<CreateCustomRoutingEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20395,24 +20535,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation takes effect only when the traffic access policy of an endpoint allows traffic to specified destinations. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic access policy of an endpoint. This operation takes effect only if the value of **TrafficToEndpointPolicy** is set to **AllowCustom**, which allows traffic to specific destinations.
-    * When you call this operation, take note of the following items:
-    * *   **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of the task.
-    *     *   If the endpoint group is in the **updating** state, the traffic destinations are being created. In this state, you can only query the traffic destinations.
-    *     *   If the endpoint group is in the **active** state, the traffic destinations are created.
-    * *   You cannot call the **CreateCustomRoutingEndpointTrafficPolicies** operation repeatedly for the same GA instance in a specific period of time.
-    * ### [](#)Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
-    * *   If the bandwidth metering method of the standard GA instance is **pay-by-bandwidth**, a bandwidth plan must be associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
-    * *   An application that serves as the endpoint of the standard GA instance is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * *   The permissions to use custom routing listeners are acquired, and a custom routing listener is created. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
-    * *   Endpoint groups are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
-    * *   Endpoints are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpoints](~~449382~~).
-    *
-    * @param request CreateCustomRoutingEndpointTrafficPoliciesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
+   * @summary Creates traffic destinations for an endpoint that is associated with a custom routing listener.
+   *
+   * @description This operation takes effect only when the traffic access policy of an endpoint allows traffic to specified destinations. You can call the [DescribeCustomRoutingEndpoint](https://help.aliyun.com/document_detail/449386.html) operation to query the traffic access policy of an endpoint. This operation takes effect only if the value of **TrafficToEndpointPolicy** is set to **AllowCustom**, which allows traffic to specific destinations.
+   * When you call this operation, take note of the following items:
+   * *   **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of the task.
+   *     *   If the endpoint group is in the **updating** state, the traffic destinations are being created. In this state, you can only query the traffic destinations.
+   *     *   If the endpoint group is in the **active** state, the traffic destinations are created.
+   * *   You cannot call the **CreateCustomRoutingEndpointTrafficPolicies** operation repeatedly for the same GA instance in a specific period of time.
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   A standard GA instance is created. For more information, see [CreateAccelerator](https://help.aliyun.com/document_detail/206786.html).
+   * *   If the bandwidth metering method of the standard GA instance is **pay-by-bandwidth**, a bandwidth plan must be associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://help.aliyun.com/document_detail/153239.html).
+   * *   An application that serves as the endpoint of the standard GA instance is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+   * *   The permissions to use custom routing listeners are acquired, and a custom routing listener is created. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](https://help.aliyun.com/document_detail/153253.html).
+   * *   Endpoint groups are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://help.aliyun.com/document_detail/449363.html).
+   * *   Endpoints are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpoints](https://help.aliyun.com/document_detail/449382.html).
+   *
+   * @param request CreateCustomRoutingEndpointTrafficPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
    */
   async createCustomRoutingEndpointTrafficPoliciesWithOptions(request: CreateCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointTrafficPoliciesResponse> {
     Util.validateModel(request);
@@ -20451,23 +20593,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation takes effect only when the traffic access policy of an endpoint allows traffic to specified destinations. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic access policy of an endpoint. This operation takes effect only if the value of **TrafficToEndpointPolicy** is set to **AllowCustom**, which allows traffic to specific destinations.
-    * When you call this operation, take note of the following items:
-    * *   **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of the task.
-    *     *   If the endpoint group is in the **updating** state, the traffic destinations are being created. In this state, you can only query the traffic destinations.
-    *     *   If the endpoint group is in the **active** state, the traffic destinations are created.
-    * *   You cannot call the **CreateCustomRoutingEndpointTrafficPolicies** operation repeatedly for the same GA instance in a specific period of time.
-    * ### [](#)Prerequisites
-    * Before you call this operation, make sure that the following requirements are met:
-    * *   A standard GA instance is created. For more information, see [CreateAccelerator](~~206786~~).
-    * *   If the bandwidth metering method of the standard GA instance is **pay-by-bandwidth**, a bandwidth plan must be associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
-    * *   An application that serves as the endpoint of the standard GA instance is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * *   The permissions to use custom routing listeners are acquired, and a custom routing listener is created. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
-    * *   Endpoint groups are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
-    * *   Endpoints are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpoints](~~449382~~).
-    *
-    * @param request CreateCustomRoutingEndpointTrafficPoliciesRequest
-    * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
+   * @summary Creates traffic destinations for an endpoint that is associated with a custom routing listener.
+   *
+   * @description This operation takes effect only when the traffic access policy of an endpoint allows traffic to specified destinations. You can call the [DescribeCustomRoutingEndpoint](https://help.aliyun.com/document_detail/449386.html) operation to query the traffic access policy of an endpoint. This operation takes effect only if the value of **TrafficToEndpointPolicy** is set to **AllowCustom**, which allows traffic to specific destinations.
+   * When you call this operation, take note of the following items:
+   * *   **CreateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of the task.
+   *     *   If the endpoint group is in the **updating** state, the traffic destinations are being created. In this state, you can only query the traffic destinations.
+   *     *   If the endpoint group is in the **active** state, the traffic destinations are created.
+   * *   You cannot call the **CreateCustomRoutingEndpointTrafficPolicies** operation repeatedly for the same GA instance in a specific period of time.
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the following requirements are met:
+   * *   A standard GA instance is created. For more information, see [CreateAccelerator](https://help.aliyun.com/document_detail/206786.html).
+   * *   If the bandwidth metering method of the standard GA instance is **pay-by-bandwidth**, a bandwidth plan must be associated with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://help.aliyun.com/document_detail/153239.html).
+   * *   An application that serves as the endpoint of the standard GA instance is deployed to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+   * *   The permissions to use custom routing listeners are acquired, and a custom routing listener is created. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](https://help.aliyun.com/document_detail/153253.html).
+   * *   Endpoint groups are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://help.aliyun.com/document_detail/449363.html).
+   * *   Endpoints are created for the custom routing listener. For more information, see [CreateCustomRoutingEndpoints](https://help.aliyun.com/document_detail/449382.html).
+   *
+   * @param request CreateCustomRoutingEndpointTrafficPoliciesRequest
+   * @return CreateCustomRoutingEndpointTrafficPoliciesResponse
    */
   async createCustomRoutingEndpointTrafficPolicies(request: CreateCustomRoutingEndpointTrafficPoliciesRequest): Promise<CreateCustomRoutingEndpointTrafficPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20475,23 +20619,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, the protocols and port ranges of the associated endpoint groups, and the IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
-    * This operation is used to create endpoints for custom routing listeners. When you call this operation, take note of the following items:
-    * *   **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group and determine whether endpoints are created in the endpoint group.
-    *     *   If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that endpoints are created.
-    * *   The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    * ### Prerequisites
-    * The following operations are complete before you call this operation:
-    * *   Create a standard GA instance. For more information, see [CreateAccelerator](~~206786~~).
-    * *   Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
-    * *   Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * *   Apply for permissions to use custom routing listeners and create a custom routing listener for the standard GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
-    * *   Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
-    *
-    * @param request CreateCustomRoutingEndpointsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateCustomRoutingEndpointsResponse
+   * @summary Creates endpoints for a custom routing listener.
+   *
+   * @description After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, the protocols and port ranges of the associated endpoint groups, and the IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+   * This operation is used to create endpoints for custom routing listeners. When you call this operation, take note of the following items:
+   * *   **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of an endpoint group and determine whether endpoints are created in the endpoint group.
+   *     *   If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that endpoints are created.
+   * *   The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+   * ### Prerequisites
+   * The following operations are complete before you call this operation:
+   * *   Create a standard GA instance. For more information, see [CreateAccelerator](https://help.aliyun.com/document_detail/206786.html).
+   * *   Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://help.aliyun.com/document_detail/153239.html).
+   * *   Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+   * *   Apply for permissions to use custom routing listeners and create a custom routing listener for the standard GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](https://help.aliyun.com/document_detail/153253.html).
+   * *   Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://help.aliyun.com/document_detail/449363.html).
+   *
+   * @param request CreateCustomRoutingEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateCustomRoutingEndpointsResponse
    */
   async createCustomRoutingEndpointsWithOptions(request: CreateCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomRoutingEndpointsResponse> {
     Util.validateModel(request);
@@ -20530,22 +20676,24 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, the protocols and port ranges of the associated endpoint groups, and the IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
-    * This operation is used to create endpoints for custom routing listeners. When you call this operation, take note of the following items:
-    * *   **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group and determine whether endpoints are created in the endpoint group.
-    *     *   If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that endpoints are created.
-    * *   The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    * ### Prerequisites
-    * The following operations are complete before you call this operation:
-    * *   Create a standard GA instance. For more information, see [CreateAccelerator](~~206786~~).
-    * *   Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](~~153239~~).
-    * *   Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
-    * *   Apply for permissions to use custom routing listeners and create a custom routing listener for the standard GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](~~153253~~).
-    * *   Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](~~449363~~).
-    *
-    * @param request CreateCustomRoutingEndpointsRequest
-    * @return CreateCustomRoutingEndpointsResponse
+   * @summary Creates endpoints for a custom routing listener.
+   *
+   * @description After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, the protocols and port ranges of the associated endpoint groups, and the IP addresses of endpoints (vSwitches), and forwards client requests to specified IP addresses and ports in the vSwitches.
+   * This operation is used to create endpoints for custom routing listeners. When you call this operation, take note of the following items:
+   * *   **CreateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of an endpoint group and determine whether endpoints are created in the endpoint group.
+   *     *   If the endpoint group is in the **updating** state, it indicates that endpoints are being created. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that endpoints are created.
+   * *   The **CreateCustomRoutingEndpoints** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+   * ### Prerequisites
+   * The following operations are complete before you call this operation:
+   * *   Create a standard GA instance. For more information, see [CreateAccelerator](https://help.aliyun.com/document_detail/206786.html).
+   * *   Associate a bandwidth plan with the standard GA instance. For more information, see [BandwidthPackageAddAccelerator](https://help.aliyun.com/document_detail/153239.html).
+   * *   Deploy an application that serves as the endpoint of the GA instance. The application is used to receive requests that are forwarded from GA. You can specify only vSwitches as endpoints for custom routing listeners.
+   * *   Apply for permissions to use custom routing listeners and create a custom routing listener for the standard GA instance. Custom routing listeners are in invitational preview. To use custom routing listeners, contact your account manager. For more information about how to create a custom routing listener, see [CreateListener](https://help.aliyun.com/document_detail/153253.html).
+   * *   Create an endpoint group for the custom routing listener. For more information, see [CreateCustomRoutingEndpointGroups](https://help.aliyun.com/document_detail/449363.html).
+   *
+   * @param request CreateCustomRoutingEndpointsRequest
+   * @return CreateCustomRoutingEndpointsResponse
    */
   async createCustomRoutingEndpoints(request: CreateCustomRoutingEndpointsRequest): Promise<CreateCustomRoutingEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20553,15 +20701,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you associate an accelerated domain name that has obtained an ICP number with a Global Accelerator (GA) instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
-    * You can call this operation to add an accelerated domain name and associate the accelerated domain name with GA instances. When you call this operation, take note of the following items:
-    * *   If your accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
-    * *   The same accelerated domain name cannot be repeatedly associated with the same GA instance.
-    * *   You cannot repeatedly call the **CreateDomain** operation by using the same Alibaba Cloud account within a specific period of time.
-    *
-    * @param request CreateDomainRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateDomainResponse
+   * @summary Creates a domain name and associates it with Global Accelerator (GA) instances.
+   *
+   * @description After you associate an accelerated domain name that has obtained an ICP number with a Global Accelerator (GA) instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
+   * You can call this operation to add an accelerated domain name and associate the accelerated domain name with GA instances. When you call this operation, take note of the following items:
+   * *   If your accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
+   * *   The same accelerated domain name cannot be repeatedly associated with the same GA instance.
+   * *   You cannot repeatedly call the **CreateDomain** operation by using the same Alibaba Cloud account within a specific period of time.
+   *
+   * @param request CreateDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDomainResponse
    */
   async createDomainWithOptions(request: CreateDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
@@ -20596,14 +20746,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you associate an accelerated domain name that has obtained an ICP number with a Global Accelerator (GA) instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
-    * You can call this operation to add an accelerated domain name and associate the accelerated domain name with GA instances. When you call this operation, take note of the following items:
-    * *   If your accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
-    * *   The same accelerated domain name cannot be repeatedly associated with the same GA instance.
-    * *   You cannot repeatedly call the **CreateDomain** operation by using the same Alibaba Cloud account within a specific period of time.
-    *
-    * @param request CreateDomainRequest
-    * @return CreateDomainResponse
+   * @summary Creates a domain name and associates it with Global Accelerator (GA) instances.
+   *
+   * @description After you associate an accelerated domain name that has obtained an ICP number with a Global Accelerator (GA) instance, you do not need to complete filing for the accelerated domain name or its subdomains on Alibaba Cloud.
+   * You can call this operation to add an accelerated domain name and associate the accelerated domain name with GA instances. When you call this operation, take note of the following items:
+   * *   If your accelerated domain name is hosted in the Chinese mainland, you must obtain an ICP number for the domain name.
+   * *   The same accelerated domain name cannot be repeatedly associated with the same GA instance.
+   * *   You cannot repeatedly call the **CreateDomain** operation by using the same Alibaba Cloud account within a specific period of time.
+   *
+   * @param request CreateDomainRequest
+   * @return CreateDomainResponse
    */
   async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20611,15 +20763,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you call this operation to create a virtual endpoint group for a Layer 4 listener, make sure that a default endpoint group is created.
-    * *   **CreateEndpointGroup** is an asynchronous operation. After you send a request, the system returns the ID of an endpoint group, but the endpoint group is still being created in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group.
-    *     *   If the endpoint group is in the **init** state, it indicates that the endpoint group is being created. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that the endpoint group is created.
-    * *   The **CreateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request CreateEndpointGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateEndpointGroupResponse
+   * @summary Creates an endpoint group.
+   *
+   * @description *   When you call this operation to create a virtual endpoint group for a Layer 4 listener, make sure that a default endpoint group is created.
+   * *   **CreateEndpointGroup** is an asynchronous operation. After you send a request, the system returns the ID of an endpoint group, but the endpoint group is still being created in the system background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the state of the endpoint group.
+   *     *   If the endpoint group is in the **init** state, it indicates that the endpoint group is being created. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that the endpoint group is created.
+   * *   The **CreateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request CreateEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEndpointGroupResponse
    */
   async createEndpointGroupWithOptions(request: CreateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupResponse> {
     Util.validateModel(request);
@@ -20646,6 +20800,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endpointGroupType)) {
       query["EndpointGroupType"] = request.endpointGroupType;
+    }
+
+    if (!Util.isUnset(request.endpointProtocolVersion)) {
+      query["EndpointProtocolVersion"] = request.endpointProtocolVersion;
     }
 
     if (!Util.isUnset(request.endpointRequestProtocol)) {
@@ -20718,14 +20876,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   When you call this operation to create a virtual endpoint group for a Layer 4 listener, make sure that a default endpoint group is created.
-    * *   **CreateEndpointGroup** is an asynchronous operation. After you send a request, the system returns the ID of an endpoint group, but the endpoint group is still being created in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group.
-    *     *   If the endpoint group is in the **init** state, it indicates that the endpoint group is being created. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that the endpoint group is created.
-    * *   The **CreateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request CreateEndpointGroupRequest
-    * @return CreateEndpointGroupResponse
+   * @summary Creates an endpoint group.
+   *
+   * @description *   When you call this operation to create a virtual endpoint group for a Layer 4 listener, make sure that a default endpoint group is created.
+   * *   **CreateEndpointGroup** is an asynchronous operation. After you send a request, the system returns the ID of an endpoint group, but the endpoint group is still being created in the system background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the state of the endpoint group.
+   *     *   If the endpoint group is in the **init** state, it indicates that the endpoint group is being created. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that the endpoint group is created.
+   * *   The **CreateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request CreateEndpointGroupRequest
+   * @return CreateEndpointGroupResponse
    */
   async createEndpointGroup(request: CreateEndpointGroupRequest): Promise<CreateEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20733,14 +20893,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the status of the task:
-    *     *   If the endpoint groups are in the **init** state, the endpoint groups are being created. In this case, you can perform only query operations.
-    *     *   If all endpoint groups are in the **active** state, the endpoint groups are created.
-    * *   The **CreateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request CreateEndpointGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateEndpointGroupsResponse
+   * @summary Creates endpoint groups.
+   *
+   * @description *   **CreateEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) or [ListEndpointGroups](https://help.aliyun.com/document_detail/153261.html) operation to query the status of the task:
+   *     *   If the endpoint groups are in the **init** state, the endpoint groups are being created. In this case, you can perform only query operations.
+   *     *   If all endpoint groups are in the **active** state, the endpoint groups are created.
+   * *   The **CreateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request CreateEndpointGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateEndpointGroupsResponse
    */
   async createEndpointGroupsWithOptions(request: CreateEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupsResponse> {
     Util.validateModel(request);
@@ -20794,13 +20956,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the status of the task:
-    *     *   If the endpoint groups are in the **init** state, the endpoint groups are being created. In this case, you can perform only query operations.
-    *     *   If all endpoint groups are in the **active** state, the endpoint groups are created.
-    * *   The **CreateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request CreateEndpointGroupsRequest
-    * @return CreateEndpointGroupsResponse
+   * @summary Creates endpoint groups.
+   *
+   * @description *   **CreateEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) or [ListEndpointGroups](https://help.aliyun.com/document_detail/153261.html) operation to query the status of the task:
+   *     *   If the endpoint groups are in the **init** state, the endpoint groups are being created. In this case, you can perform only query operations.
+   *     *   If all endpoint groups are in the **active** state, the endpoint groups are created.
+   * *   The **CreateEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request CreateEndpointGroupsRequest
+   * @return CreateEndpointGroupsResponse
    */
   async createEndpointGroups(request: CreateEndpointGroupsRequest): Promise<CreateEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20808,16 +20972,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * HTTP and HTTPS listeners of Global Accelerator (GA) support domain name-based and path-based forwarding rules. After an HTTP or HTTPS listener receives a request, the system matches the request against the forwarding conditions in a forwarding rule and then performs the corresponding forwarding action. For example, if you set **Host** to `www.example.com` as the forwarding condition and **Forward** to `epg-bp1enpdcrqhl78g6r****` as the forwarding action in a forwarding rule, requests to the `www.example.com` domain name match this forwarding rule and are forwarded to the `epg-bp1enpdcrqhl78g6r****` endpoint group. Before you call this API operation to create a forwarding rule, we recommend that you understand forwarding rules. For more information, see [Forwarding rules](~~204224~~).
-    * When you call this operation, take note of the following items:
-    * *   **CreateForwardingRules** is an asynchronous operation. After you send a request, the system returns the ID of a forwarding rule, but the forwarding rule is still being created in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of the forwarding rule.
-    *     *   If the forwarding rule is in the **configuring** state, it indicates that the rule is being created. In this case, you can only perform query operations.
-    *     *   If the forwarding rule is in the **active** state, it indicates that the rule is created.
-    * *   The **CreateForwardingRules** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request CreateForwardingRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateForwardingRulesResponse
+   * @summary Creates forwarding rules.
+   *
+   * @description HTTP and HTTPS listeners of Global Accelerator (GA) support domain name-based and path-based forwarding rules. After an HTTP or HTTPS listener receives a request, the system matches the request against the forwarding conditions in a forwarding rule and then performs the corresponding forwarding action. For example, if you set **Host** to `www.example.com` as the forwarding condition and **Forward** to `epg-bp1enpdcrqhl78g6r****` as the forwarding action in a forwarding rule, requests to the `www.example.com` domain name match this forwarding rule and are forwarded to the `epg-bp1enpdcrqhl78g6r****` endpoint group. Before you call this API operation to create a forwarding rule, we recommend that you understand forwarding rules. For more information, see [Forwarding rules](https://help.aliyun.com/document_detail/204224.html).
+   * When you call this operation, take note of the following items:
+   * *   **CreateForwardingRules** is an asynchronous operation. After you send a request, the system returns the ID of a forwarding rule, but the forwarding rule is still being created in the system background. You can call the [ListForwardingRules](https://help.aliyun.com/document_detail/205817.html) operation to query the state of the forwarding rule.
+   *     *   If the forwarding rule is in the **configuring** state, it indicates that the rule is being created. In this case, you can only perform query operations.
+   *     *   If the forwarding rule is in the **active** state, it indicates that the rule is created.
+   * *   The **CreateForwardingRules** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request CreateForwardingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateForwardingRulesResponse
    */
   async createForwardingRulesWithOptions(request: CreateForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardingRulesResponse> {
     Util.validateModel(request);
@@ -20867,15 +21033,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * HTTP and HTTPS listeners of Global Accelerator (GA) support domain name-based and path-based forwarding rules. After an HTTP or HTTPS listener receives a request, the system matches the request against the forwarding conditions in a forwarding rule and then performs the corresponding forwarding action. For example, if you set **Host** to `www.example.com` as the forwarding condition and **Forward** to `epg-bp1enpdcrqhl78g6r****` as the forwarding action in a forwarding rule, requests to the `www.example.com` domain name match this forwarding rule and are forwarded to the `epg-bp1enpdcrqhl78g6r****` endpoint group. Before you call this API operation to create a forwarding rule, we recommend that you understand forwarding rules. For more information, see [Forwarding rules](~~204224~~).
-    * When you call this operation, take note of the following items:
-    * *   **CreateForwardingRules** is an asynchronous operation. After you send a request, the system returns the ID of a forwarding rule, but the forwarding rule is still being created in the system background. You can call the [ListForwardingRules](~~205817~~) operation to query the state of the forwarding rule.
-    *     *   If the forwarding rule is in the **configuring** state, it indicates that the rule is being created. In this case, you can only perform query operations.
-    *     *   If the forwarding rule is in the **active** state, it indicates that the rule is created.
-    * *   The **CreateForwardingRules** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request CreateForwardingRulesRequest
-    * @return CreateForwardingRulesResponse
+   * @summary Creates forwarding rules.
+   *
+   * @description HTTP and HTTPS listeners of Global Accelerator (GA) support domain name-based and path-based forwarding rules. After an HTTP or HTTPS listener receives a request, the system matches the request against the forwarding conditions in a forwarding rule and then performs the corresponding forwarding action. For example, if you set **Host** to `www.example.com` as the forwarding condition and **Forward** to `epg-bp1enpdcrqhl78g6r****` as the forwarding action in a forwarding rule, requests to the `www.example.com` domain name match this forwarding rule and are forwarded to the `epg-bp1enpdcrqhl78g6r****` endpoint group. Before you call this API operation to create a forwarding rule, we recommend that you understand forwarding rules. For more information, see [Forwarding rules](https://help.aliyun.com/document_detail/204224.html).
+   * When you call this operation, take note of the following items:
+   * *   **CreateForwardingRules** is an asynchronous operation. After you send a request, the system returns the ID of a forwarding rule, but the forwarding rule is still being created in the system background. You can call the [ListForwardingRules](https://help.aliyun.com/document_detail/205817.html) operation to query the state of the forwarding rule.
+   *     *   If the forwarding rule is in the **configuring** state, it indicates that the rule is being created. In this case, you can only perform query operations.
+   *     *   If the forwarding rule is in the **active** state, it indicates that the rule is created.
+   * *   The **CreateForwardingRules** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request CreateForwardingRulesRequest
+   * @return CreateForwardingRulesResponse
    */
   async createForwardingRules(request: CreateForwardingRulesRequest): Promise<CreateForwardingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20883,14 +21051,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
-    *     *   If acceleration regions are in the **init** state, it indicates that the acceleration regions are being created. In this case, you can perform only query operations.
-    *     *   If acceleration regions are in the **active** state, it indicates that the acceleration regions are created.
-    * *   You cannot call the **CreateIpSets** operation again on the same GA instance before the previous operation is completed.
-    *
-    * @param request CreateIpSetsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateIpSetsResponse
+   * @summary Creates acceleration regions.
+   *
+   * @description *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](https://help.aliyun.com/document_detail/153246.html) operation to query the status of the task.
+   *     *   If acceleration regions are in the **init** state, it indicates that the acceleration regions are being created. In this case, you can perform only query operations.
+   *     *   If acceleration regions are in the **active** state, it indicates that the acceleration regions are created.
+   * *   You cannot call the **CreateIpSets** operation again on the same GA instance before the previous operation is completed.
+   *
+   * @param request CreateIpSetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateIpSetsResponse
    */
   async createIpSetsWithOptions(request: CreateIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpSetsResponse> {
     Util.validateModel(request);
@@ -20929,13 +21099,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
-    *     *   If acceleration regions are in the **init** state, it indicates that the acceleration regions are being created. In this case, you can perform only query operations.
-    *     *   If acceleration regions are in the **active** state, it indicates that the acceleration regions are created.
-    * *   You cannot call the **CreateIpSets** operation again on the same GA instance before the previous operation is completed.
-    *
-    * @param request CreateIpSetsRequest
-    * @return CreateIpSetsResponse
+   * @summary Creates acceleration regions.
+   *
+   * @description *   **CreateIpSets** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](https://help.aliyun.com/document_detail/153246.html) operation to query the status of the task.
+   *     *   If acceleration regions are in the **init** state, it indicates that the acceleration regions are being created. In this case, you can perform only query operations.
+   *     *   If acceleration regions are in the **active** state, it indicates that the acceleration regions are created.
+   * *   You cannot call the **CreateIpSets** operation again on the same GA instance before the previous operation is completed.
+   *
+   * @param request CreateIpSetsRequest
+   * @return CreateIpSetsResponse
    */
   async createIpSets(request: CreateIpSetsRequest): Promise<CreateIpSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20943,15 +21115,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   **CreateListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the task.
-    *     *   If the listener is in the **init** state, the listener is being created. In this state, you can perform only query operations.
-    *     *   If the listener is in the **active** state, the listener is created.
-    * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
-    *
-    * @param request CreateListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateListenerResponse
+   * @summary A listener checks connection requests and distributes the requests to endpoints based on forwarding rules that are defined by the scheduling algorithm. You can call the CreateListener operation to create a listener for a GA instance.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   **CreateListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the status of the task.
+   *     *   If the listener is in the **init** state, the listener is being created. In this state, you can perform only query operations.
+   *     *   If the listener is in the **active** state, the listener is created.
+   * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
+   *
+   * @param request CreateListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateListenerResponse
    */
   async createListenerWithOptions(request: CreateListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateListenerResponse> {
     Util.validateModel(request);
@@ -21046,14 +21220,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   **CreateListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the task.
-    *     *   If the listener is in the **init** state, the listener is being created. In this state, you can perform only query operations.
-    *     *   If the listener is in the **active** state, the listener is created.
-    * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
-    *
-    * @param request CreateListenerRequest
-    * @return CreateListenerResponse
+   * @summary A listener checks connection requests and distributes the requests to endpoints based on forwarding rules that are defined by the scheduling algorithm. You can call the CreateListener operation to create a listener for a GA instance.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   **CreateListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the status of the task.
+   *     *   If the listener is in the **init** state, the listener is being created. In this state, you can perform only query operations.
+   *     *   If the listener is in the **active** state, the listener is created.
+   * *   You cannot repeatedly call the **CreateListener** operation for the same GA instance within the specified period of time.
+   *
+   * @param request CreateListenerRequest
+   * @return CreateListenerResponse
    */
   async createListener(request: CreateListenerRequest): Promise<CreateListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21061,14 +21237,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-    *     *   If the GA instance is in the **configuring** state, it indicates that secondary IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
-    *     *   If the GA instance is in the **active** state, it indicates that secondary IP addresses are created for the CNAME that is assigned to the GA instance.
-    * *   The **CreateSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request CreateSpareIpsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return CreateSpareIpsResponse
+   * @summary Creates secondary IP addresses for a CNAME that is assigned to a Global Accelerator (GA) instance. If an acceleration area of the GA instance becomes unavailable, access traffic is redirected to the secondary IP addresses.
+   *
+   * @description *   **CreateSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of a GA instance.
+   *     *   If the GA instance is in the **configuring** state, it indicates that secondary IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
+   *     *   If the GA instance is in the **active** state, it indicates that secondary IP addresses are created for the CNAME that is assigned to the GA instance.
+   * *   The **CreateSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request CreateSpareIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateSpareIpsResponse
    */
   async createSpareIpsWithOptions(request: CreateSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<CreateSpareIpsResponse> {
     Util.validateModel(request);
@@ -21111,13 +21289,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **CreateSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-    *     *   If the GA instance is in the **configuring** state, it indicates that secondary IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
-    *     *   If the GA instance is in the **active** state, it indicates that secondary IP addresses are created for the CNAME that is assigned to the GA instance.
-    * *   The **CreateSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request CreateSpareIpsRequest
-    * @return CreateSpareIpsResponse
+   * @summary Creates secondary IP addresses for a CNAME that is assigned to a Global Accelerator (GA) instance. If an acceleration area of the GA instance becomes unavailable, access traffic is redirected to the secondary IP addresses.
+   *
+   * @description *   **CreateSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of a GA instance.
+   *     *   If the GA instance is in the **configuring** state, it indicates that secondary IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
+   *     *   If the GA instance is in the **active** state, it indicates that secondary IP addresses are created for the CNAME that is assigned to the GA instance.
+   * *   The **CreateSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request CreateSpareIpsRequest
+   * @return CreateSpareIpsResponse
    */
   async createSpareIps(request: CreateSpareIpsRequest): Promise<CreateSpareIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21125,14 +21305,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You cannot delete subscription GA instances.
-    * *   **DeleteAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of the task.
-    *     *   If the GA instance is in the **deleting** state, the GA instance is being deleted. In this case, you can perform only query operations.
-    *     *   If the GA instance cannot be queried, the GA instance is deleted.
-    *
-    * @param request DeleteAcceleratorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAcceleratorResponse
+   * @summary Deletes a Global Accelerator (GA) instance.
+   *
+   * @description *   You cannot delete subscription GA instances.
+   * *   **DeleteAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of the task.
+   *     *   If the GA instance is in the **deleting** state, the GA instance is being deleted. In this case, you can perform only query operations.
+   *     *   If the GA instance cannot be queried, the GA instance is deleted.
+   *
+   * @param request DeleteAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAcceleratorResponse
    */
   async deleteAcceleratorWithOptions(request: DeleteAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAcceleratorResponse> {
     Util.validateModel(request);
@@ -21163,13 +21345,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You cannot delete subscription GA instances.
-    * *   **DeleteAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of the task.
-    *     *   If the GA instance is in the **deleting** state, the GA instance is being deleted. In this case, you can perform only query operations.
-    *     *   If the GA instance cannot be queried, the GA instance is deleted.
-    *
-    * @param request DeleteAcceleratorRequest
-    * @return DeleteAcceleratorResponse
+   * @summary Deletes a Global Accelerator (GA) instance.
+   *
+   * @description *   You cannot delete subscription GA instances.
+   * *   **DeleteAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of the task.
+   *     *   If the GA instance is in the **deleting** state, the GA instance is being deleted. In this case, you can perform only query operations.
+   *     *   If the GA instance cannot be queried, the GA instance is deleted.
+   *
+   * @param request DeleteAcceleratorRequest
+   * @return DeleteAcceleratorResponse
    */
   async deleteAccelerator(request: DeleteAcceleratorRequest): Promise<DeleteAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21177,13 +21361,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) operation to query the state of a network ACL.
-    * *   If the network ACL is in the **deleting** state, it indicates that the network ACL is being deleted. In this case, you can perform only query operations.
-    * *   If the network ACL cannot be queried, it indicates that the network ACL is deleted.
-    *
-    * @param request DeleteAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteAclResponse
+   * @summary Deletes a access control list (ACL) of a Global Accelerator (GA) instance.
+   *
+   * @description **DeleteAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](https://help.aliyun.com/document_detail/258292.html) operation to query the status of an ACL.
+   * *   If the ACL is in the **deleting** state, it indicates that the ACL is being deleted. In this case, you can perform only query operations.
+   * *   If the ACL cannot be queried, it indicates that the ACL is deleted.
+   *
+   * @param request DeleteAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAclResponse
    */
   async deleteAclWithOptions(request: DeleteAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAclResponse> {
     Util.validateModel(request);
@@ -21222,12 +21408,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **DeleteAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](~~258292~~) operation to query the state of a network ACL.
-    * *   If the network ACL is in the **deleting** state, it indicates that the network ACL is being deleted. In this case, you can perform only query operations.
-    * *   If the network ACL cannot be queried, it indicates that the network ACL is deleted.
-    *
-    * @param request DeleteAclRequest
-    * @return DeleteAclResponse
+   * @summary Deletes a access control list (ACL) of a Global Accelerator (GA) instance.
+   *
+   * @description **DeleteAcl** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [GetAcl](https://help.aliyun.com/document_detail/258292.html) operation to query the status of an ACL.
+   * *   If the ACL is in the **deleting** state, it indicates that the ACL is being deleted. In this case, you can perform only query operations.
+   * *   If the ACL cannot be queried, it indicates that the ACL is deleted.
+   *
+   * @param request DeleteAclRequest
+   * @return DeleteAclResponse
    */
   async deleteAcl(request: DeleteAclRequest): Promise<DeleteAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21235,14 +21423,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteApplicationMonitor** is an asynchronous operation. After you call this operation, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListApplicationMonitor](~~408462~~) operation to query the state of an origin probing task.
-    *     *   If the origin probing task is in the **deleting** state, it indicates that the task is being deleted. In this case, you can perform only query operations.
-    *     *   If the origin probing task cannot be queried, it indicates that the task is deleted.
-    * *   The **DeleteApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteApplicationMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteApplicationMonitorResponse
+   * @summary Deletes an origin probing task.
+   *
+   * @description *   **DeleteApplicationMonitor** is an asynchronous operation. After you call this operation, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListApplicationMonitor](https://help.aliyun.com/document_detail/408462.html) operation to query the state of an origin probing task.
+   *     *   If the origin probing task is in the **deleting** state, it indicates that the task is being deleted. In this case, you can perform only query operations.
+   *     *   If the origin probing task cannot be queried, it indicates that the task is deleted.
+   * *   The **DeleteApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteApplicationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteApplicationMonitorResponse
    */
   async deleteApplicationMonitorWithOptions(request: DeleteApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationMonitorResponse> {
     Util.validateModel(request);
@@ -21277,13 +21467,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteApplicationMonitor** is an asynchronous operation. After you call this operation, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListApplicationMonitor](~~408462~~) operation to query the state of an origin probing task.
-    *     *   If the origin probing task is in the **deleting** state, it indicates that the task is being deleted. In this case, you can perform only query operations.
-    *     *   If the origin probing task cannot be queried, it indicates that the task is deleted.
-    * *   The **DeleteApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteApplicationMonitorRequest
-    * @return DeleteApplicationMonitorResponse
+   * @summary Deletes an origin probing task.
+   *
+   * @description *   **DeleteApplicationMonitor** is an asynchronous operation. After you call this operation, the system returns a request ID, but the operation is still being performed in the system background. You can call the [ListApplicationMonitor](https://help.aliyun.com/document_detail/408462.html) operation to query the state of an origin probing task.
+   *     *   If the origin probing task is in the **deleting** state, it indicates that the task is being deleted. In this case, you can perform only query operations.
+   *     *   If the origin probing task cannot be queried, it indicates that the task is deleted.
+   * *   The **DeleteApplicationMonitor** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteApplicationMonitorRequest
+   * @return DeleteApplicationMonitorResponse
    */
   async deleteApplicationMonitor(request: DeleteApplicationMonitorRequest): Promise<DeleteApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21291,16 +21483,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   By default, subscription bandwidth plans cannot be deleted. If you want to unsubscribe from subscription bandwidth plans, go to the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you can unsubscribe from a subscription bandwidth plan that is associated with a Global Accelerator (GA) instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
-    * *   Bandwidth plans that are associated with GA instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
-    * *   **DeleteBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the task.
-    *     *   If the bandwidth plan is in the **deleting** state, the bandwidth plan is being deleted. In this case, you can perform only query operations.
-    *     *   If the bandwidth plan cannot be found, the bandwidth plan is deleted.
-    * *   The **DeleteBandwidthPackage** operation cannot be repeatedly called for the same bandwidth plan within a specific period of time.
-    *
-    * @param request DeleteBandwidthPackageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBandwidthPackageResponse
+   * @summary Deletes a bandwidth plan.
+   *
+   * @description *   By default, subscription bandwidth plans cannot be deleted. If you want to unsubscribe from subscription bandwidth plans, go to the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you can unsubscribe from a subscription bandwidth plan that is associated with a Global Accelerator (GA) instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](https://help.aliyun.com/document_detail/153240.html).
+   * *   Bandwidth plans that are associated with GA instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](https://help.aliyun.com/document_detail/153240.html).
+   * *   **DeleteBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](https://help.aliyun.com/document_detail/153241.html) operation to query the status of the task.
+   *     *   If the bandwidth plan is in the **deleting** state, the bandwidth plan is being deleted. In this case, you can perform only query operations.
+   *     *   If the bandwidth plan cannot be found, the bandwidth plan is deleted.
+   * *   The **DeleteBandwidthPackage** operation cannot be repeatedly called for the same bandwidth plan within a specific period of time.
+   *
+   * @param request DeleteBandwidthPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBandwidthPackageResponse
    */
   async deleteBandwidthPackageWithOptions(request: DeleteBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBandwidthPackageResponse> {
     Util.validateModel(request);
@@ -21335,15 +21529,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   By default, subscription bandwidth plans cannot be deleted. If you want to unsubscribe from subscription bandwidth plans, go to the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you can unsubscribe from a subscription bandwidth plan that is associated with a Global Accelerator (GA) instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
-    * *   Bandwidth plans that are associated with GA instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
-    * *   **DeleteBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the task.
-    *     *   If the bandwidth plan is in the **deleting** state, the bandwidth plan is being deleted. In this case, you can perform only query operations.
-    *     *   If the bandwidth plan cannot be found, the bandwidth plan is deleted.
-    * *   The **DeleteBandwidthPackage** operation cannot be repeatedly called for the same bandwidth plan within a specific period of time.
-    *
-    * @param request DeleteBandwidthPackageRequest
-    * @return DeleteBandwidthPackageResponse
+   * @summary Deletes a bandwidth plan.
+   *
+   * @description *   By default, subscription bandwidth plans cannot be deleted. If you want to unsubscribe from subscription bandwidth plans, go to the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you can unsubscribe from a subscription bandwidth plan that is associated with a Global Accelerator (GA) instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](https://help.aliyun.com/document_detail/153240.html).
+   * *   Bandwidth plans that are associated with GA instances cannot be deleted. Before you can delete a bandwidth plan that is associated with a GA instance, you must disassociate the bandwidth plan from the GA instance. For information about how to disassociate a bandwidth plan from a GA instance, see [BandwidthPackageRemoveAccelerator](https://help.aliyun.com/document_detail/153240.html).
+   * *   **DeleteBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](https://help.aliyun.com/document_detail/153241.html) operation to query the status of the task.
+   *     *   If the bandwidth plan is in the **deleting** state, the bandwidth plan is being deleted. In this case, you can perform only query operations.
+   *     *   If the bandwidth plan cannot be found, the bandwidth plan is deleted.
+   * *   The **DeleteBandwidthPackage** operation cannot be repeatedly called for the same bandwidth plan within a specific period of time.
+   *
+   * @param request DeleteBandwidthPackageRequest
+   * @return DeleteBandwidthPackageResponse
    */
   async deleteBandwidthPackage(request: DeleteBandwidthPackageRequest): Promise<DeleteBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21351,14 +21547,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteBasicAccelerateIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) operation to query the status of an accelerated IP address.
-    *     *   If an accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
-    *     *   If the system fails to return information about an accelerated IP address, the accelerated IP address is deleted.
-    * *   You cannot repeatedly call the **DeleteBasicAccelerateIp** operation for the same basic GA instance within a specific period of time.
-    *
-    * @param request DeleteBasicAccelerateIpRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBasicAccelerateIpResponse
+   * @summary Deletes an accelerated IP address of a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **DeleteBasicAccelerateIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](https://help.aliyun.com/document_detail/466794.html) operation to query the status of an accelerated IP address.
+   *     *   If an accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
+   *     *   If the system fails to return information about an accelerated IP address, the accelerated IP address is deleted.
+   * *   You cannot repeatedly call the **DeleteBasicAccelerateIp** operation for the same basic GA instance within a specific period of time.
+   *
+   * @param request DeleteBasicAccelerateIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBasicAccelerateIpResponse
    */
   async deleteBasicAccelerateIpWithOptions(request: DeleteBasicAccelerateIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAccelerateIpResponse> {
     Util.validateModel(request);
@@ -21393,13 +21591,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteBasicAccelerateIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](~~466794~~) operation to query the status of an accelerated IP address.
-    *     *   If an accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
-    *     *   If the system fails to return information about an accelerated IP address, the accelerated IP address is deleted.
-    * *   You cannot repeatedly call the **DeleteBasicAccelerateIp** operation for the same basic GA instance within a specific period of time.
-    *
-    * @param request DeleteBasicAccelerateIpRequest
-    * @return DeleteBasicAccelerateIpResponse
+   * @summary Deletes an accelerated IP address of a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **DeleteBasicAccelerateIp** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerateIp](https://help.aliyun.com/document_detail/466794.html) operation to query the status of an accelerated IP address.
+   *     *   If an accelerated IP address is in the **deleting** state, the accelerated IP address is being deleted. In this case, you can perform only query operations.
+   *     *   If the system fails to return information about an accelerated IP address, the accelerated IP address is deleted.
+   * *   You cannot repeatedly call the **DeleteBasicAccelerateIp** operation for the same basic GA instance within a specific period of time.
+   *
+   * @param request DeleteBasicAccelerateIpRequest
+   * @return DeleteBasicAccelerateIpResponse
    */
   async deleteBasicAccelerateIp(request: DeleteBasicAccelerateIpRequest): Promise<DeleteBasicAccelerateIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21407,14 +21607,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the following operations to check whether an accelerated IP address is disassociated from an endpoint:
-    *     *   You can call the [GetBasicAccelerateIp](~~466794~~) and [ListBasicEndpoints](~~466831~~) operations to query the status of an accelerated IP address and an endpoint. If the accelerated IP address and the endpoint are in the **unbinding** state, the accelerated IP address is being disassociated from the endpoint. In this case, you can query the IP address and endpoint but cannot perform other operations.
-    *     *   If the association status between the accelerated IP address and the endpoint cannot be queried by calling the [ListBasicAccelerateIpEndpointRelations](~~466803~~) operation, the accelerated IP address is disassociated from the endpoint.
-    * *   The **DeleteBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
-    *
-    * @param request DeleteBasicAccelerateIpEndpointRelationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBasicAccelerateIpEndpointRelationResponse
+   * @summary Deletes a mapping between an accelerated IP address and an endpoint for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **DeleteBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the following operations to check whether an accelerated IP address is disassociated from an endpoint:
+   *     *   You can call the [GetBasicAccelerateIp](https://help.aliyun.com/document_detail/466794.html) and [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) operations to query the status of an accelerated IP address and an endpoint. If the accelerated IP address and the endpoint are in the **unbinding** state, the accelerated IP address is being disassociated from the endpoint. In this case, you can query the IP address and endpoint but cannot perform other operations.
+   *     *   If the association status between the accelerated IP address and the endpoint cannot be queried by calling the [ListBasicAccelerateIpEndpointRelations](https://help.aliyun.com/document_detail/466803.html) operation, the accelerated IP address is disassociated from the endpoint.
+   * *   The **DeleteBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+   *
+   * @param request DeleteBasicAccelerateIpEndpointRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBasicAccelerateIpEndpointRelationResponse
    */
   async deleteBasicAccelerateIpEndpointRelationWithOptions(request: DeleteBasicAccelerateIpEndpointRelationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAccelerateIpEndpointRelationResponse> {
     Util.validateModel(request);
@@ -21457,13 +21659,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the following operations to check whether an accelerated IP address is disassociated from an endpoint:
-    *     *   You can call the [GetBasicAccelerateIp](~~466794~~) and [ListBasicEndpoints](~~466831~~) operations to query the status of an accelerated IP address and an endpoint. If the accelerated IP address and the endpoint are in the **unbinding** state, the accelerated IP address is being disassociated from the endpoint. In this case, you can query the IP address and endpoint but cannot perform other operations.
-    *     *   If the association status between the accelerated IP address and the endpoint cannot be queried by calling the [ListBasicAccelerateIpEndpointRelations](~~466803~~) operation, the accelerated IP address is disassociated from the endpoint.
-    * *   The **DeleteBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
-    *
-    * @param request DeleteBasicAccelerateIpEndpointRelationRequest
-    * @return DeleteBasicAccelerateIpEndpointRelationResponse
+   * @summary Deletes a mapping between an accelerated IP address and an endpoint for a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **DeleteBasicAccelerateIpEndpointRelation** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the following operations to check whether an accelerated IP address is disassociated from an endpoint:
+   *     *   You can call the [GetBasicAccelerateIp](https://help.aliyun.com/document_detail/466794.html) and [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) operations to query the status of an accelerated IP address and an endpoint. If the accelerated IP address and the endpoint are in the **unbinding** state, the accelerated IP address is being disassociated from the endpoint. In this case, you can query the IP address and endpoint but cannot perform other operations.
+   *     *   If the association status between the accelerated IP address and the endpoint cannot be queried by calling the [ListBasicAccelerateIpEndpointRelations](https://help.aliyun.com/document_detail/466803.html) operation, the accelerated IP address is disassociated from the endpoint.
+   * *   The **DeleteBasicAccelerateIpEndpointRelation** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+   *
+   * @param request DeleteBasicAccelerateIpEndpointRelationRequest
+   * @return DeleteBasicAccelerateIpEndpointRelationResponse
    */
   async deleteBasicAccelerateIpEndpointRelation(request: DeleteBasicAccelerateIpEndpointRelationRequest): Promise<DeleteBasicAccelerateIpEndpointRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21471,20 +21675,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You cannot delete subscription basic GA instances. You can unsubscribe from a basic GA instance on the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you unsubscribe from a basic GA instance, make sure that the acceleration areas and endpoint groups of the GA instance are deleted and no bandwidth plans are associated with the GA instance.
-    *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](~~2253388~~).
-    *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](~~2253399~~).
-    *     *   For information about how to disassociate a bandwidth plan from a basic GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
-    * *   Before you call this operation to delete a pay-as-you-go basic GA instance, make sure that all data is migrated and the acceleration areas and endpoint groups of the instance are deleted.
-    *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](~~2253388~~).
-    *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](~~2253399~~).
-    * *   **DeleteBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) operation to query the status of the task.
-    *     *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
-    *     *   If the information about the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
-    *
-    * @param request DeleteBasicAcceleratorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBasicAcceleratorResponse
+   * @summary Deletes a basic Global Accelerator (GA) instance.
+   *
+   * @description *   You cannot delete subscription basic GA instances. You can unsubscribe from a basic GA instance on the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you unsubscribe from a basic GA instance, make sure that the acceleration areas and endpoint groups of the GA instance are deleted and no bandwidth plans are associated with the GA instance.
+   *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](https://help.aliyun.com/document_detail/2253388.html).
+   *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](https://help.aliyun.com/document_detail/2253399.html).
+   *     *   For information about how to disassociate a bandwidth plan from a basic GA instance, see [BandwidthPackageRemoveAccelerator](https://help.aliyun.com/document_detail/153240.html).
+   * *   Before you call this operation to delete a pay-as-you-go basic GA instance, make sure that all data is migrated and the acceleration areas and endpoint groups of the instance are deleted.
+   *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](https://help.aliyun.com/document_detail/2253388.html).
+   *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](https://help.aliyun.com/document_detail/2253399.html).
+   * *   **DeleteBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](https://help.aliyun.com/document_detail/353188.html) operation to query the status of the task.
+   *     *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
+   *     *   If the information about the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
+   *
+   * @param request DeleteBasicAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBasicAcceleratorResponse
    */
   async deleteBasicAcceleratorWithOptions(request: DeleteBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAcceleratorResponse> {
     Util.validateModel(request);
@@ -21515,19 +21721,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You cannot delete subscription basic GA instances. You can unsubscribe from a basic GA instance on the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you unsubscribe from a basic GA instance, make sure that the acceleration areas and endpoint groups of the GA instance are deleted and no bandwidth plans are associated with the GA instance.
-    *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](~~2253388~~).
-    *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](~~2253399~~).
-    *     *   For information about how to disassociate a bandwidth plan from a basic GA instance, see [BandwidthPackageRemoveAccelerator](~~153240~~).
-    * *   Before you call this operation to delete a pay-as-you-go basic GA instance, make sure that all data is migrated and the acceleration areas and endpoint groups of the instance are deleted.
-    *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](~~2253388~~).
-    *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](~~2253399~~).
-    * *   **DeleteBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](~~353188~~) operation to query the status of the task.
-    *     *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
-    *     *   If the information about the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
-    *
-    * @param request DeleteBasicAcceleratorRequest
-    * @return DeleteBasicAcceleratorResponse
+   * @summary Deletes a basic Global Accelerator (GA) instance.
+   *
+   * @description *   You cannot delete subscription basic GA instances. You can unsubscribe from a basic GA instance on the [Unsubscribe](https://usercenter2-intl.aliyun.com/refund/refund) page. Before you unsubscribe from a basic GA instance, make sure that the acceleration areas and endpoint groups of the GA instance are deleted and no bandwidth plans are associated with the GA instance.
+   *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](https://help.aliyun.com/document_detail/2253388.html).
+   *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](https://help.aliyun.com/document_detail/2253399.html).
+   *     *   For information about how to disassociate a bandwidth plan from a basic GA instance, see [BandwidthPackageRemoveAccelerator](https://help.aliyun.com/document_detail/153240.html).
+   * *   Before you call this operation to delete a pay-as-you-go basic GA instance, make sure that all data is migrated and the acceleration areas and endpoint groups of the instance are deleted.
+   *     *   For information about how to delete an acceleration area, see [DeleteBasicIpSet](https://help.aliyun.com/document_detail/2253388.html).
+   *     *   For information about how to delete an endpoint group, see [DeleteBasicEndpointGroup](https://help.aliyun.com/document_detail/2253399.html).
+   * *   **DeleteBasicAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicAccelerator](https://help.aliyun.com/document_detail/353188.html) operation to query the status of the task.
+   *     *   If the basic GA instance is in the **deleting** state, it indicates that the instance is being deleted. In this case, you can perform only query operations.
+   *     *   If the information about the basic GA instance is not displayed in the response, it indicates that the instance is deleted.
+   *
+   * @param request DeleteBasicAcceleratorRequest
+   * @return DeleteBasicAcceleratorResponse
    */
   async deleteBasicAccelerator(request: DeleteBasicAcceleratorRequest): Promise<DeleteBasicAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21535,14 +21743,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) operation to query the status of endpoints.
-    *     *   If the endpoint is in the **deleting** state, it indicates that the endpoint is being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint cannot be found, it indicates that the endpoint is deleted.
-    * *   The **DeleteBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
-    *
-    * @param request DeleteBasicEndpointRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBasicEndpointResponse
+   * @summary Deletes an endpoint that is associated with a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **DeleteBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) operation to query the status of endpoints.
+   *     *   If the endpoint is in the **deleting** state, it indicates that the endpoint is being deleted. In this case, you can perform only query operations.
+   *     *   If the endpoint cannot be found, it indicates that the endpoint is deleted.
+   * *   The **DeleteBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+   *
+   * @param request DeleteBasicEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBasicEndpointResponse
    */
   async deleteBasicEndpointWithOptions(request: DeleteBasicEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicEndpointResponse> {
     Util.validateModel(request);
@@ -21581,13 +21791,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](~~466831~~) operation to query the status of endpoints.
-    *     *   If the endpoint is in the **deleting** state, it indicates that the endpoint is being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint cannot be found, it indicates that the endpoint is deleted.
-    * *   The **DeleteBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
-    *
-    * @param request DeleteBasicEndpointRequest
-    * @return DeleteBasicEndpointResponse
+   * @summary Deletes an endpoint that is associated with a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **DeleteBasicEndpoint** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListBasicEndpoints](https://help.aliyun.com/document_detail/466831.html) operation to query the status of endpoints.
+   *     *   If the endpoint is in the **deleting** state, it indicates that the endpoint is being deleted. In this case, you can perform only query operations.
+   *     *   If the endpoint cannot be found, it indicates that the endpoint is deleted.
+   * *   The **DeleteBasicEndpoint** API operation cannot be repeatedly called for the same basic GA instance within a period of time.
+   *
+   * @param request DeleteBasicEndpointRequest
+   * @return DeleteBasicEndpointResponse
    */
   async deleteBasicEndpoint(request: DeleteBasicEndpointRequest): Promise<DeleteBasicEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21595,17 +21807,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete an endpoint group, take note of the following items:
-    * *   If an endpoint in the endpoint group is associated with an accelerated IP address, you cannot delete the endpoint group. You can call the [DeleteBasicAccelerateIpEndpointRelation](~~2253413~~) operation to disassociate the endpoint from the accelerated IP address.
-    * *   If no endpoint in the endpoint group is associated with an accelerated IP address, you can delete the endpoint group. When you delete an endpoint group, all endpoints in the endpoint group are deleted.
-    * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the status of the task.
-    *     *   If the endpoint group is in the **deleting** state, the endpoint group is being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint group cannot be queried, the endpoint group is deleted.
-    * *   The **DeleteBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request DeleteBasicEndpointGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBasicEndpointGroupResponse
+   * @summary Deletes an endpoint group that is associated with a basic Global Accelerator (GA) instance.
+   *
+   * @description Before you delete an endpoint group, take note of the following items:
+   * *   If an endpoint in the endpoint group is associated with an accelerated IP address, you cannot delete the endpoint group. You can call the [DeleteBasicAccelerateIpEndpointRelation](https://help.aliyun.com/document_detail/2253413.html) operation to disassociate the endpoint from the accelerated IP address.
+   * *   If no endpoint in the endpoint group is associated with an accelerated IP address, you can delete the endpoint group. When you delete an endpoint group, all endpoints in the endpoint group are deleted.
+   * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicEndpointGroup](https://help.aliyun.com/document_detail/362984.html) operation to query the status of the task.
+   *     *   If the endpoint group is in the **deleting** state, the endpoint group is being deleted. In this case, you can perform only query operations.
+   *     *   If the endpoint group cannot be queried, the endpoint group is deleted.
+   * *   The **DeleteBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request DeleteBasicEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBasicEndpointGroupResponse
    */
   async deleteBasicEndpointGroupWithOptions(request: DeleteBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicEndpointGroupResponse> {
     Util.validateModel(request);
@@ -21636,16 +21850,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you delete an endpoint group, take note of the following items:
-    * *   If an endpoint in the endpoint group is associated with an accelerated IP address, you cannot delete the endpoint group. You can call the [DeleteBasicAccelerateIpEndpointRelation](~~2253413~~) operation to disassociate the endpoint from the accelerated IP address.
-    * *   If no endpoint in the endpoint group is associated with an accelerated IP address, you can delete the endpoint group. When you delete an endpoint group, all endpoints in the endpoint group are deleted.
-    * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicEndpointGroup](~~362984~~) operation to query the status of the task.
-    *     *   If the endpoint group is in the **deleting** state, the endpoint group is being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint group cannot be queried, the endpoint group is deleted.
-    * *   The **DeleteBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request DeleteBasicEndpointGroupRequest
-    * @return DeleteBasicEndpointGroupResponse
+   * @summary Deletes an endpoint group that is associated with a basic Global Accelerator (GA) instance.
+   *
+   * @description Before you delete an endpoint group, take note of the following items:
+   * *   If an endpoint in the endpoint group is associated with an accelerated IP address, you cannot delete the endpoint group. You can call the [DeleteBasicAccelerateIpEndpointRelation](https://help.aliyun.com/document_detail/2253413.html) operation to disassociate the endpoint from the accelerated IP address.
+   * *   If no endpoint in the endpoint group is associated with an accelerated IP address, you can delete the endpoint group. When you delete an endpoint group, all endpoints in the endpoint group are deleted.
+   * *   **DeleteBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicEndpointGroup](https://help.aliyun.com/document_detail/362984.html) operation to query the status of the task.
+   *     *   If the endpoint group is in the **deleting** state, the endpoint group is being deleted. In this case, you can perform only query operations.
+   *     *   If the endpoint group cannot be queried, the endpoint group is deleted.
+   * *   The **DeleteBasicEndpointGroup** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request DeleteBasicEndpointGroupRequest
+   * @return DeleteBasicEndpointGroupResponse
    */
   async deleteBasicEndpointGroup(request: DeleteBasicEndpointGroupRequest): Promise<DeleteBasicEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21653,15 +21869,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If an accelerated IP address is associated with an endpoint, you cannot delete the acceleration region. You can call the [DeleteBasicAccelerateIpEndpointRelation](~~2253413~~) operation to disassociate the accelerated IP address from the endpoint.
-    * *   \\*\\*DeleteBasicIpSet\\*\\* is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of the task.
-    *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
-    * *   The \\*\\*DeleteBasicIpSet\\*\\* operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
-    *
-    * @param request DeleteBasicIpSetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteBasicIpSetResponse
+   * @summary Deletes the acceleration region of a basic Global Accelerator (GA) instance.
+   *
+   * @description *   If an accelerated IP address is associated with an endpoint, you cannot delete the acceleration region. You can call the [DeleteBasicAccelerateIpEndpointRelation](https://help.aliyun.com/document_detail/2253413.html) operation to disassociate the accelerated IP address from the endpoint.
+   * *   \\*\\*DeleteBasicIpSet\\*\\* is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](https://help.aliyun.com/document_detail/362987.html) operation to query the status of the task.
+   *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+   *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
+   * *   The \\*\\*DeleteBasicIpSet\\*\\* operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
+   *
+   * @param request DeleteBasicIpSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteBasicIpSetResponse
    */
   async deleteBasicIpSetWithOptions(request: DeleteBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicIpSetResponse> {
     Util.validateModel(request);
@@ -21696,14 +21914,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   If an accelerated IP address is associated with an endpoint, you cannot delete the acceleration region. You can call the [DeleteBasicAccelerateIpEndpointRelation](~~2253413~~) operation to disassociate the accelerated IP address from the endpoint.
-    * *   \\*\\*DeleteBasicIpSet\\*\\* is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of the task.
-    *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
-    * *   The \\*\\*DeleteBasicIpSet\\*\\* operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
-    *
-    * @param request DeleteBasicIpSetRequest
-    * @return DeleteBasicIpSetResponse
+   * @summary Deletes the acceleration region of a basic Global Accelerator (GA) instance.
+   *
+   * @description *   If an accelerated IP address is associated with an endpoint, you cannot delete the acceleration region. You can call the [DeleteBasicAccelerateIpEndpointRelation](https://help.aliyun.com/document_detail/2253413.html) operation to disassociate the accelerated IP address from the endpoint.
+   * *   \\*\\*DeleteBasicIpSet\\*\\* is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](https://help.aliyun.com/document_detail/362987.html) operation to query the status of the task.
+   *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+   *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
+   * *   The \\*\\*DeleteBasicIpSet\\*\\* operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
+   *
+   * @param request DeleteBasicIpSetRequest
+   * @return DeleteBasicIpSetResponse
    */
   async deleteBasicIpSet(request: DeleteBasicIpSetRequest): Promise<DeleteBasicIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21711,14 +21931,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of the task.
-    *     *   If the endpoint group is in the **updating** state, it indicates that mappings are being deleted from the endpoint group. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state and no information about the mappings that you want to delete is found in the response when you call the [DescribeCustomRoutingEndpointGroupDestinations](~~449378~~) operation, it indicates the mappings are deleted from the endpoint group.
-    * *   You cannot call the **DeleteCustomRoutingEndpointGroupDestinations** operation again on the same Global Accelerator (GA) instance before the previous request is completed.
-    *
-    * @param request DeleteCustomRoutingEndpointGroupDestinationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteCustomRoutingEndpointGroupDestinationsResponse
+   * @summary Deletes mappings from an endpoint group that is associated with a custom routing listener.
+   *
+   * @description *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) to query the status of the task.
+   *     *   If the endpoint group is in the **updating** state, it indicates that mappings are being deleted from the endpoint group. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state and no information about the mappings that you want to delete is found in the response when you call the [DescribeCustomRoutingEndpointGroupDestinations](https://help.aliyun.com/document_detail/449378.html) operation, it indicates the mappings are deleted from the endpoint group.
+   * *   You cannot call the **DeleteCustomRoutingEndpointGroupDestinations** operation again on the same Global Accelerator (GA) instance before the previous request is completed.
+   *
+   * @param request DeleteCustomRoutingEndpointGroupDestinationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomRoutingEndpointGroupDestinationsResponse
    */
   async deleteCustomRoutingEndpointGroupDestinationsWithOptions(request: DeleteCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointGroupDestinationsResponse> {
     Util.validateModel(request);
@@ -21761,13 +21983,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of the task.
-    *     *   If the endpoint group is in the **updating** state, it indicates that mappings are being deleted from the endpoint group. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state and no information about the mappings that you want to delete is found in the response when you call the [DescribeCustomRoutingEndpointGroupDestinations](~~449378~~) operation, it indicates the mappings are deleted from the endpoint group.
-    * *   You cannot call the **DeleteCustomRoutingEndpointGroupDestinations** operation again on the same Global Accelerator (GA) instance before the previous request is completed.
-    *
-    * @param request DeleteCustomRoutingEndpointGroupDestinationsRequest
-    * @return DeleteCustomRoutingEndpointGroupDestinationsResponse
+   * @summary Deletes mappings from an endpoint group that is associated with a custom routing listener.
+   *
+   * @description *   **DeleteCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) to query the status of the task.
+   *     *   If the endpoint group is in the **updating** state, it indicates that mappings are being deleted from the endpoint group. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state and no information about the mappings that you want to delete is found in the response when you call the [DescribeCustomRoutingEndpointGroupDestinations](https://help.aliyun.com/document_detail/449378.html) operation, it indicates the mappings are deleted from the endpoint group.
+   * *   You cannot call the **DeleteCustomRoutingEndpointGroupDestinations** operation again on the same Global Accelerator (GA) instance before the previous request is completed.
+   *
+   * @param request DeleteCustomRoutingEndpointGroupDestinationsRequest
+   * @return DeleteCustomRoutingEndpointGroupDestinationsResponse
    */
   async deleteCustomRoutingEndpointGroupDestinations(request: DeleteCustomRoutingEndpointGroupDestinationsRequest): Promise<DeleteCustomRoutingEndpointGroupDestinationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21775,14 +21999,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener that you attempt to delete.
-    *     *   If the endpoint groups are in the **deleting** state, the endpoint groups are being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint groups cannot be queried, the endpoint groups are deleted.
-    * *   You cannot use the **DeleteCustomRoutingEndpointGroups** operation on the same Global Accelerator (GA) instance before the previous operation is complete.
-    *
-    * @param request DeleteCustomRoutingEndpointGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteCustomRoutingEndpointGroupsResponse
+   * @summary Deletes multiple endpoint groups that are associated with a custom routing listener.
+   *
+   * @description *   **DeleteCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the state of the endpoint groups associated with a custom routing listener that you attempt to delete.
+   *     *   If the endpoint groups are in the **deleting** state, the endpoint groups are being deleted. In this case, you can perform only query operations.
+   *     *   If the endpoint groups cannot be queried, the endpoint groups are deleted.
+   * *   You cannot use the **DeleteCustomRoutingEndpointGroups** operation on the same Global Accelerator (GA) instance before the previous operation is complete.
+   *
+   * @param request DeleteCustomRoutingEndpointGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomRoutingEndpointGroupsResponse
    */
   async deleteCustomRoutingEndpointGroupsWithOptions(request: DeleteCustomRoutingEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointGroupsResponse> {
     Util.validateModel(request);
@@ -21825,13 +22051,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener that you attempt to delete.
-    *     *   If the endpoint groups are in the **deleting** state, the endpoint groups are being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint groups cannot be queried, the endpoint groups are deleted.
-    * *   You cannot use the **DeleteCustomRoutingEndpointGroups** operation on the same Global Accelerator (GA) instance before the previous operation is complete.
-    *
-    * @param request DeleteCustomRoutingEndpointGroupsRequest
-    * @return DeleteCustomRoutingEndpointGroupsResponse
+   * @summary Deletes multiple endpoint groups that are associated with a custom routing listener.
+   *
+   * @description *   **DeleteCustomRoutingEndpointGroups** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the state of the endpoint groups associated with a custom routing listener that you attempt to delete.
+   *     *   If the endpoint groups are in the **deleting** state, the endpoint groups are being deleted. In this case, you can perform only query operations.
+   *     *   If the endpoint groups cannot be queried, the endpoint groups are deleted.
+   * *   You cannot use the **DeleteCustomRoutingEndpointGroups** operation on the same Global Accelerator (GA) instance before the previous operation is complete.
+   *
+   * @param request DeleteCustomRoutingEndpointGroupsRequest
+   * @return DeleteCustomRoutingEndpointGroupsResponse
    */
   async deleteCustomRoutingEndpointGroups(request: DeleteCustomRoutingEndpointGroupsRequest): Promise<DeleteCustomRoutingEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21839,14 +22067,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group to check whether the traffic destinations are deleted.
-    *     *   If the endpoint group is in the **updating** state, the traffic destinations are being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state and the traffic destinations that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](~~449392~~) operation, the traffic destinations are deleted.
-    * *   The **DeleteCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteCustomRoutingEndpointTrafficPoliciesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse
+   * @summary Deletes traffic destinations from an endpoint.
+   *
+   * @description *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of an endpoint group to check whether the traffic destinations are deleted.
+   *     *   If the endpoint group is in the **updating** state, the traffic destinations are being deleted. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state and the traffic destinations that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](https://help.aliyun.com/document_detail/449392.html) operation, the traffic destinations are deleted.
+   * *   The **DeleteCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteCustomRoutingEndpointTrafficPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse
    */
   async deleteCustomRoutingEndpointTrafficPoliciesWithOptions(request: DeleteCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointTrafficPoliciesResponse> {
     Util.validateModel(request);
@@ -21885,13 +22115,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group to check whether the traffic destinations are deleted.
-    *     *   If the endpoint group is in the **updating** state, the traffic destinations are being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state and the traffic destinations that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](~~449392~~) operation, the traffic destinations are deleted.
-    * *   The **DeleteCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteCustomRoutingEndpointTrafficPoliciesRequest
-    * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse
+   * @summary Deletes traffic destinations from an endpoint.
+   *
+   * @description *   **DeleteCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of an endpoint group to check whether the traffic destinations are deleted.
+   *     *   If the endpoint group is in the **updating** state, the traffic destinations are being deleted. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state and the traffic destinations that you want to delete cannot be queried by calling the [DescribeCustomRoutingEndPointTrafficPolicy](https://help.aliyun.com/document_detail/449392.html) operation, the traffic destinations are deleted.
+   * *   The **DeleteCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteCustomRoutingEndpointTrafficPoliciesRequest
+   * @return DeleteCustomRoutingEndpointTrafficPoliciesResponse
    */
   async deleteCustomRoutingEndpointTrafficPolicies(request: DeleteCustomRoutingEndpointTrafficPoliciesRequest): Promise<DeleteCustomRoutingEndpointTrafficPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21899,14 +22131,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpoints** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of the task.
-    *     *   If an endpoint group is in the **updating** state, the endpoint is being deleted. In this case, you can perform only query operations.
-    *     *   If an endpoint group is in the **active** state and the endpoint cannot be found after you call the [DescribeCustomRoutingEndpoint](~~449386~~) operation, the endpoint is deleted.
-    * *   You cannot call the **DeleteCustomRoutingEndpoints** operation again on the same Global Accelerator (GA) instance before the previous task is completed.
-    *
-    * @param request DeleteCustomRoutingEndpointsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteCustomRoutingEndpointsResponse
+   * @summary Deletes endpoints from a custom routing listener.
+   *
+   * @description *   **DeleteCustomRoutingEndpoints** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) to query the status of the task.
+   *     *   If an endpoint group is in the **updating** state, the endpoint is being deleted. In this case, you can perform only query operations.
+   *     *   If an endpoint group is in the **active** state and the endpoint cannot be found after you call the [DescribeCustomRoutingEndpoint](https://help.aliyun.com/document_detail/449386.html) operation, the endpoint is deleted.
+   * *   You cannot call the **DeleteCustomRoutingEndpoints** operation again on the same Global Accelerator (GA) instance before the previous task is completed.
+   *
+   * @param request DeleteCustomRoutingEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteCustomRoutingEndpointsResponse
    */
   async deleteCustomRoutingEndpointsWithOptions(request: DeleteCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomRoutingEndpointsResponse> {
     Util.validateModel(request);
@@ -21945,13 +22179,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteCustomRoutingEndpoints** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) to query the status of the task.
-    *     *   If an endpoint group is in the **updating** state, the endpoint is being deleted. In this case, you can perform only query operations.
-    *     *   If an endpoint group is in the **active** state and the endpoint cannot be found after you call the [DescribeCustomRoutingEndpoint](~~449386~~) operation, the endpoint is deleted.
-    * *   You cannot call the **DeleteCustomRoutingEndpoints** operation again on the same Global Accelerator (GA) instance before the previous task is completed.
-    *
-    * @param request DeleteCustomRoutingEndpointsRequest
-    * @return DeleteCustomRoutingEndpointsResponse
+   * @summary Deletes endpoints from a custom routing listener.
+   *
+   * @description *   **DeleteCustomRoutingEndpoints** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) to query the status of the task.
+   *     *   If an endpoint group is in the **updating** state, the endpoint is being deleted. In this case, you can perform only query operations.
+   *     *   If an endpoint group is in the **active** state and the endpoint cannot be found after you call the [DescribeCustomRoutingEndpoint](https://help.aliyun.com/document_detail/449386.html) operation, the endpoint is deleted.
+   * *   You cannot call the **DeleteCustomRoutingEndpoints** operation again on the same Global Accelerator (GA) instance before the previous task is completed.
+   *
+   * @param request DeleteCustomRoutingEndpointsRequest
+   * @return DeleteCustomRoutingEndpointsResponse
    */
   async deleteCustomRoutingEndpoints(request: DeleteCustomRoutingEndpointsRequest): Promise<DeleteCustomRoutingEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21959,11 +22195,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot call the **DeleteDomainAcceleratorRelation** operation again by using the same Alibaba Cloud account before the previous operation is complete.
-    *
-    * @param request DeleteDomainAcceleratorRelationRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteDomainAcceleratorRelationResponse
+   * @summary Disassociates a domain name from Global Accelerator (GA) instances.
+   *
+   * @description You cannot call the **DeleteDomainAcceleratorRelation** operation again by using the same Alibaba Cloud account before the previous operation is complete.
+   *
+   * @param request DeleteDomainAcceleratorRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteDomainAcceleratorRelationResponse
    */
   async deleteDomainAcceleratorRelationWithOptions(request: DeleteDomainAcceleratorRelationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainAcceleratorRelationResponse> {
     Util.validateModel(request);
@@ -21998,10 +22236,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot call the **DeleteDomainAcceleratorRelation** operation again by using the same Alibaba Cloud account before the previous operation is complete.
-    *
-    * @param request DeleteDomainAcceleratorRelationRequest
-    * @return DeleteDomainAcceleratorRelationResponse
+   * @summary Disassociates a domain name from Global Accelerator (GA) instances.
+   *
+   * @description You cannot call the **DeleteDomainAcceleratorRelation** operation again by using the same Alibaba Cloud account before the previous operation is complete.
+   *
+   * @param request DeleteDomainAcceleratorRelationRequest
+   * @return DeleteDomainAcceleratorRelationResponse
    */
   async deleteDomainAcceleratorRelation(request: DeleteDomainAcceleratorRelationRequest): Promise<DeleteDomainAcceleratorRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22009,14 +22249,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group.
-    *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
-    * *   The **DeleteEndpointGroup** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request DeleteEndpointGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteEndpointGroupResponse
+   * @summary Deletes an endpoint group.
+   *
+   * @description *   **DeleteEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the status of the endpoint group.
+   *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+   *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+   * *   The **DeleteEndpointGroup** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request DeleteEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEndpointGroupResponse
    */
   async deleteEndpointGroupWithOptions(request: DeleteEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupResponse> {
     Util.validateModel(request);
@@ -22051,13 +22293,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group.
-    *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
-    *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
-    * *   The **DeleteEndpointGroup** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request DeleteEndpointGroupRequest
-    * @return DeleteEndpointGroupResponse
+   * @summary Deletes an endpoint group.
+   *
+   * @description *   **DeleteEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the status of the endpoint group.
+   *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
+   *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
+   * *   The **DeleteEndpointGroup** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request DeleteEndpointGroupRequest
+   * @return DeleteEndpointGroupResponse
    */
   async deleteEndpointGroup(request: DeleteEndpointGroupRequest): Promise<DeleteEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22065,14 +22309,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the task.
-    *     *   If an endpoint group is in the **deleting** state, the endpoint group is being deleted. In this case, you can perform only query operations.
-    *     *   If an endpoint group cannot be queried, the endpoint group is deleted.
-    * *   The **DeleteEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteEndpointGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteEndpointGroupsResponse
+   * @summary Deletes endpoint groups.
+   *
+   * @description *   **DeleteEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the status of the task.
+   *     *   If an endpoint group is in the **deleting** state, the endpoint group is being deleted. In this case, you can perform only query operations.
+   *     *   If an endpoint group cannot be queried, the endpoint group is deleted.
+   * *   The **DeleteEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteEndpointGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteEndpointGroupsResponse
    */
   async deleteEndpointGroupsWithOptions(request: DeleteEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupsResponse> {
     Util.validateModel(request);
@@ -22111,13 +22357,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the task.
-    *     *   If an endpoint group is in the **deleting** state, the endpoint group is being deleted. In this case, you can perform only query operations.
-    *     *   If an endpoint group cannot be queried, the endpoint group is deleted.
-    * *   The **DeleteEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteEndpointGroupsRequest
-    * @return DeleteEndpointGroupsResponse
+   * @summary Deletes endpoint groups.
+   *
+   * @description *   **DeleteEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the status of the task.
+   *     *   If an endpoint group is in the **deleting** state, the endpoint group is being deleted. In this case, you can perform only query operations.
+   *     *   If an endpoint group cannot be queried, the endpoint group is deleted.
+   * *   The **DeleteEndpointGroups** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteEndpointGroupsRequest
+   * @return DeleteEndpointGroupsResponse
    */
   async deleteEndpointGroups(request: DeleteEndpointGroupsRequest): Promise<DeleteEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22125,14 +22373,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteForwardingRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListForwardingRules](~~205817~~) operation to query the status of the task.
-    *     *   If a forwarding rule is in the **deleting** state, the forwarding rule is being deleted. In this case, you can perform only query operations.
-    *     *   If a forwarding rule cannot be queried, the forwarding rule is deleted.
-    * *   The **DeleteForwardingRules** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteForwardingRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteForwardingRulesResponse
+   * @summary Deletes forwarding rules.
+   *
+   * @description *   **DeleteForwardingRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListForwardingRules](https://help.aliyun.com/document_detail/205817.html) operation to query the status of the task.
+   *     *   If a forwarding rule is in the **deleting** state, the forwarding rule is being deleted. In this case, you can perform only query operations.
+   *     *   If a forwarding rule cannot be queried, the forwarding rule is deleted.
+   * *   The **DeleteForwardingRules** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteForwardingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteForwardingRulesResponse
    */
   async deleteForwardingRulesWithOptions(request: DeleteForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardingRulesResponse> {
     Util.validateModel(request);
@@ -22175,13 +22425,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteForwardingRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListForwardingRules](~~205817~~) operation to query the status of the task.
-    *     *   If a forwarding rule is in the **deleting** state, the forwarding rule is being deleted. In this case, you can perform only query operations.
-    *     *   If a forwarding rule cannot be queried, the forwarding rule is deleted.
-    * *   The **DeleteForwardingRules** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteForwardingRulesRequest
-    * @return DeleteForwardingRulesResponse
+   * @summary Deletes forwarding rules.
+   *
+   * @description *   **DeleteForwardingRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListForwardingRules](https://help.aliyun.com/document_detail/205817.html) operation to query the status of the task.
+   *     *   If a forwarding rule is in the **deleting** state, the forwarding rule is being deleted. In this case, you can perform only query operations.
+   *     *   If a forwarding rule cannot be queried, the forwarding rule is deleted.
+   * *   The **DeleteForwardingRules** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteForwardingRulesRequest
+   * @return DeleteForwardingRulesResponse
    */
   async deleteForwardingRules(request: DeleteForwardingRulesRequest): Promise<DeleteForwardingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22189,14 +22441,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of an acceleration region.
-    *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
-    * *   The **DeleteIpSet** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request DeleteIpSetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIpSetResponse
+   * @summary Deletes an acceleration region.
+   *
+   * @description *   **DeleteIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](https://help.aliyun.com/document_detail/153246.html) operation to query the status of an acceleration region.
+   *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+   *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
+   * *   The **DeleteIpSet** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request DeleteIpSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIpSetResponse
    */
   async deleteIpSetWithOptions(request: DeleteIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpSetResponse> {
     Util.validateModel(request);
@@ -22235,13 +22489,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of an acceleration region.
-    *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
-    * *   The **DeleteIpSet** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request DeleteIpSetRequest
-    * @return DeleteIpSetResponse
+   * @summary Deletes an acceleration region.
+   *
+   * @description *   **DeleteIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](https://help.aliyun.com/document_detail/153246.html) operation to query the status of an acceleration region.
+   *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+   *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
+   * *   The **DeleteIpSet** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request DeleteIpSetRequest
+   * @return DeleteIpSetResponse
    */
   async deleteIpSet(request: DeleteIpSetRequest): Promise<DeleteIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22249,14 +22505,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
-    *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If you cannot query the acceleration region, the acceleration region is deleted.
-    * *   You cannot repeatedly call the **DeleteIpSets** operation for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteIpSetsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteIpSetsResponse
+   * @summary Deletes acceleration regions.
+   *
+   * @description *   **DeleteIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](https://help.aliyun.com/document_detail/153246.html) operation to query the status of the task.
+   *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
+   *     *   If you cannot query the acceleration region, the acceleration region is deleted.
+   * *   You cannot repeatedly call the **DeleteIpSets** operation for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteIpSetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteIpSetsResponse
    */
   async deleteIpSetsWithOptions(request: DeleteIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpSetsResponse> {
     Util.validateModel(request);
@@ -22287,13 +22545,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
-    *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
-    *     *   If you cannot query the acceleration region, the acceleration region is deleted.
-    * *   You cannot repeatedly call the **DeleteIpSets** operation for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteIpSetsRequest
-    * @return DeleteIpSetsResponse
+   * @summary Deletes acceleration regions.
+   *
+   * @description *   **DeleteIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](https://help.aliyun.com/document_detail/153246.html) operation to query the status of the task.
+   *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
+   *     *   If you cannot query the acceleration region, the acceleration region is deleted.
+   * *   You cannot repeatedly call the **DeleteIpSets** operation for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteIpSetsRequest
+   * @return DeleteIpSetsResponse
    */
   async deleteIpSets(request: DeleteIpSetsRequest): Promise<DeleteIpSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22301,18 +22561,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call the **DeleteListener** operation, make sure that no endpoint groups are associated with the listener that you want to delete. For information about how to delete an endpoint group, see the following topics:
-    *     *   [DeleteEndpointGroup](~~2253305~~): deletes an endpoint group that is associated with an intelligent routing listener.
-    *     *   [DeleteEndpointGroups](~~2253311~~): deletes multiple endpoint groups that are associated with intelligent routing listeners at the same time.
-    *     *   [DeleteCustomRoutingEndpointGroups](~~2303183~~): deletes multiple endpoint groups that are associated with custom routing listeners at the same time.
-    * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the listener.
-    *     *   If the listener is in the **deleting** state, the listener is being deleted. In this case, you can perform only query operations.
-    *     *   If the listener cannot be queried, the listener is deleted.
-    * *   You cannot repeatedly call the **DeleteListener** operation to delete the listeners of the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteListenerResponse
+   * @summary Deletes a listener.
+   *
+   * @description *   Before you call the **DeleteListener** operation, make sure that no endpoint groups are associated with the listener that you want to delete. For information about how to delete an endpoint group, see the following topics:
+   *     *   [DeleteEndpointGroup](https://help.aliyun.com/document_detail/2253305.html): deletes an endpoint group that is associated with an intelligent routing listener.
+   *     *   [DeleteEndpointGroups](https://help.aliyun.com/document_detail/2253311.html): deletes multiple endpoint groups that are associated with intelligent routing listeners at the same time.
+   *     *   [DeleteCustomRoutingEndpointGroups](https://help.aliyun.com/document_detail/2303183.html): deletes multiple endpoint groups that are associated with custom routing listeners at the same time.
+   * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the status of the listener.
+   *     *   If the listener is in the **deleting** state, the listener is being deleted. In this case, you can perform only query operations.
+   *     *   If the listener cannot be queried, the listener is deleted.
+   * *   You cannot repeatedly call the **DeleteListener** operation to delete the listeners of the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteListenerResponse
    */
   async deleteListenerWithOptions(request: DeleteListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteListenerResponse> {
     Util.validateModel(request);
@@ -22347,17 +22609,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   Before you call the **DeleteListener** operation, make sure that no endpoint groups are associated with the listener that you want to delete. For information about how to delete an endpoint group, see the following topics:
-    *     *   [DeleteEndpointGroup](~~2253305~~): deletes an endpoint group that is associated with an intelligent routing listener.
-    *     *   [DeleteEndpointGroups](~~2253311~~): deletes multiple endpoint groups that are associated with intelligent routing listeners at the same time.
-    *     *   [DeleteCustomRoutingEndpointGroups](~~2303183~~): deletes multiple endpoint groups that are associated with custom routing listeners at the same time.
-    * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the listener.
-    *     *   If the listener is in the **deleting** state, the listener is being deleted. In this case, you can perform only query operations.
-    *     *   If the listener cannot be queried, the listener is deleted.
-    * *   You cannot repeatedly call the **DeleteListener** operation to delete the listeners of the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DeleteListenerRequest
-    * @return DeleteListenerResponse
+   * @summary Deletes a listener.
+   *
+   * @description *   Before you call the **DeleteListener** operation, make sure that no endpoint groups are associated with the listener that you want to delete. For information about how to delete an endpoint group, see the following topics:
+   *     *   [DeleteEndpointGroup](https://help.aliyun.com/document_detail/2253305.html): deletes an endpoint group that is associated with an intelligent routing listener.
+   *     *   [DeleteEndpointGroups](https://help.aliyun.com/document_detail/2253311.html): deletes multiple endpoint groups that are associated with intelligent routing listeners at the same time.
+   *     *   [DeleteCustomRoutingEndpointGroups](https://help.aliyun.com/document_detail/2303183.html): deletes multiple endpoint groups that are associated with custom routing listeners at the same time.
+   * *   **DeleteListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the status of the listener.
+   *     *   If the listener is in the **deleting** state, the listener is being deleted. In this case, you can perform only query operations.
+   *     *   If the listener cannot be queried, the listener is deleted.
+   * *   You cannot repeatedly call the **DeleteListener** operation to delete the listeners of the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DeleteListenerRequest
+   * @return DeleteListenerResponse
    */
   async deleteListener(request: DeleteListenerRequest): Promise<DeleteListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22365,14 +22629,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-    *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](~~262121~~) operation, it indicates that the IP addresses are deleted.
-    * *   The **DeleteSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request DeleteSpareIpsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DeleteSpareIpsResponse
+   * @summary Deletes the secondary IP addresses that are associated with a CNAME.
+   *
+   * @description *   **DeleteSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of a GA instance.
+   *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](https://help.aliyun.com/document_detail/262121.html) operation, it indicates that the IP addresses are deleted.
+   * *   The **DeleteSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request DeleteSpareIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteSpareIpsResponse
    */
   async deleteSpareIpsWithOptions(request: DeleteSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpareIpsResponse> {
     Util.validateModel(request);
@@ -22415,19 +22681,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **DeleteSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-    *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](~~262121~~) operation, it indicates that the IP addresses are deleted.
-    * *   The **DeleteSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request DeleteSpareIpsRequest
-    * @return DeleteSpareIpsResponse
+   * @summary Deletes the secondary IP addresses that are associated with a CNAME.
+   *
+   * @description *   **DeleteSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of a GA instance.
+   *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](https://help.aliyun.com/document_detail/262121.html) operation, it indicates that the IP addresses are deleted.
+   * *   The **DeleteSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request DeleteSpareIpsRequest
+   * @return DeleteSpareIpsResponse
    */
   async deleteSpareIps(request: DeleteSpareIpsRequest): Promise<DeleteSpareIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSpareIpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about a Global Accelerator (GA) instance.
+   *
+   * @param request DescribeAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAcceleratorResponse
+   */
   async describeAcceleratorWithOptions(request: DescribeAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22456,11 +22731,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAcceleratorResponse>(await this.callApi(params, req, runtime), new DescribeAcceleratorResponse({}));
   }
 
+  /**
+   * @summary Queries information about a Global Accelerator (GA) instance.
+   *
+   * @param request DescribeAcceleratorRequest
+   * @return DescribeAcceleratorResponse
+   */
   async describeAccelerator(request: DescribeAcceleratorRequest): Promise<DescribeAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the auto-renewal status of a Global Accelerator (GA) instance.
+   *
+   * @param request DescribeAcceleratorAutoRenewAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAcceleratorAutoRenewAttributeResponse
+   */
   async describeAcceleratorAutoRenewAttributeWithOptions(request: DescribeAcceleratorAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAcceleratorAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22489,11 +22777,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAcceleratorAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new DescribeAcceleratorAutoRenewAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the auto-renewal status of a Global Accelerator (GA) instance.
+   *
+   * @param request DescribeAcceleratorAutoRenewAttributeRequest
+   * @return DescribeAcceleratorAutoRenewAttributeResponse
+   */
   async describeAcceleratorAutoRenewAttribute(request: DescribeAcceleratorAutoRenewAttributeRequest): Promise<DescribeAcceleratorAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAcceleratorAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a pay-as-you-go Global Accelerator (GA) instance.
+   *
+   * @param request DescribeAcceleratorServiceStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeAcceleratorServiceStatusResponse
+   */
   async describeAcceleratorServiceStatusWithOptions(request: DescribeAcceleratorServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAcceleratorServiceStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22518,11 +22819,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeAcceleratorServiceStatusResponse>(await this.callApi(params, req, runtime), new DescribeAcceleratorServiceStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a pay-as-you-go Global Accelerator (GA) instance.
+   *
+   * @param request DescribeAcceleratorServiceStatusRequest
+   * @return DescribeAcceleratorServiceStatusResponse
+   */
   async describeAcceleratorServiceStatus(request: DescribeAcceleratorServiceStatusRequest): Promise<DescribeAcceleratorServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAcceleratorServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the detailed information about an origin probing task.
+   *
+   * @param request DescribeApplicationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeApplicationMonitorResponse
+   */
   async describeApplicationMonitorWithOptions(request: DescribeApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22555,11 +22869,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApplicationMonitorResponse>(await this.callApi(params, req, runtime), new DescribeApplicationMonitorResponse({}));
   }
 
+  /**
+   * @summary Queries the detailed information about an origin probing task.
+   *
+   * @param request DescribeApplicationMonitorRequest
+   * @return DescribeApplicationMonitorResponse
+   */
   async describeApplicationMonitor(request: DescribeApplicationMonitorRequest): Promise<DescribeApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApplicationMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about a bandwidth plan.
+   *
+   * @param request DescribeBandwidthPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBandwidthPackageResponse
+   */
   async describeBandwidthPackageWithOptions(request: DescribeBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22588,11 +22915,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBandwidthPackageResponse>(await this.callApi(params, req, runtime), new DescribeBandwidthPackageResponse({}));
   }
 
+  /**
+   * @summary Queries information about a bandwidth plan.
+   *
+   * @param request DescribeBandwidthPackageRequest
+   * @return DescribeBandwidthPackageResponse
+   */
   async describeBandwidthPackage(request: DescribeBandwidthPackageRequest): Promise<DescribeBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBandwidthPackageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the auto-renewal status of a bandwidth plan.
+   *
+   * @param request DescribeBandwidthPackageAutoRenewAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeBandwidthPackageAutoRenewAttributeResponse
+   */
   async describeBandwidthPackageAutoRenewAttributeWithOptions(request: DescribeBandwidthPackageAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBandwidthPackageAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22621,11 +22961,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeBandwidthPackageAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new DescribeBandwidthPackageAutoRenewAttributeResponse({}));
   }
 
+  /**
+   * @summary Queries the auto-renewal status of a bandwidth plan.
+   *
+   * @param request DescribeBandwidthPackageAutoRenewAttributeRequest
+   * @return DescribeBandwidthPackageAutoRenewAttributeResponse
+   */
   async describeBandwidthPackageAutoRenewAttribute(request: DescribeBandwidthPackageAutoRenewAttributeRequest): Promise<DescribeBandwidthPackageAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeBandwidthPackageAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about commodities.
+   *
+   * @param request DescribeCommodityRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCommodityResponse
+   */
   async describeCommodityWithOptions(request: DescribeCommodityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommodityResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22658,17 +23011,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCommodityResponse>(await this.callApi(params, req, runtime), new DescribeCommodityResponse({}));
   }
 
+  /**
+   * @summary Queries information about commodities.
+   *
+   * @param request DescribeCommodityRequest
+   * @return DescribeCommodityResponse
+   */
   async describeCommodity(request: DescribeCommodityRequest): Promise<DescribeCommodityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCommodityWithOptions(request, runtime);
   }
 
   /**
-    * You can call the [DescribeCommodity](~~2253233~~) operation to query information about the commodity modules.
-    *
-    * @param request DescribeCommodityPriceRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeCommodityPriceResponse
+   * @summary Queries the prices of commodities.
+   *
+   * @description You can call the [DescribeCommodity](https://help.aliyun.com/document_detail/2253233.html) operation to query information about the commodity modules.
+   *
+   * @param request DescribeCommodityPriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCommodityPriceResponse
    */
   async describeCommodityPriceWithOptions(request: DescribeCommodityPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommodityPriceResponse> {
     Util.validateModel(request);
@@ -22703,16 +23064,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call the [DescribeCommodity](~~2253233~~) operation to query information about the commodity modules.
-    *
-    * @param request DescribeCommodityPriceRequest
-    * @return DescribeCommodityPriceResponse
+   * @summary Queries the prices of commodities.
+   *
+   * @description You can call the [DescribeCommodity](https://help.aliyun.com/document_detail/2253233.html) operation to query information about the commodity modules.
+   *
+   * @param request DescribeCommodityPriceRequest
+   * @return DescribeCommodityPriceResponse
    */
   async describeCommodityPrice(request: DescribeCommodityPriceRequest): Promise<DescribeCommodityPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCommodityPriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a traffic destination of an endpoint.
+   *
+   * @param request DescribeCustomRoutingEndPointTrafficPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomRoutingEndPointTrafficPolicyResponse
+   */
   async describeCustomRoutingEndPointTrafficPolicyWithOptions(request: DescribeCustomRoutingEndPointTrafficPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomRoutingEndPointTrafficPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22745,11 +23115,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomRoutingEndPointTrafficPolicyResponse>(await this.callApi(params, req, runtime), new DescribeCustomRoutingEndPointTrafficPolicyResponse({}));
   }
 
+  /**
+   * @summary Queries a traffic destination of an endpoint.
+   *
+   * @param request DescribeCustomRoutingEndPointTrafficPolicyRequest
+   * @return DescribeCustomRoutingEndPointTrafficPolicyResponse
+   */
   async describeCustomRoutingEndPointTrafficPolicy(request: DescribeCustomRoutingEndPointTrafficPolicyRequest): Promise<DescribeCustomRoutingEndPointTrafficPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomRoutingEndPointTrafficPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a specified endpoint that is associated with a custom routing listener.
+   *
+   * @param request DescribeCustomRoutingEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomRoutingEndpointResponse
+   */
   async describeCustomRoutingEndpointWithOptions(request: DescribeCustomRoutingEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomRoutingEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22782,11 +23165,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomRoutingEndpointResponse>(await this.callApi(params, req, runtime), new DescribeCustomRoutingEndpointResponse({}));
   }
 
+  /**
+   * @summary Queries a specified endpoint that is associated with a custom routing listener.
+   *
+   * @param request DescribeCustomRoutingEndpointRequest
+   * @return DescribeCustomRoutingEndpointResponse
+   */
   async describeCustomRoutingEndpoint(request: DescribeCustomRoutingEndpointRequest): Promise<DescribeCustomRoutingEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomRoutingEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a specific endpoint group that is associated with a custom routing listener.
+   *
+   * @param request DescribeCustomRoutingEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomRoutingEndpointGroupResponse
+   */
   async describeCustomRoutingEndpointGroupWithOptions(request: DescribeCustomRoutingEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomRoutingEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22815,11 +23211,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomRoutingEndpointGroupResponse>(await this.callApi(params, req, runtime), new DescribeCustomRoutingEndpointGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a specific endpoint group that is associated with a custom routing listener.
+   *
+   * @param request DescribeCustomRoutingEndpointGroupRequest
+   * @return DescribeCustomRoutingEndpointGroupResponse
+   */
   async describeCustomRoutingEndpointGroup(request: DescribeCustomRoutingEndpointGroupRequest): Promise<DescribeCustomRoutingEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomRoutingEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the mapping configuration of a specified endpoint group that is associated with a custom routing listener.
+   *
+   * @param request DescribeCustomRoutingEndpointGroupDestinationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeCustomRoutingEndpointGroupDestinationsResponse
+   */
   async describeCustomRoutingEndpointGroupDestinationsWithOptions(request: DescribeCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomRoutingEndpointGroupDestinationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22852,11 +23261,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCustomRoutingEndpointGroupDestinationsResponse>(await this.callApi(params, req, runtime), new DescribeCustomRoutingEndpointGroupDestinationsResponse({}));
   }
 
+  /**
+   * @summary Queries the mapping configuration of a specified endpoint group that is associated with a custom routing listener.
+   *
+   * @param request DescribeCustomRoutingEndpointGroupDestinationsRequest
+   * @return DescribeCustomRoutingEndpointGroupDestinationsResponse
+   */
   async describeCustomRoutingEndpointGroupDestinations(request: DescribeCustomRoutingEndpointGroupDestinationsRequest): Promise<DescribeCustomRoutingEndpointGroupDestinationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about an endpoint group.
+   *
+   * @param request DescribeEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeEndpointGroupResponse
+   */
   async describeEndpointGroupWithOptions(request: DescribeEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22885,11 +23307,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeEndpointGroupResponse>(await this.callApi(params, req, runtime), new DescribeEndpointGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information about an endpoint group.
+   *
+   * @param request DescribeEndpointGroupRequest
+   * @return DescribeEndpointGroupResponse
+   */
   async describeEndpointGroup(request: DescribeEndpointGroupRequest): Promise<DescribeEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries information about an acceleration region.
+   *
+   * @param request DescribeIpSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeIpSetResponse
+   */
   async describeIpSetWithOptions(request: DescribeIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22918,17 +23353,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeIpSetResponse>(await this.callApi(params, req, runtime), new DescribeIpSetResponse({}));
   }
 
+  /**
+   * @summary Queries information about an acceleration region.
+   *
+   * @param request DescribeIpSetRequest
+   * @return DescribeIpSetResponse
+   */
   async describeIpSet(request: DescribeIpSetRequest): Promise<DescribeIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeIpSetWithOptions(request, runtime);
   }
 
   /**
-    * This operation is used to query configuration information about a listener of a GA instance. The information includes the routing type of the listener, the status of the listener, the timestamp that indicates when the listener was created, and the listener ports.
-    *
-    * @param request DescribeListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeListenerResponse
+   * @summary Queries configuration information about a listener of a Global Accelerator (GA) instance.
+   *
+   * @description This operation is used to query configuration information about a listener of a GA instance. The information includes the routing type of the listener, the status of the listener, the timestamp that indicates when the listener was created, and the listener ports.
+   *
+   * @param request DescribeListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeListenerResponse
    */
   async describeListenerWithOptions(request: DescribeListenerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeListenerResponse> {
     Util.validateModel(request);
@@ -22959,16 +23402,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is used to query configuration information about a listener of a GA instance. The information includes the routing type of the listener, the status of the listener, the timestamp that indicates when the listener was created, and the listener ports.
-    *
-    * @param request DescribeListenerRequest
-    * @return DescribeListenerResponse
+   * @summary Queries configuration information about a listener of a Global Accelerator (GA) instance.
+   *
+   * @description This operation is used to query configuration information about a listener of a GA instance. The information includes the routing type of the listener, the status of the listener, the timestamp that indicates when the listener was created, and the listener ports.
+   *
+   * @param request DescribeListenerRequest
+   * @return DescribeListenerResponse
    */
   async describeListener(request: DescribeListenerRequest): Promise<DescribeListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the Simple Log Service project and Logstore associated with an endpoint group.
+   *
+   * @param request DescribeLogStoreOfEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeLogStoreOfEndpointGroupResponse
+   */
   async describeLogStoreOfEndpointGroupWithOptions(request: DescribeLogStoreOfEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogStoreOfEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23005,11 +23457,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLogStoreOfEndpointGroupResponse>(await this.callApi(params, req, runtime), new DescribeLogStoreOfEndpointGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the Simple Log Service project and Logstore associated with an endpoint group.
+   *
+   * @param request DescribeLogStoreOfEndpointGroupRequest
+   * @return DescribeLogStoreOfEndpointGroupResponse
+   */
   async describeLogStoreOfEndpointGroup(request: DescribeLogStoreOfEndpointGroupRequest): Promise<DescribeLogStoreOfEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLogStoreOfEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the regions where Global Accelerator (GA) instances are deployed.
+   *
+   * @param request DescribeRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRegionsResponse
+   */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23034,20 +23499,28 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the regions where Global Accelerator (GA) instances are deployed.
+   *
+   * @param request DescribeRegionsRequest
+   * @return DescribeRegionsResponse
+   */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
-    * *   The **DetachDdosFromAccelerator** operation is asynchronous. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
-    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being disassociated from the GA instance. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is disassociated from the GA instance.
-    * *   **DetachDdosFromAccelerator** cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request DetachDdosFromAcceleratorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DetachDdosFromAcceleratorResponse
+   * @summary Disassociates a Global Accelerator (GA) instance from an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @description *   The **DetachDdosFromAccelerator** operation is asynchronous. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) or [ListAccelerators](https://help.aliyun.com/document_detail/153236.html) operation to query the status of the GA instance.
+   *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being disassociated from the GA instance. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is disassociated from the GA instance.
+   * *   **DetachDdosFromAccelerator** cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request DetachDdosFromAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachDdosFromAcceleratorResponse
    */
   async detachDdosFromAcceleratorWithOptions(request: DetachDdosFromAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DetachDdosFromAcceleratorResponse> {
     Util.validateModel(request);
@@ -23078,13 +23551,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   The **DetachDdosFromAccelerator** operation is asynchronous. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
-    *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being disassociated from the GA instance. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is disassociated from the GA instance.
-    * *   **DetachDdosFromAccelerator** cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request DetachDdosFromAcceleratorRequest
-    * @return DetachDdosFromAcceleratorResponse
+   * @summary Disassociates a Global Accelerator (GA) instance from an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   *
+   * @description *   The **DetachDdosFromAccelerator** operation is asynchronous. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) or [ListAccelerators](https://help.aliyun.com/document_detail/153236.html) operation to query the status of the GA instance.
+   *     *   If the GA instance is in the **configuring** state, the Anti-DDoS Pro/Premium instance is being disassociated from the GA instance. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, the Anti-DDoS Pro/Premium instance is disassociated from the GA instance.
+   * *   **DetachDdosFromAccelerator** cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request DetachDdosFromAcceleratorRequest
+   * @return DetachDdosFromAcceleratorResponse
    */
   async detachDdosFromAccelerator(request: DetachDdosFromAcceleratorRequest): Promise<DetachDdosFromAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23092,16 +23567,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * *   **DetachLogStoreFromEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, the Log Service Logstore is being disassociated from the endpoint group. In this case, you can perform only query operations.
-    *     <!---->
-    *     *   If the endpoint group is in the **active** state, the Log Service Logstore is disassociated from the endpoint group.
-    * *   The **DetachLogStoreFromEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DetachLogStoreFromEndpointGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DetachLogStoreFromEndpointGroupResponse
+   * @summary Disassociates a Log Service Logstore from an endpoint group.
+   *
+   * @description ## Description
+   * *   **DetachLogStoreFromEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the state of an endpoint group.
+   *     *   If the endpoint group is in the **updating** state, the Log Service Logstore is being disassociated from the endpoint group. In this case, you can perform only query operations.
+   *     <!---->
+   *     *   If the endpoint group is in the **active** state, the Log Service Logstore is disassociated from the endpoint group.
+   * *   The **DetachLogStoreFromEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DetachLogStoreFromEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetachLogStoreFromEndpointGroupResponse
    */
   async detachLogStoreFromEndpointGroupWithOptions(request: DetachLogStoreFromEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachLogStoreFromEndpointGroupResponse> {
     Util.validateModel(request);
@@ -23144,21 +23621,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * *   **DetachLogStoreFromEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, the Log Service Logstore is being disassociated from the endpoint group. In this case, you can perform only query operations.
-    *     <!---->
-    *     *   If the endpoint group is in the **active** state, the Log Service Logstore is disassociated from the endpoint group.
-    * *   The **DetachLogStoreFromEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DetachLogStoreFromEndpointGroupRequest
-    * @return DetachLogStoreFromEndpointGroupResponse
+   * @summary Disassociates a Log Service Logstore from an endpoint group.
+   *
+   * @description ## Description
+   * *   **DetachLogStoreFromEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the state of an endpoint group.
+   *     *   If the endpoint group is in the **updating** state, the Log Service Logstore is being disassociated from the endpoint group. In this case, you can perform only query operations.
+   *     <!---->
+   *     *   If the endpoint group is in the **active** state, the Log Service Logstore is disassociated from the endpoint group.
+   * *   The **DetachLogStoreFromEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DetachLogStoreFromEndpointGroupRequest
+   * @return DetachLogStoreFromEndpointGroupResponse
    */
   async detachLogStoreFromEndpointGroup(request: DetachLogStoreFromEndpointGroupRequest): Promise<DetachLogStoreFromEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detachLogStoreFromEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables the diagnostic feature for an origin probing task.
+   *
+   * @param request DetectApplicationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DetectApplicationMonitorResponse
+   */
   async detectApplicationMonitorWithOptions(request: DetectApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DetectApplicationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23191,11 +23677,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DetectApplicationMonitorResponse>(await this.callApi(params, req, runtime), new DetectApplicationMonitorResponse({}));
   }
 
+  /**
+   * @summary Enables the diagnostic feature for an origin probing task.
+   *
+   * @param request DetectApplicationMonitorRequest
+   * @return DetectApplicationMonitorResponse
+   */
   async detectApplicationMonitor(request: DetectApplicationMonitorRequest): Promise<DetectApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.detectApplicationMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Disables an origin probing task.
+   *
+   * @param request DisableApplicationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableApplicationMonitorResponse
+   */
   async disableApplicationMonitorWithOptions(request: DisableApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DisableApplicationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23228,21 +23727,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableApplicationMonitorResponse>(await this.callApi(params, req, runtime), new DisableApplicationMonitorResponse({}));
   }
 
+  /**
+   * @summary Disables an origin probing task.
+   *
+   * @param request DisableApplicationMonitorRequest
+   * @return DisableApplicationMonitorResponse
+   */
   async disableApplicationMonitor(request: DisableApplicationMonitorRequest): Promise<DisableApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableApplicationMonitorWithOptions(request, runtime);
   }
 
   /**
-    * ## Description
-    * *   **DissociateAclsFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener:
-    *     *   If the listener is in the **updating** state, ACLs are being disassociated from the listener. In this case, you can perform only query operations.
-    *     *   If the listener is in the **active** state, ACLs are disassociated from the listener.
-    * *   The **DissociateAclsFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DissociateAclsFromListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DissociateAclsFromListenerResponse
+   * @summary Disassociates access control lists (ACLs) from a listener.
+   *
+   * @description ## Description
+   * *   **DissociateAclsFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the state of a listener:
+   *     *   If the listener is in the **updating** state, ACLs are being disassociated from the listener. In this case, you can perform only query operations.
+   *     *   If the listener is in the **active** state, ACLs are disassociated from the listener.
+   * *   The **DissociateAclsFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DissociateAclsFromListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DissociateAclsFromListenerResponse
    */
   async dissociateAclsFromListenerWithOptions(request: DissociateAclsFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAclsFromListenerResponse> {
     Util.validateModel(request);
@@ -23285,14 +23792,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * *   **DissociateAclsFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of a listener:
-    *     *   If the listener is in the **updating** state, ACLs are being disassociated from the listener. In this case, you can perform only query operations.
-    *     *   If the listener is in the **active** state, ACLs are disassociated from the listener.
-    * *   The **DissociateAclsFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request DissociateAclsFromListenerRequest
-    * @return DissociateAclsFromListenerResponse
+   * @summary Disassociates access control lists (ACLs) from a listener.
+   *
+   * @description ## Description
+   * *   **DissociateAclsFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the state of a listener:
+   *     *   If the listener is in the **updating** state, ACLs are being disassociated from the listener. In this case, you can perform only query operations.
+   *     *   If the listener is in the **active** state, ACLs are disassociated from the listener.
+   * *   The **DissociateAclsFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request DissociateAclsFromListenerRequest
+   * @return DissociateAclsFromListenerResponse
    */
   async dissociateAclsFromListener(request: DissociateAclsFromListenerRequest): Promise<DissociateAclsFromListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23300,15 +23809,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * *   **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of an HTTPS listener.
-    *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being dissociated from the listener. In this case, you can perform only query operations.
-    *     *   If the listener is in the **active** state, it indicates that the additional certificate is dissociated from the listener.
-    * *   The **DissociateAdditionalCertificatesFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance with a specific period of time.
-    *
-    * @param request DissociateAdditionalCertificatesFromListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DissociateAdditionalCertificatesFromListenerResponse
+   * @summary Disassociates an additional certificate from an HTTPS listener.
+   *
+   * @description ## Description
+   * *   **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the state of an HTTPS listener.
+   *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being dissociated from the listener. In this case, you can perform only query operations.
+   *     *   If the listener is in the **active** state, it indicates that the additional certificate is dissociated from the listener.
+   * *   The **DissociateAdditionalCertificatesFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance with a specific period of time.
+   *
+   * @param request DissociateAdditionalCertificatesFromListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DissociateAdditionalCertificatesFromListenerResponse
    */
   async dissociateAdditionalCertificatesFromListenerWithOptions(request: DissociateAdditionalCertificatesFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     Util.validateModel(request);
@@ -23351,20 +23862,29 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * *   **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of an HTTPS listener.
-    *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being dissociated from the listener. In this case, you can perform only query operations.
-    *     *   If the listener is in the **active** state, it indicates that the additional certificate is dissociated from the listener.
-    * *   The **DissociateAdditionalCertificatesFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance with a specific period of time.
-    *
-    * @param request DissociateAdditionalCertificatesFromListenerRequest
-    * @return DissociateAdditionalCertificatesFromListenerResponse
+   * @summary Disassociates an additional certificate from an HTTPS listener.
+   *
+   * @description ## Description
+   * *   **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the state of an HTTPS listener.
+   *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being dissociated from the listener. In this case, you can perform only query operations.
+   *     *   If the listener is in the **active** state, it indicates that the additional certificate is dissociated from the listener.
+   * *   The **DissociateAdditionalCertificatesFromListener** operation cannot be repeatedly called for the same Global Accelerator (GA) instance with a specific period of time.
+   *
+   * @param request DissociateAdditionalCertificatesFromListenerRequest
+   * @return DissociateAdditionalCertificatesFromListenerResponse
    */
   async dissociateAdditionalCertificatesFromListener(request: DissociateAdditionalCertificatesFromListenerRequest): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dissociateAdditionalCertificatesFromListenerWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Enables an origin probing task.
+   *
+   * @param request EnableApplicationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableApplicationMonitorResponse
+   */
   async enableApplicationMonitorWithOptions(request: EnableApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<EnableApplicationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23397,11 +23917,24 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableApplicationMonitorResponse>(await this.callApi(params, req, runtime), new EnableApplicationMonitorResponse({}));
   }
 
+  /**
+   * @summary Enables an origin probing task.
+   *
+   * @param request EnableApplicationMonitorRequest
+   * @return EnableApplicationMonitorResponse
+   */
   async enableApplicationMonitor(request: EnableApplicationMonitorRequest): Promise<EnableApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableApplicationMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries an access control list (ACL).
+   *
+   * @param request GetAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAclResponse
+   */
   async getAclWithOptions(request: GetAclRequest, runtime: $Util.RuntimeOptions): Promise<GetAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23430,11 +23963,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAclResponse>(await this.callApi(params, req, runtime), new GetAclResponse({}));
   }
 
+  /**
+   * @summary Queries an access control list (ACL).
+   *
+   * @param request GetAclRequest
+   * @return GetAclResponse
+   */
   async getAcl(request: GetAclRequest): Promise<GetAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of an accelerated IP address of a basic Global Accelerator (GA) instance.
+   *
+   * @param request GetBasicAccelerateIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBasicAccelerateIpResponse
+   */
   async getBasicAccelerateIpWithOptions(request: GetBasicAccelerateIpRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicAccelerateIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23467,11 +24013,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBasicAccelerateIpResponse>(await this.callApi(params, req, runtime), new GetBasicAccelerateIpResponse({}));
   }
 
+  /**
+   * @summary Queries the status of an accelerated IP address of a basic Global Accelerator (GA) instance.
+   *
+   * @param request GetBasicAccelerateIpRequest
+   * @return GetBasicAccelerateIpResponse
+   */
   async getBasicAccelerateIp(request: GetBasicAccelerateIpRequest): Promise<GetBasicAccelerateIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBasicAccelerateIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether the accelerated IP address of a basic Global Accelerator (GA) instance is associated with an endpoint.
+   *
+   * @param request GetBasicAccelerateIpEndpointRelationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBasicAccelerateIpEndpointRelationResponse
+   */
   async getBasicAccelerateIpEndpointRelationWithOptions(request: GetBasicAccelerateIpEndpointRelationRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicAccelerateIpEndpointRelationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23512,11 +24071,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBasicAccelerateIpEndpointRelationResponse>(await this.callApi(params, req, runtime), new GetBasicAccelerateIpEndpointRelationResponse({}));
   }
 
+  /**
+   * @summary Queries whether the accelerated IP address of a basic Global Accelerator (GA) instance is associated with an endpoint.
+   *
+   * @param request GetBasicAccelerateIpEndpointRelationRequest
+   * @return GetBasicAccelerateIpEndpointRelationResponse
+   */
   async getBasicAccelerateIpEndpointRelation(request: GetBasicAccelerateIpEndpointRelationRequest): Promise<GetBasicAccelerateIpEndpointRelationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBasicAccelerateIpEndpointRelationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of idle accelerated IP addresses of a Global Accelerator (GA) instance.
+   *
+   * @param request GetBasicAccelerateIpIdleCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBasicAccelerateIpIdleCountResponse
+   */
   async getBasicAccelerateIpIdleCountWithOptions(request: GetBasicAccelerateIpIdleCountRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicAccelerateIpIdleCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23549,11 +24121,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBasicAccelerateIpIdleCountResponse>(await this.callApi(params, req, runtime), new GetBasicAccelerateIpIdleCountResponse({}));
   }
 
+  /**
+   * @summary Queries the number of idle accelerated IP addresses of a Global Accelerator (GA) instance.
+   *
+   * @param request GetBasicAccelerateIpIdleCountRequest
+   * @return GetBasicAccelerateIpIdleCountResponse
+   */
   async getBasicAccelerateIpIdleCount(request: GetBasicAccelerateIpIdleCountRequest): Promise<GetBasicAccelerateIpIdleCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBasicAccelerateIpIdleCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about a basic Global Accelerator (GA) instance.
+   *
+   * @param request GetBasicAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBasicAcceleratorResponse
+   */
   async getBasicAcceleratorWithOptions(request: GetBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23582,11 +24167,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBasicAcceleratorResponse>(await this.callApi(params, req, runtime), new GetBasicAcceleratorResponse({}));
   }
 
+  /**
+   * @summary Queries the information about a basic Global Accelerator (GA) instance.
+   *
+   * @param request GetBasicAcceleratorRequest
+   * @return GetBasicAcceleratorResponse
+   */
   async getBasicAccelerator(request: GetBasicAcceleratorRequest): Promise<GetBasicAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBasicAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries detailed information about an endpoint that is associated with a basic Global Accelerator (GA) instance.
+   *
+   * @param request GetBasicEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBasicEndpointResponse
+   */
   async getBasicEndpointWithOptions(request: GetBasicEndpointRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23619,11 +24217,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBasicEndpointResponse>(await this.callApi(params, req, runtime), new GetBasicEndpointResponse({}));
   }
 
+  /**
+   * @summary Queries detailed information about an endpoint that is associated with a basic Global Accelerator (GA) instance.
+   *
+   * @param request GetBasicEndpointRequest
+   * @return GetBasicEndpointResponse
+   */
   async getBasicEndpoint(request: GetBasicEndpointRequest): Promise<GetBasicEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBasicEndpointWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the endpoint group of a basic GA instance.
+   *
+   * @param request GetBasicEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBasicEndpointGroupResponse
+   */
   async getBasicEndpointGroupWithOptions(request: GetBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23656,11 +24267,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBasicEndpointGroupResponse>(await this.callApi(params, req, runtime), new GetBasicEndpointGroupResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the endpoint group of a basic GA instance.
+   *
+   * @param request GetBasicEndpointGroupRequest
+   * @return GetBasicEndpointGroupResponse
+   */
   async getBasicEndpointGroup(request: GetBasicEndpointGroupRequest): Promise<GetBasicEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBasicEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the acceleration region of a basic Global Accelerator (GA) instance.
+   *
+   * @param request GetBasicIpSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetBasicIpSetResponse
+   */
   async getBasicIpSetWithOptions(request: GetBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicIpSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23693,11 +24317,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetBasicIpSetResponse>(await this.callApi(params, req, runtime), new GetBasicIpSetResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the acceleration region of a basic Global Accelerator (GA) instance.
+   *
+   * @param request GetBasicIpSetRequest
+   * @return GetBasicIpSetResponse
+   */
   async getBasicIpSet(request: GetBasicIpSetRequest): Promise<GetBasicIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getBasicIpSetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the health status of the endpoints and endpoint groups of a listener.
+   *
+   * @param request GetHealthStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetHealthStatusResponse
+   */
   async getHealthStatusWithOptions(request: GetHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetHealthStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23738,11 +24375,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHealthStatusResponse>(await this.callApi(params, req, runtime), new GetHealthStatusResponse({}));
   }
 
+  /**
+   * @summary Queries the health status of the endpoints and endpoint groups of a listener.
+   *
+   * @param request GetHealthStatusRequest
+   * @return GetHealthStatusResponse
+   */
   async getHealthStatus(request: GetHealthStatusRequest): Promise<GetHealthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHealthStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the number of invalid domain names.
+   *
+   * @param request GetInvalidDomainCountRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetInvalidDomainCountResponse
+   */
   async getInvalidDomainCountWithOptions(request: GetInvalidDomainCountRequest, runtime: $Util.RuntimeOptions): Promise<GetInvalidDomainCountResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23767,11 +24417,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInvalidDomainCountResponse>(await this.callApi(params, req, runtime), new GetInvalidDomainCountResponse({}));
   }
 
+  /**
+   * @summary Queries the number of invalid domain names.
+   *
+   * @param request GetInvalidDomainCountRequest
+   * @return GetInvalidDomainCountResponse
+   */
   async getInvalidDomainCount(request: GetInvalidDomainCountRequest): Promise<GetInvalidDomainCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInvalidDomainCountWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the maximum bandwidth of an acceleration area.
+   *
+   * @param request GetIpsetsBandwidthLimitRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetIpsetsBandwidthLimitResponse
+   */
   async getIpsetsBandwidthLimitWithOptions(request: GetIpsetsBandwidthLimitRequest, runtime: $Util.RuntimeOptions): Promise<GetIpsetsBandwidthLimitResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23800,11 +24463,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIpsetsBandwidthLimitResponse>(await this.callApi(params, req, runtime), new GetIpsetsBandwidthLimitResponse({}));
   }
 
+  /**
+   * @summary Queries the maximum bandwidth of an acceleration area.
+   *
+   * @param request GetIpsetsBandwidthLimitRequest
+   * @return GetIpsetsBandwidthLimitResponse
+   */
   async getIpsetsBandwidthLimit(request: GetIpsetsBandwidthLimitRequest): Promise<GetIpsetsBandwidthLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getIpsetsBandwidthLimitWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the status of a secondary IP address that is associated with a CNAME.
+   *
+   * @param request GetSpareIpRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetSpareIpResponse
+   */
   async getSpareIpWithOptions(request: GetSpareIpRequest, runtime: $Util.RuntimeOptions): Promise<GetSpareIpResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23845,11 +24521,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSpareIpResponse>(await this.callApi(params, req, runtime), new GetSpareIpResponse({}));
   }
 
+  /**
+   * @summary Queries the status of a secondary IP address that is associated with a CNAME.
+   *
+   * @param request GetSpareIpRequest
+   * @return GetSpareIpResponse
+   */
   async getSpareIp(request: GetSpareIpRequest): Promise<GetSpareIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSpareIpWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available acceleration areas and regions.
+   *
+   * @param request ListAccelerateAreasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAccelerateAreasResponse
+   */
   async listAccelerateAreasWithOptions(request: ListAccelerateAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListAccelerateAreasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23874,11 +24563,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAccelerateAreasResponse>(await this.callApi(params, req, runtime), new ListAccelerateAreasResponse({}));
   }
 
+  /**
+   * @summary Queries available acceleration areas and regions.
+   *
+   * @param request ListAccelerateAreasRequest
+   * @return ListAccelerateAreasResponse
+   */
   async listAccelerateAreas(request: ListAccelerateAreasRequest): Promise<ListAccelerateAreasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAccelerateAreasWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries Global Accelerator (GA) instances.
+   *
+   * @param request ListAcceleratorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAcceleratorsResponse
+   */
   async listAcceleratorsWithOptions(request: ListAcceleratorsRequest, runtime: $Util.RuntimeOptions): Promise<ListAcceleratorsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23927,11 +24629,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAcceleratorsResponse>(await this.callApi(params, req, runtime), new ListAcceleratorsResponse({}));
   }
 
+  /**
+   * @summary Queries Global Accelerator (GA) instances.
+   *
+   * @param request ListAcceleratorsRequest
+   * @return ListAcceleratorsResponse
+   */
   async listAccelerators(request: ListAcceleratorsRequest): Promise<ListAcceleratorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAcceleratorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of access control lists (ACLs).
+   *
+   * @param request ListAclsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAclsResponse
+   */
   async listAclsWithOptions(request: ListAclsRequest, runtime: $Util.RuntimeOptions): Promise<ListAclsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23984,11 +24699,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAclsResponse>(await this.callApi(params, req, runtime), new ListAclsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of access control lists (ACLs).
+   *
+   * @param request ListAclsRequest
+   * @return ListAclsResponse
+   */
   async listAcls(request: ListAclsRequest): Promise<ListAclsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAclsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries origin probing tasks.
+   *
+   * @param request ListApplicationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationMonitorResponse
+   */
   async listApplicationMonitorWithOptions(request: ListApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationMonitorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24025,11 +24753,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationMonitorResponse>(await this.callApi(params, req, runtime), new ListApplicationMonitorResponse({}));
   }
 
+  /**
+   * @summary Queries origin probing tasks.
+   *
+   * @param request ListApplicationMonitorRequest
+   * @return ListApplicationMonitorResponse
+   */
   async listApplicationMonitor(request: ListApplicationMonitorRequest): Promise<ListApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationMonitorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the diagnostic results of origin probing tasks.
+   *
+   * @param request ListApplicationMonitorDetectResultRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListApplicationMonitorDetectResultResponse
+   */
   async listApplicationMonitorDetectResultWithOptions(request: ListApplicationMonitorDetectResultRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationMonitorDetectResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24074,11 +24815,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListApplicationMonitorDetectResultResponse>(await this.callApi(params, req, runtime), new ListApplicationMonitorDetectResultResponse({}));
   }
 
+  /**
+   * @summary Queries the diagnostic results of origin probing tasks.
+   *
+   * @param request ListApplicationMonitorDetectResultRequest
+   * @return ListApplicationMonitorDetectResultResponse
+   */
   async listApplicationMonitorDetectResult(request: ListApplicationMonitorDetectResultRequest): Promise<ListApplicationMonitorDetectResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listApplicationMonitorDetectResultWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries available acceleration regions.
+   *
+   * @param request ListAvailableAccelerateAreasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAvailableAccelerateAreasResponse
+   */
   async listAvailableAccelerateAreasWithOptions(request: ListAvailableAccelerateAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableAccelerateAreasResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24107,11 +24861,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAvailableAccelerateAreasResponse>(await this.callApi(params, req, runtime), new ListAvailableAccelerateAreasResponse({}));
   }
 
+  /**
+   * @summary Queries available acceleration regions.
+   *
+   * @param request ListAvailableAccelerateAreasRequest
+   * @return ListAvailableAccelerateAreasResponse
+   */
   async listAvailableAccelerateAreas(request: ListAvailableAccelerateAreasRequest): Promise<ListAvailableAccelerateAreasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAvailableAccelerateAreasWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the available acceleration regions of a Global Accelerator (GA) instance.
+   *
+   * @param request ListAvailableBusiRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAvailableBusiRegionsResponse
+   */
   async listAvailableBusiRegionsWithOptions(request: ListAvailableBusiRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableBusiRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24140,11 +24907,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAvailableBusiRegionsResponse>(await this.callApi(params, req, runtime), new ListAvailableBusiRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the available acceleration regions of a Global Accelerator (GA) instance.
+   *
+   * @param request ListAvailableBusiRegionsRequest
+   * @return ListAvailableBusiRegionsResponse
+   */
   async listAvailableBusiRegions(request: ListAvailableBusiRegionsRequest): Promise<ListAvailableBusiRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAvailableBusiRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries bandwidth plans.
+   *
+   * @param request ListBandwidthPackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBandwidthPackagesResponse
+   */
   async listBandwidthPackagesWithOptions(request: ListBandwidthPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListBandwidthPackagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24197,17 +24977,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBandwidthPackagesResponse>(await this.callApi(params, req, runtime), new ListBandwidthPackagesResponse({}));
   }
 
+  /**
+   * @summary Queries bandwidth plans.
+   *
+   * @param request ListBandwidthPackagesRequest
+   * @return ListBandwidthPackagesResponse
+   */
   async listBandwidthPackages(request: ListBandwidthPackagesRequest): Promise<ListBandwidthPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBandwidthPackagesWithOptions(request, runtime);
   }
 
   /**
-    * To query the detailed information about a bandwidth plan, call the **ListBandwidthPackages** operation. For more information, see [ListBandwidthPackages](~~2253239~~).
-    *
-    * @param request ListBandwidthackagesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListBandwidthackagesResponse
+   * @summary Queries bandwidth plans.
+   *
+   * @description To query the detailed information about a bandwidth plan, call the **ListBandwidthPackages** operation. For more information, see [ListBandwidthPackages](https://help.aliyun.com/document_detail/2253239.html).
+   *
+   * @param request ListBandwidthackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBandwidthackagesResponse
    */
   async listBandwidthackagesWithOptions(request: ListBandwidthackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListBandwidthackagesResponse> {
     Util.validateModel(request);
@@ -24242,16 +25030,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * To query the detailed information about a bandwidth plan, call the **ListBandwidthPackages** operation. For more information, see [ListBandwidthPackages](~~2253239~~).
-    *
-    * @param request ListBandwidthackagesRequest
-    * @return ListBandwidthackagesResponse
+   * @summary Queries bandwidth plans.
+   *
+   * @description To query the detailed information about a bandwidth plan, call the **ListBandwidthPackages** operation. For more information, see [ListBandwidthPackages](https://help.aliyun.com/document_detail/2253239.html).
+   *
+   * @param request ListBandwidthackagesRequest
+   * @return ListBandwidthackagesResponse
    */
   async listBandwidthackages(request: ListBandwidthackagesRequest): Promise<ListBandwidthackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBandwidthackagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries whether the accelerated IP address of a basic Global Accelerator (GA) instance is associated with an endpoint.
+   *
+   * @param request ListBasicAccelerateIpEndpointRelationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBasicAccelerateIpEndpointRelationsResponse
+   */
   async listBasicAccelerateIpEndpointRelationsWithOptions(request: ListBasicAccelerateIpEndpointRelationsRequest, runtime: $Util.RuntimeOptions): Promise<ListBasicAccelerateIpEndpointRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24300,11 +25097,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBasicAccelerateIpEndpointRelationsResponse>(await this.callApi(params, req, runtime), new ListBasicAccelerateIpEndpointRelationsResponse({}));
   }
 
+  /**
+   * @summary Queries whether the accelerated IP address of a basic Global Accelerator (GA) instance is associated with an endpoint.
+   *
+   * @param request ListBasicAccelerateIpEndpointRelationsRequest
+   * @return ListBasicAccelerateIpEndpointRelationsResponse
+   */
   async listBasicAccelerateIpEndpointRelations(request: ListBasicAccelerateIpEndpointRelationsRequest): Promise<ListBasicAccelerateIpEndpointRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBasicAccelerateIpEndpointRelationsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the accelerated IP addresses in the acceleration region of a basic Global Accelerator (GA) instance.
+   *
+   * @param request ListBasicAccelerateIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBasicAccelerateIpsResponse
+   */
   async listBasicAccelerateIpsWithOptions(request: ListBasicAccelerateIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListBasicAccelerateIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24353,11 +25163,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBasicAccelerateIpsResponse>(await this.callApi(params, req, runtime), new ListBasicAccelerateIpsResponse({}));
   }
 
+  /**
+   * @summary Queries the accelerated IP addresses in the acceleration region of a basic Global Accelerator (GA) instance.
+   *
+   * @param request ListBasicAccelerateIpsRequest
+   * @return ListBasicAccelerateIpsResponse
+   */
   async listBasicAccelerateIps(request: ListBasicAccelerateIpsRequest): Promise<ListBasicAccelerateIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBasicAccelerateIpsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries basic Global Accelerator (GA) instances.
+   *
+   * @param request ListBasicAcceleratorsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBasicAcceleratorsResponse
+   */
   async listBasicAcceleratorsWithOptions(request: ListBasicAcceleratorsRequest, runtime: $Util.RuntimeOptions): Promise<ListBasicAcceleratorsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24406,11 +25229,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBasicAcceleratorsResponse>(await this.callApi(params, req, runtime), new ListBasicAcceleratorsResponse({}));
   }
 
+  /**
+   * @summary Queries basic Global Accelerator (GA) instances.
+   *
+   * @param request ListBasicAcceleratorsRequest
+   * @return ListBasicAcceleratorsResponse
+   */
   async listBasicAccelerators(request: ListBasicAcceleratorsRequest): Promise<ListBasicAcceleratorsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBasicAcceleratorsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the endpoints that are associated with a basic Global Accelerator (GA) instance.
+   *
+   * @param request ListBasicEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBasicEndpointsResponse
+   */
   async listBasicEndpointsWithOptions(request: ListBasicEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<ListBasicEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24463,11 +25299,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBasicEndpointsResponse>(await this.callApi(params, req, runtime), new ListBasicEndpointsResponse({}));
   }
 
+  /**
+   * @summary Queries the endpoints that are associated with a basic Global Accelerator (GA) instance.
+   *
+   * @param request ListBasicEndpointsRequest
+   * @return ListBasicEndpointsResponse
+   */
   async listBasicEndpoints(request: ListBasicEndpointsRequest): Promise<ListBasicEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBasicEndpointsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the acceleration regions that are supported by Global Accelerator (GA).
+   *
+   * @param request ListBusiRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListBusiRegionsResponse
+   */
   async listBusiRegionsWithOptions(request: ListBusiRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListBusiRegionsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24492,17 +25341,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListBusiRegionsResponse>(await this.callApi(params, req, runtime), new ListBusiRegionsResponse({}));
   }
 
+  /**
+   * @summary Queries the acceleration regions that are supported by Global Accelerator (GA).
+   *
+   * @param request ListBusiRegionsRequest
+   * @return ListBusiRegionsResponse
+   */
   async listBusiRegions(request: ListBusiRegionsRequest): Promise<ListBusiRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listBusiRegionsWithOptions(request, runtime);
   }
 
   /**
-    * You can call this operation to query the acceleration areas and regions that you can specify on the wizard page of Global Accelerator (GA) and for free-trial GA instances. You can filter acceleration areas and regions based on specified conditions.
-    *
-    * @param request ListCommonAreasRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListCommonAreasResponse
+   * @summary Queries available acceleration areas and regions.
+   *
+   * @description You can call this operation to query the acceleration areas and regions that you can specify on the wizard page of Global Accelerator (GA) and for free-trial GA instances. You can filter acceleration areas and regions based on specified conditions.
+   *
+   * @param request ListCommonAreasRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCommonAreasResponse
    */
   async listCommonAreasWithOptions(request: ListCommonAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListCommonAreasResponse> {
     Util.validateModel(request);
@@ -24537,16 +25394,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query the acceleration areas and regions that you can specify on the wizard page of Global Accelerator (GA) and for free-trial GA instances. You can filter acceleration areas and regions based on specified conditions.
-    *
-    * @param request ListCommonAreasRequest
-    * @return ListCommonAreasResponse
+   * @summary Queries available acceleration areas and regions.
+   *
+   * @description You can call this operation to query the acceleration areas and regions that you can specify on the wizard page of Global Accelerator (GA) and for free-trial GA instances. You can filter acceleration areas and regions based on specified conditions.
+   *
+   * @param request ListCommonAreasRequest
+   * @return ListCommonAreasResponse
    */
   async listCommonAreas(request: ListCommonAreasRequest): Promise<ListCommonAreasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCommonAreasWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the endpoint group mapping configurations of a custom routing listener of a Global Accelerator (GA) instance.
+   *
+   * @param request ListCustomRoutingEndpointGroupDestinationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomRoutingEndpointGroupDestinationsResponse
+   */
   async listCustomRoutingEndpointGroupDestinationsWithOptions(request: ListCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingEndpointGroupDestinationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24603,18 +25469,26 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCustomRoutingEndpointGroupDestinationsResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingEndpointGroupDestinationsResponse({}));
   }
 
+  /**
+   * @summary Queries the endpoint group mapping configurations of a custom routing listener of a Global Accelerator (GA) instance.
+   *
+   * @param request ListCustomRoutingEndpointGroupDestinationsRequest
+   * @return ListCustomRoutingEndpointGroupDestinationsResponse
+   */
   async listCustomRoutingEndpointGroupDestinations(request: ListCustomRoutingEndpointGroupDestinationsRequest): Promise<ListCustomRoutingEndpointGroupDestinationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomRoutingEndpointGroupDestinationsWithOptions(request, runtime);
   }
 
   /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=ListCustomRoutingEndpointGroups\\&type=RPC\\&version=2019-11-20)
-    *
-    * @param request ListCustomRoutingEndpointGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListCustomRoutingEndpointGroupsResponse
+   * @summary Queries the endpoint groups that are associated with a custom routing listener.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=ListCustomRoutingEndpointGroups\\&type=RPC\\&version=2019-11-20)
+   *
+   * @param request ListCustomRoutingEndpointGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomRoutingEndpointGroupsResponse
    */
   async listCustomRoutingEndpointGroupsWithOptions(request: ListCustomRoutingEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingEndpointGroupsResponse> {
     Util.validateModel(request);
@@ -24665,17 +25539,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Debugging
-    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=ListCustomRoutingEndpointGroups\\&type=RPC\\&version=2019-11-20)
-    *
-    * @param request ListCustomRoutingEndpointGroupsRequest
-    * @return ListCustomRoutingEndpointGroupsResponse
+   * @summary Queries the endpoint groups that are associated with a custom routing listener.
+   *
+   * @description ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code for different SDKs.](https://api.aliyun.com/#product=Ga\\&api=ListCustomRoutingEndpointGroups\\&type=RPC\\&version=2019-11-20)
+   *
+   * @param request ListCustomRoutingEndpointGroupsRequest
+   * @return ListCustomRoutingEndpointGroupsResponse
    */
   async listCustomRoutingEndpointGroups(request: ListCustomRoutingEndpointGroupsRequest): Promise<ListCustomRoutingEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomRoutingEndpointGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the traffic policies of an endpoint that belongs to a custom routing listener.
+   *
+   * @param request ListCustomRoutingEndpointTrafficPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomRoutingEndpointTrafficPoliciesResponse
+   */
   async listCustomRoutingEndpointTrafficPoliciesWithOptions(request: ListCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingEndpointTrafficPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24728,11 +25611,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCustomRoutingEndpointTrafficPoliciesResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingEndpointTrafficPoliciesResponse({}));
   }
 
+  /**
+   * @summary Queries the traffic policies of an endpoint that belongs to a custom routing listener.
+   *
+   * @param request ListCustomRoutingEndpointTrafficPoliciesRequest
+   * @return ListCustomRoutingEndpointTrafficPoliciesResponse
+   */
   async listCustomRoutingEndpointTrafficPolicies(request: ListCustomRoutingEndpointTrafficPoliciesRequest): Promise<ListCustomRoutingEndpointTrafficPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomRoutingEndpointTrafficPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the configurations of an endpoint.
+   *
+   * @param request ListCustomRoutingEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomRoutingEndpointsResponse
+   */
   async listCustomRoutingEndpointsWithOptions(request: ListCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24777,17 +25673,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCustomRoutingEndpointsResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingEndpointsResponse({}));
   }
 
+  /**
+   * @summary Queries the configurations of an endpoint.
+   *
+   * @param request ListCustomRoutingEndpointsRequest
+   * @return ListCustomRoutingEndpointsResponse
+   */
   async listCustomRoutingEndpoints(request: ListCustomRoutingEndpointsRequest): Promise<ListCustomRoutingEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomRoutingEndpointsWithOptions(request, runtime);
   }
 
   /**
-    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches). The custom routing listener forwards client requests to specified IP addresses and ports in the vSwitches based on the port mapping table. This operation is used to query the generated port mapping table.
-    *
-    * @param request ListCustomRoutingPortMappingsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListCustomRoutingPortMappingsResponse
+   * @summary Queries the port mapping table of a custom routing listener.
+   *
+   * @description After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches). The custom routing listener forwards client requests to specified IP addresses and ports in the vSwitches based on the port mapping table. This operation is used to query the generated port mapping table.
+   *
+   * @param request ListCustomRoutingPortMappingsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomRoutingPortMappingsResponse
    */
   async listCustomRoutingPortMappingsWithOptions(request: ListCustomRoutingPortMappingsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingPortMappingsResponse> {
     Util.validateModel(request);
@@ -24834,16 +25738,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches). The custom routing listener forwards client requests to specified IP addresses and ports in the vSwitches based on the port mapping table. This operation is used to query the generated port mapping table.
-    *
-    * @param request ListCustomRoutingPortMappingsRequest
-    * @return ListCustomRoutingPortMappingsResponse
+   * @summary Queries the port mapping table of a custom routing listener.
+   *
+   * @description After you configure a custom routing listener for a Global Accelerator (GA) instance, the instance generates a port mapping table based on the listener port range, backend service protocols and port ranges of the associated endpoint groups, and IP addresses of endpoints (vSwitches). The custom routing listener forwards client requests to specified IP addresses and ports in the vSwitches based on the port mapping table. This operation is used to query the generated port mapping table.
+   *
+   * @param request ListCustomRoutingPortMappingsRequest
+   * @return ListCustomRoutingPortMappingsResponse
    */
   async listCustomRoutingPortMappings(request: ListCustomRoutingPortMappingsRequest): Promise<ListCustomRoutingPortMappingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomRoutingPortMappingsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the port mapping table of a specified backend instance that is associated with a custom routing listener.
+   *
+   * @param request ListCustomRoutingPortMappingsByDestinationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListCustomRoutingPortMappingsByDestinationResponse
+   */
   async listCustomRoutingPortMappingsByDestinationWithOptions(request: ListCustomRoutingPortMappingsByDestinationRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomRoutingPortMappingsByDestinationResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24884,11 +25797,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListCustomRoutingPortMappingsByDestinationResponse>(await this.callApi(params, req, runtime), new ListCustomRoutingPortMappingsByDestinationResponse({}));
   }
 
+  /**
+   * @summary Queries the port mapping table of a specified backend instance that is associated with a custom routing listener.
+   *
+   * @param request ListCustomRoutingPortMappingsByDestinationRequest
+   * @return ListCustomRoutingPortMappingsByDestinationResponse
+   */
   async listCustomRoutingPortMappingsByDestination(request: ListCustomRoutingPortMappingsByDestinationRequest): Promise<ListCustomRoutingPortMappingsByDestinationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomRoutingPortMappingsByDestinationWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information of an accelerated domain name of a GA instance.
+   *
+   * @param request ListDomainsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDomainsResponse
+   */
   async listDomainsWithOptions(request: ListDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24933,14 +25859,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDomainsResponse>(await this.callApi(params, req, runtime), new ListDomainsResponse({}));
   }
 
+  /**
+   * @summary Queries the information of an accelerated domain name of a GA instance.
+   *
+   * @param request ListDomainsRequest
+   * @return ListDomainsResponse
+   */
   async listDomains(request: ListDomainsRequest): Promise<ListDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDomainsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the public CIDR blocks to which the endpoint group IP addresses belong. The CIDR blocks can be used to configure ACLs in terminals.
+   *
+   * @param request ListEndpointGroupIpAddressCidrBlocksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEndpointGroupIpAddressCidrBlocksResponse
+   */
   async listEndpointGroupIpAddressCidrBlocksWithOptions(request: ListEndpointGroupIpAddressCidrBlocksRequest, runtime: $Util.RuntimeOptions): Promise<ListEndpointGroupIpAddressCidrBlocksResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
     if (!Util.isUnset(request.endpointGroupRegion)) {
       query["EndpointGroupRegion"] = request.endpointGroupRegion;
     }
@@ -24966,11 +25909,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEndpointGroupIpAddressCidrBlocksResponse>(await this.callApi(params, req, runtime), new ListEndpointGroupIpAddressCidrBlocksResponse({}));
   }
 
+  /**
+   * @summary Queries the public CIDR blocks to which the endpoint group IP addresses belong. The CIDR blocks can be used to configure ACLs in terminals.
+   *
+   * @param request ListEndpointGroupIpAddressCidrBlocksRequest
+   * @return ListEndpointGroupIpAddressCidrBlocksResponse
+   */
   async listEndpointGroupIpAddressCidrBlocks(request: ListEndpointGroupIpAddressCidrBlocksRequest): Promise<ListEndpointGroupIpAddressCidrBlocksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEndpointGroupIpAddressCidrBlocksWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries a list of endpoint groups.
+   *
+   * @param request ListEndpointGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListEndpointGroupsResponse
+   */
   async listEndpointGroupsWithOptions(request: ListEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25027,17 +25983,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListEndpointGroupsResponse>(await this.callApi(params, req, runtime), new ListEndpointGroupsResponse({}));
   }
 
+  /**
+   * @summary Queries a list of endpoint groups.
+   *
+   * @param request ListEndpointGroupsRequest
+   * @return ListEndpointGroupsResponse
+   */
   async listEndpointGroups(request: ListEndpointGroupsRequest): Promise<ListEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEndpointGroupsWithOptions(request, runtime);
   }
 
   /**
-    * >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
-    *
-    * @param request ListForwardingRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListForwardingRulesResponse
+   * @summary Queries the information about existing forwarding rules.
+   *
+   * @description >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
+   *
+   * @param request ListForwardingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListForwardingRulesResponse
    */
   async listForwardingRulesWithOptions(request: ListForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListForwardingRulesResponse> {
     Util.validateModel(request);
@@ -25088,16 +26052,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
-    *
-    * @param request ListForwardingRulesRequest
-    * @return ListForwardingRulesResponse
+   * @summary Queries the information about existing forwarding rules.
+   *
+   * @description >  This operation is used to query only custom forwarding rules, not the default forwarding rule.
+   *
+   * @param request ListForwardingRulesRequest
+   * @return ListForwardingRulesResponse
    */
   async listForwardingRules(request: ListForwardingRulesRequest): Promise<ListForwardingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listForwardingRulesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries acceleration regions.
+   *
+   * @param request ListIpSetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIpSetsResponse
+   */
   async listIpSetsWithOptions(request: ListIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpSetsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25134,11 +26107,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIpSetsResponse>(await this.callApi(params, req, runtime), new ListIpSetsResponse({}));
   }
 
+  /**
+   * @summary Queries acceleration regions.
+   *
+   * @param request ListIpSetsRequest
+   * @return ListIpSetsResponse
+   */
   async listIpSets(request: ListIpSetsRequest): Promise<ListIpSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIpSetsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the line types of elastic IP addresses (EIPs) that are supported in an acceleration region.
+   *
+   * @param request ListIspTypesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListIspTypesResponse
+   */
   async listIspTypesWithOptions(request: ListIspTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListIspTypesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25171,11 +26157,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListIspTypesResponse>(await this.callApi(params, req, runtime), new ListIspTypesResponse({}));
   }
 
+  /**
+   * @summary Queries the line types of elastic IP addresses (EIPs) that are supported in an acceleration region.
+   *
+   * @param request ListIspTypesRequest
+   * @return ListIspTypesResponse
+   */
   async listIspTypes(request: ListIspTypesRequest): Promise<ListIspTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listIspTypesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the certificates associated with a listener.
+   *
+   * @param request ListListenerCertificatesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListListenerCertificatesResponse
+   */
   async listListenerCertificatesWithOptions(request: ListListenerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListListenerCertificatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25220,17 +26219,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListListenerCertificatesResponse>(await this.callApi(params, req, runtime), new ListListenerCertificatesResponse({}));
   }
 
+  /**
+   * @summary Queries the certificates associated with a listener.
+   *
+   * @param request ListListenerCertificatesRequest
+   * @return ListListenerCertificatesResponse
+   */
   async listListenerCertificates(request: ListListenerCertificatesRequest): Promise<ListListenerCertificatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listListenerCertificatesWithOptions(request, runtime);
   }
 
   /**
-    * This operation is used to query information about the listeners of a GA instance, including the status of each listener, the timestamp that indicates when each listener was created, and the listener ports.
-    *
-    * @param request ListListenersRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListListenersResponse
+   * @summary Queries the listeners of a Global Accelerator (GA) instance.
+   *
+   * @description This operation is used to query information about the listeners of a GA instance, including the status of each listener, the timestamp that indicates when each listener was created, and the listener ports.
+   *
+   * @param request ListListenersRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListListenersResponse
    */
   async listListenersWithOptions(request: ListListenersRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersResponse> {
     Util.validateModel(request);
@@ -25269,16 +26276,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation is used to query information about the listeners of a GA instance, including the status of each listener, the timestamp that indicates when each listener was created, and the listener ports.
-    *
-    * @param request ListListenersRequest
-    * @return ListListenersResponse
+   * @summary Queries the listeners of a Global Accelerator (GA) instance.
+   *
+   * @description This operation is used to query information about the listeners of a GA instance, including the status of each listener, the timestamp that indicates when each listener was created, and the listener ports.
+   *
+   * @param request ListListenersRequest
+   * @return ListListenersResponse
    */
   async listListeners(request: ListListenersRequest): Promise<ListListenersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listListenersWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Queries the information about the secondary IP addresses that are associated with a CNAME.
+   *
+   * @param request ListSpareIpsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSpareIpsResponse
+   */
   async listSpareIpsWithOptions(request: ListSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListSpareIpsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25315,17 +26331,25 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSpareIpsResponse>(await this.callApi(params, req, runtime), new ListSpareIpsResponse({}));
   }
 
+  /**
+   * @summary Queries the information about the secondary IP addresses that are associated with a CNAME.
+   *
+   * @param request ListSpareIpsRequest
+   * @return ListSpareIpsResponse
+   */
   async listSpareIps(request: ListSpareIpsRequest): Promise<ListSpareIpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSpareIpsWithOptions(request, runtime);
   }
 
   /**
-    * You can select a TLS security policy when you create an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
-    *
-    * @param request ListSystemSecurityPoliciesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListSystemSecurityPoliciesResponse
+   * @summary Queries the TLS security policies that are supported by HTTPS listeners.
+   *
+   * @description You can select a TLS security policy when you create an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
+   *
+   * @param request ListSystemSecurityPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSystemSecurityPoliciesResponse
    */
   async listSystemSecurityPoliciesWithOptions(request: ListSystemSecurityPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListSystemSecurityPoliciesResponse> {
     Util.validateModel(request);
@@ -25360,10 +26384,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can select a TLS security policy when you create an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
-    *
-    * @param request ListSystemSecurityPoliciesRequest
-    * @return ListSystemSecurityPoliciesResponse
+   * @summary Queries the TLS security policies that are supported by HTTPS listeners.
+   *
+   * @description You can select a TLS security policy when you create an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
+   *
+   * @param request ListSystemSecurityPoliciesRequest
+   * @return ListSystemSecurityPoliciesResponse
    */
   async listSystemSecurityPolicies(request: ListSystemSecurityPoliciesRequest): Promise<ListSystemSecurityPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25371,14 +26397,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You must specify **ResourceId** or **Tag** in the request to specify the object that you want to query.********
-    * *   **Tag** is a resource tag that consists of a key-value pair (Key and Value). If you specify only **Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Value**, an error message is returned.
-    * *   If you specify **Tag** and **ResourceId** to filter tags, **ResourceId** must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, resources that contain the key-value pairs are returned.
-    *
-    * @param request ListTagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ListTagResourcesResponse
+   * @summary Queries the tags that are added to Global Accelerator (GA) resources.
+   *
+   * @description *   You must specify **ResourceId** or **Tag** in the request to specify the object that you want to query.********
+   * *   **Tag** is a resource tag that consists of a key-value pair (Key and Value). If you specify only **Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Value**, an error message is returned.
+   * *   If you specify **Tag** and **ResourceId** to filter tags, **ResourceId** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain the key-value pairs are returned.
+   *
+   * @param request ListTagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -25425,19 +26453,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   You must specify **ResourceId** or **Tag** in the request to specify the object that you want to query.********
-    * *   **Tag** is a resource tag that consists of a key-value pair (Key and Value). If you specify only **Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Value**, an error message is returned.
-    * *   If you specify **Tag** and **ResourceId** to filter tags, **ResourceId** must match all specified key-value pairs.
-    * *   If you specify multiple key-value pairs, resources that contain the key-value pairs are returned.
-    *
-    * @param request ListTagResourcesRequest
-    * @return ListTagResourcesResponse
+   * @summary Queries the tags that are added to Global Accelerator (GA) resources.
+   *
+   * @description *   You must specify **ResourceId** or **Tag** in the request to specify the object that you want to query.********
+   * *   **Tag** is a resource tag that consists of a key-value pair (Key and Value). If you specify only **Key**, all tag values that are associated with the specified tag key are returned. If you specify only **Value**, an error message is returned.
+   * *   If you specify **Tag** and **ResourceId** to filter tags, **ResourceId** must match all specified key-value pairs.
+   * *   If you specify multiple key-value pairs, resources that contain the key-value pairs are returned.
+   *
+   * @param request ListTagResourcesRequest
+   * @return ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Activates the pay-as-you-go Global Accelerator (GA) service. If you want to use pay-as-you-go GA instances, you must activate the pay-as-you-go GA service first.
+   *
+   * @param request OpenAcceleratorServiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return OpenAcceleratorServiceResponse
+   */
   async openAcceleratorServiceWithOptions(request: OpenAcceleratorServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenAcceleratorServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25466,11 +26503,24 @@ export default class Client extends OpenApi {
     return $tea.cast<OpenAcceleratorServiceResponse>(await this.callApi(params, req, runtime), new OpenAcceleratorServiceResponse({}));
   }
 
+  /**
+   * @summary Activates the pay-as-you-go Global Accelerator (GA) service. If you want to use pay-as-you-go GA instances, you must activate the pay-as-you-go GA service first.
+   *
+   * @param request OpenAcceleratorServiceRequest
+   * @return OpenAcceleratorServiceResponse
+   */
   async openAcceleratorService(request: OpenAcceleratorServiceRequest): Promise<OpenAcceleratorServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.openAcceleratorServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Inquire about the approval status of cross-border permissions for an Alibaba Cloud account (main account).
+   *
+   * @param request QueryCrossBorderApprovalStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryCrossBorderApprovalStatusResponse
+   */
   async queryCrossBorderApprovalStatusWithOptions(request: QueryCrossBorderApprovalStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryCrossBorderApprovalStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25495,20 +26545,28 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCrossBorderApprovalStatusResponse>(await this.callApi(params, req, runtime), new QueryCrossBorderApprovalStatusResponse({}));
   }
 
+  /**
+   * @summary Inquire about the approval status of cross-border permissions for an Alibaba Cloud account (main account).
+   *
+   * @param request QueryCrossBorderApprovalStatusRequest
+   * @return QueryCrossBorderApprovalStatusResponse
+   */
   async queryCrossBorderApprovalStatus(request: QueryCrossBorderApprovalStatusRequest): Promise<QueryCrossBorderApprovalStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCrossBorderApprovalStatusWithOptions(request, runtime);
   }
 
   /**
-    * *   **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL from which you want to delete IP entries.
-    *     *   If the ACL is in the **configuring** state, it indicates that the IP entries are being deleted. In this case, you can perform only query operations.
-    *     *   If the ACL is in the **active** state, it indicates that the IP entries are deleted.
-    * *   The **RemoveEntriesFromAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request RemoveEntriesFromAclRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return RemoveEntriesFromAclResponse
+   * @summary Deletes IP entries from an access control list (ACL).
+   *
+   * @description *   **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](https://help.aliyun.com/document_detail/258292.html) or [ListAcls](https://help.aliyun.com/document_detail/258291.html) operation to query the status of the ACL from which you want to delete IP entries.
+   *     *   If the ACL is in the **configuring** state, it indicates that the IP entries are being deleted. In this case, you can perform only query operations.
+   *     *   If the ACL is in the **active** state, it indicates that the IP entries are deleted.
+   * *   The **RemoveEntriesFromAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request RemoveEntriesFromAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveEntriesFromAclResponse
    */
   async removeEntriesFromAclWithOptions(request: RemoveEntriesFromAclRequest, runtime: $Util.RuntimeOptions): Promise<RemoveEntriesFromAclResponse> {
     Util.validateModel(request);
@@ -25551,13 +26609,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL from which you want to delete IP entries.
-    *     *   If the ACL is in the **configuring** state, it indicates that the IP entries are being deleted. In this case, you can perform only query operations.
-    *     *   If the ACL is in the **active** state, it indicates that the IP entries are deleted.
-    * *   The **RemoveEntriesFromAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request RemoveEntriesFromAclRequest
-    * @return RemoveEntriesFromAclResponse
+   * @summary Deletes IP entries from an access control list (ACL).
+   *
+   * @description *   **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](https://help.aliyun.com/document_detail/258292.html) or [ListAcls](https://help.aliyun.com/document_detail/258291.html) operation to query the status of the ACL from which you want to delete IP entries.
+   *     *   If the ACL is in the **configuring** state, it indicates that the IP entries are being deleted. In this case, you can perform only query operations.
+   *     *   If the ACL is in the **active** state, it indicates that the IP entries are deleted.
+   * *   The **RemoveEntriesFromAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request RemoveEntriesFromAclRequest
+   * @return RemoveEntriesFromAclResponse
    */
   async removeEntriesFromAcl(request: RemoveEntriesFromAclRequest): Promise<RemoveEntriesFromAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25565,16 +26625,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   The GA instance continues to forward network traffic.
-    * *   **ReplaceBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
-    *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
-    * *   The **ReplaceBandwidthPackage** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request ReplaceBandwidthPackageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return ReplaceBandwidthPackageResponse
+   * @summary Replaces the bandwidth plans of Global Accelerator (GA) instances.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   The GA instance continues to forward network traffic.
+   * *   **ReplaceBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) or [ListAccelerators](https://help.aliyun.com/document_detail/153236.html) operation to query the status of the GA instance.
+   *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
+   * *   The **ReplaceBandwidthPackage** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request ReplaceBandwidthPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ReplaceBandwidthPackageResponse
    */
   async replaceBandwidthPackageWithOptions(request: ReplaceBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceBandwidthPackageResponse> {
     Util.validateModel(request);
@@ -25613,15 +26675,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * When you call this operation, take note of the following items:
-    * *   The GA instance continues to forward network traffic.
-    * *   **ReplaceBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
-    *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
-    * *   The **ReplaceBandwidthPackage** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request ReplaceBandwidthPackageRequest
-    * @return ReplaceBandwidthPackageResponse
+   * @summary Replaces the bandwidth plans of Global Accelerator (GA) instances.
+   *
+   * @description When you call this operation, take note of the following items:
+   * *   The GA instance continues to forward network traffic.
+   * *   **ReplaceBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) or [ListAccelerators](https://help.aliyun.com/document_detail/153236.html) operation to query the status of the GA instance.
+   *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
+   * *   The **ReplaceBandwidthPackage** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request ReplaceBandwidthPackageRequest
+   * @return ReplaceBandwidthPackageResponse
    */
   async replaceBandwidthPackage(request: ReplaceBandwidthPackageRequest): Promise<ReplaceBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25629,12 +26693,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Description
-    * You can add up to 20 tags to each GA resource. When you call this operation, Alibaba Cloud first checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
-    *
-    * @param request TagResourcesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return TagResourcesResponse
+   * @summary Adds tags to Global Accelerator (GA) resources.
+   *
+   * @description ### Description
+   * You can add up to 20 tags to each GA resource. When you call this operation, Alibaba Cloud first checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
+   *
+   * @param request TagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -25677,17 +26743,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Description
-    * You can add up to 20 tags to each GA resource. When you call this operation, Alibaba Cloud first checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
-    *
-    * @param request TagResourcesRequest
-    * @return TagResourcesResponse
+   * @summary Adds tags to Global Accelerator (GA) resources.
+   *
+   * @description ### Description
+   * You can add up to 20 tags to each GA resource. When you call this operation, Alibaba Cloud first checks the number of existing tags attached to the resource. If the quota is reached, an error message is returned.
+   *
+   * @param request TagResourcesRequest
+   * @return TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Removes tags from Global Accelerator (GA) resources.
+   *
+   * @param request UntagResourcesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UntagResourcesResponse
+   */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25732,20 +26807,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
+  /**
+   * @summary Removes tags from Global Accelerator (GA) resources.
+   *
+   * @param request UntagResourcesRequest
+   * @return UntagResourcesResponse
+   */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**
-    * *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-    *     *   If the GA instance is in the **configuring** state, the GA instance is being modified. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, the GA instance is modified.
-    * *   The **UpdateAccelerator** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request UpdateAcceleratorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAcceleratorResponse
+   * @summary Modifies a Global Accelerator (GA) instance.
+   *
+   * @description *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of a GA instance.
+   *     *   If the GA instance is in the **configuring** state, the GA instance is being modified. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, the GA instance is modified.
+   * *   The **UpdateAccelerator** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAcceleratorResponse
    */
   async updateAcceleratorWithOptions(request: UpdateAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorResponse> {
     Util.validateModel(request);
@@ -25800,13 +26883,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-    *     *   If the GA instance is in the **configuring** state, the GA instance is being modified. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, the GA instance is modified.
-    * *   The **UpdateAccelerator** operation cannot be repeatedly called for the same GA instance within a specific period of time.
-    *
-    * @param request UpdateAcceleratorRequest
-    * @return UpdateAcceleratorResponse
+   * @summary Modifies a Global Accelerator (GA) instance.
+   *
+   * @description *   **UpdateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of a GA instance.
+   *     *   If the GA instance is in the **configuring** state, the GA instance is being modified. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, the GA instance is modified.
+   * *   The **UpdateAccelerator** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateAcceleratorRequest
+   * @return UpdateAcceleratorResponse
    */
   async updateAccelerator(request: UpdateAcceleratorRequest): Promise<UpdateAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25814,11 +26899,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateAcceleratorAutoRenewAttribute** operation for the same GA instance within a specific period of time.
-    *
-    * @param request UpdateAcceleratorAutoRenewAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAcceleratorAutoRenewAttributeResponse
+   * @summary Modifies the auto-renewal settings of a Global Accelerator (GA) instance.
+   *
+   * @description You cannot repeatedly call the **UpdateAcceleratorAutoRenewAttribute** operation for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateAcceleratorAutoRenewAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAcceleratorAutoRenewAttributeResponse
    */
   async updateAcceleratorAutoRenewAttributeWithOptions(request: UpdateAcceleratorAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorAutoRenewAttributeResponse> {
     Util.validateModel(request);
@@ -25869,10 +26956,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateAcceleratorAutoRenewAttribute** operation for the same GA instance within a specific period of time.
-    *
-    * @param request UpdateAcceleratorAutoRenewAttributeRequest
-    * @return UpdateAcceleratorAutoRenewAttributeResponse
+   * @summary Modifies the auto-renewal settings of a Global Accelerator (GA) instance.
+   *
+   * @description You cannot repeatedly call the **UpdateAcceleratorAutoRenewAttribute** operation for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateAcceleratorAutoRenewAttributeRequest
+   * @return UpdateAcceleratorAutoRenewAttributeResponse
    */
   async updateAcceleratorAutoRenewAttribute(request: UpdateAcceleratorAutoRenewAttributeRequest): Promise<UpdateAcceleratorAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25880,15 +26969,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you modify the specification of a GA instance, you must confirm the modification. The **UpdateAcceleratorConfirm** operation is used to confirm the specification of a GA instance that is modified. When you call this operation to confirm the specification of a GA instance, take note of the following items:
-    * *   **UpdateAcceleratorConfirm** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-    *     *   If the GA instance is in the **configuring** state, it indicates that the specification of the instance is being modified. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, it indicates that the specification of the instance is modified.
-    * *   The **UpdateAcceleratorConfirm** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    *
-    * @param request UpdateAcceleratorConfirmRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAcceleratorConfirmResponse
+   * @summary Confirms the updated specification of a Global Accelerator (GA) instance.
+   *
+   * @description After you modify the specification of a GA instance, you must confirm the modification. The **UpdateAcceleratorConfirm** operation is used to confirm the specification of a GA instance that is modified. When you call this operation to confirm the specification of a GA instance, take note of the following items:
+   * *   **UpdateAcceleratorConfirm** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of a GA instance.
+   *     *   If the GA instance is in the **configuring** state, it indicates that the specification of the instance is being modified. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, it indicates that the specification of the instance is modified.
+   * *   The **UpdateAcceleratorConfirm** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateAcceleratorConfirmRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAcceleratorConfirmResponse
    */
   async updateAcceleratorConfirmWithOptions(request: UpdateAcceleratorConfirmRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorConfirmResponse> {
     Util.validateModel(request);
@@ -25919,14 +27010,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * After you modify the specification of a GA instance, you must confirm the modification. The **UpdateAcceleratorConfirm** operation is used to confirm the specification of a GA instance that is modified. When you call this operation to confirm the specification of a GA instance, take note of the following items:
-    * *   **UpdateAcceleratorConfirm** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-    *     *   If the GA instance is in the **configuring** state, it indicates that the specification of the instance is being modified. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, it indicates that the specification of the instance is modified.
-    * *   The **UpdateAcceleratorConfirm** operation cannot be called repeatedly for the same GA instance within a specific period of time.
-    *
-    * @param request UpdateAcceleratorConfirmRequest
-    * @return UpdateAcceleratorConfirmResponse
+   * @summary Confirms the updated specification of a Global Accelerator (GA) instance.
+   *
+   * @description After you modify the specification of a GA instance, you must confirm the modification. The **UpdateAcceleratorConfirm** operation is used to confirm the specification of a GA instance that is modified. When you call this operation to confirm the specification of a GA instance, take note of the following items:
+   * *   **UpdateAcceleratorConfirm** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of a GA instance.
+   *     *   If the GA instance is in the **configuring** state, it indicates that the specification of the instance is being modified. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, it indicates that the specification of the instance is modified.
+   * *   The **UpdateAcceleratorConfirm** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateAcceleratorConfirmRequest
+   * @return UpdateAcceleratorConfirmResponse
    */
   async updateAcceleratorConfirm(request: UpdateAcceleratorConfirmRequest): Promise<UpdateAcceleratorConfirmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25934,13 +27027,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to change the type of transmission network for a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**. Before you call this operation, make sure that the following requirements are met:
-    * *   Cloud Data Transfer (CDT) is activated. When you call the [CreateAccelerator](~~206786~~) operation and set **BandwidthBillingType** to **CDT** to create a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**, CDT is automatically activated. The data transfer fees are managed by CDT.
-    * *   If you want to set **CrossBorderMode** to **private**, which specifies cross-border Express Connect circuit as the type of transmission network, make sure that real-name verification is complete for your enterprise account. For more information, see [Real-name verification](~~52595~~).
-    *
-    * @param request UpdateAcceleratorCrossBorderModeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAcceleratorCrossBorderModeResponse
+   * @summary Changes the type of transmission network for a Global Accelerator (GA) instance.
+   *
+   * @description You can call this operation to change the type of transmission network for a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**. Before you call this operation, make sure that the following requirements are met:
+   * *   Cloud Data Transfer (CDT) is activated. When you call the [CreateAccelerator](https://help.aliyun.com/document_detail/206786.html) operation and set **BandwidthBillingType** to **CDT** to create a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**, CDT is automatically activated. The data transfer fees are managed by CDT.
+   * *   If you want to set **CrossBorderMode** to **private**, which specifies cross-border Express Connect circuit as the type of transmission network, make sure that real-name verification is complete for your enterprise account. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/52595.html).
+   *
+   * @param request UpdateAcceleratorCrossBorderModeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAcceleratorCrossBorderModeResponse
    */
   async updateAcceleratorCrossBorderModeWithOptions(request: UpdateAcceleratorCrossBorderModeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorCrossBorderModeResponse> {
     Util.validateModel(request);
@@ -25979,12 +27074,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to change the type of transmission network for a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**. Before you call this operation, make sure that the following requirements are met:
-    * *   Cloud Data Transfer (CDT) is activated. When you call the [CreateAccelerator](~~206786~~) operation and set **BandwidthBillingType** to **CDT** to create a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**, CDT is automatically activated. The data transfer fees are managed by CDT.
-    * *   If you want to set **CrossBorderMode** to **private**, which specifies cross-border Express Connect circuit as the type of transmission network, make sure that real-name verification is complete for your enterprise account. For more information, see [Real-name verification](~~52595~~).
-    *
-    * @param request UpdateAcceleratorCrossBorderModeRequest
-    * @return UpdateAcceleratorCrossBorderModeResponse
+   * @summary Changes the type of transmission network for a Global Accelerator (GA) instance.
+   *
+   * @description You can call this operation to change the type of transmission network for a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**. Before you call this operation, make sure that the following requirements are met:
+   * *   Cloud Data Transfer (CDT) is activated. When you call the [CreateAccelerator](https://help.aliyun.com/document_detail/206786.html) operation and set **BandwidthBillingType** to **CDT** to create a **standard** GA instance whose bandwidth metering method is **pay-by-data-transfer**, CDT is automatically activated. The data transfer fees are managed by CDT.
+   * *   If you want to set **CrossBorderMode** to **private**, which specifies cross-border Express Connect circuit as the type of transmission network, make sure that real-name verification is complete for your enterprise account. For more information, see [Real-name verification](https://help.aliyun.com/document_detail/52595.html).
+   *
+   * @param request UpdateAcceleratorCrossBorderModeRequest
+   * @return UpdateAcceleratorCrossBorderModeResponse
    */
   async updateAcceleratorCrossBorderMode(request: UpdateAcceleratorCrossBorderModeRequest): Promise<UpdateAcceleratorCrossBorderModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25992,16 +27089,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use this operation to enable or disable the cross-border data transmission feature for a GA instance. Before you enable the cross-border data transmission feature, make sure that the following requirements are met:
-    * - **Basic GA instances**:
-    * Cloud Data Transfer (CDT) is activated. When you call the CreateBasicAccelerator operation to create a basic GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
-    * If you want to enable the cross-border data transmission feature, make sure that the current account has completed enterprise real-name registration. For more information, see Real-name registration FAQs.
-    * - **Standard GA instances**:
-    * CDT is activated. When you call the CreateAccelerator operation to create a standard GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
-    *
-    * @param request UpdateAcceleratorCrossBorderStatusRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAcceleratorCrossBorderStatusResponse
+   * @summary Enables cross-border data transmission for a Global Accelerator (GA) instance.
+   *
+   * @description You can use this operation to enable or disable the cross-border data transmission feature for a GA instance. Before you enable the cross-border data transmission feature, make sure that the following requirements are met:
+   * - **Basic GA instances**:
+   * Cloud Data Transfer (CDT) is activated. When you call the CreateBasicAccelerator operation to create a basic GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
+   * If you want to enable the cross-border data transmission feature, make sure that the current account has completed enterprise real-name registration. For more information, see Real-name registration FAQs.
+   * - **Standard GA instances**:
+   * CDT is activated. When you call the CreateAccelerator operation to create a standard GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
+   *
+   * @param request UpdateAcceleratorCrossBorderStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAcceleratorCrossBorderStatusResponse
    */
   async updateAcceleratorCrossBorderStatusWithOptions(request: UpdateAcceleratorCrossBorderStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorCrossBorderStatusResponse> {
     Util.validateModel(request);
@@ -26040,21 +27139,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can use this operation to enable or disable the cross-border data transmission feature for a GA instance. Before you enable the cross-border data transmission feature, make sure that the following requirements are met:
-    * - **Basic GA instances**:
-    * Cloud Data Transfer (CDT) is activated. When you call the CreateBasicAccelerator operation to create a basic GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
-    * If you want to enable the cross-border data transmission feature, make sure that the current account has completed enterprise real-name registration. For more information, see Real-name registration FAQs.
-    * - **Standard GA instances**:
-    * CDT is activated. When you call the CreateAccelerator operation to create a standard GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
-    *
-    * @param request UpdateAcceleratorCrossBorderStatusRequest
-    * @return UpdateAcceleratorCrossBorderStatusResponse
+   * @summary Enables cross-border data transmission for a Global Accelerator (GA) instance.
+   *
+   * @description You can use this operation to enable or disable the cross-border data transmission feature for a GA instance. Before you enable the cross-border data transmission feature, make sure that the following requirements are met:
+   * - **Basic GA instances**:
+   * Cloud Data Transfer (CDT) is activated. When you call the CreateBasicAccelerator operation to create a basic GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
+   * If you want to enable the cross-border data transmission feature, make sure that the current account has completed enterprise real-name registration. For more information, see Real-name registration FAQs.
+   * - **Standard GA instances**:
+   * CDT is activated. When you call the CreateAccelerator operation to create a standard GA instance, set BandwidthBillingType to CDT. Then, the system automatically activates CDT. The data transfer fees are managed by CDT.
+   *
+   * @param request UpdateAcceleratorCrossBorderStatusRequest
+   * @return UpdateAcceleratorCrossBorderStatusResponse
    */
   async updateAcceleratorCrossBorderStatus(request: UpdateAcceleratorCrossBorderStatusRequest): Promise<UpdateAcceleratorCrossBorderStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAcceleratorCrossBorderStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the attributes of an access control list (ACL) of a Global Accelerator (GA) instance.
+   *
+   * @param request UpdateAclAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAclAttributeResponse
+   */
   async updateAclAttributeWithOptions(request: UpdateAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAclAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26095,21 +27203,29 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAclAttributeResponse>(await this.callApi(params, req, runtime), new UpdateAclAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the attributes of an access control list (ACL) of a Global Accelerator (GA) instance.
+   *
+   * @param request UpdateAclAttributeRequest
+   * @return UpdateAclAttributeResponse
+   */
   async updateAclAttribute(request: UpdateAclAttributeRequest): Promise<UpdateAclAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAclAttributeWithOptions(request, runtime);
   }
 
   /**
-    * The UpdateAdditionalCertificateWithListener operation is used to replace an additional certificate. You can use this operation when you want to replace an expired additional certificate with a new additional certificate without changing the associated domain name.
-    * *   **UpdateAdditionalCertificateWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can use the [ListListenerCertificates](~~307743~~) operation to query the state of the additional certificate that is associated with an HTTP listener:
-    *     *   If the certificate that you want to replace is in the **updating** state, it is being replaced for the HTTP listener. In this case, you can perform only query operations.
-    *     *   If the replacement certificate is in the **active** state, it indicates that the replacement operation is complete and the replacement certificate is associated with the HTTP listener.
-    * *   You cannot perform the **UpdateAdditionalCertificateWithListener** operation again on the same Global Accelerator (GA) instance before the previous operation is complete.
-    *
-    * @param request UpdateAdditionalCertificateWithListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateAdditionalCertificateWithListenerResponse
+   * @summary Replaces an expired additional certificate for an HTTPS listener.
+   *
+   * @description The UpdateAdditionalCertificateWithListener operation is used to replace an additional certificate. This operation is suitable for scenarios in which the original certificate expires and needs to be replaced with a new certificate and the associated domain name remains unchanged.
+   * *   **UpdateAdditionalCertificateWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/307743.html) to query the status of the task:
+   *     *   If the certificate to be replaced is in the **updating** state, the certificate is being replaced. In this case, you can only query the certificate.
+   *     *   If the new certificate is in the **active** state, the new certificate is in effect.
+   * *   You cannot repeatedly call the **UpdateAdditionalCertificateWithListener** operation for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateAdditionalCertificateWithListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAdditionalCertificateWithListenerResponse
    */
   async updateAdditionalCertificateWithListenerWithOptions(request: UpdateAdditionalCertificateWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAdditionalCertificateWithListenerResponse> {
     Util.validateModel(request);
@@ -26160,14 +27276,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * The UpdateAdditionalCertificateWithListener operation is used to replace an additional certificate. You can use this operation when you want to replace an expired additional certificate with a new additional certificate without changing the associated domain name.
-    * *   **UpdateAdditionalCertificateWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can use the [ListListenerCertificates](~~307743~~) operation to query the state of the additional certificate that is associated with an HTTP listener:
-    *     *   If the certificate that you want to replace is in the **updating** state, it is being replaced for the HTTP listener. In this case, you can perform only query operations.
-    *     *   If the replacement certificate is in the **active** state, it indicates that the replacement operation is complete and the replacement certificate is associated with the HTTP listener.
-    * *   You cannot perform the **UpdateAdditionalCertificateWithListener** operation again on the same Global Accelerator (GA) instance before the previous operation is complete.
-    *
-    * @param request UpdateAdditionalCertificateWithListenerRequest
-    * @return UpdateAdditionalCertificateWithListenerResponse
+   * @summary Replaces an expired additional certificate for an HTTPS listener.
+   *
+   * @description The UpdateAdditionalCertificateWithListener operation is used to replace an additional certificate. This operation is suitable for scenarios in which the original certificate expires and needs to be replaced with a new certificate and the associated domain name remains unchanged.
+   * *   **UpdateAdditionalCertificateWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/307743.html) to query the status of the task:
+   *     *   If the certificate to be replaced is in the **updating** state, the certificate is being replaced. In this case, you can only query the certificate.
+   *     *   If the new certificate is in the **active** state, the new certificate is in effect.
+   * *   You cannot repeatedly call the **UpdateAdditionalCertificateWithListener** operation for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateAdditionalCertificateWithListenerRequest
+   * @return UpdateAdditionalCertificateWithListenerResponse
    */
   async updateAdditionalCertificateWithListener(request: UpdateAdditionalCertificateWithListenerRequest): Promise<UpdateAdditionalCertificateWithListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26175,13 +27293,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to check whether the configurations of an origin probing task are modified.
-    * *   If the values of modified parameters remain unchanged, it indicates that the origin probing task is being modified. In this case, you can perform only query operations.
-    * *   If the values of modified parameters change, it indicates that the origin probing task is modified.
-    *
-    * @param request UpdateApplicationMonitorRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateApplicationMonitorResponse
+   * @summary Modifies an origin probing task.
+   *
+   * @description **UpdateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeApplicationMonitor](https://help.aliyun.com/document_detail/408463.html) or [ListApplicationMonitor](https://help.aliyun.com/document_detail/408462.html) operation to check whether the configurations of an origin probing task are modified.
+   * *   If the values of modified parameters remain unchanged, it indicates that the origin probing task is being modified. In this case, you can perform only query operations.
+   * *   If the values of modified parameters change, it indicates that the origin probing task is modified.
+   *
+   * @param request UpdateApplicationMonitorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateApplicationMonitorResponse
    */
   async updateApplicationMonitorWithOptions(request: UpdateApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationMonitorResponse> {
     Util.validateModel(request);
@@ -26248,12 +27368,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **UpdateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeApplicationMonitor](~~408463~~) or [ListApplicationMonitor](~~408462~~) operation to check whether the configurations of an origin probing task are modified.
-    * *   If the values of modified parameters remain unchanged, it indicates that the origin probing task is being modified. In this case, you can perform only query operations.
-    * *   If the values of modified parameters change, it indicates that the origin probing task is modified.
-    *
-    * @param request UpdateApplicationMonitorRequest
-    * @return UpdateApplicationMonitorResponse
+   * @summary Modifies an origin probing task.
+   *
+   * @description **UpdateApplicationMonitor** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeApplicationMonitor](https://help.aliyun.com/document_detail/408463.html) or [ListApplicationMonitor](https://help.aliyun.com/document_detail/408462.html) operation to check whether the configurations of an origin probing task are modified.
+   * *   If the values of modified parameters remain unchanged, it indicates that the origin probing task is being modified. In this case, you can perform only query operations.
+   * *   If the values of modified parameters change, it indicates that the origin probing task is modified.
+   *
+   * @param request UpdateApplicationMonitorRequest
+   * @return UpdateApplicationMonitorResponse
    */
   async updateApplicationMonitor(request: UpdateApplicationMonitorRequest): Promise<UpdateApplicationMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26261,11 +27383,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateBandwidthPackagaAutoRenewAttribute** operation to modify the auto-renewal settings of a bandwidth plan.
-    *
-    * @param request UpdateBandwidthPackagaAutoRenewAttributeRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateBandwidthPackagaAutoRenewAttributeResponse
+   * @summary Changes the auto-renewal status of a bandwidth plan.
+   *
+   * @description You cannot repeatedly call the **UpdateBandwidthPackagaAutoRenewAttribute** operation to modify the auto-renewal settings of a bandwidth plan.
+   *
+   * @param request UpdateBandwidthPackagaAutoRenewAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBandwidthPackagaAutoRenewAttributeResponse
    */
   async updateBandwidthPackagaAutoRenewAttributeWithOptions(request: UpdateBandwidthPackagaAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBandwidthPackagaAutoRenewAttributeResponse> {
     Util.validateModel(request);
@@ -26316,10 +27440,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You cannot repeatedly call the **UpdateBandwidthPackagaAutoRenewAttribute** operation to modify the auto-renewal settings of a bandwidth plan.
-    *
-    * @param request UpdateBandwidthPackagaAutoRenewAttributeRequest
-    * @return UpdateBandwidthPackagaAutoRenewAttributeResponse
+   * @summary Changes the auto-renewal status of a bandwidth plan.
+   *
+   * @description You cannot repeatedly call the **UpdateBandwidthPackagaAutoRenewAttribute** operation to modify the auto-renewal settings of a bandwidth plan.
+   *
+   * @param request UpdateBandwidthPackagaAutoRenewAttributeRequest
+   * @return UpdateBandwidthPackagaAutoRenewAttributeResponse
    */
   async updateBandwidthPackagaAutoRenewAttribute(request: UpdateBandwidthPackagaAutoRenewAttributeRequest): Promise<UpdateBandwidthPackagaAutoRenewAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26327,19 +27453,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Take note of the following items:
-    * *   **UpdateBandwidthPackage** is a synchronous operation when you call the operation to modify the configuration excluding the bandwidth value of a bandwidth plan. The new configuration immediately takes effect after the operation is performed.
-    * *   **UpdateBandwidthPackage** is an asynchronous operation when you call the operation to modify the configuration including the bandwidth value of a bandwidth plan that is not associated with a Global Accelerator (GA) instance. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the task.
-    *     *   If the parameter values of the bandwidth plan remain unchanged, the bandwidth plan is being modified. In this case, you can perform only query operations.
-    *     *   If the parameter values of the bandwidth plan are changed, the bandwidth plan is modified.
-    * *   **UpdateBandwidthPackage** is an asynchronous operation when you call the operation to modify the configuration including the bandwidth value of a bandwidth plan that is associated with a GA instance. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of the task.
-    *     *   If the GA instance is in the **configuring** state, the bandwidth plan is being modified. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, the bandwidth plan is modified.
-    * *   You cannot repeatedly call the **UpdateBandwidthPackage** operation for the same bandwidth plan within a specific period of time.
-    *
-    * @param request UpdateBandwidthPackageRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateBandwidthPackageResponse
+   * @summary Modifies the configurations of a bandwidth plan.
+   *
+   * @description Take note of the following items:
+   * *   **UpdateBandwidthPackage** is a synchronous operation when you call the operation to modify the configuration excluding the bandwidth value of a bandwidth plan. The new configuration immediately takes effect after the operation is performed.
+   * *   **UpdateBandwidthPackage** is an asynchronous operation when you call the operation to modify the configuration including the bandwidth value of a bandwidth plan that is not associated with a Global Accelerator (GA) instance. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](https://help.aliyun.com/document_detail/153241.html) operation to query the status of the task.
+   *     *   If the parameter values of the bandwidth plan remain unchanged, the bandwidth plan is being modified. In this case, you can perform only query operations.
+   *     *   If the parameter values of the bandwidth plan are changed, the bandwidth plan is modified.
+   * *   **UpdateBandwidthPackage** is an asynchronous operation when you call the operation to modify the configuration including the bandwidth value of a bandwidth plan that is associated with a GA instance. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of the task.
+   *     *   If the GA instance is in the **configuring** state, the bandwidth plan is being modified. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, the bandwidth plan is modified.
+   * *   You cannot repeatedly call the **UpdateBandwidthPackage** operation for the same bandwidth plan within a specific period of time.
+   *
+   * @param request UpdateBandwidthPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBandwidthPackageResponse
    */
   async updateBandwidthPackageWithOptions(request: UpdateBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBandwidthPackageResponse> {
     Util.validateModel(request);
@@ -26394,24 +27522,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Take note of the following items:
-    * *   **UpdateBandwidthPackage** is a synchronous operation when you call the operation to modify the configuration excluding the bandwidth value of a bandwidth plan. The new configuration immediately takes effect after the operation is performed.
-    * *   **UpdateBandwidthPackage** is an asynchronous operation when you call the operation to modify the configuration including the bandwidth value of a bandwidth plan that is not associated with a Global Accelerator (GA) instance. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the task.
-    *     *   If the parameter values of the bandwidth plan remain unchanged, the bandwidth plan is being modified. In this case, you can perform only query operations.
-    *     *   If the parameter values of the bandwidth plan are changed, the bandwidth plan is modified.
-    * *   **UpdateBandwidthPackage** is an asynchronous operation when you call the operation to modify the configuration including the bandwidth value of a bandwidth plan that is associated with a GA instance. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of the task.
-    *     *   If the GA instance is in the **configuring** state, the bandwidth plan is being modified. In this case, you can perform only query operations.
-    *     *   If the GA instance is in the **active** state, the bandwidth plan is modified.
-    * *   You cannot repeatedly call the **UpdateBandwidthPackage** operation for the same bandwidth plan within a specific period of time.
-    *
-    * @param request UpdateBandwidthPackageRequest
-    * @return UpdateBandwidthPackageResponse
+   * @summary Modifies the configurations of a bandwidth plan.
+   *
+   * @description Take note of the following items:
+   * *   **UpdateBandwidthPackage** is a synchronous operation when you call the operation to modify the configuration excluding the bandwidth value of a bandwidth plan. The new configuration immediately takes effect after the operation is performed.
+   * *   **UpdateBandwidthPackage** is an asynchronous operation when you call the operation to modify the configuration including the bandwidth value of a bandwidth plan that is not associated with a Global Accelerator (GA) instance. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](https://help.aliyun.com/document_detail/153241.html) operation to query the status of the task.
+   *     *   If the parameter values of the bandwidth plan remain unchanged, the bandwidth plan is being modified. In this case, you can perform only query operations.
+   *     *   If the parameter values of the bandwidth plan are changed, the bandwidth plan is modified.
+   * *   **UpdateBandwidthPackage** is an asynchronous operation when you call the operation to modify the configuration including the bandwidth value of a bandwidth plan that is associated with a GA instance. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](https://help.aliyun.com/document_detail/153235.html) operation to query the status of the task.
+   *     *   If the GA instance is in the **configuring** state, the bandwidth plan is being modified. In this case, you can perform only query operations.
+   *     *   If the GA instance is in the **active** state, the bandwidth plan is modified.
+   * *   You cannot repeatedly call the **UpdateBandwidthPackage** operation for the same bandwidth plan within a specific period of time.
+   *
+   * @param request UpdateBandwidthPackageRequest
+   * @return UpdateBandwidthPackageResponse
    */
   async updateBandwidthPackage(request: UpdateBandwidthPackageRequest): Promise<UpdateBandwidthPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBandwidthPackageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name and description of a basic Global Accelerator (GA) instance.
+   *
+   * @param request UpdateBasicAcceleratorRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBasicAcceleratorResponse
+   */
   async updateBasicAcceleratorWithOptions(request: UpdateBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26452,11 +27589,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBasicAcceleratorResponse>(await this.callApi(params, req, runtime), new UpdateBasicAcceleratorResponse({}));
   }
 
+  /**
+   * @summary Modifies the name and description of a basic Global Accelerator (GA) instance.
+   *
+   * @param request UpdateBasicAcceleratorRequest
+   * @return UpdateBasicAcceleratorResponse
+   */
   async updateBasicAccelerator(request: UpdateBasicAcceleratorRequest): Promise<UpdateBasicAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBasicAcceleratorWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name of an endpoint that is associated with a basic Global Accelerator (GA) instance.
+   *
+   * @param request UpdateBasicEndpointRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBasicEndpointResponse
+   */
   async updateBasicEndpointWithOptions(request: UpdateBasicEndpointRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicEndpointResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26497,20 +27647,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateBasicEndpointResponse>(await this.callApi(params, req, runtime), new UpdateBasicEndpointResponse({}));
   }
 
+  /**
+   * @summary Modifies the name of an endpoint that is associated with a basic Global Accelerator (GA) instance.
+   *
+   * @param request UpdateBasicEndpointRequest
+   * @return UpdateBasicEndpointResponse
+   */
   async updateBasicEndpoint(request: UpdateBasicEndpointRequest): Promise<UpdateBasicEndpointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBasicEndpointWithOptions(request, runtime);
   }
 
   /**
-    * *   **UpdateBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. The system modifies the configurations of an endpoint group that is associated with a basic GA instance by deleting the endpoint group and creating a new endpoint group. You can call the [GetBasicAccelerator](~~353188~~) operation to query the status of the task.
-    *     *   If the basic GA instance is in the **configuring** state, the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the basic GA instance is in the **active** state, the configurations of the endpoint group are modified.
-    * *   The **UpdateBasicEndpointGroup** operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
-    *
-    * @param request UpdateBasicEndpointGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateBasicEndpointGroupResponse
+   * @summary Modifies the configurations of an endpoint group that is associated with a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **UpdateBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. The system modifies the configurations of an endpoint group that is associated with a basic GA instance by deleting the endpoint group and creating a new endpoint group. You can call the [GetBasicAccelerator](https://help.aliyun.com/document_detail/353188.html) operation to query the status of the task.
+   *     *   If the basic GA instance is in the **configuring** state, the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+   *     *   If the basic GA instance is in the **active** state, the configurations of the endpoint group are modified.
+   * *   The **UpdateBasicEndpointGroup** operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
+   *
+   * @param request UpdateBasicEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBasicEndpointGroupResponse
    */
   async updateBasicEndpointGroupWithOptions(request: UpdateBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicEndpointGroupResponse> {
     Util.validateModel(request);
@@ -26565,13 +27723,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. The system modifies the configurations of an endpoint group that is associated with a basic GA instance by deleting the endpoint group and creating a new endpoint group. You can call the [GetBasicAccelerator](~~353188~~) operation to query the status of the task.
-    *     *   If the basic GA instance is in the **configuring** state, the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the basic GA instance is in the **active** state, the configurations of the endpoint group are modified.
-    * *   The **UpdateBasicEndpointGroup** operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
-    *
-    * @param request UpdateBasicEndpointGroupRequest
-    * @return UpdateBasicEndpointGroupResponse
+   * @summary Modifies the configurations of an endpoint group that is associated with a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **UpdateBasicEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. The system modifies the configurations of an endpoint group that is associated with a basic GA instance by deleting the endpoint group and creating a new endpoint group. You can call the [GetBasicAccelerator](https://help.aliyun.com/document_detail/353188.html) operation to query the status of the task.
+   *     *   If the basic GA instance is in the **configuring** state, the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+   *     *   If the basic GA instance is in the **active** state, the configurations of the endpoint group are modified.
+   * *   The **UpdateBasicEndpointGroup** operation cannot be repeatedly called for the same basic GA instance within a specific period of time.
+   *
+   * @param request UpdateBasicEndpointGroupRequest
+   * @return UpdateBasicEndpointGroupResponse
    */
   async updateBasicEndpointGroup(request: UpdateBasicEndpointGroupRequest): Promise<UpdateBasicEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26579,16 +27739,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following limits:
-    * *   You can modify the bandwidth of an acceleration region of a basic GA instance only if the bandwidth metering method of the basic GA instance is **pay-by-data-transfer**.
-    * *   **UpdateBasicIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of the task.
-    *     *   If the acceleration region is in the **updating** state, it indicates that the bandwidth of the acceleration region is being modified. In this case, you can perform only query operations.
-    *     *   If the acceleration region is in the **active** state, it indicates that the bandwidth of the acceleration region is modified.
-    * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within a specific period of time.
-    *
-    * @param request UpdateBasicIpSetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateBasicIpSetResponse
+   * @summary Modifies the bandwidth of an acceleration region of a basic Global Accelerator (GA) instance.
+   *
+   * @description Before you call this operation, take note of the following limits:
+   * *   You can modify the bandwidth of an acceleration region of a basic GA instance only if the bandwidth metering method of the basic GA instance is **pay-by-data-transfer**.
+   * *   **UpdateBasicIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](https://help.aliyun.com/document_detail/362987.html) operation to query the status of the task.
+   *     *   If the acceleration region is in the **updating** state, it indicates that the bandwidth of the acceleration region is being modified. In this case, you can perform only query operations.
+   *     *   If the acceleration region is in the **active** state, it indicates that the bandwidth of the acceleration region is modified.
+   * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within a specific period of time.
+   *
+   * @param request UpdateBasicIpSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateBasicIpSetResponse
    */
   async updateBasicIpSetWithOptions(request: UpdateBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicIpSetResponse> {
     Util.validateModel(request);
@@ -26627,21 +27789,30 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * Before you call this operation, take note of the following limits:
-    * *   You can modify the bandwidth of an acceleration region of a basic GA instance only if the bandwidth metering method of the basic GA instance is **pay-by-data-transfer**.
-    * *   **UpdateBasicIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](~~362987~~) operation to query the status of the task.
-    *     *   If the acceleration region is in the **updating** state, it indicates that the bandwidth of the acceleration region is being modified. In this case, you can perform only query operations.
-    *     *   If the acceleration region is in the **active** state, it indicates that the bandwidth of the acceleration region is modified.
-    * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within a specific period of time.
-    *
-    * @param request UpdateBasicIpSetRequest
-    * @return UpdateBasicIpSetResponse
+   * @summary Modifies the bandwidth of an acceleration region of a basic Global Accelerator (GA) instance.
+   *
+   * @description Before you call this operation, take note of the following limits:
+   * *   You can modify the bandwidth of an acceleration region of a basic GA instance only if the bandwidth metering method of the basic GA instance is **pay-by-data-transfer**.
+   * *   **UpdateBasicIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetBasicIpSet](https://help.aliyun.com/document_detail/362987.html) operation to query the status of the task.
+   *     *   If the acceleration region is in the **updating** state, it indicates that the bandwidth of the acceleration region is being modified. In this case, you can perform only query operations.
+   *     *   If the acceleration region is in the **active** state, it indicates that the bandwidth of the acceleration region is modified.
+   * *   You cannot repeatedly call the **UpdateBasicIpSet** operation for the same basic GA instance within a specific period of time.
+   *
+   * @param request UpdateBasicIpSetRequest
+   * @return UpdateBasicIpSetResponse
    */
   async updateBasicIpSet(request: UpdateBasicIpSetRequest): Promise<UpdateBasicIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateBasicIpSetWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name and description of an endpoint group that is associated with a custom routing listener.
+   *
+   * @param request UpdateCustomRoutingEndpointGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCustomRoutingEndpointGroupAttributeResponse
+   */
   async updateCustomRoutingEndpointGroupAttributeWithOptions(request: UpdateCustomRoutingEndpointGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26682,20 +27853,28 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateCustomRoutingEndpointGroupAttributeResponse>(await this.callApi(params, req, runtime), new UpdateCustomRoutingEndpointGroupAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the name and description of an endpoint group that is associated with a custom routing listener.
+   *
+   * @param request UpdateCustomRoutingEndpointGroupAttributeRequest
+   * @return UpdateCustomRoutingEndpointGroupAttributeResponse
+   */
   async updateCustomRoutingEndpointGroupAttribute(request: UpdateCustomRoutingEndpointGroupAttributeRequest): Promise<UpdateCustomRoutingEndpointGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCustomRoutingEndpointGroupAttributeWithOptions(request, runtime);
   }
 
   /**
-    * *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group associated with a custom routing listener to check whether the mapping configurations of the endpoint group are modified.
-    *     *   If the endpoint group is in the **updating** state, the mapping configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, the mapping configurations of the endpoint group are modified.
-    * *   The **UpdateCustomRoutingEndpointGroupDestinations** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request UpdateCustomRoutingEndpointGroupDestinationsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateCustomRoutingEndpointGroupDestinationsResponse
+   * @summary Modifies the mapping configurations of an endpoint group that is associated with a custom routing listener.
+   *
+   * @description *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of an endpoint group associated with a custom routing listener to check whether the mapping configurations of the endpoint group are modified.
+   *     *   If the endpoint group is in the **updating** state, the mapping configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, the mapping configurations of the endpoint group are modified.
+   * *   The **UpdateCustomRoutingEndpointGroupDestinations** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request UpdateCustomRoutingEndpointGroupDestinationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCustomRoutingEndpointGroupDestinationsResponse
    */
   async updateCustomRoutingEndpointGroupDestinationsWithOptions(request: UpdateCustomRoutingEndpointGroupDestinationsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointGroupDestinationsResponse> {
     Util.validateModel(request);
@@ -26738,13 +27917,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of an endpoint group associated with a custom routing listener to check whether the mapping configurations of the endpoint group are modified.
-    *     *   If the endpoint group is in the **updating** state, the mapping configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, the mapping configurations of the endpoint group are modified.
-    * *   The **UpdateCustomRoutingEndpointGroupDestinations** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request UpdateCustomRoutingEndpointGroupDestinationsRequest
-    * @return UpdateCustomRoutingEndpointGroupDestinationsResponse
+   * @summary Modifies the mapping configurations of an endpoint group that is associated with a custom routing listener.
+   *
+   * @description *   **UpdateCustomRoutingEndpointGroupDestinations** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of an endpoint group associated with a custom routing listener to check whether the mapping configurations of the endpoint group are modified.
+   *     *   If the endpoint group is in the **updating** state, the mapping configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, the mapping configurations of the endpoint group are modified.
+   * *   The **UpdateCustomRoutingEndpointGroupDestinations** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request UpdateCustomRoutingEndpointGroupDestinationsRequest
+   * @return UpdateCustomRoutingEndpointGroupDestinationsResponse
    */
   async updateCustomRoutingEndpointGroupDestinations(request: UpdateCustomRoutingEndpointGroupDestinationsRequest): Promise<UpdateCustomRoutingEndpointGroupDestinationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26752,14 +27933,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of the task.
-    *     *   If the endpoint group is in the **updating** state, traffic policies are being modified for endpoints in the endpoint group. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, traffic policies are modified for endpoints in the endpoint group.
-    * *   The **UpdateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request UpdateCustomRoutingEndpointTrafficPoliciesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse
+   * @summary Modifies the traffic policies for an endpoint that is associated with a custom routing listener.
+   *
+   * @description *   **UpdateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of the task.
+   *     *   If the endpoint group is in the **updating** state, traffic policies are being modified for endpoints in the endpoint group. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, traffic policies are modified for endpoints in the endpoint group.
+   * *   The **UpdateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request UpdateCustomRoutingEndpointTrafficPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse
    */
   async updateCustomRoutingEndpointTrafficPoliciesWithOptions(request: UpdateCustomRoutingEndpointTrafficPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointTrafficPoliciesResponse> {
     Util.validateModel(request);
@@ -26798,13 +27981,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the status of the task.
-    *     *   If the endpoint group is in the **updating** state, traffic policies are being modified for endpoints in the endpoint group. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, traffic policies are modified for endpoints in the endpoint group.
-    * *   The **UpdateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request UpdateCustomRoutingEndpointTrafficPoliciesRequest
-    * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse
+   * @summary Modifies the traffic policies for an endpoint that is associated with a custom routing listener.
+   *
+   * @description *   **UpdateCustomRoutingEndpointTrafficPolicies** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the status of the task.
+   *     *   If the endpoint group is in the **updating** state, traffic policies are being modified for endpoints in the endpoint group. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, traffic policies are modified for endpoints in the endpoint group.
+   * *   The **UpdateCustomRoutingEndpointTrafficPolicies** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request UpdateCustomRoutingEndpointTrafficPoliciesRequest
+   * @return UpdateCustomRoutingEndpointTrafficPoliciesResponse
    */
   async updateCustomRoutingEndpointTrafficPolicies(request: UpdateCustomRoutingEndpointTrafficPoliciesRequest): Promise<UpdateCustomRoutingEndpointTrafficPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26812,15 +27997,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * *   **UpdateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener to check whether the endpoints in the endpoint groups are modified.
-    *     *   If an endpoint group is in the **updating** state, the endpoints in the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If an endpoint group is in the **active** state, the endpoints in the endpoint group are modified.
-    * *   The **UpdateCustomRoutingEndpoints** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request UpdateCustomRoutingEndpointsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateCustomRoutingEndpointsResponse
+   * @summary Modifies the endpoints of a custom routing listener.
+   *
+   * @description ## Description
+   * *   **UpdateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the state of the endpoint groups associated with a custom routing listener to check whether the endpoints in the endpoint groups are modified.
+   *     *   If an endpoint group is in the **updating** state, the endpoints in the endpoint group are being modified. In this case, you can perform only query operations.
+   *     *   If an endpoint group is in the **active** state, the endpoints in the endpoint group are modified.
+   * *   The **UpdateCustomRoutingEndpoints** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request UpdateCustomRoutingEndpointsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateCustomRoutingEndpointsResponse
    */
   async updateCustomRoutingEndpointsWithOptions(request: UpdateCustomRoutingEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomRoutingEndpointsResponse> {
     Util.validateModel(request);
@@ -26859,14 +28046,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ## Description
-    * *   **UpdateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](~~449373~~) operation to query the state of the endpoint groups associated with a custom routing listener to check whether the endpoints in the endpoint groups are modified.
-    *     *   If an endpoint group is in the **updating** state, the endpoints in the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If an endpoint group is in the **active** state, the endpoints in the endpoint group are modified.
-    * *   The **UpdateCustomRoutingEndpoints** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request UpdateCustomRoutingEndpointsRequest
-    * @return UpdateCustomRoutingEndpointsResponse
+   * @summary Modifies the endpoints of a custom routing listener.
+   *
+   * @description ## Description
+   * *   **UpdateCustomRoutingEndpoints** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeCustomRoutingEndpointGroup](https://help.aliyun.com/document_detail/449373.html) operation to query the state of the endpoint groups associated with a custom routing listener to check whether the endpoints in the endpoint groups are modified.
+   *     *   If an endpoint group is in the **updating** state, the endpoints in the endpoint group are being modified. In this case, you can perform only query operations.
+   *     *   If an endpoint group is in the **active** state, the endpoints in the endpoint group are modified.
+   * *   The **UpdateCustomRoutingEndpoints** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request UpdateCustomRoutingEndpointsRequest
+   * @return UpdateCustomRoutingEndpointsResponse
    */
   async updateCustomRoutingEndpoints(request: UpdateCustomRoutingEndpointsRequest): Promise<UpdateCustomRoutingEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26874,12 +28063,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to modify an accelerated domain name. If the new accelerated domain name is hosted in the Chinese mainland, you must obtain an Internet content provider (ICP) number for the domain name.
-    * You cannot call the **UpdateDomain** operation again by using the same Alibaba Cloud account before the previous request is completed.
-    *
-    * @param request UpdateDomainRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateDomainResponse
+   * @summary Modifies an accelerated domain name.
+   *
+   * @description You can call this operation to modify an accelerated domain name. If the new accelerated domain name is hosted in the Chinese mainland, you must obtain an Internet content provider (ICP) number for the domain name.
+   * You cannot call the **UpdateDomain** operation again by using the same Alibaba Cloud account before the previous request is completed.
+   *
+   * @param request UpdateDomainRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDomainResponse
    */
   async updateDomainWithOptions(request: UpdateDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainResponse> {
     Util.validateModel(request);
@@ -26914,11 +28105,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to modify an accelerated domain name. If the new accelerated domain name is hosted in the Chinese mainland, you must obtain an Internet content provider (ICP) number for the domain name.
-    * You cannot call the **UpdateDomain** operation again by using the same Alibaba Cloud account before the previous request is completed.
-    *
-    * @param request UpdateDomainRequest
-    * @return UpdateDomainResponse
+   * @summary Modifies an accelerated domain name.
+   *
+   * @description You can call this operation to modify an accelerated domain name. If the new accelerated domain name is hosted in the Chinese mainland, you must obtain an Internet content provider (ICP) number for the domain name.
+   * You cannot call the **UpdateDomain** operation again by using the same Alibaba Cloud account before the previous request is completed.
+   *
+   * @param request UpdateDomainRequest
+   * @return UpdateDomainResponse
    */
   async updateDomain(request: UpdateDomainRequest): Promise<UpdateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26926,12 +28119,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query and update the ICP filing status of an accelerated domain name.
-    * The **UpdateDomainState** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation with the same Alibaba Cloud account.
-    *
-    * @param request UpdateDomainStateRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateDomainStateResponse
+   * @summary Updates the ICP filing status of an accelerated domain name.
+   *
+   * @description You can call this operation to query and update the ICP filing status of an accelerated domain name.
+   * The **UpdateDomainState** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation with the same Alibaba Cloud account.
+   *
+   * @param request UpdateDomainStateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateDomainStateResponse
    */
   async updateDomainStateWithOptions(request: UpdateDomainStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainStateResponse> {
     Util.validateModel(request);
@@ -26962,11 +28157,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * You can call this operation to query and update the ICP filing status of an accelerated domain name.
-    * The **UpdateDomainState** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation with the same Alibaba Cloud account.
-    *
-    * @param request UpdateDomainStateRequest
-    * @return UpdateDomainStateResponse
+   * @summary Updates the ICP filing status of an accelerated domain name.
+   *
+   * @description You can call this operation to query and update the ICP filing status of an accelerated domain name.
+   * The **UpdateDomainState** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation with the same Alibaba Cloud account.
+   *
+   * @param request UpdateDomainStateRequest
+   * @return UpdateDomainStateResponse
    */
   async updateDomainState(request: UpdateDomainStateRequest): Promise<UpdateDomainStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26974,14 +28171,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
-    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request UpdateEndpointGroupRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateEndpointGroupResponse
+   * @summary Modifies an endpoint group of a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the state of an endpoint group.
+   *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+   * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request UpdateEndpointGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEndpointGroupResponse
    */
   async updateEndpointGroupWithOptions(request: UpdateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupResponse> {
     Util.validateModel(request);
@@ -27004,6 +28203,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.endpointGroupRegion)) {
       query["EndpointGroupRegion"] = request.endpointGroupRegion;
+    }
+
+    if (!Util.isUnset(request.endpointProtocolVersion)) {
+      query["EndpointProtocolVersion"] = request.endpointProtocolVersion;
     }
 
     if (!Util.isUnset(request.endpointRequestProtocol)) {
@@ -27068,19 +28271,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
-    * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
-    *
-    * @param request UpdateEndpointGroupRequest
-    * @return UpdateEndpointGroupResponse
+   * @summary Modifies an endpoint group of a basic Global Accelerator (GA) instance.
+   *
+   * @description *   **UpdateEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) operation to query the state of an endpoint group.
+   *     *   If the endpoint group is in the **updating** state, it indicates that the configurations of the endpoint group are being modified. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that the configurations of the endpoint group are modified.
+   * *   The **UpdateEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+   *
+   * @param request UpdateEndpointGroupRequest
+   * @return UpdateEndpointGroupResponse
    */
   async updateEndpointGroup(request: UpdateEndpointGroupRequest): Promise<UpdateEndpointGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEndpointGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary Modifies the name and description of an endpoint group.
+   *
+   * @param request UpdateEndpointGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEndpointGroupAttributeResponse
+   */
   async updateEndpointGroupAttributeWithOptions(request: UpdateEndpointGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -27121,21 +28333,29 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateEndpointGroupAttributeResponse>(await this.callApi(params, req, runtime), new UpdateEndpointGroupAttributeResponse({}));
   }
 
+  /**
+   * @summary Modifies the name and description of an endpoint group.
+   *
+   * @param request UpdateEndpointGroupAttributeRequest
+   * @return UpdateEndpointGroupAttributeResponse
+   */
   async updateEndpointGroupAttribute(request: UpdateEndpointGroupAttributeRequest): Promise<UpdateEndpointGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateEndpointGroupAttributeWithOptions(request, runtime);
   }
 
   /**
-    * ### Description
-    * *   **UpdateEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the status of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, it indicates that the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that the configuration of the endpoint group is modified.
-    * *   The **UpdateEndpointGroups** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request UpdateEndpointGroupsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateEndpointGroupsResponse
+   * @summary Modifies the endpoint groups that are associated with a listener.
+   *
+   * @description ### Description
+   * *   **UpdateEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) or [ListEndpointGroups](https://help.aliyun.com/document_detail/153261.html) operation to query the status of an endpoint group.
+   *     *   If the endpoint group is in the **updating** state, it indicates that the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that the configuration of the endpoint group is modified.
+   * *   The **UpdateEndpointGroups** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request UpdateEndpointGroupsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateEndpointGroupsResponse
    */
   async updateEndpointGroupsWithOptions(request: UpdateEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupsResponse> {
     Util.validateModel(request);
@@ -27178,14 +28398,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * ### Description
-    * *   **UpdateEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) or [ListEndpointGroups](~~153261~~) operation to query the status of an endpoint group.
-    *     *   If the endpoint group is in the **updating** state, it indicates that the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
-    *     *   If the endpoint group is in the **active** state, it indicates that the configuration of the endpoint group is modified.
-    * *   The **UpdateEndpointGroups** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request UpdateEndpointGroupsRequest
-    * @return UpdateEndpointGroupsResponse
+   * @summary Modifies the endpoint groups that are associated with a listener.
+   *
+   * @description ### Description
+   * *   **UpdateEndpointGroups** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](https://help.aliyun.com/document_detail/153260.html) or [ListEndpointGroups](https://help.aliyun.com/document_detail/153261.html) operation to query the status of an endpoint group.
+   *     *   If the endpoint group is in the **updating** state, it indicates that the configuration of the endpoint group is being modified. In this case, you can perform only query operations.
+   *     *   If the endpoint group is in the **active** state, it indicates that the configuration of the endpoint group is modified.
+   * *   The **UpdateEndpointGroups** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request UpdateEndpointGroupsRequest
+   * @return UpdateEndpointGroupsResponse
    */
   async updateEndpointGroups(request: UpdateEndpointGroupsRequest): Promise<UpdateEndpointGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27193,14 +28415,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateForwardingRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListForwardingRules](~~205817~~) operation to query the status of a forwarding rule.
-    *     *   If the forwarding rule is in the **configuring** state, it indicates that the forwarding rule is being modified. In this case, you can perform only query operations.
-    *     *   If the forwarding rule is in the **active** state, it indicates that the forwarding rule is modified.
-    * *   The **UpdateForwardingRules** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request UpdateForwardingRulesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateForwardingRulesResponse
+   * @summary Updates a forwarding rule.
+   *
+   * @description *   **UpdateForwardingRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListForwardingRules](https://help.aliyun.com/document_detail/205817.html) operation to query the status of a forwarding rule.
+   *     *   If the forwarding rule is in the **configuring** state, it indicates that the forwarding rule is being modified. In this case, you can perform only query operations.
+   *     *   If the forwarding rule is in the **active** state, it indicates that the forwarding rule is modified.
+   * *   The **UpdateForwardingRules** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request UpdateForwardingRulesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateForwardingRulesResponse
    */
   async updateForwardingRulesWithOptions(request: UpdateForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateForwardingRulesResponse> {
     Util.validateModel(request);
@@ -27243,13 +28467,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateForwardingRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListForwardingRules](~~205817~~) operation to query the status of a forwarding rule.
-    *     *   If the forwarding rule is in the **configuring** state, it indicates that the forwarding rule is being modified. In this case, you can perform only query operations.
-    *     *   If the forwarding rule is in the **active** state, it indicates that the forwarding rule is modified.
-    * *   The **UpdateForwardingRules** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
-    *
-    * @param request UpdateForwardingRulesRequest
-    * @return UpdateForwardingRulesResponse
+   * @summary Updates a forwarding rule.
+   *
+   * @description *   **UpdateForwardingRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListForwardingRules](https://help.aliyun.com/document_detail/205817.html) operation to query the status of a forwarding rule.
+   *     *   If the forwarding rule is in the **configuring** state, it indicates that the forwarding rule is being modified. In this case, you can perform only query operations.
+   *     *   If the forwarding rule is in the **active** state, it indicates that the forwarding rule is modified.
+   * *   The **UpdateForwardingRules** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
+   *
+   * @param request UpdateForwardingRulesRequest
+   * @return UpdateForwardingRulesResponse
    */
   async updateForwardingRules(request: UpdateForwardingRulesRequest): Promise<UpdateForwardingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27257,14 +28483,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of an acceleration region.
-    *     *   If the acceleration region is in the **updating** state, it indicates that the acceleration region is being modified. In this case, you can continue to perform query operations on the acceleration regions.
-    *     *   If the acceleration region is in the **active** state, it indicates that the acceleration region is modified.
-    * *   You cannot call the **UpdateIpSet** operation again on the same GA instance before the previous operation is complete.
-    *
-    * @param request UpdateIpSetRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateIpSetResponse
+   * @summary Modifies the attributes of an acceleration region in an acceleration area for a Global Accelerator (GA) instance.
+   *
+   * @description *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](https://help.aliyun.com/document_detail/153246.html) operation to query the status of an acceleration region.
+   *     *   If the acceleration region is in the **updating** state, it indicates that the acceleration region is being modified. In this case, you can continue to perform query operations on the acceleration regions.
+   *     *   If the acceleration region is in the **active** state, it indicates that the acceleration region is modified.
+   * *   You cannot call the **UpdateIpSet** operation again on the same GA instance before the previous operation is complete.
+   *
+   * @param request UpdateIpSetRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIpSetResponse
    */
   async updateIpSetWithOptions(request: UpdateIpSetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpSetResponse> {
     Util.validateModel(request);
@@ -27303,13 +28531,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of an acceleration region.
-    *     *   If the acceleration region is in the **updating** state, it indicates that the acceleration region is being modified. In this case, you can continue to perform query operations on the acceleration regions.
-    *     *   If the acceleration region is in the **active** state, it indicates that the acceleration region is modified.
-    * *   You cannot call the **UpdateIpSet** operation again on the same GA instance before the previous operation is complete.
-    *
-    * @param request UpdateIpSetRequest
-    * @return UpdateIpSetResponse
+   * @summary Modifies the attributes of an acceleration region in an acceleration area for a Global Accelerator (GA) instance.
+   *
+   * @description *   **UpdateIpSet** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](https://help.aliyun.com/document_detail/153246.html) operation to query the status of an acceleration region.
+   *     *   If the acceleration region is in the **updating** state, it indicates that the acceleration region is being modified. In this case, you can continue to perform query operations on the acceleration regions.
+   *     *   If the acceleration region is in the **active** state, it indicates that the acceleration region is modified.
+   * *   You cannot call the **UpdateIpSet** operation again on the same GA instance before the previous operation is complete.
+   *
+   * @param request UpdateIpSetRequest
+   * @return UpdateIpSetResponse
    */
   async updateIpSet(request: UpdateIpSetRequest): Promise<UpdateIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27317,14 +28547,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
-    *     *   If an acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
-    *     *   If an acceleration region is in the **active** state, the acceleration region is modified.
-    * *   You cannot repeatedly call the **UpdateIpSets** operation for the same GA instance within a specific period of time.
-    *
-    * @param request UpdateIpSetsRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateIpSetsResponse
+   * @summary Modifies the attributes of acceleration regions in an acceleration area for a Global Accelerator (GA) instance.
+   *
+   * @description *   **UpdateIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](https://help.aliyun.com/document_detail/153246.html) operation to query the status of the task.
+   *     *   If an acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
+   *     *   If an acceleration region is in the **active** state, the acceleration region is modified.
+   * *   You cannot repeatedly call the **UpdateIpSets** operation for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateIpSetsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateIpSetsResponse
    */
   async updateIpSetsWithOptions(request: UpdateIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpSetsResponse> {
     Util.validateModel(request);
@@ -27355,13 +28587,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   **UpdateIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of the task.
-    *     *   If an acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
-    *     *   If an acceleration region is in the **active** state, the acceleration region is modified.
-    * *   You cannot repeatedly call the **UpdateIpSets** operation for the same GA instance within a specific period of time.
-    *
-    * @param request UpdateIpSetsRequest
-    * @return UpdateIpSetsResponse
+   * @summary Modifies the attributes of acceleration regions in an acceleration area for a Global Accelerator (GA) instance.
+   *
+   * @description *   **UpdateIpSets** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](https://help.aliyun.com/document_detail/153246.html) operation to query the status of the task.
+   *     *   If an acceleration region is in the **updating** state, the acceleration region is being modified. In this case, you can perform only query operations.
+   *     *   If an acceleration region is in the **active** state, the acceleration region is modified.
+   * *   You cannot repeatedly call the **UpdateIpSets** operation for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateIpSetsRequest
+   * @return UpdateIpSetsResponse
    */
   async updateIpSets(request: UpdateIpSetsRequest): Promise<UpdateIpSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27369,16 +28603,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation can be called to modify the configurations such as the protocol and ports of a listener to meet your business requirements.
-    * When you call this operation, take note of the following items:
-    * *   **UpdateListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener.
-    *     *   If the listener is in the **updating** state, it indicates that its configurations are being modified. In this case, you can perform only query operations.
-    *     *   If the listener is in the **active** state, it indicates that its configurations are modified.
-    * *   The **UpdateListener** operation cannot be repeatedly called to modify listener configurations for the same GA instance within a specific period of time.
-    *
-    * @param request UpdateListenerRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateListenerResponse
+   * @summary Modifies the configurations of a listener for a Global Accelerator (GA) instance.
+   *
+   * @description This operation can be called to modify the configurations such as the protocol and ports of a listener to meet your business requirements.
+   * When you call this operation, take note of the following items:
+   * *   **UpdateListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the status of a listener.
+   *     *   If the listener is in the **updating** state, it indicates that its configurations are being modified. In this case, you can perform only query operations.
+   *     *   If the listener is in the **active** state, it indicates that its configurations are modified.
+   * *   The **UpdateListener** operation cannot be repeatedly called to modify listener configurations for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateListenerRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateListenerResponse
    */
   async updateListenerWithOptions(request: UpdateListenerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerResponse> {
     Util.validateModel(request);
@@ -27465,15 +28701,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * This operation can be called to modify the configurations such as the protocol and ports of a listener to meet your business requirements.
-    * When you call this operation, take note of the following items:
-    * *   **UpdateListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of a listener.
-    *     *   If the listener is in the **updating** state, it indicates that its configurations are being modified. In this case, you can perform only query operations.
-    *     *   If the listener is in the **active** state, it indicates that its configurations are modified.
-    * *   The **UpdateListener** operation cannot be repeatedly called to modify listener configurations for the same GA instance within a specific period of time.
-    *
-    * @param request UpdateListenerRequest
-    * @return UpdateListenerResponse
+   * @summary Modifies the configurations of a listener for a Global Accelerator (GA) instance.
+   *
+   * @description This operation can be called to modify the configurations such as the protocol and ports of a listener to meet your business requirements.
+   * When you call this operation, take note of the following items:
+   * *   **UpdateListener** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](https://help.aliyun.com/document_detail/153254.html) operation to query the status of a listener.
+   *     *   If the listener is in the **updating** state, it indicates that its configurations are being modified. In this case, you can perform only query operations.
+   *     *   If the listener is in the **active** state, it indicates that its configurations are modified.
+   * *   The **UpdateListener** operation cannot be repeatedly called to modify listener configurations for the same GA instance within a specific period of time.
+   *
+   * @param request UpdateListenerRequest
+   * @return UpdateListenerResponse
    */
   async updateListener(request: UpdateListenerRequest): Promise<UpdateListenerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27481,14 +28719,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is applicable only to **managed** Global Accelerator (GA) instances.
-    * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you cannot change the mode of the instance to managed mode.
-    * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you can obtain all operation permissions on the instance.
-    *   <warning>If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.></warning>
-    *
-    * @param request UpdateServiceManagedControlRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return UpdateServiceManagedControlResponse
+   * @summary Changes the control mode of a resource from managed mode to unmanaged mode.
+   *
+   * @description *   This operation is applicable only to **managed** Global Accelerator (GA) instances.
+   * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you cannot change the mode of the instance to managed mode.
+   * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you can obtain all operation permissions on the instance.
+   *   <warning>If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.
+   *
+   * @param request UpdateServiceManagedControlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceManagedControlResponse
    */
   async updateServiceManagedControlWithOptions(request: UpdateServiceManagedControlRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceManagedControlResponse> {
     Util.validateModel(request);
@@ -27531,13 +28771,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * *   This operation is applicable only to **managed** Global Accelerator (GA) instances.
-    * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you cannot change the mode of the instance to managed mode.
-    * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you can obtain all operation permissions on the instance.
-    *   <warning>If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.></warning>
-    *
-    * @param request UpdateServiceManagedControlRequest
-    * @return UpdateServiceManagedControlResponse
+   * @summary Changes the control mode of a resource from managed mode to unmanaged mode.
+   *
+   * @description *   This operation is applicable only to **managed** Global Accelerator (GA) instances.
+   * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you cannot change the mode of the instance to managed mode.
+   * *   After you change the control mode of a GA instance from managed mode to unmanaged mode, you can obtain all operation permissions on the instance.
+   *   <warning>If you change or delete a configuration of a GA instance whose control mode is changed from managed mode to unmanaged mode, the cloud services that depend on the instance may not work as expected. Proceed with caution.
+   *
+   * @param request UpdateServiceManagedControlRequest
+   * @return UpdateServiceManagedControlResponse
    */
   async updateServiceManagedControl(request: UpdateServiceManagedControlRequest): Promise<UpdateServiceManagedControlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
