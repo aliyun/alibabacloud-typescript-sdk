@@ -363,6 +363,65 @@ export class CreateIndexResponse extends $tea.Model {
   }
 }
 
+export class DeleteFileResponseBody extends $tea.Model {
+  code?: string;
+  data?: DeleteFileResponseBodyData;
+  message?: string;
+  requestId?: string;
+  status?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DeleteFileResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIndexRequest extends $tea.Model {
   indexId?: string;
   static names(): { [key: string]: string } {
@@ -1417,6 +1476,25 @@ export class CreateIndexResponseBodyData extends $tea.Model {
   }
 }
 
+export class DeleteFileResponseBodyData extends $tea.Model {
+  fileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileId: 'FileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIndexDocumentResponseBodyData extends $tea.Model {
   deletedDocument?: string[];
   static names(): { [key: string]: string } {
@@ -2108,6 +2186,42 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIndexWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * @summary 删除文档
+   *
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteFileResponse
+   */
+  async deleteFileWithOptions(FileId: string, WorkspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFile",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/datacenter/file/${OpenApiUtil.getEncodeParam(FileId)}/`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFileResponse>(await this.callApi(params, req, runtime), new DeleteFileResponse({}));
+  }
+
+  /**
+   * @summary 删除文档
+   *
+   * @return DeleteFileResponse
+   */
+  async deleteFile(FileId: string, WorkspaceId: string): Promise<DeleteFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFileWithOptions(FileId, WorkspaceId, headers, runtime);
   }
 
   /**
