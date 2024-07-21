@@ -10248,6 +10248,90 @@ export class DissociateNetworkPackageResponse extends $tea.Model {
   }
 }
 
+export class DownloadCdsFileRequest extends $tea.Model {
+  cdsId?: string;
+  endUserId?: string;
+  fileId?: string;
+  groupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cdsId: 'CdsId',
+      endUserId: 'EndUserId',
+      fileId: 'FileId',
+      groupId: 'GroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cdsId: 'string',
+      endUserId: 'string',
+      fileId: 'string',
+      groupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadCdsFileResponseBody extends $tea.Model {
+  downloadFileModel?: DownloadCdsFileResponseBodyDownloadFileModel;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      downloadFileModel: 'DownloadFileModel',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadFileModel: DownloadCdsFileResponseBodyDownloadFileModel,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DownloadCdsFileResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DownloadCdsFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DownloadCdsFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportClientEventsRequest extends $tea.Model {
   desktopId?: string;
   desktopName?: string;
@@ -22130,6 +22214,43 @@ export class DisconnectDesktopSessionsResponseBodyInvalidSessions extends $tea.M
   }
 }
 
+export class DownloadCdsFileResponseBodyDownloadFileModel extends $tea.Model {
+  downloadType?: string;
+  downloadUrl?: string;
+  expirationSecond?: string;
+  expirationTime?: string;
+  fileId?: string;
+  size?: number;
+  streamUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      downloadType: 'DownloadType',
+      downloadUrl: 'DownloadUrl',
+      expirationSecond: 'ExpirationSecond',
+      expirationTime: 'ExpirationTime',
+      fileId: 'FileId',
+      size: 'Size',
+      streamUrl: 'StreamUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      downloadType: 'string',
+      downloadUrl: 'string',
+      expirationSecond: 'string',
+      expirationTime: 'string',
+      fileId: 'string',
+      size: 'number',
+      streamUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportDesktopGroupInfoRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -31373,6 +31494,64 @@ export default class Client extends OpenApi {
   async dissociateNetworkPackage(request: DissociateNetworkPackageRequest): Promise<DissociateNetworkPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dissociateNetworkPackageWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary CDS文件下载
+   *
+   * @param request DownloadCdsFileRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DownloadCdsFileResponse
+   */
+  async downloadCdsFileWithOptions(request: DownloadCdsFileRequest, runtime: $Util.RuntimeOptions): Promise<DownloadCdsFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cdsId)) {
+      query["CdsId"] = request.cdsId;
+    }
+
+    if (!Util.isUnset(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DownloadCdsFile",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DownloadCdsFileResponse>(await this.callApi(params, req, runtime), new DownloadCdsFileResponse({}));
+  }
+
+  /**
+   * @summary CDS文件下载
+   *
+   * @param request DownloadCdsFileRequest
+   * @return DownloadCdsFileResponse
+   */
+  async downloadCdsFile(request: DownloadCdsFileRequest): Promise<DownloadCdsFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.downloadCdsFileWithOptions(request, runtime);
   }
 
   /**
