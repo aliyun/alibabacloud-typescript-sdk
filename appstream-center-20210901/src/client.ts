@@ -59,9 +59,9 @@ export class AccessPageGetAclResponseBody extends $tea.Model {
 }
 
 export class AccessPageGetAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AccessPageGetAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AccessPageGetAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -143,9 +143,9 @@ export class AccessPageSetAclResponseBody extends $tea.Model {
 }
 
 export class AccessPageSetAclResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AccessPageSetAclResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AccessPageSetAclResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -224,9 +224,9 @@ export class ApproveOtaTaskResponseBody extends $tea.Model {
 }
 
 export class ApproveOtaTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ApproveOtaTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApproveOtaTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -311,9 +311,9 @@ export class AskSessionPackagePriceResponseBody extends $tea.Model {
 }
 
 export class AskSessionPackagePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AskSessionPackagePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AskSessionPackagePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -383,9 +383,9 @@ export class AskSessionPackageRenewPriceResponseBody extends $tea.Model {
 }
 
 export class AskSessionPackageRenewPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AskSessionPackageRenewPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AskSessionPackageRenewPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -455,9 +455,9 @@ export class AuthorizeInstanceGroupResponseBody extends $tea.Model {
 }
 
 export class AuthorizeInstanceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AuthorizeInstanceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AuthorizeInstanceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -480,6 +480,7 @@ export class AuthorizeInstanceGroupResponse extends $tea.Model {
 }
 
 export class BuySessionPackageRequest extends $tea.Model {
+  autoPay?: boolean;
   chargeType?: string;
   maxSessions?: number;
   period?: number;
@@ -492,6 +493,7 @@ export class BuySessionPackageRequest extends $tea.Model {
   sessionType?: string;
   static names(): { [key: string]: string } {
     return {
+      autoPay: 'AutoPay',
       chargeType: 'ChargeType',
       maxSessions: 'MaxSessions',
       period: 'Period',
@@ -507,6 +509,7 @@ export class BuySessionPackageRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoPay: 'boolean',
       chargeType: 'string',
       maxSessions: 'number',
       period: 'number',
@@ -557,9 +560,9 @@ export class BuySessionPackageResponseBody extends $tea.Model {
 }
 
 export class BuySessionPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BuySessionPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BuySessionPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -629,9 +632,9 @@ export class CancelOtaTaskResponseBody extends $tea.Model {
 }
 
 export class CancelOtaTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelOtaTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelOtaTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -719,9 +722,9 @@ export class CreateAccessPageResponseBody extends $tea.Model {
 }
 
 export class CreateAccessPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAccessPageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccessPageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -762,8 +765,10 @@ export class CreateAppInstanceGroupRequest extends $tea.Model {
   securityPolicy?: CreateAppInstanceGroupRequestSecurityPolicy;
   sessionTimeout?: number;
   storagePolicy?: CreateAppInstanceGroupRequestStoragePolicy;
+  userDefinePolicy?: CreateAppInstanceGroupRequestUserDefinePolicy;
   userInfo?: CreateAppInstanceGroupRequestUserInfo;
   users?: string[];
+  videoPolicy?: CreateAppInstanceGroupRequestVideoPolicy;
   static names(): { [key: string]: string } {
     return {
       appCenterImageId: 'AppCenterImageId',
@@ -784,8 +789,10 @@ export class CreateAppInstanceGroupRequest extends $tea.Model {
       securityPolicy: 'SecurityPolicy',
       sessionTimeout: 'SessionTimeout',
       storagePolicy: 'StoragePolicy',
+      userDefinePolicy: 'UserDefinePolicy',
       userInfo: 'UserInfo',
       users: 'Users',
+      videoPolicy: 'VideoPolicy',
     };
   }
 
@@ -809,8 +816,10 @@ export class CreateAppInstanceGroupRequest extends $tea.Model {
       securityPolicy: CreateAppInstanceGroupRequestSecurityPolicy,
       sessionTimeout: 'number',
       storagePolicy: CreateAppInstanceGroupRequestStoragePolicy,
+      userDefinePolicy: CreateAppInstanceGroupRequestUserDefinePolicy,
       userInfo: CreateAppInstanceGroupRequestUserInfo,
       users: { 'type': 'array', 'itemType': 'string' },
+      videoPolicy: CreateAppInstanceGroupRequestVideoPolicy,
     };
   }
 
@@ -838,8 +847,10 @@ export class CreateAppInstanceGroupShrinkRequest extends $tea.Model {
   securityPolicyShrink?: string;
   sessionTimeout?: number;
   storagePolicyShrink?: string;
+  userDefinePolicyShrink?: string;
   userInfoShrink?: string;
   users?: string[];
+  videoPolicyShrink?: string;
   static names(): { [key: string]: string } {
     return {
       appCenterImageId: 'AppCenterImageId',
@@ -860,8 +871,10 @@ export class CreateAppInstanceGroupShrinkRequest extends $tea.Model {
       securityPolicyShrink: 'SecurityPolicy',
       sessionTimeout: 'SessionTimeout',
       storagePolicyShrink: 'StoragePolicy',
+      userDefinePolicyShrink: 'UserDefinePolicy',
       userInfoShrink: 'UserInfo',
       users: 'Users',
+      videoPolicyShrink: 'VideoPolicy',
     };
   }
 
@@ -885,8 +898,10 @@ export class CreateAppInstanceGroupShrinkRequest extends $tea.Model {
       securityPolicyShrink: 'string',
       sessionTimeout: 'number',
       storagePolicyShrink: 'string',
+      userDefinePolicyShrink: 'string',
       userInfoShrink: 'string',
       users: { 'type': 'array', 'itemType': 'string' },
+      videoPolicyShrink: 'string',
     };
   }
 
@@ -918,9 +933,9 @@ export class CreateAppInstanceGroupResponseBody extends $tea.Model {
 }
 
 export class CreateAppInstanceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAppInstanceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppInstanceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -990,9 +1005,9 @@ export class CreateImageFromAppInstanceGroupResponseBody extends $tea.Model {
 }
 
 export class CreateImageFromAppInstanceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateImageFromAppInstanceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateImageFromAppInstanceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1107,9 +1122,9 @@ export class CreateProjectResponseBody extends $tea.Model {
 }
 
 export class CreateProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1179,9 +1194,9 @@ export class DeleteAccessPageResponseBody extends $tea.Model {
 }
 
 export class DeleteAccessPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAccessPageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccessPageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1245,9 +1260,9 @@ export class DeleteAppInstanceGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteAppInstanceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAppInstanceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppInstanceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1317,9 +1332,9 @@ export class DeleteAppInstancesResponseBody extends $tea.Model {
 }
 
 export class DeleteAppInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAppInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1392,9 +1407,9 @@ export class DeleteProjectResponseBody extends $tea.Model {
 }
 
 export class DeleteProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1473,9 +1488,9 @@ export class GetAccessPageSessionResponseBody extends $tea.Model {
 }
 
 export class GetAccessPageSessionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAccessPageSessionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccessPageSessionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1542,9 +1557,9 @@ export class GetAppInstanceGroupResponseBody extends $tea.Model {
 }
 
 export class GetAppInstanceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAppInstanceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppInstanceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1659,9 +1674,9 @@ export class GetConnectionTicketResponseBody extends $tea.Model {
 }
 
 export class GetConnectionTicketResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetConnectionTicketResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConnectionTicketResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1743,9 +1758,9 @@ export class GetDebugAppInstanceResponseBody extends $tea.Model {
 }
 
 export class GetDebugAppInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDebugAppInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDebugAppInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1821,9 +1836,9 @@ export class GetOtaTaskByTaskIdResponseBody extends $tea.Model {
 }
 
 export class GetOtaTaskByTaskIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetOtaTaskByTaskIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOtaTaskByTaskIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1896,9 +1911,9 @@ export class GetProjectPoliciesResponseBody extends $tea.Model {
 }
 
 export class GetProjectPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetProjectPoliciesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProjectPoliciesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1992,9 +2007,9 @@ export class GetResourcePriceResponseBody extends $tea.Model {
 }
 
 export class GetResourcePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourcePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourcePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2067,9 +2082,9 @@ export class GetResourceRenewPriceResponseBody extends $tea.Model {
 }
 
 export class GetResourceRenewPriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetResourceRenewPriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetResourceRenewPriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2166,9 +2181,9 @@ export class ListAccessPagesResponseBody extends $tea.Model {
 }
 
 export class ListAccessPagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAccessPagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccessPagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2199,6 +2214,7 @@ export class ListAppInstanceGroupRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   productType?: string;
+  regionId?: string;
   status?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2210,6 +2226,7 @@ export class ListAppInstanceGroupRequest extends $tea.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       productType: 'ProductType',
+      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -2224,6 +2241,7 @@ export class ListAppInstanceGroupRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       productType: 'string',
+      regionId: 'string',
       status: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -2265,9 +2283,9 @@ export class ListAppInstanceGroupResponseBody extends $tea.Model {
 }
 
 export class ListAppInstanceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAppInstanceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppInstanceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2358,9 +2376,9 @@ export class ListAppInstancesResponseBody extends $tea.Model {
 }
 
 export class ListAppInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAppInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAppInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2451,9 +2469,9 @@ export class ListNodeInstanceTypeResponseBody extends $tea.Model {
 }
 
 export class ListNodeInstanceTypeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListNodeInstanceTypeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNodeInstanceTypeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2535,9 +2553,9 @@ export class ListOtaTaskResponseBody extends $tea.Model {
 }
 
 export class ListOtaTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListOtaTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOtaTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2634,9 +2652,9 @@ export class ListProjectsResponseBody extends $tea.Model {
 }
 
 export class ListProjectsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListProjectsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProjectsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2650,6 +2668,25 @@ export class ListProjectsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsRequest extends $tea.Model {
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productType: 'string',
     };
   }
 
@@ -2681,9 +2718,9 @@ export class ListRegionsResponseBody extends $tea.Model {
 }
 
 export class ListRegionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRegionsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRegionsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2774,9 +2811,9 @@ export class ListSessionPackagesResponseBody extends $tea.Model {
 }
 
 export class ListSessionPackagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSessionPackagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSessionPackagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2821,9 +2858,9 @@ export class ListTenantConfigResponseBody extends $tea.Model {
 }
 
 export class ListTenantConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTenantConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTenantConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2893,9 +2930,9 @@ export class LogOffAllSessionsInAppInstanceGroupResponseBody extends $tea.Model 
 }
 
 export class LogOffAllSessionsInAppInstanceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: LogOffAllSessionsInAppInstanceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LogOffAllSessionsInAppInstanceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2971,9 +3008,9 @@ export class MigrateSessionPackageResponseBody extends $tea.Model {
 }
 
 export class MigrateSessionPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MigrateSessionPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MigrateSessionPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3113,9 +3150,9 @@ export class ModifyAppInstanceGroupAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyAppInstanceGroupAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyAppInstanceGroupAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppInstanceGroupAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3129,6 +3166,100 @@ export class ModifyAppInstanceGroupAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyAppInstanceGroupAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppPolicyRequest extends $tea.Model {
+  appPolicyId?: string;
+  productType?: string;
+  videoPolicy?: ModifyAppPolicyRequestVideoPolicy;
+  static names(): { [key: string]: string } {
+    return {
+      appPolicyId: 'AppPolicyId',
+      productType: 'ProductType',
+      videoPolicy: 'VideoPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appPolicyId: 'string',
+      productType: 'string',
+      videoPolicy: ModifyAppPolicyRequestVideoPolicy,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppPolicyShrinkRequest extends $tea.Model {
+  appPolicyId?: string;
+  productType?: string;
+  videoPolicyShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appPolicyId: 'AppPolicyId',
+      productType: 'ProductType',
+      videoPolicyShrink: 'VideoPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appPolicyId: 'string',
+      productType: 'string',
+      videoPolicyShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppPolicyResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAppPolicyResponseBody,
     };
   }
 
@@ -3225,9 +3356,9 @@ export class ModifyNodePoolAttributeResponseBody extends $tea.Model {
 }
 
 export class ModifyNodePoolAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyNodePoolAttributeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyNodePoolAttributeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3324,9 +3455,9 @@ export class ModifyProjectPolicyResponseBody extends $tea.Model {
 }
 
 export class ModifyProjectPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyProjectPolicyResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyProjectPolicyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3387,9 +3518,9 @@ export class ModifyTenantConfigResponseBody extends $tea.Model {
 }
 
 export class ModifyTenantConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ModifyTenantConfigResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTenantConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3462,9 +3593,9 @@ export class PageListAppInstanceGroupUserResponseBody extends $tea.Model {
 }
 
 export class PageListAppInstanceGroupUserResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PageListAppInstanceGroupUserResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PageListAppInstanceGroupUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3537,9 +3668,9 @@ export class RefreshAccessUrlResponseBody extends $tea.Model {
 }
 
 export class RefreshAccessUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RefreshAccessUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshAccessUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3624,9 +3755,9 @@ export class RenewAppInstanceGroupResponseBody extends $tea.Model {
 }
 
 export class RenewAppInstanceGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewAppInstanceGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewAppInstanceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3705,9 +3836,9 @@ export class RenewSessionPackageResponseBody extends $tea.Model {
 }
 
 export class RenewSessionPackageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RenewSessionPackageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewSessionPackageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3780,9 +3911,9 @@ export class UnbindResponseBody extends $tea.Model {
 }
 
 export class UnbindResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UnbindResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3855,9 +3986,9 @@ export class UpdateAccessPageStateResponseBody extends $tea.Model {
 }
 
 export class UpdateAccessPageStateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAccessPageStateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAccessPageStateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3933,9 +4064,9 @@ export class UpdateAppInstanceGroupImageResponseBody extends $tea.Model {
 }
 
 export class UpdateAppInstanceGroupImageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAppInstanceGroupImageResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAppInstanceGroupImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4319,6 +4450,25 @@ export class CreateAppInstanceGroupRequestStoragePolicy extends $tea.Model {
   }
 }
 
+export class CreateAppInstanceGroupRequestUserDefinePolicy extends $tea.Model {
+  customConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customConfig: 'CustomConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAppInstanceGroupRequestUserInfo extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
@@ -4330,6 +4480,40 @@ export class CreateAppInstanceGroupRequestUserInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppInstanceGroupRequestVideoPolicy extends $tea.Model {
+  frameRate?: number;
+  sessionResolutionHeight?: number;
+  sessionResolutionWidth?: number;
+  streamingMode?: string;
+  terminalResolutionAdaptive?: boolean;
+  webrtc?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      frameRate: 'FrameRate',
+      sessionResolutionHeight: 'SessionResolutionHeight',
+      sessionResolutionWidth: 'SessionResolutionWidth',
+      streamingMode: 'StreamingMode',
+      terminalResolutionAdaptive: 'TerminalResolutionAdaptive',
+      webrtc: 'Webrtc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frameRate: 'number',
+      sessionResolutionHeight: 'number',
+      sessionResolutionWidth: 'number',
+      streamingMode: 'string',
+      terminalResolutionAdaptive: 'boolean',
+      webrtc: 'boolean',
     };
   }
 
@@ -5842,6 +6026,43 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $tea.Mo
   }
 }
 
+export class ModifyAppPolicyRequestVideoPolicy extends $tea.Model {
+  frameRate?: number;
+  sessionResolutionHeight?: number;
+  sessionResolutionWidth?: number;
+  streamingMode?: string;
+  terminalResolutionAdaptive?: boolean;
+  visualQualityStrategy?: string;
+  webrtc?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      frameRate: 'FrameRate',
+      sessionResolutionHeight: 'SessionResolutionHeight',
+      sessionResolutionWidth: 'SessionResolutionWidth',
+      streamingMode: 'StreamingMode',
+      terminalResolutionAdaptive: 'TerminalResolutionAdaptive',
+      visualQualityStrategy: 'VisualQualityStrategy',
+      webrtc: 'Webrtc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      frameRate: 'number',
+      sessionResolutionHeight: 'number',
+      sessionResolutionWidth: 'number',
+      streamingMode: 'string',
+      terminalResolutionAdaptive: 'boolean',
+      visualQualityStrategy: 'string',
+      webrtc: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods extends $tea.Model {
   amount?: number;
   endTime?: string;
@@ -5962,6 +6183,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @summary 获取访问管理页配置
+   *
+   * @param request AccessPageGetAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AccessPageGetAclResponse
+   */
   async accessPageGetAclWithOptions(request: AccessPageGetAclRequest, runtime: $Util.RuntimeOptions): Promise<AccessPageGetAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5986,11 +6214,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AccessPageGetAclResponse>(await this.callApi(params, req, runtime), new AccessPageGetAclResponse({}));
   }
 
+  /**
+   * @summary 获取访问管理页配置
+   *
+   * @param request AccessPageGetAclRequest
+   * @return AccessPageGetAclResponse
+   */
   async accessPageGetAcl(request: AccessPageGetAclRequest): Promise<AccessPageGetAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.accessPageGetAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新访问管理
+   *
+   * @param request AccessPageSetAclRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AccessPageSetAclResponse
+   */
   async accessPageSetAclWithOptions(request: AccessPageSetAclRequest, runtime: $Util.RuntimeOptions): Promise<AccessPageSetAclResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6031,11 +6272,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AccessPageSetAclResponse>(await this.callApi(params, req, runtime), new AccessPageSetAclResponse({}));
   }
 
+  /**
+   * @summary 更新访问管理
+   *
+   * @param request AccessPageSetAclRequest
+   * @return AccessPageSetAclResponse
+   */
   async accessPageSetAcl(request: AccessPageSetAclRequest): Promise<AccessPageSetAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.accessPageSetAclWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 同意Ota升级
+   *
+   * @param request ApproveOtaTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApproveOtaTaskResponse
+   */
   async approveOtaTaskWithOptions(request: ApproveOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<ApproveOtaTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6076,11 +6330,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ApproveOtaTaskResponse>(await this.callApi(params, req, runtime), new ApproveOtaTaskResponse({}));
   }
 
+  /**
+   * @summary 同意Ota升级
+   *
+   * @param request ApproveOtaTaskRequest
+   * @return ApproveOtaTaskResponse
+   */
   async approveOtaTask(request: ApproveOtaTaskRequest): Promise<ApproveOtaTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.approveOtaTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 会话包收费查询
+   *
+   * @param request AskSessionPackagePriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AskSessionPackagePriceResponse
+   */
   async askSessionPackagePriceWithOptions(request: AskSessionPackagePriceRequest, runtime: $Util.RuntimeOptions): Promise<AskSessionPackagePriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6133,11 +6400,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AskSessionPackagePriceResponse>(await this.callApi(params, req, runtime), new AskSessionPackagePriceResponse({}));
   }
 
+  /**
+   * @summary 会话包收费查询
+   *
+   * @param request AskSessionPackagePriceRequest
+   * @return AskSessionPackagePriceResponse
+   */
   async askSessionPackagePrice(request: AskSessionPackagePriceRequest): Promise<AskSessionPackagePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.askSessionPackagePriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 会话包续费询价
+   *
+   * @param request AskSessionPackageRenewPriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AskSessionPackageRenewPriceResponse
+   */
   async askSessionPackageRenewPriceWithOptions(request: AskSessionPackageRenewPriceRequest, runtime: $Util.RuntimeOptions): Promise<AskSessionPackageRenewPriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6170,11 +6450,24 @@ export default class Client extends OpenApi {
     return $tea.cast<AskSessionPackageRenewPriceResponse>(await this.callApi(params, req, runtime), new AskSessionPackageRenewPriceResponse({}));
   }
 
+  /**
+   * @summary 会话包续费询价
+   *
+   * @param request AskSessionPackageRenewPriceRequest
+   * @return AskSessionPackageRenewPriceResponse
+   */
   async askSessionPackageRenewPrice(request: AskSessionPackageRenewPriceRequest): Promise<AskSessionPackageRenewPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.askSessionPackageRenewPriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 授权用户
+   *
+   * @param request AuthorizeInstanceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AuthorizeInstanceGroupResponse
+   */
   async authorizeInstanceGroupWithOptions(request: AuthorizeInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeInstanceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6211,14 +6504,31 @@ export default class Client extends OpenApi {
     return $tea.cast<AuthorizeInstanceGroupResponse>(await this.callApi(params, req, runtime), new AuthorizeInstanceGroupResponse({}));
   }
 
+  /**
+   * @summary 授权用户
+   *
+   * @param request AuthorizeInstanceGroupRequest
+   * @return AuthorizeInstanceGroupResponse
+   */
   async authorizeInstanceGroup(request: AuthorizeInstanceGroupRequest): Promise<AuthorizeInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.authorizeInstanceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 配置会话包
+   *
+   * @param request BuySessionPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BuySessionPackageResponse
+   */
   async buySessionPackageWithOptions(request: BuySessionPackageRequest, runtime: $Util.RuntimeOptions): Promise<BuySessionPackageResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
     if (!Util.isUnset(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
@@ -6276,11 +6586,24 @@ export default class Client extends OpenApi {
     return $tea.cast<BuySessionPackageResponse>(await this.callApi(params, req, runtime), new BuySessionPackageResponse({}));
   }
 
+  /**
+   * @summary 配置会话包
+   *
+   * @param request BuySessionPackageRequest
+   * @return BuySessionPackageResponse
+   */
   async buySessionPackage(request: BuySessionPackageRequest): Promise<BuySessionPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.buySessionPackageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 取消Ota升级
+   *
+   * @param request CancelOtaTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelOtaTaskResponse
+   */
   async cancelOtaTaskWithOptions(request: CancelOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelOtaTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6309,11 +6632,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelOtaTaskResponse>(await this.callApi(params, req, runtime), new CancelOtaTaskResponse({}));
   }
 
+  /**
+   * @summary 取消Ota升级
+   *
+   * @param request CancelOtaTaskRequest
+   * @return CancelOtaTaskResponse
+   */
   async cancelOtaTask(request: CancelOtaTaskRequest): Promise<CancelOtaTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelOtaTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建访问页面 
+   *
+   * @param request CreateAccessPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAccessPageResponse
+   */
   async createAccessPageWithOptions(request: CreateAccessPageRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6358,11 +6694,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAccessPageResponse>(await this.callApi(params, req, runtime), new CreateAccessPageResponse({}));
   }
 
+  /**
+   * @summary 创建访问页面 
+   *
+   * @param request CreateAccessPageRequest
+   * @return CreateAccessPageResponse
+   */
   async createAccessPage(request: CreateAccessPageRequest): Promise<CreateAccessPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAccessPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建云应用交付组
+   *
+   * @param tmpReq CreateAppInstanceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateAppInstanceGroupResponse
+   */
   async createAppInstanceGroupWithOptions(tmpReq: CreateAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppInstanceGroupResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateAppInstanceGroupShrinkRequest({ });
@@ -6387,8 +6736,21 @@ export default class Client extends OpenApi {
       request.storagePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storagePolicy, "StoragePolicy", "json");
     }
 
+    if (!Util.isUnset(tmpReq.userDefinePolicy)) {
+      request.userDefinePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userDefinePolicy, "UserDefinePolicy", "json");
+    }
+
     if (!Util.isUnset(tmpReq.userInfo)) {
       request.userInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInfo, "UserInfo", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.videoPolicy)) {
+      request.videoPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoPolicy, "VideoPolicy", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.userDefinePolicyShrink)) {
+      query["UserDefinePolicy"] = request.userDefinePolicyShrink;
     }
 
     let body : {[key: string ]: any} = { };
@@ -6472,7 +6834,12 @@ export default class Client extends OpenApi {
       body["Users"] = request.users;
     }
 
+    if (!Util.isUnset(request.videoPolicyShrink)) {
+      body["VideoPolicy"] = request.videoPolicyShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -6489,11 +6856,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateAppInstanceGroupResponse({}));
   }
 
+  /**
+   * @summary 创建云应用交付组
+   *
+   * @param request CreateAppInstanceGroupRequest
+   * @return CreateAppInstanceGroupResponse
+   */
   async createAppInstanceGroup(request: CreateAppInstanceGroupRequest): Promise<CreateAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppInstanceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary CreateImageFromAppInstanceGroup
+   *
+   * @param request CreateImageFromAppInstanceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateImageFromAppInstanceGroupResponse
+   */
   async createImageFromAppInstanceGroupWithOptions(request: CreateImageFromAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageFromAppInstanceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6526,11 +6906,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateImageFromAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateImageFromAppInstanceGroupResponse({}));
   }
 
+  /**
+   * @summary CreateImageFromAppInstanceGroup
+   *
+   * @param request CreateImageFromAppInstanceGroupRequest
+   * @return CreateImageFromAppInstanceGroupResponse
+   */
   async createImageFromAppInstanceGroup(request: CreateImageFromAppInstanceGroupRequest): Promise<CreateImageFromAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageFromAppInstanceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 创建项目
+   *
+   * @param request CreateProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateProjectResponse
+   */
   async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6603,11 +6996,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
   }
 
+  /**
+   * @summary 创建项目
+   *
+   * @param request CreateProjectRequest
+   * @return CreateProjectResponse
+   */
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除访问页面
+   *
+   * @param request DeleteAccessPageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAccessPageResponse
+   */
   async deleteAccessPageWithOptions(request: DeleteAccessPageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessPageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6632,11 +7038,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAccessPageResponse>(await this.callApi(params, req, runtime), new DeleteAccessPageResponse({}));
   }
 
+  /**
+   * @summary 删除访问页面
+   *
+   * @param request DeleteAccessPageRequest
+   * @return DeleteAccessPageResponse
+   */
   async deleteAccessPage(request: DeleteAccessPageRequest): Promise<DeleteAccessPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccessPageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 实例组释放接口
+   *
+   * @param request DeleteAppInstanceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppInstanceGroupResponse
+   */
   async deleteAppInstanceGroupWithOptions(request: DeleteAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppInstanceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6665,11 +7084,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new DeleteAppInstanceGroupResponse({}));
   }
 
+  /**
+   * @summary 实例组释放接口
+   *
+   * @param request DeleteAppInstanceGroupRequest
+   * @return DeleteAppInstanceGroupResponse
+   */
   async deleteAppInstanceGroup(request: DeleteAppInstanceGroupRequest): Promise<DeleteAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppInstanceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除实例
+   *
+   * @param request DeleteAppInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteAppInstancesResponse
+   */
   async deleteAppInstancesWithOptions(request: DeleteAppInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppInstancesResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6702,11 +7134,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAppInstancesResponse>(await this.callApi(params, req, runtime), new DeleteAppInstancesResponse({}));
   }
 
+  /**
+   * @summary 删除实例
+   *
+   * @param request DeleteAppInstancesRequest
+   * @return DeleteAppInstancesResponse
+   */
   async deleteAppInstances(request: DeleteAppInstancesRequest): Promise<DeleteAppInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 删除项目
+   *
+   * @param request DeleteProjectRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteProjectResponse
+   */
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6731,11 +7176,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
   }
 
+  /**
+   * @summary 删除项目
+   *
+   * @param request DeleteProjectRequest
+   * @return DeleteProjectResponse
+   */
   async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 访客进入访问页面的匿名api
+   *
+   * @param request GetAccessPageSessionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAccessPageSessionResponse
+   */
   async getAccessPageSessionWithOptions(request: GetAccessPageSessionRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessPageSessionResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6768,11 +7226,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAccessPageSessionResponse>(await this.callApi(params, req, runtime), new GetAccessPageSessionResponse({}));
   }
 
+  /**
+   * @summary 访客进入访问页面的匿名api
+   *
+   * @param request GetAccessPageSessionRequest
+   * @return GetAccessPageSessionResponse
+   */
   async getAccessPageSession(request: GetAccessPageSessionRequest): Promise<GetAccessPageSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccessPageSessionWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取交付组详情
+   *
+   * @param request GetAppInstanceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAppInstanceGroupResponse
+   */
   async getAppInstanceGroupWithOptions(request: GetAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetAppInstanceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6801,11 +7272,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new GetAppInstanceGroupResponse({}));
   }
 
+  /**
+   * @summary 获取交付组详情
+   *
+   * @param request GetAppInstanceGroupRequest
+   * @return GetAppInstanceGroupResponse
+   */
   async getAppInstanceGroup(request: GetAppInstanceGroupRequest): Promise<GetAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAppInstanceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取连接ticket，Open API
+   *
+   * @param request GetConnectionTicketRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetConnectionTicketResponse
+   */
   async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionTicketResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6866,11 +7350,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
   }
 
+  /**
+   * @summary 获取连接ticket，Open API
+   *
+   * @param request GetConnectionTicketRequest
+   * @return GetConnectionTicketResponse
+   */
   async getConnectionTicket(request: GetConnectionTicketRequest): Promise<GetConnectionTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConnectionTicketWithOptions(request, runtime);
   }
 
+  /**
+   * @summary GetDebugAppInstance
+   *
+   * @param request GetDebugAppInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetDebugAppInstanceResponse
+   */
   async getDebugAppInstanceWithOptions(request: GetDebugAppInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetDebugAppInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6899,11 +7396,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDebugAppInstanceResponse>(await this.callApi(params, req, runtime), new GetDebugAppInstanceResponse({}));
   }
 
+  /**
+   * @summary GetDebugAppInstance
+   *
+   * @param request GetDebugAppInstanceRequest
+   * @return GetDebugAppInstanceResponse
+   */
   async getDebugAppInstance(request: GetDebugAppInstanceRequest): Promise<GetDebugAppInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDebugAppInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取ota任务明细
+   *
+   * @param request GetOtaTaskByTaskIdRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetOtaTaskByTaskIdResponse
+   */
   async getOtaTaskByTaskIdWithOptions(request: GetOtaTaskByTaskIdRequest, runtime: $Util.RuntimeOptions): Promise<GetOtaTaskByTaskIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -6928,11 +7438,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOtaTaskByTaskIdResponse>(await this.callApi(params, req, runtime), new GetOtaTaskByTaskIdResponse({}));
   }
 
+  /**
+   * @summary 获取ota任务明细
+   *
+   * @param request GetOtaTaskByTaskIdRequest
+   * @return GetOtaTaskByTaskIdResponse
+   */
   async getOtaTaskByTaskId(request: GetOtaTaskByTaskIdRequest): Promise<GetOtaTaskByTaskIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOtaTaskByTaskIdWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取策略配置
+   *
+   * @param request GetProjectPoliciesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetProjectPoliciesResponse
+   */
   async getProjectPoliciesWithOptions(request: GetProjectPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6957,11 +7480,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetProjectPoliciesResponse>(await this.callApi(params, req, runtime), new GetProjectPoliciesResponse({}));
   }
 
+  /**
+   * @summary 获取策略配置
+   *
+   * @param request GetProjectPoliciesRequest
+   * @return GetProjectPoliciesResponse
+   */
   async getProjectPolicies(request: GetProjectPoliciesRequest): Promise<GetProjectPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getProjectPoliciesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 云应用资源询价接口
+   *
+   * @param request GetResourcePriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetResourcePriceResponse
+   */
   async getResourcePriceWithOptions(request: GetResourcePriceRequest, runtime: $Util.RuntimeOptions): Promise<GetResourcePriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7014,11 +7550,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourcePriceResponse>(await this.callApi(params, req, runtime), new GetResourcePriceResponse({}));
   }
 
+  /**
+   * @summary 云应用资源询价接口
+   *
+   * @param request GetResourcePriceRequest
+   * @return GetResourcePriceResponse
+   */
   async getResourcePrice(request: GetResourcePriceRequest): Promise<GetResourcePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResourcePriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 云应用资源询价接口
+   *
+   * @param request GetResourceRenewPriceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetResourceRenewPriceResponse
+   */
   async getResourceRenewPriceWithOptions(request: GetResourceRenewPriceRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceRenewPriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7055,11 +7604,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetResourceRenewPriceResponse>(await this.callApi(params, req, runtime), new GetResourceRenewPriceResponse({}));
   }
 
+  /**
+   * @summary 云应用资源询价接口
+   *
+   * @param request GetResourceRenewPriceRequest
+   * @return GetResourceRenewPriceResponse
+   */
   async getResourceRenewPrice(request: GetResourceRenewPriceRequest): Promise<GetResourceRenewPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getResourceRenewPriceWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 访问页面分页查询
+   *
+   * @param request ListAccessPagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAccessPagesResponse
+   */
   async listAccessPagesWithOptions(request: ListAccessPagesRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessPagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7104,11 +7666,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAccessPagesResponse>(await this.callApi(params, req, runtime), new ListAccessPagesResponse({}));
   }
 
+  /**
+   * @summary 访问页面分页查询
+   *
+   * @param request ListAccessPagesRequest
+   * @return ListAccessPagesResponse
+   */
   async listAccessPages(request: ListAccessPagesRequest): Promise<ListAccessPagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAccessPagesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 列表展示云应用交付组
+   *
+   * @param request ListAppInstanceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAppInstanceGroupResponse
+   */
   async listAppInstanceGroupWithOptions(request: ListAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListAppInstanceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7144,6 +7719,10 @@ export default class Client extends OpenApi {
       query["ProductType"] = request.productType;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.status)) {
       body["Status"] = request.status;
@@ -7167,11 +7746,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new ListAppInstanceGroupResponse({}));
   }
 
+  /**
+   * @summary 列表展示云应用交付组
+   *
+   * @param request ListAppInstanceGroupRequest
+   * @return ListAppInstanceGroupResponse
+   */
   async listAppInstanceGroup(request: ListAppInstanceGroupRequest): Promise<ListAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppInstanceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 查询交付组内实例列表
+   *
+   * @param request ListAppInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListAppInstancesResponse
+   */
   async listAppInstancesWithOptions(request: ListAppInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListAppInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7222,11 +7814,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAppInstancesResponse>(await this.callApi(params, req, runtime), new ListAppInstancesResponse({}));
   }
 
+  /**
+   * @summary 查询交付组内实例列表
+   *
+   * @param request ListAppInstancesRequest
+   * @return ListAppInstancesResponse
+   */
   async listAppInstances(request: ListAppInstancesRequest): Promise<ListAppInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取资源规格
+   *
+   * @param request ListNodeInstanceTypeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListNodeInstanceTypeResponse
+   */
   async listNodeInstanceTypeWithOptions(request: ListNodeInstanceTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeInstanceTypeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7275,11 +7880,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListNodeInstanceTypeResponse>(await this.callApi(params, req, runtime), new ListNodeInstanceTypeResponse({}));
   }
 
+  /**
+   * @summary 获取资源规格
+   *
+   * @param request ListNodeInstanceTypeRequest
+   * @return ListNodeInstanceTypeResponse
+   */
   async listNodeInstanceType(request: ListNodeInstanceTypeRequest): Promise<ListNodeInstanceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNodeInstanceTypeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 升级历史记录
+   *
+   * @param request ListOtaTaskRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListOtaTaskResponse
+   */
   async listOtaTaskWithOptions(request: ListOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListOtaTaskResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7316,11 +7934,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOtaTaskResponse>(await this.callApi(params, req, runtime), new ListOtaTaskResponse({}));
   }
 
+  /**
+   * @summary 升级历史记录
+   *
+   * @param request ListOtaTaskRequest
+   * @return ListOtaTaskResponse
+   */
   async listOtaTask(request: ListOtaTaskRequest): Promise<ListOtaTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOtaTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取项目列表
+   *
+   * @param request ListProjectsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListProjectsResponse
+   */
   async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7365,13 +7996,34 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
   }
 
+  /**
+   * @summary 获取项目列表
+   *
+   * @param request ListProjectsRequest
+   * @return ListProjectsResponse
+   */
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectsWithOptions(request, runtime);
   }
 
-  async listRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  /**
+   * @summary 云应用支持的地域列表
+   *
+   * @param request ListRegionsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListRegionsResponse
+   */
+  async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "ListRegions",
       version: "2021-09-01",
@@ -7386,11 +8038,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
   }
 
-  async listRegions(): Promise<ListRegionsResponse> {
+  /**
+   * @summary 云应用支持的地域列表
+   *
+   * @param request ListRegionsRequest
+   * @return ListRegionsResponse
+   */
+  async listRegions(request: ListRegionsRequest): Promise<ListRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listRegionsWithOptions(runtime);
+    return await this.listRegionsWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 项目的会话包列表
+   *
+   * @param request ListSessionPackagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListSessionPackagesResponse
+   */
   async listSessionPackagesWithOptions(request: ListSessionPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListSessionPackagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7439,11 +8104,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSessionPackagesResponse>(await this.callApi(params, req, runtime), new ListSessionPackagesResponse({}));
   }
 
+  /**
+   * @summary 项目的会话包列表
+   *
+   * @param request ListSessionPackagesRequest
+   * @return ListSessionPackagesResponse
+   */
   async listSessionPackages(request: ListSessionPackagesRequest): Promise<ListSessionPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSessionPackagesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListTenantConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListTenantConfigResponse
+   */
   async listTenantConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<ListTenantConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -7460,11 +8136,21 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTenantConfigResponse>(await this.callApi(params, req, runtime), new ListTenantConfigResponse({}));
   }
 
+  /**
+   * @return ListTenantConfigResponse
+   */
   async listTenantConfig(): Promise<ListTenantConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTenantConfigWithOptions(runtime);
   }
 
+  /**
+   * @summary 注销交付下所有会话
+   *
+   * @param request LogOffAllSessionsInAppInstanceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return LogOffAllSessionsInAppInstanceGroupResponse
+   */
   async logOffAllSessionsInAppInstanceGroupWithOptions(request: LogOffAllSessionsInAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<LogOffAllSessionsInAppInstanceGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7493,11 +8179,24 @@ export default class Client extends OpenApi {
     return $tea.cast<LogOffAllSessionsInAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new LogOffAllSessionsInAppInstanceGroupResponse({}));
   }
 
+  /**
+   * @summary 注销交付下所有会话
+   *
+   * @param request LogOffAllSessionsInAppInstanceGroupRequest
+   * @return LogOffAllSessionsInAppInstanceGroupResponse
+   */
   async logOffAllSessionsInAppInstanceGroup(request: LogOffAllSessionsInAppInstanceGroupRequest): Promise<LogOffAllSessionsInAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.logOffAllSessionsInAppInstanceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 会话包 迁移/分配
+   *
+   * @param request MigrateSessionPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return MigrateSessionPackageResponse
+   */
   async migrateSessionPackageWithOptions(request: MigrateSessionPackageRequest, runtime: $Util.RuntimeOptions): Promise<MigrateSessionPackageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7530,11 +8229,24 @@ export default class Client extends OpenApi {
     return $tea.cast<MigrateSessionPackageResponse>(await this.callApi(params, req, runtime), new MigrateSessionPackageResponse({}));
   }
 
+  /**
+   * @summary 会话包 迁移/分配
+   *
+   * @param request MigrateSessionPackageRequest
+   * @return MigrateSessionPackageResponse
+   */
   async migrateSessionPackage(request: MigrateSessionPackageRequest): Promise<MigrateSessionPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.migrateSessionPackageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改云应用交付组
+   *
+   * @param tmpReq ModifyAppInstanceGroupAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAppInstanceGroupAttributeResponse
+   */
   async modifyAppInstanceGroupAttributeWithOptions(tmpReq: ModifyAppInstanceGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppInstanceGroupAttributeResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyAppInstanceGroupAttributeShrinkRequest({ });
@@ -7615,11 +8327,78 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAppInstanceGroupAttributeResponse>(await this.callApi(params, req, runtime), new ModifyAppInstanceGroupAttributeResponse({}));
   }
 
+  /**
+   * @summary 修改云应用交付组
+   *
+   * @param request ModifyAppInstanceGroupAttributeRequest
+   * @return ModifyAppInstanceGroupAttributeResponse
+   */
   async modifyAppInstanceGroupAttribute(request: ModifyAppInstanceGroupAttributeRequest): Promise<ModifyAppInstanceGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppInstanceGroupAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改策略信息
+   *
+   * @param tmpReq ModifyAppPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAppPolicyResponse
+   */
+  async modifyAppPolicyWithOptions(tmpReq: ModifyAppPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppPolicyResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyAppPolicyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.videoPolicy)) {
+      request.videoPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoPolicy, "VideoPolicy", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appPolicyId)) {
+      query["AppPolicyId"] = request.appPolicyId;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.videoPolicyShrink)) {
+      query["VideoPolicy"] = request.videoPolicyShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAppPolicy",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAppPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAppPolicyResponse({}));
+  }
+
+  /**
+   * @summary 修改策略信息
+   *
+   * @param request ModifyAppPolicyRequest
+   * @return ModifyAppPolicyResponse
+   */
+  async modifyAppPolicy(request: ModifyAppPolicyRequest): Promise<ModifyAppPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAppPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq ModifyNodePoolAttributeRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyNodePoolAttributeResponse
+   */
   async modifyNodePoolAttributeWithOptions(tmpReq: ModifyNodePoolAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNodePoolAttributeResponse> {
     Util.validateModel(tmpReq);
     let request = new ModifyNodePoolAttributeShrinkRequest({ });
@@ -7666,11 +8445,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyNodePoolAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNodePoolAttributeResponse({}));
   }
 
+  /**
+   * @param request ModifyNodePoolAttributeRequest
+   * @return ModifyNodePoolAttributeResponse
+   */
   async modifyNodePoolAttribute(request: ModifyNodePoolAttributeRequest): Promise<ModifyNodePoolAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyNodePoolAttributeWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 修改项目策略
+   *
+   * @param request ModifyProjectPolicyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyProjectPolicyResponse
+   */
   async modifyProjectPolicyWithOptions(request: ModifyProjectPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProjectPolicyResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7727,11 +8517,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyProjectPolicyResponse>(await this.callApi(params, req, runtime), new ModifyProjectPolicyResponse({}));
   }
 
+  /**
+   * @summary 修改项目策略
+   *
+   * @param request ModifyProjectPolicyRequest
+   * @return ModifyProjectPolicyResponse
+   */
   async modifyProjectPolicy(request: ModifyProjectPolicyRequest): Promise<ModifyProjectPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyProjectPolicyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyTenantConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTenantConfigResponse
+   */
   async modifyTenantConfigWithOptions(request: ModifyTenantConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantConfigResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7756,11 +8557,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTenantConfigResponse>(await this.callApi(params, req, runtime), new ModifyTenantConfigResponse({}));
   }
 
+  /**
+   * @param request ModifyTenantConfigRequest
+   * @return ModifyTenantConfigResponse
+   */
   async modifyTenantConfig(request: ModifyTenantConfigRequest): Promise<ModifyTenantConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTenantConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 获取授权用户列表
+   *
+   * @param request PageListAppInstanceGroupUserRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PageListAppInstanceGroupUserResponse
+   */
   async pageListAppInstanceGroupUserWithOptions(request: PageListAppInstanceGroupUserRequest, runtime: $Util.RuntimeOptions): Promise<PageListAppInstanceGroupUserResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7797,11 +8609,24 @@ export default class Client extends OpenApi {
     return $tea.cast<PageListAppInstanceGroupUserResponse>(await this.callApi(params, req, runtime), new PageListAppInstanceGroupUserResponse({}));
   }
 
+  /**
+   * @summary 获取授权用户列表
+   *
+   * @param request PageListAppInstanceGroupUserRequest
+   * @return PageListAppInstanceGroupUserResponse
+   */
   async pageListAppInstanceGroupUser(request: PageListAppInstanceGroupUserRequest): Promise<PageListAppInstanceGroupUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pageListAppInstanceGroupUserWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 刷新访问url
+   *
+   * @param request RefreshAccessUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RefreshAccessUrlResponse
+   */
   async refreshAccessUrlWithOptions(request: RefreshAccessUrlRequest, runtime: $Util.RuntimeOptions): Promise<RefreshAccessUrlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7826,11 +8651,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RefreshAccessUrlResponse>(await this.callApi(params, req, runtime), new RefreshAccessUrlResponse({}));
   }
 
+  /**
+   * @summary 刷新访问url
+   *
+   * @param request RefreshAccessUrlRequest
+   * @return RefreshAccessUrlResponse
+   */
   async refreshAccessUrl(request: RefreshAccessUrlRequest): Promise<RefreshAccessUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshAccessUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 资源续费接口
+   *
+   * @param request RenewAppInstanceGroupRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewAppInstanceGroupResponse
+   */
   async renewAppInstanceGroupWithOptions(request: RenewAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<RenewAppInstanceGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7875,11 +8713,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new RenewAppInstanceGroupResponse({}));
   }
 
+  /**
+   * @summary 资源续费接口
+   *
+   * @param request RenewAppInstanceGroupRequest
+   * @return RenewAppInstanceGroupResponse
+   */
   async renewAppInstanceGroup(request: RenewAppInstanceGroupRequest): Promise<RenewAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewAppInstanceGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 会话包续费
+   *
+   * @param request RenewSessionPackageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RenewSessionPackageResponse
+   */
   async renewSessionPackageWithOptions(request: RenewSessionPackageRequest, runtime: $Util.RuntimeOptions): Promise<RenewSessionPackageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7912,11 +8763,24 @@ export default class Client extends OpenApi {
     return $tea.cast<RenewSessionPackageResponse>(await this.callApi(params, req, runtime), new RenewSessionPackageResponse({}));
   }
 
+  /**
+   * @summary 会话包续费
+   *
+   * @param request RenewSessionPackageRequest
+   * @return RenewSessionPackageResponse
+   */
   async renewSessionPackage(request: RenewSessionPackageRequest): Promise<RenewSessionPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewSessionPackageWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 解除用户绑定
+   *
+   * @param request UnbindRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UnbindResponse
+   */
   async unbindWithOptions(request: UnbindRequest, runtime: $Util.RuntimeOptions): Promise<UnbindResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7957,11 +8821,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UnbindResponse>(await this.callApi(params, req, runtime), new UnbindResponse({}));
   }
 
+  /**
+   * @summary 解除用户绑定
+   *
+   * @param request UnbindRequest
+   * @return UnbindResponse
+   */
   async unbind(request: UnbindRequest): Promise<UnbindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unbindWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新访问页面状态
+   *
+   * @param request UpdateAccessPageStateRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAccessPageStateResponse
+   */
   async updateAccessPageStateWithOptions(request: UpdateAccessPageStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccessPageStateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -7990,11 +8867,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAccessPageStateResponse>(await this.callApi(params, req, runtime), new UpdateAccessPageStateResponse({}));
   }
 
+  /**
+   * @summary 更新访问页面状态
+   *
+   * @param request UpdateAccessPageStateRequest
+   * @return UpdateAccessPageStateResponse
+   */
   async updateAccessPageState(request: UpdateAccessPageStateRequest): Promise<UpdateAccessPageStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAccessPageStateWithOptions(request, runtime);
   }
 
+  /**
+   * @summary 更新镜像
+   *
+   * @param request UpdateAppInstanceGroupImageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateAppInstanceGroupImageResponse
+   */
   async updateAppInstanceGroupImageWithOptions(request: UpdateAppInstanceGroupImageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppInstanceGroupImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8031,6 +8921,12 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAppInstanceGroupImageResponse>(await this.callApi(params, req, runtime), new UpdateAppInstanceGroupImageResponse({}));
   }
 
+  /**
+   * @summary 更新镜像
+   *
+   * @param request UpdateAppInstanceGroupImageRequest
+   * @return UpdateAppInstanceGroupImageResponse
+   */
   async updateAppInstanceGroupImage(request: UpdateAppInstanceGroupImageRequest): Promise<UpdateAppInstanceGroupImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAppInstanceGroupImageWithOptions(request, runtime);
