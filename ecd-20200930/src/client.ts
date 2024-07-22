@@ -3151,6 +3151,7 @@ export class CreateDesktopsRequest extends $tea.Model {
   policyGroupId?: string;
   promotionId?: string;
   regionId?: string;
+  snapshotPolicyId?: string;
   tag?: CreateDesktopsRequestTag[];
   userAssignMode?: string;
   userCommands?: CreateDesktopsRequestUserCommands[];
@@ -3181,6 +3182,7 @@ export class CreateDesktopsRequest extends $tea.Model {
       policyGroupId: 'PolicyGroupId',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      snapshotPolicyId: 'SnapshotPolicyId',
       tag: 'Tag',
       userAssignMode: 'UserAssignMode',
       userCommands: 'UserCommands',
@@ -3214,6 +3216,7 @@ export class CreateDesktopsRequest extends $tea.Model {
       policyGroupId: 'string',
       promotionId: 'string',
       regionId: 'string',
+      snapshotPolicyId: 'string',
       tag: { 'type': 'array', 'itemType': CreateDesktopsRequestTag },
       userAssignMode: 'string',
       userCommands: { 'type': 'array', 'itemType': CreateDesktopsRequestUserCommands },
@@ -26036,6 +26039,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.snapshotPolicyId)) {
+      query["SnapshotPolicyId"] = request.snapshotPolicyId;
     }
 
     if (!Util.isUnset(request.tag)) {
