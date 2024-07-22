@@ -1429,6 +1429,7 @@ export class DescribeTTSConfigRequest extends $tea.Model {
 }
 
 export class DescribeTTSConfigResponseBody extends $tea.Model {
+  aliCustomizedVoice?: string;
   appKey?: string;
   engine?: string;
   engineXunfei?: string;
@@ -1440,6 +1441,7 @@ export class DescribeTTSConfigResponseBody extends $tea.Model {
   volume?: number;
   static names(): { [key: string]: string } {
     return {
+      aliCustomizedVoice: 'AliCustomizedVoice',
       appKey: 'AppKey',
       engine: 'Engine',
       engineXunfei: 'EngineXunfei',
@@ -1454,6 +1456,7 @@ export class DescribeTTSConfigResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aliCustomizedVoice: 'string',
       appKey: 'string',
       engine: 'string',
       engineXunfei: 'string',
@@ -3030,6 +3033,7 @@ export class ModifySilenceTimeoutConfigResponse extends $tea.Model {
 }
 
 export class ModifyTTSConfigRequest extends $tea.Model {
+  aliCustomizedVoice?: string;
   appKey?: string;
   engine?: string;
   engineXunfei?: string;
@@ -3040,6 +3044,7 @@ export class ModifyTTSConfigRequest extends $tea.Model {
   volume?: string;
   static names(): { [key: string]: string } {
     return {
+      aliCustomizedVoice: 'AliCustomizedVoice',
       appKey: 'AppKey',
       engine: 'Engine',
       engineXunfei: 'EngineXunfei',
@@ -3053,6 +3058,7 @@ export class ModifyTTSConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aliCustomizedVoice: 'string',
       appKey: 'string',
       engine: 'string',
       engineXunfei: 'string',
@@ -4006,6 +4012,11 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * @param request AssociateChatbotInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AssociateChatbotInstanceResponse
+   */
   async associateChatbotInstanceWithOptions(request: AssociateChatbotInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AssociateChatbotInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4050,11 +4061,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AssociateChatbotInstanceResponse>(await this.callApi(params, req, runtime), new AssociateChatbotInstanceResponse({}));
   }
 
+  /**
+   * @param request AssociateChatbotInstanceRequest
+   * @return AssociateChatbotInstanceResponse
+   */
   async associateChatbotInstance(request: AssociateChatbotInstanceRequest): Promise<AssociateChatbotInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.associateChatbotInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request AuditTTSVoiceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return AuditTTSVoiceResponse
+   */
   async auditTTSVoiceWithOptions(request: AuditTTSVoiceRequest, runtime: $Util.RuntimeOptions): Promise<AuditTTSVoiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4115,11 +4135,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AuditTTSVoiceResponse>(await this.callApi(params, req, runtime), new AuditTTSVoiceResponse({}));
   }
 
+  /**
+   * @param request AuditTTSVoiceRequest
+   * @return AuditTTSVoiceResponse
+   */
   async auditTTSVoice(request: AuditTTSVoiceRequest): Promise<AuditTTSVoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.auditTTSVoiceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request BeginDialogueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return BeginDialogueResponse
+   */
   async beginDialogueWithOptions(request: BeginDialogueRequest, runtime: $Util.RuntimeOptions): Promise<BeginDialogueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4164,11 +4193,20 @@ export default class Client extends OpenApi {
     return $tea.cast<BeginDialogueResponse>(await this.callApi(params, req, runtime), new BeginDialogueResponse({}));
   }
 
+  /**
+   * @param request BeginDialogueRequest
+   * @return BeginDialogueResponse
+   */
   async beginDialogue(request: BeginDialogueRequest): Promise<BeginDialogueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.beginDialogueWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CollectedNumberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CollectedNumberResponse
+   */
   async collectedNumberWithOptions(request: CollectedNumberRequest, runtime: $Util.RuntimeOptions): Promise<CollectedNumberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4209,11 +4247,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CollectedNumberResponse>(await this.callApi(params, req, runtime), new CollectedNumberResponse({}));
   }
 
+  /**
+   * @param request CollectedNumberRequest
+   * @return CollectedNumberResponse
+   */
   async collectedNumber(request: CollectedNumberRequest): Promise<CollectedNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.collectedNumberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateDownloadUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateDownloadUrlResponse
+   */
   async createDownloadUrlWithOptions(request: CreateDownloadUrlRequest, runtime: $Util.RuntimeOptions): Promise<CreateDownloadUrlResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4234,11 +4281,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDownloadUrlResponse>(await this.callApi(params, req, runtime), new CreateDownloadUrlResponse({}));
   }
 
+  /**
+   * @param request CreateDownloadUrlRequest
+   * @return CreateDownloadUrlResponse
+   */
   async createDownloadUrl(request: CreateDownloadUrlRequest): Promise<CreateDownloadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDownloadUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @param request CreateInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateInstanceResponse
+   */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4283,11 +4339,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
   }
 
+  /**
+   * @param request CreateInstanceRequest
+   * @return CreateInstanceResponse
+   */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DebugBeginDialogueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DebugBeginDialogueResponse
+   */
   async debugBeginDialogueWithOptions(request: DebugBeginDialogueRequest, runtime: $Util.RuntimeOptions): Promise<DebugBeginDialogueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4328,11 +4393,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DebugBeginDialogueResponse>(await this.callApi(params, req, runtime), new DebugBeginDialogueResponse({}));
   }
 
+  /**
+   * @param request DebugBeginDialogueRequest
+   * @return DebugBeginDialogueResponse
+   */
   async debugBeginDialogue(request: DebugBeginDialogueRequest): Promise<DebugBeginDialogueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.debugBeginDialogueWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DebugCollectedNumberRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DebugCollectedNumberResponse
+   */
   async debugCollectedNumberWithOptions(request: DebugCollectedNumberRequest, runtime: $Util.RuntimeOptions): Promise<DebugCollectedNumberResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4365,11 +4439,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DebugCollectedNumberResponse>(await this.callApi(params, req, runtime), new DebugCollectedNumberResponse({}));
   }
 
+  /**
+   * @param request DebugCollectedNumberRequest
+   * @return DebugCollectedNumberResponse
+   */
   async debugCollectedNumber(request: DebugCollectedNumberRequest): Promise<DebugCollectedNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.debugCollectedNumberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DebugDialogueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DebugDialogueResponse
+   */
   async debugDialogueWithOptions(request: DebugDialogueRequest, runtime: $Util.RuntimeOptions): Promise<DebugDialogueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4406,11 +4489,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DebugDialogueResponse>(await this.callApi(params, req, runtime), new DebugDialogueResponse({}));
   }
 
+  /**
+   * @param request DebugDialogueRequest
+   * @return DebugDialogueResponse
+   */
   async debugDialogue(request: DebugDialogueRequest): Promise<DebugDialogueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.debugDialogueWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DeleteInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeleteInstanceResponse
+   */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4435,11 +4527,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
+  /**
+   * @param request DeleteInstanceRequest
+   * @return DeleteInstanceResponse
+   */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeConversationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeConversationResponse
+   */
   async describeConversationWithOptions(request: DescribeConversationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConversationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4460,11 +4561,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeConversationResponse>(await this.callApi(params, req, runtime), new DescribeConversationResponse({}));
   }
 
+  /**
+   * @param request DescribeConversationRequest
+   * @return DescribeConversationResponse
+   */
   async describeConversation(request: DescribeConversationRequest): Promise<DescribeConversationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeConversationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeConversationContextRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeConversationContextResponse
+   */
   async describeConversationContextWithOptions(request: DescribeConversationContextRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConversationContextResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4485,11 +4595,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeConversationContextResponse>(await this.callApi(params, req, runtime), new DescribeConversationContextResponse({}));
   }
 
+  /**
+   * @param request DescribeConversationContextRequest
+   * @return DescribeConversationContextResponse
+   */
   async describeConversationContext(request: DescribeConversationContextRequest): Promise<DescribeConversationContextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeConversationContextWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeExportProgressRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeExportProgressResponse
+   */
   async describeExportProgressWithOptions(request: DescribeExportProgressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExportProgressResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4510,11 +4629,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeExportProgressResponse>(await this.callApi(params, req, runtime), new DescribeExportProgressResponse({}));
   }
 
+  /**
+   * @param request DescribeExportProgressRequest
+   * @return DescribeExportProgressResponse
+   */
   async describeExportProgress(request: DescribeExportProgressRequest): Promise<DescribeExportProgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeExportProgressWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeInstanceResponse
+   */
   async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4535,11 +4663,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
+  /**
+   * @param request DescribeInstanceRequest
+   * @return DescribeInstanceResponse
+   */
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeNavigationConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeNavigationConfigResponse
+   */
   async describeNavigationConfigWithOptions(request: DescribeNavigationConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNavigationConfigResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4560,11 +4697,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeNavigationConfigResponse>(await this.callApi(params, req, runtime), new DescribeNavigationConfigResponse({}));
   }
 
+  /**
+   * @param request DescribeNavigationConfigRequest
+   * @return DescribeNavigationConfigResponse
+   */
   async describeNavigationConfig(request: DescribeNavigationConfigRequest): Promise<DescribeNavigationConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeNavigationConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeRecordingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeRecordingResponse
+   */
   async describeRecordingWithOptions(request: DescribeRecordingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordingResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4585,11 +4731,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRecordingResponse>(await this.callApi(params, req, runtime), new DescribeRecordingResponse({}));
   }
 
+  /**
+   * @param request DescribeRecordingRequest
+   * @return DescribeRecordingResponse
+   */
   async describeRecording(request: DescribeRecordingRequest): Promise<DescribeRecordingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordingWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeStatisticalDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeStatisticalDataResponse
+   */
   async describeStatisticalDataWithOptions(request: DescribeStatisticalDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStatisticalDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4610,11 +4765,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeStatisticalDataResponse>(await this.callApi(params, req, runtime), new DescribeStatisticalDataResponse({}));
   }
 
+  /**
+   * @param request DescribeStatisticalDataRequest
+   * @return DescribeStatisticalDataResponse
+   */
   async describeStatisticalData(request: DescribeStatisticalDataRequest): Promise<DescribeStatisticalDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeStatisticalDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DescribeTTSConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeTTSConfigResponse
+   */
   async describeTTSConfigWithOptions(request: DescribeTTSConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTTSConfigResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -4635,11 +4799,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeTTSConfigResponse>(await this.callApi(params, req, runtime), new DescribeTTSConfigResponse({}));
   }
 
+  /**
+   * @param request DescribeTTSConfigRequest
+   * @return DescribeTTSConfigResponse
+   */
   async describeTTSConfig(request: DescribeTTSConfigRequest): Promise<DescribeTTSConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTTSConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DialogueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DialogueResponse
+   */
   async dialogueWithOptions(request: DialogueRequest, runtime: $Util.RuntimeOptions): Promise<DialogueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4692,11 +4865,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DialogueResponse>(await this.callApi(params, req, runtime), new DialogueResponse({}));
   }
 
+  /**
+   * @param request DialogueRequest
+   * @return DialogueResponse
+   */
   async dialogue(request: DialogueRequest): Promise<DialogueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.dialogueWithOptions(request, runtime);
   }
 
+  /**
+   * @param request DisableInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DisableInstanceResponse
+   */
   async disableInstanceWithOptions(request: DisableInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DisableInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4721,11 +4903,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DisableInstanceResponse>(await this.callApi(params, req, runtime), new DisableInstanceResponse({}));
   }
 
+  /**
+   * @param request DisableInstanceRequest
+   * @return DisableInstanceResponse
+   */
   async disableInstance(request: DisableInstanceRequest): Promise<DisableInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.disableInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request EnableInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableInstanceResponse
+   */
   async enableInstanceWithOptions(request: EnableInstanceRequest, runtime: $Util.RuntimeOptions): Promise<EnableInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4750,11 +4941,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EnableInstanceResponse>(await this.callApi(params, req, runtime), new EnableInstanceResponse({}));
   }
 
+  /**
+   * @param request EnableInstanceRequest
+   * @return EnableInstanceResponse
+   */
   async enableInstance(request: EnableInstanceRequest): Promise<EnableInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request EndDialogueRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EndDialogueResponse
+   */
   async endDialogueWithOptions(request: EndDialogueRequest, runtime: $Util.RuntimeOptions): Promise<EndDialogueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4791,11 +4991,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EndDialogueResponse>(await this.callApi(params, req, runtime), new EndDialogueResponse({}));
   }
 
+  /**
+   * @param request EndDialogueRequest
+   * @return EndDialogueResponse
+   */
   async endDialogue(request: EndDialogueRequest): Promise<EndDialogueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.endDialogueWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ExportConversationDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportConversationDetailsResponse
+   */
   async exportConversationDetailsWithOptions(request: ExportConversationDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ExportConversationDetailsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4848,11 +5057,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportConversationDetailsResponse>(await this.callApi(params, req, runtime), new ExportConversationDetailsResponse({}));
   }
 
+  /**
+   * @param request ExportConversationDetailsRequest
+   * @return ExportConversationDetailsResponse
+   */
   async exportConversationDetails(request: ExportConversationDetailsRequest): Promise<ExportConversationDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportConversationDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ExportStatisticalDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ExportStatisticalDataResponse
+   */
   async exportStatisticalDataWithOptions(request: ExportStatisticalDataRequest, runtime: $Util.RuntimeOptions): Promise<ExportStatisticalDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4893,11 +5111,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ExportStatisticalDataResponse>(await this.callApi(params, req, runtime), new ExportStatisticalDataResponse({}));
   }
 
+  /**
+   * @param request ExportStatisticalDataRequest
+   * @return ExportStatisticalDataResponse
+   */
   async exportStatisticalData(request: ExportStatisticalDataRequest): Promise<ExportStatisticalDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportStatisticalDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GenerateUploadUrlRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GenerateUploadUrlResponse
+   */
   async generateUploadUrlWithOptions(request: GenerateUploadUrlRequest, runtime: $Util.RuntimeOptions): Promise<GenerateUploadUrlResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -5014,11 +5241,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateUploadUrlResponse>(await this.callApi(params, req, runtime), new GenerateUploadUrlResponse({}));
   }
 
+  /**
+   * @param request GenerateUploadUrlRequest
+   * @return GenerateUploadUrlResponse
+   */
   async generateUploadUrl(request: GenerateUploadUrlRequest): Promise<GenerateUploadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateUploadUrlWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetAsrConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetAsrConfigResponse
+   */
   async getAsrConfigWithOptions(request: GetAsrConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetAsrConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5047,11 +5283,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAsrConfigResponse>(await this.callApi(params, req, runtime), new GetAsrConfigResponse({}));
   }
 
+  /**
+   * @param request GetAsrConfigRequest
+   * @return GetAsrConfigResponse
+   */
   async getAsrConfig(request: GetAsrConfigRequest): Promise<GetAsrConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAsrConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request GetRealTimeConcurrencyRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRealTimeConcurrencyResponse
+   */
   async getRealTimeConcurrencyWithOptions(request: GetRealTimeConcurrencyRequest, runtime: $Util.RuntimeOptions): Promise<GetRealTimeConcurrencyResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5072,11 +5317,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRealTimeConcurrencyResponse>(await this.callApi(params, req, runtime), new GetRealTimeConcurrencyResponse({}));
   }
 
+  /**
+   * @param request GetRealTimeConcurrencyRequest
+   * @return GetRealTimeConcurrencyResponse
+   */
   async getRealTimeConcurrency(request: GetRealTimeConcurrencyRequest): Promise<GetRealTimeConcurrencyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRealTimeConcurrencyWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListChatbotInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListChatbotInstancesResponse
+   */
   async listChatbotInstancesWithOptions(request: ListChatbotInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListChatbotInstancesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5097,11 +5351,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListChatbotInstancesResponse>(await this.callApi(params, req, runtime), new ListChatbotInstancesResponse({}));
   }
 
+  /**
+   * @param request ListChatbotInstancesRequest
+   * @return ListChatbotInstancesResponse
+   */
   async listChatbotInstances(request: ListChatbotInstancesRequest): Promise<ListChatbotInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listChatbotInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListConversationDetailsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConversationDetailsResponse
+   */
   async listConversationDetailsWithOptions(request: ListConversationDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListConversationDetailsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5122,11 +5385,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConversationDetailsResponse>(await this.callApi(params, req, runtime), new ListConversationDetailsResponse({}));
   }
 
+  /**
+   * @param request ListConversationDetailsRequest
+   * @return ListConversationDetailsResponse
+   */
   async listConversationDetails(request: ListConversationDetailsRequest): Promise<ListConversationDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConversationDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListConversationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListConversationsResponse
+   */
   async listConversationsWithOptions(request: ListConversationsRequest, runtime: $Util.RuntimeOptions): Promise<ListConversationsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5147,11 +5419,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListConversationsResponse>(await this.callApi(params, req, runtime), new ListConversationsResponse({}));
   }
 
+  /**
+   * @param request ListConversationsRequest
+   * @return ListConversationsResponse
+   */
   async listConversations(request: ListConversationsRequest): Promise<ListConversationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConversationsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListDownloadTasksRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListDownloadTasksResponse
+   */
   async listDownloadTasksWithOptions(request: ListDownloadTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListDownloadTasksResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5172,11 +5453,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDownloadTasksResponse>(await this.callApi(params, req, runtime), new ListDownloadTasksResponse({}));
   }
 
+  /**
+   * @param request ListDownloadTasksRequest
+   * @return ListDownloadTasksResponse
+   */
   async listDownloadTasks(request: ListDownloadTasksRequest): Promise<ListDownloadTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDownloadTasksWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ListInstancesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListInstancesResponse
+   */
   async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5197,11 +5487,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
+  /**
+   * @param request ListInstancesRequest
+   * @return ListInstancesResponse
+   */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyAsrConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyAsrConfigResponse
+   */
   async modifyAsrConfigWithOptions(request: ModifyAsrConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAsrConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5246,11 +5545,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyAsrConfigResponse>(await this.callApi(params, req, runtime), new ModifyAsrConfigResponse({}));
   }
 
+  /**
+   * @param request ModifyAsrConfigRequest
+   * @return ModifyAsrConfigResponse
+   */
   async modifyAsrConfig(request: ModifyAsrConfigRequest): Promise<ModifyAsrConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAsrConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyGreetingConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyGreetingConfigResponse
+   */
   async modifyGreetingConfigWithOptions(request: ModifyGreetingConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGreetingConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5287,11 +5595,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyGreetingConfigResponse>(await this.callApi(params, req, runtime), new ModifyGreetingConfigResponse({}));
   }
 
+  /**
+   * @param request ModifyGreetingConfigRequest
+   * @return ModifyGreetingConfigResponse
+   */
   async modifyGreetingConfig(request: ModifyGreetingConfigRequest): Promise<ModifyGreetingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyGreetingConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyInstanceRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyInstanceResponse
+   */
   async modifyInstanceWithOptions(request: ModifyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5328,11 +5645,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyInstanceResponse({}));
   }
 
+  /**
+   * @param request ModifyInstanceRequest
+   * @return ModifyInstanceResponse
+   */
   async modifyInstance(request: ModifyInstanceRequest): Promise<ModifyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifySilenceTimeoutConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifySilenceTimeoutConfigResponse
+   */
   async modifySilenceTimeoutConfigWithOptions(request: ModifySilenceTimeoutConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifySilenceTimeoutConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5389,14 +5715,27 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifySilenceTimeoutConfigResponse>(await this.callApi(params, req, runtime), new ModifySilenceTimeoutConfigResponse({}));
   }
 
+  /**
+   * @param request ModifySilenceTimeoutConfigRequest
+   * @return ModifySilenceTimeoutConfigResponse
+   */
   async modifySilenceTimeoutConfig(request: ModifySilenceTimeoutConfigRequest): Promise<ModifySilenceTimeoutConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySilenceTimeoutConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyTTSConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyTTSConfigResponse
+   */
   async modifyTTSConfigWithOptions(request: ModifyTTSConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTTSConfigResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.aliCustomizedVoice)) {
+      query["AliCustomizedVoice"] = request.aliCustomizedVoice;
+    }
+
     if (!Util.isUnset(request.appKey)) {
       query["AppKey"] = request.appKey;
     }
@@ -5446,11 +5785,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyTTSConfigResponse>(await this.callApi(params, req, runtime), new ModifyTTSConfigResponse({}));
   }
 
+  /**
+   * @param request ModifyTTSConfigRequest
+   * @return ModifyTTSConfigResponse
+   */
   async modifyTTSConfig(request: ModifyTTSConfigRequest): Promise<ModifyTTSConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyTTSConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request ModifyUnrecognizingConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ModifyUnrecognizingConfigResponse
+   */
   async modifyUnrecognizingConfigWithOptions(request: ModifyUnrecognizingConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUnrecognizingConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5495,11 +5843,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ModifyUnrecognizingConfigResponse>(await this.callApi(params, req, runtime), new ModifyUnrecognizingConfigResponse({}));
   }
 
+  /**
+   * @param request ModifyUnrecognizingConfigRequest
+   * @return ModifyUnrecognizingConfigResponse
+   */
   async modifyUnrecognizingConfig(request: ModifyUnrecognizingConfigRequest): Promise<ModifyUnrecognizingConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyUnrecognizingConfigWithOptions(request, runtime);
   }
 
+  /**
+   * @param request QueryConversationsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return QueryConversationsResponse
+   */
   async queryConversationsWithOptions(request: QueryConversationsRequest, runtime: $Util.RuntimeOptions): Promise<QueryConversationsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -5520,11 +5877,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryConversationsResponse>(await this.callApi(params, req, runtime), new QueryConversationsResponse({}));
   }
 
+  /**
+   * @param request QueryConversationsRequest
+   * @return QueryConversationsResponse
+   */
   async queryConversations(request: QueryConversationsRequest): Promise<QueryConversationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryConversationsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SaveRecordingRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SaveRecordingResponse
+   */
   async saveRecordingWithOptions(request: SaveRecordingRequest, runtime: $Util.RuntimeOptions): Promise<SaveRecordingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5581,11 +5947,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SaveRecordingResponse>(await this.callApi(params, req, runtime), new SaveRecordingResponse({}));
   }
 
+  /**
+   * @param request SaveRecordingRequest
+   * @return SaveRecordingResponse
+   */
   async saveRecording(request: SaveRecordingRequest): Promise<SaveRecordingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveRecordingWithOptions(request, runtime);
   }
 
+  /**
+   * @param request SilenceTimeoutRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return SilenceTimeoutResponse
+   */
   async silenceTimeoutWithOptions(request: SilenceTimeoutRequest, runtime: $Util.RuntimeOptions): Promise<SilenceTimeoutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5622,6 +5997,10 @@ export default class Client extends OpenApi {
     return $tea.cast<SilenceTimeoutResponse>(await this.callApi(params, req, runtime), new SilenceTimeoutResponse({}));
   }
 
+  /**
+   * @param request SilenceTimeoutRequest
+   * @return SilenceTimeoutResponse
+   */
   async silenceTimeout(request: SilenceTimeoutRequest): Promise<SilenceTimeoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.silenceTimeoutWithOptions(request, runtime);
