@@ -8,6 +8,75 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CancelServiceUsageRequest extends $tea.Model {
+  clientToken?: string;
+  needDelete?: boolean;
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      needDelete: 'NeedDelete',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      needDelete: 'boolean',
+      serviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelServiceUsageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelServiceUsageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelServiceUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelServiceUsageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChangeResourceGroupRequest extends $tea.Model {
   newResourceGroupId?: string;
   regionId?: string;
@@ -358,6 +427,100 @@ export class CreateServiceInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceUsageRequest extends $tea.Model {
+  clientToken?: string;
+  serviceId?: string;
+  userInformation?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      serviceId: 'ServiceId',
+      userInformation: 'UserInformation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      serviceId: 'string',
+      userInformation: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceUsageShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  serviceId?: string;
+  userInformationShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      serviceId: 'ServiceId',
+      userInformationShrink: 'UserInformation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      serviceId: 'string',
+      userInformationShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceUsageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceUsageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceUsageResponseBody,
     };
   }
 
@@ -1049,6 +1212,53 @@ export class GetServiceTemplateParameterConstraintsResponse extends $tea.Model {
   }
 }
 
+export class ListServiceCategoriesResponseBody extends $tea.Model {
+  categories?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceCategoriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceCategoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceCategoriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstanceLogsRequest extends $tea.Model {
   logSource?: string;
   logstore?: string;
@@ -1317,6 +1527,84 @@ export class ListServiceInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListServiceInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceUsagesRequest extends $tea.Model {
+  filter?: ListServiceUsagesRequestFilter[];
+  maxResults?: number;
+  nextToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': ListServiceUsagesRequestFilter },
+      maxResults: 'number',
+      nextToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceUsagesResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  serviceUsages?: ListServiceUsagesResponseBodyServiceUsages[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      serviceUsages: 'ServiceUsages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      serviceUsages: { 'type': 'array', 'itemType': ListServiceUsagesResponseBodyServiceUsages },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceUsagesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceUsagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceUsagesResponseBody,
     };
   }
 
@@ -1951,6 +2239,100 @@ export class UpdateServiceInstanceSpecResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateServiceInstanceSpecResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceUsageRequest extends $tea.Model {
+  clientToken?: string;
+  serviceId?: string;
+  userInformation?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      serviceId: 'ServiceId',
+      userInformation: 'UserInformation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      serviceId: 'string',
+      userInformation: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceUsageShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  serviceId?: string;
+  userInformationShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      serviceId: 'ServiceId',
+      userInformationShrink: 'UserInformation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      serviceId: 'string',
+      userInformationShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceUsageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceUsageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateServiceUsageResponseBody,
     };
   }
 
@@ -3013,6 +3395,71 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $tea.Model
   }
 }
 
+export class ListServiceUsagesRequestFilter extends $tea.Model {
+  name?: string;
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceUsagesResponseBodyServiceUsages extends $tea.Model {
+  comments?: string;
+  createTime?: string;
+  serviceId?: string;
+  serviceName?: string;
+  status?: string;
+  supplierName?: string;
+  updateTime?: string;
+  userAliUid?: number;
+  userInformation?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      comments: 'Comments',
+      createTime: 'CreateTime',
+      serviceId: 'ServiceId',
+      serviceName: 'ServiceName',
+      status: 'Status',
+      supplierName: 'SupplierName',
+      updateTime: 'UpdateTime',
+      userAliUid: 'UserAliUid',
+      userInformation: 'UserInformation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comments: 'string',
+      createTime: 'string',
+      serviceId: 'string',
+      serviceName: 'string',
+      status: 'string',
+      supplierName: 'string',
+      updateTime: 'string',
+      userAliUid: 'number',
+      userInformation: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   key?: string;
   value?: string;
@@ -3094,6 +3541,56 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * @summary 用户取消服务使用请求
+   *
+   * @param request CancelServiceUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CancelServiceUsageResponse
+   */
+  async cancelServiceUsageWithOptions(request: CancelServiceUsageRequest, runtime: $Util.RuntimeOptions): Promise<CancelServiceUsageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.needDelete)) {
+      query["NeedDelete"] = request.needDelete;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelServiceUsage",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelServiceUsageResponse>(await this.callApi(params, req, runtime), new CancelServiceUsageResponse({}));
+  }
+
+  /**
+   * @summary 用户取消服务使用请求
+   *
+   * @param request CancelServiceUsageRequest
+   * @return CancelServiceUsageResponse
+   */
+  async cancelServiceUsage(request: CancelServiceUsageRequest): Promise<CancelServiceUsageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelServiceUsageWithOptions(request, runtime);
   }
 
   /**
@@ -3334,6 +3831,62 @@ export default class Client extends OpenApi {
   async createServiceInstance(request: CreateServiceInstanceRequest): Promise<CreateServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 用户创建服务使用请求
+   *
+   * @param tmpReq CreateServiceUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceUsageResponse
+   */
+  async createServiceUsageWithOptions(tmpReq: CreateServiceUsageRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceUsageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateServiceUsageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.userInformation)) {
+      request.userInformationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInformation, "UserInformation", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.userInformationShrink)) {
+      query["UserInformation"] = request.userInformationShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateServiceUsage",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceUsageResponse>(await this.callApi(params, req, runtime), new CreateServiceUsageResponse({}));
+  }
+
+  /**
+   * @summary 用户创建服务使用请求
+   *
+   * @param request CreateServiceUsageRequest
+   * @return CreateServiceUsageResponse
+   */
+  async createServiceUsage(request: CreateServiceUsageRequest): Promise<CreateServiceUsageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createServiceUsageWithOptions(request, runtime);
   }
 
   /**
@@ -3741,6 +4294,39 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询服务类别
+   *
+   * @param request ListServiceCategoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceCategoriesResponse
+   */
+  async listServiceCategoriesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListServiceCategoriesResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListServiceCategories",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceCategoriesResponse>(await this.callApi(params, req, runtime), new ListServiceCategoriesResponse({}));
+  }
+
+  /**
+   * @summary 查询服务类别
+   *
+   * @return ListServiceCategoriesResponse
+   */
+  async listServiceCategories(): Promise<ListServiceCategoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listServiceCategoriesWithOptions(runtime);
+  }
+
+  /**
    * @summary Queries the deployment and upgrade logs of a service instance.
    *
    * @param request ListServiceInstanceLogsRequest
@@ -3940,6 +4526,56 @@ export default class Client extends OpenApi {
   async listServiceInstances(request: ListServiceInstancesRequest): Promise<ListServiceInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listServiceInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 用户查询服务使用申请接口
+   *
+   * @param request ListServiceUsagesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceUsagesResponse
+   */
+  async listServiceUsagesWithOptions(request: ListServiceUsagesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceUsagesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListServiceUsages",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceUsagesResponse>(await this.callApi(params, req, runtime), new ListServiceUsagesResponse({}));
+  }
+
+  /**
+   * @summary 用户查询服务使用申请接口
+   *
+   * @param request ListServiceUsagesRequest
+   * @return ListServiceUsagesResponse
+   */
+  async listServiceUsages(request: ListServiceUsagesRequest): Promise<ListServiceUsagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listServiceUsagesWithOptions(request, runtime);
   }
 
   /**
@@ -4362,6 +4998,62 @@ export default class Client extends OpenApi {
   async updateServiceInstanceSpec(request: UpdateServiceInstanceSpecRequest): Promise<UpdateServiceInstanceSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateServiceInstanceSpecWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 用户更新服务使用请求
+   *
+   * @param tmpReq UpdateServiceUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateServiceUsageResponse
+   */
+  async updateServiceUsageWithOptions(tmpReq: UpdateServiceUsageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceUsageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateServiceUsageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.userInformation)) {
+      request.userInformationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userInformation, "UserInformation", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.userInformationShrink)) {
+      query["UserInformation"] = request.userInformationShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateServiceUsage",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceUsageResponse>(await this.callApi(params, req, runtime), new UpdateServiceUsageResponse({}));
+  }
+
+  /**
+   * @summary 用户更新服务使用请求
+   *
+   * @param request UpdateServiceUsageRequest
+   * @return UpdateServiceUsageResponse
+   */
+  async updateServiceUsage(request: UpdateServiceUsageRequest): Promise<UpdateServiceUsageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateServiceUsageWithOptions(request, runtime);
   }
 
 }
