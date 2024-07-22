@@ -2434,6 +2434,96 @@ export class ListServiceInstancesResponse extends $tea.Model {
   }
 }
 
+export class ListServiceSharedAccountsRequest extends $tea.Model {
+  filter?: ListServiceSharedAccountsRequestFilter[];
+  maxResults?: number;
+  nextToken?: string;
+  permission?: string;
+  regionId?: string;
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      permission: 'Permission',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': ListServiceSharedAccountsRequestFilter },
+      maxResults: 'number',
+      nextToken: 'string',
+      permission: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceSharedAccountsResponseBody extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  shareAccount?: ListServiceSharedAccountsResponseBodyShareAccount[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      shareAccount: 'ShareAccount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      shareAccount: { 'type': 'array', 'itemType': ListServiceSharedAccountsResponseBodyShareAccount },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceSharedAccountsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceSharedAccountsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceSharedAccountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceUsagesRequest extends $tea.Model {
   filter?: ListServiceUsagesRequestFilter[];
   maxResults?: number;
@@ -2972,6 +3062,81 @@ export class ReleaseArtifactResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseArtifactResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveServiceSharedAccountsRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  serviceId?: string;
+  type?: string;
+  userAliUids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      type: 'Type',
+      userAliUids: 'UserAliUids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      type: 'string',
+      userAliUids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveServiceSharedAccountsResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveServiceSharedAccountsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveServiceSharedAccountsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveServiceSharedAccountsResponseBody,
     };
   }
 
@@ -5456,6 +5621,65 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $tea.Model
   }
 }
 
+export class ListServiceSharedAccountsRequestFilter extends $tea.Model {
+  name?: string;
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceSharedAccountsResponseBodyShareAccount extends $tea.Model {
+  createTime?: string;
+  logo?: string;
+  name?: string;
+  permission?: string;
+  serviceId?: string;
+  updateTime?: string;
+  userAliUid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      logo: 'Logo',
+      name: 'Name',
+      permission: 'Permission',
+      serviceId: 'ServiceId',
+      updateTime: 'UpdateTime',
+      userAliUid: 'UserAliUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      logo: 'string',
+      name: 'string',
+      permission: 'string',
+      serviceId: 'string',
+      updateTime: 'string',
+      userAliUid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceUsagesRequestFilter extends $tea.Model {
   name?: string;
   value?: string[];
@@ -7578,6 +7802,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request ListServiceSharedAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceSharedAccountsResponse
+   */
+  async listServiceSharedAccountsWithOptions(request: ListServiceSharedAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceSharedAccountsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.permission)) {
+      query["Permission"] = request.permission;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListServiceSharedAccounts",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new ListServiceSharedAccountsResponse({}));
+  }
+
+  /**
+   * @param request ListServiceSharedAccountsRequest
+   * @return ListServiceSharedAccountsResponse
+   */
+  async listServiceSharedAccounts(request: ListServiceSharedAccountsRequest): Promise<ListServiceSharedAccountsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listServiceSharedAccountsWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Queries the applications for using a service.
    *
    * @param request ListServiceUsagesRequest
@@ -7941,6 +8223,60 @@ export default class Client extends OpenApi {
   async releaseArtifact(request: ReleaseArtifactRequest): Promise<ReleaseArtifactResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseArtifactWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request RemoveServiceSharedAccountsRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RemoveServiceSharedAccountsResponse
+   */
+  async removeServiceSharedAccountsWithOptions(request: RemoveServiceSharedAccountsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveServiceSharedAccountsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userAliUids)) {
+      query["UserAliUids"] = request.userAliUids;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveServiceSharedAccounts",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new RemoveServiceSharedAccountsResponse({}));
+  }
+
+  /**
+   * @param request RemoveServiceSharedAccountsRequest
+   * @return RemoveServiceSharedAccountsResponse
+   */
+  async removeServiceSharedAccounts(request: RemoveServiceSharedAccountsRequest): Promise<RemoveServiceSharedAccountsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeServiceSharedAccountsWithOptions(request, runtime);
   }
 
   /**
