@@ -83,6 +83,84 @@ export class AddServiceSharedAccountsResponse extends $tea.Model {
   }
 }
 
+export class ApproveServiceUsageRequest extends $tea.Model {
+  clientToken?: string;
+  comments?: string;
+  regionId?: string;
+  serviceId?: string;
+  type?: number;
+  userAliUid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      comments: 'Comments',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      type: 'Type',
+      userAliUid: 'UserAliUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      comments: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      type: 'number',
+      userAliUid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApproveServiceUsageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApproveServiceUsageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApproveServiceUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApproveServiceUsageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ContinueDeployServiceInstanceRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -626,6 +704,75 @@ export class CreateServiceInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceUsageRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceUsageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceUsageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceUsageResponseBody,
     };
   }
 
@@ -2147,6 +2294,53 @@ export class ListArtifactsResponse extends $tea.Model {
   }
 }
 
+export class ListServiceCategoriesResponseBody extends $tea.Model {
+  categories?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceCategoriesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceCategoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceCategoriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstancesRequest extends $tea.Model {
   filter?: ListServiceInstancesRequestFilter[];
   maxResults?: number;
@@ -2616,6 +2810,81 @@ export class RegisterServiceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RegisterServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectServiceUsageRequest extends $tea.Model {
+  clientToken?: string;
+  comments?: string;
+  serviceId?: string;
+  type?: number;
+  userAliUid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      comments: 'Comments',
+      serviceId: 'ServiceId',
+      type: 'Type',
+      userAliUid: 'UserAliUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      comments: 'string',
+      serviceId: 'string',
+      type: 'number',
+      userAliUid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectServiceUsageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RejectServiceUsageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RejectServiceUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RejectServiceUsageResponseBody,
     };
   }
 
@@ -5898,6 +6167,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 商家通过服务使用请求
+   *
+   * @param request ApproveServiceUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ApproveServiceUsageResponse
+   */
+  async approveServiceUsageWithOptions(request: ApproveServiceUsageRequest, runtime: $Util.RuntimeOptions): Promise<ApproveServiceUsageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.comments)) {
+      query["Comments"] = request.comments;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userAliUid)) {
+      query["UserAliUid"] = request.userAliUid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApproveServiceUsage",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApproveServiceUsageResponse>(await this.callApi(params, req, runtime), new ApproveServiceUsageResponse({}));
+  }
+
+  /**
+   * @summary 商家通过服务使用请求
+   *
+   * @param request ApproveServiceUsageRequest
+   * @return ApproveServiceUsageResponse
+   */
+  async approveServiceUsage(request: ApproveServiceUsageRequest): Promise<ApproveServiceUsageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.approveServiceUsageWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Redeploys a service instance after the service instance failed to be deployed.
    *
    * @param request ContinueDeployServiceInstanceRequest
@@ -6271,6 +6602,56 @@ export default class Client extends OpenApi {
   async createServiceInstance(request: CreateServiceInstanceRequest): Promise<CreateServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createServiceInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 创建代销申请
+   *
+   * @param request CreateServiceUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreateServiceUsageResponse
+   */
+  async createServiceUsageWithOptions(request: CreateServiceUsageRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceUsageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateServiceUsage",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceUsageResponse>(await this.callApi(params, req, runtime), new CreateServiceUsageResponse({}));
+  }
+
+  /**
+   * @summary 创建代销申请
+   *
+   * @param request CreateServiceUsageRequest
+   * @return CreateServiceUsageResponse
+   */
+  async createServiceUsage(request: CreateServiceUsageRequest): Promise<CreateServiceUsageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createServiceUsageWithOptions(request, runtime);
   }
 
   /**
@@ -7098,6 +7479,39 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 查询服务分类
+   *
+   * @param request ListServiceCategoriesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return ListServiceCategoriesResponse
+   */
+  async listServiceCategoriesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListServiceCategoriesResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListServiceCategories",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceCategoriesResponse>(await this.callApi(params, req, runtime), new ListServiceCategoriesResponse({}));
+  }
+
+  /**
+   * @summary 查询服务分类
+   *
+   * @return ListServiceCategoriesResponse
+   */
+  async listServiceCategories(): Promise<ListServiceCategoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listServiceCategoriesWithOptions(runtime);
+  }
+
+  /**
    * @summary Queries a list of service instances.
    *
    * @param request ListServiceInstancesRequest
@@ -7427,6 +7841,64 @@ export default class Client extends OpenApi {
   async registerService(request: RegisterServiceRequest): Promise<RegisterServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerServiceWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 商家拒绝服务使用请求
+   *
+   * @param request RejectServiceUsageRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return RejectServiceUsageResponse
+   */
+  async rejectServiceUsageWithOptions(request: RejectServiceUsageRequest, runtime: $Util.RuntimeOptions): Promise<RejectServiceUsageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.comments)) {
+      query["Comments"] = request.comments;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userAliUid)) {
+      query["UserAliUid"] = request.userAliUid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RejectServiceUsage",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RejectServiceUsageResponse>(await this.callApi(params, req, runtime), new RejectServiceUsageResponse({}));
+  }
+
+  /**
+   * @summary 商家拒绝服务使用请求
+   *
+   * @param request RejectServiceUsageRequest
+   * @return RejectServiceUsageResponse
+   */
+  async rejectServiceUsage(request: RejectServiceUsageRequest): Promise<RejectServiceUsageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rejectServiceUsageWithOptions(request, runtime);
   }
 
   /**
