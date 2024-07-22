@@ -5307,6 +5307,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
   path?: string;
   productCode?: string;
   productId?: number;
+  regionId?: string;
   regionName?: string;
   ruleList?: DescribeDataObjectsResponseBodyItemsRuleList[];
   sensitiveCount?: number;
@@ -5327,6 +5328,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
       path: 'Path',
       productCode: 'ProductCode',
       productId: 'ProductId',
+      regionId: 'RegionId',
       regionName: 'RegionName',
       ruleList: 'RuleList',
       sensitiveCount: 'SensitiveCount',
@@ -5350,6 +5352,7 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
       path: 'string',
       productCode: 'string',
       productId: 'number',
+      regionId: 'string',
       regionName: 'string',
       ruleList: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItemsRuleList },
       sensitiveCount: 'number',
