@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,8 +8,29 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
+   */
   categoryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 68abd1dea7b6404d8f7d7b9f7fbd332d.1716698936847
+   */
   leaseId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DASHSCOPE_DOCMIND
+   */
   parser?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,11 +54,31 @@ export class AddFileRequest extends $tea.Model {
 }
 
 export class AddFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataCenter.FileTooLarge
+   */
   code?: string;
   data?: AddFileResponseBodyData;
+  /**
+   * @example
+   * User not authorized to operate on the specified resource.
+   */
   message?: string;
+  /**
+   * @example
+   * 778C0B3B-xxxx-5FC1-A947-36EDD13606AB
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,8 +133,26 @@ export class AddFileResponse extends $tea.Model {
 }
 
 export class ApplyFileUploadLeaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 19657c391f6c70bcea63c154d8606bb3
+   */
   md5?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
   sizeInBytes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -118,11 +176,31 @@ export class ApplyFileUploadLeaseRequest extends $tea.Model {
 }
 
 export class ApplyFileUploadLeaseResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataCenter.FileTooLarge
+   */
   code?: string;
   data?: ApplyFileUploadLeaseResponseBodyData;
+  /**
+   * @example
+   * User not authorized to operate on the specified resource
+   */
   message?: string;
+  /**
+   * @example
+   * 778C0B3B-xxxx-5FC1-A947-36EDD13606AB
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -178,20 +256,80 @@ export class ApplyFileUploadLeaseResponse extends $tea.Model {
 
 export class CreateIndexRequest extends $tea.Model {
   categoryIds?: string[];
+  /**
+   * @example
+   * 128
+   */
   chunkSize?: number;
   columns?: CreateIndexRequestColumns[];
   description?: string;
   documentIds?: string[];
+  /**
+   * @example
+   * text-embedding-v2
+   */
   embeddingModelName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @example
+   * 16
+   */
   overlapSize?: number;
+  /**
+   * @example
+   * 0.20
+   */
   rerankMinScore?: number;
+  /**
+   * @example
+   * gte-rerank-hybrid
+   */
   rerankModelName?: string;
+  /**
+   * @example
+   * ,
+   */
   separator?: string;
+  /**
+   * @example
+   * gp-bp321093j84
+   */
   sinkInstanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   sinkRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEFAULT
+   */
   sinkType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DATA_CENTER_FILE
+   * 
+   * **if can be null:**
+   * false
+   */
   sourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * structured
+   */
   structureType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -242,20 +380,80 @@ export class CreateIndexRequest extends $tea.Model {
 
 export class CreateIndexShrinkRequest extends $tea.Model {
   categoryIdsShrink?: string;
+  /**
+   * @example
+   * 128
+   */
   chunkSize?: number;
   columnsShrink?: string;
   description?: string;
   documentIdsShrink?: string;
+  /**
+   * @example
+   * text-embedding-v2
+   */
   embeddingModelName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @example
+   * 16
+   */
   overlapSize?: number;
+  /**
+   * @example
+   * 0.20
+   */
   rerankMinScore?: number;
+  /**
+   * @example
+   * gte-rerank-hybrid
+   */
   rerankModelName?: string;
+  /**
+   * @example
+   * ,
+   */
   separator?: string;
+  /**
+   * @example
+   * gp-bp321093j84
+   */
   sinkInstanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   sinkRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DEFAULT
+   */
   sinkType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DATA_CENTER_FILE
+   * 
+   * **if can be null:**
+   * false
+   */
   sourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * structured
+   */
   structureType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -305,11 +503,34 @@ export class CreateIndexShrinkRequest extends $tea.Model {
 }
 
 export class CreateIndexResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Forbidden
+   */
   code?: string;
   data?: CreateIndexResponseBodyData;
+  /**
+   * @example
+   * Invalid input, variable name is missing
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 17204B98-7734-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -364,11 +585,34 @@ export class CreateIndexResponse extends $tea.Model {
 }
 
 export class DeleteFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter
+   */
   code?: string;
   data?: DeleteFileResponseBodyData;
+  /**
+   * @example
+   * Current file status does not support delete.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -423,6 +667,13 @@ export class DeleteFileResponse extends $tea.Model {
 }
 
 export class DeleteIndexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f89ie0fj5a
+   */
   indexId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -442,10 +693,33 @@ export class DeleteIndexRequest extends $tea.Model {
 }
 
 export class DeleteIndexResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Index.InvalidParameter
+   */
   code?: string;
+  /**
+   * @example
+   * Required parameter(%s) missing or invalid, please check the request parameters.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -498,7 +772,18 @@ export class DeleteIndexResponse extends $tea.Model {
 }
 
 export class DeleteIndexDocumentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   documentIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 79c0aly8zw
+   */
   indexId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -520,7 +805,18 @@ export class DeleteIndexDocumentRequest extends $tea.Model {
 }
 
 export class DeleteIndexDocumentShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   documentIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 79c0aly8zw
+   */
   indexId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -542,11 +838,34 @@ export class DeleteIndexDocumentShrinkRequest extends $tea.Model {
 }
 
 export class DeleteIndexDocumentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Index.InvalidParameter
+   */
   code?: string;
   data?: DeleteIndexDocumentResponseBodyData;
+  /**
+   * @example
+   * Required parameter(%s) missing or invalid, please check the request parameters.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -601,11 +920,31 @@ export class DeleteIndexDocumentResponse extends $tea.Model {
 }
 
 export class DescribeFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: DescribeFileResponseBodyData;
+  /**
+   * @example
+   * Requests throttling triggered.
+   */
   message?: string;
+  /**
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -660,7 +999,21 @@ export class DescribeFileResponse extends $tea.Model {
 }
 
 export class GetIndexJobStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 79c0aly8zw
+   */
   indexId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20230718xxxx-146c93bf
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -682,11 +1035,31 @@ export class GetIndexJobStatusRequest extends $tea.Model {
 }
 
 export class GetIndexJobStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Index.Forbidden
+   */
   code?: string;
   data?: GetIndexJobStatusResponseBodyData;
+  /**
+   * @example
+   * User not authorized to operate on the specified resource.
+   */
   message?: string;
+  /**
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -742,9 +1115,28 @@ export class GetIndexJobStatusResponse extends $tea.Model {
 
 export class ListChunksRequest extends $tea.Model {
   fields?: string[];
+  /**
+   * @example
+   * file_5f03dfea56da4050ab68d61871fc4cb3_10151493
+   */
   filed?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * otoru9en4v
+   */
   indexId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -772,11 +1164,34 @@ export class ListChunksRequest extends $tea.Model {
 }
 
 export class ListChunksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Index.InvalidParameter
+   */
   code?: string;
   data?: ListChunksResponseBodyData;
+  /**
+   * @example
+   * Required parameter(%s) missing or invalid, please check the request parameters.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8F97A63B-55F1-527F-9D6E-467B6A7E8CF1
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -832,9 +1247,28 @@ export class ListChunksResponse extends $tea.Model {
 
 export class ListIndexDocumentsRequest extends $tea.Model {
   documentName?: string;
+  /**
+   * @example
+   * FINISH
+   */
   documentStatus?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 79c0aly8zw
+   */
   indexId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -862,11 +1296,34 @@ export class ListIndexDocumentsRequest extends $tea.Model {
 }
 
 export class ListIndexDocumentsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter
+   */
   code?: string;
   data?: ListIndexDocumentsResponseBodyData;
+  /**
+   * @example
+   * Required parameter(%s) missing or invalid, please check the request parameters.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 35A267BF-xxxx-54DB-8394-AA3B0742D833
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -921,8 +1378,20 @@ export class ListIndexDocumentsResponse extends $tea.Model {
 }
 
 export class ListIndicesRequest extends $tea.Model {
+  /**
+   * @example
+   * idx_status_score
+   */
   indexName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
   static names(): { [key: string]: string } {
     return {
@@ -946,11 +1415,34 @@ export class ListIndicesRequest extends $tea.Model {
 }
 
 export class ListIndicesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Index.InvalidParameter
+   */
   code?: string;
   data?: ListIndicesResponseBodyData;
+  /**
+   * @example
+   * Required parameter(%s) missing or invalid, please check the request parameters.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1005,16 +1497,52 @@ export class ListIndicesResponse extends $tea.Model {
 }
 
 export class RetrieveRequest extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   denseSimilarityTopK?: number;
+  /**
+   * @example
+   * true
+   */
   enableReranking?: boolean;
+  /**
+   * @example
+   * false
+   */
   enableRewrite?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5pwe0m2g6t
+   */
   indexId?: string;
   query?: string;
   rerank?: RetrieveRequestRerank[];
+  /**
+   * @example
+   * 0.20
+   */
   rerankMinScore?: number;
+  /**
+   * @example
+   * 5
+   */
   rerankTopN?: number;
   rewrite?: RetrieveRequestRewrite[];
+  /**
+   * @example
+   * false
+   */
   saveRetrieverHistory?: boolean;
+  searchFilters?: { [key: string]: string }[];
+  /**
+   * @example
+   * 100
+   */
   sparseSimilarityTopK?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1028,6 +1556,7 @@ export class RetrieveRequest extends $tea.Model {
       rerankTopN: 'RerankTopN',
       rewrite: 'Rewrite',
       saveRetrieverHistory: 'SaveRetrieverHistory',
+      searchFilters: 'SearchFilters',
       sparseSimilarityTopK: 'SparseSimilarityTopK',
     };
   }
@@ -1044,6 +1573,7 @@ export class RetrieveRequest extends $tea.Model {
       rerankTopN: 'number',
       rewrite: { 'type': 'array', 'itemType': RetrieveRequestRewrite },
       saveRetrieverHistory: 'boolean',
+      searchFilters: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
       sparseSimilarityTopK: 'number',
     };
   }
@@ -1054,16 +1584,52 @@ export class RetrieveRequest extends $tea.Model {
 }
 
 export class RetrieveShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   denseSimilarityTopK?: number;
+  /**
+   * @example
+   * true
+   */
   enableReranking?: boolean;
+  /**
+   * @example
+   * false
+   */
   enableRewrite?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5pwe0m2g6t
+   */
   indexId?: string;
   query?: string;
   rerankShrink?: string;
+  /**
+   * @example
+   * 0.20
+   */
   rerankMinScore?: number;
+  /**
+   * @example
+   * 5
+   */
   rerankTopN?: number;
   rewriteShrink?: string;
+  /**
+   * @example
+   * false
+   */
   saveRetrieverHistory?: boolean;
+  searchFiltersShrink?: string;
+  /**
+   * @example
+   * 100
+   */
   sparseSimilarityTopK?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1077,6 +1643,7 @@ export class RetrieveShrinkRequest extends $tea.Model {
       rerankTopN: 'RerankTopN',
       rewriteShrink: 'Rewrite',
       saveRetrieverHistory: 'SaveRetrieverHistory',
+      searchFiltersShrink: 'SearchFilters',
       sparseSimilarityTopK: 'SparseSimilarityTopK',
     };
   }
@@ -1093,6 +1660,7 @@ export class RetrieveShrinkRequest extends $tea.Model {
       rerankTopN: 'number',
       rewriteShrink: 'string',
       saveRetrieverHistory: 'boolean',
+      searchFiltersShrink: 'string',
       sparseSimilarityTopK: 'number',
     };
   }
@@ -1103,11 +1671,34 @@ export class RetrieveShrinkRequest extends $tea.Model {
 }
 
 export class RetrieveResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Index.InvalidParameter
+   */
   code?: string;
   data?: RetrieveResponseBodyData;
+  /**
+   * @example
+   * Required parameter(%s) missing or invalid, please check the request parameters.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 17204B98-7734-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1164,7 +1755,21 @@ export class RetrieveResponse extends $tea.Model {
 export class SubmitIndexAddDocumentsJobRequest extends $tea.Model {
   categoryIds?: string[];
   documentIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 79c0aly8zw
+   */
   indexId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DATA_CENTER_FILE
+   */
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1192,7 +1797,21 @@ export class SubmitIndexAddDocumentsJobRequest extends $tea.Model {
 export class SubmitIndexAddDocumentsJobShrinkRequest extends $tea.Model {
   categoryIdsShrink?: string;
   documentIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 79c0aly8zw
+   */
   indexId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DATA_CENTER_FILE
+   */
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1218,11 +1837,34 @@ export class SubmitIndexAddDocumentsJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitIndexAddDocumentsJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Index.InvalidParameter
+   */
   code?: string;
   data?: SubmitIndexAddDocumentsJobResponseBodyData;
+  /**
+   * @example
+   * Required parameter(%s) missing or invalid, please check the request parameters.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 778C0B3B-03C1-5FC1-A947-36EDD13606AB
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1277,6 +1919,13 @@ export class SubmitIndexAddDocumentsJobResponse extends $tea.Model {
 }
 
 export class SubmitIndexJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 79c0aly8zw
+   */
   indexId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1296,11 +1945,34 @@ export class SubmitIndexJobRequest extends $tea.Model {
 }
 
 export class SubmitIndexJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter
+   */
   code?: string;
   data?: SubmitIndexJobResponseBodyData;
+  /**
+   * @example
+   * Required parameter(%s) missing or invalid, please check the request parameters.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
   requestId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1355,7 +2027,15 @@ export class SubmitIndexJobResponse extends $tea.Model {
 }
 
 export class AddFileResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
+   */
   fileId?: string;
+  /**
+   * @example
+   * DASHSCOPE_DOCMIND
+   */
   parser?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1377,8 +2057,21 @@ export class AddFileResponseBodyData extends $tea.Model {
 }
 
 export class ApplyFileUploadLeaseResponseBodyDataParam extends $tea.Model {
+  /**
+   * @example
+   * "X-bailian-extra": "MTAwNTQyNjQ5NTE2OTE3OA==",
+   *         "Content-Type": "application/pdf"
+   */
   headers?: any;
+  /**
+   * @example
+   * PUT
+   */
   method?: string;
+  /**
+   * @example
+   * https://bailian-datahub-data-origin-prod.oss-cn-hangzhou.aliyuncs.com/1005426495169178/10024405/68abd1dea7b6404d8f7d7b9f7fbd332d.1716698936847.pdf?Expires=1716699536&OSSAccessKeyId=TestID&Signature=HfwPUZo4pR6DatSDym0zFKVh9Wg%3D
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1402,8 +2095,16 @@ export class ApplyFileUploadLeaseResponseBodyDataParam extends $tea.Model {
 }
 
 export class ApplyFileUploadLeaseResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1e6a159107384782be5e45ac4759b247.1719325231035
+   */
   fileUploadLeaseId?: string;
   param?: ApplyFileUploadLeaseResponseBodyDataParam;
+  /**
+   * @example
+   * HTTP
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1458,6 +2159,10 @@ export class CreateIndexRequestColumns extends $tea.Model {
 }
 
 export class CreateIndexResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * jkurxhju6b
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1477,6 +2182,10 @@ export class CreateIndexResponseBodyData extends $tea.Model {
 }
 
 export class DeleteFileResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1515,13 +2224,45 @@ export class DeleteIndexDocumentResponseBodyData extends $tea.Model {
 }
 
 export class DescribeFileResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
+   */
   categoryId?: string;
+  /**
+   * @example
+   * 2024-05-26 12:45:43
+   */
   createTime?: string;
+  /**
+   * @example
+   * file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
+   */
   fileId?: string;
+  /**
+   * @example
+   * test.pdf
+   */
   fileName?: string;
+  /**
+   * @example
+   * pdf
+   */
   fileType?: string;
+  /**
+   * @example
+   * DASHSCOPE_DOCMIND
+   */
   parser?: string;
+  /**
+   * @example
+   * 1234
+   */
   sizeInBytes?: number;
+  /**
+   * @example
+   * PARSE_SUCCESS
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1555,10 +2296,26 @@ export class DescribeFileResponseBodyData extends $tea.Model {
 }
 
 export class GetIndexJobStatusResponseBodyDataDocuments extends $tea.Model {
+  /**
+   * @example
+   * Index.Document.ChunkError
+   */
   code?: string;
+  /**
+   * @example
+   * file_9a65732555b54d5ea10796ca5742ba22_XXXXXXXX
+   */
   docId?: string;
   docName?: string;
+  /**
+   * @example
+   * document parse error
+   */
   message?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1587,7 +2344,15 @@ export class GetIndexJobStatusResponseBodyDataDocuments extends $tea.Model {
 
 export class GetIndexJobStatusResponseBodyData extends $tea.Model {
   documents?: GetIndexJobStatusResponseBodyDataDocuments[];
+  /**
+   * @example
+   * 66122af12a4e45ddae6bd6c845556647
+   */
   jobId?: string;
+  /**
+   * @example
+   * PENDING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1612,6 +2377,10 @@ export class GetIndexJobStatusResponseBodyData extends $tea.Model {
 
 export class ListChunksResponseBodyDataNodes extends $tea.Model {
   metadata?: any;
+  /**
+   * @example
+   * 0.3
+   */
   score?: number;
   text?: string;
   static names(): { [key: string]: string } {
@@ -1637,6 +2406,10 @@ export class ListChunksResponseBodyDataNodes extends $tea.Model {
 
 export class ListChunksResponseBodyData extends $tea.Model {
   nodes?: ListChunksResponseBodyDataNodes[];
+  /**
+   * @example
+   * 16
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1658,13 +2431,41 @@ export class ListChunksResponseBodyData extends $tea.Model {
 }
 
 export class ListIndexDocumentsResponseBodyDataDocuments extends $tea.Model {
+  /**
+   * @example
+   * 110002
+   */
   code?: string;
+  /**
+   * @example
+   * pdf
+   */
   documentType?: string;
+  /**
+   * @example
+   * doc_c134aa2073204a5d936d870bf960f56a10024701
+   */
   id?: string;
+  /**
+   * @example
+   * check fileUrlKey[file_path] / fileNameKey[null] / fileExtensionKey[file_extension] is invalid
+   */
   message?: string;
   name?: string;
+  /**
+   * @example
+   * 996764
+   */
   size?: number;
+  /**
+   * @example
+   * cate_21a407a3372c4ba7aedc649709143f0c10021401
+   */
   sourceId?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1699,9 +2500,25 @@ export class ListIndexDocumentsResponseBodyDataDocuments extends $tea.Model {
 
 export class ListIndexDocumentsResponseBodyData extends $tea.Model {
   documents?: ListIndexDocumentsResponseBodyDataDocuments[];
+  /**
+   * @example
+   * pno97tn8iu
+   */
   indexId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2437
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1729,20 +2546,76 @@ export class ListIndexDocumentsResponseBodyData extends $tea.Model {
 }
 
 export class ListIndicesResponseBodyDataIndices extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
   chunkSize?: number;
+  /**
+   * @example
+   * If each RAM user belongs to a RAM group, the configuration is considered compliant.
+   */
   description?: string;
   documentIds?: string[];
+  /**
+   * @example
+   * conv-rewrite-qwen-1.8b
+   */
   embeddingModelName?: string;
+  /**
+   * @example
+   * 259899
+   */
   id?: string;
+  /**
+   * @example
+   * temp_mUB4j
+   */
   name?: string;
+  /**
+   * @example
+   * 10
+   */
   overlapSize?: number;
+  /**
+   * @example
+   * 0.01
+   */
   rerankMinScore?: string;
+  /**
+   * @example
+   * gte-rerank-hybrid
+   */
   rerankModelName?: string;
+  /**
+   * @example
+   * \\n
+   */
   separator?: string;
+  /**
+   * @example
+   * gp-bp1gq62t1788yw2ol
+   */
   sinkInstanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   sinkRegion?: string;
+  /**
+   * @example
+   * es
+   */
   sinkType?: string;
+  /**
+   * @example
+   * DATA_CENTER_FILE
+   */
   sourceType?: string;
+  /**
+   * @example
+   * structured
+   */
   structureType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1791,8 +2664,20 @@ export class ListIndicesResponseBodyDataIndices extends $tea.Model {
 
 export class ListIndicesResponseBodyData extends $tea.Model {
   indices?: ListIndicesResponseBodyDataIndices[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 48
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1818,6 +2703,10 @@ export class ListIndicesResponseBodyData extends $tea.Model {
 }
 
 export class RetrieveRequestRerank extends $tea.Model {
+  /**
+   * @example
+   * gte-rerank-hybrid
+   */
   modelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1857,6 +2746,10 @@ export class RetrieveRequestRewrite extends $tea.Model {
 
 export class RetrieveResponseBodyDataNodes extends $tea.Model {
   metadata?: any;
+  /**
+   * @example
+   * 0.3
+   */
   score?: number;
   text?: string;
   static names(): { [key: string]: string } {
@@ -1900,6 +2793,10 @@ export class RetrieveResponseBodyData extends $tea.Model {
 }
 
 export class SubmitIndexAddDocumentsJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 42687eb254a34802bed398357f5498ae
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1919,7 +2816,15 @@ export class SubmitIndexAddDocumentsJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitIndexJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * eFDr2fGRzP9gdDZWAdo3YQ==
+   */
   id?: string;
+  /**
+   * @example
+   * khdyak1uuj
+   */
   indexId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1964,12 +2869,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
-   *
-   * @param request AddFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddFileResponse
+   * 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
+   * 
+   * @param request - AddFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFileResponse
    */
   async addFileWithOptions(WorkspaceId: string, request: AddFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddFileResponse> {
     Util.validateModel(request);
@@ -2005,10 +2910,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
-   *
-   * @param request AddFileRequest
-   * @return AddFileResponse
+   * 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
+   * 
+   * @param request - AddFileRequest
+   * @returns AddFileResponse
    */
   async addFile(WorkspaceId: string, request: AddFileRequest): Promise<AddFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2017,12 +2922,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 请求文档上传租约，进行文档上传。
-   *
-   * @param request ApplyFileUploadLeaseRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ApplyFileUploadLeaseResponse
+   * 请求文档上传租约，进行文档上传。
+   * 
+   * @param request - ApplyFileUploadLeaseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyFileUploadLeaseResponse
    */
   async applyFileUploadLeaseWithOptions(CategoryId: string, WorkspaceId: string, request: ApplyFileUploadLeaseRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyFileUploadLeaseResponse> {
     Util.validateModel(request);
@@ -2058,10 +2963,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 请求文档上传租约，进行文档上传。
-   *
-   * @param request ApplyFileUploadLeaseRequest
-   * @return ApplyFileUploadLeaseResponse
+   * 请求文档上传租约，进行文档上传。
+   * 
+   * @param request - ApplyFileUploadLeaseRequest
+   * @returns ApplyFileUploadLeaseResponse
    */
   async applyFileUploadLease(CategoryId: string, WorkspaceId: string, request: ApplyFileUploadLeaseRequest): Promise<ApplyFileUploadLeaseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2070,12 +2975,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建并运行pipeline
-   *
-   * @param tmpReq CreateIndexRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIndexResponse
+   * 创建并运行pipeline
+   * 
+   * @param tmpReq - CreateIndexRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIndexResponse
    */
   async createIndexWithOptions(WorkspaceId: string, tmpReq: CreateIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndexResponse> {
     Util.validateModel(tmpReq);
@@ -2177,10 +3082,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建并运行pipeline
-   *
-   * @param request CreateIndexRequest
-   * @return CreateIndexResponse
+   * 创建并运行pipeline
+   * 
+   * @param request - CreateIndexRequest
+   * @returns CreateIndexResponse
    */
   async createIndex(WorkspaceId: string, request: CreateIndexRequest): Promise<CreateIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2189,11 +3094,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除文档
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFileResponse
+   * 删除文档
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFileResponse
    */
   async deleteFileWithOptions(FileId: string, WorkspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -2214,9 +3119,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除文档
-   *
-   * @return DeleteFileResponse
+   * 删除文档
+   * @returns DeleteFileResponse
    */
   async deleteFile(FileId: string, WorkspaceId: string): Promise<DeleteFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2225,12 +3129,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除Index
-   *
-   * @param request DeleteIndexRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIndexResponse
+   * 删除Index
+   * 
+   * @param request - DeleteIndexRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIndexResponse
    */
   async deleteIndexWithOptions(WorkspaceId: string, request: DeleteIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexResponse> {
     Util.validateModel(request);
@@ -2258,10 +3162,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除Index
-   *
-   * @param request DeleteIndexRequest
-   * @return DeleteIndexResponse
+   * 删除Index
+   * 
+   * @param request - DeleteIndexRequest
+   * @returns DeleteIndexResponse
    */
   async deleteIndex(WorkspaceId: string, request: DeleteIndexRequest): Promise<DeleteIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2270,12 +3174,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除index doc
-   *
-   * @param tmpReq DeleteIndexDocumentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIndexDocumentResponse
+   * 删除index doc
+   * 
+   * @param tmpReq - DeleteIndexDocumentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIndexDocumentResponse
    */
   async deleteIndexDocumentWithOptions(WorkspaceId: string, tmpReq: DeleteIndexDocumentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexDocumentResponse> {
     Util.validateModel(tmpReq);
@@ -2313,10 +3217,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除index doc
-   *
-   * @param request DeleteIndexDocumentRequest
-   * @return DeleteIndexDocumentResponse
+   * 删除index doc
+   * 
+   * @param request - DeleteIndexDocumentRequest
+   * @returns DeleteIndexDocumentResponse
    */
   async deleteIndexDocument(WorkspaceId: string, request: DeleteIndexDocumentRequest): Promise<DeleteIndexDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2325,11 +3229,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文档基本信息，包括文档名称、类型、状态等。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeFileResponse
+   * 获取文档基本信息，包括文档名称、类型、状态等。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFileResponse
    */
   async describeFileWithOptions(WorkspaceId: string, FileId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeFileResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -2350,9 +3254,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文档基本信息，包括文档名称、类型、状态等。
-   *
-   * @return DescribeFileResponse
+   * 获取文档基本信息，包括文档名称、类型、状态等。
+   * @returns DescribeFileResponse
    */
   async describeFile(WorkspaceId: string, FileId: string): Promise<DescribeFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2361,12 +3264,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Index运行状态
-   *
-   * @param request GetIndexJobStatusRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIndexJobStatusResponse
+   * 获取Index运行状态
+   * 
+   * @param request - GetIndexJobStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIndexJobStatusResponse
    */
   async getIndexJobStatusWithOptions(WorkspaceId: string, request: GetIndexJobStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexJobStatusResponse> {
     Util.validateModel(request);
@@ -2398,10 +3301,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Index运行状态
-   *
-   * @param request GetIndexJobStatusRequest
-   * @return GetIndexJobStatusResponse
+   * 获取Index运行状态
+   * 
+   * @param request - GetIndexJobStatusRequest
+   * @returns GetIndexJobStatusResponse
    */
   async getIndexJobStatus(WorkspaceId: string, request: GetIndexJobStatusRequest): Promise<GetIndexJobStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2410,12 +3313,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Chunk
-   *
-   * @param request ListChunksRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListChunksResponse
+   * Chunk
+   * 
+   * @param request - ListChunksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChunksResponse
    */
   async listChunksWithOptions(WorkspaceId: string, request: ListChunksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListChunksResponse> {
     Util.validateModel(request);
@@ -2459,10 +3362,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Chunk
-   *
-   * @param request ListChunksRequest
-   * @return ListChunksResponse
+   * Chunk
+   * 
+   * @param request - ListChunksRequest
+   * @returns ListChunksResponse
    */
   async listChunks(WorkspaceId: string, request: ListChunksRequest): Promise<ListChunksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2471,12 +3374,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询Index文件
-   *
-   * @param request ListIndexDocumentsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIndexDocumentsResponse
+   * 查询Index文件
+   * 
+   * @param request - ListIndexDocumentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIndexDocumentsResponse
    */
   async listIndexDocumentsWithOptions(WorkspaceId: string, request: ListIndexDocumentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexDocumentsResponse> {
     Util.validateModel(request);
@@ -2520,10 +3423,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询Index文件
-   *
-   * @param request ListIndexDocumentsRequest
-   * @return ListIndexDocumentsResponse
+   * 查询Index文件
+   * 
+   * @param request - ListIndexDocumentsRequest
+   * @returns ListIndexDocumentsResponse
    */
   async listIndexDocuments(WorkspaceId: string, request: ListIndexDocumentsRequest): Promise<ListIndexDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2532,12 +3435,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询pipeline
-   *
-   * @param request ListIndicesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIndicesResponse
+   * 查询pipeline
+   * 
+   * @param request - ListIndicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIndicesResponse
    */
   async listIndicesWithOptions(WorkspaceId: string, request: ListIndicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndicesResponse> {
     Util.validateModel(request);
@@ -2573,10 +3476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询pipeline
-   *
-   * @param request ListIndicesRequest
-   * @return ListIndicesResponse
+   * 查询pipeline
+   * 
+   * @param request - ListIndicesRequest
+   * @returns ListIndicesResponse
    */
   async listIndices(WorkspaceId: string, request: ListIndicesRequest): Promise<ListIndicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2585,12 +3488,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 召回测试
-   *
-   * @param tmpReq RetrieveRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RetrieveResponse
+   * 召回测试
+   * 
+   * @param tmpReq - RetrieveRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetrieveResponse
    */
   async retrieveWithOptions(WorkspaceId: string, tmpReq: RetrieveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RetrieveResponse> {
     Util.validateModel(tmpReq);
@@ -2602,6 +3505,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(tmpReq.rewrite)) {
       request.rewriteShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rewrite, "Rewrite", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.searchFilters)) {
+      request.searchFiltersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.searchFilters, "SearchFilters", "json");
     }
 
     let query : {[key: string ]: any} = { };
@@ -2645,6 +3552,10 @@ export default class Client extends OpenApi {
       query["SaveRetrieverHistory"] = request.saveRetrieverHistory;
     }
 
+    if (!Util.isUnset(request.searchFiltersShrink)) {
+      query["SearchFilters"] = request.searchFiltersShrink;
+    }
+
     if (!Util.isUnset(request.sparseSimilarityTopK)) {
       query["SparseSimilarityTopK"] = request.sparseSimilarityTopK;
     }
@@ -2668,10 +3579,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 召回测试
-   *
-   * @param request RetrieveRequest
-   * @return RetrieveResponse
+   * 召回测试
+   * 
+   * @param request - RetrieveRequest
+   * @returns RetrieveResponse
    */
   async retrieve(WorkspaceId: string, request: RetrieveRequest): Promise<RetrieveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2680,12 +3591,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 知识索引
-   *
-   * @param tmpReq SubmitIndexAddDocumentsJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitIndexAddDocumentsJobResponse
+   * 知识索引
+   * 
+   * @param tmpReq - SubmitIndexAddDocumentsJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitIndexAddDocumentsJobResponse
    */
   async submitIndexAddDocumentsJobWithOptions(WorkspaceId: string, tmpReq: SubmitIndexAddDocumentsJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitIndexAddDocumentsJobResponse> {
     Util.validateModel(tmpReq);
@@ -2735,10 +3646,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 知识索引
-   *
-   * @param request SubmitIndexAddDocumentsJobRequest
-   * @return SubmitIndexAddDocumentsJobResponse
+   * 知识索引
+   * 
+   * @param request - SubmitIndexAddDocumentsJobRequest
+   * @returns SubmitIndexAddDocumentsJobResponse
    */
   async submitIndexAddDocumentsJob(WorkspaceId: string, request: SubmitIndexAddDocumentsJobRequest): Promise<SubmitIndexAddDocumentsJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2747,12 +3658,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交索引任务
-   *
-   * @param request SubmitIndexJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitIndexJobResponse
+   * 提交索引任务
+   * 
+   * @param request - SubmitIndexJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitIndexJobResponse
    */
   async submitIndexJobWithOptions(WorkspaceId: string, request: SubmitIndexJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitIndexJobResponse> {
     Util.validateModel(request);
@@ -2780,10 +3691,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交索引任务
-   *
-   * @param request SubmitIndexJobRequest
-   * @return SubmitIndexJobResponse
+   * 提交索引任务
+   * 
+   * @param request - SubmitIndexJobRequest
+   * @returns SubmitIndexJobResponse
    */
   async submitIndexJob(WorkspaceId: string, request: SubmitIndexJobRequest): Promise<SubmitIndexJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
