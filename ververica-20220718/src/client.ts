@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -10,6 +9,10 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class Artifact extends $tea.Model {
   jarArtifact?: JarArtifact;
+  /**
+   * @example
+   * SQLSCRIPT
+   */
   kind?: string;
   pythonArtifact?: PythonArtifact;
   sqlArtifact?: SqlArtifact;
@@ -37,8 +40,20 @@ export class Artifact extends $tea.Model {
 }
 
 export class AsyncResourcePlanOperationResult extends $tea.Model {
+  /**
+   * @example
+   * ""
+   */
   message?: string;
+  /**
+   * @example
+   * {\"ssgProfiles\":[{\"name\":\"default\",\"cpu\":1.13,\"heap\":\"1 gb\",\"offHeap\":\"32 mb\",\"managed\":{},\"extended\":{}}],\"nodes\":[{\"id\":1,\"type\":\"StreamExecTableSourceScan\",\"desc\":\"Source: datagen_source[78]\",\"profile\":{\"group\":\"default\",\"parallelism\":1,\"maxParallelism\":32768,\"minParallelism\":1}},{\"id\":2,\"type\":\"StreamExecSink\",\"desc\":\"Sink: blackhole_sink[79]\",\"profile\":{\"group\":\"default\",\"parallelism\":1,\"maxParallelism\":32768,\"minParallelism\":1}}],\"edges\":[{\"source\":1,\"target\":2,\"mode\":\"PIPELINED\",\"strategy\":\"FORWARD\"}],\"vertices\":{\"717c7b8afebbfb7137f6f0f99beb2a94\":[1,2]}}
+   */
   plan?: string;
+  /**
+   * @example
+   * FINISHED
+   */
   ticketStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,6 +78,10 @@ export class AsyncResourcePlanOperationResult extends $tea.Model {
 
 export class BasicResourceSetting extends $tea.Model {
   jobmanagerResourceSettingSpec?: BasicResourceSettingSpec;
+  /**
+   * @example
+   * 4
+   */
   parallelism?: number;
   taskmanagerResourceSettingSpec?: BasicResourceSettingSpec;
   static names(): { [key: string]: string } {
@@ -87,7 +106,15 @@ export class BasicResourceSetting extends $tea.Model {
 }
 
 export class BasicResourceSettingSpec extends $tea.Model {
+  /**
+   * @example
+   * 2.0
+   */
   cpu?: number;
+  /**
+   * @example
+   * 4Gi
+   */
   memory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -110,6 +137,10 @@ export class BasicResourceSettingSpec extends $tea.Model {
 
 export class BatchResourceSetting extends $tea.Model {
   basicResourceSetting?: BasicResourceSetting;
+  /**
+   * @example
+   * 10
+   */
   maxSlot?: number;
   static names(): { [key: string]: string } {
     return {
@@ -181,24 +212,76 @@ export class Deployment extends $tea.Model {
   artifact?: Artifact;
   batchResourceSetting?: BatchResourceSetting;
   createdAt?: string;
+  /**
+   * @example
+   * 27846363877456****
+   */
   creator?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
   creatorName?: string;
+  /**
+   * @example
+   * true
+   */
   deploymentHasChanged?: boolean;
+  /**
+   * @example
+   * 00000000-0000-0000-0000-000000000001
+   */
   deploymentId?: string;
   deploymentTarget?: BriefDeploymentTarget;
+  /**
+   * @example
+   * this is a deployment description
+   */
   description?: string;
+  /**
+   * @example
+   * vvr-6.0.0-flink-1.15
+   */
   engineVersion?: string;
+  /**
+   * @example
+   * STREAMING | BATCH
+   */
   executionMode?: string;
+  /**
+   * @example
+   * {"taskmanager.numberOfTaskSlots":"1"}
+   */
   flinkConf?: { [key: string]: any };
   jobSummary?: JobSummary;
   localVariables?: LocalVariable[];
   logging?: Logging;
   modifiedAt?: string;
+  /**
+   * @example
+   * 27846363877456****
+   */
   modifier?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
   modifierName?: string;
+  /**
+   * @example
+   * deploymentName
+   */
   name?: string;
+  /**
+   * @example
+   * default-namespace
+   */
   namespace?: string;
   streamingResourceSetting?: StreamingResourceSetting;
+  /**
+   * @example
+   * edcef******b4f
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -260,9 +343,25 @@ export class Deployment extends $tea.Model {
 }
 
 export class DeploymentRestoreStrategy extends $tea.Model {
+  /**
+   * @example
+   * TRUE
+   */
   allowNonRestoredState?: boolean;
+  /**
+   * @example
+   * 1660293803155
+   */
   jobStartTimeInMs?: number;
+  /**
+   * @example
+   * LATEST_STATE
+   */
   kind?: string;
+  /**
+   * @example
+   * 354dde66-a3ae-463e-967a-0b4107fd****
+   */
   savepointId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -288,7 +387,15 @@ export class DeploymentRestoreStrategy extends $tea.Model {
 }
 
 export class DeploymentTarget extends $tea.Model {
+  /**
+   * @example
+   * deployment target
+   */
   name?: string;
+  /**
+   * @example
+   * namespace
+   */
   namespace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -335,8 +442,22 @@ export class EditableNamespace extends $tea.Model {
 }
 
 export class EngineVersionMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vvr-6.0.0-flink-1.15
+   */
   engineVersion?: string;
   features?: EngineVersionSupportedFeatures;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * STABLE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -360,6 +481,10 @@ export class EngineVersionMetadata extends $tea.Model {
 }
 
 export class EngineVersionMetadataIndex extends $tea.Model {
+  /**
+   * @example
+   * vvr-6.0.1-flink-1.15
+   */
   defaultEngineVersion?: string;
   engineVersionMetadata?: EngineVersionMetadata[];
   static names(): { [key: string]: string } {
@@ -382,7 +507,15 @@ export class EngineVersionMetadataIndex extends $tea.Model {
 }
 
 export class EngineVersionSupportedFeatures extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   supportNativeSavepoint?: boolean;
+  /**
+   * @example
+   * true
+   */
   useForSqlDeployments?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -461,7 +594,15 @@ export class ExpertResourceSetting extends $tea.Model {
 
 export class JarArtifact extends $tea.Model {
   additionalDependencies?: string[];
+  /**
+   * @example
+   * org.apapche.flink.test
+   */
   entryClass?: string;
+  /**
+   * @example
+   * https://oss//bucket//test.jar
+   */
   jarUri?: string;
   mainArgs?: string;
   static names(): { [key: string]: string } {
@@ -491,28 +632,84 @@ export class Job extends $tea.Model {
   artifact?: Artifact;
   batchResourceSetting?: BatchResourceSetting;
   createdAt?: string;
+  /**
+   * @example
+   * 27846363877456****
+   */
   creator?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
   creatorName?: string;
+  /**
+   * @example
+   * 354dde66-a3ae-463e-967a-0b4107fd****
+   */
   deploymentId?: string;
+  /**
+   * @example
+   * flinktest
+   */
   deploymentName?: string;
+  /**
+   * @example
+   * 1660277235
+   */
   endTime?: number;
+  /**
+   * @example
+   * vvr-4.0.14-flink-1.13
+   */
   engineVersion?: string;
+  /**
+   * @example
+   * BATCH
+   */
   executionMode?: string;
   flinkConf?: { [key: string]: any };
+  /**
+   * @example
+   * 354dde66-a3ae-463e-967a-0b4107fd****
+   */
   jobId?: string;
   localVariables?: LocalVariable[];
   logging?: Logging;
   metric?: JobMetric;
   modifiedAt?: string;
+  /**
+   * @example
+   * 27846363877456****
+   */
   modifier?: string;
+  /**
+   * @example
+   * ****@streamcompute.onaliyun.com
+   */
   modifierName?: string;
+  /**
+   * @example
+   * namespacetest
+   */
   namespace?: string;
   restoreStrategy?: DeploymentRestoreStrategy;
+  /**
+   * @example
+   * preview
+   */
   sessionClusterName?: string;
+  /**
+   * @example
+   * 1660190835
+   */
   startTime?: number;
   status?: JobStatus;
   streamingResourceSetting?: StreamingResourceSetting;
   userFlinkConf?: { [key: string]: any };
+  /**
+   * @example
+   * edcef******b4f
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -582,6 +779,10 @@ export class Job extends $tea.Model {
 }
 
 export class JobFailure extends $tea.Model {
+  /**
+   * @example
+   * 1660120062
+   */
   failedAt?: number;
   message?: string;
   reason?: string;
@@ -607,7 +808,15 @@ export class JobFailure extends $tea.Model {
 }
 
 export class JobMetric extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   totalCpu?: number;
+  /**
+   * @example
+   * 4096
+   */
   totalMemoryByte?: number;
   static names(): { [key: string]: string } {
     return {
@@ -631,6 +840,10 @@ export class JobMetric extends $tea.Model {
 export class JobStartParameters extends $tea.Model {
   deploymentId?: string;
   localVariables?: LocalVariable[];
+  /**
+   * @example
+   * default-queue
+   */
   resourceQueueName?: string;
   restoreStrategy?: DeploymentRestoreStrategy;
   static names(): { [key: string]: string } {
@@ -657,6 +870,10 @@ export class JobStartParameters extends $tea.Model {
 }
 
 export class JobStatus extends $tea.Model {
+  /**
+   * @example
+   * RUNNING
+   */
   currentJobStatus?: string;
   failure?: JobFailure;
   running?: JobStatusRunning;
@@ -682,7 +899,15 @@ export class JobStatus extends $tea.Model {
 }
 
 export class JobStatusRunning extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   observedFlinkJobRestarts?: number;
+  /**
+   * @example
+   * RUNNING
+   */
   observedFlinkJobStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -704,11 +929,35 @@ export class JobStatusRunning extends $tea.Model {
 }
 
 export class JobSummary extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   cancelled?: number;
+  /**
+   * @example
+   * 1
+   */
   cancelling?: number;
+  /**
+   * @example
+   * 1
+   */
   failed?: number;
+  /**
+   * @example
+   * 1
+   */
   finished?: number;
+  /**
+   * @example
+   * 1
+   */
   running?: number;
+  /**
+   * @example
+   * 1
+   */
   starting?: number;
   static names(): { [key: string]: string } {
     return {
@@ -738,7 +987,15 @@ export class JobSummary extends $tea.Model {
 }
 
 export class LocalVariable extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * datagen
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -760,7 +1017,15 @@ export class LocalVariable extends $tea.Model {
 }
 
 export class Log4jLogger extends $tea.Model {
+  /**
+   * @example
+   * ERROR
+   */
   loggerLevel?: string;
+  /**
+   * @example
+   * StdOutErrConsoleAppender
+   */
   loggerName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -782,7 +1047,15 @@ export class Log4jLogger extends $tea.Model {
 }
 
 export class LogReservePolicy extends $tea.Model {
+  /**
+   * @example
+   * 7
+   */
   expirationDays?: number;
+  /**
+   * @example
+   * true
+   */
   openHistory?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -804,9 +1077,17 @@ export class LogReservePolicy extends $tea.Model {
 }
 
 export class Logging extends $tea.Model {
+  /**
+   * @example
+   * xml格式文本
+   */
   log4j2ConfigurationTemplate?: string;
   log4jLoggers?: Log4jLogger[];
   logReservePolicy?: LogReservePolicy;
+  /**
+   * @example
+   * oss
+   */
   loggingProfile?: string;
   static names(): { [key: string]: string } {
     return {
@@ -832,7 +1113,18 @@ export class Logging extends $tea.Model {
 }
 
 export class Member extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user: 181319557522****
+   */
   member?: string;
+  /**
+   * @example
+   * VIEWER
+   */
   role?: string;
   static names(): { [key: string]: string } {
     return {
@@ -859,6 +1151,10 @@ export class PythonArtifact extends $tea.Model {
   additionalPythonLibraries?: string[];
   entryModule?: string;
   mainArgs?: string;
+  /**
+   * @example
+   * https://oss//bucket//test.py
+   */
   pythonArtifactUri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -888,17 +1184,57 @@ export class PythonArtifact extends $tea.Model {
 }
 
 export class Savepoint extends $tea.Model {
+  /**
+   * @example
+   * 1659066711
+   */
   createdAt?: number;
+  /**
+   * @example
+   * 1d716b22-6aad-4be2-85c2-50cfc757****
+   */
   deploymentId?: string;
   description?: string;
+  /**
+   * @example
+   * 5af678c0-7db0-4650-94c2-d2604f0a****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1659069473
+   */
   modifiedAt?: number;
+  /**
+   * @example
+   * namespacetest
+   */
   namespace?: string;
+  /**
+   * @example
+   * TRUE
+   */
   nativeFormat?: boolean;
+  /**
+   * @example
+   * 354dde66-a3ae-463e-967a-0b4107fd****
+   */
   savepointId?: string;
+  /**
+   * @example
+   * https://oss/bucket/flink/flink-jobs/namespaces/vvp-team/deployments/5a19a71b-1c42-4f34-94fd-86cf60782c81/checkpoints/sp-3285
+   */
   savepointLocation?: string;
+  /**
+   * @example
+   * USER_REQUEST
+   */
   savepointOrigin?: string;
   status?: SavepointStatus;
+  /**
+   * @example
+   * TRUE
+   */
   stopWithDrainEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -940,6 +1276,10 @@ export class Savepoint extends $tea.Model {
 }
 
 export class SavepointFailure extends $tea.Model {
+  /**
+   * @example
+   * 1655006835
+   */
   failedAt?: number;
   message?: string;
   reason?: string;
@@ -966,6 +1306,10 @@ export class SavepointFailure extends $tea.Model {
 
 export class SavepointStatus extends $tea.Model {
   failure?: SavepointFailure;
+  /**
+   * @example
+   * COMPLETED
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1038,18 +1382,22 @@ export class SqlStatementValidationResult extends $tea.Model {
 
 export class SqlStatementWithContext extends $tea.Model {
   additionalDependencies?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   batchMode?: boolean;
-  catalog?: string;
-  database?: string;
   flinkConfiguration?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   statement?: string;
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
       additionalDependencies: 'additionalDependencies',
       batchMode: 'batchMode',
-      catalog: 'catalog',
-      database: 'database',
       flinkConfiguration: 'flinkConfiguration',
       statement: 'statement',
       versionName: 'versionName',
@@ -1060,8 +1408,6 @@ export class SqlStatementWithContext extends $tea.Model {
     return {
       additionalDependencies: { 'type': 'array', 'itemType': 'string' },
       batchMode: 'boolean',
-      catalog: 'string',
-      database: 'string',
       flinkConfiguration: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       statement: 'string',
       versionName: 'string',
@@ -1074,6 +1420,10 @@ export class SqlStatementWithContext extends $tea.Model {
 }
 
 export class StartJobRequestBody extends $tea.Model {
+  /**
+   * @example
+   * 5a19a71b-1c42-4f34-94fd-86cf60782c81
+   */
   deploymentId?: string;
   resourceSettingSpec?: BriefResourceSetting;
   restoreStrategy?: DeploymentRestoreStrategy;
@@ -1099,6 +1449,13 @@ export class StartJobRequestBody extends $tea.Model {
 }
 
 export class StopJobRequestBody extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * NONE
+   */
   stopStrategy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1120,6 +1477,10 @@ export class StopJobRequestBody extends $tea.Model {
 export class StreamingResourceSetting extends $tea.Model {
   basicResourceSetting?: BasicResourceSetting;
   expertResourceSetting?: ExpertResourceSetting;
+  /**
+   * @example
+   * EXPERT
+   */
   resourceSettingMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1143,9 +1504,34 @@ export class StreamingResourceSetting extends $tea.Model {
 }
 
 export class Variable extends $tea.Model {
+  /**
+   * @example
+   * This is a variable description
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Plain
+   */
   kind?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * variableName
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * variableValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1172,6 +1558,15 @@ export class Variable extends $tea.Model {
 
 export class CreateDeploymentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1193,6 +1588,12 @@ export class CreateDeploymentHeaders extends $tea.Model {
 }
 
 export class CreateDeploymentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the deployment.
+   * 
+   * This parameter is required.
+   */
   body?: Deployment;
   static names(): { [key: string]: string } {
     return {
@@ -1212,11 +1613,53 @@ export class CreateDeploymentRequest extends $tea.Model {
 }
 
 export class CreateDeploymentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the deployment that you created was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Deployment;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1272,6 +1715,15 @@ export class CreateDeploymentResponse extends $tea.Model {
 
 export class CreateMemberHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ca84d539167d4d
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1293,6 +1745,10 @@ export class CreateMemberHeaders extends $tea.Model {
 }
 
 export class CreateMemberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The mappings between the ID and permissions of the member.
+   */
   body?: Member;
   static names(): { [key: string]: string } {
     return {
@@ -1312,11 +1768,53 @@ export class CreateMemberRequest extends $tea.Model {
 }
 
 export class CreateMemberResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was false, a null value was returned.
+   * *   If the value of success was true, the authorization information was returned.
+   */
   data?: Member;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F989CA70-2925-5A94-92B7-20F5762B71C8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1372,6 +1870,15 @@ export class CreateMemberResponse extends $tea.Model {
 
 export class CreateSavepointHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1393,8 +1900,31 @@ export class CreateSavepointHeaders extends $tea.Model {
 }
 
 export class CreateSavepointRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The deployment ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
+   */
   deploymentId?: string;
+  /**
+   * @remarks
+   * The description of the savepoint.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the native format mode. Valid values:
+   * 
+   * *   true: The native format mode is used.
+   * *   false: The native format mode is not used.
+   * 
+   * @example
+   * true
+   */
   nativeFormat?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1418,11 +1948,53 @@ export class CreateSavepointRequest extends $tea.Model {
 }
 
 export class CreateSavepointResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the savepoint that was created was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Savepoint;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1478,6 +2050,15 @@ export class CreateSavepointResponse extends $tea.Model {
 
 export class CreateVariableHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bda1c4a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1499,6 +2080,12 @@ export class CreateVariableHeaders extends $tea.Model {
 }
 
 export class CreateVariableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter that is used to create the variable.
+   * 
+   * This parameter is required.
+   */
   body?: Variable;
   static names(): { [key: string]: string } {
     return {
@@ -1518,11 +2105,53 @@ export class CreateVariableRequest extends $tea.Model {
 }
 
 export class CreateVariableResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the variable that you created was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Variable;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-ABCD-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1578,6 +2207,15 @@ export class CreateVariableResponse extends $tea.Model {
 
 export class DeleteDeploymentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1599,10 +2237,47 @@ export class DeleteDeploymentHeaders extends $tea.Model {
 }
 
 export class DeleteDeploymentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1656,6 +2331,15 @@ export class DeleteDeploymentResponse extends $tea.Model {
 
 export class DeleteJobHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1677,10 +2361,47 @@ export class DeleteJobHeaders extends $tea.Model {
 }
 
 export class DeleteJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1734,6 +2455,15 @@ export class DeleteJobResponse extends $tea.Model {
 
 export class DeleteMemberHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 710d6a64d8c34d
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1755,10 +2485,47 @@ export class DeleteMemberHeaders extends $tea.Model {
 }
 
 export class DeleteMemberResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1812,6 +2579,15 @@ export class DeleteMemberResponse extends $tea.Model {
 
 export class DeleteSavepointHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1833,10 +2609,47 @@ export class DeleteSavepointHeaders extends $tea.Model {
 }
 
 export class DeleteSavepointResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1890,6 +2703,15 @@ export class DeleteSavepointResponse extends $tea.Model {
 
 export class DeleteVariableHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1911,10 +2733,47 @@ export class DeleteVariableHeaders extends $tea.Model {
 }
 
 export class DeleteVariableResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1968,6 +2827,15 @@ export class DeleteVariableResponse extends $tea.Model {
 
 export class FlinkApiProxyHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1989,9 +2857,48 @@ export class FlinkApiProxyHeaders extends $tea.Model {
 }
 
 export class FlinkApiProxyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The path of the Flink UI.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /jobs/4df35f8e54554b23bf7dcd38a151****
+   */
   flinkApiPath?: string;
+  /**
+   * @remarks
+   * The name of the namespace.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * default-namespace
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5a27a3aa-c5b9-4dc1-8c86-be57d2d6****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   jobs
+   * *   sessionclusters
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * jobs
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2017,11 +2924,56 @@ export class FlinkApiProxyRequest extends $tea.Model {
 }
 
 export class FlinkApiProxyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the result of the proxy request was returned.
+   * *   If the value of success was false, a null value was returned.
+   * 
+   * @example
+   * { "jobs": [ { "jid": "4df35f8e54554b23bf7dcd38a151****", "name": "69d001d5-419a-4bfc-9c2e-849cacd3****", "state": "RUNNING", "start-time": 1659154942068, "end-time": -1, "duration": 188161756, "last-modification": 1659154968305, "tasks": { "total": 2, "created": 0, "scheduled": 0, "deploying": 0, "running": 2, "finished": 0, "canceling": 0, "canceled": 0, "failed": 0, "reconciling": 0, "initializing": 0 } } ] }
+   */
   data?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2077,6 +3029,15 @@ export class FlinkApiProxyResponse extends $tea.Model {
 
 export class GenerateResourcePlanWithFlinkConfAsyncHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2098,6 +3059,10 @@ export class GenerateResourcePlanWithFlinkConfAsyncHeaders extends $tea.Model {
 }
 
 export class GenerateResourcePlanWithFlinkConfAsyncRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Flink configuration that is used to generate a resource plan.
+   */
   body?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -2117,11 +3082,53 @@ export class GenerateResourcePlanWithFlinkConfAsyncRequest extends $tea.Model {
 }
 
 export class GenerateResourcePlanWithFlinkConfAsyncResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the asynchronous generation result was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: GenerateResourcePlanWithFlinkConfAsyncResponseBodyData;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2177,6 +3184,15 @@ export class GenerateResourcePlanWithFlinkConfAsyncResponse extends $tea.Model {
 
 export class GetDeploymentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2198,11 +3214,53 @@ export class GetDeploymentHeaders extends $tea.Model {
 }
 
 export class GetDeploymentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the details of the deployment were returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Deployment;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2258,6 +3316,15 @@ export class GetDeploymentResponse extends $tea.Model {
 
 export class GetGenerateResourcePlanResultHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2279,11 +3346,53 @@ export class GetGenerateResourcePlanResultHeaders extends $tea.Model {
 }
 
 export class GetGenerateResourcePlanResultResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the asynchronous generation result was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: AsyncResourcePlanOperationResult;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2339,6 +3448,15 @@ export class GetGenerateResourcePlanResultResponse extends $tea.Model {
 
 export class GetJobHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2360,11 +3478,53 @@ export class GetJobHeaders extends $tea.Model {
 }
 
 export class GetJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the details of the job was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Job;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2418,8 +3578,149 @@ export class GetJobResponse extends $tea.Model {
   }
 }
 
+export class GetLatestJobStartLogHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLatestJobStartLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * If the value of success was false, the latest logs of the deployment were returned. If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * "[main] INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint        [] - --------------------------------------------------------------------------------\\n2024-05-22 11:46:39,871 [main] INFO  org.apache.flink.runtime.entrypoint.ClusterEntrypoint"
+   */
+  data?: string;
+  /**
+   * @remarks
+   * If the value of success was false, an error code was returned. If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * If the value of success was false, an error message was returned. If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLatestJobStartLogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetLatestJobStartLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetLatestJobStartLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMemberHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2441,11 +3742,53 @@ export class GetMemberHeaders extends $tea.Model {
 }
 
 export class GetMemberResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was false, a null value was returned.
+   * *   If the value of success was true, the authorization information was returned.
+   */
   data?: Member;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2501,6 +3844,15 @@ export class GetMemberResponse extends $tea.Model {
 
 export class GetSavepointHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2522,11 +3874,53 @@ export class GetSavepointHeaders extends $tea.Model {
 }
 
 export class GetSavepointResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the savepoint information was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Savepoint;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2582,6 +3976,15 @@ export class GetSavepointResponse extends $tea.Model {
 
 export class ListDeploymentTargetsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2603,7 +4006,21 @@ export class ListDeploymentTargetsHeaders extends $tea.Model {
 }
 
 export class ListDeploymentTargetsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Minimum value: 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2625,14 +4042,77 @@ export class ListDeploymentTargetsRequest extends $tea.Model {
 }
 
 export class ListDeploymentTargetsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, a list of clusters in which the deployment is deployed was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: DeploymentTarget[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2694,6 +4174,15 @@ export class ListDeploymentTargetsResponse extends $tea.Model {
 
 export class ListDeploymentsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2715,14 +4204,90 @@ export class ListDeploymentsHeaders extends $tea.Model {
 }
 
 export class ListDeploymentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the user who creates the deployment.
+   * 
+   * @example
+   * 183899668*******
+   */
   creator?: string;
+  /**
+   * @remarks
+   * The execution mode of the deployment.
+   * 
+   * Valid values:
+   * 
+   * *   BATCH
+   * *   STREAMING
+   * 
+   * @example
+   * STREAMING
+   */
   executionMode?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key
+   */
   labelKey?: string;
+  /**
+   * @remarks
+   * The tag value. Separate multiple values with semicolon (;).
+   * 
+   * @example
+   * value1,value2
+   */
   labelValueArray?: string;
+  /**
+   * @remarks
+   * The ID of the user who modifies the deployment.
+   * 
+   * @example
+   * 183899668*******
+   */
   modifier?: string;
+  /**
+   * @remarks
+   * The name of the deployment.
+   * 
+   * @example
+   * vvp_ds_0522
+   */
   name?: string;
+  /**
+   * @remarks
+   * The page number. Minimum value: 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The latest status of the deployment.
+   * 
+   * Valid values:
+   * 
+   * *   CANCELLED
+   * *   FAILED
+   * *   RUNNING
+   * *   TRANSITIONING
+   * *   FINISHED
+   * 
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2758,14 +4323,77 @@ export class ListDeploymentsRequest extends $tea.Model {
 }
 
 export class ListDeploymentsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the list of all deployments was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Deployment[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2829,6 +4457,10 @@ export class ListEditableNamespaceRequest extends $tea.Model {
   namespace?: string;
   pageIndex?: string;
   pageSize?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   regionId?: string;
   workspaceId?: string;
   static names(): { [key: string]: string } {
@@ -2917,6 +4549,15 @@ export class ListEditableNamespaceResponse extends $tea.Model {
 
 export class ListEngineVersionMetadataHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2938,11 +4579,53 @@ export class ListEngineVersionMetadataHeaders extends $tea.Model {
 }
 
 export class ListEngineVersionMetadataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the engine versions that are supported by Realtime Compute for Apache Flink were returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: EngineVersionMetadataIndex;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2998,6 +4681,15 @@ export class ListEngineVersionMetadataResponse extends $tea.Model {
 
 export class ListJobsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3019,9 +4711,45 @@ export class ListJobsHeaders extends $tea.Model {
 }
 
 export class ListJobsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The deployment ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 58718c99-3b29-4c5e-93bb-c9fc4ec6****
+   */
   deploymentId?: string;
+  /**
+   * @remarks
+   * The page number. Minimum value: 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The collation.
+   * 
+   * Valid values:
+   * 
+   * *   gmt_create
+   * *   job_id
+   * *   status
+   * 
+   * @example
+   * gmt_create
+   */
   sortName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3047,14 +4775,77 @@ export class ListJobsRequest extends $tea.Model {
 }
 
 export class ListJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, all jobs that meet the condition were returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Job[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3116,6 +4907,15 @@ export class ListJobsResponse extends $tea.Model {
 
 export class ListMembersHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3137,7 +4937,21 @@ export class ListMembersHeaders extends $tea.Model {
 }
 
 export class ListMembersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3159,14 +4973,77 @@ export class ListMembersRequest extends $tea.Model {
 }
 
 export class ListMembersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was false, a null value was returned.
+   * *   If the value of success was true, the authorization information was returned.
+   */
   data?: Member[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 50
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3228,6 +5105,15 @@ export class ListMembersResponse extends $tea.Model {
 
 export class ListSavepointsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3249,9 +5135,37 @@ export class ListSavepointsHeaders extends $tea.Model {
 }
 
 export class ListSavepointsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The deployment ID. This parameter is optional.
+   * 
+   * @example
+   * 88a8fc49-e090-430a-85d8-3ee8c79c****
+   */
   deploymentId?: string;
+  /**
+   * @remarks
+   * The job ID. This parameter is optional.
+   * 
+   * @example
+   * 99a8fc49-e090-430a-85d8-3ee8c79c****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The page number. Minimum value: 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3277,14 +5191,77 @@ export class ListSavepointsRequest extends $tea.Model {
 }
 
 export class ListSavepointsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, a list of savepoints was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Savepoint[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3346,6 +5323,15 @@ export class ListSavepointsResponse extends $tea.Model {
 
 export class ListVariablesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bda1c4a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3367,7 +5353,21 @@ export class ListVariablesHeaders extends $tea.Model {
 }
 
 export class ListVariablesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Minimum value: 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3389,14 +5389,77 @@ export class ListVariablesRequest extends $tea.Model {
 }
 
 export class ListVariablesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, a list of variables was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Variable[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageIndex?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-ABCF-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3458,6 +5521,13 @@ export class ListVariablesResponse extends $tea.Model {
 
 export class StartJobHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3479,6 +5549,10 @@ export class StartJobHeaders extends $tea.Model {
 }
 
 export class StartJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   body?: StartJobRequestBody;
   static names(): { [key: string]: string } {
     return {
@@ -3499,10 +5573,30 @@ export class StartJobRequest extends $tea.Model {
 
 export class StartJobResponseBody extends $tea.Model {
   data?: Job;
+  /**
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3558,6 +5652,15 @@ export class StartJobResponse extends $tea.Model {
 
 export class StartJobWithParamsHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3579,6 +5682,10 @@ export class StartJobWithParamsHeaders extends $tea.Model {
 }
 
 export class StartJobWithParamsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter that is used to start the job.
+   */
   body?: JobStartParameters;
   static names(): { [key: string]: string } {
     return {
@@ -3598,11 +5705,50 @@ export class StartJobWithParamsRequest extends $tea.Model {
 }
 
 export class StartJobWithParamsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the job of the deployment returned.
+   */
   data?: Job;
+  /**
+   * @remarks
+   * If the value of success was false, an error code was returned. If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * If the value of success was false, an error message was returned. If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3658,6 +5804,15 @@ export class StartJobWithParamsResponse extends $tea.Model {
 
 export class StopJobHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3679,6 +5834,12 @@ export class StopJobHeaders extends $tea.Model {
 }
 
 export class StopJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter that is used to stop the job.
+   * 
+   * This parameter is required.
+   */
   body?: StopJobRequestBody;
   static names(): { [key: string]: string } {
     return {
@@ -3698,11 +5859,53 @@ export class StopJobRequest extends $tea.Model {
 }
 
 export class StopJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the job that you stopped was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Job;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3758,6 +5961,15 @@ export class StopJobResponse extends $tea.Model {
 
 export class UpdateDeploymentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3779,6 +5991,12 @@ export class UpdateDeploymentHeaders extends $tea.Model {
 }
 
 export class UpdateDeploymentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the deployment that you want to update.
+   * 
+   * This parameter is required.
+   */
   body?: Deployment;
   static names(): { [key: string]: string } {
     return {
@@ -3798,11 +6016,53 @@ export class UpdateDeploymentRequest extends $tea.Model {
 }
 
 export class UpdateDeploymentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * *   If the value of success was true, the information about the deployment after the update was returned.
+   * *   If the value of success was false, a null value was returned.
+   */
   data?: Deployment;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3858,6 +6118,15 @@ export class UpdateDeploymentResponse extends $tea.Model {
 
 export class UpdateMemberHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3879,6 +6148,10 @@ export class UpdateMemberHeaders extends $tea.Model {
 }
 
 export class UpdateMemberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The permission information about the member.
+   */
   body?: Member;
   static names(): { [key: string]: string } {
     return {
@@ -3898,11 +6171,52 @@ export class UpdateMemberRequest extends $tea.Model {
 }
 
 export class UpdateMemberResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * If the value of success was true, the member that was created was returned. If the value of success was false, a null value was returned.
+   */
   data?: Member;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3956,7 +6270,168 @@ export class UpdateMemberResponse extends $tea.Model {
   }
 }
 
+export class ValidateSqlStatementHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateSqlStatementRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the code that you want to verify.
+   * 
+   * This parameter is required.
+   */
+  body?: SqlStatementWithContext;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: SqlStatementWithContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateSqlStatementResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data, which represents the details of SQL validation results.
+   */
+  data?: SqlStatementValidationResult;
+  /**
+   * @remarks
+   * If the value of success was false, an error code was returned. If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * If the value of success was false, an error message was returned. If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * The status code returned. The value was fixed to 200.
+   * 
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CBC799F0-****-1D30-8A4F-882ED4DD5E02
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SqlStatementValidationResult,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateSqlStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ValidateSqlStatementResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ValidateSqlStatementResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateResourcePlanWithFlinkConfAsyncResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ticket for you to query the asynchronous generation result.
+   * 
+   * @example
+   * b3dcdb25-bf36-457d-92ba-a36077e8****
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4027,12 +6502,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary create a deployment
-   *
-   * @param request CreateDeploymentRequest
-   * @param headers CreateDeploymentHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDeploymentResponse
+   * Creates a deployment.
+   * 
+   * @param request - CreateDeploymentRequest
+   * @param headers - CreateDeploymentHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDeploymentResponse
    */
   async createDeploymentWithOptions(namespace: string, request: CreateDeploymentRequest, headers: CreateDeploymentHeaders, runtime: $Util.RuntimeOptions): Promise<CreateDeploymentResponse> {
     Util.validateModel(request);
@@ -4064,10 +6539,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary create a deployment
-   *
-   * @param request CreateDeploymentRequest
-   * @return CreateDeploymentResponse
+   * Creates a deployment.
+   * 
+   * @param request - CreateDeploymentRequest
+   * @returns CreateDeploymentResponse
    */
   async createDeployment(namespace: string, request: CreateDeploymentRequest): Promise<CreateDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4076,12 +6551,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用CreateMember创建成员。
-   *
-   * @param request CreateMemberRequest
-   * @param headers CreateMemberHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMemberResponse
+   * Adds a user to a namespace as a member and grants permissions to the user.
+   * 
+   * @param request - CreateMemberRequest
+   * @param headers - CreateMemberHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMemberResponse
    */
   async createMemberWithOptions(namespace: string, request: CreateMemberRequest, headers: CreateMemberHeaders, runtime: $Util.RuntimeOptions): Promise<CreateMemberResponse> {
     Util.validateModel(request);
@@ -4113,10 +6588,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用CreateMember创建成员。
-   *
-   * @param request CreateMemberRequest
-   * @return CreateMemberResponse
+   * Adds a user to a namespace as a member and grants permissions to the user.
+   * 
+   * @param request - CreateMemberRequest
+   * @returns CreateMemberResponse
    */
   async createMember(namespace: string, request: CreateMemberRequest): Promise<CreateMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4125,12 +6600,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用CreateSavepoint触发一次savepoint。
-   *
-   * @param request CreateSavepointRequest
-   * @param headers CreateSavepointHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSavepointResponse
+   * Creates a savepoint.
+   * 
+   * @param request - CreateSavepointRequest
+   * @param headers - CreateSavepointHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSavepointResponse
    */
   async createSavepointWithOptions(namespace: string, request: CreateSavepointRequest, headers: CreateSavepointHeaders, runtime: $Util.RuntimeOptions): Promise<CreateSavepointResponse> {
     Util.validateModel(request);
@@ -4175,10 +6650,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用CreateSavepoint触发一次savepoint。
-   *
-   * @param request CreateSavepointRequest
-   * @return CreateSavepointResponse
+   * Creates a savepoint.
+   * 
+   * @param request - CreateSavepointRequest
+   * @returns CreateSavepointResponse
    */
   async createSavepoint(namespace: string, request: CreateSavepointRequest): Promise<CreateSavepointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4187,12 +6662,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用CreateVariable创建变量。
-   *
-   * @param request CreateVariableRequest
-   * @param headers CreateVariableHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateVariableResponse
+   * Creates a variable.
+   * 
+   * @param request - CreateVariableRequest
+   * @param headers - CreateVariableHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVariableResponse
    */
   async createVariableWithOptions(namespace: string, request: CreateVariableRequest, headers: CreateVariableHeaders, runtime: $Util.RuntimeOptions): Promise<CreateVariableResponse> {
     Util.validateModel(request);
@@ -4224,10 +6699,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用CreateVariable创建变量。
-   *
-   * @param request CreateVariableRequest
-   * @return CreateVariableResponse
+   * Creates a variable.
+   * 
+   * @param request - CreateVariableRequest
+   * @returns CreateVariableResponse
    */
   async createVariable(namespace: string, request: CreateVariableRequest): Promise<CreateVariableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4236,11 +6711,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary delete deployment
-   *
-   * @param headers DeleteDeploymentHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDeploymentResponse
+   * Deletes a deployment based on the deployment ID.
+   * 
+   * @param headers - DeleteDeploymentHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDeploymentResponse
    */
   async deleteDeploymentWithOptions(namespace: string, deploymentId: string, headers: DeleteDeploymentHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteDeploymentResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -4270,9 +6745,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary delete deployment
-   *
-   * @return DeleteDeploymentResponse
+   * Deletes a deployment based on the deployment ID.
+   * @returns DeleteDeploymentResponse
    */
   async deleteDeployment(namespace: string, deploymentId: string): Promise<DeleteDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4281,11 +6755,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary delete job
-   *
-   * @param headers DeleteJobHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteJobResponse
+   * Deletes the information about a job that is not in the running state in a deployment.
+   * 
+   * @param headers - DeleteJobHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteJobResponse
    */
   async deleteJobWithOptions(namespace: string, jobId: string, headers: DeleteJobHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteJobResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -4315,9 +6789,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary delete job
-   *
-   * @return DeleteJobResponse
+   * Deletes the information about a job that is not in the running state in a deployment.
+   * @returns DeleteJobResponse
    */
   async deleteJob(namespace: string, jobId: string): Promise<DeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4326,11 +6799,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DeleteMember删除成员。
-   *
-   * @param headers DeleteMemberHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMemberResponse
+   * Revokes the permissions from a member.
+   * 
+   * @param headers - DeleteMemberHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemberResponse
    */
   async deleteMemberWithOptions(namespace: string, member: string, headers: DeleteMemberHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteMemberResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -4360,9 +6833,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DeleteMember删除成员。
-   *
-   * @return DeleteMemberResponse
+   * Revokes the permissions from a member.
+   * @returns DeleteMemberResponse
    */
   async deleteMember(namespace: string, member: string): Promise<DeleteMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4371,11 +6843,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DeleteSavepoint删除savepoint。
-   *
-   * @param headers DeleteSavepointHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSavepointResponse
+   * Deletes a savepoint.
+   * 
+   * @param headers - DeleteSavepointHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSavepointResponse
    */
   async deleteSavepointWithOptions(namespace: string, savepointId: string, headers: DeleteSavepointHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteSavepointResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -4405,9 +6877,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DeleteSavepoint删除savepoint。
-   *
-   * @return DeleteSavepointResponse
+   * Deletes a savepoint.
+   * @returns DeleteSavepointResponse
    */
   async deleteSavepoint(namespace: string, savepointId: string): Promise<DeleteSavepointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4416,11 +6887,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary deleta variable
-   *
-   * @param headers DeleteVariableHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteVariableResponse
+   * Deletes a variable.
+   * 
+   * @param headers - DeleteVariableHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVariableResponse
    */
   async deleteVariableWithOptions(namespace: string, name: string, headers: DeleteVariableHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteVariableResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -4450,9 +6921,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary deleta variable
-   *
-   * @return DeleteVariableResponse
+   * Deletes a variable.
+   * @returns DeleteVariableResponse
    */
   async deleteVariable(namespace: string, name: string): Promise<DeleteVariableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4461,12 +6931,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用FlinkApiProxy代理Flink请求。
-   *
-   * @param request FlinkApiProxyRequest
-   * @param headers FlinkApiProxyHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FlinkApiProxyResponse
+   * Provides a Flink request proxy.
+   * 
+   * @param request - FlinkApiProxyRequest
+   * @param headers - FlinkApiProxyHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FlinkApiProxyResponse
    */
   async flinkApiProxyWithOptions(request: FlinkApiProxyRequest, headers: FlinkApiProxyHeaders, runtime: $Util.RuntimeOptions): Promise<FlinkApiProxyResponse> {
     Util.validateModel(request);
@@ -4515,10 +6985,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用FlinkApiProxy代理Flink请求。
-   *
-   * @param request FlinkApiProxyRequest
-   * @return FlinkApiProxyResponse
+   * Provides a Flink request proxy.
+   * 
+   * @param request - FlinkApiProxyRequest
+   * @returns FlinkApiProxyResponse
    */
   async flinkApiProxy(request: FlinkApiProxyRequest): Promise<FlinkApiProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4527,12 +6997,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary generate resource plan with flink conf async.
-   *
-   * @param request GenerateResourcePlanWithFlinkConfAsyncRequest
-   * @param headers GenerateResourcePlanWithFlinkConfAsyncHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateResourcePlanWithFlinkConfAsyncResponse
+   * Submits a ticket that applies for asynchronous generation of the fine-grained resources. This operation returns the ID of the ticket for you to query the asynchronous generation result.
+   * 
+   * @param request - GenerateResourcePlanWithFlinkConfAsyncRequest
+   * @param headers - GenerateResourcePlanWithFlinkConfAsyncHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateResourcePlanWithFlinkConfAsyncResponse
    */
   async generateResourcePlanWithFlinkConfAsyncWithOptions(namespace: string, deploymentId: string, request: GenerateResourcePlanWithFlinkConfAsyncRequest, headers: GenerateResourcePlanWithFlinkConfAsyncHeaders, runtime: $Util.RuntimeOptions): Promise<GenerateResourcePlanWithFlinkConfAsyncResponse> {
     Util.validateModel(request);
@@ -4564,10 +7034,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary generate resource plan with flink conf async.
-   *
-   * @param request GenerateResourcePlanWithFlinkConfAsyncRequest
-   * @return GenerateResourcePlanWithFlinkConfAsyncResponse
+   * Submits a ticket that applies for asynchronous generation of the fine-grained resources. This operation returns the ID of the ticket for you to query the asynchronous generation result.
+   * 
+   * @param request - GenerateResourcePlanWithFlinkConfAsyncRequest
+   * @returns GenerateResourcePlanWithFlinkConfAsyncResponse
    */
   async generateResourcePlanWithFlinkConfAsync(namespace: string, deploymentId: string, request: GenerateResourcePlanWithFlinkConfAsyncRequest): Promise<GenerateResourcePlanWithFlinkConfAsyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4576,11 +7046,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary get a deployment
-   *
-   * @param headers GetDeploymentHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDeploymentResponse
+   * Obtains the details of a deployment.
+   * 
+   * @param headers - GetDeploymentHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeploymentResponse
    */
   async getDeploymentWithOptions(namespace: string, deploymentId: string, headers: GetDeploymentHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeploymentResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -4610,9 +7080,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary get a deployment
-   *
-   * @return GetDeploymentResponse
+   * Obtains the details of a deployment.
+   * @returns GetDeploymentResponse
    */
   async getDeployment(namespace: string, deploymentId: string): Promise<GetDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4621,11 +7090,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取生成ResourcePlan异步操作的结果。
-   *
-   * @param headers GetGenerateResourcePlanResultHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetGenerateResourcePlanResultResponse
+   * Obtains the asynchronous generation result of fine-grained resources based on the ID of the ticket that applies for an asynchronous generation.
+   * 
+   * @param headers - GetGenerateResourcePlanResultHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGenerateResourcePlanResultResponse
    */
   async getGenerateResourcePlanResultWithOptions(namespace: string, ticketId: string, headers: GetGenerateResourcePlanResultHeaders, runtime: $Util.RuntimeOptions): Promise<GetGenerateResourcePlanResultResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -4655,9 +7124,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取生成ResourcePlan异步操作的结果。
-   *
-   * @return GetGenerateResourcePlanResultResponse
+   * Obtains the asynchronous generation result of fine-grained resources based on the ID of the ticket that applies for an asynchronous generation.
+   * @returns GetGenerateResourcePlanResultResponse
    */
   async getGenerateResourcePlanResult(namespace: string, ticketId: string): Promise<GetGenerateResourcePlanResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4666,11 +7134,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary get job
-   *
-   * @param headers GetJobHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetJobResponse
+   * Obtains the details of a job.
+   * 
+   * @param headers - GetJobHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobResponse
    */
   async getJobWithOptions(namespace: string, jobId: string, headers: GetJobHeaders, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -4700,9 +7168,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary get job
-   *
-   * @return GetJobResponse
+   * Obtains the details of a job.
+   * @returns GetJobResponse
    */
   async getJob(namespace: string, jobId: string): Promise<GetJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4711,11 +7178,55 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用GetMember获取成员。
-   *
-   * @param headers GetMemberHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMemberResponse
+   * Obtains the latest startup logs of a job.
+   * 
+   * @param headers - GetLatestJobStartLogHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLatestJobStartLogResponse
+   */
+  async getLatestJobStartLogWithOptions(namespace: string, deploymentId: string, headers: GetLatestJobStartLogHeaders, runtime: $Util.RuntimeOptions): Promise<GetLatestJobStartLogResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetLatestJobStartLog",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/deployments/${OpenApiUtil.getEncodeParam(deploymentId)}/latest_jobmanager_start_log`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLatestJobStartLogResponse>(await this.callApi(params, req, runtime), new GetLatestJobStartLogResponse({}));
+  }
+
+  /**
+   * Obtains the latest startup logs of a job.
+   * @returns GetLatestJobStartLogResponse
+   */
+  async getLatestJobStartLog(namespace: string, deploymentId: string): Promise<GetLatestJobStartLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetLatestJobStartLogHeaders({ });
+    return await this.getLatestJobStartLogWithOptions(namespace, deploymentId, headers, runtime);
+  }
+
+  /**
+   * Queries the permissions of a member.
+   * 
+   * @param headers - GetMemberHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemberResponse
    */
   async getMemberWithOptions(namespace: string, member: string, headers: GetMemberHeaders, runtime: $Util.RuntimeOptions): Promise<GetMemberResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -4745,9 +7256,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用GetMember获取成员。
-   *
-   * @return GetMemberResponse
+   * Queries the permissions of a member.
+   * @returns GetMemberResponse
    */
   async getMember(namespace: string, member: string): Promise<GetMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4756,11 +7266,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用GetSavepoint获取savepoint信息。
-   *
-   * @param headers GetSavepointHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSavepointResponse
+   * Queries details of a savepoint and checkpoint.
+   * 
+   * @param headers - GetSavepointHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSavepointResponse
    */
   async getSavepointWithOptions(namespace: string, savepointId: string, headers: GetSavepointHeaders, runtime: $Util.RuntimeOptions): Promise<GetSavepointResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -4790,9 +7300,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用GetSavepoint获取savepoint信息。
-   *
-   * @return GetSavepointResponse
+   * Queries details of a savepoint and checkpoint.
+   * @returns GetSavepointResponse
    */
   async getSavepoint(namespace: string, savepointId: string): Promise<GetSavepointResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4801,12 +7310,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary list deployment targets
-   *
-   * @param request ListDeploymentTargetsRequest
-   * @param headers ListDeploymentTargetsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDeploymentTargetsResponse
+   * Obtains a list of clusters in which deployments can be deployed. The cluster can be a session cluster or a per-job cluster.
+   * 
+   * @param request - ListDeploymentTargetsRequest
+   * @param headers - ListDeploymentTargetsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDeploymentTargetsResponse
    */
   async listDeploymentTargetsWithOptions(namespace: string, request: ListDeploymentTargetsRequest, headers: ListDeploymentTargetsHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeploymentTargetsResponse> {
     Util.validateModel(request);
@@ -4847,10 +7356,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary list deployment targets
-   *
-   * @param request ListDeploymentTargetsRequest
-   * @return ListDeploymentTargetsResponse
+   * Obtains a list of clusters in which deployments can be deployed. The cluster can be a session cluster or a per-job cluster.
+   * 
+   * @param request - ListDeploymentTargetsRequest
+   * @returns ListDeploymentTargetsResponse
    */
   async listDeploymentTargets(namespace: string, request: ListDeploymentTargetsRequest): Promise<ListDeploymentTargetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4859,12 +7368,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary list deployments
-   *
-   * @param request ListDeploymentsRequest
-   * @param headers ListDeploymentsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDeploymentsResponse
+   * Obtains information about all deployments.
+   * 
+   * @param request - ListDeploymentsRequest
+   * @param headers - ListDeploymentsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDeploymentsResponse
    */
   async listDeploymentsWithOptions(namespace: string, request: ListDeploymentsRequest, headers: ListDeploymentsHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeploymentsResponse> {
     Util.validateModel(request);
@@ -4933,10 +7442,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary list deployments
-   *
-   * @param request ListDeploymentsRequest
-   * @return ListDeploymentsResponse
+   * Obtains information about all deployments.
+   * 
+   * @param request - ListDeploymentsRequest
+   * @returns ListDeploymentsResponse
    */
   async listDeployments(namespace: string, request: ListDeploymentsRequest): Promise<ListDeploymentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4945,12 +7454,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出有编辑权限的项目空间。
-   *
-   * @param request ListEditableNamespaceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEditableNamespaceResponse
+   * 列出有编辑权限的项目空间。
+   * 
+   * @param request - ListEditableNamespaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEditableNamespaceResponse
    */
   async listEditableNamespaceWithOptions(request: ListEditableNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEditableNamespaceResponse> {
     Util.validateModel(request);
@@ -4994,10 +7503,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出有编辑权限的项目空间。
-   *
-   * @param request ListEditableNamespaceRequest
-   * @return ListEditableNamespaceResponse
+   * 列出有编辑权限的项目空间。
+   * 
+   * @param request - ListEditableNamespaceRequest
+   * @returns ListEditableNamespaceResponse
    */
   async listEditableNamespace(request: ListEditableNamespaceRequest): Promise<ListEditableNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5006,11 +7515,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取系统支持的引擎版本信息。
-   *
-   * @param headers ListEngineVersionMetadataHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEngineVersionMetadataResponse
+   * Obtains a list of engine versions that are supported by Realtime Compute for Apache Flink.
+   * 
+   * @param headers - ListEngineVersionMetadataHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEngineVersionMetadataResponse
    */
   async listEngineVersionMetadataWithOptions(headers: ListEngineVersionMetadataHeaders, runtime: $Util.RuntimeOptions): Promise<ListEngineVersionMetadataResponse> {
     let realHeaders : {[key: string ]: string} = { };
@@ -5040,9 +7549,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取系统支持的引擎版本信息。
-   *
-   * @return ListEngineVersionMetadataResponse
+   * Obtains a list of engine versions that are supported by Realtime Compute for Apache Flink.
+   * @returns ListEngineVersionMetadataResponse
    */
   async listEngineVersionMetadata(): Promise<ListEngineVersionMetadataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5051,12 +7559,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary list jobs
-   *
-   * @param request ListJobsRequest
-   * @param headers ListJobsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListJobsResponse
+   * Queries the information about all jobs in a deployment.
+   * 
+   * @param request - ListJobsRequest
+   * @param headers - ListJobsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobsResponse
    */
   async listJobsWithOptions(namespace: string, request: ListJobsRequest, headers: ListJobsHeaders, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
     Util.validateModel(request);
@@ -5105,10 +7613,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary list jobs
-   *
-   * @param request ListJobsRequest
-   * @return ListJobsResponse
+   * Queries the information about all jobs in a deployment.
+   * 
+   * @param request - ListJobsRequest
+   * @returns ListJobsResponse
    */
   async listJobs(namespace: string, request: ListJobsRequest): Promise<ListJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5117,12 +7625,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用ListMembers接口获取成员列表。
-   *
-   * @param request ListMembersRequest
-   * @param headers ListMembersHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMembersResponse
+   * Queries the mappings between the ID and permissions of a member in a specific namespace.
+   * 
+   * @param request - ListMembersRequest
+   * @param headers - ListMembersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMembersResponse
    */
   async listMembersWithOptions(namespace: string, request: ListMembersRequest, headers: ListMembersHeaders, runtime: $Util.RuntimeOptions): Promise<ListMembersResponse> {
     Util.validateModel(request);
@@ -5163,10 +7671,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用ListMembers接口获取成员列表。
-   *
-   * @param request ListMembersRequest
-   * @return ListMembersResponse
+   * Queries the mappings between the ID and permissions of a member in a specific namespace.
+   * 
+   * @param request - ListMembersRequest
+   * @returns ListMembersResponse
    */
   async listMembers(namespace: string, request: ListMembersRequest): Promise<ListMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5175,12 +7683,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用ListSavepoints获取满足查询条件的savepoint列表。
-   *
-   * @param request ListSavepointsRequest
-   * @param headers ListSavepointsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSavepointsResponse
+   * Obtains a list of savepoints or checkpoints.
+   * 
+   * @param request - ListSavepointsRequest
+   * @param headers - ListSavepointsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSavepointsResponse
    */
   async listSavepointsWithOptions(namespace: string, request: ListSavepointsRequest, headers: ListSavepointsHeaders, runtime: $Util.RuntimeOptions): Promise<ListSavepointsResponse> {
     Util.validateModel(request);
@@ -5229,10 +7737,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用ListSavepoints获取满足查询条件的savepoint列表。
-   *
-   * @param request ListSavepointsRequest
-   * @return ListSavepointsResponse
+   * Obtains a list of savepoints or checkpoints.
+   * 
+   * @param request - ListSavepointsRequest
+   * @returns ListSavepointsResponse
    */
   async listSavepoints(namespace: string, request: ListSavepointsRequest): Promise<ListSavepointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5241,12 +7749,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary list variables
-   *
-   * @param request ListVariablesRequest
-   * @param headers ListVariablesHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListVariablesResponse
+   * Obtains a list of variables.
+   * 
+   * @param request - ListVariablesRequest
+   * @param headers - ListVariablesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVariablesResponse
    */
   async listVariablesWithOptions(namespace: string, request: ListVariablesRequest, headers: ListVariablesHeaders, runtime: $Util.RuntimeOptions): Promise<ListVariablesResponse> {
     Util.validateModel(request);
@@ -5287,10 +7795,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary list variables
-   *
-   * @param request ListVariablesRequest
-   * @return ListVariablesResponse
+   * Obtains a list of variables.
+   * 
+   * @param request - ListVariablesRequest
+   * @returns ListVariablesResponse
    */
   async listVariables(namespace: string, request: ListVariablesRequest): Promise<ListVariablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5299,14 +7807,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * start job
+   * 
    * @deprecated OpenAPI StartJob is deprecated
-   *
-   * @summary start job
-   *
-   * @param request StartJobRequest
-   * @param headers StartJobHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartJobResponse
+   * 
+   * @param request - StartJobRequest
+   * @param headers - StartJobHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartJobResponse
    */
   // Deprecated
   async startJobWithOptions(namespace: string, request: StartJobRequest, headers: StartJobHeaders, runtime: $Util.RuntimeOptions): Promise<StartJobResponse> {
@@ -5339,12 +7847,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * start job
+   * 
    * @deprecated OpenAPI StartJob is deprecated
-   *
-   * @summary start job
-   *
-   * @param request StartJobRequest
-   * @return StartJobResponse
+   * 
+   * @param request - StartJobRequest
+   * @returns StartJobResponse
    */
   // Deprecated
   async startJob(namespace: string, request: StartJobRequest): Promise<StartJobResponse> {
@@ -5354,12 +7862,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动作业实例。
-   *
-   * @param request StartJobWithParamsRequest
-   * @param headers StartJobWithParamsHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartJobWithParamsResponse
+   * Starts a job.
+   * 
+   * @param request - StartJobWithParamsRequest
+   * @param headers - StartJobWithParamsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartJobWithParamsResponse
    */
   async startJobWithParamsWithOptions(namespace: string, request: StartJobWithParamsRequest, headers: StartJobWithParamsHeaders, runtime: $Util.RuntimeOptions): Promise<StartJobWithParamsResponse> {
     Util.validateModel(request);
@@ -5391,10 +7899,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动作业实例。
-   *
-   * @param request StartJobWithParamsRequest
-   * @return StartJobWithParamsResponse
+   * Starts a job.
+   * 
+   * @param request - StartJobWithParamsRequest
+   * @returns StartJobWithParamsResponse
    */
   async startJobWithParams(namespace: string, request: StartJobWithParamsRequest): Promise<StartJobWithParamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5403,12 +7911,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用StopJob停止实例。
-   *
-   * @param request StopJobRequest
-   * @param headers StopJobHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopJobResponse
+   * Stops a job.
+   * 
+   * @param request - StopJobRequest
+   * @param headers - StopJobHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopJobResponse
    */
   async stopJobWithOptions(namespace: string, jobId: string, request: StopJobRequest, headers: StopJobHeaders, runtime: $Util.RuntimeOptions): Promise<StopJobResponse> {
     Util.validateModel(request);
@@ -5440,10 +7948,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用StopJob停止实例。
-   *
-   * @param request StopJobRequest
-   * @return StopJobResponse
+   * Stops a job.
+   * 
+   * @param request - StopJobRequest
+   * @returns StopJobResponse
    */
   async stopJob(namespace: string, jobId: string, request: StopJobRequest): Promise<StopJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5452,12 +7960,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary update a deployment using patch
-   *
-   * @param request UpdateDeploymentRequest
-   * @param headers UpdateDeploymentHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDeploymentResponse
+   * Updates information about a deployment.
+   * 
+   * @param request - UpdateDeploymentRequest
+   * @param headers - UpdateDeploymentHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDeploymentResponse
    */
   async updateDeploymentWithOptions(namespace: string, deploymentId: string, request: UpdateDeploymentRequest, headers: UpdateDeploymentHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateDeploymentResponse> {
     Util.validateModel(request);
@@ -5489,10 +7997,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary update a deployment using patch
-   *
-   * @param request UpdateDeploymentRequest
-   * @return UpdateDeploymentResponse
+   * Updates information about a deployment.
+   * 
+   * @param request - UpdateDeploymentRequest
+   * @returns UpdateDeploymentResponse
    */
   async updateDeployment(namespace: string, deploymentId: string, request: UpdateDeploymentRequest): Promise<UpdateDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5501,12 +8009,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用UpdateMember更新成员。
-   *
-   * @param request UpdateMemberRequest
-   * @param headers UpdateMemberHeaders
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMemberResponse
+   * Updates the permissions of one or more members in a specific namespace.
+   * 
+   * @param request - UpdateMemberRequest
+   * @param headers - UpdateMemberHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemberResponse
    */
   async updateMemberWithOptions(namespace: string, request: UpdateMemberRequest, headers: UpdateMemberHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateMemberResponse> {
     Util.validateModel(request);
@@ -5538,15 +8046,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用UpdateMember更新成员。
-   *
-   * @param request UpdateMemberRequest
-   * @return UpdateMemberResponse
+   * Updates the permissions of one or more members in a specific namespace.
+   * 
+   * @param request - UpdateMemberRequest
+   * @returns UpdateMemberResponse
    */
   async updateMember(namespace: string, request: UpdateMemberRequest): Promise<UpdateMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new UpdateMemberHeaders({ });
     return await this.updateMemberWithOptions(namespace, request, headers, runtime);
+  }
+
+  /**
+   * Verifies the code of an SQL deployment.
+   * 
+   * @param request - ValidateSqlStatementRequest
+   * @param headers - ValidateSqlStatementHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateSqlStatementResponse
+   */
+  async validateSqlStatementWithOptions(namespace: string, request: ValidateSqlStatementRequest, headers: ValidateSqlStatementHeaders, runtime: $Util.RuntimeOptions): Promise<ValidateSqlStatementResponse> {
+    Util.validateModel(request);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.workspace)) {
+      realHeaders["workspace"] = Util.toJSONString(headers.workspace);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ValidateSqlStatement",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${OpenApiUtil.getEncodeParam(namespace)}/sql-statement/validate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ValidateSqlStatementResponse>(await this.callApi(params, req, runtime), new ValidateSqlStatementResponse({}));
+  }
+
+  /**
+   * Verifies the code of an SQL deployment.
+   * 
+   * @param request - ValidateSqlStatementRequest
+   * @returns ValidateSqlStatementResponse
+   */
+  async validateSqlStatement(namespace: string, request: ValidateSqlStatementRequest): Promise<ValidateSqlStatementResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new ValidateSqlStatementHeaders({ });
+    return await this.validateSqlStatementWithOptions(namespace, request, headers, runtime);
   }
 
 }
