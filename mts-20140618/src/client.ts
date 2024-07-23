@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,6 +8,15 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ActivateMediaWorkflowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media workflow. You can obtain the ID from the response of the [AddMediaWorkflow](https://help.aliyun.com/document_detail/44437.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e9181d4****
+   */
   mediaWorkflowId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -40,7 +48,18 @@ export class ActivateMediaWorkflowRequest extends $tea.Model {
 }
 
 export class ActivateMediaWorkflowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the media workflow.
+   */
   mediaWorkflow?: ActivateMediaWorkflowResponseBodyMediaWorkflow;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A1326BD4-30B1-4CB6-Q123-3330B877B0D4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,19 +106,118 @@ export class ActivateMediaWorkflowResponse extends $tea.Model {
 }
 
 export class AddMediaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the category to which the media file belongs. The value cannot be negative.
+   * 
+   * @example
+   * 123
+   */
   cateId?: number;
+  /**
+   * @remarks
+   * The URL of the thumbnail. To obtain the URL, you can log on to the **MPS console** and choose **Workflows** > **Media Buckets**. Alternatively, you can log on to the **OSS console** and click **My OSS Paths**.
+   * 
+   * *   The value can be up to 3,200 bytes in length.
+   * *   The URL complies with RFC 2396 and is encoded in UTF-8, with reserved characters being percent-encoded. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
+   * 
+   * @example
+   * http://bucket.oss-cn-hangzhou.aliyuncs.com/example/1.png
+   */
   coverURL?: string;
+  /**
+   * @remarks
+   * The description of the media file.
+   * 
+   * *   The description can be up to 1,024 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
+   * @example
+   * A test video
+   */
   description?: string;
+  /**
+   * @remarks
+   * The path of the input file. You can query the path of the input file in the MPS or OSS console. For more information, see the **Triggering and matching rules for a workflow** section of this topic.
+   * 
+   * *   The value can be up to 3,200 bytes in length.
+   * *   The URL complies with RFC 2396 and is encoded in UTF-8, with reserved characters being percent-encoded. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http://bucket.oss-cn-hangzhou.aliyuncs.com/A/B/C/test.mp4
+   */
   fileURL?: string;
+  /**
+   * @remarks
+   * Specifies whether to check if the media workflow supports the specified input path. We recommend that you set this parameter to true to prevent errors that may result from invalid paths. Valid values:
+   * 
+   * *   **true**: checks whether the workflow supports the specified input path.
+   * *   **false**: does not check whether the workflow supports the specified input path.
+   * 
+   * @example
+   * false
+   */
   inputUnbind?: boolean;
+  /**
+   * @remarks
+   * The ID of the media workflow that you want to run for the media file. To query the ID of a media workflow, you can log on to the MPS console or call the [AddMediaWorkflow](https://help.aliyun.com/document_detail/44437.html) operation.
+   * 
+   * @example
+   * 07da6c65da7f458997336e0de192****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The custom data of the media workflow.
+   * 
+   * *   The value can be up to 1,024 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
+   * @example
+   * test
+   */
   mediaWorkflowUserData?: string;
+  /**
+   * @remarks
+   * The subtitle settings that are used to overwrite the original settings.
+   * 
+   * *   Example 1: Use `{"WebVTTSubtitleOverrides",[{"RefActivityName":"subtitleNode","WebVTTSubtitleURL":"http://test.oss-cn-hangzhou.aliyuncs.com/example1.vtt"}]}` to overwrite the original subtitle settings during HTTP Live Streaming (HLS) packaging.
+   * *   Example 2: Use `{"subtitleTransNodeName":{"InputConfig":{"Format":"stl","InputFile":{"URL":"http://subtitleBucket.oss-cn-hangzhou.aliyuncs.com/package/example/CENG.stl"}}}}` to overwrite the original subtitle settings during Dynamic Adaptive Streaming over HTTP (DASH) packaging.
+   * 
+   * @example
+   * {“subtitleTransNodeName”:{“InputConfig”:{“Format”:”stl”,”InputFile”:{“URL”:”http://exampleBucket.oss-cn-hangzhou.aliyuncs.com/package/example/CENG.stl"}}}}
+   */
   overrideParams?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The tags that you want to add to the media file.
+   * 
+   * > In MPS, each tag that is specified for a media file is independent. You can search for all the media files that have the same tags in the Media Library.
+   * 
+   * *   You can specify up to 16 tags for a media file. Separate multiple tags with commas (,).
+   * *   Each tag can be up to 32 bytes in size
+   * *   The value must be encoded in UTF-8.
+   * 
+   * @example
+   * tag1,tag2
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The title of the media file.
+   * 
+   * *   The title can be up to 128 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
+   * @example
+   * mytest
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,7 +263,18 @@ export class AddMediaRequest extends $tea.Model {
 }
 
 export class AddMediaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The detailed information about the media file.
+   */
   media?: AddMediaResponseBodyMedia;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 05F8B913-E9F3-4A6F-9922-48CADA0FFAAD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -192,11 +321,29 @@ export class AddMediaResponse extends $tea.Model {
 }
 
 export class AddMediaTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media file to which you want to add tags.
+   * 
+   * > To obtain the ID of a media file, you can call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation. Alternatively, perform the following operations in the ApsaraVideo Media Processing (MPS) console: In the left-side navigation pane, choose **Media Management** > **Media List**. Find the file that you want to manage and click **Manage** in the Actions column. The ID of the file is displayed on the Basics tab.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3e6149d5a8c944c09b1a8d2dc3e4****
+   */
   mediaId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The tag that you want to add to the medial file. The value is encoded in UTF-8 and can be up to 32 bytes in length.
+   * 
+   * @example
+   * tag1
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -226,6 +373,13 @@ export class AddMediaTagRequest extends $tea.Model {
 }
 
 export class AddMediaTagResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91B6CAB9-034C-4E4E-A40B-E7F5C81E1A2K
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -270,12 +424,44 @@ export class AddMediaTagResponse extends $tea.Model {
 }
 
 export class AddMediaWorkflowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the media workflow.
+   * 
+   * *   The value cannot be empty.
+   * *   The name cannot be the same as that of an existing media workflow within the current Alibaba Cloud account.
+   * *   The name can be up to 64 characters in length.
+   * *   The value must be encoded in the UTF-8 format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mediaworkflow-example
+   */
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The topology of the media workflow. The value must be a JSON object that contains the activities and activity dependencies. For more information, see the **Sample topology** section of this topic.
+   * 
+   * >  The Object Storage Service (OSS) bucket must reside in the same region as your MPS service.
+   * 
+   * This parameter is required.
+   */
   topology?: string;
+  /**
+   * @remarks
+   * The triggering mode of the media workflow. Valid values:
+   * 
+   * *   **OssAutoTrigger**: The media workflow is automatically triggered.
+   * *   **NotInAuto**: The media workflow is not automatically triggered.
+   * 
+   * @example
+   * OssAutoTrigger
+   */
   triggerMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -307,7 +493,18 @@ export class AddMediaWorkflowRequest extends $tea.Model {
 }
 
 export class AddMediaWorkflowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the media workflow.
+   */
   mediaWorkflow?: AddMediaWorkflowResponseBodyMediaWorkflow;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F1D21261-ADB9-406A-1234-491382139D59
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -354,14 +551,59 @@ export class AddMediaWorkflowResponse extends $tea.Model {
 }
 
 export class AddPipelineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the MPS queue. The name can be up to 128 bytes in size.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-pipeline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The Message Service (MNS) configuration.
+   * 
+   * @example
+   * {"Topic":"mts-topic-1"}
+   */
   notifyConfig?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The role.
+   * 
+   * @example
+   * AliyunMTSDefaultRole
+   */
   role?: string;
+  /**
+   * @remarks
+   * The type of the MPS queue. Valid values:
+   * 
+   * *   **Boost**: MPS queue with transcoding speed boosted.
+   * *   **Standard**: standard MPS queue.
+   * *   **NarrowBandHDV2**: MPS queue that supports Narrowband HD 2.0.
+   * *   **AIVideoCover**: MPS queue for intelligent snapshot capture.
+   * *   **AIVideoTag**: MPS queue for video tagging. The supported regions are China (Shanghai), China (Beijing), and China (Hangzhou).
+   * 
+   * Default value: **Standard**.
+   * 
+   * @example
+   * Standard
+   */
   speed?: string;
+  /**
+   * @remarks
+   * The level of the MPS queue. Valid values: **1 to 3**.
+   * 
+   * @example
+   * 1
+   */
   speedLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -397,7 +639,18 @@ export class AddPipelineRequest extends $tea.Model {
 }
 
 export class AddPipelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The MPS queue.
+   */
   pipeline?: AddPipelineResponseBodyPipeline;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CFEA608A-5A1C-4C83-A54B-6197BC250D23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -444,22 +697,86 @@ export class AddPipelineResponse extends $tea.Model {
 }
 
 export class AddSmarttagTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ocr
+   */
   analyseTypes?: string;
+  /**
+   * @example
+   * celebrity
+   */
   faceCategoryIds?: string;
+  /**
+   * @example
+   * { "faceDetThreshold":0.999, "faceRegThreshold":0.9 }
+   */
   faceCustomParamsConfig?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * common
+   */
   industry?: string;
+  /**
+   * @example
+   * true
+   */
   isDefault?: boolean;
+  /**
+   * @example
+   * "type": "name,location,organization,other" }
+   */
   keywordConfig?: string;
+  /**
+   * @example
+   * { "movie":"name,alias,chnl,genre", "music":"songName,artistName", "person":"name,gender" }
+   */
   knowledgeConfig?: string;
+  /**
+   * @example
+   * hmi
+   */
   labelType?: string;
+  /**
+   * @example
+   * 1.0
+   */
   labelVersion?: string;
+  /**
+   * @example
+   * common
+   */
   landmarkGroupIds?: string;
+  /**
+   * @example
+   * general,item,weapon,animal
+   */
   objectGroupIds?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * search
+   */
   scene?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * template-example-****
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -511,7 +828,15 @@ export class AddSmarttagTemplateRequest extends $tea.Model {
 }
 
 export class AddSmarttagTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175EDAS3Q
+   */
   requestId?: string;
+  /**
+   * @example
+   * 05de22f255284c7a8d2aab535dde****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -558,15 +883,77 @@ export class AddSmarttagTemplateResponse extends $tea.Model {
 }
 
 export class AddTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The audio stream settings. The value must be a JSON object. For more information, see [Audio](https://help.aliyun.com/document_detail/29253.html).
+   * 
+   * > If you do not specify this parameter, output files do not contain audio streams. This parameter is required if you want to retain the audio streams.
+   * 
+   * @example
+   * {"Codec":"H.264","Samplerate":"44100","Bitrate":"500","Channels":"2"}
+   */
   audio?: string;
+  /**
+   * @remarks
+   * The container format. The value must be a JSON object that contains the Format parameter. If you do not specify this parameter, the transcoded media file is in MP4 format by default. This parameter is required if you want to use the transcoding template to generate media files in other formats. For more information, see [Container](https://help.aliyun.com/document_detail/29253.html).
+   * 
+   * *   Default value: MP4.
+   * *   Video transcoding supports the following formats: FLV, MP4, HLS (M3U8 + TS), and MPEG-DASH (MPD + fMP4).
+   * 
+   * > If the container format is FLV, the video codec cannot be set to H.265.
+   * 
+   * *   Audio transcoding supports the following formats: MP3, MP4, OGG, FLAC, and M4A.
+   * *   Image transcoding supports the GIF and WebP formats.
+   * 
+   * > 
+   * 
+   * *   If the container format is GIF, the video codec must be set to GIF.
+   * 
+   * *   If the container format is WebP, the video codec must be set to WebP.
+   * 
+   * @example
+   * {"Format":"mp4"}
+   */
   container?: string;
+  /**
+   * @remarks
+   * The segment settings. The value must be a JSON object. For more information, see [MuxConfig](https://help.aliyun.com/document_detail/29253.html). If you do not specify this parameter, media segment files are not generated. This parameter is required if you want to generate media segment files.
+   * 
+   * @example
+   * {"Segment":{"Duration":"10"}}
+   */
   muxConfig?: string;
+  /**
+   * @remarks
+   * The name of the transcoding template. The name can be up to 128 bytes in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mps-example
+   */
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The general transcoding settings. The value must be a JSON object. For more information, see [TransConfig](https://help.aliyun.com/document_detail/29253.html). If you do not specify this parameter, the default settings are used. This parameter is required if the default settings cannot meet your business requirements.
+   * 
+   * @example
+   * {"TransMode":"onepass"}
+   */
   transConfig?: string;
+  /**
+   * @remarks
+   * The video stream settings. The value must be a JSON object. For more information, see [Video](https://help.aliyun.com/document_detail/29253.html).
+   * 
+   * > If you do not specify this parameter, output files do not contain video streams. This parameter is required if you want to retain the video streams.
+   * 
+   * @example
+   * {"Codec":"H.264","Profile":"high","Bitrate":"500","Crf":"15","Width":"256","Height":"800","Fps":"25","Gop":"10s"}
+   */
   video?: string;
   static names(): { [key: string]: string } {
     return {
@@ -604,7 +991,18 @@ export class AddTemplateRequest extends $tea.Model {
 }
 
 export class AddTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FA258E67-09B8-4EAA-8F33-BA567834A2C3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the transcoding template.
+   */
   template?: AddTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -651,7 +1049,27 @@ export class AddTemplateResponse extends $tea.Model {
 }
 
 export class AddWaterMarkTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the watermark template. The value is a JSON object. For more information, see the "WaterMarks" section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   * 
+   * > If you do not require a positive correlation between the size of text in the watermark and the resolution, you can enable adaptation for the watermark. To do so, add `[\\"adaptive\\"]=true` to the TextWaterMark parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"Width":"10","Height":"30","Dx":"10","Dy":"5","ReferPos":"TopRight","Type":"Image","Timeline":{"Start":"0","Duration":"10"}}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The name of the watermark template. The value can contain letters and digits and can be up to 128 bytes in size.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example-watermark-****
+   */
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -685,7 +1103,18 @@ export class AddWaterMarkTemplateRequest extends $tea.Model {
 }
 
 export class AddWaterMarkTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 54BB917F-DD35-4F32-BABA-E60E31B21W63
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the watermark template.
+   */
   waterMarkTemplate?: AddWaterMarkTemplateResponseBodyWaterMarkTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -732,9 +1161,27 @@ export class AddWaterMarkTemplateResponse extends $tea.Model {
 }
 
 export class BindInputBucketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the input media bucket to be bound. The name can be up to 64 bytes in size. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Media Buckets** in the left-side navigation pane.
+   * 
+   * > The bucket name can contain lowercase letters, digits, and hyphens (-), and cannot start or end with a hyphen (-).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The settings of Object Storage Service (OSS) hotlink protection. For more information, see [Hotlink protection](https://help.aliyun.com/document_detail/31869.html).
+   * 
+   * @example
+   * http://www.example.com
+   */
   referer?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -766,6 +1213,13 @@ export class BindInputBucketRequest extends $tea.Model {
 }
 
 export class BindInputBucketResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4AEA0480-32F4-1656-92B3-F4D4CDE6BBB3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -810,6 +1264,15 @@ export class BindInputBucketResponse extends $tea.Model {
 }
 
 export class BindOutputBucketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Object Storage Service (OSS) bucket that you want to bind. The name can be up to 64 bytes in size and can contain letters, digits, and hyphens (-). The name cannot start with a special character.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -841,6 +1304,13 @@ export class BindOutputBucketRequest extends $tea.Model {
 }
 
 export class BindOutputBucketResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D0F80646-90D4-402F-9D56-CEFEAA6BCC9B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -885,6 +1355,15 @@ export class BindOutputBucketResponse extends $tea.Model {
 }
 
 export class CancelJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the transcoding job to be canceled. You can log on to the **MPS console** and click **Tasks** in the left-side navigation pane to obtain job IDs. Alternatively, you can obtain job IDs from the response of the [SubmitJobs](https://help.aliyun.com/document_detail/29226.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d1ce4d3efcb549419193f50f1fcd****
+   */
   jobId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -916,7 +1395,21 @@ export class CancelJobRequest extends $tea.Model {
 }
 
 export class CancelJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job.
+   * 
+   * @example
+   * d1ce4d3efcb549419193f50f1fcd****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 338CA33A-AE83-5DF4-B6F2-C6D3ED8143F5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -963,9 +1456,31 @@ export class CancelJobResponse extends $tea.Model {
 }
 
 export class CreateCustomEntityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * landmark
+   */
   algorithm?: string;
+  /**
+   * @example
+   * { "finegrainName":"examplName" }
+   */
   customEntityInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   customEntityName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1003,7 +1518,15 @@ export class CreateCustomEntityRequest extends $tea.Model {
 }
 
 export class CreateCustomEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   customEntityId?: string;
+  /**
+   * @example
+   * 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1050,8 +1573,19 @@ export class CreateCustomEntityResponse extends $tea.Model {
 }
 
 export class CreateCustomGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * landmark
+   */
   algorithm?: string;
   customGroupDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   customGroupName?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1087,7 +1621,15 @@ export class CreateCustomGroupRequest extends $tea.Model {
 }
 
 export class CreateCustomGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 129****
+   */
   customGroupId?: string;
+  /**
+   * @example
+   * 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1134,9 +1676,39 @@ export class CreateCustomGroupResponse extends $tea.Model {
 }
 
 export class CreateFpShotDBRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the media fingerprint library. By default, this parameter is left empty. You can customize the configurations based on your business requirements. The value must be a string in the JSON format.
+   * 
+   * @example
+   * null
+   */
   config?: string;
+  /**
+   * @remarks
+   * The description of the media fingerprint library.
+   * 
+   * @example
+   * The library is a text fingerprint library.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The model ID of the media fingerprint library. To create a text fingerprint library, set the parameter to **11**. To create a video fingerprint library, set the parameter to **12**. To create an audio fingerprint library, set the parameter to **13**. To create an image fingerprint library, set the parameter to **14**.
+   * 
+   * @example
+   * 11
+   */
   modelId?: number;
+  /**
+   * @remarks
+   * The name of the media fingerprint library.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example name
+   */
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1174,7 +1746,18 @@ export class CreateFpShotDBRequest extends $tea.Model {
 }
 
 export class CreateFpShotDBResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the media fingerprint library.
+   */
   fpShotDB?: CreateFpShotDBResponseBodyFpShotDB;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1221,6 +1804,15 @@ export class CreateFpShotDBResponse extends $tea.Model {
 }
 
 export class DeactivateMediaWorkflowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media workflow that is deactivated.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e9181d4****
+   */
   mediaWorkflowId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1252,7 +1844,18 @@ export class DeactivateMediaWorkflowRequest extends $tea.Model {
 }
 
 export class DeactivateMediaWorkflowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The topology of the media workflow.
+   */
   mediaWorkflow?: DeactivateMediaWorkflowResponseBodyMediaWorkflow;
+  /**
+   * @remarks
+   * The name of the media workflow that is deactivated.
+   * 
+   * @example
+   * 16CD0CDD-457E-420D-9755-8385075A1234
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1299,8 +1902,29 @@ export class DeactivateMediaWorkflowResponse extends $tea.Model {
 }
 
 export class DeleteCustomEntityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * landmark
+   */
   algorithm?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customEntityId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1336,6 +1960,10 @@ export class DeleteCustomEntityRequest extends $tea.Model {
 }
 
 export class DeleteCustomEntityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1380,7 +2008,28 @@ export class DeleteCustomEntityResponse extends $tea.Model {
 }
 
 export class DeleteCustomGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The custom type of the image library. Valid values:
+   * 
+   * *   landmark: custom landmarks.
+   * *   object: custom objects.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * landmark
+   */
   algorithm?: string;
+  /**
+   * @remarks
+   * The ID of the custom image library.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1414,6 +2063,13 @@ export class DeleteCustomGroupRequest extends $tea.Model {
 }
 
 export class DeleteCustomGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request. This parameter is unique.
+   * 
+   * @example
+   * 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1458,9 +2114,37 @@ export class DeleteCustomGroupResponse extends $tea.Model {
 }
 
 export class DeleteCustomViewRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * landmark
+   */
   algorithm?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customEntityId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customViewId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1498,6 +2182,10 @@ export class DeleteCustomViewRequest extends $tea.Model {
 }
 
 export class DeleteCustomViewResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1542,6 +2230,17 @@ export class DeleteCustomViewResponse extends $tea.Model {
 }
 
 export class DeleteMediaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the media files that you want to remove. Separate multiple IDs with commas (,). You can remove up to 10 media files at a time.
+   * 
+   * > You can obtain the ID of the media file from the response parameters of the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation. Alternatively, you can log on to the MPS console. In the left-side navigation pane, choose **Media Management** > **Media List**. Find the required video and click **Manage** in the Actions column. The ID of the video is displayed on the Basics tab.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3e1cd21131a94525be55acf65888****,3e6149d5a8c944c09b1a8d2dc3e4****
+   */
   mediaIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1573,6 +2272,13 @@ export class DeleteMediaRequest extends $tea.Model {
 }
 
 export class DeleteMediaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 05F8B913-E9F3-4A6F-9922-48CADA0FFAAD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1617,11 +2323,29 @@ export class DeleteMediaResponse extends $tea.Model {
 }
 
 export class DeleteMediaTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media file for which you want to remove a tag. To obtain the ID of a media file, you can call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation. Alternatively, perform the following operations in the ApsaraVideo Media Processing (MPS) console: In the left-side navigation pane, choose **Media Management** > **Media List**. Find the required video and click **Manage** in the Actions column. The ID of the video is displayed on the Basics tab.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3e6149d5a8c944c09b1a8d2dc3e4****
+   */
   mediaId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The media tag that you want to remove. The value is encoded in UTF-8 and can be up to 32 bytes in length.
+   * 
+   * > You can remove only one tag at a time.
+   * 
+   * @example
+   * tag1
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1651,6 +2375,13 @@ export class DeleteMediaTagRequest extends $tea.Model {
 }
 
 export class DeleteMediaTagResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 283DC68C-146F-4489-A2A1-2F88F1472A56
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1695,6 +2426,15 @@ export class DeleteMediaTagResponse extends $tea.Model {
 }
 
 export class DeleteMediaWorkflowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media workflow that you want to delete. To obtain the ID of the media workflow, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings** in the left-side navigation pane.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e9181d4****
+   */
   mediaWorkflowId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1726,7 +2466,18 @@ export class DeleteMediaWorkflowRequest extends $tea.Model {
 }
 
 export class DeleteMediaWorkflowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the media workflow.
+   */
   mediaWorkflow?: DeleteMediaWorkflowResponseBodyMediaWorkflow;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7D752035-97DA-54E5-88E2-E8405EEA4394
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1775,6 +2526,15 @@ export class DeleteMediaWorkflowResponse extends $tea.Model {
 export class DeletePipelineRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue that you want to delete. To obtain the ID of the MPS queue, you can log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d1ce4d3efcb549419193f50f1fcd****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1804,7 +2564,21 @@ export class DeletePipelineRequest extends $tea.Model {
 }
 
 export class DeletePipelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the MPS queue that is deleted.
+   * 
+   * @example
+   * d1ce4d3efcb549419193f50f1fcd****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 338CA33A-AE83-5DF4-B6F2-C6D3ED8143F5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1855,6 +2629,15 @@ export class DeleteSmarttagTemplateRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the template that you want to delete. You can obtain the template ID from the response of the [AddSmarttagTemplate](https://help.aliyun.com/document_detail/187759.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 05de22f255284c7a8d2aab535dde****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1882,6 +2665,13 @@ export class DeleteSmarttagTemplateRequest extends $tea.Model {
 }
 
 export class DeleteSmarttagTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5F37036F-5267-43F1-AE47-10A18E840739
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1930,6 +2720,15 @@ export class DeleteTemplateRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the custom transcoding template that you want to delete. To obtain the ID of the custom transcoding template, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Global Settings** > **Encoding Templates** in the left-side navigation pane.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1957,7 +2756,21 @@ export class DeleteTemplateRequest extends $tea.Model {
 }
 
 export class DeleteTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2247541A-9F27-47EE-B6EC-484B5475****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the custom transcoding template that is deleted.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2008,6 +2821,15 @@ export class DeleteWaterMarkTemplateRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the watermark template that you want to delete. To obtain the template ID, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Global Settings** > **Watermark Templates** in the left-side navigation pane.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3780bd69b2b74540bc7b1096f564****
+   */
   waterMarkTemplateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2035,7 +2857,21 @@ export class DeleteWaterMarkTemplateRequest extends $tea.Model {
 }
 
 export class DeleteWaterMarkTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 030E2671-806A-52AF-A93C-DA8E308603A6
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the deleted watermark template.
+   * 
+   * @example
+   * 3780bd69b2b74540bc7b1096f564****
+   */
   waterMarkTemplateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2082,12 +2918,50 @@ export class DeleteWaterMarkTemplateResponse extends $tea.Model {
 }
 
 export class ImAuditRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The business type. By default, the public business type is used.
+   * 
+   * @example
+   * 139440480445****
+   */
   bizType?: string;
+  /**
+   * @remarks
+   * The custom text entries. You can specify up to 5 text entries. The value must be a JSON array. You must specify at least one of the Images and Contents parameters.
+   * 
+   * @example
+   * ["Hello","Who are you","Where am I"]
+   */
   contents?: string;
+  /**
+   * @remarks
+   * The image URLs. You can specify up to 5 image URLs. The value must be a JSON array. To view the URLs of the images, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Media Management** > **Media List** in the left-side navigation pane. You must set at least one of the Images and Contents parameters. The image to be moderated must meet the following limits. Otherwise, the moderation task may fail.
+   * 
+   * *   The image size cannot exceed 20 MB, the height or width of the image cannot exceed 30,000 pixels, and the image cannot exceed 0.25 billion pixels.
+   * *   We recommend that you upload images of at least 256 × 256 pixels to ensure required moderation result.
+   */
   images?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The moderation scenarios. Separate multiple scenarios with commas (,). For example, if you specify {"porn","terrorism"} for this parameter, both pornographic content detection and terrorist content detection are performed on the images and text. Valid values:
+   * 
+   * *   porn: pornography
+   * *   terrorism: terrorist content
+   * *   ad: ad violation
+   * *   qrcode: QR code
+   * *   live: undesirable scene
+   * *   logo: special logo
+   * *   antispam: text anti-spam (valid only for text)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["porn","terrorism","ad"]
+   */
   scenes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2119,10 +2993,39 @@ export class ImAuditRequest extends $tea.Model {
 }
 
 export class ImAuditResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the image moderation QPS exceeds the limit. Valid values: true and false. A value of true indicates that the QPS does not exceed the limit. A value of false indicates that the QPS exceeds the limit.
+   * 
+   * @example
+   * false
+   */
   imageQuotaExceed?: boolean;
+  /**
+   * @remarks
+   * The image moderation results. If the HTTP status code 200 is returned, the array in the returned results contains one or more elements. For more information about the parameters, see [Data returned by the ImAudit operation](https://help.aliyun.com/document_detail/268644.html).
+   */
   imageResults?: ImAuditResponseBodyImageResults;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5210DBB0-E327-4D45-ADBC-0B83C8793421
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the text moderation QPS exceeds the limit. Valid values: true and false.
+   * 
+   * @example
+   * false
+   */
   textQuotaExceed?: boolean;
+  /**
+   * @remarks
+   * The text moderation results. If the HTTP status code 200 is returned, the array in the returned results contains one or more elements. For more information about the parameters, see [Data returned by the ImAudit operation](https://help.aliyun.com/document_detail/268644.html).
+   */
   textResults?: ImAuditResponseBodyTextResults;
   static names(): { [key: string]: string } {
     return {
@@ -2175,14 +3078,57 @@ export class ImAuditResponse extends $tea.Model {
 }
 
 export class ImportFpShotJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the text fingerprint library to which the text file is imported. You can specify only one job of importing text files to a text fingerprint library at a time. You can obtain the library ID from the response parameters of the [CreateFpShotDB](https://help.aliyun.com/document_detail/170149.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   fpDBId?: string;
+  /**
+   * @remarks
+   * The job configurations. The value must be a JSON object. Example: `{"SaveType":"onlysave"}`. The `SaveType` field indicates the storage type. Valid values of the SaveType field:
+   * 
+   * *   **save**: The fingerprints of the text file are saved to the text fingerprint library only if the text file is not duplicated with content in the text fingerprint library.
+   * *   **onlysave**: The fingerprints of the text file are saved to the text fingerprint library.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"SaveType":"onlysave"}
+   */
   fpImportConfig?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the text file to be imported to the text fingerprint library. The value must be a JSON object. Example: {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example.flv"}.
+   * 
+   * > The OSS bucket must reside in the same region as your MPS service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {“Bucket”:”example-bucket”,“Location”:”oss-cn-shanghai”,“Object”:”example.txt”}
+   */
   input?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue. To view the ID of the MPS queue, perform the following steps: Log on to the **MPS console**. In the left-side navigation pane, choose **Global Settings** > **Pipelines**. The MPS queue is associated with a specified Message Service (MNS) topic. You can submit jobs for different services to different MPS queues. If you do not specify this parameter, the job is submitted to the default MPS queue and no MNS topic is associated with the MPS queue.
+   * 
+   * @example
+   * ae687c02fe944327ba9631e50da2****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The user-defined data. The value can contain letters, digits, and special characters. The value can be up to 128 bytes in length.
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2218,7 +3164,21 @@ export class ImportFpShotJobRequest extends $tea.Model {
 }
 
 export class ImportFpShotJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the import job. We recommend that you save this ID for subsequent operations.
+   * 
+   * @example
+   * c074b118ace44395a02063a5ab94****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2265,7 +3225,21 @@ export class ImportFpShotJobResponse extends $tea.Model {
 }
 
 export class ListAllMediaBucketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of media buckets to return. Valid values: 1 to 100. Default value: 50.
+   * 
+   * @example
+   * 10
+   */
   maximumPageSize?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The response to the first request contains this parameter, which is added to the next request.
+   * 
+   * @example
+   * P2Zqo1PLGhZdygo-ajSsjUX5zrBHCgXy6j4hEvv****
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -2299,8 +3273,26 @@ export class ListAllMediaBucketRequest extends $tea.Model {
 }
 
 export class ListAllMediaBucketResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The media buckets returned.
+   */
   mediaBucketList?: ListAllMediaBucketResponseBodyMediaBucketList;
+  /**
+   * @remarks
+   * The returned value of NextPageToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * P2Zqo1PLGhZdygo-ajSsjUX5zrBHCgXy6j4hEvv****
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 79760D91-D3CF-4165-****-B7E2836EF62A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2349,11 +3341,39 @@ export class ListAllMediaBucketResponse extends $tea.Model {
 }
 
 export class ListCustomEntitiesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * landmark
+   */
   algorithm?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2390,9 +3410,25 @@ export class ListCustomEntitiesRequest extends $tea.Model {
 
 export class ListCustomEntitiesResponseBody extends $tea.Model {
   customEntities?: ListCustomEntitiesResponseBodyCustomEntities;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2445,10 +3481,31 @@ export class ListCustomEntitiesResponse extends $tea.Model {
 }
 
 export class ListCustomGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * landmark
+   */
   algorithm?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2483,9 +3540,25 @@ export class ListCustomGroupsRequest extends $tea.Model {
 
 export class ListCustomGroupsResponseBody extends $tea.Model {
   customGroups?: ListCustomGroupsResponseBodyCustomGroups;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2538,9 +3611,25 @@ export class ListCustomGroupsResponse extends $tea.Model {
 }
 
 export class ListCustomPersonsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the figure library about which you want to query information. The ID is used to uniquely identify a custom figure library. Make sure that the ID is unique. If you do not specify this parameter, the operation returns all the custom figure libraries. The ID can be up to 120 characters in length and is not case-sensitive.
+   * 
+   * > You cannot specify the ID of the system figure library for this parameter.
+   * 
+   * @example
+   * CategoryId-****
+   */
   categoryId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the figure about which you want to query information. The ID is used to uniquely identify a figure. Make sure that the ID is unique. If you do not specify this parameter, the operation returns the information about all the figures in the specified figure library.
+   * 
+   * @example
+   * PersonId-****
+   */
   personId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2572,7 +3661,18 @@ export class ListCustomPersonsRequest extends $tea.Model {
 }
 
 export class ListCustomPersonsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The array of the figure libraries.
+   */
   categories?: ListCustomPersonsResponseBodyCategories;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FD4DED6B-0C26-5A8B-A6BE-4FA542AE4D57
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2619,12 +3719,47 @@ export class ListCustomPersonsResponse extends $tea.Model {
 }
 
 export class ListCustomViewsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * landmark
+   */
   algorithm?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customEntityId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customGroupId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2663,9 +3798,25 @@ export class ListCustomViewsRequest extends $tea.Model {
 
 export class ListCustomViewsResponseBody extends $tea.Model {
   customViews?: ListCustomViewsResponseBodyCustomViews;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2718,6 +3869,13 @@ export class ListCustomViewsResponse extends $tea.Model {
 }
 
 export class ListFpShotDBRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media fingerprint library. You can obtain the library ID from the response parameters of the [CreateFpShotDB](https://help.aliyun.com/document_detail/170149.html) operation. You can query up to 10 libraries at a time. Separate multiple library IDs with commas (,).
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****,ae687c02fe944327ba9631e50da2****
+   */
   fpDBIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -2749,8 +3907,23 @@ export class ListFpShotDBRequest extends $tea.Model {
 }
 
 export class ListFpShotDBResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The media fingerprint libraries.
+   */
   fpShotDBList?: ListFpShotDBResponseBodyFpShotDBList;
+  /**
+   * @remarks
+   * The IDs of the media fingerprint libraries that do not exist.
+   */
   nonExistIds?: ListFpShotDBResponseBodyNonExistIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2799,14 +3972,55 @@ export class ListFpShotDBResponse extends $tea.Model {
 }
 
 export class ListFpShotFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The media files to be returned must be stored before the specified end time. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+   * 
+   * > This parameter is available only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+   * 
+   * @example
+   * 2022-09-08T23:32:56Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the media fingerprint library whose files you want to query. You can obtain the library ID from the response parameters of the [CreateFpShotDB](https://help.aliyun.com/document_detail/170149.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   fpDBId?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * ae0fd49c0840e14daf0d66a75b83****
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The media files to be returned must be stored after the specified start time. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+   * 
+   * > This parameter is available only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+   * 
+   * @example
+   * 2022-09-01T00:00:28Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2842,8 +4056,26 @@ export class ListFpShotFilesRequest extends $tea.Model {
 }
 
 export class ListFpShotFilesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The media fingerprint files. For more information, see the "FpShotFile" section of the [Data types](https://help.aliyun.com/document_detail/29251.html) topic.
+   */
   fpShotFileList?: ListFpShotFilesResponseBodyFpShotFileList;
+  /**
+   * @remarks
+   * The returned value of NextPageToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * ae0fd49c0840e14daf0d66a75b83****
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2892,6 +4124,15 @@ export class ListFpShotFilesResponse extends $tea.Model {
 }
 
 export class ListFpShotImportJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The job IDs. You can obtain the job IDs from the response to the [ImportFpShotJob](https://help.aliyun.com/document_detail/312262.html) operation. You can specify a maximum of 10 job IDs in a request. Separate multiple job IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****,c074b118ace44395a02063a5ab94****
+   */
   jobIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -2923,8 +4164,23 @@ export class ListFpShotImportJobRequest extends $tea.Model {
 }
 
 export class ListFpShotImportJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The jobs of importing text files to a text fingerprint library.
+   */
   fpShotImportJobList?: ListFpShotImportJobResponseBodyFpShotImportJobList[];
+  /**
+   * @remarks
+   * The job IDs that do not exist. This parameter is not returned if all specified job IDs exist.
+   */
   nonExistIds?: string[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2973,15 +4229,67 @@ export class ListFpShotImportJobResponse extends $tea.Model {
 }
 
 export class ListJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+   * 
+   * @example
+   * 2014-01-11T12:00:00Z
+   */
   endOfJobCreatedTimeRange?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * *   Default value: **10**.
+   * *   Valid values: **1 to 100**.
+   * 
+   * @example
+   * 10
+   */
   maximumPageSize?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of the query results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextPageToken.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which the job is submitted. To obtain the ID of an MPS queue, you can log on to the [MPS console](https://mps.console.aliyun.com/overview) and choose **Global Settings** > **MPS Queue and Callback** in the left-side navigation pane.
+   * 
+   * @example
+   * 88c6ca184c0e424d5w5b665e2a12****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+   * 
+   * @example
+   * 2014-01-10T12:00:00Z
+   */
   startOfJobCreatedTimeRange?: string;
+  /**
+   * @remarks
+   * The state of the transcoding job. Default value: **All**. Valid values:
+   * 
+   * *   **All**
+   * *   **Submitted**
+   * *   **Transcoding**
+   * *   **TranscodeSuccess**
+   * *   **TranscodeFail**
+   * *   **TranscodeCancelled**
+   * 
+   * @example
+   * All
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3019,8 +4327,26 @@ export class ListJobRequest extends $tea.Model {
 }
 
 export class ListJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The transcoding jobs.
+   */
   jobList?: ListJobResponseBodyJobList;
+  /**
+   * @remarks
+   * The pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BC860F04-778A-472F-AB39-E1BF329C1EA8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3069,10 +4395,45 @@ export class ListJobResponse extends $tea.Model {
 }
 
 export class ListMediaWorkflowExecutionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the input file of the media workflow. The URL complies with RFC 3986 and is encoded in UTF-8, with reserved characters being percent-encoded. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
+   * 
+   * @example
+   * http://example-****.cn-hangzhou.aliyuncs.com/test****.flv
+   */
   inputFileURL?: string;
+  /**
+   * @remarks
+   * The maximum number of media workflow execution instances to return. Valid values: `[1,100]`. Default value: **10**.
+   * 
+   * @example
+   * 1
+   */
   maximumPageSize?: number;
+  /**
+   * @remarks
+   * The ID of the media workflow whose execution instances you want to query. To obtain the workflow ID, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings**.
+   * 
+   * @example
+   * 43b7335a4b1d4fe883670036affb****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the media workflow. To obtain the workflow name, you can log on to the **MPS console** and choose **Workflows** > **Workflow Settings**.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   mediaWorkflowName?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. The value is a UUID that contains 32 characters. When you request the first page of query results, leave the NextPageToken parameter empty. When you request more query results, specify the value of the NextPageToken parameter returned in the query results on the previous page.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3112,8 +4473,26 @@ export class ListMediaWorkflowExecutionsRequest extends $tea.Model {
 }
 
 export class ListMediaWorkflowExecutionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the media workflows.
+   */
   mediaWorkflowExecutionList?: ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionList;
+  /**
+   * @remarks
+   * The returned value of NextPageToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D1D5C080-8E2F-5030-8AB4-13092F17631B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3162,6 +4541,15 @@ export class ListMediaWorkflowExecutionsResponse extends $tea.Model {
 }
 
 export class QueryAnalysisJobListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The template analysis job ID list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bb558c1cc25b45309aab5be44d19****
+   */
   analysisJobIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3193,8 +4581,28 @@ export class QueryAnalysisJobListRequest extends $tea.Model {
 }
 
 export class QueryAnalysisJobListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of template analysis jobs.
+   */
   analysisJobList?: QueryAnalysisJobListResponseBodyAnalysisJobList;
+  /**
+   * @remarks
+   * The message sent by Message Service (MNS) to notify the user of the job result.
+   */
   nonExistAnalysisJobIds?: QueryAnalysisJobListResponseBodyNonExistAnalysisJobIds;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   **Submitted**: The job has been submitted.
+   * *   **Analyzing**: The job is being run.
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job fails.
+   * 
+   * @example
+   * 5CA6E020-4102-4FFF-AA56-5ED7ECD811A1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3243,6 +4651,13 @@ export class QueryAnalysisJobListResponse extends $tea.Model {
 }
 
 export class QueryCopyrightExtractJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3263,8 +4678,23 @@ export class QueryCopyrightExtractJobRequest extends $tea.Model {
 
 export class QueryCopyrightExtractJobResponseBody extends $tea.Model {
   data?: QueryCopyrightExtractJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F24EAE86-5356-528E-A2B1-FEDE269F42DD
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3315,11 +4745,35 @@ export class QueryCopyrightExtractJobResponse extends $tea.Model {
 }
 
 export class QueryCopyrightJobRequest extends $tea.Model {
+  /**
+   * @example
+   * 1627357325
+   */
   createTimeEnd?: number;
+  /**
+   * @example
+   * 1627357322
+   */
   createTimeStart?: number;
+  /**
+   * @example
+   * 2a0697e35a7342859f733a9190c4****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 2
+   */
   level?: number;
+  /**
+   * @example
+   * 0
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3350,8 +4804,23 @@ export class QueryCopyrightJobRequest extends $tea.Model {
 
 export class QueryCopyrightJobResponseBody extends $tea.Model {
   data?: QueryCopyrightJobResponseBodyData[];
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5CA6E020-4102-4FFF-AA56-5ED7ECD811A1
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3402,6 +4871,13 @@ export class QueryCopyrightJobResponse extends $tea.Model {
 }
 
 export class QueryFpDBDeleteJobListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the jobs of clearing or deleting a media fingerprint library. You can obtain the job IDs from the response parameters of the [SubmitFpDBDeleteJob](https://help.aliyun.com/document_detail/209341.html) operation. Separate multiple job IDs with commas (,). If you leave this parameter empty, the system returns the latest 20 jobs that are submitted.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****,78dc866518b843259669df58ed30****
+   */
   jobIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3433,8 +4909,23 @@ export class QueryFpDBDeleteJobListRequest extends $tea.Model {
 }
 
 export class QueryFpDBDeleteJobListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The jobs of deleting a media fingerprint library. For more information, see the "FpDBDeleteJob" section of the [Data types](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/datatypes) topic.
+   */
   fpDBDeleteJobList?: QueryFpDBDeleteJobListResponseBodyFpDBDeleteJobList;
+  /**
+   * @remarks
+   * The IDs of the jobs that do not exist.
+   */
   nonExistIds?: QueryFpDBDeleteJobListResponseBodyNonExistIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4247B23C-26DE-529F-8D9F-FD6811AE979B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3483,6 +4974,13 @@ export class QueryFpDBDeleteJobListResponse extends $tea.Model {
 }
 
 export class QueryFpFileDeleteJobListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the jobs of deleting media files from a media fingerprint library. You can obtain the job IDs from the response parameters of the [SubmitFpFileDeleteJob](https://help.aliyun.com/document_detail/209274.html) operation. Separate multiple job IDs with commas (,). If you leave this parameter empty, the system returns the latest 20 jobs that are submitted.
+   * 
+   * @example
+   * d98459323c024947a104f6a50cbf****,c2dc694696f1441591c5012a73c1****
+   */
   jobIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3514,8 +5012,23 @@ export class QueryFpFileDeleteJobListRequest extends $tea.Model {
 }
 
 export class QueryFpFileDeleteJobListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The jobs of deleting media files from a media fingerprint library. For more information, see the "FpFileDeleteJob" section of the [Data types](https://help.aliyun.com/document_detail/93555.html) topic.
+   */
   fpFileDeleteJobList?: QueryFpFileDeleteJobListResponseBodyFpFileDeleteJobList;
+  /**
+   * @remarks
+   * The response parameters.
+   */
   nonExistIds?: QueryFpFileDeleteJobListResponseBodyNonExistIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D127C68E-F1A1-4CE5-A874-8FF724881A12
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3564,16 +5077,80 @@ export class QueryFpFileDeleteJobListResponse extends $tea.Model {
 }
 
 export class QueryFpShotJobListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range within which the jobs to be queried were created. 
+   * 
+   * *   Specify the time in the ISO 8601 standard in the
+   * *   YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2022-02-14T02:16:07Z
+   */
   endOfJobCreatedTimeRange?: string;
+  /**
+   * @remarks
+   * The ID of the media fingerprint analysis job that you want to query. To view the job ID, log on to the [ApsaraVideo Media Processing (MPS) console](https://mps.console.aliyun.com/overview), click **Tasks** in the left-side navigation pane, and then click the **Video DNA** tab on the Tasks page. You can query up to 10 media fingerprint analysis jobs at a time. Separate multiple job IDs with commas (,).
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   jobIds?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page. 
+   * 
+   * *   Default value: **10**.
+   * *   Valid values: **1 to 100**.
+   * 
+   * @example
+   * 10
+   */
   maximumPageSize?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of the query results. You do not need to specify this parameter in the first request. The response to the first request contains this parameter, which you add to the next request.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue. To view the ID of the MPS queue, log on to the [MPS console](https://mps.console.aliyun.com/overview) and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
+   * 
+   * @example
+   * b11c171cced04565b1f38f1ecc39****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The beginning of the time range within which the jobs to be queried were created. 
+   * 
+   * *   Specify the time in the ISO 8601 standard in the
+   * *   YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2021-12-22T03:48:05Z
+   */
   startOfJobCreatedTimeRange?: string;
+  /**
+   * @remarks
+   * The status of the jobs to be queried. Valid values:
+   * 
+   * *   **All**: all jobs.
+   * *   **Queuing**: the jobs that are being queued.
+   * *   **Analysing**: the jobs that are in progress.
+   * *   **Fail**: failed jobs.
+   * *   **Success**: successful jobs.
+   * 
+   * @example
+   * All
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3613,9 +5190,31 @@ export class QueryFpShotJobListRequest extends $tea.Model {
 }
 
 export class QueryFpShotJobListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about media fingerprint analysis jobs.
+   */
   fpShotJobList?: QueryFpShotJobListResponseBodyFpShotJobList;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of the query results. The value is a 32-bit UUID. If the returned query results cannot be displayed within one page, this parameter is returned. The value of this parameter is updated for each query.
+   * 
+   * @example
+   * b11c171cced04565b1f38f1ecc39****
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The IDs of the jobs that do not exist.
+   */
   nonExistIds?: QueryFpShotJobListResponseBodyNonExistIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3666,6 +5265,10 @@ export class QueryFpShotJobListResponse extends $tea.Model {
 }
 
 export class QueryIProductionJobRequest extends $tea.Model {
+  /**
+   * @example
+   * 88c6ca184c0e432bbf5b665e2a15****
+   */
   jobId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3697,15 +5300,55 @@ export class QueryIProductionJobRequest extends $tea.Model {
 }
 
 export class QueryIProductionJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ImageCartoonize
+   */
   functionName?: string;
+  /**
+   * @example
+   * oss://example-****.oss-cn-hangzhou.aliyuncs.com/example.mp4
+   */
   input?: string;
+  /**
+   * @example
+   * 88c6ca184c0e432bbf5b665e2a15****
+   */
   jobId?: string;
+  /**
+   * @example
+   * {mode:"gif"}
+   */
   jobParams?: string;
+  /**
+   * @example
+   * oss://example-****.oss-cn-hangzhou.aliyuncs.com/iproduction/{source}-{timestamp}-{sequenceId}.srt
+   */
   output?: string;
+  /**
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * D127C68E-F1A1-4CE5-A874-8FF724881A12
+   */
   requestId?: string;
+  /**
+   * @example
+   * {"Code":"Success","Data":"{\\"result\\":[{\\"file\\":\\"iproduction/test-result.jpg\\"},{\\"file\\":\\"iproduction/test-origin.jpg\\"}]}","Message":"Successful."}
+   */
   result?: string;
+  /**
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @example
+   * null
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3768,6 +5411,15 @@ export class QueryIProductionJobResponse extends $tea.Model {
 }
 
 export class QueryJobListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of transcoding jobs. Separate multiple IDs with commas (,). You can query a maximum of 10 transcoding jobs at a time. You can log on to the [ApsaraVideo Media Processing (MPS) console](https://mps.console.aliyun.com/overview) and click **Tasks** in the left-side navigation pane to obtain job IDs. Alternatively, you can obtain job IDs from the response to the [SubmitJobs](https://help.aliyun.com/document_detail/29226.html) operation.
+   * 
+   * >  If you do not set the JobIds parameter, the `InvalidParameter` error code is returned.
+   * 
+   * @example
+   * bb558c1cc25b45309aab5be44d19****,d1ce4d3efcb549419193f50f1fcd****
+   */
   jobIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3799,8 +5451,23 @@ export class QueryJobListRequest extends $tea.Model {
 }
 
 export class QueryJobListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The transcoding jobs.
+   */
   jobList?: QueryJobListResponseBodyJobList;
+  /**
+   * @remarks
+   * The list of nonexistent job IDs. If all queried job IDs exist, the response does not contain this parameter.
+   */
   nonExistJobIds?: QueryJobListResponseBodyNonExistJobIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 197ADF44-104C-514C-9F92-D8924CB34E2A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3849,8 +5516,34 @@ export class QueryJobListResponse extends $tea.Model {
 }
 
 export class QueryMediaCensorJobDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the content moderation job. You can obtain the job ID from the response parameters of the [SubmitMediaCensorJob](https://help.aliyun.com/document_detail/91774.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * *   Default value: **30**.
+   * *   Valid values: **1 to 300**.
+   * 
+   * @example
+   * 30
+   */
   maximumPageSize?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The token of the next page is returned after you call this operation to query the results of a content moderation job for the first time.
+   * 
+   * @example
+   * ae0fd49c0840e14daf0d66a75b83****
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -3886,7 +5579,18 @@ export class QueryMediaCensorJobDetailRequest extends $tea.Model {
 }
 
 export class QueryMediaCensorJobDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the content moderation job.
+   */
   mediaCensorJobDetail?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B42299E6-F71F-465F-8FE9-4FC2E3D3C2CA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3933,16 +5637,80 @@ export class QueryMediaCensorJobDetailResponse extends $tea.Model {
 }
 
 export class QueryMediaCensorJobListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range within which the jobs to be queried were created.
+   * 
+   * *   Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
+   * *   The time must be in UTC.
+   * 
+   * @example
+   * 2022-02-14T02:16:07Z
+   */
   endOfJobCreatedTimeRange?: string;
+  /**
+   * @remarks
+   * The ID of the content moderation job. You can call the [SubmitMediaCensorJob](https://help.aliyun.com/document_detail/91779.html) operation to query the ID of the content moderation job. Separate multiple IDs with commas (,).
+   * 
+   * @example
+   * fa9c34be3bcf42919ac4d1775239****,78dc866518b843259669df58ed30****
+   */
   jobIds?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * *   Default value: **30**.
+   * *   Valid values: **1 to 300**.
+   * 
+   * @example
+   * 20
+   */
   maximumPageSize?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The returned value of NextPageToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * 79aff3eee82242e092899db5f669****
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job. To obtain the ID of the MPS queue, perform the following steps: Log on to the [**MPS console**](https://mps.console.aliyun.com/overview). In the left-side navigation pane, choose **Global Settings** > **Pipelines**.
+   * 
+   * @example
+   * c5b30b7c0d0e4a0abde1d5f9e751****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The beginning of the time range within which the jobs to be queried were created.
+   * 
+   * *   Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format.
+   * *   The time must be in UTC.
+   * 
+   * @example
+   * 2021-12-22T03:48:05Z
+   */
   startOfJobCreatedTimeRange?: string;
+  /**
+   * @remarks
+   * The status of the jobs to be queried. Valid values:
+   * 
+   * *   **All**: all jobs.
+   * *   **Queuing**: the jobs that are being queued.
+   * *   **Analysing**: the jobs that are in progress.
+   * *   **Fail**: failed jobs.
+   * *   **Success**: successful jobs.
+   * 
+   * @example
+   * All
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3982,9 +5750,31 @@ export class QueryMediaCensorJobListRequest extends $tea.Model {
 }
 
 export class QueryMediaCensorJobListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The content moderation jobs.
+   */
   mediaCensorJobList?: QueryMediaCensorJobListResponseBodyMediaCensorJobList;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of the query results. The value is a UUID that contains 32 characters. If the returned query results cannot be displayed within one page, this parameter is returned. The value of this parameter is updated for each query.
+   * 
+   * @example
+   * 9b1a42bc6e8d46e6a1383b7e7f01****
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The IDs of the jobs that do not exist. This parameter is not returned if all specified jobs are found.
+   */
   nonExistIds?: QueryMediaCensorJobListResponseBodyNonExistIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D1D5C080-8E2F-5030-8AB4-13092F17631B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4035,6 +5825,20 @@ export class QueryMediaCensorJobListResponse extends $tea.Model {
 }
 
 export class QueryMediaInfoJobListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the media information analysis jobs.
+   * 
+   * *   You can query up to 10 jobs at a time. Separate multiple IDs with commas (,).
+   * *   You can obtain the details from the response parameters of the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/602827.html) operation.
+   * 
+   * >  If you do not specify the JobIds parameter, the **InvalidParameter** error code is returned.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 23ca1d184c0e4341e5b665e2a12****
+   */
   mediaInfoJobIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -4066,8 +5870,23 @@ export class QueryMediaInfoJobListRequest extends $tea.Model {
 }
 
 export class QueryMediaInfoJobListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of each returned media information analysis job.
+   */
   mediaInfoJobList?: QueryMediaInfoJobListResponseBodyMediaInfoJobList;
+  /**
+   * @remarks
+   * Nonexistent media information analysis jobs.
+   */
   nonExistMediaInfoJobIds?: QueryMediaInfoJobListResponseBodyNonExistMediaInfoJobIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 46A04AA5-B119-41BB-B750-7C5327AC3E7A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4116,10 +5935,59 @@ export class QueryMediaInfoJobListResponse extends $tea.Model {
 }
 
 export class QueryMediaListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to include media information in the returned result.
+   * 
+   * *   Valid values: true and false.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   includeMediaInfo?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to include playback information in the returned result.
+   * 
+   * *   Valid values: true and false.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   includePlayList?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to include snapshot information in the returned result.
+   * 
+   * *   Valid values: true and false.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   includeSnapshotList?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to include summaries in the returned result.
+   * 
+   * *   Valid values: true and false.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   includeSummaryList?: boolean;
+  /**
+   * @remarks
+   * The IDs of the media files. To obtain the ID of a media file, you can perform the following operations in the ApsaraVideo Media Processing (MPS) console: In the left-side navigation pane, choose **Media Management** > **Media List**. Find the required video and click Manage. The ID of the video is displayed on the Basics tab. Separate multiple IDs with commas (,). You can query up to 10 media files at a time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3e1cd21131a94525be55acf65888****,e26cfa29e784402388463f61dbec****
+   */
   mediaIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -4159,8 +6027,23 @@ export class QueryMediaListRequest extends $tea.Model {
 }
 
 export class QueryMediaListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of media files.
+   */
   mediaList?: QueryMediaListResponseBodyMediaList;
+  /**
+   * @remarks
+   * The IDs of the media files that do not exist. This parameter is not returned when all specified media files exist.
+   */
   nonExistMediaIds?: QueryMediaListResponseBodyNonExistMediaIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 283DC68C-146F-4489-A2A1-2F88F1472A56
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4209,10 +6092,65 @@ export class QueryMediaListResponse extends $tea.Model {
 }
 
 export class QueryMediaListByURLRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS URLs of the media files. To obtain the OSS URL of a media file, you can perform the following operations in the ApsaraVideo Media Processing (MPS) console: In the left-side navigation pane, choose **Media Management** > **Media List**. Find the media file whose OSS URL you want to view and click **Manage** in the **Actions** column. The OSS URL of the media file is displayed on the **Obtain Encoding URL** tab. Separate multiple URLs with commas (,). You can query up to 10 media files at a time.
+   * 
+   * *   The URL complies with RFC 3986 and is encoded in UTF-8, with reserved characters being percent-encoded. The value can be up to 3,200 bytes in size. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
+   * *   Only OSS HTTP URLs are supported. Alibaba Cloud CDN URLs and HTTPS URLs are not supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-shanghai.aliyuncs.com/example.mp4
+   */
   fileURLs?: string;
+  /**
+   * @remarks
+   * Specifies whether to include media information in the returned result.
+   * 
+   * *   Valid values: true and false.
+   * 
+   * *   Default value: **false**.
+   * 
+   * > To obtain detailed information about the media files, set this parameter to true.
+   * 
+   * @example
+   * true
+   */
   includeMediaInfo?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to include playback information in the returned result.
+   * 
+   * *   Valid values: true and false.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   includePlayList?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to include snapshot information in the returned result.
+   * 
+   * *   Valid values: true and false.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   includeSnapshotList?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to include summaries in the returned result.
+   * 
+   * *   Valid values: true and false.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   includeSummaryList?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -4252,8 +6190,23 @@ export class QueryMediaListByURLRequest extends $tea.Model {
 }
 
 export class QueryMediaListByURLResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of media files.
+   */
   mediaList?: QueryMediaListByURLResponseBodyMediaList;
+  /**
+   * @remarks
+   * The IDs of the media files that do not exist. This parameter is not returned if all specified media files exist.
+   */
   nonExistFileURLs?: QueryMediaListByURLResponseBodyNonExistFileURLs;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1C8A0AEB-4321-485B-B4CB-DA4E9E6C9B42
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4306,6 +6259,15 @@ export class QueryMediaWorkflowExecutionListRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The IDs of the media workflow execution instances. To obtain the instance ID, log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Execution Instances** in the left-side navigation pane. Separate multiple IDs with commas (,). You can query a maximum of 10 media workflow execution instances at a time.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 48e33690ac19445488c706924321****
+   */
   runIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4333,8 +6295,23 @@ export class QueryMediaWorkflowExecutionListRequest extends $tea.Model {
 }
 
 export class QueryMediaWorkflowExecutionListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the media workflows.
+   */
   mediaWorkflowExecutionList?: QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionList;
+  /**
+   * @remarks
+   * The IDs of the execution instances that do not exist.
+   */
   nonExistRunIds?: QueryMediaWorkflowExecutionListResponseBodyNonExistRunIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D1D5C080-8E2F-5030-8AB4-13092F17631B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4383,6 +6360,15 @@ export class QueryMediaWorkflowExecutionListResponse extends $tea.Model {
 }
 
 export class QueryMediaWorkflowListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the media workflows that you want to query. To obtain the IDs of the media workflows, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings** in the left-side navigation pane. You can query up to 10 media workflows at a time. Separate multiple IDs of media workflows with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e9181d4****,72dfa5e679ab4be9a3ed9974c736****
+   */
   mediaWorkflowIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -4414,8 +6400,23 @@ export class QueryMediaWorkflowListRequest extends $tea.Model {
 }
 
 export class QueryMediaWorkflowListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The media workflows.
+   */
   mediaWorkflowList?: QueryMediaWorkflowListResponseBodyMediaWorkflowList;
+  /**
+   * @remarks
+   * The workflows that do not exist.
+   */
   nonExistMediaWorkflowIds?: QueryMediaWorkflowListResponseBodyNonExistMediaWorkflowIds;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16CD0CDD-457E-420D-1234-8385075A618B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4466,6 +6467,15 @@ export class QueryMediaWorkflowListResponse extends $tea.Model {
 export class QueryPipelineListRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The IDs of the MPS queues that you want to query. To view the IDs, you can log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane. You can query up to 10 MPS queues at a time. Separate multiple IDs of MPS queues with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d1ce4d3efcb549419193f50f1fcd****,72dfa5e679ab4be9a3ed9974c736****
+   */
   pipelineIds?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -4495,8 +6505,23 @@ export class QueryPipelineListRequest extends $tea.Model {
 }
 
 export class QueryPipelineListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of MPS queues that do not exist.
+   */
   nonExistPids?: QueryPipelineListResponseBodyNonExistPids;
+  /**
+   * @remarks
+   * The MPS queues.
+   */
   pipelineList?: QueryPipelineListResponseBodyPipelineList;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1C538EAA-ACAF-5AD8-B091-A72C63007149
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4545,9 +6570,20 @@ export class QueryPipelineListResponse extends $tea.Model {
 }
 
 export class QuerySmarttagJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
   jobId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * {"labelResultType":"auto"}
+   */
   params?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -4579,9 +6615,21 @@ export class QuerySmarttagJobRequest extends $tea.Model {
 }
 
 export class QuerySmarttagJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   jobStatus?: string;
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
   requestId?: string;
   results?: QuerySmarttagJobResponseBodyResults;
+  /**
+   * @example
+   * example UserData ****
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4636,6 +6684,13 @@ export class QuerySmarttagTemplateListRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the template. You can obtain the template ID from the response of the [AddSmarttagTemplate](https://help.aliyun.com/document_detail/187759.html) operation. If you set this parameter to a specific value, the information about the corresponding template is returned. If you do not specify this parameter, the operation returns the information about all the templates that are created by the current RAM user.
+   * 
+   * @example
+   * 05de22f255284c7a8d2aab535dde****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4663,7 +6718,18 @@ export class QuerySmarttagTemplateListRequest extends $tea.Model {
 }
 
 export class QuerySmarttagTemplateListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5210DBB0-E327-4D45-ADBC-0B83C8796E26
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The templates.
+   */
   templates?: QuerySmarttagTemplateListResponseBodyTemplates;
   static names(): { [key: string]: string } {
     return {
@@ -4710,16 +6776,71 @@ export class QuerySmarttagTemplateListResponse extends $tea.Model {
 }
 
 export class QuerySnapshotJobListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The snapshot configuration.
+   * 
+   * @example
+   * 2014-01-12T12:00:00Z
+   */
   endOfJobCreatedTimeRange?: string;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which the snapshot jobs that you want to query are submitted. To obtain the ID, you can log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
+   * 
+   * @example
+   * 30
+   */
   maximumPageSize?: number;
+  /**
+   * @remarks
+   * The end of the time range within which the creation time of snapshot jobs to be queried is.
+   * 
+   * *   Specify the time in the ISO 8601 standard in the
+   * *   YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * cc6cbef8e8d5481ca536f5d2a466****
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The start time for taking snapshots. Unit: milliseconds.
+   * 
+   * @example
+   * b11c171cced04565b1f38f1ecc39****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The beginning of the time range within which the creation time of snapshot jobs to be queried is.
+   * 
+   * *   Specify the time in the ISO 8601 standard in the
+   * *   YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 72dfa5e679ab4be9a3ed9974c736****
+   */
   snapshotJobIds?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2014-01-10T12:00:00Z
+   */
   startOfJobCreatedTimeRange?: string;
+  /**
+   * @remarks
+   * The information about the snapshot jobs.
+   * 
+   * @example
+   * Snapshoting
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4759,9 +6880,34 @@ export class QuerySnapshotJobListRequest extends $tea.Model {
 }
 
 export class QuerySnapshotJobListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS object that is used as the input file.
+   * 
+   * @example
+   * b11c171cced04565b1f38f1ecc39****
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The OSS object that is generated as the output file of the tiling job.
+   */
   nonExistSnapshotJobIds?: QuerySnapshotJobListResponseBodyNonExistSnapshotJobIds;
+  /**
+   * @remarks
+   * The ID of the snapshot job.
+   * 
+   * @example
+   * 34BCAB31-2833-43A7-9FBD-B34302AB23EQ
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The distance between images.
+   * 
+   * *   Default value: **0**.
+   * *   Unit: pixel.
+   */
   snapshotJobList?: QuerySnapshotJobListResponseBodySnapshotJobList;
   static names(): { [key: string]: string } {
     return {
@@ -4816,6 +6962,15 @@ export class QueryTemplateListRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****,88c6ca184c0e424d5w5b665e2a12****
+   */
   templateIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4843,8 +6998,23 @@ export class QueryTemplateListRequest extends $tea.Model {
 }
 
 export class QueryTemplateListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the templates that do not exist. This parameter is not returned if all specified transcoding templates are found.
+   */
   nonExistTids?: QueryTemplateListResponseBodyNonExistTids;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BC860F04-778A-472F-AB39-E1BF329C1EA8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The transcoding templates.
+   */
   templateList?: QueryTemplateListResponseBodyTemplateList;
   static names(): { [key: string]: string } {
     return {
@@ -4893,7 +7063,15 @@ export class QueryTemplateListResponse extends $tea.Model {
 }
 
 export class QueryTraceAbJobRequest extends $tea.Model {
+  /**
+   * @example
+   * 31fa3c9ca8134fb4b0b0f7878301****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 3e6149d5a8c944c09b1a8d2dc3e4****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4916,8 +7094,23 @@ export class QueryTraceAbJobRequest extends $tea.Model {
 
 export class QueryTraceAbJobResponseBody extends $tea.Model {
   data?: QueryTraceAbJobResponseBodyData[];
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 338CA33A-AE83-5DF4-B6F2-C6D3ED8143F5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4968,6 +7161,13 @@ export class QueryTraceAbJobResponse extends $tea.Model {
 }
 
 export class QueryTraceExtractJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 31fa3c9ca8134fb4b0b0f7878301****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4988,8 +7188,23 @@ export class QueryTraceExtractJobRequest extends $tea.Model {
 
 export class QueryTraceExtractJobResponseBody extends $tea.Model {
   data?: QueryTraceExtractJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 7D9F3008-9316-5817-BFA3-6180D752039D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5040,10 +7255,30 @@ export class QueryTraceExtractJobResponse extends $tea.Model {
 }
 
 export class QueryTraceM3u8JobRequest extends $tea.Model {
+  /**
+   * @example
+   * 1527441303
+   */
   createTimeEnd?: number;
+  /**
+   * @example
+   * 1527441300
+   */
   createTimeStart?: number;
+  /**
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5072,8 +7307,23 @@ export class QueryTraceM3u8JobRequest extends $tea.Model {
 
 export class QueryTraceM3u8JobResponseBody extends $tea.Model {
   data?: QueryTraceM3u8JobResponseBodyData[];
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5CA6E020-4102-4FFF-AA56-5ED7ECD8****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5128,6 +7378,15 @@ export class QueryWaterMarkTemplateListRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The IDs of the watermark templates that you want to query. To obtain the IDs of the watermark templates, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Global Settings** > **Watermark Templates** in the left-side navigation pane. You can query up to 10 watermark templates at a time. Separate multiple IDs of watermark templates with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3780bd69b2b74540bc7b1096f564****
+   */
   waterMarkTemplateIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5155,8 +7414,23 @@ export class QueryWaterMarkTemplateListRequest extends $tea.Model {
 }
 
 export class QueryWaterMarkTemplateListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the templates that do not exist.
+   */
   nonExistWids?: QueryWaterMarkTemplateListResponseBodyNonExistWids;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 17079AF5-6276-51A9-B755-D26594C93F3C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the watermark templates.
+   */
   waterMarkTemplateList?: QueryWaterMarkTemplateListResponseBodyWaterMarkTemplateList;
   static names(): { [key: string]: string } {
     return {
@@ -5205,10 +7479,37 @@ export class QueryWaterMarkTemplateListResponse extends $tea.Model {
 }
 
 export class RegisterCustomFaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the figure library in which you want to register a custom face. The ID is used to uniquely identify a figure library. You can specify the ID of a custom figure library. Make sure that the ID is unique and keep the ID for future API operation calls. If you set this parameter to the ID of a system figure library, the custom face is registered in the system figure library. The ID can be up to 120 characters in length and is not case-sensitive.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CategoryId001-****
+   */
   categoryId?: string;
+  /**
+   * @remarks
+   * The URL of the facial image that you want to register for the specified figure. The image must contain only one face.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http://example-****.jpeg
+   */
   imageUrl?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the figure for which you want to register a custom face. The ID is used to uniquely identify a figure. You can specify a figure ID. Make sure that the ID is unique and keep the ID for future API operation calls. The ID can be up to 120 characters in length and is not case-sensitive. The value returned is of the String type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PersonId001-****
+   */
   personId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -5242,7 +7543,21 @@ export class RegisterCustomFaceRequest extends $tea.Model {
 }
 
 export class RegisterCustomFaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the face.
+   * 
+   * @example
+   * c6cc71cb44a9491093818faf9d60****
+   */
   faceId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91AEA76D-25B5-50DF-9126-AA6BB10FDAF4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5289,9 +7604,34 @@ export class RegisterCustomFaceResponse extends $tea.Model {
 }
 
 export class RegisterCustomViewRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * landmark
+   */
   algorithm?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   customEntityId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   customGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   imageUrl?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -5329,7 +7669,15 @@ export class RegisterCustomViewRequest extends $tea.Model {
 }
 
 export class RegisterCustomViewResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   customViewId?: string;
+  /**
+   * @example
+   * 580e8ce3-3b80-44c5-9f3f-36ac3cc5bdd5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5378,10 +7726,38 @@ export class RegisterCustomViewResponse extends $tea.Model {
 export class SearchMediaWorkflowRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * *   A maximum of **100** entries can be returned on each page.
+   * *   Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The status of the media workflows that you want to query. You can specify multiple states. Separate multiple states with commas (,). Default value: **Inactive,Active,Deleted**. Valid values:
+   * 
+   * *   **Inactive**: Deactivated media workflows are queried.
+   * *   **Active**: Activated media workflows are queried.
+   * *   **Deleted**: Deleted media workflows are queried.
+   * 
+   * @example
+   * Inactive,Active,Deleted
+   */
   stateList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5413,10 +7789,42 @@ export class SearchMediaWorkflowRequest extends $tea.Model {
 }
 
 export class SearchMediaWorkflowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the media workflows.
+   */
   mediaWorkflowList?: SearchMediaWorkflowResponseBodyMediaWorkflowList;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16CD0CDD-457E-420D-9755-8385075A1234
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5471,10 +7879,39 @@ export class SearchMediaWorkflowResponse extends $tea.Model {
 export class SearchPipelineRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * *   A maximum of **100** entries can be returned on each page.
+   * *   Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The status of the MPS queues that you want to query. If you leave this parameter empty, all MPS queues are queried.
+   * 
+   * *   **All**: queries all MPS queues.
+   * *   **Active**: queries the MPS queues that are active.
+   * *   **Paused**: queues the MPS queues that are paused.
+   * *   Default value: **All**.
+   * 
+   * @example
+   * Paused
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5506,10 +7943,42 @@ export class SearchPipelineRequest extends $tea.Model {
 }
 
 export class SearchPipelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The MPS queues.
+   */
   pipelineList?: SearchPipelineResponseBodyPipelineList;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 338CA33A-AE83-5DF4-B6F2-C6D3ED8143F5
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5562,13 +8031,49 @@ export class SearchPipelineResponse extends $tea.Model {
 }
 
 export class SearchTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name prefix based on which you want to search for templates.
+   * 
+   * @example
+   * S00000001
+   */
   namePrefix?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The size of each page set during the result paging query.
+   * 
+   * - Upper limit: 100.
+   * - Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The status of the custom transcoding templates that you want to query.
+   * 
+   * *   **All**: All custom transcoding templates are queried.
+   * *   **Normal**: Normal custom transcoding templates are queried.
+   * *   **Deleted**: Deleted custom transcoding templates are queried.
+   * *   Default value: **All**.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5602,10 +8107,42 @@ export class SearchTemplateRequest extends $tea.Model {
 }
 
 export class SearchTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BC860F04-778A-472F-AB39-E1BF329C****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The transcoding templates.
+   */
   templateList?: SearchTemplateResponseBodyTemplateList;
+  /**
+   * @remarks
+   * The total number of search results.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5660,10 +8197,38 @@ export class SearchTemplateResponse extends $tea.Model {
 export class SearchWaterMarkTemplateRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * *   A maximum of **100** entries can be returned on each page.
+   * *   Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The state of the watermark templates that you want to query. Valid values:
+   * 
+   * *   **All (default)**
+   * *   **Normal**
+   * *   **Deleted**
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5695,10 +8260,58 @@ export class SearchWaterMarkTemplateRequest extends $tea.Model {
 }
 
 export class SearchWaterMarkTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The width of the watermark image in the output video. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the width of the watermark image. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the width of the watermark image to the width of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The values of the Height, Width, Dx, and Dy parameters relative to the reference edges. If the values of the Height, Width, Dx, and Dy parameters are decimals between 0 and 1, the values are calculated by referring to the following edges in sequence:
+   * 
+   * *   **Width**: the width edge.
+   * *   **Height**: the height edge.
+   * *   **Long**: the long edge.
+   * *   **Short**: the short edge.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FC029D04-8F47-57FF-A759-23383C15617D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The type of the watermark. Valid values:
+   * 
+   * *   Image: an image watermark.
+   * *   Text: a text watermark.
+   * 
+   * >  Only watermarks of the **Image** types are supported.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The height of the watermark image in the output video. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the height of the watermark image. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the height of the watermark image to the height of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   */
   waterMarkTemplateList?: SearchWaterMarkTemplateResponseBodyWaterMarkTemplateList;
   static names(): { [key: string]: string } {
     return {
@@ -5751,14 +8364,58 @@ export class SearchWaterMarkTemplateResponse extends $tea.Model {
 }
 
 export class SubmitAnalysisJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The job configurations. Set this parameter as required. For more information, see the "AnalysisConfig" section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   * 
+   * @example
+   * {"QualityControl":{"RateQuality":25,"MethodStreaming":"network"}}
+   */
   analysisConfig?: string;
+  /**
+   * @remarks
+   * The input information about the preset template analysis job to be submitted. The value must be a JSON object. You must log on to the Object Storage Service (OSS) console to grant the read permissions on the specified OSS bucket to MPS. For more information, see the "Input" section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   * 
+   * > The OSS bucket must reside in the same region as your MPS service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"Bucket":"example-bucket","Location":"oss-cn-hangzhou","Object":"example.flv"}
+   */
   input?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which the job is submitted. To view the ID of the MPS queue, log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane. If you want to enable asynchronous notifications, make sure that the MPS queue is bound to a Message Service (MNS) topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bb558c1cc25b45309aab5be44d19****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The priority of the job in the MPS queue to which the job is submitted.
+   * 
+   * *   Valid values: **1 to 10**. A value of 10 indicates the highest priority.
+   * *   Default value: **6**.
+   * 
+   * @example
+   * 10
+   */
   priority?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The custom data. The custom data can contain letters, digits, and hyphens (-), and can be up to 1,024 bytes in length. The custom data cannot start with a special character.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5794,7 +8451,18 @@ export class SubmitAnalysisJobRequest extends $tea.Model {
 }
 
 export class SubmitAnalysisJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the preset template analysis job that was submitted.
+   */
   analysisJob?: SubmitAnalysisJobResponseBodyAnalysisJob;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B52658D4-07AB-43CD-82B0-210958A65E23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5841,10 +8509,30 @@ export class SubmitAnalysisJobResponse extends $tea.Model {
 }
 
 export class SubmitCopyrightExtractJobRequest extends $tea.Model {
+  /**
+   * @example
+   * http://example.com/callback
+   */
   callBack?: string;
+  /**
+   * @example
+   * {"Bucket":"example","Location":"oss-cn-shanghai","Object":"example.mp4"}
+   */
   input?: string;
+  /**
+   * @example
+   * {"algoType":"v1"}
+   */
   params?: string;
+  /**
+   * @example
+   * http://www.example.com/video/test.mp4
+   */
   url?: string;
+  /**
+   * @example
+   * 123
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5873,8 +8561,23 @@ export class SubmitCopyrightExtractJobRequest extends $tea.Model {
 
 export class SubmitCopyrightExtractJobResponseBody extends $tea.Model {
   data?: SubmitCopyrightExtractJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 05F8B913-E9F3-4A6F-9922-48CADA0FFAAD
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5925,16 +8628,59 @@ export class SubmitCopyrightExtractJobResponse extends $tea.Model {
 }
 
 export class SubmitCopyrightJobRequest extends $tea.Model {
+  /**
+   * @example
+   * http://example.com/callback
+   */
   callBack?: string;
   description?: string;
+  /**
+   * @example
+   * {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example.mp4"}
+   */
   input?: string;
-  level?: string;
+  /**
+   * @example
+   * 2
+   */
+  level?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   message?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example_result.mp4"}
+   */
   output?: string;
+  /**
+   * @example
+   * {"algoType":"v2"}
+   */
   params?: string;
+  /**
+   * @example
+   * 0
+   */
   startTime?: string;
+  /**
+   * @example
+   * 10
+   */
   totalTime?: string;
+  /**
+   * @example
+   * http://www.example.com/video/test.mp4
+   */
   url?: string;
+  /**
+   * @example
+   * 123
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5957,7 +8703,7 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
       callBack: 'string',
       description: 'string',
       input: 'string',
-      level: 'string',
+      level: 'number',
       message: 'string',
       output: 'string',
       params: 'string',
@@ -5975,8 +8721,23 @@ export class SubmitCopyrightJobRequest extends $tea.Model {
 
 export class SubmitCopyrightJobResponseBody extends $tea.Model {
   data?: SubmitCopyrightJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FA258E67-09B8-4EAA-8F33-BA567834A2C3
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6027,13 +8788,47 @@ export class SubmitCopyrightJobResponse extends $tea.Model {
 }
 
 export class SubmitFpDBDeleteJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The operation type. Valid values:
+   * 
+   * *   **Purge**: clears the media fingerprint library. The content in the library is deleted, but the library is not deleted.
+   * *   **Delete**: deletes the media fingerprint library. Both the library and its content are deleted.
+   * *   Default value: **Purge**.
+   * 
+   * @example
+   * Purge
+   */
   delType?: string;
+  /**
+   * @remarks
+   * The ID of the media fingerprint library. You can obtain the library ID from the response parameters of the [CreateFpShotDB](https://help.aliyun.com/document_detail/170149.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   fpDBId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue. This ID can be used to associate the job with a notification method. To view the MPS queue ID, log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
+   * 
+   * @example
+   * fb712a6890464059b1b2ea7c8647****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The custom data. The value can contain letters and digits and can be up to 128 bytes in length.
+   * 
+   * @example
+   * example data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6067,7 +8862,21 @@ export class SubmitFpDBDeleteJobRequest extends $tea.Model {
 }
 
 export class SubmitFpDBDeleteJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the job. We recommend that you keep this ID for subsequent operation calls.
+   * 
+   * @example
+   * d98459323c024947a104f6a50cbf****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4247B23C-26DE-529F-8D9F-FD6811AE979B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6114,14 +8923,53 @@ export class SubmitFpDBDeleteJobResponse extends $tea.Model {
 }
 
 export class SubmitFpFileDeleteJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the media files that you want to delete. Separate multiple file IDs with commas (,). You can delete up to 200 media files at a time. You can obtain media file IDs from the response parameters of the [ListFpShotFiles](https://help.aliyun.com/document_detail/209266.html) operation.
+   * 
+   * @example
+   * 41e6536e4f2250e2e9bf26cdea19****
+   */
   fileIds?: string;
+  /**
+   * @remarks
+   * The ID of the media fingerprint library. You can obtain the library ID from the response parameters of the [CreateFpShotDB](https://help.aliyun.com/document_detail/170149.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 88c6ca184c0e432bbf5b665e2a15****
+   */
   fpDBId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the job is submitted. The MPS queue is bound with a notification method. To view the MPS queue ID, log on to the **MPS console** and choose **Global Settings** > **MPS queue and Callback** in the left-side navigation pane.
+   * 
+   * @example
+   * ed450ea0bfbd41e29f80a401fb4d****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The primary keys of the files to be deleted. Separate multiple primary keys with commas (,). You can delete up to 200 primary keys at a time. You can obtain the primary keys of media files from the response parameters of the [ListFpShotFiles](https://help.aliyun.com/document_detail/209266.html) operation.
+   * 
+   * >  This parameter is available only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+   * 
+   * @example
+   * 24e0fba7188fae707e146esa54****
+   */
   primaryKeys?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The custom data. The value can contain letters and digits and can be up to 128 bytes in length.
+   * 
+   * @example
+   * example data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6157,7 +9005,21 @@ export class SubmitFpFileDeleteJobRequest extends $tea.Model {
 }
 
 export class SubmitFpFileDeleteJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D127C68E-F1A1-4CE5-A874-8FF724881A12
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6204,13 +9066,51 @@ export class SubmitFpFileDeleteJobResponse extends $tea.Model {
 }
 
 export class SubmitFpShotJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the media fingerprint analysis job. The value is a JSON object. For more information, see the "FpShotConfig" section of the [Parameter details](https://help.aliyun.com/document_detail/93568.html) topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {
+   *       "PrimaryKey": "12345****",
+   *       "SaveType": "save",
+   *       "FpDBId": "417f2ada5999daf****"
+   * }
+   */
   fpShotConfig?: string;
+  /**
+   * @remarks
+   * The OSS URL of the job input. The value is a JSON object. You can query the OSS URL in the OSS or MPS console.
+   * 
+   * > The OSS bucket must reside in the same region as your MPS service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.flv"}
+   */
   input?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue. This ID can be used to associate the job with a notification method. To view the ID of the MPS queue, perform the following steps: Log on to the **MPS console**. In the left-side navigation pane, choose **Global Settings** > **Pipelines**.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The custom data. The value can be up to 128 bytes in length and cannot start with a special character.
+   * 
+   * @example
+   * testid-****
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6244,7 +9144,21 @@ export class SubmitFpShotJobRequest extends $tea.Model {
 }
 
 export class SubmitFpShotJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media fingerprint analysis job. We recommend that you keep this ID for subsequent operation calls.
+   * 
+   * @example
+   * 2a0697e35a7342859f733a9190c4****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6291,18 +9205,57 @@ export class SubmitFpShotJobResponse extends $tea.Model {
 }
 
 export class SubmitIProductionJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ImageCartoonize
+   */
   functionName?: string;
+  /**
+   * @example
+   * oss://example-****.oss-cn-shanghai.aliyuncs.com/example.mp4
+   */
   input?: string;
+  /**
+   * @example
+   * {"Model":"gif"}
+   */
   jobParams?: string;
+  /**
+   * @example
+   * null
+   */
   modelId?: string;
+  /**
+   * @example
+   * mns://125340688170****.mns.cn-beijing.aliyuncs.com/queues/example-pipeline
+   */
   notifyUrl?: string;
+  /**
+   * @example
+   * oss://example-****.oss-cn-shanghai.aliyuncs.com/iproduction/{source}-{timestamp}-{sequenceId}.srt
+   */
   output?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * null
+   */
   scheduleParams?: string;
+  /**
+   * @example
+   * null
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6346,8 +9299,20 @@ export class SubmitIProductionJobRequest extends $tea.Model {
 }
 
 export class SubmitIProductionJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 5210DBB0-E327-4D45-ADBC-0B83C8796E26
+   */
   requestId?: string;
+  /**
+   * @example
+   * { "Code":"Success", "Details":[], "FunctionName":"ImageCartoonize", "JobId":"39f8e0bc005e4f309379701645f4****", "Message":"success", "State":"Success", "Type":"IProduction" }
+   */
   result?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6396,8 +9361,20 @@ export class SubmitIProductionJobResponse extends $tea.Model {
 }
 
 export class SubmitImageCopyrightRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   message?: string;
+  /**
+   * @example
+   * {"Bucket":"abc-test","Location":"oss-cn-shanghai","Object":"out.jpeg"}
+   */
   output?: string;
+  /**
+   * @example
+   * {"width":2999, "height":2999, "afa": 3, "type":1, "version":0}
+   */
   params?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6422,8 +9399,23 @@ export class SubmitImageCopyrightRequest extends $tea.Model {
 
 export class SubmitImageCopyrightResponseBody extends $tea.Model {
   data?: SubmitImageCopyrightResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * D1D5C080-8E2F-5030-8AB4-13092F17631B
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6474,12 +9466,71 @@ export class SubmitImageCopyrightResponse extends $tea.Model {
 }
 
 export class SubmitJobsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the input file. For more information, see the "Input" section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   * 
+   * > 
+   * 
+   * *   The path of an Object Storage Service (OSS) object must be URL-encoded in UTF-8 before you use the path in MPS.
+   * 
+   * *   The OSS bucket must reside in the same region as your MPS service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a/b/c/test-cn.srt
+   */
   input?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket that stores the output file.
+   * 
+   * *   For more information about the term bucket, see [Terms](https://help.aliyun.com/document_detail/31827.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * exampleBucket
+   */
   outputBucket?: string;
+  /**
+   * @remarks
+   * The region in which the OSS bucket that stores the output file resides.
+   * 
+   * *   The OSS bucket must reside in the same region as MPS.
+   * *   For more information about the term bucket, see [Terms](https://help.aliyun.com/document_detail/31827.html).
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   outputLocation?: string;
+  /**
+   * @remarks
+   * The job output configurations. For more information, see the "Output" section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   * 
+   * *   Specify the value in a JSON array of Output objects. You can specify up to 30 Output objects.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"OutputObject":"exampleOutput.mp4","TemplateId":"6181666213ab41b9bc21da8ff5ff****","WaterMarks":[{"InputFile":{"Bucket":"exampleBucket","Location":"oss-cn-hangzhou","Object":"image_01.png"},"WaterMarkTemplateId":"9b772ce2740d4d55876d8b542d47****"}],"UserData":"testid-001"}]
+   */
   outputs?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue. For more information, see [Terms](https://help.aliyun.com/document_detail/31827.html).
+   * 
+   * *   To obtain the ID of an MPS queue, you can log on to the [MPS console](https://mps.console.aliyun.com/overview) and choose **Global Settings** > **MPS Queue and Callback** in the left-side navigation pane.
+   * *   If you want to receive asynchronous message notifications, associate an MNS queue or topic with the MPS queue. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dd3dae411e704030b921e52698e5****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -6517,7 +9568,18 @@ export class SubmitJobsRequest extends $tea.Model {
 }
 
 export class SubmitJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The transcoding jobs that are generated.
+   */
   jobResultList?: SubmitJobsResponseBodyJobResultList;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 25818875-5F78-4A45S71F6-D73936451234
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6564,18 +9626,127 @@ export class SubmitJobsResponse extends $tea.Model {
 }
 
 export class SubmitMediaCensorJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The live comments.
+   * 
+   * @example
+   * hello world
+   */
   barrages?: string;
+  /**
+   * @remarks
+   * The OSS URL of the image file that is used as the thumbnail. To view the OSS URL of the image file, you can log on to the **MPS console** and choose **Media Management** > **Media List** in the left-side navigation pane. You can specify up to five thumbnails in a JSON array.
+   * 
+   * *   Bucket: the name of the OSS bucket that stores the input file.
+   * 
+   * *   Location: the OSS region. The OSS region must be the same as the region in which your MPS service is activated.
+   * 
+   * *   Object: the OSS object to be moderated.
+   * 
+   *     **
+   * 
+   *     **Note**The name of the object cannot start with a forward slash (/). Otherwise, the operation fails to be called.
+   * 
+   * @example
+   * [{"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.jpeg"}]
+   */
   coverImages?: string;
+  /**
+   * @remarks
+   * The description of the video. The value can be up to 128 bytes in size.
+   * 
+   * @example
+   * example description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The URL of the video.
+   */
   externalUrl?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the media file to be moderated. To view the OSS URL of the media file, you can log on to the **MPS console** and choose **Media Management** > **Media List** in the left-side navigation pane. To moderate an image file, use the `CoverImage` parameter to specify the OSS URL of the image file. The value is a JSON object. For more information, see the "Input" section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   * 
+   * *   Bucket: the name of the OSS bucket that stores the input file.
+   * 
+   * *   Location: the OSS region. The OSS region must be the same as the region in which your MPS service is activated.
+   * 
+   * *   Object: the OSS object to be moderated.
+   * 
+   *     **
+   * 
+   *     **Note**The name of the object cannot start with a forward slash (/). Otherwise, the operation fails to be called.
+   * 
+   * @example
+   * {"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.flv"}
+   */
   input?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue. This ID can be used to associate the job with a notification method. To view the ID of the MPS queue, you can log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane. An empty string ("") indicates that the default MPS queue is used to run the job. By default, an MPS queue can process a maximum of 10 concurrent content moderation jobs. To increase the limit, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.12246746.top-nav.ditem-sub.35da7bbcitpQnr#/ticket/createIndex).
+   * 
+   * > MPS queues are automatically created by the system. For more information about how to query and update MPS queues, see the [UpdatePipeline](https://help.aliyun.com/document_detail/188374.html) topic.
+   * 
+   * @example
+   * b22c173cced04565b1f38f1ecc39****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The title of the video. The value can be up to 64 bytes in size.
+   * 
+   * @example
+   * Hello World
+   */
   title?: string;
+  /**
+   * @remarks
+   * The custom data. The value can be up to 128 bytes in size.
+   * 
+   * @example
+   * UserDatatestid-001-****
+   */
   userData?: string;
+  /**
+   * @remarks
+   * The video moderation configurations and the OSS URLs of the output snapshots. To view the OSS URL of the media file, you can log on to the **MPS console** and choose **Media Management** > **Media List** in the left-side navigation pane.
+   * 
+   * The value is a JSON object.
+   * 
+   * *   OutputFile:
+   * 
+   *     *   Bucket: the name of the OSS bucket that stores the output file.
+   *     *   Location: the OSS region. The OSS region must be the same as the region in which your MPS service is activated.
+   *     *   Object: the OSS object to be generated. In the value, {Count} indicates the sequence number of the frame snapshot.
+   * 
+   * *   StoreVideoTimeline: specifies whether to generate the `{jobId}.video_timeline` file. The file is stored in OSS. A value of true indicates that the file is generated. A value of false indicates that the file is not generated. If you do not specify this parameter, the file is not generated by default. For more information about the format of the file, see the "VideoTimelines" parameter in the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/91779.html) topic.
+   * 
+   * *   SaveType: the output mode. A value of abnormal indicates that snapshots are generated only for illegal frames. A value of all indicates that snapshots are generated for all frames.
+   * 
+   * *   Biztype: the moderation template. If you do not specify this parameter or set the value to common, the default template is used. You can submit a ticket to create a custom moderation template. Then, set this parameter to your user ID to use the custom moderation template.
+   * 
+   * *   Scenes: the moderation scenarios. You can specify the moderation scenarios that you want to use. If you do not specify this parameter, the terrorism and porn moderation scenarios are used by default. Valid values:
+   * 
+   *     *   porn: pornographic content detection
+   *     *   terrorism: terrorist content detection
+   *     *   ad: ad violation detection
+   *     *   live: undesirable scene detection
+   *     *   logo: special logo detection
+   *     *   audio: audio anti-spam
+   * 
+   * > If the input file contains audio tracks and the audio moderation scenario is specified, the audio tracks are moderated. If the input file does not contain audio tracks, you do not need to specify the audio moderation scenario.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"Scenes" : ["porn"], "OutputFile":{"Bucket": "example-001","Location": "oss-cn-hangzhou","Object": "test/example-{Count}.jpg"},"SaveType" : "abnormal","BizType":"common"}
+   */
   videoCensorConfig?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6619,7 +9790,21 @@ export class SubmitMediaCensorJobRequest extends $tea.Model {
 }
 
 export class SubmitMediaCensorJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the content moderation job. We recommend that you keep this ID for subsequent operation calls.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6666,13 +9851,48 @@ export class SubmitMediaCensorJobResponse extends $tea.Model {
 }
 
 export class SubmitMediaInfoJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the asynchronous mode for the job. We recommend that you set this parameter to true. Valid values:
+   * 
+   * *   **true**: enables the asynchronous mode.
+   * *   **false**: does not enable the asynchronous mode.
+   * 
+   * @example
+   * true
+   */
   async?: boolean;
+  /**
+   * @remarks
+   * The information about the input media file. The value is a JSON string. You must perform the following operations to add the OSS bucket in which the input media file is stored as a media bucket: Log on to the **MPS console**, choose **Workflows** > **Media Buckets** in the left-side navigation pane, and then click **Add Bucket**. After you add the OSS bucket as a media bucket, you must perform URL encoding for the OSS object. For example, `{"Bucket":"example-bucket","Location":"example-location","Object":"example%2Fexample.flv"}` indicates the `example-bucket.example-location.aliyuncs.com/example/example.flv` file.
+   * 
+   * > The OSS bucket must reside in the same region as your MPS service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"Bucket":"example-bucket","Location":"example-location","Object":"example%2Fexample.flv"}
+   */
   input?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which the analysis job is submitted. To view the ID of the MPS queue, log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
+   * 
+   * @example
+   * 88c6ca184c0e432bbf5b665e2a15****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The custom data. The custom data can contain letters, digits, and hyphens (-), and can be up to 1,024 bytes in length. The custom data cannot start with a special character.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6706,7 +9926,18 @@ export class SubmitMediaInfoJobRequest extends $tea.Model {
 }
 
 export class SubmitMediaInfoJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the media information analysis job.
+   */
   mediaInfoJob?: SubmitMediaInfoJobResponseBodyMediaInfoJob;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 62D9BE16-B7D5-550C-A482-7A0F60E09877
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6753,20 +9984,72 @@ export class SubmitMediaInfoJobResponse extends $tea.Model {
 }
 
 export class SubmitSmarttagJobRequest extends $tea.Model {
+  /**
+   * @example
+   * example content ****
+   */
   content?: string;
+  /**
+   * @example
+   * http://exampleBucket.oss-cn-shanghai.aliyuncs.com/mps-test/ai-tag.mp4
+   */
   contentAddr?: string;
+  /**
+   * @example
+   * application/zip
+   */
   contentType?: string;
   input?: string;
+  /**
+   * @example
+   * https://example.com/endpoint/aliyun/ai?id=76401125000***
+   */
   notifyUrl?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * false
+   */
   params?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The priority of the job in the ApsaraVideo Media Processing (MPS) queue to which the job is added. Valid values: 0 to 9. Default value: 5.
+   * 
+   * @example
+   * 5
+   */
   priority?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The template ID, which is used to specify the analysis algorithm of the smart tagging job. For more information about how to manage templates, see [AddSmarttagTemplate](https://help.aliyun.com/document_detail/602910.html), [QuerySmarttagTemplateList](https://help.aliyun.com/document_detail/187770.html), [UpdateSmarttagTemplate](https://help.aliyun.com/document_detail/187776.html), and [DeleteSmarttagTemplate](https://help.aliyun.com/document_detail/187775.html).
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example-title-****
+   */
   title?: string;
+  /**
+   * @example
+   * {"key":"value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6814,7 +10097,15 @@ export class SubmitSmarttagJobRequest extends $tea.Model {
 }
 
 export class SubmitSmarttagJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6861,13 +10152,51 @@ export class SubmitSmarttagJobResponse extends $tea.Model {
 }
 
 export class SubmitSnapshotJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the job input. The value must be a JSON object. You must add the Object Storage Service (OSS) bucket that stores the OSS object to be used as the job input as a media bucket in the MPS console. To add an OSS bucket as a media bucket, you can log on to the MPS console, choose Workflows > Media Buckets in the left-side navigation pane, and then click Add Bucket. After the OSS bucket is added as a media bucket, you must perform URL encoding for the OSS object. Example: `{"Bucket":"example-bucket","Location":"example-location","Object":"example%2Ftest.flv"}`. This example indicates the `"example-bucket.example-location.aliyuncs.com/example/test.flv"` object.
+   * 
+   * > The OSS bucket must reside in the same region as your MPS service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"Bucket":"example-bucket","Location":"example-location","Object":"example%2Ftest.flv"}
+   */
   input?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which you want to submit the snapshot job. To obtain the ID, you can log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
+   * 
+   * > Make sure that an available Message Service (MNS) topic is bound to the specified MPS queue. Otherwise, the relevant messages may fail to be sent as expected.
+   * 
+   * @example
+   * dd3dae411e704030b921e52698e5****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The snapshot configurations. For more information, see the "AliyunSnapshotConfig" section of the [Data types](https://help.aliyun.com/document_detail/29253.html) topic.
+   * 
+   * > If you set the Interval parameter that is nested under SnapshotConfig, snapshots are captured at the specified intervals. The default value of the Interval parameter is 10, in seconds. If an input video is short but you specify large values for both the Num and Interval parameters, the actual number of snapshots captured may be smaller than the specified number. For example, if you set the Num parameter to 5 and the Interval parameter to 3 for a video of 10 seconds, the number of snapshots captured cannot reach 5.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"OutputFile":{"Bucket":"example-001","Location":"example-location","Object":"{Count}.jpg"},"Time":"5","Num":"10","Interval":"20"}
+   */
   snapshotConfig?: string;
+  /**
+   * @remarks
+   * The custom data. The custom data can contain letters, digits, and hyphens (-) and be up to 1,024 bytes in size. The custom data cannot start with a special character.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6901,7 +10230,18 @@ export class SubmitSnapshotJobRequest extends $tea.Model {
 }
 
 export class SubmitSnapshotJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 19B6D8C5-A5DD-467A-B435-29D393C71E2D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the snapshot job.
+   */
   snapshotJob?: SubmitSnapshotJobResponseBodySnapshotJob;
   static names(): { [key: string]: string } {
     return {
@@ -6948,14 +10288,53 @@ export class SubmitSnapshotJobResponse extends $tea.Model {
 }
 
 export class SubmitTraceAbJobRequest extends $tea.Model {
+  /**
+   * @example
+   * http://example.com/callback
+   */
   callBack?: string;
+  /**
+   * @example
+   * Qh6OdgIMcliQSI1fReOw****
+   */
   cipherBase64ed?: string;
+  /**
+   * @example
+   * {"Bucket":"ivison-test","Location":"oss-cn-shanghai","Object":"test.mp4"}
+   */
   input?: string;
-  level?: string;
+  /**
+   * @example
+   * 2
+   */
+  level?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"Bucket":"ivison-test","Location":"oss-cn-shanghai","Dir":"out/"}
+   */
   output?: string;
+  /**
+   * @example
+   * 0
+   */
   startTime?: string;
+  /**
+   * @example
+   * 360
+   */
   totalTime?: string;
+  /**
+   * @example
+   * http://www.example.com/video/test.mp4
+   */
   url?: string;
+  /**
+   * @example
+   * 123
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6976,7 +10355,7 @@ export class SubmitTraceAbJobRequest extends $tea.Model {
       callBack: 'string',
       cipherBase64ed: 'string',
       input: 'string',
-      level: 'string',
+      level: 'number',
       output: 'string',
       startTime: 'string',
       totalTime: 'string',
@@ -6992,8 +10371,23 @@ export class SubmitTraceAbJobRequest extends $tea.Model {
 
 export class SubmitTraceAbJobResponseBody extends $tea.Model {
   data?: SubmitTraceAbJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 030E2671-806A-52AF-A93C-DA8E308603A6
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7044,10 +10438,30 @@ export class SubmitTraceAbJobResponse extends $tea.Model {
 }
 
 export class SubmitTraceExtractJobRequest extends $tea.Model {
+  /**
+   * @example
+   * http://example.com/callback
+   */
   callBack?: string;
+  /**
+   * @example
+   * {"Bucket":"example","Location":"oss-cn-shanghai","Object":"example.mp4"}
+   */
   input?: string;
+  /**
+   * @example
+   * {"m3u8Type":"v1"}
+   */
   params?: string;
+  /**
+   * @example
+   * http://www.example.com/video/test.mp4
+   */
   url?: string;
+  /**
+   * @example
+   * 123
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7076,8 +10490,23 @@ export class SubmitTraceExtractJobRequest extends $tea.Model {
 
 export class SubmitTraceExtractJobResponseBody extends $tea.Model {
   data?: SubmitTraceExtractJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A1326BD4-30B1-4CB6-Q123-3330B877B0D4
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7128,9 +10557,25 @@ export class SubmitTraceExtractJobResponse extends $tea.Model {
 }
 
 export class SubmitTraceM3u8JobRequest extends $tea.Model {
+  /**
+   * @example
+   * https://cipher.abc.com
+   */
   keyUri?: string;
+  /**
+   * @example
+   * 437bd2b516ffda105d07b12a9a82****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * {"Bucket":"exampleBucket","Location":"oss-cn-shanghai","Object":"out.m3u8"}
+   */
   output?: string;
+  /**
+   * @example
+   * {"m3u8Type":"v1"}
+   */
   params?: string;
   trace?: string;
   static names(): { [key: string]: string } {
@@ -7160,7 +10605,18 @@ export class SubmitTraceM3u8JobRequest extends $tea.Model {
 
 export class SubmitTraceM3u8JobResponseBody extends $tea.Model {
   data?: SubmitTraceM3u8JobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DEB915C5-D001-5C17-AF65-FF8A65DFE432
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7209,13 +10665,37 @@ export class SubmitTraceM3u8JobResponse extends $tea.Model {
 }
 
 export class TagCustomPersonRequest extends $tea.Model {
+  /**
+   * @example
+   * CategoryDescription001-****
+   */
   categoryDescription?: string;
+  /**
+   * @example
+   * CategoryId001-****
+   */
   categoryId?: string;
+  /**
+   * @example
+   * CategoryNametest-****
+   */
   categoryName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * PersonDescriptiontest-****
+   */
   personDescription?: string;
+  /**
+   * @example
+   * PersonId001-****
+   */
   personId?: string;
+  /**
+   * @example
+   * PersonNametest-****
+   */
   personName?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -7255,6 +10735,10 @@ export class TagCustomPersonRequest extends $tea.Model {
 }
 
 export class TagCustomPersonResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FD8B5B8C-0C3D-5776-B3B1-EE6AD11F905A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7299,11 +10783,27 @@ export class TagCustomPersonResponse extends $tea.Model {
 }
 
 export class UnbindInputBucketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the input media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **Historical Paths**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the role used for delegated authorization.
+   * 
+   * @example
+   * acs:ram::174809843091****:role/exampleRole
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7333,6 +10833,13 @@ export class UnbindInputBucketRequest extends $tea.Model {
 }
 
 export class UnbindInputBucketResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4AEA0480-32F4-1656-92B3-F4D4CDE6BBB3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7377,6 +10884,15 @@ export class UnbindInputBucketResponse extends $tea.Model {
 }
 
 export class UnbindOutputBucketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7408,6 +10924,13 @@ export class UnbindOutputBucketRequest extends $tea.Model {
 }
 
 export class UnbindOutputBucketResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that you want to perform. Set the value to **UnbindOutputBucket**.
+   * 
+   * @example
+   * 4AEA0480-32F4-1656-92B3-F4D4CDE6BBB3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7452,10 +10975,37 @@ export class UnbindOutputBucketResponse extends $tea.Model {
 }
 
 export class UnregisterCustomFaceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the figure library. The ID is used to uniquely identify a figure library. You can specify the ID of a custom figure library. Make sure that the ID is unique. If you set this parameter to the ID of a system figure library, the system figure library is used. The ID can be up to 120 characters in length and is not case-sensitive. You can call the [ListCustomPersons](https://help.aliyun.com/document_detail/187787.html) operation to query the figure library ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CategoryId001-****
+   */
   categoryId?: string;
+  /**
+   * @remarks
+   * The ID of the face. The ID is used to uniquely identify a face. Make sure that the ID is unique. The ID can be up to 120 characters in length and is not case-sensitive. You can call the [ListCustomPersons](https://help.aliyun.com/document_detail/187787.html) operation to query the face ID. If you set this parameter to ALL, all the faces associated with the specified figure are deleted.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 15****
+   */
   faceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the figure. The ID is used to uniquely identify a custom figure. Make sure that the ID is unique. The ID can be up to 120 characters in length and is not case-sensitive. You can call the [ListCustomPersons](https://help.aliyun.com/document_detail/187787.html) operation to query the figure ID. If you set this parameter to ALL, all the faces in the specified figure library are deleted, and the custom figure library is deleted.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * PersonId001-****
+   */
   personId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -7489,6 +11039,13 @@ export class UnregisterCustomFaceRequest extends $tea.Model {
 }
 
 export class UnregisterCustomFaceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1A3347BF-7BCE-40A6-B33E-43C2B8A9A278
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7533,15 +11090,75 @@ export class UnregisterCustomFaceResponse extends $tea.Model {
 }
 
 export class UpdateMediaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the category to which the media file belongs. The value must be an integer.
+   * 
+   * *   If you do not specify this parameter, the value is NULL.
+   * *   The value cannot be negative.
+   * 
+   * @example
+   * 1
+   */
   cateId?: number;
+  /**
+   * @remarks
+   * The URL of the thumbnail. This parameter is used to specify the storage location of the thumbnail. To obtain the URL, you can log on to the **MPS console** and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **OSS console** and click **Buckets** in the left-side navigation pane.
+   * 
+   * *   The value can be up to 3,200 bytes in length.
+   * *   The URL complies with RFC 2396 and is encoded in UTF-8, with reserved characters being percent-encoded. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com/test****.jpg
+   */
   coverURL?: string;
+  /**
+   * @remarks
+   * The description of the media file. Multiple character types, such as letters and digits, are supported.
+   * 
+   * *   If you do not specify this parameter, the value is NULL.
+   * *   The value is encoded in UTF-8 and can be up to 1,024 bytes in length.
+   * 
+   * @example
+   * example description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the media file whose basic information you want to update. To obtain the ID of the media file, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Media Management** > **Media List** in the left-side navigation pane.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3e1cd21131a94525be55acf65888****
+   */
   mediaId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The tags that you want to add to the media file.
+   * 
+   * *   You can specify up to 16 tags for a media file. Separate multiple tags with commas (,).
+   * *   Each tag can be up to 32 bytes in length.
+   * *   The value is encoded in UTF-8.
+   * 
+   * @example
+   * tag1,tag2
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The title of the media file. Multiple character types, such as letters and digits, are supported.
+   * 
+   * *   If you do not specify this parameter, the value is NULL.
+   * *   The value is encoded in UTF-8 and can be up to 128 bytes in length.
+   * 
+   * @example
+   * hello
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7579,7 +11196,18 @@ export class UpdateMediaRequest extends $tea.Model {
 }
 
 export class UpdateMediaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the media file.
+   */
   media?: UpdateMediaResponseBodyMedia;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6A88246F-C91F-42BD-BABE-DB0DF993F960
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7626,7 +11254,25 @@ export class UpdateMediaResponse extends $tea.Model {
 }
 
 export class UpdateMediaCategoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the category. The value cannot be negative.
+   * 
+   * @example
+   * 1
+   */
   cateId?: number;
+  /**
+   * @remarks
+   * The ID of the media file whose category you want to update.
+   * 
+   * > To obtain the ID of a media file, you can call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation. Alternatively, perform the following operations in the ApsaraVideo Media Processing (MPS) console: In the left-side navigation pane, choose **Media Management > Media List**. Find the required video and click **Manage** in the Actions column. The ID of the video is displayed on the Basics tab.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3e1cd21131a94525be55acf65888****
+   */
   mediaId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7660,6 +11306,13 @@ export class UpdateMediaCategoryRequest extends $tea.Model {
 }
 
 export class UpdateMediaCategoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E3931857-E3D3-4D6E-9C7B-D2C09441BD01
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7704,7 +11357,25 @@ export class UpdateMediaCategoryResponse extends $tea.Model {
 }
 
 export class UpdateMediaCoverRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the thumbnail that you want to specify for the media file. The URL complies with RFC 2396 and is encoded in UTF-8. The URL can be up to 3,200 bytes in length.
+   * 
+   * >  To obtain the thumbnail URL, you can find the image in the Object Storage Service (OSS) bucket and click the image to view details. In the View Details panel, copy the part before the question mark (?) from the URL field. You can enter only an HTTP URL.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4
+   */
   coverURL?: string;
+  /**
+   * @remarks
+   * The ID of the media file whose thumbnail you want to update. To obtain the ID of a media file, you can call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation. Alternatively, perform the following operations in the ApsaraVideo Media Processing (MPS) console: In the left-side navigation pane, choose **Media Management** > **Media List**. Find the required video and click **Manage**. The ID of the video is displayed on the Basics tab.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6cc3aa66d1cb4bb2adf14e726c0a****
+   */
   mediaId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7738,6 +11409,13 @@ export class UpdateMediaCoverRequest extends $tea.Model {
 }
 
 export class UpdateMediaCoverResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0DC39B9E-13D4-40BA-AE76-CFF9BD64239D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7782,9 +11460,28 @@ export class UpdateMediaCoverResponse extends $tea.Model {
 }
 
 export class UpdateMediaPublishStateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media file whose publishing status you want to update. You can obtain the ID of a media file from the response of the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation. Alternatively, perform the following operations in the ApsaraVideo Media Processing (MPS) console: In the left-side navigation pane, choose **Media Management** > **Media List**. Find the required video and click **Manage**. The ID of the video is displayed on the Basics tab.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3e6149d5a8c944c09b1a8d2dc3e4****
+   */
   mediaId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The publishing status. Default value: **Initialed**. Valid values:
+   * 
+   * *   **true**: published.
+   * *   **false**: unpublished.
+   * 
+   * @example
+   * true
+   */
   publish?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -7816,6 +11513,13 @@ export class UpdateMediaPublishStateRequest extends $tea.Model {
 }
 
 export class UpdateMediaPublishStateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 91B6CAB9-034C-4E4E-A40B-E7F5C81E688C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7860,12 +11564,63 @@ export class UpdateMediaPublishStateResponse extends $tea.Model {
 }
 
 export class UpdateMediaWorkflowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media workflow that you want to update. To obtain the ID of the media workflow, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings** in the left-side navigation pane.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6307eb0d3f85477882d205aa040f****
+   */
   mediaWorkflowId?: string;
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The new topology of the media workflow. The value is a JSON object that contains the activity list and activity dependencies.
+   * 
+   * > The Object Storage Service (OSS) bucket must reside in the same region as your MPS service.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {
+   *       "Activities": {
+   *             "Act-Start": {
+   *                   "Parameters": {
+   *                         "PipelineId": "130266f58161436a80bf07cb12c8****",
+   *                         "InputFile": "{\\"Bucket\\": \\"example-bucket-****\\",\\"Location\\": \\"cn-shanghai\\"}"
+   *                   },
+   *                   "Type": "Start"
+   *             },
+   *             "Act-Report": {
+   *                   "Parameters": {},
+   *                   "Type": "Report"
+   *             },
+   *             "Act-Transcode-M3U8": {
+   *                   "Parameters": {
+   *                         "Outputs": "[{\\"Object\\":\\"transcode/{ObjectPrefix}{FileName}\\",\\"TemplateId\\": \\"957d1719ee85ed6527b90cf62726****\\"}]",
+   *                         "OutputBucket": "example-bucket-****",
+   *                         "OutputLocation": "cn-shanghai"
+   *                   },
+   *                   "Type": "Transcode"
+   *             }
+   *       },
+   *       "Dependencies": {
+   *             "Act-Start": [
+   *                   "Act-Transcode-M3U8"
+   *             ],
+   *             "Act-Report": [],
+   *             "Act-Transcode-M3U8": [
+   *                   "Act-Report"
+   *             ]
+   *       }
+   * }
+   */
   topology?: string;
   triggerMode?: string;
   static names(): { [key: string]: string } {
@@ -7900,7 +11655,18 @@ export class UpdateMediaWorkflowRequest extends $tea.Model {
 }
 
 export class UpdateMediaWorkflowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The detailed information about the media workflow.
+   */
   mediaWorkflow?: UpdateMediaWorkflowResponseBodyMediaWorkflow;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7D752035-97DA-54E5-88E2-E8405EEA****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7947,11 +11713,32 @@ export class UpdateMediaWorkflowResponse extends $tea.Model {
 }
 
 export class UpdateMediaWorkflowTriggerModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media workflow that you want to update. To obtain the ID of the media workflow, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings** in the left-side navigation pane.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * e00732b977da427d9177a4dee646****
+   */
   mediaWorkflowId?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The trigger mode of the media workflow. Valid values:
+   * 
+   * *   **OssAutoTrigger**: automatically triggers the media workflow.
+   * *   **NotInAuto**: does not automatically trigger the media workflow.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * NotInAuto
+   */
   triggerMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7981,7 +11768,18 @@ export class UpdateMediaWorkflowTriggerModeRequest extends $tea.Model {
 }
 
 export class UpdateMediaWorkflowTriggerModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the media workflow.
+   */
   mediaWorkflow?: UpdateMediaWorkflowTriggerModeResponseBodyMediaWorkflow;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 16CD0CDD-457E-420D-9755-8385075A1234
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8029,14 +11827,58 @@ export class UpdateMediaWorkflowTriggerModeResponse extends $tea.Model {
 
 export class UpdatePipelineRequest extends $tea.Model {
   extendConfig?: string;
+  /**
+   * @remarks
+   * The new name of the MPS queue. The value can contain letters, digits, and special characters such as hyphens (-) and can be up to 128 bytes in size. The value cannot start with a special character.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example-pipeline-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The Message Service (MNS) configuration, such as the information about the MNS queue or topic. For more information, see the "NotifyConfig" section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   * 
+   * @example
+   * {"Topic":"example-topic-****"}
+   */
   notifyConfig?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue that you want to update. To view the MPS queue ID, log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d1ce4d3efcb549419193f50f1fcd****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The role that is assigned to the current RAM user. To obtain the role, you can log on to the **Resource Access Management (RAM) console** and choose **Identities** > **Roles** in the left-side navigation pane.
+   * 
+   * @example
+   * AliyunMTSDefaultRole
+   */
   role?: string;
+  /**
+   * @remarks
+   * The new state of the MPS queue.
+   * 
+   * *   **Active**: The MPS queue is active. Jobs in the MPS queue can be scheduled and run by MPS.
+   * *   **Paused**: The MPS queue is paused. Jobs in the MPS queue cannot be scheduled or run by MPS, and all jobs remain in the Submitted state. Jobs that are running will not be affected.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Paused
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8074,7 +11916,18 @@ export class UpdatePipelineRequest extends $tea.Model {
 }
 
 export class UpdatePipelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the MPS queue.
+   */
   pipeline?: UpdatePipelineResponseBodyPipeline;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1FE0F96B-544D-4244-9D83-DFCFB0E5A231
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8121,23 +11974,82 @@ export class UpdatePipelineResponse extends $tea.Model {
 }
 
 export class UpdateSmarttagTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * ocr,asr
+   */
   analyseTypes?: string;
+  /**
+   * @example
+   * celebrity
+   */
   faceCategoryIds?: string;
+  /**
+   * @example
+   * { "faceDetThreshold":0.999, "faceRegThreshold":0.9 }
+   */
   faceCustomParamsConfig?: string;
+  /**
+   * @example
+   * common
+   */
   industry?: string;
+  /**
+   * @example
+   * true
+   */
   isDefault?: boolean;
+  /**
+   * @example
+   * { "type": "name,location,organization,other" }
+   */
   keywordConfig?: string;
+  /**
+   * @example
+   * { "movie":"name,alias,chnl,genre", "music":"songName,artistName", "person":"name,gender" }
+   */
   knowledgeConfig?: string;
+  /**
+   * @example
+   * hmi
+   */
   labelType?: string;
+  /**
+   * @example
+   * 1.0
+   */
   labelVersion?: string;
+  /**
+   * @example
+   * common
+   */
   landmarkGroupIds?: string;
+  /**
+   * @example
+   * general,item,weapon,animal
+   */
   objectGroupIds?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * search
+   */
   scene?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 05de22f255284c7a8d2aab535dde****
+   */
   templateId?: string;
+  /**
+   * @example
+   * template-example-****
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8191,6 +12103,10 @@ export class UpdateSmarttagTemplateRequest extends $tea.Model {
 }
 
 export class UpdateSmarttagTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5210DBB0-E327-4D45-ADBC-0B83C8796E26
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8235,16 +12151,75 @@ export class UpdateSmarttagTemplateResponse extends $tea.Model {
 }
 
 export class UpdateTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The transmuxing configurations. The value is a JSON object. For more information, see the [MuxConfig](https://help.aliyun.com/document_detail/29253.html) parameter of the "Parameter details" topic.
+   * 
+   * @example
+   * {"Codec":"aac","Samplerate":"44100","Bitrate":"500","Channels":"2"}
+   */
   audio?: string;
+  /**
+   * @remarks
+   * The configurations of the video stream. The value is a JSON object. For more information, see the [Video](https://help.aliyun.com/document_detail/29253.html) parameter of the "Parameter details" topic.
+   * 
+   * @example
+   * {"Format":"mp4"}
+   */
   container?: string;
+  /**
+   * @remarks
+   * The general transcoding configurations. The value is a JSON object. For more information, see the [TransConfig](https://help.aliyun.com/document_detail/29253.html) parameter of the "Parameter details" topic.
+   * 
+   * @example
+   * {"Segment":{"Duration":"10"}}
+   */
   muxConfig?: string;
+  /**
+   * @remarks
+   * The container format. The value is a JSON object. Default format: **MP4**.
+   * 
+   * *   Video formats: FLV, MP4, HLS (M3U8 + TS), and MPEG-DASH (MPD + fMP4)
+   * *   Audio formats: MP3, MP4, OGG, FLAC, and M4A
+   * *   Images formats: GIF and WebP
+   * 
+   * For more information, see the [Container](https://help.aliyun.com/document_detail/29253.html) parameter of the "Parameter details" topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MPS-example
+   */
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The name of the template. The name can be up to 128 bytes in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * {"TransMode":"onepass"}
+   */
   transConfig?: string;
+  /**
+   * @remarks
+   * The configurations of the audio stream. The value is a JSON object. For more information, see the [Audio](https://help.aliyun.com/document_detail/29253.html) parameter of the "Parameter details" topic.
+   * 
+   * @example
+   * {"Codec":"H.264","Profile":"high","Bitrate":"500","Crf":"15","Width":"256","Height":"800","Fps":"25","Gop":"10"}
+   */
   video?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8284,7 +12259,18 @@ export class UpdateTemplateRequest extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the transcoding template.
+   * 
+   * @example
+   * 5E4FB22E-B9EA-4E24-8FFC-B407EA71QW21
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The type of the transcoding template.
+   */
   template?: UpdateTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -8331,12 +12317,39 @@ export class UpdateTemplateResponse extends $tea.Model {
 }
 
 export class UpdateWaterMarkTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The updated configuration of the watermark template. The value is a JSON object. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"Width":"10","Height":"30","Dx":"10","Dy":"5","Type":"Image","Timeline":{"Start":"0","Duration":"10"}}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The new name of the watermark template. The value can contain letters and digits and can be up to 128 bytes in size.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example-watermark-****
+   */
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The ID of the watermark template that you want to update. To obtain the ID of the watermark template, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Global Settings** > **Watermark Templates** in the left-side navigation pane.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3780bd69b2b74540bc7b1096f564****
+   */
   waterMarkTemplateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8368,7 +12381,18 @@ export class UpdateWaterMarkTemplateRequest extends $tea.Model {
 }
 
 export class UpdateWaterMarkTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E558894E-40D9-57C6-B5CC-0F5CDF23614E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the watermark template.
+   */
   waterMarkTemplate?: UpdateWaterMarkTemplateResponseBodyWaterMarkTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -8415,10 +12439,45 @@ export class UpdateWaterMarkTemplateResponse extends $tea.Model {
 }
 
 export class ActivateMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @example
+   * 2016-04-01T05:29:37Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the media workflow.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e9181d4****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the media workflow.
+   * 
+   * @example
+   * mediaworkflow-example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the media workflow. The value is **Active**.
+   * 
+   * @example
+   * Active
+   */
   state?: string;
+  /**
+   * @remarks
+   * The topology of the media workflow.
+   * 
+   * @example
+   * {\\"Activities\\":{\\"Act-Start\\":{\\"Parameters\\":{\\"PipelineId\\":\\"130266f58161436a80bf07cb12c8****\\",\\"InputFile\\":\\"{\\\\\\"Bucket\\\\\\": \\\\\\"example\\\\\\",\\\\\\"Location\\\\\\": \\\\\\"oss-cn-hangzhou\\\\\\"}\\"},\\"Type\\":\\"Start\\"},\\"Act-Report\\":{\\"Parameters\\":{},\\"Type\\":\\"Report\\"},\\"Act-Transcode-M3U8\\":{\\"Parameters\\":{\\"Outputs\\":\\"[{\\\\\\"OutputObject\\\\\\":\\\\\\"transcode%2F%7BObjectPrefix%7D%7BFileName%7D\\\\\\",\\\\\\"TemplateId\\\\\\": \\\\\\"957d1719ee85ed6527b90cf62726****\\\\\\"}]\\",\\"OutputBucket\\":\\"panda-vod-hls\\",\\"OutputLocation\\":\\"oss-cn-hangzhou\\"},\\"Type\\":\\"Transcode\\"}},\\"Dependencies\\":{\\"Act-Start\\":[\\"Act-Transcode-M3U8\\"],\\"Act-Report\\":[],\\"Act-Transcode-M3U8\\":[\\"Act-Report\\"]}}
+   */
   topology?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8446,7 +12505,21 @@ export class ActivateMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
 }
 
 export class AddMediaResponseBodyMediaFile extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the file. The default value is **Normal**.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The URL of the media file.
+   * 
+   * @example
+   * http://bucket.oss-cn-hangzhou.aliyuncs.com/A/B/C/test.mp4
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8506,23 +12579,147 @@ export class AddMediaResponseBodyMediaTags extends $tea.Model {
 }
 
 export class AddMediaResponseBodyMedia extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate.
+   * 
+   * @example
+   * 1148.77
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The ID of the category to which the media file belongs.
+   * 
+   * @example
+   * 1
+   */
   cateId?: number;
+  /**
+   * @remarks
+   * The review status of the media file. Valid values:
+   * 
+   * *   **Initiated**: The media file is uploaded but not reviewed.
+   * *   **Pass**: The media file is uploaded and passes the review.
+   * 
+   * @example
+   * Initiated
+   */
   censorState?: string;
+  /**
+   * @remarks
+   * The URL of the thumbnail.
+   * 
+   * @example
+   * http://bucket.oss-cn-hangzhou.aliyuncs.com/example/1.png
+   */
   coverURL?: string;
+  /**
+   * @remarks
+   * The time when the media file was created.
+   * 
+   * @example
+   * 2016-09-20T03:02:40Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The description of the media file. The description can be up to 1,024 bytes in length.
+   * 
+   * @example
+   * A test video
+   */
   description?: string;
+  /**
+   * @remarks
+   * The duration of the media file.
+   * 
+   * @example
+   * 2.645333
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The information about the input file.
+   */
   file?: AddMediaResponseBodyMediaFile;
+  /**
+   * @remarks
+   * The format of the media file. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mp4
+   */
   format?: string;
+  /**
+   * @remarks
+   * The frame rate of the media file.
+   * 
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The height of the media file.
+   * 
+   * @example
+   * 1280
+   */
   height?: string;
+  /**
+   * @remarks
+   * The ID of the media file.
+   * 
+   * @example
+   * 3e6149d5a8c944c09b1a8d2dc3e4****
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * The publishing status of the media file. Valid values:
+   * 
+   * *   **Initiated**: The media file is in the initial state.
+   * *   **UnPublish**: The media file has not been published, and the playback permission on the OSS object is Private.
+   * *   **Published**: The media file has been published, and the playback permission on the OSS object is Default.
+   * 
+   * @example
+   * Published
+   */
   publishState?: string;
+  /**
+   * @remarks
+   * The IDs of the media workflow execution instances.
+   */
   runIdList?: AddMediaResponseBodyMediaRunIdList;
+  /**
+   * @remarks
+   * The size of the media file.
+   * 
+   * @example
+   * 379860
+   */
   size?: string;
+  /**
+   * @remarks
+   * The tags of the media file.
+   */
   tags?: AddMediaResponseBodyMediaTags;
+  /**
+   * @remarks
+   * The title of the media file. The title can be up to 128 bytes in length.
+   * 
+   * @example
+   * mytest.mp4
+   */
   title?: string;
+  /**
+   * @remarks
+   * The width of the media file.
+   * 
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8576,11 +12773,56 @@ export class AddMediaResponseBodyMedia extends $tea.Model {
 }
 
 export class AddMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @example
+   * 016-04-01T05:29:37Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the media workflow. We recommend that you keep this ID for later operations on this workflow.
+   * 
+   * @example
+   * e00732b977da427d9177a4deb1aa****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the media workflow.
+   * 
+   * @example
+   * mediaworkflow-example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The state of the media workflow. By default, the created workflow is in the **Active** state.
+   * 
+   * @example
+   * Active
+   */
   state?: string;
+  /**
+   * @remarks
+   * The topology of the media workflow. The value is a JSON object that contains the activities and activity dependencies.
+   * 
+   * @example
+   * {mediaworkflow","State":"Active","Topology":"{\\"Activities\\":{\\"Act-Start\\":{\\"Parameters\\":{\\"PipelineId\\":\\"130266f58161436a80bf07cb12c8****\\",\\"InputFile\\":\\"{\\\\\\"Bucket\\\\\\": \\\\\\"example-bucket-****\\\\\\",\\\\\\"Location\\\\\\": \\\\\\"cn-shanghai\\\\\\"}\\"},\\"Type\\":\\"Start\\"},\\"Act-Report\\":{\\"Parameters\\":{},\\"Type\\":\\"Report\\"},\\"Act-Transcode-M3U8\\":{\\"Parameters\\":{\\"Outputs\\":\\"[{\\\\\\"Object\\\\\\":\\\\\\"transcode/{ObjectPrefix}{FileName}\\\\\\",\\\\\\"TemplateId\\\\\\": \\\\\\"957d1719ee85ed6527b90cf62726****\\\\\\"}]\\",\\"OutputBucket\\":\\"example-bucket-****\\",\\"OutputLocation\\":\\"cn-shanghai\\"},\\"Type\\":\\"Transcode\\"}},\\"Dependencies\\":{\\"Act-Start\\":[\\"Act-Transcode-M3U8\\"],\\"Act-Report\\":[],\\"Act-Transcode-M3U8\\":[\\"Act-Report\\"]}}","MediaWorkflowId":"93ab850b4f6f44eab54b6e91d24d****"}]},"RequestId":"16CD0CDD-457E-420D-9755-8385075A1234"}
+   */
   topology?: string;
+  /**
+   * @remarks
+   * The triggering mode of the media workflow. Valid values:
+   * 
+   * *   **OssAutoTrigger**: The media workflow is automatically triggered.
+   * *   **NotInAuto**: The media workflow is not automatically triggered.
+   * 
+   * @example
+   * OssAutoTrigger
+   */
   triggerMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8610,9 +12852,37 @@ export class AddMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
 }
 
 export class AddPipelineResponseBodyPipelineNotifyConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The tag string.
+   * 
+   * @example
+   * mts-test
+   */
   mqTag?: string;
+  /**
+   * @remarks
+   * The queue of messages that are received.
+   * 
+   * @example
+   * example1
+   */
   mqTopic?: string;
+  /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * @example
+   * mts-queue-1
+   */
   queueName?: string;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * @example
+   * mts-topic-1
+   */
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8638,13 +12908,69 @@ export class AddPipelineResponseBodyPipelineNotifyConfig extends $tea.Model {
 }
 
 export class AddPipelineResponseBodyPipeline extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the MPS queue.
+   * 
+   * @example
+   * ed450ea0bfbd41e29f80a401fb4d****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the MPS queue.
+   * 
+   * @example
+   * Media Fingerprint
+   */
   name?: string;
+  /**
+   * @remarks
+   * The MNS configuration.
+   */
   notifyConfig?: AddPipelineResponseBodyPipelineNotifyConfig;
+  /**
+   * @remarks
+   * The quota that is allocated to the MPS queue.
+   * 
+   * @example
+   * 10
+   */
   quotaAllocate?: number;
+  /**
+   * @remarks
+   * The role.
+   * 
+   * @example
+   * AliyunMTSDefaultRole
+   */
   role?: string;
+  /**
+   * @remarks
+   * The type of the MPS queue.
+   * 
+   * @example
+   * Standard
+   */
   speed?: string;
+  /**
+   * @remarks
+   * The level of the MPS queue.
+   * 
+   * @example
+   * 1
+   */
   speedLevel?: number;
+  /**
+   * @remarks
+   * The state of the MPS queue.
+   * 
+   * *   Active: The MPS queue is active. The jobs in the MPS queue are scheduled and transcoded by MPS.
+   * *   Paused: The MPS queue is paused. Jobs in the MPS queue are no longer scheduled for transcoding by MPS. All of the jobs in the MPS queue remain in the Submitted state. Jobs that are being transcoded are not affected.
+   * 
+   * @example
+   * Active
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8678,11 +13004,90 @@ export class AddPipelineResponseBodyPipeline extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateAudioVolume extends $tea.Model {
+  /**
+   * @remarks
+   * The output volume.
+   * 
+   * This parameter takes effect only when the value of Method is dynamic.
+   * 
+   * Unit: dB.
+   * 
+   * Valid values: [-70,-5].
+   * 
+   * Default value: -6.
+   * 
+   * @example
+   * -6
+   */
   integratedLoudnessTarget?: string;
+  /**
+   * @remarks
+   * The volume adjustment range.
+   * 
+   * *   Default value: **-20**.
+   * *   Unit: dB.
+   * 
+   * @example
+   * -20
+   */
   level?: string;
+  /**
+   * @remarks
+   * The range of the volume relative to the output volume.
+   * 
+   * This parameter takes effect only when the value of Method is dynamic.
+   * 
+   * Unit: dB.
+   * 
+   * Valid values: [1,20].
+   * 
+   * Default value: 8.
+   * 
+   * @example
+   * 8
+   */
   loudnessRangeTarget?: string;
+  /**
+   * @remarks
+   * The volume adjustment method. Valid values:
+   * 
+   * *   **auto**: The volume is automatically adjusted.
+   * *   **dynamic**: The volume is dynamically adjusted.
+   * *   **linear**: The volume is linearly adjusted.
+   * 
+   * @example
+   * auto
+   */
   method?: string;
+  /**
+   * @remarks
+   * The volume adjustment coefficient.
+   * 
+   * This parameter takes effect only when the value of Method is adaptive.
+   * 
+   * Valid values: [0,1].
+   * 
+   * Default value: 0.9.
+   * 
+   * @example
+   * 0.9
+   */
   peakLevel?: string;
+  /**
+   * @remarks
+   * The peak volume.
+   * 
+   * This parameter takes effect only when the value of Method is dynamic.
+   * 
+   * Unit: dB.
+   * 
+   * Valid values: [-9,0].
+   * 
+   * Default value: -1.
+   * 
+   * @example
+   * 0
+   */
   truePeak?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8712,13 +13117,87 @@ export class AddTemplateResponseBodyTemplateAudioVolume extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateAudio extends $tea.Model {
+  /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Unit: Kbit/s.
+   * *   Default value: **128**.
+   * 
+   * @example
+   * 500
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The number of sound channels. Default value: **2**.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The audio codec format. Default value: **aac**. Valid values:
+   * 
+   * *   **aac**
+   * *   **mp3**
+   * *   **vorbis**
+   * *   **flac**
+   * 
+   * @example
+   * aac
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The codec profile of the audio. Valid values if the **Codec** parameter is set to **AAC**:
+   * 
+   * *   **aac_low**
+   * *   **aac_he**
+   * *   **aac_he_v2**
+   * *   **aac_ld**
+   * *   **aac_eld**
+   * 
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of the independent denoising algorithm.
+   * 
+   * @example
+   * 5
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio stream is deleted.
+   * 
+   * *   **true**: The audio stream is deleted.
+   * *   **false**: The audio stream is retained.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   remove?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Unit: Hz.
+   * *   Default value: **44100**.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume control configurations
+   */
   volume?: AddTemplateResponseBodyTemplateAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -8752,6 +13231,13 @@ export class AddTemplateResponseBodyTemplateAudio extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateContainer extends $tea.Model {
+  /**
+   * @remarks
+   * The container format.
+   * 
+   * @example
+   * mp4
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8771,9 +13257,37 @@ export class AddTemplateResponseBodyTemplateContainer extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateMuxConfigGif extends $tea.Model {
+  /**
+   * @remarks
+   * The color dithering algorithm of the palette. Valid values: sierra and bayer.
+   * 
+   * @example
+   * sierra
+   */
   ditherMode?: string;
+  /**
+   * @remarks
+   * The duration for which the final frame is paused. Unit: centiseconds.
+   * 
+   * @example
+   * 0
+   */
   finalDelay?: string;
+  /**
+   * @remarks
+   * Indicates whether the custom palette is used.
+   * 
+   * @example
+   * false
+   */
   isCustomPalette?: string;
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8799,6 +13313,13 @@ export class AddTemplateResponseBodyTemplateMuxConfigGif extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateMuxConfigSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The length of the segment. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8818,6 +13339,13 @@ export class AddTemplateResponseBodyTemplateMuxConfigSegment extends $tea.Model 
 }
 
 export class AddTemplateResponseBodyTemplateMuxConfigWebp extends $tea.Model {
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8837,8 +13365,20 @@ export class AddTemplateResponseBodyTemplateMuxConfigWebp extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The transmuxing settings for GIF.
+   */
   gif?: AddTemplateResponseBodyTemplateMuxConfigGif;
+  /**
+   * @remarks
+   * The segment settings.
+   */
   segment?: AddTemplateResponseBodyTemplateMuxConfigSegment;
+  /**
+   * @remarks
+   * The transmuxing settings for WebP.
+   */
   webp?: AddTemplateResponseBodyTemplateMuxConfigWebp;
   static names(): { [key: string]: string } {
     return {
@@ -8862,13 +13402,110 @@ export class AddTemplateResponseBodyTemplateMuxConfig extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method of resolution adjustment. Default value: **none**. Valid values:
+   * 
+   * *   **rescale**: The input video is rescaled.
+   * *   **crop**: The input video is cropped.
+   * *   **none**: No change is made.
+   * 
+   * @example
+   * rescale
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked.
+   * 
+   * If this feature is enabled and the system detects that the audio bitrate of the output file is greater than that of the input file, the audio bitrate of the input file is retained after transcoding.
+   * 
+   * *   **true**: The audio bitrate is checked.
+   * *   **false**: The audio bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. If this feature is enabled and the system detects that the audio bitrate of the output file is higher than that of the input file, the input file is not transcoded. This parameter has a higher priority than the **IsCheckAudioBitrate** parameter. Valid values:
+   * 
+   * *   **true**: The audio bitrate is checked. In this case, if the audio bitrate of the output file is higher than that of the input file, the input file is not transcoded.
+   * *   **false**: The audio bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked.
+   * 
+   * *   **true**: The resolution is checked.
+   * *   **false**: The resolution is not checked.
+   * *   Default value: **false**.
+   * 
+   * > If this feature is enabled and the system detects that the resolution of the output file is higher than that of the input file based on the width or height, the resolution of the input file is retained after transcoding.
+   * 
+   * @example
+   * true
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked.
+   * 
+   * *   **true**: The resolution is checked.
+   * *   **false**: The resolution is not checked.
+   * *   Default value: **false**.
+   * 
+   * > If this feature is enabled and the system detects that the resolution of the output file is higher than that of the input file based on the width or height, an error that indicates a transcoding failure is returned.
+   * 
+   * @example
+   * true
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked.
+   * 
+   * *   **true**: The video bitrate is checked.
+   * *   **false**: The video bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * > If this feature is enabled and the system detects that the video bitrate of the output file is greater than that of the input file, the video bitrate of the input file is retained after transcoding.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. If this feature is enabled and the system detects that the video bitrate of the output file is higher than that of the input file, the input file is not transcoded. This parameter has a higher priority than the IsCheckVideoBitrate parameter.
+   * 
+   * *   **true**: The video bitrate is checked. In this case, if the video bitrate of the output file is higher than that of the input file, the input file is not transcoded.
+   * *   **false**: The video bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The transcoding mode. Valid values:
+   * 
+   * *   **onepass**
+   * *   **twopass**
+   * *   **CBR**
+   * *   Default value: **onepass**.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8902,7 +13539,21 @@ export class AddTemplateResponseBodyTemplateTransConfig extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateVideoBitrateBnd extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum bitrate.
+   * 
+   * @example
+   * 1500
+   */
   max?: string;
+  /**
+   * @remarks
+   * The minimum bitrate.
+   * 
+   * @example
+   * 800
+   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8924,8 +13575,29 @@ export class AddTemplateResponseBodyTemplateVideoBitrateBnd extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateVideoNarrowBand extends $tea.Model {
+  /**
+   * @remarks
+   * The upper limit of the dynamic bitrate. If this parameter is set, the average bitrate is in the range of (0, 1000000].
+   * 
+   * @example
+   * 3000
+   */
   abrmax?: number;
+  /**
+   * @remarks
+   * The maximum ratio of the upper limit of dynamic bitrate. If this parameter is set, the value of Abrmax does not exceed x times of the source video bitrate. Valid values: (0,1.0].
+   * 
+   * @example
+   * 1.0
+   */
   maxAbrRatio?: number;
+  /**
+   * @remarks
+   * The Narrowband HD version. Only 1.0 may be returned.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8949,29 +13621,234 @@ export class AddTemplateResponseBodyTemplateVideoNarrowBand extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplateVideo extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the output video. Unit: Kbit/s.
+   * 
+   * @example
+   * 500
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The bitrate range of the video.
+   */
   bitrateBnd?: AddTemplateResponseBodyTemplateVideoBitrateBnd;
+  /**
+   * @remarks
+   * The size of the buffer.
+   * 
+   * *   Default value: **6000**.
+   * *   Unit: KB.
+   * 
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @remarks
+   * The video codec. Valid values: H.264, H.265, GIF, and WebP. Default value: **H.264**.
+   * 
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The constant rate factor. Default value if the video codec is set to H.264: **23**. Default value if the video codec is set to H.265: **26**.
+   * 
+   * > If this parameter is specified, the setting of the Bitrate parameter becomes invalid.
+   * 
+   * @example
+   * 15
+   */
   crf?: string;
+  /**
+   * @remarks
+   * The method of video cropping. Valid values:
+   * 
+   * *   **border**: automatically detects and removes borders.
+   * *   **Value in the format of width:height:left:top**: crops the video image based on the custom settings. Example: 1280:800:0:140.
+   * 
+   * @example
+   * border
+   */
   crop?: string;
+  /**
+   * @remarks
+   * The level of quality control on the video.
+   * 
+   * @example
+   * 10
+   */
   degrain?: string;
+  /**
+   * @remarks
+   * The frame rate. Default value: the frame rate of the input file. The value is 60 if the frame rate of the input file exceeds 60. Unit: frames per second.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The GOP size. The GOP size can be the maximum interval of keyframes or the maximum number of frames in a frame group. If the maximum interval is specified, the value contains the unit (s). If the maximum number of frames is specified, the value does not contain a unit. Default value: **10s**.
+   * 
+   * @example
+   * 10s
+   */
   gop?: string;
+  /**
+   * @remarks
+   * Indicates whether the HDR2SDR conversion feature is enabled. If this feature is enabled, high dynamic range (HDR) videos are transcoded to standard dynamic range (SDR) videos.
+   * 
+   * @example
+   * true
+   */
   hdr2sdr?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: the height of the input video.
+   * 
+   * @example
+   * 800
+   */
   height?: string;
+  /**
+   * @remarks
+   * Indicates whether the auto-rotate screen feature is enabled. Default value: **false**. Valid values:
+   * 
+   * *   **true**: The auto-rotate screen feature is enabled.
+   * *   **false**: The auto-rotate screen feature is disabled.
+   * 
+   * > If this feature is enabled, the width of the output video corresponds to the long side of the input video, which is the height of the input video in portrait mode. The height of the output video corresponds to the short side of the input video, which is the width of the input video in portrait mode.
+   * 
+   * @example
+   * false
+   */
   longShortMode?: string;
+  /**
+   * @remarks
+   * The maximum frame rate.
+   * 
+   * @example
+   * 60
+   */
   maxFps?: string;
+  /**
+   * @remarks
+   * The maximum bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 500
+   */
   maxrate?: string;
+  /**
+   * @remarks
+   * The Narrowband HD settings.
+   */
   narrowBand?: AddTemplateResponseBodyTemplateVideoNarrowBand;
+  /**
+   * @remarks
+   * The black borders to be added to the video. The value is in the width:height:left:top format.
+   * 
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @remarks
+   * The pixel format. Standard pixel formats such as yuv420p and yuvj420p are supported. The default pixel format can be **yuv420p** or the pixel format of the input video.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The preset video algorithm. Default value: **medium**. Valid values:
+   * 
+   * *   **veryfast**
+   * *   **fast**
+   * *   **medium**
+   * *   **slow**
+   * *   **slower**
+   * 
+   * > This parameter is valid only if the Codec parameter is set to H.264.
+   * 
+   * @example
+   * fast
+   */
   preset?: string;
+  /**
+   * @remarks
+   * The codec profile.
+   * 
+   * *   **baseline**: suitable for mobile devices
+   * *   **main**: suitable for standard-definition devices
+   * *   **high**: suitable for high-definition devices
+   * *   Default value: **high**.
+   * 
+   * If multiple definitions are available, we recommend that you set this parameter to baseline for the lowest definition to ensure normal playback on low-end devices. Set this parameter to main or high for other definitions.
+   * 
+   * > This parameter is valid only if the Codec parameter is set to H.264.
+   * 
+   * @example
+   * high
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of the independent denoising algorithm.
+   * 
+   * @example
+   * 1
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream is deleted.
+   * 
+   * *   **true**: The video stream is deleted.
+   * *   **false**: The video stream is retained.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @remarks
+   * The policy of resolution adjustment.
+   * 
+   * @example
+   * 0
+   */
   resoPriority?: string;
+  /**
+   * @remarks
+   * The scan mode. Valid values:
+   * 
+   * *   **interlaced**
+   * *   **progressive**
+   * 
+   * @example
+   * interlaced
+   */
   scanMode?: string;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * *   Default value: the width of the input video.****
+   * *   Unit: pixel.
+   * 
+   * @example
+   * 256
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9037,13 +13914,57 @@ export class AddTemplateResponseBodyTemplateVideo extends $tea.Model {
 }
 
 export class AddTemplateResponseBodyTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The audio codec configurations.
+   */
   audio?: AddTemplateResponseBodyTemplateAudio;
+  /**
+   * @remarks
+   * The container format settings.
+   */
   container?: AddTemplateResponseBodyTemplateContainer;
+  /**
+   * @remarks
+   * The ID of the transcoding template. We recommend that you keep this ID for subsequent operation calls.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The transmuxing settings.
+   */
   muxConfig?: AddTemplateResponseBodyTemplateMuxConfig;
+  /**
+   * @remarks
+   * The name of the transcoding template.
+   * 
+   * @example
+   * mps-example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the template. Valid values:
+   * 
+   * *   **Normal**: The template is normal.
+   * *   **Deleted**: The template is deleted.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The general transcoding settings.
+   */
   transConfig?: AddTemplateResponseBodyTemplateTransConfig;
+  /**
+   * @remarks
+   * The video codec configurations.
+   */
   video?: AddTemplateResponseBodyTemplateVideo;
   static names(): { [key: string]: string } {
     return {
@@ -9077,9 +13998,49 @@ export class AddTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class AddWaterMarkTemplateResponseBodyWaterMarkTemplateRatioRefer extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset of the watermark relative to the output video image. Default value: **0**. The default value indicates no offset. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the vertical offset. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the horizontal offset to the width of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.51
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The vertical offset of the watermark relative to the output video image. Default value: **0**. The default value indicates no offset. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the vertical offset. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the vertical offset to the height of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.28
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The height of the watermark image in the output video. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the height of the watermark image. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the height of the watermark image to the height of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.33
+   */
   height?: string;
+  /**
+   * @remarks
+   * The width of the watermark image in the output video. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the width of the watermark image. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the width of the watermark image to the width of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.36
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9105,7 +14066,24 @@ export class AddWaterMarkTemplateResponseBodyWaterMarkTemplateRatioRefer extends
 }
 
 export class AddWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The display duration of the watermark. Default value: **ToEND**. The default value indicates that the watermark is displayed until the video ends.
+   * 
+   * @example
+   * ToEND
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which the watermark is displayed.
+   * 
+   * *   Unit: seconds.
+   * *   Default value: **0**.
+   * 
+   * @example
+   * 0
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9127,16 +14105,103 @@ export class AddWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline extends $
 }
 
 export class AddWaterMarkTemplateResponseBodyWaterMarkTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset. Unit: pixel.
+   * 
+   * @example
+   * 10
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The vertical offset. Unit: pixel.
+   * 
+   * @example
+   * 5
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The height of the watermark image. Unit: pixel.
+   * 
+   * @example
+   * 30
+   */
   height?: string;
+  /**
+   * @remarks
+   * The ID of the watermark template. We recommend that you keep this ID for subsequent operation calls.
+   * 
+   * @example
+   * 3780bd69b2b74540bc7b1096f564****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the watermark template.
+   * 
+   * @example
+   * example-watermark-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The values of the Height, Width, Dx, and Dy parameters relative to the reference edges. If the values of the Height, Width, Dx, and Dy parameters are decimals between 0 and 1, the values are calculated by referring to the following edges in sequence:
+   * 
+   * *   **Width**: the width edge.
+   * *   **Height**: the height edge.
+   * *   **Long**: the long edge.
+   * *   **Short**: the short edge.
+   */
   ratioRefer?: AddWaterMarkTemplateResponseBodyWaterMarkTemplateRatioRefer;
+  /**
+   * @remarks
+   * The position of the watermark. Valid values:
+   * 
+   * *   **TopRight**: the upper-right corner.
+   * *   **TopLeft**: the upper-left corner.
+   * *   **BottomRight**: the lower-right corner.
+   * *   **BottomLeft**: the lower-left corner.
+   * 
+   * @example
+   * TopRight
+   */
   referPos?: string;
+  /**
+   * @remarks
+   * The status of the watermark template.
+   * 
+   * *   **Normal**: The watermark template is normal.
+   * *   **Deleted**: The watermark template is deleted.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The timeline of the watermark.
+   */
   timeline?: AddWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline;
+  /**
+   * @remarks
+   * The type of the watermark. Valid values:
+   * 
+   * *   Image: an image watermark.
+   * *   Text: a text watermark.
+   * 
+   * @example
+   * Image
+   */
   type?: string;
+  /**
+   * @remarks
+   * The width of the watermark image. Unit: pixel.
+   * 
+   * @example
+   * 10
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9176,11 +14241,53 @@ export class AddWaterMarkTemplateResponseBodyWaterMarkTemplate extends $tea.Mode
 }
 
 export class CreateFpShotDBResponseBodyFpShotDB extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the media fingerprint library.
+   * 
+   * @example
+   * null
+   */
   config?: string;
+  /**
+   * @remarks
+   * The description of the media fingerprint library.
+   * 
+   * @example
+   * The library is a text fingerprint library.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the media fingerprint library. We recommend that you keep this ID for subsequent operation calls.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   fpDBId?: string;
+  /**
+   * @remarks
+   * The model ID of the media fingerprint library.
+   * 
+   * @example
+   * 11
+   */
   modelId?: number;
+  /**
+   * @remarks
+   * The name of the media fingerprint library.
+   * 
+   * @example
+   * example-name-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the media fingerprint library. After the media fingerprint library is created, it enters the **offline** state. After the media fingerprint library is processed at the backend, it enters the **active** state.
+   * 
+   * @example
+   * offline
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9210,10 +14317,50 @@ export class CreateFpShotDBResponseBodyFpShotDB extends $tea.Model {
 }
 
 export class DeactivateMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
+  /**
+   * @remarks
+   * *   After you deactivate a media workflow, you can modify the workflow information.
+   * *   After you delete or deactivate a media workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+   * 
+   * ## Limits on QPS
+   * 
+   * You can call this operation up to 100 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   * 
+   * @example
+   * 2016-04-01T05:29:37Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the media workflow that you want to deactivate. To obtain the ID of the media workflow, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings** in the left-side navigation pane.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e9181d4****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The details of the media workflow.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The topology of the media workflow.The status of the media workflow. The value is **Inactive**.
+   * 
+   * @example
+   * Inactive
+   */
   state?: string;
+  /**
+   * @remarks
+   * The status of the media workflow. The value is **Inactive**.
+   * 
+   * @example
+   * {mediaworkflow","State":"Active","Topology":"{\\"Activities\\":{\\"Act-Start\\":{\\"Parameters\\":{\\"PipelineId\\":\\"130266f58161436a80bf07cb12c8****\\",\\"InputFile\\":\\"{\\\\\\"Bucket\\\\\\": \\\\\\"example-bucket-****\\\\\\",\\\\\\"Location\\\\\\": \\\\\\"cn-shanghai\\\\\\"}\\"},\\"Type\\":\\"Start\\"},\\"Act-Report\\":{\\"Parameters\\":{},\\"Type\\":\\"Report\\"},\\"Act-Transcode-M3U8\\":{\\"Parameters\\":{\\"Outputs\\":\\"[{\\\\\\"Object\\\\\\":\\\\\\"transcode/{ObjectPrefix}{FileName}\\\\\\",\\\\\\"TemplateId\\\\\\": \\\\\\"957d1719ee85ed6527b90cf62726****\\\\\\"}]\\",\\"OutputBucket\\":\\"example-bucket-****\\",\\"OutputLocation\\":\\"cn-shanghai\\"},\\"Type\\":\\"Transcode\\"}},\\"Dependencies\\":{\\"Act-Start\\":[\\"Act-Transcode-M3U8\\"],\\"Act-Report\\":[],\\"Act-Transcode-M3U8\\":[\\"Act-Report\\"]}}","MediaWorkflowId":"93ab850b4f6f44eab54b6e91d24d****"}]},"RequestId":"16CD0CDD-457E-420D-9755-8385075A1234"}
+   */
   topology?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9241,10 +14388,45 @@ export class DeactivateMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model
 }
 
 export class DeleteMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @example
+   * 2016-04-01T05:29:37Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the media workflow that is deleted.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e9181d4****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the media workflow that is deleted.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the media workflow. The value is **Deleted**.
+   * 
+   * @example
+   * Deleted
+   */
   state?: string;
+  /**
+   * @remarks
+   * The topology of the media workflow.
+   * 
+   * @example
+   * {mediaworkflow","State":"Active","Topology":"{\\"Activities\\":{\\"Act-Start\\":{\\"Parameters\\":{\\"PipelineId\\":\\"130266f58161436a80bf07cb12c8****\\",\\"InputFile\\":\\"{\\\\\\"Bucket\\\\\\": \\\\\\"example-bucket-****\\\\\\",\\\\\\"Location\\\\\\": \\\\\\"cn-shanghai\\\\\\"}\\"},\\"Type\\":\\"Start\\"},\\"Act-Report\\":{\\"Parameters\\":{},\\"Type\\":\\"Report\\"},\\"Act-Transcode-M3U8\\":{\\"Parameters\\":{\\"Outputs\\":\\"[{\\\\\\"Object\\\\\\":\\\\\\"transcode/{ObjectPrefix}{FileName}\\\\\\",\\\\\\"TemplateId\\\\\\": \\\\\\"957d1719ee85ed6527b90cf62726****\\\\\\"}]\\",\\"OutputBucket\\":\\"example-bucket-****\\",\\"OutputLocation\\":\\"cn-shanghai\\"},\\"Type\\":\\"Transcode\\"}},\\"Dependencies\\":{\\"Act-Start\\":[\\"Act-Transcode-M3U8\\"],\\"Act-Report\\":[],\\"Act-Transcode-M3U8\\":[\\"Act-Report\\"]}}","MediaWorkflowId":"93ab850b4f6f44eab54b6e91d24d****"}]},"RequestId":"16CD0CDD-457E-420D-9755-8385075A1234"}
+   */
   topology?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9272,7 +14454,21 @@ export class DeleteMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
 }
 
 export class ImAuditResponseBodyImageResultsResultResultsFrames extends $tea.Model {
+  /**
+   * @remarks
+   * The score of the confidence level. Valid values: 0 to 100. A higher confidence level indicates higher reliability of the moderation result. We recommend that you do not use this score in your business.
+   * 
+   * @example
+   * 89.85
+   */
   rate?: number;
+  /**
+   * @remarks
+   * The temporary access URL of the truncated frame. The URL is valid for 5 minutes.
+   * 
+   * @example
+   * http://example.com/test-01.jpg
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9294,6 +14490,13 @@ export class ImAuditResponseBodyImageResultsResultResultsFrames extends $tea.Mod
 }
 
 export class ImAuditResponseBodyImageResultsResultResultsHintWordsInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The term hit by the detected text.
+   * 
+   * @example
+   * Sensitive words
+   */
   context?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9313,11 +14516,53 @@ export class ImAuditResponseBodyImageResultsResultResultsHintWordsInfo extends $
 }
 
 export class ImAuditResponseBodyImageResultsResultResultsLogoData extends $tea.Model {
+  /**
+   * @remarks
+   * The height of the logo area. Unit: pixel.
+   * 
+   * @example
+   * 106
+   */
   h?: number;
+  /**
+   * @remarks
+   * The name of the detected logo.
+   * 
+   * @example
+   * Hunan TV
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the detected logo. For example, a value of TV indicates a controlled media logo.
+   * 
+   * @example
+   * TV
+   */
   type?: string;
+  /**
+   * @remarks
+   * The width of the logo area. Unit: pixel.
+   * 
+   * @example
+   * 106
+   */
   w?: number;
+  /**
+   * @remarks
+   * The distance between the upper-left corner of the logo area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+   * 
+   * @example
+   * 140
+   */
   x?: number;
+  /**
+   * @remarks
+   * The distance between the upper-left corner of the logo area and the x-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+   * 
+   * @example
+   * 68
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9347,9 +14592,37 @@ export class ImAuditResponseBodyImageResultsResultResultsLogoData extends $tea.M
 }
 
 export class ImAuditResponseBodyImageResultsResultResultsProgramCodeData extends $tea.Model {
+  /**
+   * @remarks
+   * The height of the mini program code area. Unit: pixel.
+   * 
+   * @example
+   * 413.0
+   */
   h?: number;
+  /**
+   * @remarks
+   * The width of the mini program code area. Unit: pixel.
+   * 
+   * @example
+   * 402.0
+   */
   w?: number;
+  /**
+   * @remarks
+   * The distance between the upper-left corner of the mini program code area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+   * 
+   * @example
+   * 11.0
+   */
   x?: number;
+  /**
+   * @remarks
+   * The distance between the upper-left corner of the mini program code area and the x-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+   * 
+   * @example
+   * 0.0
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9375,10 +14648,45 @@ export class ImAuditResponseBodyImageResultsResultResultsProgramCodeData extends
 }
 
 export class ImAuditResponseBodyImageResultsResultResultsQrcodeLocations extends $tea.Model {
+  /**
+   * @remarks
+   * The height of the QR code area. Unit: pixel.
+   * 
+   * @example
+   * 413.0
+   */
   h?: number;
+  /**
+   * @remarks
+   * The URL that the detected QR code points to.
+   * 
+   * @example
+   * http://xxx
+   */
   qrcode?: string;
+  /**
+   * @remarks
+   * The width of the QR code area. Unit: pixel.
+   * 
+   * @example
+   * 402.0
+   */
   w?: number;
+  /**
+   * @remarks
+   * The distance between the upper-left corner of the QR code area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+   * 
+   * @example
+   * 11
+   */
   x?: number;
+  /**
+   * @remarks
+   * The distance between the upper-left corner of the QR code area and the x-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+   * 
+   * @example
+   * 0
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9406,8 +14714,29 @@ export class ImAuditResponseBodyImageResultsResultResultsQrcodeLocations extends
 }
 
 export class ImAuditResponseBodyImageResultsResultResultsSfaceDataFaces extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the detected face. The value is a string.
+   * 
+   * @example
+   * AliFace_0001234
+   */
   idid?: string;
+  /**
+   * @remarks
+   * This value is a string, which indicates the name of a similar person.
+   * 
+   * @example
+   * Name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The score of the confidence level. The value is a float point number. Valid values: 0 to 100. A greater value indicates a higher confidence level for facial recognition.
+   * 
+   * @example
+   * 91.54
+   */
   re?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9431,10 +14760,42 @@ export class ImAuditResponseBodyImageResultsResultResultsSfaceDataFaces extends 
 }
 
 export class ImAuditResponseBodyImageResultsResultResultsSfaceData extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the face detected in the moderated image.
+   */
   faces?: ImAuditResponseBodyImageResultsResultResultsSfaceDataFaces[];
+  /**
+   * @remarks
+   * The height of the face area. Unit: pixel.
+   * 
+   * @example
+   * 121
+   */
   h?: number;
+  /**
+   * @remarks
+   * The width of the face area. Unit: pixel.
+   * 
+   * @example
+   * 47
+   */
   w?: number;
+  /**
+   * @remarks
+   * The distance between the upper-left corner of the face area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+   * 
+   * @example
+   * 49
+   */
   x?: number;
+  /**
+   * @remarks
+   * The distance between the upper-left corner of the face area and the y-axis, with the upper-left corner of the image being the coordinate origin. Unit: pixel.
+   * 
+   * @example
+   * 39
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9462,17 +14823,147 @@ export class ImAuditResponseBodyImageResultsResultResultsSfaceData extends $tea.
 }
 
 export class ImAuditResponseBodyImageResultsResultResults extends $tea.Model {
+  /**
+   * @remarks
+   * The category of the moderation results. Valid values vary based on the specified moderation scenario.
+   * 
+   * *   If the Scenes parameter is set to porn, the valid values are:
+   * 
+   *     *   normal: no pornographic content
+   *     *   sexy: sexy content
+   *     *   porn: pornographic content
+   * 
+   * *   If the Scenes parameter is set to terrorism, the valid values are:
+   * 
+   *     *   normal: no pornographic content
+   *     *   bloody: bloody content
+   *     *   explosion: explosions and smoke
+   *     *   outfit: special costume
+   *     *   logo: special logo
+   *     *   weapon: weapon
+   *     *   politics: political content
+   *     *   violence: violence
+   *     *   crowd: crowd
+   *     *   parade: parade
+   *     *   carcrash: car accident
+   *     *   flag: flag
+   *     *   location: landmark
+   *     *   others: other content
+   * 
+   * *   If the Scenes parameter is set to ad, the valid values are:
+   * 
+   *     *   normal: no pornographic content
+   *     *   ad: ad violation
+   *     *   politics: politically sensitive content in text
+   *     *   porn: pornographic content in text
+   *     *   abuse: abuse in text
+   *     *   terrorism: terrorist content in text
+   *     *   contraband: prohibited content in text
+   *     *   spam: junk content in text
+   *     *   npx: illegal ad
+   *     *   qrcode: QR code
+   *     *   programCode: mini program code
+   * 
+   * *   If the Scenes parameter is set to qrcode, the valid values are:
+   * 
+   *     *   normal: no pornographic content
+   *     *   qrcode: QR code
+   *     *   programCode: mini program code
+   * 
+   * *   If the Scenes parameter is set to live, the valid values are:
+   * 
+   *     *   normal: no pornographic content
+   *     *   meaningless: no content in the image, such as black or white screen
+   *     *   PIP: picture-in-picture
+   *     *   smoking: smoking
+   *     *   drivelive: live broadcasting in a running vehicle
+   * 
+   * *   If the Scenes parameter is set to logo, the valid values are:
+   * 
+   *     *   normal: no pornographic content
+   *     *   TV: controlled logo
+   *     *   trademark: trademark
+   * 
+   * @example
+   * sexy
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score of the confidence level. Valid values: 0 to 100. A greater value indicates a higher confidence level. If a value of pass is returned for the suggestion parameter, a higher confidence level indicates a higher probability that the content is normal. If a value of review or block is returned for the suggestion parameter, a higher confidence level indicates a higher probability that the content contains violations.
+   * 
+   * >  This score is for reference only. We strongly recommend that you do not use this score in your business. We recommend that you use the values that are returned for the suggestion, label, and sublabel parameters to determine whether the content contains violations. The sublabel parameter is returned by some operations.
+   * 
+   * @example
+   * 91.54
+   */
   rate?: number;
+  /**
+   * @remarks
+   * The image moderation scenario. Valid values:
+   * 
+   * *   porn: pornography
+   * *   terrorism: terrorist content
+   * *   ad: ad violation
+   * *   qrcode: QR code
+   * *   live: undesirable scene
+   * *   logo: special logo
+   * 
+   * @example
+   * porn
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   pass: The content passes the moderation. No further actions are required.
+   * *   review: The moderation object contains suspected violations and requires human review.
+   * *   block: The moderation object contains violations. We recommend that you delete or block the object.
+   * 
+   * @example
+   * block
+   */
   suggestion?: string;
+  /**
+   * @remarks
+   * If the temporary access URL of the image is too long, a truncated temporary access URL is returned for each frame.
+   */
   frames?: ImAuditResponseBodyImageResultsResultResultsFrames[];
+  /**
+   * @remarks
+   * The information about the term hit by the ad or violation text detected in the moderated image.
+   */
   hintWordsInfo?: ImAuditResponseBodyImageResultsResultResultsHintWordsInfo[];
+  /**
+   * @remarks
+   * The information about the logo detected in the moderated image.
+   */
   logoData?: ImAuditResponseBodyImageResultsResultResultsLogoData[];
+  /**
+   * @remarks
+   * ocrData
+   */
   ocrData?: string[];
+  /**
+   * @remarks
+   * The location information of the mini program code detected in the moderated image.
+   */
   programCodeData?: ImAuditResponseBodyImageResultsResultResultsProgramCodeData[];
+  /**
+   * @remarks
+   * The information about the text that is included in the QR code detected in the moderated image.
+   */
   qrcodeData?: string[];
+  /**
+   * @remarks
+   * The coordinates of the QR code detected in the image.
+   */
   qrcodeLocations?: ImAuditResponseBodyImageResultsResultResultsQrcodeLocations[];
+  /**
+   * @remarks
+   * The information about the terrorist content detected in the moderated image.
+   */
   sfaceData?: ImAuditResponseBodyImageResultsResultResultsSfaceData[];
   static names(): { [key: string]: string } {
     return {
@@ -9514,12 +15005,57 @@ export class ImAuditResponseBodyImageResultsResultResults extends $tea.Model {
 }
 
 export class ImAuditResponseBodyImageResultsResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code. The error code is the same as the HTTP status code. This parameter is not returned if the request is successful.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The ID of the moderated object.
+   * 
+   * >  If you set the dataId parameter in the moderation request, the dataId parameter is returned in the response.
+   * 
+   * @example
+   * uuid-1234-1234-1234
+   */
   dataId?: string;
+  /**
+   * @remarks
+   * The additional information about the image. If ad is specified for the Scenes parameter, the following content may be returned for this parameter: hitLibInfo: the information about the custom text library that is hit by the text in the image. The value of this parameter is an array. For more information about the structure, see [hitLibInfo](https://help.aliyun.com/document_detail/268644.html).
+   */
   extras?: { [key: string]: any };
+  /**
+   * @remarks
+   * The message that is returned for the request.
+   * 
+   * @example
+   * ok
+   */
   msg?: string;
+  /**
+   * @remarks
+   * The returned data. If the call is successful, the array in the returned results contains one or more elements. Each element is a struct.
+   */
   results?: ImAuditResponseBodyImageResultsResultResults[];
+  /**
+   * @remarks
+   * The ID of the moderation task.
+   * 
+   * @example
+   * img4wlJcb7p4wH4lAP3111111-12****
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * The URL of the moderated object.
+   * 
+   * @example
+   * http://example.com/example-****.jpg
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9551,6 +15087,10 @@ export class ImAuditResponseBodyImageResultsResult extends $tea.Model {
 }
 
 export class ImAuditResponseBodyImageResults extends $tea.Model {
+  /**
+   * @remarks
+   * The image moderation results.
+   */
   result?: ImAuditResponseBodyImageResultsResult[];
   static names(): { [key: string]: string } {
     return {
@@ -9570,10 +15110,50 @@ export class ImAuditResponseBodyImageResults extends $tea.Model {
 }
 
 export class ImAuditResponseBodyTextResultsResultResultsDetailsContexts extends $tea.Model {
+  /**
+   * @remarks
+   * The term that the moderated text hits. If the text hits a term, the term is returned. If the text hits the algorithmic model, this parameter is not returned.
+   * 
+   * @example
+   * Door-to-door service
+   */
   context?: string;
+  /**
+   * @remarks
+   * The code of the custom text library. This parameter is returned if the moderated text hits a term in the custom text library.
+   * 
+   * @example
+   * 123456
+   */
   libCode?: string;
+  /**
+   * @remarks
+   * The name of the custom text library. This parameter is returned if the moderated text hits a term in the custom text library.
+   * 
+   * @example
+   * Name of your custom text library
+   */
   libName?: string;
+  /**
+   * @remarks
+   * The position of the term that the moderated text hits in the original text.
+   */
   positions?: string[];
+  /**
+   * @remarks
+   * The behavior rule. This parameter is returned if the moderated text hits the behavior rule. Valid values:
+   * 
+   * *   user_id
+   * *   ip
+   * *   umid
+   * *   content
+   * *   similar_content
+   * *   imei
+   * *   imsi
+   * 
+   * @example
+   * ip
+   */
   ruleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9601,7 +15181,29 @@ export class ImAuditResponseBodyTextResultsResultResultsDetailsContexts extends 
 }
 
 export class ImAuditResponseBodyTextResultsResultResultsDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The category of the risky content that the moderated text hits. Valid values:
+   * 
+   * *   spam: spam
+   * *   ad: ad
+   * *   politics: political content
+   * *   terrorism: terrorist content
+   * *   abuse: abuse
+   * *   porn: pornographic content
+   * *   flood: excessive junk content
+   * *   contraband: prohibited content
+   * *   meaningless: meaningless content
+   * *   customized: custom content, such as a custom keyword
+   * 
+   * @example
+   * porn
+   */
   label?: string;
+  /**
+   * @remarks
+   * The context information of the risky content that the moderated text hits.
+   */
   contexts?: ImAuditResponseBodyTextResultsResultResultsDetailsContexts[];
   static names(): { [key: string]: string } {
     return {
@@ -9623,10 +15225,60 @@ export class ImAuditResponseBodyTextResultsResultResultsDetails extends $tea.Mod
 }
 
 export class ImAuditResponseBodyTextResultsResultResults extends $tea.Model {
+  /**
+   * @remarks
+   * The risky content that the moderated text hits. A text entry can hit multiple pieces of risky content.
+   */
   details?: ImAuditResponseBodyTextResultsResultResultsDetails[];
+  /**
+   * @remarks
+   * The category of the moderation result for the moderated text. Valid values:
+   * 
+   * *   normal: normal content
+   * *   spam: spam
+   * *   ad: ad
+   * *   politics: political content
+   * *   terrorism: terrorist content
+   * *   abuse: abuse
+   * *   porn: pornographic content
+   * *   flood: excessive junk content
+   * *   contraband: prohibited content
+   * *   meaningless: meaningless content
+   * *   customized: custom content, such as a custom keyword
+   * 
+   * @example
+   * porn
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score of the confidence level. Valid values: 0 to 100. A greater value indicates a higher confidence level. If a value of pass is returned for the suggestion parameter, a higher confidence level indicates a higher probability that the content is normal. If a value of review or block is returned for the suggestion parameter, a higher confidence level indicates a higher probability that the content contains violations.
+   * 
+   * >  This score is for reference only. We strongly recommend that you do not use this score in your business. We recommend that you use the values that are returned for the suggestion, label, and sublabel parameters to determine whether the content contains violations. The sublabel parameter is returned by some operations.
+   * 
+   * @example
+   * 99.90
+   */
   rate?: number;
+  /**
+   * @remarks
+   * The moderation scenario.
+   * 
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   pass: The content passes the moderation.
+   * *   review: The content needs to be manually reviewed again.
+   * *   block: The content contains violations. We recommend that you delete or block the content.
+   * 
+   * @example
+   * block
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9654,11 +15306,50 @@ export class ImAuditResponseBodyTextResultsResultResults extends $tea.Model {
 }
 
 export class ImAuditResponseBodyTextResultsResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code. The error code is the same as the HTTP status code. For more information, see [Error codes](https://help.aliyun.com/document_detail/29254.html).
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The text that you specify in the moderation request.
+   * 
+   * @example
+   * This is test text.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The sequence number of the text.
+   * 
+   * @example
+   * cfd33235-71a4-468b-8137-a5ffe323****
+   */
   dataId?: string;
+  /**
+   * @remarks
+   * The message that is returned for the request.
+   * 
+   * @example
+   * OK
+   */
   msg?: string;
+  /**
+   * @remarks
+   * The returned data. If the HTTP status code 200 is returned, the array in the returned results contains one or more elements. Each element is a struct.
+   */
   results?: ImAuditResponseBodyTextResultsResultResults[];
+  /**
+   * @remarks
+   * The ID of the moderation task.
+   * 
+   * @example
+   * txt6HB8NQoEbU@5fosnj2xVEM-1t****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9688,6 +15379,10 @@ export class ImAuditResponseBodyTextResultsResult extends $tea.Model {
 }
 
 export class ImAuditResponseBodyTextResults extends $tea.Model {
+  /**
+   * @remarks
+   * The text moderation results.
+   */
   result?: ImAuditResponseBodyTextResultsResult[];
   static names(): { [key: string]: string } {
     return {
@@ -9707,8 +15402,32 @@ export class ImAuditResponseBodyTextResults extends $tea.Model {
 }
 
 export class ListAllMediaBucketResponseBodyMediaBucketListMediaBucket extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the media bucket.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The settings of Object Storage Service (OSS) hotlink protection. For more information, see [Hotlink protection](https://help.aliyun.com/document_detail/31869.html).
+   * 
+   * @example
+   * http://www.example.com
+   */
   referer?: string;
+  /**
+   * @remarks
+   * The type of the media bucket. Valid values:
+   * 
+   * *   Input: input media bucket
+   * *   Output: output media bucket
+   * 
+   * @example
+   * Input
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9751,8 +15470,20 @@ export class ListAllMediaBucketResponseBodyMediaBucketList extends $tea.Model {
 }
 
 export class ListCustomEntitiesResponseBodyCustomEntitiesCustomEntity extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   customEntityId?: string;
+  /**
+   * @example
+   * { "finegrainName":"example" }
+   */
   customEntityInfo?: string;
+  /**
+   * @example
+   * exampleName
+   */
   customEntityName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9796,6 +15527,10 @@ export class ListCustomEntitiesResponseBodyCustomEntities extends $tea.Model {
 
 export class ListCustomGroupsResponseBodyCustomGroupsCustomGroup extends $tea.Model {
   customGroupDescription?: string;
+  /**
+   * @example
+   * 1
+   */
   customGroupId?: string;
   customGroupName?: string;
   static names(): { [key: string]: string } {
@@ -9839,7 +15574,21 @@ export class ListCustomGroupsResponseBodyCustomGroups extends $tea.Model {
 }
 
 export class ListCustomPersonsResponseBodyCategoriesCategoryPersonsPersonFacesFace extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the face.
+   * 
+   * @example
+   * 15****
+   */
   faceId?: string;
+  /**
+   * @remarks
+   * The URL of the facial image that was registered for the figure.
+   * 
+   * @example
+   * http://example-****.jpeg
+   */
   imageUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9880,9 +15629,34 @@ export class ListCustomPersonsResponseBodyCategoriesCategoryPersonsPersonFaces e
 }
 
 export class ListCustomPersonsResponseBodyCategoriesCategoryPersonsPerson extends $tea.Model {
+  /**
+   * @remarks
+   * The array of the faces.
+   */
   faces?: ListCustomPersonsResponseBodyCategoriesCategoryPersonsPersonFaces;
+  /**
+   * @remarks
+   * The description of the figure.
+   * 
+   * @example
+   * PersonDescription-****
+   */
   personDescription?: string;
+  /**
+   * @remarks
+   * The ID of the figure.
+   * 
+   * @example
+   * PersonId-****
+   */
   personId?: string;
+  /**
+   * @remarks
+   * The name of the figure.
+   * 
+   * @example
+   * PersonName-****
+   */
   personName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9927,9 +15701,34 @@ export class ListCustomPersonsResponseBodyCategoriesCategoryPersons extends $tea
 }
 
 export class ListCustomPersonsResponseBodyCategoriesCategory extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the figure library.
+   * 
+   * @example
+   * CategoryDescription-****
+   */
   categoryDescription?: string;
+  /**
+   * @remarks
+   * The ID of the figure library.
+   * 
+   * @example
+   * CategoryId-****
+   */
   categoryId?: string;
+  /**
+   * @remarks
+   * The name of the figure library.
+   * 
+   * @example
+   * CategoryName-****
+   */
   categoryName?: string;
+  /**
+   * @remarks
+   * The array of the figures.
+   */
   persons?: ListCustomPersonsResponseBodyCategoriesCategoryPersons;
   static names(): { [key: string]: string } {
     return {
@@ -9974,6 +15773,10 @@ export class ListCustomPersonsResponseBodyCategories extends $tea.Model {
 }
 
 export class ListCustomViewsResponseBodyCustomViewsCustomView extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   customViewId?: string;
   imageUrl?: string;
   static names(): { [key: string]: string } {
@@ -10015,10 +15818,50 @@ export class ListCustomViewsResponseBodyCustomViews extends $tea.Model {
 }
 
 export class ListFpShotDBResponseBodyFpShotDBListFpShotDB extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the media fingerprint library.
+   * 
+   * @example
+   * The library is a text fingerprint library.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the media fingerprint library.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   fpDBId?: string;
+  /**
+   * @remarks
+   * The model ID of the media fingerprint library. A value of **11** indicates that the library is a text fingerprint library. A value of **12** indicates that the library is a video fingerprint library. A value of **13** indicates that the library is an audio fingerprint library. A value of **14** indicates that the library is an image fingerprint library.
+   * 
+   * @example
+   * 11
+   */
   modelId?: number;
+  /**
+   * @remarks
+   * The name of the media fingerprint library.
+   * 
+   * @example
+   * test-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the media fingerprint library. Default value: **offline**. ****Valid values:
+   * 
+   * *   **offline**: The media fingerprint library is offline.
+   * *   **active**: The media fingerprint library is online.
+   * *   **paused**: The media fingerprint library is paused.
+   * *   **deleted**: The media fingerprint library is deleted.
+   * 
+   * @example
+   * active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10084,8 +15927,29 @@ export class ListFpShotDBResponseBodyNonExistIds extends $tea.Model {
 }
 
 export class ListFpShotFilesResponseBodyFpShotFileListFpShotFileInputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the input file resides.
+   * 
+   * @example
+   * oss-cn-beijing
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
+   * @example
+   * example-****.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10109,9 +15973,36 @@ export class ListFpShotFilesResponseBodyFpShotFileListFpShotFileInputFile extend
 }
 
 export class ListFpShotFilesResponseBodyFpShotFileListFpShotFile extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the video file.
+   * 
+   * @example
+   * 41e6536e4f2250e2e9bf26cdea19****
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The information about the input file.
+   */
   inputFile?: ListFpShotFilesResponseBodyFpShotFileListFpShotFileInputFile;
+  /**
+   * @remarks
+   * The unique primary key of the input video.
+   * 
+   * @example
+   * fb712a6890464059b1b2ea7c8647****
+   */
   primaryKey?: string;
+  /**
+   * @remarks
+   * The time when the media fingerprint file was stored. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
+   * 
+   * > This parameter is available only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+   * 
+   * @example
+   * 2022-09-08T23:32:56Z
+   */
   storeTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10156,17 +16047,105 @@ export class ListFpShotFilesResponseBodyFpShotFileList extends $tea.Model {
 }
 
 export class ListFpShotImportJobResponseBodyFpShotImportJobList extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned when the job fails.
+   * 
+   * @example
+   * 0
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2020-06-30T00:33:18Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The time when the job was completed.
+   * 
+   * @example
+   * 2020-06-30T00:34:02Z
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The ID of the text fingerprint library.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   fpDBId?: string;
+  /**
+   * @remarks
+   * The import configuration.
+   * 
+   * @example
+   * ""
+   */
   fpImportConfig?: string;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * 25bacf2824614bcf9273dc0744db****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The input file.
+   * 
+   * @example
+   * {\\"Bucket\\":\\"mts-example****\\",\\"Location\\":\\"oss-cn-shanghai\\",\\"Object\\":\\"test-0828/video/test.mp4\\"}
+   */
   input?: string;
+  /**
+   * @remarks
+   * The error message returned when the job fails.
+   * 
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the job is submitted.
+   * 
+   * @example
+   * ebb51ee30f0b49aba959823fa991****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The processing information of the job.
+   * 
+   * @example
+   * http://testbucket.oss-cn-shanghai.aliyuncs.com/932ajjw***32ssoj_importResult.txt
+   */
   processMessage?: string;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   Processing: The job is in progress.
+   * *   Fail: The job fails.
+   * *   Success: The job is successful.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * The user-defined data.
+   * 
+   * @example
+   * 001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10208,8 +16187,29 @@ export class ListFpShotImportJobResponseBodyFpShotImportJobList extends $tea.Mod
 }
 
 export class ListJobResponseBodyJobListJobInput extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the job input is stored.
+   * 
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the job input is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the job input.
+   * 
+   * @example
+   * example.flv
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10233,8 +16233,29 @@ export class ListJobResponseBodyJobListJobInput extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * The resource operated “%s” cannot be found.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the message returned if the job was successful.
+   * 
+   * @example
+   * 123
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10258,7 +16279,28 @@ export class ListJobResponseBodyJobListJobMNSMessageResult extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputAudioVolume extends $tea.Model {
+  /**
+   * @remarks
+   * The volume adjustment range.
+   * 
+   * *   Unit: decibel.
+   * *   Default value: **-20**.
+   * 
+   * @example
+   * -20
+   */
   level?: string;
+  /**
+   * @remarks
+   * The method that is used to adjust the volume. Valid values:
+   * 
+   * *   **auto**
+   * *   **dynamic**
+   * *   **linear**
+   * 
+   * @example
+   * auto
+   */
   method?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10280,12 +16322,73 @@ export class ListJobResponseBodyJobListJobOutputAudioVolume extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputAudio extends $tea.Model {
+  /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Unit: Kbit/s.
+   * *   Default value: **128**.
+   * 
+   * @example
+   * 128
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The number of sound channels.
+   * 
+   * *   If the value of Codec is mp3, the value of this parameter can only be 1 or 2.
+   * *   If the value of Codec is aac, the value of this parameter can only be 1, 2, 4, 5, 6, or 8.
+   * *   Default value: 2.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The audio codec.
+   * 
+   * *   Valid values: aac, mp3, vorbis, and flac.
+   * *   Default value: **aac**.
+   * 
+   * @example
+   * aac
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The codec profile of the audio. Valid values if the value of Codec is aac: aaclow, aache, aachev2, aacld, and aaceld.
+   * 
+   * @example
+   * aaclow
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of quality control on the audio.
+   * 
+   * @example
+   * 15
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Valid values: 22050, 32000, 44100, 48000, and 96000.
+   * *   Unit: Hz.
+   * *   Default value: 44100.
+   * *   If the video container format is FLV and the audio codec is MP3, the value of this parameter cannot be 32000, 48000, or 96000. If the audio codec is MP3, the value of this parameter cannot be 96000.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume configurations.
+   */
   volume?: ListJobResponseBodyJobListJobOutputAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -10317,7 +16420,29 @@ export class ListJobResponseBodyJobListJobOutputAudio extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputClipTimeSpan extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   * *   Examples: 01:00:59.999 and 32000.23.
+   * 
+   * @example
+   * 01:00:59.999
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The point in time when the clip starts.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   * *   Examples: 01:59:59.999 and 32000.23.
+   * 
+   * @example
+   * 01:00:59.999
+   */
   seek?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10339,6 +16464,10 @@ export class ListJobResponseBodyJobListJobOutputClipTimeSpan extends $tea.Model 
 }
 
 export class ListJobResponseBodyJobListJobOutputClip extends $tea.Model {
+  /**
+   * @remarks
+   * The time span of the clip.
+   */
   timeSpan?: ListJobResponseBodyJobListJobOutputClipTimeSpan;
   static names(): { [key: string]: string } {
     return {
@@ -10358,6 +16487,21 @@ export class ListJobResponseBodyJobListJobOutputClip extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputContainer extends $tea.Model {
+  /**
+   * @remarks
+   * The container format.
+   * 
+   * *   Default value: mp4.
+   * *   Video formats include FLV, MP4, HLS (M3U8 + TS), and MPEG-DASH (MPD + fMP4).
+   * *   Audio formats include MP3, MP4, Ogg, FLAC, and M4A.
+   * *   Image formats include GIF and WebP.
+   * *   If the container format is GIF, the video codec must be GIF.
+   * *   If the container format is WebP, the video codec must be WebP.
+   * *   If the container format is FLV, the video codec cannot be H.265.
+   * 
+   * @example
+   * flv
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10377,11 +16521,55 @@ export class ListJobResponseBodyJobListJobOutputContainer extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputEncryption extends $tea.Model {
+  /**
+   * @remarks
+   * The encryption ID.
+   * 
+   * @example
+   * 31fa3c9ca8134f9cec2b4b0b0f78****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The key that is used to encrypt the video.
+   * 
+   * @example
+   * encryptionkey128
+   */
   key?: string;
+  /**
+   * @remarks
+   * The key encryption method. Valid values: Base64 and KMS.
+   * 
+   * >  For example, if the key is encryptionkey128, you can encrypt the key in the Base64 format or use Key Management Service (KMS) to encrypt the key.``````
+   * 
+   * @example
+   * Base64
+   */
   keyType?: string;
+  /**
+   * @remarks
+   * The URL that is used to request the key. The URL is Base64-encoded.
+   * 
+   * @example
+   * https://1161758785*****.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/HLS-decyptServer/decyptServer/
+   */
   keyUri?: string;
+  /**
+   * @remarks
+   * The number of unencrypted frames at the beginning of the video. Leaving these frames unencrypted enables video playback to quickly start.
+   * 
+   * @example
+   * 3
+   */
   skipCnt?: string;
+  /**
+   * @remarks
+   * The encryption type. Only hls-aes-128 may be returned.
+   * 
+   * @example
+   * hls-aes-128
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10411,7 +16599,27 @@ export class ListJobResponseBodyJobListJobOutputEncryption extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputM3U8NonStandardSupportTS extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the MD5 value of the TS file is included in the M3U8 file. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   md5Support?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the size of the TS file is included in the M3U8 file.
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   sizeSupport?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10433,6 +16641,10 @@ export class ListJobResponseBodyJobListJobOutputM3U8NonStandardSupportTS extends
 }
 
 export class ListJobResponseBodyJobListJobOutputM3U8NonStandardSupport extends $tea.Model {
+  /**
+   * @remarks
+   * The non-standard support configurations for TS files. The value is a JSON object. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html).
+   */
   TS?: ListJobResponseBodyJobListJobOutputM3U8NonStandardSupportTS;
   static names(): { [key: string]: string } {
     return {
@@ -10452,9 +16664,43 @@ export class ListJobResponseBodyJobListJobOutputM3U8NonStandardSupport extends $
 }
 
 export class ListJobResponseBodyJobListJobOutputMergeListMerge extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Examples: 01:59:59.999 and 32000.23.
+   * 
+   * @example
+   * 01:59:59.999
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The OSS URL of the clip.
+   * 
+   * *   Example: `http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com/example-object.flv`.
+   * *   The object must be URL-encoded by using the UTF-8 standard.
+   * 
+   * @example
+   * http://example-bucket.oss-cn-hangzhou.aliyuncs.com/example-object.flv
+   */
   mergeURL?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role used for delegated authorization.
+   * 
+   * @example
+   * acs:ram::<your uid>:role/<your role name>
+   */
   roleArn?: string;
+  /**
+   * @remarks
+   * The start point in time of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Examples: 01:59:59.999 and 32000.23.
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10499,9 +16745,40 @@ export class ListJobResponseBodyJobListJobOutputMergeList extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputMuxConfigGif extends $tea.Model {
+  /**
+   * @remarks
+   * The color dithering algorithm of the palette. Valid values: **sierra** and **bayer**.
+   * 
+   * @example
+   * bayer
+   */
   ditherMode?: string;
+  /**
+   * @remarks
+   * The duration for which the final frame is paused. Unit: centisecond.
+   * 
+   * @example
+   * 0
+   */
   finalDelay?: string;
+  /**
+   * @remarks
+   * Indicates whether a custom palette is used. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isCustomPalette?: string;
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10527,6 +16804,16 @@ export class ListJobResponseBodyJobListJobOutputMuxConfigGif extends $tea.Model 
 }
 
 export class ListJobResponseBodyJobListJobOutputMuxConfigSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The length of the segment. The value must be an integer. Unit: seconds.
+   * 
+   * *   Valid values: [1,10].
+   * *   Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10546,6 +16833,13 @@ export class ListJobResponseBodyJobListJobOutputMuxConfigSegment extends $tea.Mo
 }
 
 export class ListJobResponseBodyJobListJobOutputMuxConfigWebp extends $tea.Model {
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10565,8 +16859,20 @@ export class ListJobResponseBodyJobListJobOutputMuxConfigWebp extends $tea.Model
 }
 
 export class ListJobResponseBodyJobListJobOutputMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The transmuxing configurations for GIF.
+   */
   gif?: ListJobResponseBodyJobListJobOutputMuxConfigGif;
+  /**
+   * @remarks
+   * The segment configurations. The value is a JSON object.
+   */
   segment?: ListJobResponseBodyJobListJobOutputMuxConfigSegment;
+  /**
+   * @remarks
+   * The transmuxing configurations for WebP.
+   */
   webp?: ListJobResponseBodyJobListJobOutputMuxConfigWebp;
   static names(): { [key: string]: string } {
     return {
@@ -10590,9 +16896,48 @@ export class ListJobResponseBodyJobListJobOutputMuxConfig extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputOpeningListOpening extends $tea.Model {
+  /**
+   * @remarks
+   * The height of the opening part. Valid values: values in the range of (0, 4096), -1, and full.
+   * 
+   * *   Default value: **-1**.
+   * *   A value of -1 indicates that the height of the source of the opening part is retained.
+   * *   A value of full indicates that the height of the opening part equals the height of the main part.
+   * 
+   * @example
+   * -1
+   */
   height?: string;
+  /**
+   * @remarks
+   * The amount of time after which the opening part is played. The value starts from 0.
+   * 
+   * *   Unit: seconds.
+   * *   Default value: **0**.
+   * 
+   * @example
+   * 0
+   */
   start?: string;
+  /**
+   * @remarks
+   * The width of the opening part. Valid values: values in the range of (0, 4096), -1, and full.
+   * 
+   * *   Default value: **-1**.
+   * *   A value of -1 indicates that the width of the source of the opening part is retained.
+   * *   A value of full indicates that the width of the opening part equals the width of the main part.
+   * 
+   * @example
+   * -1
+   */
   width?: string;
+  /**
+   * @remarks
+   * The OSS URL of the opening part.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com/opening_01.flv
+   */
   openUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10637,9 +16982,37 @@ export class ListJobResponseBodyJobListJobOutputOpeningList extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputOutSubtitleListOutSubtitleOutSubtitleFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the output file is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the output file.
+   * 
+   * @example
+   * example-output.flv
+   */
   object?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role used for delegated authorization.
+   * 
+   * @example
+   * acs:ram::<your uid>:role/<your role name>
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10665,9 +17038,37 @@ export class ListJobResponseBodyJobListJobOutputOutSubtitleListOutSubtitleOutSub
 }
 
 export class ListJobResponseBodyJobListJobOutputOutSubtitleListOutSubtitle extends $tea.Model {
+  /**
+   * @remarks
+   * The video track. Format: 0:{Stream}:{Stream sequence number}, that is, 0:v:{video_index}. The value of Stream is v, which indicates a video stream. The sequence number is the index of the video stream in the list and starts from 0.
+   * 
+   * @example
+   * 0:v:0
+   */
   map?: string;
+  /**
+   * @remarks
+   * The error message returned if the job failed to be created. This parameter is not returned if the job was created.
+   * 
+   * @example
+   * The specified parameter “%s” cannot be null.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The details of the output file.
+   */
   outSubtitleFile?: ListJobResponseBodyJobListJobOutputOutSubtitleListOutSubtitleOutSubtitleFile;
+  /**
+   * @remarks
+   * Indicates whether the job was created. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10712,9 +17113,37 @@ export class ListJobResponseBodyJobListJobOutputOutSubtitleList extends $tea.Mod
 }
 
 export class ListJobResponseBodyJobListJobOutputOutputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the output file is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the output file.
+   * 
+   * @example
+   * example-output.flv
+   */
   object?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role used for delegated authorization.
+   * 
+   * @example
+   * acs:ram::<your uid>:role/<your role name>
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10740,13 +17169,69 @@ export class ListJobResponseBodyJobListJobOutputOutputFile extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputPropertiesFormat extends $tea.Model {
+  /**
+   * @remarks
+   * The total bitrate.
+   * 
+   * @example
+   * 490.784
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The total duration.
+   * 
+   * @example
+   * 17.234000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The full name of the container format.
+   * 
+   * @example
+   * QuickTime / MOV
+   */
   formatLongName?: string;
+  /**
+   * @remarks
+   * The short name of the container format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mov
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The total number of program streams.
+   * 
+   * @example
+   * 0
+   */
   numPrograms?: string;
+  /**
+   * @remarks
+   * The total number of media streams.
+   * 
+   * @example
+   * 2
+   */
   numStreams?: string;
+  /**
+   * @remarks
+   * The size of the file.
+   * 
+   * @example
+   * 1057273
+   */
   size?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.064000
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10780,21 +17265,133 @@ export class ListJobResponseBodyJobListJobOutputPropertiesFormat extends $tea.Mo
 }
 
 export class ListJobResponseBodyJobListJobOutputPropertiesStreamsAudioStreamListAudioStream extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the audio stream.
+   * 
+   * @example
+   * 64.136
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The output layout of the sound channels.
+   * 
+   * @example
+   * mono
+   */
   channelLayout?: string;
+  /**
+   * @remarks
+   * The number of sound channels.
+   * 
+   * @example
+   * 1
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The full name of the codec.
+   * 
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the codec.
+   * 
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the codec.
+   * 
+   * @example
+   * 0x6134706d
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the codec.
+   * 
+   * @example
+   * mp4a
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1/32000
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration of the audio stream.
+   * 
+   * @example
+   * 17.223562
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language of the audio stream. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata) and [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+   * 
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 30
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The sampling format.
+   * 
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @remarks
+   * The sampling rate of the audio stream.
+   * 
+   * @example
+   * 32000
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base of the audio stream.
+   * 
+   * @example
+   * 1/32000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10863,7 +17460,21 @@ export class ListJobResponseBodyJobListJobOutputPropertiesStreamsAudioStreamList
 }
 
 export class ListJobResponseBodyJobListJobOutputPropertiesStreamsSubtitleStreamListSubtitleStream extends $tea.Model {
+  /**
+   * @remarks
+   * The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language of the subtitle stream.
+   * 
+   * @example
+   * und
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10904,8 +17515,29 @@ export class ListJobResponseBodyJobListJobOutputPropertiesStreamsSubtitleStreamL
 }
 
 export class ListJobResponseBodyJobListJobOutputPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate of the video stream.
+   * 
+   * @example
+   * 300
+   */
   avgBitrate?: string;
+  /**
+   * @remarks
+   * The maximum bandwidth that was consumed.
+   * 
+   * @example
+   * 10
+   */
   costBandwidth?: string;
+  /**
+   * @remarks
+   * The amount of time consumed to preload the video stream.
+   * 
+   * @example
+   * 8
+   */
   preloadTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10929,28 +17561,186 @@ export class ListJobResponseBodyJobListJobOutputPropertiesStreamsVideoStreamList
 }
 
 export class ListJobResponseBodyJobListJobOutputPropertiesStreamsVideoStreamListVideoStream extends $tea.Model {
+  /**
+   * @remarks
+   * The average frame rate of the video stream.
+   * 
+   * @example
+   * 30.0
+   */
   avgFPS?: string;
+  /**
+   * @remarks
+   * The bitrate of the video stream.
+   * 
+   * @example
+   * 421.117
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The full name of the codec.
+   * 
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the codec.
+   * 
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the codec.
+   * 
+   * @example
+   * 0x31637661
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the codec.
+   * 
+   * @example
+   * avc1
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1/60
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The display aspect ratio (DAR).
+   * 
+   * @example
+   * 9:16
+   */
   dar?: string;
+  /**
+   * @remarks
+   * The duration of the video stream.
+   * 
+   * @example
+   * 17.233333
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The frame rate of the video stream.
+   * 
+   * @example
+   * 30.0
+   */
   fps?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream contains B-frames.
+   * 
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @remarks
+   * The height of the video stream in pixels.
+   * 
+   * @example
+   * 1280
+   */
   height?: string;
+  /**
+   * @remarks
+   * The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
+   * 
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language of the video stream. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata) and [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+   * 
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The codec level.
+   * 
+   * @example
+   * 31
+   */
   level?: string;
+  /**
+   * @remarks
+   * The network bandwidth that was consumed.
+   */
   networkCost?: ListJobResponseBodyJobListJobOutputPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
+  /**
+   * @remarks
+   * The total frame rate.
+   * 
+   * @example
+   * 30
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The pixel format of the video stream.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The codec profile.
+   * 
+   * @example
+   * high
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The sample aspect ratio (SAR) of the video stream.
+   * 
+   * @example
+   * 1:1
+   */
   sar?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base of the video stream.
+   * 
+   * @example
+   * 1/15360
+   */
   timebase?: string;
+  /**
+   * @remarks
+   * The width of the video stream in pixels.
+   * 
+   * @example
+   * 720
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11033,8 +17823,20 @@ export class ListJobResponseBodyJobListJobOutputPropertiesStreamsVideoStreamList
 }
 
 export class ListJobResponseBodyJobListJobOutputPropertiesStreams extends $tea.Model {
+  /**
+   * @remarks
+   * The audio streams.
+   */
   audioStreamList?: ListJobResponseBodyJobListJobOutputPropertiesStreamsAudioStreamList;
+  /**
+   * @remarks
+   * The subtitle streams.
+   */
   subtitleStreamList?: ListJobResponseBodyJobListJobOutputPropertiesStreamsSubtitleStreamList;
+  /**
+   * @remarks
+   * The video streams.
+   */
   videoStreamList?: ListJobResponseBodyJobListJobOutputPropertiesStreamsVideoStreamList;
   static names(): { [key: string]: string } {
     return {
@@ -11058,14 +17860,71 @@ export class ListJobResponseBodyJobListJobOutputPropertiesStreams extends $tea.M
 }
 
 export class ListJobResponseBodyJobListJobOutputProperties extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the video.
+   * 
+   * @example
+   * 490
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The duration of the video.
+   * 
+   * @example
+   * 17
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The format of the video.
+   * 
+   * @example
+   * mp4
+   */
   fileFormat?: string;
+  /**
+   * @remarks
+   * The size of the file.
+   * 
+   * @example
+   * 1057273
+   */
   fileSize?: string;
+  /**
+   * @remarks
+   * The format information.
+   */
   format?: ListJobResponseBodyJobListJobOutputPropertiesFormat;
+  /**
+   * @remarks
+   * The frame rate of the video.
+   * 
+   * @example
+   * 30
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   * 
+   * @example
+   * 1280
+   */
   height?: string;
+  /**
+   * @remarks
+   * The stream information.
+   */
   streams?: ListJobResponseBodyJobListJobOutputPropertiesStreams;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * @example
+   * 720
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11101,8 +17960,29 @@ export class ListJobResponseBodyJobListJobOutputProperties extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputSubtitleConfigExtSubtitleListExtSubtitleInput extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the input file is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
+   * @example
+   * example-output.flv
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11126,8 +18006,34 @@ export class ListJobResponseBodyJobListJobOutputSubtitleConfigExtSubtitleListExt
 }
 
 export class ListJobResponseBodyJobListJobOutputSubtitleConfigExtSubtitleListExtSubtitle extends $tea.Model {
+  /**
+   * @remarks
+   * The character set used by the external subtitle.
+   * 
+   * *   Valid values: UTF-8, GBK, BIG5, and auto.
+   * *   Default value: **auto**.
+   * 
+   * >  If this parameter is set to auto, the detected character set may not be the actual character set. We recommend that you set this parameter to another value.
+   * 
+   * @example
+   * auto
+   */
   charEnc?: string;
+  /**
+   * @remarks
+   * The font of the hardcoded subtitles converted from external subtitles.
+   * 
+   * @example
+   * "WenQuanYi Zen Hei", "Yuanti SC Regular", "SimSun"
+   */
   fontName?: string;
+  /**
+   * @remarks
+   * The input subtitle file.
+   * 
+   * *   Files in the SRT or ASS format are supported. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html).
+   * *   Example: `{"Bucket":"example-bucket","Location":"oss-cn-hangzhou","Object":"example.srt"}`.
+   */
   input?: ListJobResponseBodyJobListJobOutputSubtitleConfigExtSubtitleListExtSubtitleInput;
   static names(): { [key: string]: string } {
     return {
@@ -11170,6 +18076,13 @@ export class ListJobResponseBodyJobListJobOutputSubtitleConfigExtSubtitleList ex
 }
 
 export class ListJobResponseBodyJobListJobOutputSubtitleConfigSubtitleListSubtitle extends $tea.Model {
+  /**
+   * @remarks
+   * The sequence number of the video stream. The sequence number is the index of the video stream in the list and starts from 0. If you do not set the corresponding parameter in the request, the default video stream is selected.
+   * 
+   * @example
+   * 0
+   */
   map?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11208,7 +18121,15 @@ export class ListJobResponseBodyJobListJobOutputSubtitleConfigSubtitleList exten
 }
 
 export class ListJobResponseBodyJobListJobOutputSubtitleConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The external subtitles. The value is a JSON array.
+   */
   extSubtitleList?: ListJobResponseBodyJobListJobOutputSubtitleConfigExtSubtitleList;
+  /**
+   * @remarks
+   * The subtitles.
+   */
   subtitleList?: ListJobResponseBodyJobListJobOutputSubtitleConfigSubtitleList;
   static names(): { [key: string]: string } {
     return {
@@ -11230,6 +18151,16 @@ export class ListJobResponseBodyJobListJobOutputSubtitleConfig extends $tea.Mode
 }
 
 export class ListJobResponseBodyJobListJobOutputSuperReso extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether parameters related to the sampling rate are obtained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isHalfSample?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11249,12 +18180,71 @@ export class ListJobResponseBodyJobListJobOutputSuperReso extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputTailSlateListTailSlate extends $tea.Model {
+  /**
+   * @remarks
+   * The color of the bars that are added to the ending part if the size of the ending part is smaller than that of the main part. Default value: **White**. For more information, see [Background colors](https://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/29253/cn_zh/1502784952344/color.txt?spm=a2c4g.11186623.2.63.1df840f74IH4Eq\\&file=color.txt).
+   * 
+   * @example
+   * White
+   */
   bgColor?: string;
+  /**
+   * @remarks
+   * The duration of the transition between the main part and the ending part. A fade transition is used: The last frame of the main part fades out, and the first frame of the ending part fades in. Unit: seconds. Default value: 0.
+   * 
+   * @example
+   * 0
+   */
   blendDuration?: string;
+  /**
+   * @remarks
+   * The height of the ending part. Valid values: values in the range of (0, 4096), -1, and full.
+   * 
+   * *   A value of -1 indicates that the height of the source of the ending part is retained.
+   * *   A value of full indicates that the height of the ending part equals the height of the main part.
+   * *   Default value: -1.
+   * 
+   * @example
+   * -1
+   */
   height?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio content of the ending part is merged. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isMergeAudio?: boolean;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 1
+   */
   start?: string;
+  /**
+   * @remarks
+   * The OSS URL of the ending part.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com/opening_01.flv
+   */
   tailUrl?: string;
+  /**
+   * @remarks
+   * The width of the ending part. Valid values: values in the range of (0, 4096), -1, and full.
+   * 
+   * *   A value of -1 indicates that the width of the source of the ending part is retained. A value of full indicates that the width of the ending part equals the width of the main part.
+   * *   Default value: -1.
+   * 
+   * @example
+   * -1
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11305,13 +18295,100 @@ export class ListJobResponseBodyJobListJobOutputTailSlateList extends $tea.Model
 }
 
 export class ListJobResponseBodyJobListJobOutputTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method of resolution adjustment. Default value: **none**. Valid values: rescale, crop, pad, and none.
+   * 
+   * @example
+   * none
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. If the bitrate of the output audio is higher than that of the input audio, the input bitrate is retained and the specified audio bitrate does not take effect. This parameter has a lower priority than IsCheckAudioBitrateFail. Valid values:
+   * 
+   * *   **true**
+   * 
+   * *   **false**
+   * 
+   * *   Default value:
+   * 
+   *     *   If this parameter is empty and the codec of the output audio is different from the codec of the input audio, the default value is false.
+   *     *   If this parameter is empty and the codec of the output audio is the same as the codec of the input audio, the default value is true.
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. If the bitrate of the output audio is higher than that of the input audio, a transcoding failure is returned without transcoding the audio. This parameter has a higher priority than IsCheckAudioBitrate. Valid values:
+   * 
+   * *   **false**: The audio bitrate is checked.
+   * *   **true**: The audio bitrate is not checked.
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, the input resolution is retained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, a transcoding failure is returned. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, the input bitrate is retained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, a transcoding failure is returned without transcoding the video. This parameter has a higher priority than IsCheckVideoBitrate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: false.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The transcoding mode.
+   * 
+   * *   Valid values: onepass, twopass, and CBR.
+   * *   Default value: onepass.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11345,7 +18422,21 @@ export class ListJobResponseBodyJobListJobOutputTransConfig extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputVideoBitrateBnd extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 1000
+   */
   max?: string;
+  /**
+   * @remarks
+   * The minimum bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 200
+   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11367,25 +18458,199 @@ export class ListJobResponseBodyJobListJobOutputVideoBitrateBnd extends $tea.Mod
 }
 
 export class ListJobResponseBodyJobListJobOutputVideo extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 428
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The bitrate range of the video.
+   */
   bitrateBnd?: ListJobResponseBodyJobListJobOutputVideoBitrateBnd;
+  /**
+   * @remarks
+   * The size of the buffer.
+   * 
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @remarks
+   * The video codec. Valid values: **H.264**, **H.265**, **GIF**, and **WEBP**.
+   * 
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The constant rate factor. If this parameter is returned, the value of Bitrate is invalid. Default value: **26**.
+   * 
+   * @example
+   * 26
+   */
   crf?: string;
+  /**
+   * @remarks
+   * The video cropping mode. Valid values:
+   * 
+   * *   **border**: automatically detects and removes black borders.
+   * *   A value in the width:height:left:top format: crops the videos based on the custom settings. Example: 1280:800:0:140.
+   * 
+   * @example
+   * border
+   */
   crop?: string;
+  /**
+   * @remarks
+   * The strength of the independent noise reduction algorithm.
+   * 
+   * @example
+   * 5
+   */
   degrain?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * *   The value is 60 if the frame rate of the input video exceeds 60.
+   * *   Default value: the frame rate of the input file.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The maximum number of frames between two keyframes. Default value: 250.
+   * 
+   * @example
+   * 250
+   */
   gop?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: the height of the input video.
+   * 
+   * @example
+   * 720
+   */
   height?: string;
+  /**
+   * @remarks
+   * The maximum frame rate.
+   * 
+   * @example
+   * 60
+   */
   maxFps?: string;
+  /**
+   * @remarks
+   * The maximum bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 1000
+   */
   maxrate?: string;
+  /**
+   * @remarks
+   * The black borders that are added to the video. Unit: pixel.
+   * 
+   * *   Format: width:height:left:top.
+   * *   Example: 1280:800:0:140.
+   * 
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The preset video algorithm. Default value: medium. Valid values:
+   * 
+   * *   **veryfast**
+   * *   **fast**
+   * *   **medium**
+   * *   **slow**
+   * *   **slower**
+   * 
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @remarks
+   * The codec profile. Valid values:
+   * 
+   * *   **baseline**: applicable to mobile devices.
+   * *   **main**: applicable to standard-definition devices.
+   * *   **high**: applicable to high-definition devices.
+   * *   Default value: **high**.
+   * 
+   * @example
+   * high
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of quality control on the video.
+   * 
+   * @example
+   * 15
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The priority of the resource.
+   * 
+   * @example
+   * 1
+   */
   resoPriority?: string;
+  /**
+   * @remarks
+   * The scan mode. Valid values:
+   * 
+   * *   If this parameter is **empty**, the scan mode of the input file is used.
+   * *   **auto**: automatic deinterlacing.
+   * *   **progressive**: progressive scan.
+   * *   **interlaced**: interlaced scan.
+   * *   **By default**, this parameter is empty.
+   * 
+   * **Best practice**: Interlaced scan consumes less bandwidth than progressive scan, but the image quality is poor. Therefore, mainstream video production uses progressive scan.
+   * 
+   * *   If **progressive scan** or **interlaced scan** is used when the scan mode of the input file is neither of them, the transcoding job fails.
+   * *   We recommend that you use **the scan mode of the input file** or **automatic deinterlacing** to improve compatibility.
+   * 
+   * @example
+   * interlaced
+   */
   scanMode?: string;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: the width of the input video.
+   * 
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11443,8 +18708,29 @@ export class ListJobResponseBodyJobListJobOutputVideo extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJobOutputWaterMarkListWaterMarkInputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the input file is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the Object Storage Service (OSS) object that is used as the input file.
+   * 
+   * @example
+   * example-logo-****.png
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11468,13 +18754,114 @@ export class ListJobResponseBodyJobListJobOutputWaterMarkListWaterMarkInputFile 
 }
 
 export class ListJobResponseBodyJobListJobOutputWaterMarkListWaterMark extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset of the watermark image relative to the output video. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. Default value: 0. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the horizontal offset.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal number indicates the ratio of the horizontal offset to the width in the output video resolution.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excess digits are automatically deleted.
+   * 
+   * @example
+   * 100
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The vertical offset of the watermark image relative to the output video. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the vertical offset.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal indicates the ratio of the vertical offset to the height in the output video resolution.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excess digits are automatically deleted.
+   * 
+   * @example
+   * 100
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The height of the watermark. If this parameter is specified in the request, the corresponding parameter in the specified watermark template is overwritten. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the watermark height.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal indicates the ratio of the watermark height to the height in the output video resolution.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excess digits are automatically deleted.
+   * 
+   * @example
+   * 50
+   */
   height?: string;
+  /**
+   * @remarks
+   * The watermark input file.
+   */
   inputFile?: ListJobResponseBodyJobListJobOutputWaterMarkListWaterMarkInputFile;
+  /**
+   * @remarks
+   * The position of the watermark.
+   * 
+   * *   **TopRight**
+   * *   **TopLeft**
+   * *   **BottomRight**
+   * *   **BottomLeft**
+   * 
+   * @example
+   * TopRight
+   */
   referPos?: string;
+  /**
+   * @remarks
+   * The type of the watermark. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html). Valid values:
+   * 
+   * *   **Image**
+   * *   **Text**
+   * 
+   * @example
+   * Image
+   */
   type?: string;
+  /**
+   * @remarks
+   * The ID of the watermark template.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   waterMarkTemplateId?: string;
+  /**
+   * @remarks
+   * The width of the watermark image. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the watermark width.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal indicates the ratio of the watermark width to the width in the output video resolution.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excess digits are automatically deleted.
+   * 
+   * @example
+   * 50
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11527,31 +18914,177 @@ export class ListJobResponseBodyJobListJobOutputWaterMarkList extends $tea.Model
 }
 
 export class ListJobResponseBodyJobListJobOutput extends $tea.Model {
+  /**
+   * @remarks
+   * The audio configurations.
+   */
   audio?: ListJobResponseBodyJobListJobOutputAudio;
+  /**
+   * @remarks
+   * The sequence number of the audio stream.
+   * 
+   * *   Format: `0:a:{Sequence number}`.
+   * *   The sequence number is the index of the audio stream in the list and starts from 0. If no sequence number is specified, the default audio stream is used.
+   * 
+   * @example
+   * 0:a:0
+   */
   audioStreamMap?: string;
+  /**
+   * @remarks
+   * The information about the clip.
+   */
   clip?: ListJobResponseBodyJobListJobOutputClip;
+  /**
+   * @remarks
+   * The container format configurations.
+   */
   container?: ListJobResponseBodyJobListJobOutputContainer;
+  /**
+   * @remarks
+   * The configurations of watermark blurring. The value is a JSON object. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html).
+   * 
+   * @example
+   * {"0": [{"l": 10,"t": 10,"w": 10,"h": 10},{"l": 100,"t": 0.1,"w": 10,"h": 10}],"128000": [],"250000": [{"l": 0.2,"t": 0.1,"w": 0.01,"h": 0.05}]}
+   */
   deWatermark?: string;
+  /**
+   * @remarks
+   * The encryption configurations. Only outputs in the M3U8 format are supported.
+   */
   encryption?: ListJobResponseBodyJobListJobOutputEncryption;
+  /**
+   * @remarks
+   * The non-standard support configuration for M3U8. The value must be a JSON object. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html).
+   */
   m3U8NonStandardSupport?: ListJobResponseBodyJobListJobOutputM3U8NonStandardSupport;
+  /**
+   * @remarks
+   * The URL of the merging configuration file. You can specify either MergeList or MergeConfigUrl when you submit the transcoding job.
+   * 
+   * *   The configuration file specified by MergeConfigUrl can contain up to 50 clips.
+   * *   MergeConfigUrl indicates the URL of the configuration file for merging clips.
+   * *   Make sure that the configuration file is stored as an object in OSS and that MPS can access the OSS object. For information about the file content, see the details of merging parameters.
+   * *   Example of the content of the merging configuration file: `{"MergeList":[{"MergeURL":"http://exampleBucket****.oss-cn-hangzhou.aliyuncs.com/video_01.mp4"}]}`.
+   * 
+   * @example
+   * {"MergeList":[{"MergeURL":"http://exampleBucket****.oss-cn-hangzhou.aliyuncs.com/video_01.mp4"}]}
+   */
   mergeConfigUrl?: string;
+  /**
+   * @remarks
+   * The configurations for merging clips.
+   */
   mergeList?: ListJobResponseBodyJobListJobOutputMergeList;
+  /**
+   * @remarks
+   * The transmuxing configurations.
+   */
   muxConfig?: ListJobResponseBodyJobListJobOutputMuxConfig;
+  /**
+   * @remarks
+   * The opening parts.
+   */
   openingList?: ListJobResponseBodyJobListJobOutputOpeningList;
+  /**
+   * @remarks
+   * The output subtitles.
+   */
   outSubtitleList?: ListJobResponseBodyJobListJobOutputOutSubtitleList;
+  /**
+   * @remarks
+   * The details of the output file.
+   */
   outputFile?: ListJobResponseBodyJobListJobOutputOutputFile;
+  /**
+   * @remarks
+   * The priority of the job in the MPS queue to which the job is added.
+   * 
+   * *   A value of 10 indicates the highest priority.
+   * *   Default value: **6**.
+   * 
+   * @example
+   * 6
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The media properties.
+   */
   properties?: ListJobResponseBodyJobListJobOutputProperties;
+  /**
+   * @remarks
+   * The rotation angle of the video.
+   * 
+   * @example
+   * 90
+   */
   rotate?: string;
+  /**
+   * @remarks
+   * The subtitle configurations.
+   */
   subtitleConfig?: ListJobResponseBodyJobListJobOutputSubtitleConfig;
+  /**
+   * @remarks
+   * The configurations for using the resolution of the source video.
+   */
   superReso?: ListJobResponseBodyJobListJobOutputSuperReso;
+  /**
+   * @remarks
+   * The ending parts.
+   */
   tailSlateList?: ListJobResponseBodyJobListJobOutputTailSlateList;
+  /**
+   * @remarks
+   * The template ID.
+   * 
+   * @example
+   * S00000000-000010
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The general transcoding configurations. If this parameter is specified in the request, the corresponding parameters in the specified transcoding template are overwritten.
+   */
   transConfig?: ListJobResponseBodyJobListJobOutputTransConfig;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * test-001
+   */
   userData?: string;
+  /**
+   * @remarks
+   * The video configurations.
+   */
   video?: ListJobResponseBodyJobListJobOutputVideo;
+  /**
+   * @remarks
+   * The sequence number of the video stream.
+   * 
+   * *   Format: 0:a:{Sequence number}. Example value: 0:a:0.
+   * *   The sequence number is the index of the video stream in the list and starts from 0.
+   * *   If no sequence number is specified, the default video stream is used.
+   * 
+   * @example
+   * 0:a:0
+   */
   videoStreamMap?: string;
+  /**
+   * @remarks
+   * The URL of the watermark configuration file.
+   * 
+   * @example
+   * http://example.com/configure
+   */
   waterMarkConfigUrl?: string;
+  /**
+   * @remarks
+   * The watermarks.
+   */
   waterMarkList?: ListJobResponseBodyJobListJobOutputWaterMarkList;
   static names(): { [key: string]: string } {
     return {
@@ -11621,16 +19154,90 @@ export class ListJobResponseBodyJobListJobOutput extends $tea.Model {
 }
 
 export class ListJobResponseBodyJobListJob extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * InternalError
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2014-01-10T12:00:00Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The time when the job was complete.
+   * 
+   * @example
+   * 2014-01-10T12:20:25Z
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   input?: ListJobResponseBodyJobListJobInput;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 31fa3c9ca8134fb4b0b0f7878301****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The message sent by Message Service (MNS) to notify users of the job result.
+   */
   MNSMessageResult?: ListJobResponseBodyJobListJobMNSMessageResult;
+  /**
+   * @remarks
+   * The error message returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * The operation has failed due to some unknown error, exception or failure.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The output of the job.
+   */
   output?: ListJobResponseBodyJobListJobOutput;
+  /**
+   * @remarks
+   * The transcoding progress.
+   * 
+   * @example
+   * 100
+   */
   percent?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue.
+   * 
+   * @example
+   * 88c6ca184c0e47b665e2a1267971****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The state of the job. Valid values:
+   * 
+   * *   **Submitted**
+   * *   **Transcoding**
+   * *   **TranscodeSuccess**
+   * *   **TranscodeFail**
+   * *   **TranscodeCancelled**
+   * 
+   * @example
+   * TranscodeSuccess
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11689,8 +19296,29 @@ export class ListJobResponseBodyJobList extends $tea.Model {
 }
 
 export class ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionActivityListActivityMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed. If the job was successful, this parameter is not returned.
+   * 
+   * @example
+   * The Topic/Queue config is empty, not send message
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the job failed. If the job was successful, this parameter is not returned.
+   * 
+   * @example
+   * MessageConfigEmpty
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the success message. If the job failed, this parameter is not returned.
+   * 
+   * @example
+   * 4f3bc83233de4e2f81c7dade443e****
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11714,14 +19342,89 @@ export class ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMe
 }
 
 export class ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionActivityListActivity extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the request failed.
+   * 
+   * *   The specific error code appears if the state of the activity is **Fail**.
+   * *   This parameter is not returned if the state of the activity is **Success**.
+   * 
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @remarks
+   * The end time of the activity.
+   * 
+   * @example
+   * 2016-04-01T06:54:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the job generated when the activity is executed. We recommend that you keep this ID for subsequent operation calls.
+   * 
+   * @example
+   * 2376030d9d0849399cd20e20c876****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The message sent by Message Service (MNS) to notify the user of the job result.
+   */
   MNSMessageResult?: ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionActivityListActivityMNSMessageResult;
+  /**
+   * @remarks
+   * The error message returned if the request failed.
+   * 
+   * *   The detailed error message appears if the state of the activity is **Fail**.
+   * *   This parameter is not returned if the state of the activity is **Success**.
+   * 
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @remarks
+   * The name of the media workflow activity.
+   * 
+   * > The name of an activity in a media workflow is unique.
+   * 
+   * @example
+   * Act-2
+   */
   name?: string;
+  /**
+   * @remarks
+   * The start time of the activity.
+   * 
+   * @example
+   * 2016-04-01T06:53:45Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the activity. Valid values:
+   * 
+   * *   **Running**: The activity is being executed.
+   * *   **Fail**: The activity failed to be executed.
+   * *   **Skipped**: The activity was skipped.
+   * *   **Success**: The activity was successfully executed.
+   * 
+   * > For example, the high-definition and standard-definition transcoding activities are to be run after the analysis activity is complete. The system determines the activity to run based on the analysis result. If the definition of the input video content is insufficient, the high-definition transcoding activity may be skipped.
+   * 
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @remarks
+   * The type of the media workflow activity. Valid values: Start, Snapshot, Transcode, Analysis, and Report. For more information, see [Methods supported for media workflows](https://help.aliyun.com/document_detail/68494.html).
+   * 
+   * @example
+   * Start
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11776,8 +19479,26 @@ export class ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMe
 }
 
 export class ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionInputInputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input media file is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the input file resides.
+   * 
+   * @example
+   * cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input media file.
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11801,7 +19522,18 @@ export class ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMe
 }
 
 export class ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionInput extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the storage location of the input file of the media workflow in OSS.
+   */
   inputFile?: ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionInputInputFile;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * example data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11823,13 +19555,71 @@ export class ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMe
 }
 
 export class ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMediaWorkflowExecution extends $tea.Model {
+  /**
+   * @remarks
+   * The activities that are executed in the media workflow.
+   */
   activityList?: ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionActivityList;
+  /**
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @example
+   * 2016-04-01T06:53:43Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The custom data of the media workflow.
+   */
   input?: ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionInput;
+  /**
+   * @remarks
+   * The ID of the media file. A media file contains all the information about a media workflow.
+   * 
+   * @example
+   * 512046582a924698a41e0f8b0d2b****
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * The ID of the media workflow.
+   * 
+   * @example
+   * 43b7335a4b1d4fe883670036affb****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the media workflow.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the execution instance.
+   * 
+   * @example
+   * 48e33690ac19445488c706924321****
+   */
   runId?: string;
+  /**
+   * @remarks
+   * The status of the media workflow. Valid values:
+   * 
+   * *   **running**: The execution is in progress.
+   * *   **Completed**: The execution is complete.
+   * 
+   * > A value of Completed indicates that the execution is complete. For the information about whether each activity, such as Transcode or Snapshot, is successful, check the status of the activity.
+   * 
+   * *   **Fail**: The execution failed.
+   * *   **Success**: The execution was successful.
+   * 
+   * @example
+   * Success
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11882,10 +19672,58 @@ export class ListMediaWorkflowExecutionsResponseBodyMediaWorkflowExecutionList e
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigPropertiesControlCrop extends $tea.Model {
+  /**
+   * @remarks
+   * The height of the video image after the margins are cropped out.
+   * 
+   * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+   * 
+   * @example
+   * 8
+   */
   height?: string;
+  /**
+   * @remarks
+   * The left margin to be cropped out.
+   * 
+   * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+   * 
+   * @example
+   * 8
+   */
   left?: string;
+  /**
+   * @remarks
+   * The cropping mode. Valid values:
+   * 
+   * *   **Auto**: Cropping was automatically run.
+   * *   **Force**: Cropping was forced to run.
+   * *   **None**: Cropping was forced not to run.
+   * *   This parameter is required if the value of the Crop parameter is not an empty JSON {}.
+   * 
+   * @example
+   * Auto
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The top margin to be cropped out.
+   * 
+   * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+   * 
+   * @example
+   * 8
+   */
   top?: string;
+  /**
+   * @remarks
+   * The width of the video image after the margins are cropped out.
+   * 
+   * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+   * 
+   * @example
+   * 8
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11913,7 +19751,22 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisC
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigPropertiesControl extends $tea.Model {
+  /**
+   * @remarks
+   * The cropping configuration of the video image.
+   */
   crop?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigPropertiesControlCrop;
+  /**
+   * @remarks
+   * Specifies whether deinterlacing was forced to run. Valid values:
+   * 
+   * *   **Auto**: Deinterlacing was automatically run.
+   * *   **Force**: Deinterlacing was forced to run.
+   * *   **None**: Deinterlacing was forced not to run.
+   * 
+   * @example
+   * Auto
+   */
   deinterlace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11935,7 +19788,25 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisC
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigQualityControl extends $tea.Model {
+  /**
+   * @remarks
+   * The playback mode. Valid values:
+   * 
+   * *   **network**: online playback.
+   * *   **local**: playback on on-premises devices.
+   * *   Default value: **network**.
+   * 
+   * @example
+   * network
+   */
   methodStreaming?: string;
+  /**
+   * @remarks
+   * The quality level of the job output. Default value: **25**.
+   * 
+   * @example
+   * 25
+   */
   rateQuality?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11957,7 +19828,15 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisC
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The control on the attributes of the job output.
+   */
   propertiesControl?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigPropertiesControl;
+  /**
+   * @remarks
+   * The quality control on the job output.
+   */
   qualityControl?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfigQualityControl;
   static names(): { [key: string]: string } {
     return {
@@ -11979,8 +19858,29 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisC
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobInputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The region in which OSS resides.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the Object Storage Service (OSS) object that is used as the input file.
+   * 
+   * @example
+   * example.flv
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12004,8 +19904,29 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobInputFile
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * The resource operated \\"PipelineId\\" cannot be found
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the message returned if the job was successful. This parameter is not returned if the job failed.
+   * 
+   * @example
+   * 3ca84a39a9024f19853b21be9cf9****
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12029,11 +19950,71 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobMNSMessag
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateAudio extends $tea.Model {
+  /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Valid values: **8 to 1000**.
+   * *   Unit: Kbit/s.
+   * *   Default value: **128**.
+   * 
+   * @example
+   * 128
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The number of sound channels. Default value: **2**.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The audio codec. Default value: **aac**. Valid values:
+   * 
+   * *   **aac**
+   * *   **mp3**
+   * *   **vorbis**
+   * *   **flac**
+   * 
+   * @example
+   * aac
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The codec profile of the audio. Valid values when the **Codec** parameter is set to **aac**:
+   * 
+   * *   **aac_low**
+   * *   **aac_he**
+   * *   **aac_he_v2**
+   * *   **aac_ld**
+   * *   **aac_eld**
+   * 
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of quality control on the audio.
+   * 
+   * @example
+   * 15
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Unit: Hz.
+   * *   Default value: **44100**.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12063,6 +20044,13 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateContainer extends $tea.Model {
+  /**
+   * @remarks
+   * The container format.
+   * 
+   * @example
+   * flv
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12082,7 +20070,21 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfigGif extends $tea.Model {
+  /**
+   * @remarks
+   * The interval between two consecutive loops for the GIF format. Unit: 0.01 second. For example, a value of 500 indicates 5 seconds.
+   * 
+   * @example
+   * 0
+   */
   finalDelay?: string;
+  /**
+   * @remarks
+   * The number of loops for the GIF or WebP format. Default value: 0.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12104,6 +20106,13 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfigSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The segment length. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12123,7 +20132,15 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The transmuxing configurations for the GIF format.
+   */
   gif?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfigGif;
+  /**
+   * @remarks
+   * The segment configurations.
+   */
   segment?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -12145,6 +20162,17 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The transcoding mode. Default value: **onepass**. Valid values:
+   * 
+   * *   **onepass**
+   * *   **twopass**
+   * *   **CBR**
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12164,7 +20192,21 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateVideoBitrateBnd extends $tea.Model {
+  /**
+   * @remarks
+   * The upper limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 1500
+   */
   max?: string;
+  /**
+   * @remarks
+   * The lower limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 800
+   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12186,21 +20228,156 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateVideo extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 1000
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The average bitrate range of the video.
+   */
   bitrateBnd?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateVideoBitrateBnd;
+  /**
+   * @remarks
+   * The buffer size.
+   * 
+   * *   Unit: KB.
+   * *   Default value: **6000**.
+   * 
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @remarks
+   * The codec. Valid values: H.264 and H.265. Default value: **H.264**.
+   * 
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   Default value when the the Codec parameter is set to H.264: **23**, default value when the the Codec parameter is set to H.265: **26**.
+   * *   If this parameter is specified, the value of the Bitrate parameter becomes invalid.
+   * 
+   * @example
+   * 26
+   */
   crf?: string;
+  /**
+   * @remarks
+   * The strength of the independent noise reduction algorithm.
+   * 
+   * @example
+   * 5
+   */
   degrain?: string;
+  /**
+   * @remarks
+   * The frame rate of the video.
+   * 
+   * *   The value is 60 if the frame rate of the input file exceeds 60.
+   * *   Default value: **the frame rate of the input video**.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The maximum number of frames between two keyframes. Default value: **250**.
+   * 
+   * @example
+   * 250
+   */
   gop?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: **the height of the input video**.
+   * 
+   * @example
+   * 720
+   */
   height?: string;
+  /**
+   * @remarks
+   * The maximum bitrate of the video.
+   * 
+   * *   Valid values: **10 to 50000**.
+   * *   Unit: Kbit/s.
+   * 
+   * @example
+   * 2000
+   */
   maxrate?: string;
+  /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The preset video algorithm. Valid values: veryfast, fast, medium, slow, and slower. Default value: **medium**.
+   * 
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @remarks
+   * The codec profile. Valid values:
+   * 
+   * *   **baseline**: applicable to mobile devices.
+   * *   **main**: applicable to standard-definition devices.
+   * *   **high**: applicable to high-definition devices.
+   * *   Default value: **high**.
+   * 
+   * @example
+   * high
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of quality control on the video.
+   * 
+   * @example
+   * 15
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The scan mode. Valid values:
+   * 
+   * *   **interlaced**
+   * *   **progressive**
+   * 
+   * @example
+   * interlaced
+   */
   scanMode?: string;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: **the width of the input video**.
+   * 
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12250,13 +20427,57 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The audio codec configurations.
+   */
   audio?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateAudio;
+  /**
+   * @remarks
+   * The container format configurations.
+   */
   container?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateContainer;
+  /**
+   * @remarks
+   * The transcoding template ID.
+   * 
+   * @example
+   * S00000000-00****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The transmuxing configurations.
+   */
   muxConfig?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateMuxConfig;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * FLV-UD
+   */
   name?: string;
+  /**
+   * @remarks
+   * The state of the template. Valid values:
+   * 
+   * *   **Normal**
+   * *   **Deleted**
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The general transcoding configurations.
+   */
   transConfig?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateTransConfig;
+  /**
+   * @remarks
+   * The video codec configurations.
+   */
   video?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateListTemplateVideo;
   static names(): { [key: string]: string } {
     return {
@@ -12309,18 +20530,105 @@ export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateL
 }
 
 export class QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJob extends $tea.Model {
+  /**
+   * @remarks
+   * The job configurations.
+   */
   analysisConfig?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobAnalysisConfig;
+  /**
+   * @remarks
+   * The error code returned if the job fails.
+   * 
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2014-01-10T12:00:00Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the template analysis job.
+   * 
+   * @example
+   * 57f6aa3f84824309bcba67231b406****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   inputFile?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobInputFile;
+  /**
+   * @remarks
+   * The message sent by Message Service (MNS) to notify users of the job result.
+   */
   MNSMessageResult?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobMNSMessageResult;
+  /**
+   * @remarks
+   * The error message returned if the job failed.
+   * 
+   * @example
+   * The resource operated \\"PipelineId\\" cannot be found
+   */
   message?: string;
+  /**
+   * @remarks
+   * The transcoding progress.
+   * 
+   * @example
+   * 86
+   */
   percent?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
+   * @example
+   * bb558c1cc25b45309aab5be44d19****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The priority of the job in the ApsaraVideo Media Processing (MPS) queue to which the job was submitted.
+   * 
+   * *   Valid values: **1 to 10**. The value 10 indicates the highest priority.
+   * *   Default value: **10**.
+   * 
+   * @example
+   * 8
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The job status.
+   * 
+   * *   **Submitted**: The job was submitted.
+   * *   **Analyzing**: The job is in progress.
+   * *   **Success**: The job was successful.
+   * *   **Fail**: The job failed.
+   * 
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @remarks
+   * The matched preset templates.
+   */
   templateList?: QueryAnalysisJobListResponseBodyAnalysisJobListAnalysisJobTemplateList;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12402,6 +20710,10 @@ export class QueryAnalysisJobListResponseBodyNonExistAnalysisJobIds extends $tea
 }
 
 export class QueryCopyrightExtractJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * example water mark
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12421,17 +20733,65 @@ export class QueryCopyrightExtractJobResponseBodyData extends $tea.Model {
 }
 
 export class QueryCopyrightJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * http://callbacktest.com/callback
+   */
   callback?: string;
+  /**
+   * @example
+   * 1627357322
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1627357328
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * {"Bucket":"ivison-test","Location":"oss-cn-shanghai","Object":"gambling.mp4"}
+   */
   input?: string;
+  /**
+   * @example
+   * bfb786c639894f4d80648792021e****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 2
+   */
   level?: number;
+  /**
+   * @example
+   * 平头哥半导体(上海)
+   */
   message?: string;
+  /**
+   * @example
+   * {"Bucket":"ivison-test","Location":"oss-cn-shanghai","Object":"out.mp4"}
+   */
   output?: string;
+  /**
+   * @example
+   * {"Code":"success","Message":"ok"}
+   */
   result?: string;
+  /**
+   * @example
+   * success
+   */
   status?: string;
+  /**
+   * @example
+   * 123
+   */
   userData?: string;
+  /**
+   * @example
+   * 1346693***
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12473,15 +20833,90 @@ export class QueryCopyrightJobResponseBodyData extends $tea.Model {
 }
 
 export class QueryFpDBDeleteJobListResponseBodyFpDBDeleteJobListFpDBDeleteJob extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * ServiceUnavailable
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2020-06-30T00:33:18Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The type of the operation.
+   * 
+   * @example
+   * Purge
+   */
   delType?: string;
+  /**
+   * @remarks
+   * The time when the job was complete.
+   * 
+   * @example
+   * 2020-06-30T00:34:02Z
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The ID of the media fingerprint library.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   fpDBId?: string;
+  /**
+   * @remarks
+   * The ID of the job.
+   * 
+   * @example
+   * 25bacf2824614bcf9273dc0744db****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The error message returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * The request has failed due to a temporary failure of the server.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the job was submitted.
+   * 
+   * @example
+   * fb712a6890464059b1b2ea7c8647****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   **Queuing**: The job is waiting in the queue.
+   * *   **Analysing**: The job is in progress.
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job fails.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * The user-defined data.
+   * 
+   * @example
+   * example data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12557,15 +20992,90 @@ export class QueryFpDBDeleteJobListResponseBodyNonExistIds extends $tea.Model {
 }
 
 export class QueryFpFileDeleteJobListResponseBodyFpFileDeleteJobListFpFileDeleteJob extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * ServiceUnavailable
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2020-06-30T00:33:18Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the file.
+   * 
+   * @example
+   * 41e6536e4f2250e2e9bf26cdea19****
+   */
   fileIds?: string;
+  /**
+   * @remarks
+   * The time when the job was complete.
+   * 
+   * @example
+   * 2020-06-30T00:34:02Z
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The ID of the media fingerprint library.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   fpDBId?: string;
+  /**
+   * @remarks
+   * The ID of the job.
+   * 
+   * @example
+   * 25bacf2824614bcf9273dc0744db****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The error message returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * The request has failed due to a temporary failure of the server.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the job was submitted.
+   * 
+   * @example
+   * fb712a6890464059b1b2ea7c8647****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The status of the job. Valid values: Valid values:
+   * 
+   * *   **Queuing**: The job is waiting in the queue.
+   * *   **Analysing**: The job is in progress.
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job fails.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * The user-defined data.
+   * 
+   * @example
+   * example data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12641,8 +21151,33 @@ export class QueryFpFileDeleteJobListResponseBodyNonExistIds extends $tea.Model 
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the media fingerprint library.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   fpDBId?: string;
+  /**
+   * @remarks
+   * The unique primary key of the video.
+   * 
+   * @example
+   * 3ca84a39a9024f19853b21be9cf9****
+   */
   primaryKey?: string;
+  /**
+   * @remarks
+   * The storage type. Valid values:
+   * 
+   * *   **nosave**: The fingerprints of the job input are not saved to the media fingerprint library.
+   * *   **save**: The fingerprints of the job input are saved to the media fingerprint library only if the job input is not duplicated with media content in the media fingerprint library.
+   * *   **forcesave**: The fingerprints of the job input are forcibly saved to the media fingerprint library.
+   * 
+   * @example
+   * save
+   */
   saveType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12666,7 +21201,21 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotConfig ex
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlicesFpShotSliceDuplication extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the similar audio clip in the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
+   * 
+   * @example
+   * 3
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The start point in time of the similar audio clip in the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
+   * 
+   * @example
+   * 0
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12688,7 +21237,21 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAud
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlicesFpShotSliceInput extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the similar audio clip in the input audio.
+   * 
+   * @example
+   * 5
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The start point in time of the similar audio clip in the input audio.
+   * 
+   * @example
+   * 0
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12710,8 +21273,23 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAud
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlicesFpShotSlice extends $tea.Model {
+  /**
+   * @remarks
+   * The start point in time and duration of the similar audio clip in the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
+   */
   duplication?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlicesFpShotSliceDuplication;
+  /**
+   * @remarks
+   * The start point in time and duration of the similar audio clip in the input audio.
+   */
   input?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlicesFpShotSliceInput;
+  /**
+   * @remarks
+   * The similarity of the input audio against the audio file that has similar fingerprints to the input audio in the audio fingerprint library.
+   * 
+   * @example
+   * 0
+   */
   similarity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12754,8 +21332,26 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAud
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShot extends $tea.Model {
+  /**
+   * @remarks
+   * The audio files that have similar fingerprints to the input audio in the audio fingerprint library.
+   */
   fpShotSlices?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShotsFpShotFpShotSlices;
+  /**
+   * @remarks
+   * The unique primary key of the input audio.
+   * 
+   * @example
+   * 498ac941373341599c4777c8d884****
+   */
   primaryKey?: string;
+  /**
+   * @remarks
+   * The overall similarity of the input audio against audio files that have similar fingerprints to the input audio in the audio fingerprint library.
+   * 
+   * @example
+   * 0
+   */
   similarity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12798,7 +21394,21 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAud
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlicesFpShotSliceDuplication extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the similar video clip in the video file that has similar fingerprints to the input video in the video fingerprint library.
+   * 
+   * @example
+   * 48
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The start point in time of the similar video clip in the video file that has similar fingerprints to the input video in the video fingerprint library.
+   * 
+   * @example
+   * 1260
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12820,7 +21430,21 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpS
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlicesFpShotSliceInput extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the similar video clip in the input video.
+   * 
+   * @example
+   * 48
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The start point in time of the similar video clip in the input video.
+   * 
+   * @example
+   * 46
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12842,8 +21466,23 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpS
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlicesFpShotSlice extends $tea.Model {
+  /**
+   * @remarks
+   * The start point in time and duration of the similar video clip in the video file that has similar fingerprints to the input video in the video fingerprint library.
+   */
   duplication?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlicesFpShotSliceDuplication;
+  /**
+   * @remarks
+   * The start time and duration of the similar video clip in the input video.
+   */
   input?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlicesFpShotSliceInput;
+  /**
+   * @remarks
+   * The similarity of the input video clip against the video file that has similar fingerprints to the input video in the video fingerprint library.
+   * 
+   * @example
+   * 0
+   */
   similarity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12886,8 +21525,28 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpS
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShot extends $tea.Model {
+  /**
+   * @remarks
+   * The video files that have similar fingerprints to the input video in the video fingerprint library.
+   */
   fpShotSlices?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShotsFpShotFpShotSlices;
+  /**
+   * @remarks
+   * The unique primary key of the input video.
+   * 
+   * @example
+   * 498ac941373341599c4777c8d884****
+   */
   primaryKey?: string;
+  /**
+   * @remarks
+   * The overall similarity of the input video against video files that have similar fingerprints to the input video in the video fingerprint library.
+   * 
+   * >  The overall similarity is the average value of the similarities of the input video clips with the clips of the video that has a similar fingerprint. If multiple video files that have similar fingerprints to the input video exist in the video fingerprint library, the similarities of the input video against multiple similar video clips are returned.
+   * 
+   * @example
+   * 0.8914769887924194
+   */
   similarity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12930,7 +21589,21 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpS
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShotsTextFpShotTextFpShotSlicesTextFpShotSliceInputFragment extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the similar text snippet in the input text.
+   * 
+   * @example
+   * 3
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The start time of the similar text snippet in the input text.
+   * 
+   * @example
+   * 0
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12952,9 +21625,34 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTex
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShotsTextFpShotTextFpShotSlicesTextFpShotSlice extends $tea.Model {
+  /**
+   * @remarks
+   * The text snippet that has similar fingerprints to the input text in the text fingerprint library.
+   * 
+   * @example
+   * It\\"s snowy today.
+   */
   duplicationText?: string;
+  /**
+   * @remarks
+   * The start point in time and duration of the similar text snippet in the input text.
+   */
   inputFragment?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShotsTextFpShotTextFpShotSlicesTextFpShotSliceInputFragment;
+  /**
+   * @remarks
+   * The input text for text fingerprint analysis.
+   * 
+   * @example
+   * It\\"s snowy today.
+   */
   inputText?: string;
+  /**
+   * @remarks
+   * The similarity of the input text against the text snippet that has similar fingerprints to the input text in the text fingerprint library.
+   * 
+   * @example
+   * 1.0
+   */
   similarity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12999,8 +21697,26 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTex
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShotsTextFpShot extends $tea.Model {
+  /**
+   * @remarks
+   * The unique primary key of the input text.
+   * 
+   * @example
+   * 3e34ac649945b53a1b0f863ce030****
+   */
   primaryKey?: string;
+  /**
+   * @remarks
+   * The similarity of the input text against text snippets that have similar fingerprints to the input text in the text fingerprint library.
+   * 
+   * @example
+   * 1.0
+   */
   similarity?: string;
+  /**
+   * @remarks
+   * The text snippets that have similar fingerprints to the input text in the text fingerprint library.
+   */
   textFpShotSlices?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShotsTextFpShotTextFpShotSlices;
   static names(): { [key: string]: string } {
     return {
@@ -13043,8 +21759,20 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTex
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResult extends $tea.Model {
+  /**
+   * @remarks
+   * The audio fingerprint analysis results.
+   */
   audioFpShots?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultAudioFpShots;
+  /**
+   * @remarks
+   * The video fingerprint analysis results.
+   */
   fpShots?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultFpShots;
+  /**
+   * @remarks
+   * The text fingerprint analysis results.
+   */
   textFpShots?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResultTextFpShots;
   static names(): { [key: string]: string } {
     return {
@@ -13068,8 +21796,29 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResult ex
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobInputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket in which the job input resides.
+   * 
+   * @example
+   * oss-test
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the job input resides.
+   * 
+   * @example
+   * oss-cn-beijing
+   */
   location?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) object that is used as the job input.
+   * 
+   * @example
+   * test.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13093,19 +21842,114 @@ export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJobInputFile exten
 }
 
 export class QueryFpShotJobListResponseBodyFpShotJobListFpShotJob extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job fails.
+   * 
+   * @example
+   * InvalidParameter.UUIDFormatInvalid
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2017-01-10T12:00:00Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The length of the input file.
+   * Unit: seconds.
+   * 
+   * @example
+   * 5
+   */
   duration?: number;
+  /**
+   * @remarks
+   * The ID of the uploaded file.
+   * 
+   * @example
+   * ebb51ee30f0b49aba959823fa991****
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The time when the job was complete.
+   * 
+   * @example
+   * 0
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The configurations of the job.
+   */
   fpShotConfig?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotConfig;
+  /**
+   * @remarks
+   * The results of the media fingerprint analysis job.
+   */
   fpShotResult?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobFpShotResult;
+  /**
+   * @remarks
+   * The ID of the job.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   * 
+   * @example
+   * {"Bucket":"oss-test","Location":"oss-cn-beijing","Object":"test.mp4"}
+   */
   input?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   inputFile?: QueryFpShotJobListResponseBodyFpShotJobListFpShotJobInputFile;
+  /**
+   * @remarks
+   * The error message returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * The parameter \\"Id\\" is invalid.A uuid must:1)be comprised of chracters[a-f],numbers[0-9];2)be 32 characters long
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which the analysis job is submitted.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   **Queuing**: The job is waiting in the queue.
+   * *   **Analysing**: The job is in progress.
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job fails.
+   * 
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13189,8 +22033,29 @@ export class QueryFpShotJobListResponseBodyNonExistIds extends $tea.Model {
 }
 
 export class QueryJobListResponseBodyJobListJobInput extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * exampleBucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the input file resides.
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
+   * @example
+   * video_01.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13214,8 +22079,29 @@ export class QueryJobListResponseBodyJobListJobInput extends $tea.Model {
 }
 
 export class QueryJobListResponseBodyJobListJobMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * The resource operated “%s” cannot be found.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the message returned if the job was successful.
+   * 
+   * @example
+   * 123
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13239,7 +22125,25 @@ export class QueryJobListResponseBodyJobListJobMNSMessageResult extends $tea.Mod
 }
 
 export class QueryJobListResponseBodyJobListJobOutputAudioVolume extends $tea.Model {
+  /**
+   * @remarks
+   * The volume adjustment range. Default value: -20. Unit: dB.
+   * 
+   * @example
+   * -20
+   */
   level?: string;
+  /**
+   * @remarks
+   * The method that is used to adjust the volume. Valid values:
+   * 
+   * *   **auto**
+   * *   **dynamic**
+   * *   **linear**
+   * 
+   * @example
+   * auto
+   */
   method?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13261,12 +22165,73 @@ export class QueryJobListResponseBodyJobListJobOutputAudioVolume extends $tea.Mo
 }
 
 export class QueryJobListResponseBodyJobListJobOutputAudio extends $tea.Model {
+  /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Unit: Kbit/s.
+   * *   Default value: **128**.
+   * 
+   * @example
+   * 128
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The number of sound channels.
+   * 
+   * *   Valid values: 1, 2, 3, 4, 5, 6, 7, and 8.
+   * *   Default value: **2**.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The audio codec.
+   * 
+   * *   Valid values: aac, mp3, vorbis, and flac.
+   * *   Default value: **aac**.
+   * 
+   * @example
+   * aac
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The codec profile of the audio. Valid values when the value of Codec is aac: aaclow, aache, aachev2, aacld, and aaceld.
+   * 
+   * @example
+   * aaclow
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of quality control on the audio.
+   * 
+   * @example
+   * 15
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Valid values: 22050, 32000, 44100, 48000, and 96000.
+   * *   Unit: Hz.
+   * *   Default value: 44100.
+   * 
+   * >  If the video container format is FLV and the audio codec is MP3, the value of this parameter cannot be 32000, 48000, or 96000. If the audio codec is MP3, the value of this parameter cannot be 96000.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume configurations.
+   */
   volume?: QueryJobListResponseBodyJobListJobOutputAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -13298,7 +22263,37 @@ export class QueryJobListResponseBodyJobListJobOutputAudio extends $tea.Model {
 }
 
 export class QueryJobListResponseBodyJobListJobOutputClipTimeSpan extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]`.
+   * *   Example: 01:00:59.999.
+   * 
+   * Or
+   * 
+   * *   Format: `sssss[.SSS]`.
+   * *   Example: 32000.23.
+   * 
+   * @example
+   * 01:00:59.999
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The point in time when the clip starts.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]`.
+   * *   Example: 01:59:59.999.
+   * 
+   * Or
+   * 
+   * *   Format: `sssss[.SSS]`.
+   * *   Example: 32000.23.
+   * 
+   * @example
+   * 01:59:59.999
+   */
   seek?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13320,6 +22315,10 @@ export class QueryJobListResponseBodyJobListJobOutputClipTimeSpan extends $tea.M
 }
 
 export class QueryJobListResponseBodyJobListJobOutputClip extends $tea.Model {
+  /**
+   * @remarks
+   * The time span of the clip.
+   */
   timeSpan?: QueryJobListResponseBodyJobListJobOutputClipTimeSpan;
   static names(): { [key: string]: string } {
     return {
@@ -13339,6 +22338,20 @@ export class QueryJobListResponseBodyJobListJobOutputClip extends $tea.Model {
 }
 
 export class QueryJobListResponseBodyJobListJobOutputContainer extends $tea.Model {
+  /**
+   * @remarks
+   * The container format.
+   * 
+   * *   Default value: mp4.
+   * *   Video formats include FLV, MP4, HLS (M3U8 + TS), and MPEG-DASH (MPD + fMP4).
+   * *   Audio formats include MP3, MP4, Ogg, FLAC, and M4A.
+   * *   Image formats include GIF and WebP. If the container format is GIF, the video codec must be GIF.
+   * *   If the container format is WebP, the video codec must be WebP.
+   * *   If the container format is FLV, the video codec cannot be H.265.
+   * 
+   * @example
+   * mp4
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13358,11 +22371,55 @@ export class QueryJobListResponseBodyJobListJobOutputContainer extends $tea.Mode
 }
 
 export class QueryJobListResponseBodyJobListJobOutputEncryption extends $tea.Model {
+  /**
+   * @remarks
+   * The encryption ID.
+   * 
+   * @example
+   * 31fa3c9ca8134f9cec2b4b0b0f78****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The key that is used to encrypt the video.
+   * 
+   * @example
+   * encryptionkey128
+   */
   key?: string;
+  /**
+   * @remarks
+   * The key encryption method. Valid values: Base64 and KMS.
+   * 
+   * >  For example, if the key is `encryptionkey128`, the key can be encrypted as `Base64("encryptionkey128")` or `KMS(Base64("encryptionkey128")` depending on the encryption method used.
+   * 
+   * @example
+   * Base64
+   */
   keyType?: string;
+  /**
+   * @remarks
+   * The URL that is used to request the key. The URL is Base64-encoded.
+   * 
+   * @example
+   * https://1161758785*****.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/HLS-decyptServer/decyptServer/
+   */
   keyUri?: string;
+  /**
+   * @remarks
+   * The number of unencrypted frames at the beginning of the video. Leaving these frames unencrypted enables video playback to quickly start.
+   * 
+   * @example
+   * 3
+   */
   skipCnt?: string;
+  /**
+   * @remarks
+   * The encryption type. Only **hls-aes-128** may be returned.
+   * 
+   * @example
+   * hls-aes-128
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13392,7 +22449,27 @@ export class QueryJobListResponseBodyJobListJobOutputEncryption extends $tea.Mod
 }
 
 export class QueryJobListResponseBodyJobListJobOutputM3U8NonStandardSupportTS extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the output of the MD5 value of the TS file is supported in the M3U8 file. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   md5Support?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the output of the size of the TS file is supported in the M3U8 file. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   sizeSupport?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13414,6 +22491,10 @@ export class QueryJobListResponseBodyJobListJobOutputM3U8NonStandardSupportTS ex
 }
 
 export class QueryJobListResponseBodyJobListJobOutputM3U8NonStandardSupport extends $tea.Model {
+  /**
+   * @remarks
+   * The non-standard support configurations for TS files. The value is a JSON object. For more information, see the TS section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   */
   TS?: QueryJobListResponseBodyJobListJobOutputM3U8NonStandardSupportTS;
   static names(): { [key: string]: string } {
     return {
@@ -13433,9 +22514,46 @@ export class QueryJobListResponseBodyJobListJobOutputM3U8NonStandardSupport exte
 }
 
 export class QueryJobListResponseBodyJobListJobOutputMergeListMerge extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Examples: 01:59:59.999 and 32000.23.
+   * 
+   * @example
+   * 01:59:59.999
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The OSS URL of the clip.
+   * 
+   * *   Example: `http://example-bucket-.oss-cn-hangzhou.aliyuncs.com/example-object.flv`.
+   * *   The object must be URL-encoded by using the UTF-8 standard. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
+   * 
+   * @example
+   * http://example-bucket.oss-cn-hangzhou.aliyuncs.com/example-object.flv
+   */
   mergeURL?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role used for delegated authorization.
+   * 
+   * @example
+   * acs:ram::<your uid>:role/<your role name>
+   */
   roleArn?: string;
+  /**
+   * @remarks
+   * The start point in time of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Examples: 01:59:59.999 and 32000.23.
+   * 
+   * @example
+   * 01:59:59.999
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13480,13 +22598,69 @@ export class QueryJobListResponseBodyJobListJobOutputMergeList extends $tea.Mode
 }
 
 export class QueryJobListResponseBodyJobListJobOutputMultiSpeedInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if high-speed transcoding is not enabled.
+   * 
+   * @example
+   * Boost.NotNeedSpeed
+   */
   code?: string;
+  /**
+   * @remarks
+   * The downgrade policy if high-speed transcoding is not supported.
+   * 
+   * @example
+   * NormalSpeed
+   */
   downgradePolicy?: string;
+  /**
+   * @remarks
+   * The duration of the output video.
+   * 
+   * @example
+   * 21.0
+   */
   duration?: number;
+  /**
+   * @remarks
+   * Indicates whether high-speed transcoding is enabled.
+   * 
+   * @example
+   * true
+   */
   enable?: string;
+  /**
+   * @remarks
+   * The error message returned if high-speed transcoding is not enabled.
+   * 
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The actual transcoding speed.
+   * 
+   * @example
+   * 6.576886940181647
+   */
   realSpeed?: number;
+  /**
+   * @remarks
+   * The speed setting.
+   * 
+   * @example
+   * 30
+   */
   settingSpeed?: number;
+  /**
+   * @remarks
+   * The amount of time consumed.
+   * 
+   * @example
+   * 3.193
+   */
   timeCost?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13520,9 +22694,40 @@ export class QueryJobListResponseBodyJobListJobOutputMultiSpeedInfo extends $tea
 }
 
 export class QueryJobListResponseBodyJobListJobOutputMuxConfigGif extends $tea.Model {
+  /**
+   * @remarks
+   * The color dithering algorithm of the palette. Valid values: sierra and bayer.
+   * 
+   * @example
+   * bayer
+   */
   ditherMode?: string;
+  /**
+   * @remarks
+   * The duration for which the final frame is paused. Unit: centisecond.
+   * 
+   * @example
+   * 0
+   */
   finalDelay?: string;
+  /**
+   * @remarks
+   * Indicates whether a custom palette is used. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   isCustomPalette?: string;
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13548,6 +22753,13 @@ export class QueryJobListResponseBodyJobListJobOutputMuxConfigGif extends $tea.M
 }
 
 export class QueryJobListResponseBodyJobListJobOutputMuxConfigSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The segment length. Unit: seconds.
+   * 
+   * @example
+   * 20
+   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13567,6 +22779,13 @@ export class QueryJobListResponseBodyJobListJobOutputMuxConfigSegment extends $t
 }
 
 export class QueryJobListResponseBodyJobListJobOutputMuxConfigWebp extends $tea.Model {
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13586,8 +22805,20 @@ export class QueryJobListResponseBodyJobListJobOutputMuxConfigWebp extends $tea.
 }
 
 export class QueryJobListResponseBodyJobListJobOutputMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The transmuxing configurations for GIF.
+   */
   gif?: QueryJobListResponseBodyJobListJobOutputMuxConfigGif;
+  /**
+   * @remarks
+   * The segment configurations. The value is a JSON object.
+   */
   segment?: QueryJobListResponseBodyJobListJobOutputMuxConfigSegment;
+  /**
+   * @remarks
+   * The transmuxing configurations for WebP.
+   */
   webp?: QueryJobListResponseBodyJobListJobOutputMuxConfigWebp;
   static names(): { [key: string]: string } {
     return {
@@ -13611,9 +22842,51 @@ export class QueryJobListResponseBodyJobListJobOutputMuxConfig extends $tea.Mode
 }
 
 export class QueryJobListResponseBodyJobListJobOutputOpeningListOpening extends $tea.Model {
+  /**
+   * @remarks
+   * The height of the opening part.
+   * 
+   * *   Valid values: values in the range of (0,4096), -1, and full.
+   * *   A value of -1 indicates that the original height of the opening part is retained.
+   * *   A value of full indicates that the height of the opening part equals the height of the main part.
+   * *   Default value: **-1**.
+   * 
+   * @example
+   * -1
+   */
   height?: string;
+  /**
+   * @remarks
+   * The amount of time after which the opening part is played.
+   * 
+   * *   The value starts from 0.
+   * *   Unit: seconds.
+   * *   Default value: **0**.
+   * 
+   * @example
+   * 0
+   */
   start?: string;
+  /**
+   * @remarks
+   * The width of the opening part.
+   * 
+   * *   Valid values: values in the range of (0,4096), -1, and full.
+   * *   A value of -1 indicates that the original width of the opening part is retained.
+   * *   A value of full indicates that the width of the opening part equals the width of the main part.
+   * *   Default value: **-1**.
+   * 
+   * @example
+   * -1
+   */
   width?: string;
+  /**
+   * @remarks
+   * The OSS URL of the opening part.
+   * 
+   * @example
+   * http://example.oss-cn-shanghai.aliyuncs.com/t5.mp4
+   */
   openUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13658,9 +22931,37 @@ export class QueryJobListResponseBodyJobListJobOutputOpeningList extends $tea.Mo
 }
 
 export class QueryJobListResponseBodyJobListJobOutputOutSubtitleListOutSubtitleOutSubtitleFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the output caption is stored.
+   * 
+   * @example
+   * exampleBucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the output caption resides.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the output caption.
+   * 
+   * @example
+   * example.flv
+   */
   object?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role used for delegated authorization.
+   * 
+   * @example
+   * acs:ram::<your uid>:role/<your role name>
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13686,9 +22987,37 @@ export class QueryJobListResponseBodyJobListJobOutputOutSubtitleListOutSubtitleO
 }
 
 export class QueryJobListResponseBodyJobListJobOutputOutSubtitleListOutSubtitle extends $tea.Model {
+  /**
+   * @remarks
+   * The video track. Format: `0:{Stream}:{Stream sequence number}`, which is `0:v:{video_index}`. The value of Stream is v, which indicates a video stream. The sequence number is the index of the video stream in the list and starts from 0.
+   * 
+   * @example
+   * 0:v:0
+   */
   map?: string;
+  /**
+   * @remarks
+   * The error message returned if the job failed to be created. This parameter is not returned if the job was created.
+   * 
+   * @example
+   * The specified parameter “%s” cannot be null.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The details of the output caption.
+   */
   outSubtitleFile?: QueryJobListResponseBodyJobListJobOutputOutSubtitleListOutSubtitleOutSubtitleFile;
+  /**
+   * @remarks
+   * Indicates whether the job was successful. Valid values:
+   * 
+   * *   **true**: The job was successful.
+   * *   **false**: The job failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13733,9 +23062,37 @@ export class QueryJobListResponseBodyJobListJobOutputOutSubtitleList extends $te
 }
 
 export class QueryJobListResponseBodyJobListJobOutputOutputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the output file is stored.
+   * 
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the output file resides.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the output file.
+   * 
+   * @example
+   * example-output.flv
+   */
   object?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role used for delegated authorization.
+   * 
+   * @example
+   * acs:ram::<your uid>:role/<your role name>
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13761,13 +23118,69 @@ export class QueryJobListResponseBodyJobListJobOutputOutputFile extends $tea.Mod
 }
 
 export class QueryJobListResponseBodyJobListJobOutputPropertiesFormat extends $tea.Model {
+  /**
+   * @remarks
+   * The total bitrate.
+   * 
+   * @example
+   * 490.784
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The total duration.
+   * 
+   * @example
+   * 17.234000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The full name of the container format.
+   * 
+   * @example
+   * QuickTime / MOV
+   */
   formatLongName?: string;
+  /**
+   * @remarks
+   * The short name of the container format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mov
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The total number of program streams.
+   * 
+   * @example
+   * 0
+   */
   numPrograms?: string;
+  /**
+   * @remarks
+   * The total number of media streams.
+   * 
+   * @example
+   * 2
+   */
   numStreams?: string;
+  /**
+   * @remarks
+   * The size of the media file.
+   * 
+   * @example
+   * 1057273
+   */
   size?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * -0.064000
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13801,6 +23214,13 @@ export class QueryJobListResponseBodyJobListJobOutputPropertiesFormat extends $t
 }
 
 export class QueryJobListResponseBodyJobListJobOutputPropertiesSourceLogosSourceLogo extends $tea.Model {
+  /**
+   * @remarks
+   * The keyword.
+   * 
+   * @example
+   * example
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13839,21 +23259,133 @@ export class QueryJobListResponseBodyJobListJobOutputPropertiesSourceLogos exten
 }
 
 export class QueryJobListResponseBodyJobListJobOutputPropertiesStreamsAudioStreamListAudioStream extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the audio stream.
+   * 
+   * @example
+   * 64.136
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The output layout of the sound channels.
+   * 
+   * @example
+   * mono
+   */
   channelLayout?: string;
+  /**
+   * @remarks
+   * The number of sound channels.
+   * 
+   * @example
+   * 1
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The full name of the codec.
+   * 
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the codec.
+   * 
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the codec.
+   * 
+   * @example
+   * 0x6134706d
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the codec.
+   * 
+   * @example
+   * mp4
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1/32000
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration of the audio stream.
+   * 
+   * @example
+   * 17.223562
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language of the audio stream. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata) and [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+   * 
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 50
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The sampling format.
+   * 
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * @example
+   * 32000
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.064000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base of the audio stream.
+   * 
+   * @example
+   * 1/32000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13922,7 +23454,21 @@ export class QueryJobListResponseBodyJobListJobOutputPropertiesStreamsAudioStrea
 }
 
 export class QueryJobListResponseBodyJobListJobOutputPropertiesStreamsSubtitleStreamListSubtitleStream extends $tea.Model {
+  /**
+   * @remarks
+   * The sequence number of the caption stream. The value indicates the position of the caption stream in all caption streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language of the caption stream. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata) and [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13963,8 +23509,29 @@ export class QueryJobListResponseBodyJobListJobOutputPropertiesStreamsSubtitleSt
 }
 
 export class QueryJobListResponseBodyJobListJobOutputPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate.
+   * 
+   * @example
+   * 300
+   */
   avgBitrate?: string;
+  /**
+   * @remarks
+   * The maximum bandwidth that was consumed.
+   * 
+   * @example
+   * 10
+   */
   costBandwidth?: string;
+  /**
+   * @remarks
+   * The amount of time consumed to preload the video stream.
+   * 
+   * @example
+   * 8
+   */
   preloadTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13988,31 +23555,210 @@ export class QueryJobListResponseBodyJobListJobOutputPropertiesStreamsVideoStrea
 }
 
 export class QueryJobListResponseBodyJobListJobOutputPropertiesStreamsVideoStreamListVideoStream extends $tea.Model {
+  /**
+   * @remarks
+   * The average frame rate of the video stream.
+   * 
+   * @example
+   * 30.0
+   */
   avgFPS?: string;
+  /**
+   * @remarks
+   * The video bitrate.
+   * 
+   * @example
+   * 421.117
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The full name of the codec.
+   * 
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the codec.
+   * 
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the codec.
+   * 
+   * @example
+   * 0x31637661
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the codec.
+   * 
+   * @example
+   * avc1
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1/60
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The display aspect ratio (DAR) of the video stream.
+   * 
+   * @example
+   * 9:16
+   */
   dar?: string;
+  /**
+   * @remarks
+   * The duration of the video stream.
+   * 
+   * @example
+   * 17.233333
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The frame rate of the video stream.
+   * 
+   * @example
+   * 30.0
+   */
   fps?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames).
+   * 
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @remarks
+   * The height of the video stream in pixels.
+   * 
+   * @example
+   * 1280
+   */
   height?: string;
+  /**
+   * @remarks
+   * The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
+   * 
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language of the video stream. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata) and [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The codec level.
+   * 
+   * @example
+   * 31
+   */
   level?: string;
+  /**
+   * @remarks
+   * The network bandwidth that was consumed.
+   */
   networkCost?: QueryJobListResponseBodyJobListJobOutputPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 30
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The pixel format of the video stream.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The codec profile.
+   * 
+   * @example
+   * high
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The sample aspect ratio (SAR) of the video stream.
+   * 
+   * @example
+   * 1:1
+   */
   sar?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base of the video stream.
+   * 
+   * @example
+   * 1/15360
+   */
   timebase?: string;
+  /**
+   * @remarks
+   * The width of the video stream in pixels.
+   * 
+   * @example
+   * 720
+   */
   width?: string;
+  /**
+   * @remarks
+   * The number of binary bits used by each sample or pixel.
+   * 
+   * @example
+   * 8
+   */
   bitsPerRawSample?: string;
+  /**
+   * @remarks
+   * The primary colors.
+   * 
+   * @example
+   * bt709
+   */
   colorPrimaries?: string;
+  /**
+   * @remarks
+   * The color transfer configuration.
+   * 
+   * @example
+   * bt709
+   */
   colorTransfer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14101,8 +23847,20 @@ export class QueryJobListResponseBodyJobListJobOutputPropertiesStreamsVideoStrea
 }
 
 export class QueryJobListResponseBodyJobListJobOutputPropertiesStreams extends $tea.Model {
+  /**
+   * @remarks
+   * The audio streams.
+   */
   audioStreamList?: QueryJobListResponseBodyJobListJobOutputPropertiesStreamsAudioStreamList;
+  /**
+   * @remarks
+   * The caption streams.
+   */
   subtitleStreamList?: QueryJobListResponseBodyJobListJobOutputPropertiesStreamsSubtitleStreamList;
+  /**
+   * @remarks
+   * The video streams.
+   */
   videoStreamList?: QueryJobListResponseBodyJobListJobOutputPropertiesStreamsVideoStreamList;
   static names(): { [key: string]: string } {
     return {
@@ -14126,15 +23884,76 @@ export class QueryJobListResponseBodyJobListJobOutputPropertiesStreams extends $
 }
 
 export class QueryJobListResponseBodyJobListJobOutputProperties extends $tea.Model {
+  /**
+   * @remarks
+   * The video bitrate.
+   * 
+   * @example
+   * 490
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The video duration.
+   * 
+   * @example
+   * 17
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The video format.
+   * 
+   * @example
+   * mp4
+   */
   fileFormat?: string;
+  /**
+   * @remarks
+   * The size of the media file.
+   * 
+   * @example
+   * 1057273
+   */
   fileSize?: string;
+  /**
+   * @remarks
+   * The format information.
+   */
   format?: QueryJobListResponseBodyJobListJobOutputPropertiesFormat;
+  /**
+   * @remarks
+   * The frame rate of the video.
+   * 
+   * @example
+   * 30
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The video height.
+   * 
+   * @example
+   * 1280
+   */
   height?: string;
+  /**
+   * @remarks
+   * The non-engine layer keywords.
+   */
   sourceLogos?: QueryJobListResponseBodyJobListJobOutputPropertiesSourceLogos;
+  /**
+   * @remarks
+   * The stream information.
+   */
   streams?: QueryJobListResponseBodyJobListJobOutputPropertiesStreams;
+  /**
+   * @remarks
+   * The video width.
+   * 
+   * @example
+   * 720
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14172,8 +23991,29 @@ export class QueryJobListResponseBodyJobListJobOutputProperties extends $tea.Mod
 }
 
 export class QueryJobListResponseBodyJobListJobOutputSubtitleConfigExtSubtitleListExtSubtitleInput extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input caption file is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the input caption file resides.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input caption file.
+   * 
+   * @example
+   * example-output.flv
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14197,8 +24037,34 @@ export class QueryJobListResponseBodyJobListJobOutputSubtitleConfigExtSubtitleLi
 }
 
 export class QueryJobListResponseBodyJobListJobOutputSubtitleConfigExtSubtitleListExtSubtitle extends $tea.Model {
+  /**
+   * @remarks
+   * The character set used by the external caption.
+   * 
+   * *   Valid values: UTF-8, GBK, BIG5, and auto.
+   * *   Default value: **auto**.
+   * 
+   * >  If the value of CharEnc is auto, the detected character set may not be the actual character set. We recommend that you set this parameter to another value.
+   * 
+   * @example
+   * auto
+   */
   charEnc?: string;
+  /**
+   * @remarks
+   * The font of the hardcoded captions converted from external captions. Default value: SimSum. For more information, see [Fonts](https://help.aliyun.com/document_detail/59950.html).
+   * 
+   * @example
+   * "WenQuanYi Zen Hei", "Yuanti SC Regular", "SimSun"
+   */
   fontName?: string;
+  /**
+   * @remarks
+   * The input caption file.
+   * 
+   * *   SRT and ASS files are supported. For more information, see the Input section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   * *   Example: `{"Bucket":"example-bucket","Location":"oss-cn-hangzhou","Object":"example.srt"}`.
+   */
   input?: QueryJobListResponseBodyJobListJobOutputSubtitleConfigExtSubtitleListExtSubtitleInput;
   static names(): { [key: string]: string } {
     return {
@@ -14241,6 +24107,13 @@ export class QueryJobListResponseBodyJobListJobOutputSubtitleConfigExtSubtitleLi
 }
 
 export class QueryJobListResponseBodyJobListJobOutputSubtitleConfigSubtitleListSubtitle extends $tea.Model {
+  /**
+   * @remarks
+   * The audio track. Format: `0:{Stream}:{Stream sequence number}`, which is `0:a:{audio_index}`. The value of Stream is a, which indicates an audio stream. The sequence number is the index of the audio stream in the list and starts from 0.
+   * 
+   * @example
+   * 0:a:0
+   */
   map?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14279,7 +24152,15 @@ export class QueryJobListResponseBodyJobListJobOutputSubtitleConfigSubtitleList 
 }
 
 export class QueryJobListResponseBodyJobListJobOutputSubtitleConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The external captions.
+   */
   extSubtitleList?: QueryJobListResponseBodyJobListJobOutputSubtitleConfigExtSubtitleList;
+  /**
+   * @remarks
+   * The captions.
+   */
   subtitleList?: QueryJobListResponseBodyJobListJobOutputSubtitleConfigSubtitleList;
   static names(): { [key: string]: string } {
     return {
@@ -14301,6 +24182,16 @@ export class QueryJobListResponseBodyJobListJobOutputSubtitleConfig extends $tea
 }
 
 export class QueryJobListResponseBodyJobListJobOutputSuperReso extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether parameters related to the sampling rate are obtained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isHalfSample?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14320,12 +24211,73 @@ export class QueryJobListResponseBodyJobListJobOutputSuperReso extends $tea.Mode
 }
 
 export class QueryJobListResponseBodyJobListJobOutputTailSlateListTailSlate extends $tea.Model {
+  /**
+   * @remarks
+   * The color of the bars that are added to the ending part if the size of the ending part is smaller than that of the main part. Default value: White. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html).
+   * 
+   * @example
+   * White
+   */
   bgColor?: string;
+  /**
+   * @remarks
+   * The duration of the transition between the main part and the ending part. A fade transition is used: The last frame of the main part fades out, and the first frame of the ending part fades in. Unit: seconds. Default value: 0.
+   * 
+   * @example
+   * 0
+   */
   blendDuration?: string;
+  /**
+   * @remarks
+   * The height of the ending part.
+   * 
+   * *   Valid values: values in the range of (0,4096), -1, and full.
+   * *   A value of -1 indicates that the original height of the ending part is retained.
+   * *   A value of full indicates that the height of the ending part equals the height of the main part.
+   * *   Default value: -1.
+   * 
+   * @example
+   * -1
+   */
   height?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio content of the ending part is merged. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isMergeAudio?: boolean;
+  /**
+   * @remarks
+   * The time when the ending part is played.
+   * 
+   * @example
+   * 00000.00
+   */
   start?: string;
+  /**
+   * @remarks
+   * The OSS URL of the ending part.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com/opening_01.flv
+   */
   tailUrl?: string;
+  /**
+   * @remarks
+   * The width of the ending part. Valid values: values in the range of (0,4096), -1, and full.
+   * 
+   * *   A value of -1 indicates that the original width of the ending part is retained.
+   * *   A value of full indicates that the width of the ending part equals the width of the main part.
+   * *   Default value: -1.
+   * 
+   * @example
+   * -1
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14376,13 +24328,101 @@ export class QueryJobListResponseBodyJobListJobOutputTailSlateList extends $tea.
 }
 
 export class QueryJobListResponseBodyJobListJobOutputTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method of resolution adjustment. Default value: **none**. Valid values: rescale, crop, pad, and none.
+   * 
+   * @example
+   * none
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. If the bitrate of the output audio is higher than that of the input audio, the input bitrate is retained and the specified audio bitrate does not take effect. This parameter has a lower priority than IsCheckAudioBitrateFail. Valid values:
+   * 
+   * *   **true**
+   * 
+   * *   **false**
+   * 
+   * *   Default value:
+   * 
+   *     *   If this parameter is empty and the codec of the output audio is different from that of the input audio, the default value is false.
+   *     *   If this parameter is empty and the codec of the output audio is the same as that of the input audio, the default value is true.
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. If the bitrate of the output audio is higher than that of the input audio, the input audio is not transcoded and a transcoding failure is returned. This parameter has a higher priority than IsCheckAudioBitrate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, the input resolution is retained. Valid values:
+   * 
+   * *   **true**:
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, a transcoding failure is returned. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, the input bitrate is retained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, the input video is not transcoded and a transcoding failure is returned. This parameter has a higher priority than IsCheckVideoBitrate. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The transcoding mode.
+   * 
+   * *   Valid values: onepass, twopass, and CBR.
+   * *   Default value: **onepass**.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14416,7 +24456,21 @@ export class QueryJobListResponseBodyJobListJobOutputTransConfig extends $tea.Mo
 }
 
 export class QueryJobListResponseBodyJobListJobOutputVideoBitrateBnd extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum bitrate.
+   * 
+   * @example
+   * 1000
+   */
   max?: string;
+  /**
+   * @remarks
+   * The minimum bitrate.
+   * 
+   * @example
+   * 300
+   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14438,25 +24492,214 @@ export class QueryJobListResponseBodyJobListJobOutputVideoBitrateBnd extends $te
 }
 
 export class QueryJobListResponseBodyJobListJobOutputVideo extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 500
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The average bitrate range of the video.
+   */
   bitrateBnd?: QueryJobListResponseBodyJobListJobOutputVideoBitrateBnd;
+  /**
+   * @remarks
+   * The buffer size.
+   * 
+   * *   Unit: KB.
+   * *   Default value: **6000**.
+   * 
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @remarks
+   * The video codec.
+   * 
+   * *   Valid values: H.264 and H.265.
+   * *   Default value: H.264.
+   * 
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   Default value when the value of Codec is H.264: **23**, default value when the value of Codec is H.265: **26**.
+   * *   If the value of this parameter is returned, the value of Bitrate becomes invalid.
+   * 
+   * @example
+   * 26
+   */
   crf?: string;
+  /**
+   * @remarks
+   * The method of video cropping. Valid values:
+   * 
+   * *   **border**: automatically detects and removes borders.
+   * *   A value in the width:height:left:top format: The video image is cropped based on custom settings.
+   * 
+   * @example
+   * 1280:800:0:140
+   */
   crop?: string;
+  /**
+   * @remarks
+   * The strength of the independent noise reduction algorithm.
+   * 
+   * @example
+   * 5
+   */
   degrain?: string;
+  /**
+   * @remarks
+   * The frame rate of the video.
+   * 
+   * *   Unit: frames per second.
+   * *   The value is 60 if the frame rate of the input file exceeds 60.
+   * *   Default value: the frame rate of the input video.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The maximum interval between keyframes or the maximum number of frames in a frame group. Unit: seconds.
+   * 
+   * *   Default value: **250**.
+   * *   If the maximum number of frames is returned, the value does not contain a unit.
+   * 
+   * @example
+   * 250
+   */
   gop?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: the height of the input video.
+   * 
+   * @example
+   * 720
+   */
   height?: string;
+  /**
+   * @remarks
+   * The maximum frame rate.
+   * 
+   * @example
+   * 60
+   */
   maxFps?: string;
+  /**
+   * @remarks
+   * The maximum bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 3000
+   */
   maxrate?: string;
+  /**
+   * @remarks
+   * The black bars that are added to the video.
+   * 
+   * *   Unit: pixel.
+   * *   Format: width:height:left:top.
+   * 
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The preset video algorithm. Default value: **medium**. Valid values:
+   * 
+   * *   **veryfast**
+   * *   **fast**
+   * *   **medium**
+   * *   **slow**
+   * *   **slower**
+   * 
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @remarks
+   * The codec profile of the video. Valid values: baseline, main, and high.
+   * 
+   * >  If multiple definitions are involved, we recommend that you use baseline for the lowest definition to ensure normal playback on low-end devices, and use main or high for other definitions.
+   * 
+   * *   **baseline**: applicable to mobile devices.
+   * *   **main**: applicable to standard-definition devices.
+   * *   **high**: applicable to high-definition devices.
+   * *   Default value: **high**.
+   * 
+   * @example
+   * high
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of quality control on the video.
+   * 
+   * @example
+   * 15
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The resource priority.
+   * 
+   * @example
+   * 1
+   */
   resoPriority?: string;
+  /**
+   * @remarks
+   * The scan mode. Valid values:
+   * 
+   * *   If this parameter is left **empty**, the scan mode of the input video is used.
+   * *   **auto**: automatic deinterlacing.
+   * *   **progressive**: progressive scan.
+   * *   **interlaced**: interlaced scan.
+   * *   **By default**, this parameter is left empty.
+   * 
+   * **Best practice**: The interlaced scan mode saves data traffic than the progressive scan mode but provides poor image quality. Therefore, the progressive scan mode is commonly used in mainstream video production.
+   * 
+   * *   If **progressive** or **interlaced** is used when the scan mode of the input video is neither of them, the transcoding job fails.
+   * *   We recommend that you use **the scan mode of the input video** or **automatic deinterlacing** for higher compatibility.
+   * 
+   * @example
+   * interlaced
+   */
   scanMode?: string;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: the width of the input video.
+   * 
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14514,8 +24757,29 @@ export class QueryJobListResponseBodyJobListJobOutputVideo extends $tea.Model {
 }
 
 export class QueryJobListResponseBodyJobListJobOutputWaterMarkListWaterMarkInputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the input file resides.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the Object Storage Service (OSS) object that is used as the input file.
+   * 
+   * @example
+   * example-logo-****.png
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14539,13 +24803,114 @@ export class QueryJobListResponseBodyJobListJobOutputWaterMarkListWaterMarkInput
 }
 
 export class QueryJobListResponseBodyJobListJobOutputWaterMarkListWaterMark extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset of the watermark image relative to the output video. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. Default value: 0. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the horizontal offset.
+   * 
+   *     *   Valid values: **[8,4096]**.
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal number indicates the ratio of the horizontal offset to the width in the output video resolution.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
+   * @example
+   * 100
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The vertical offset of the watermark image relative to the output video. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the vertical offset.
+   * 
+   *     *   Valid values: **[8,4096]**.
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal number indicates the ratio of the vertical offset to the height in the output video resolution.
+   * 
+   *     *   Valid values: **(0,1)**.
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
+   * @example
+   * 100
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The height of the watermark image. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the watermark height.
+   * 
+   *     *   Valid values: **[8,4096]**.
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal number indicates the ratio of the watermark height to the height in the output video resolution.
+   * 
+   *     *   Valid values: **(0,1)**.
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
+   * @example
+   * 50
+   */
   height?: string;
+  /**
+   * @remarks
+   * The watermark input file. PNG images and MOV files are supported.
+   */
   inputFile?: QueryJobListResponseBodyJobListJobOutputWaterMarkListWaterMarkInputFile;
+  /**
+   * @remarks
+   * The position of the watermark. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. Valid values:
+   * 
+   * *   TopRight
+   * *   TopLeft
+   * *   BottomRight
+   * *   BottomLeft
+   * 
+   * @example
+   * TopRight
+   */
   referPos?: string;
+  /**
+   * @remarks
+   * The type of the watermark. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html). Valid values:
+   * 
+   * *   Image
+   * *   Text
+   * 
+   * @example
+   * Image
+   */
   type?: string;
+  /**
+   * @remarks
+   * The ID of the watermark template.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   waterMarkTemplateId?: string;
+  /**
+   * @remarks
+   * The width of the watermark image. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the watermark width.
+   * 
+   *     *   Valid values: **[8,4096]**.
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal number indicates the ratio of the watermark width to the width in the output video resolution.
+   * 
+   *     *   Valid values: **(0,1)**.
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
+   * @example
+   * 50
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14598,33 +24963,190 @@ export class QueryJobListResponseBodyJobListJobOutputWaterMarkList extends $tea.
 }
 
 export class QueryJobListResponseBodyJobListJobOutput extends $tea.Model {
+  /**
+   * @remarks
+   * The audio configurations.
+   * 
+   * >  If this parameter is specified in the request, the corresponding parameters in the specified transcoding template are overwritten.
+   */
   audio?: QueryJobListResponseBodyJobListJobOutputAudio;
+  /**
+   * @remarks
+   * The sequence number of the audio stream.
+   * 
+   * *   Format: 0:a:{Sequence number}. Example: 0:a:0.
+   * *   The sequence number is the index of the audio stream in the list and starts from 0.
+   * *   If no sequence number is specified, the default audio stream is used.
+   * 
+   * @example
+   * 0:a:0
+   */
   audioStreamMap?: string;
+  /**
+   * @remarks
+   * The information about clips.
+   */
   clip?: QueryJobListResponseBodyJobListJobOutputClip;
+  /**
+   * @remarks
+   * The container format configurations.
+   */
   container?: QueryJobListResponseBodyJobListJobOutputContainer;
+  /**
+   * @remarks
+   * The configurations of watermark blurring. The value is a JSON object. For more information, see the DeWatermark section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   * 
+   * @example
+   * {"0":[{"l":10,"t":10,"w":10,"h":10},{"l":100,"t":0.1,"w":10,"h":10}],"128000":[],"250000":[{"l":0.2,"t":0.1,"w":0.01,"h":0.05}]}
+   */
   deWatermark?: string;
+  /**
+   * @remarks
+   * The encryption configurations. The encrypted video file is generated in the M3U8 format.
+   */
   encryption?: QueryJobListResponseBodyJobListJobOutputEncryption;
+  /**
+   * @remarks
+   * The custom fields.
+   * 
+   * @example
+   * testid-002
+   */
   extendData?: string;
+  /**
+   * @remarks
+   * The non-standard support configurations for M3U8. The value is a JSON object. For more information, see the M3U8NonStandardSupport section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   */
   m3U8NonStandardSupport?: QueryJobListResponseBodyJobListJobOutputM3U8NonStandardSupport;
+  /**
+   * @remarks
+   * The URL of the merging configuration file. Only one of MergeList and MergeConfigUrl takes effect.
+   * 
+   * *   The configuration file specified by MergeConfigUrl can contain up to 50 clips.
+   * *   MergeConfigUrl indicates the URL of the configuration file for merging clips. Make sure that the configuration file is stored as an object in OSS and that MPS can access the OSS object. For information about the file content, see the details about merging parameters.
+   * *   Example of the content of the merging configuration file: `{"MergeList":[{"MergeURL":"http://exampleBucket****.oss-cn-hangzhou.aliyuncs.com/video_01.mp4"}]}`.
+   * 
+   * @example
+   * https://ceshi-***.oss-cn-shanghai.aliyuncs.com/ccc/p0903q9wkkb.m3u8
+   */
   mergeConfigUrl?: string;
+  /**
+   * @remarks
+   * The configurations of clip merging. Up to four clips can be merged.
+   */
   mergeList?: QueryJobListResponseBodyJobListJobOutputMergeList;
+  /**
+   * @remarks
+   * The information about the high-speed transcoding job. This information is available only for jobs that are submitted by using an MPS queue for high-speed transcoding. This does not support MPS queues for high-speed transcoding of an earlier version.
+   */
   multiSpeedInfo?: QueryJobListResponseBodyJobListJobOutputMultiSpeedInfo;
+  /**
+   * @remarks
+   * The transmuxing configurations. The transmuxing configurations. If this parameter is specified in the request, the corresponding parameters in the specified transcoding template are overwritten.
+   */
   muxConfig?: QueryJobListResponseBodyJobListJobOutputMuxConfig;
+  /**
+   * @remarks
+   * The opening parts. The value is a JSON object.
+   */
   openingList?: QueryJobListResponseBodyJobListJobOutputOpeningList;
+  /**
+   * @remarks
+   * The output captions.
+   */
   outSubtitleList?: QueryJobListResponseBodyJobListJobOutputOutSubtitleList;
+  /**
+   * @remarks
+   * The details of the output file.
+   */
   outputFile?: QueryJobListResponseBodyJobListJobOutputOutputFile;
+  /**
+   * @remarks
+   * The priority of the job in the ApsaraVideo Media Processing (MPS) queue to which the job is added.
+   * 
+   * *   A value of 10 indicates the highest priority.
+   * *   Default value: **6**.
+   * 
+   * @example
+   * 6
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The media properties.
+   */
   properties?: QueryJobListResponseBodyJobListJobOutputProperties;
+  /**
+   * @remarks
+   * The rotation angle of the video.
+   * 
+   * @example
+   * 90
+   */
   rotate?: string;
+  /**
+   * @remarks
+   * The caption configurations.
+   */
   subtitleConfig?: QueryJobListResponseBodyJobListJobOutputSubtitleConfig;
+  /**
+   * @remarks
+   * The configurations for using the resolution of the source video.
+   */
   superReso?: QueryJobListResponseBodyJobListJobOutputSuperReso;
+  /**
+   * @remarks
+   * The ending parts.
+   */
   tailSlateList?: QueryJobListResponseBodyJobListJobOutputTailSlateList;
+  /**
+   * @remarks
+   * The template ID.
+   * 
+   * @example
+   * S00000001-200010
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The general transcoding configurations.
+   * 
+   * >  If this parameter is specified in the request, the corresponding parameters in the specified transcoding template are overwritten.
+   */
   transConfig?: QueryJobListResponseBodyJobListJobOutputTransConfig;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
+  /**
+   * @remarks
+   * The video configurations.
+   */
   video?: QueryJobListResponseBodyJobListJobOutputVideo;
+  /**
+   * @remarks
+   * The sequence number of the video stream. The sequence number is the index of the video stream in the list and starts from 0. If no sequence number is specified, the default video stream is used.
+   * 
+   * @example
+   * 0
+   */
   videoStreamMap?: string;
+  /**
+   * @remarks
+   * The URL of the watermark configuration file.
+   * 
+   * @example
+   * http://example.com/configure
+   */
   waterMarkConfigUrl?: string;
+  /**
+   * @remarks
+   * The watermarks.
+   */
   waterMarkList?: QueryJobListResponseBodyJobListJobOutputWaterMarkList;
   static names(): { [key: string]: string } {
     return {
@@ -14698,17 +25220,98 @@ export class QueryJobListResponseBodyJobListJobOutput extends $tea.Model {
 }
 
 export class QueryJobListResponseBodyJobListJob extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed. If the job was successful, this parameter is not returned.
+   * 
+   * @example
+   * InvalidParameter.NullValue
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2014-01-10T12:00:00Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The time when the job was complete.
+   * 
+   * @example
+   * 2014-01-10T12:20:25Z
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   input?: QueryJobListResponseBodyJobListJobInput;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * 31fa3c9ca8134fb4b0b0f7878301****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The message sent by Message Service (MNS) to notify users of the job result.
+   */
   MNSMessageResult?: QueryJobListResponseBodyJobListJobMNSMessageResult;
+  /**
+   * @remarks
+   * The error message returned if the job failed. If the job was successful, this parameter is not returned.
+   * 
+   * @example
+   * The specified parameter "%s" cannot be null.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The job output.
+   */
   output?: QueryJobListResponseBodyJobListJobOutput;
+  /**
+   * @remarks
+   * The transcoding progress.
+   * 
+   * @example
+   * 100
+   */
   percent?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue that is used to run the job.
+   * 
+   * @example
+   * 88c6ca184c0e47b665e2a1267971****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The job state. Valid values:
+   * 
+   * *   **Submitted**: The job was submitted.
+   * *   **Transcoding**: Transcoding is in process.
+   * *   **TranscodeSuccess**: The job was successful.
+   * *   **TranscodeFail**: The job failed.
+   * *   **TranscodeCancelled**: The job was canceled.
+   * 
+   * @example
+   * TranscodeSuccess
+   */
   state?: string;
+  /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
+   * @example
+   * 2021-03-04T06:44:43Z
+   */
   submitTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14860,9 +25463,49 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCenso
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Multiple labels are separated with commas (,). Valid values:
+   * 
+   * *   **spam**: spam
+   * *   **ad**: ads
+   * *   **abuse**: abuse
+   * *   **flood**: excessive junk content
+   * *   **contraband**: prohibited content
+   * *   **meaningless**: meaningless content
+   * *   **normal**: normal content
+   * 
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 99.91
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. Valid values: The value is **antispam**.
+   * 
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14888,9 +25531,98 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCen
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResultResultsResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Multiple labels are separated with commas (,).
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **sexy**: sexy content
+   *     *   **porn**: pornographic content
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **narmal**: normal content
+   *     *   **bloody**: bloody content
+   *     *   **explosion**: explosion and smoke
+   *     *   **outfit**: special costume
+   *     *   **logo**: special logo
+   *     *   **weapon**: weapon
+   *     *   **politics**: political content
+   *     *   **violence**: violence
+   *     *   **crowd**: crowd
+   *     *   **parade**: parade
+   *     *   **carcrash**: car accident
+   *     *   **flag**: flag
+   *     *   **location**: landmark
+   *     *   **others**: other content
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **ad**: other ads
+   *     *   **politics**: political content in text
+   *     *   **porn**: pornographic content in text
+   *     *   **abuse**: abuse in text
+   *     *   **terrorism**: terrorist content in text
+   *     *   **contraband**: prohibited content in text
+   *     *   **spam**: spam in text
+   *     *   **npx**: illegal ads
+   *     *   **qrcode**: QR code
+   *     *   **programCode**: mini program code
+   * 
+   * *   Valid values in the live moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **meaningless**: meaningless content, such as a black or white screen
+   *     *   **PIP**: picture-in-picture
+   *     *   **smoking**: smoking
+   *     *   **drivelive**: live broadcasting in a running vehicle
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **TV**: controlled TV station logo
+   *     *   **trademark**: trademark
+   * 
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score. Valid values: **0 to 100**.
+   * 
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation
+   * *   **terrorism**: terrorist content moderation
+   * *   **ad**: ad violation moderation
+   * *   **live**: undesirable scene moderation
+   * *   **logo**: logo moderation
+   * 
+   * @example
+   * porn
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14935,9 +25667,34 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImage
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket that stores the video thumbnail.
+   * 
+   * @example
+   * bucket-out-test-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the video thumbnail resides.
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) object that is used as the video thumbnail.
+   * 
+   * @example
+   * test/ai/censor/v2/vme-****.jpg
+   */
   object?: string;
+  /**
+   * @remarks
+   * The moderation results.
+   */
   results?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResultResults;
   static names(): { [key: string]: string } {
     return {
@@ -14982,9 +25739,49 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImage
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Valid values:
+   * 
+   * *   **spam**: spam
+   * *   **ad**: ads
+   * *   **abuse**: abuse
+   * *   **flood**: excessive junk content
+   * *   **contraband**: prohibited content
+   * *   **meaningless**: meaningless content
+   * *   **normal**: normal content
+   * 
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. Valid values: The value is **antispam**.
+   * 
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * review
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15010,8 +25807,29 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensor
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input media file is stored.
+   * 
+   * @example
+   * bucket-test-in-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the input media file resides.
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input media file.
+   * 
+   * @example
+   * test/ai/censor/test-****.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15035,9 +25853,49 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput exte
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Valid values:
+   * 
+   * *   **normal**: normal content
+   * *   **spam**: spam
+   * *   **ad**: ads
+   * *   **abuse**: abuse
+   * *   **flood**: excessive junk content
+   * *   **contraband**: prohibited content
+   * *   **meaningless**: meaningless content
+   * 
+   * @example
+   * meaningless
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 99.91
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. Valid values: The value is **antispam**.
+   * 
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * block
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15063,9 +25921,98 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCenso
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultCensorResultsCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Multiple labels are separated with commas (,). Valid values:
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **porn**: pornographic content
+   *     *   **sexy**: sexy content
+   *     *   **normal**: normal content
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **bloody**: bloody content
+   *     *   **explosion**: explosion and smoke
+   *     *   **outfit**: special costume
+   *     *   **logo**: special logo
+   *     *   **weapon**: weapon
+   *     *   **politics**: political content
+   *     *   **violence**: violence
+   *     *   **crowd**: crowd
+   *     *   **parade**: parade
+   *     *   **carcrash**: car accident
+   *     *   **flag**: flag
+   *     *   **location**: landmark
+   *     *   **others**: other content
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **ad**: other ads
+   *     *   **politics**: political content in text
+   *     *   **porn**: pornographic content in text
+   *     *   **abuse**: abuse in text
+   *     *   **terrorism**: terrorist content in text
+   *     *   **contraband**: prohibited content in text
+   *     *   **spam**: spam in text
+   *     *   **npx**: illegal ads
+   *     *   **qrcode**: QR code
+   *     *   **programCode**: mini program code
+   * 
+   * *   Valid values in the live moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **meaningless**: meaningless content, such as a black or white screen
+   *     *   **PIP**: picture-in-picture
+   *     *   **smoking**: smoking
+   *     *   **drivelive**: live broadcasting in a running vehicle
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **TV**: controlled TV station logo
+   *     *   **trademark**: trademark
+   * 
+   * @example
+   * meaningless
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation
+   * *   **terrorism**: terrorist content moderation
+   * *   **ad**: ad violation moderation
+   * *   **live**: undesirable scene moderation
+   * *   **logo**: logo moderation
+   * 
+   * @example
+   * terrorism
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * review
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15110,9 +26057,98 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimelineCensorResultsCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Multiple labels are separated with commas (,). Valid values:
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **porn**: pornographic content
+   *     *   **sexy**: sexy content
+   *     *   **normal**: normal content
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **bloody**: bloody content
+   *     *   **explosion**: explosion and smoke
+   *     *   **outfit**: special costume
+   *     *   **logo**: special logo
+   *     *   **weapon**: weapon
+   *     *   **politics**: political content
+   *     *   **violence**: violence
+   *     *   **crowd**: crowd
+   *     *   **parade**: parade
+   *     *   **carcrash**: car accident
+   *     *   **flag**: flag
+   *     *   **location**: landmark
+   *     *   **others**: other content
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **ad**: other ads
+   *     *   **politics**: political content in text
+   *     *   **porn**: pornographic content in text
+   *     *   **abuse**: abuse in text
+   *     *   **terrorism**: terrorist content in text
+   *     *   **contraband**: prohibited content in text
+   *     *   **spam**: spam in text
+   *     *   **npx**: illegal ads
+   *     *   **qrcode**: QR code
+   *     *   **programCode**: mini program code
+   * 
+   * *   Valid values in the live moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **meaningless**: meaningless content, such as a black or white screen
+   *     *   **PIP**: picture-in-picture
+   *     *   **smoking**: smoking
+   *     *   **drivelive**: live broadcasting in a running vehicle
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **TV**: controlled TV station logo
+   *     *   **trademark**: trademark
+   * 
+   * @example
+   * porn,ad
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 99.99
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation
+   * *   **terrorism**: terrorist content moderation
+   * *   **ad**: ad violation moderation
+   * *   **live**: undesirable scene moderation
+   * *   **logo**: logo moderation
+   * 
+   * @example
+   * porn
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * block
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15157,8 +26193,28 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The moderation results that include information such as labels and scores.
+   */
   censorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimelineCensorResults;
+  /**
+   * @remarks
+   * The one or more OSS objects that are generated as the output snapshots.
+   * 
+   * > In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
+   * 
+   * @example
+   * output{Count}.jpg
+   */
   object?: string;
+  /**
+   * @remarks
+   * The position in the video. Format: `hh:mm:ss[.SSS]`.
+   * 
+   * @example
+   * 00:02:59.999
+   */
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15201,8 +26257,23 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * A collection of the moderation results. The information includes the summary of various scenarios such as pornographic content and terrorist content.
+   */
   censorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultCensorResults;
+  /**
+   * @remarks
+   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * ea04afcca7cd4e80b9ece8fbb251****
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The moderation results that are sorted in ascending order by time.
+   */
   videoTimelines?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelines;
   static names(): { [key: string]: string } {
     return {
@@ -15226,8 +26297,31 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfigOutputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket that stores the output snapshots.
+   * 
+   * @example
+   * test-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The region in which the OSS bucket that stores the output snapshot resides.
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * The one or more OSS objects that are generated as the output snapshots.
+   * 
+   * > In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
+   * 
+   * @example
+   * output{Count}.jpg
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15251,8 +26345,29 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The custom business type. Default value: common.
+   * 
+   * @example
+   * common
+   */
   bizType?: string;
+  /**
+   * @remarks
+   * The information about output snapshots.
+   */
   outputFile?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfigOutputFile;
+  /**
+   * @remarks
+   * Indicates whether the video content needs to be moderated. Default value: **true** Valid values:
+   * 
+   * *   **true**: The video content needs to be moderated.
+   * *   **false**: The video content does not need to be moderated.
+   * 
+   * @example
+   * true
+   */
   videoCensor?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15277,21 +26392,118 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $tea.Model {
   audioCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailAudioCensorResult;
+  /**
+   * @remarks
+   * The moderation result of live comments.
+   */
   barrageCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCensorResult;
+  /**
+   * @remarks
+   * The error code returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   code?: string;
+  /**
+   * @remarks
+   * The moderation results of thumbnails.
+   */
   coverImageCensorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResults;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2018-09-13T16:32:24Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The moderation result of the description.
+   */
   descCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensorResult;
+  /**
+   * @remarks
+   * The time when the job was complete.
+   * 
+   * @example
+   * 2018-09-21
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   input?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput;
+  /**
+   * @remarks
+   * The ID of the content moderation job.
+   * 
+   * @example
+   * f8f166eea7a44e9bb0a4aecf9543****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The error message returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * The resource operated cannot be found
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the content moderation job is submitted.
+   * 
+   * @example
+   * c5b30b7c0d0e4a0abde1d5f9e751****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @remarks
+   * The overall result of the job. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * If the moderation result of one type of the moderated content is review, the overall result is review. If the moderation result of one type of the moderated content is block, the overall result is block.
+   * 
+   * @example
+   * block
+   */
   suggestion?: string;
+  /**
+   * @remarks
+   * The moderation result of the title.
+   */
   titleCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCensorResult;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * example userdata ****
+   */
   userData?: string;
+  /**
+   * @remarks
+   * The moderation results of the video.
+   */
   vensorCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResult;
+  /**
+   * @remarks
+   * The video moderation configurations.
+   */
   videoCensorConfig?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfig;
   static names(): { [key: string]: string } {
     return {
@@ -15365,9 +26577,49 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobBarrageCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Separate multiple labels with commas (,). Valid values:
+   * 
+   * *   **spam**: spam
+   * *   **ad**: ads
+   * *   **abuse**: abuse
+   * *   **flood**: excessive junk content
+   * *   **contraband**: prohibited content
+   * *   **meaningless**: meaningless content
+   * *   **normal**: normal content
+   * 
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 99.91
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. The value is **antispam**.
+   * 
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15393,9 +26645,100 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResultsCoverImageCensorResultResultsResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Separate multiple labels with commas (,).
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **sexy**: sexy content
+   *     *   **porn**: pornographic content
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **bloody**: bloody content
+   *     *   **explosion**: explosion and smoke
+   *     *   **outfit**: special costume
+   *     *   **logo**: special logo
+   *     *   **weapon**: weapon
+   *     *   **politics**: political content
+   *     *   **violence**: violence
+   *     *   **crowd**: crowd
+   *     *   **parade**: parade
+   *     *   **carcrash**: car accident
+   *     *   **flag**: flag
+   *     *   **location**: landmark
+   *     *   **others**: other content
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **ad**: other ads
+   *     *   **politics**: political content in text
+   *     *   **porn**: pornographic content in text
+   *     *   **abuse**: abuse in text
+   *     *   **terrorism**: terrorist content in text
+   *     *   **contraband**: prohibited content in text
+   *     *   **spam**: spam in text
+   *     *   **npx**: illegal ads
+   *     *   **qrcode**: QR code
+   *     *   **programCode**: mini program code
+   * 
+   * *   Valid values in the live moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **meaningless**: meaningless content, such as a black or white screen
+   *     *   **PIP**: picture-in-picture
+   *     *   **smoking**: smoking
+   *     *   **drivelive**: live broadcasting in a running vehicle
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **TV**: controlled TV station logo
+   *     *   **trademark**: trademark
+   * 
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score. Valid values: 0 to 100.
+   * 
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation
+   * *   **terrorism**: terrorist content moderation
+   * *   **ad**: ad violation moderation
+   * *   **live**: undesirable scene moderation
+   * *   **logo**: special logo moderation
+   * 
+   * @example
+   * live
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The overall result of the job. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * > If the moderation result of any type of the moderated content is review, the overall result is review. If the moderation result of any type of the moderated content is block, the overall result is block.
+   * 
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15440,9 +26783,34 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResultsCoverImageCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket that stores the video thumbnail.
+   * 
+   * @example
+   * example-Bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the video thumbnail resides.
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) object that is used as the video thumbnail.
+   * 
+   * @example
+   * test/ai/censor/v2/vme-****.jpg
+   */
   object?: string;
+  /**
+   * @remarks
+   * The moderation results of the content moderation jobs.
+   */
   results?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResultsCoverImageCensorResultResults;
   static names(): { [key: string]: string } {
     return {
@@ -15487,9 +26855,49 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobDescCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Separate multiple labels with commas (,). Valid values:
+   * 
+   * *   **spam**: spam
+   * *   **ad**: ads
+   * *   **abuse**: abuse
+   * *   **flood**: excessive junk content
+   * *   **contraband**: prohibited content
+   * *   **meaningless**: meaningless content
+   * *   **normal**: normal content
+   * 
+   * @example
+   * ad
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. The value is **antispam**.
+   * 
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15515,8 +26923,29 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobInput extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * bucket-test-in-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the input file resides.
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
+   * @example
+   * test/ai/censor/test-****.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15540,9 +26969,49 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobTitleCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Separate multiple labels with commas (,).
+   * 
+   * *   **normal**: normal content
+   * *   **spam**: spam
+   * *   **ad**: ads
+   * *   **abuse**: abuse content
+   * *   **flood**: excessive junk content
+   * *   **contraband**: prohibited content
+   * *   **meaningless**: meaningless content
+   * 
+   * @example
+   * meaningless
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 99.91
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. The value is **antispam**.
+   * 
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * block
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15568,9 +27037,98 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultCensorResultsCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Separate multiple labels with commas (,).
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **porn**: pornographic content
+   *     *   **sexy**: sexy content
+   *     *   **normal**: normal content
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **bloody**: bloody content
+   *     *   **explosion**: explosion and smoke
+   *     *   **outfit**: special costume
+   *     *   **logo**: special logo
+   *     *   **weapon**: weapon
+   *     *   **politics**: political content
+   *     *   **violence**: violence
+   *     *   **crowd**: crowd
+   *     *   **parade**: parade
+   *     *   **carcrash**: car accident
+   *     *   **flag**: flag
+   *     *   **location**: landmark
+   *     *   **others**: other content
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **ad**: other ads
+   *     *   **politics**: political content in text
+   *     *   **porn**: pornographic content in text
+   *     *   **abuse**: abuse in text
+   *     *   **terrorism**: terrorist content in text
+   *     *   **contraband**: prohibited content in text
+   *     *   **spam**: spam in text
+   *     *   **npx**: illegal ads
+   *     *   **qrcode**: QR code
+   *     *   **programCode**: mini program code
+   * 
+   * *   Valid values in the live moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **meaningless**: meaningless content, such as a black or white screen
+   *     *   **PIP**: picture-in-picture
+   *     *   **smoking**: smoking
+   *     *   **drivelive**: live broadcasting in a running vehicle
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **TV**: controlled TV station logo
+   *     *   **trademark**: trademark
+   * 
+   * @example
+   * meaningless
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation
+   * *   **terrorism**: terrorist content moderation
+   * *   **ad**: ad violation moderation
+   * *   **live**: undesirable scene moderation
+   * *   **logo**: special logo moderation
+   * 
+   * @example
+   * terrorism
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * review
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15615,9 +27173,98 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelinesVideoTimelineCensorResultsCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * The labels of the moderation result. Separate multiple labels with commas (,). Valid values:
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **porn**: pornographic content
+   *     *   **sexy**: sexy content
+   *     *   **normal**: normal content
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **bloody**: bloody content
+   *     *   **explosion**: explosion and smoke
+   *     *   **outfit**: special costume
+   *     *   **logo**: special logo
+   *     *   **weapon**: weapon
+   *     *   **politics**: political content
+   *     *   **violence**: violence
+   *     *   **crowd**: crowd
+   *     *   **parade**: parade
+   *     *   **carcrash**: car accident
+   *     *   **flag**: flag
+   *     *   **location**: landmark
+   *     *   **others**: other content
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **ad**: other ads
+   *     *   **politics**: political content in text
+   *     *   **porn**: pornographic content in text
+   *     *   **abuse**: abuse in text
+   *     *   **terrorism**: terrorist content in text
+   *     *   **contraband**: prohibited content in text
+   *     *   **spam**: spam in text
+   *     *   **npx**: illegal ads
+   *     *   **qrcode**: QR code
+   *     *   **programCode**: mini program code
+   * 
+   * *   Valid values in the live moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **meaningless**: meaningless content, such as a black or white screen
+   *     *   **PIP**: picture-in-picture
+   *     *   **smoking**: smoking
+   *     *   **drivelive**: live broadcasting in a running vehicle
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content
+   *     *   **TV**: controlled TV station logo
+   *     *   **trademark**: trademark
+   * 
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 99.99
+   */
   rate?: string;
+  /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation
+   * *   **terrorism**: terrorist content moderation
+   * *   **ad**: ad violation moderation
+   * *   **live**: undesirable scene moderation
+   * *   **logo**: special logo moderation
+   * 
+   * @example
+   * pron
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * block
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15662,8 +27309,28 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelinesVideoTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The moderation results that include information such as labels and scores.
+   */
   censorResults?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelinesVideoTimelineCensorResults;
+  /**
+   * @remarks
+   * The OSS object that is generated as the output snapshot.
+   * 
+   * > In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg, output00002-****.jpg`, and so on.
+   * 
+   * @example
+   * output{Count}.jpg
+   */
   object?: string;
+  /**
+   * @remarks
+   * The position in the video. Format: `hh:mm:ss[.SSS]`.
+   * 
+   * @example
+   * 00:02:59.999
+   */
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15706,8 +27373,23 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * A collection of the moderation results. The information includes the summary about various scenarios such as pornographic content and terrorist content.
+   */
   censorResults?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultCensorResults;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * ea04afcca7cd4e80b9ece8fbb251****
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The moderation results that are sorted in ascending order by time.
+   */
   videoTimelines?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelines;
   static names(): { [key: string]: string } {
     return {
@@ -15731,8 +27413,31 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfigOutputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket that stores the output snapshot.
+   * 
+   * @example
+   * test-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the OSS bucket for storing the output snapshot resides.
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * The one or more OSS objects that are generated as the output snapshots.
+   * 
+   * > In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg, output00002-****.jpg`, and so on.
+   * 
+   * @example
+   * output{Count}.jpg
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15756,8 +27461,31 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The moderation template. Default value: common. The default value indicates that the default template is used.
+   * 
+   * > If the moderation template is not specified, the default value common is returned. If a custom moderation template that is created by submitting a ticket is specified, a user ID is returned.
+   * 
+   * @example
+   * common
+   */
   bizType?: string;
+  /**
+   * @remarks
+   * The information about output snapshots.
+   */
   outputFile?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfigOutputFile;
+  /**
+   * @remarks
+   * Indicates whether the video content needs to be moderated. Default value: true. Valid values:
+   * 
+   * *   **true**: The video content needs to be moderated.
+   * *   **false**: The video content does not need to be moderated.
+   * 
+   * @example
+   * true
+   */
   videoCensor?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15782,21 +27510,116 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob extends $tea.Model {
   audioCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobAudioCensorResult;
+  /**
+   * @remarks
+   * The moderation result of live comments.
+   */
   barrageCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobBarrageCensorResult;
+  /**
+   * @remarks
+   * The error code returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   code?: string;
+  /**
+   * @remarks
+   * The moderation results of thumbnails.
+   */
   coverImageCensorResults?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResults;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2021-11-04T07:25:48Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The moderation result of the description.
+   */
   descCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobDescCensorResult;
+  /**
+   * @remarks
+   * The time when the job was completed.
+   * 
+   * @example
+   * 2021-11-04T07:25:48Z
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   input?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobInput;
+  /**
+   * @remarks
+   * The ID of the content moderation job.
+   * 
+   * @example
+   * f8f166eea7a44e9bb0a4aecf9543****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The error message returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * The resource operated cannot be found
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the MPS queue that is used to run the job.
+   * 
+   * @example
+   * c5b30b7c0d0e4a0abde1d5f9e751****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The status of the job.
+   * 
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed again.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * @example
+   * pass
+   */
   suggestion?: string;
+  /**
+   * @remarks
+   * The moderation result of the title.
+   */
   titleCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobTitleCensorResult;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * example userdata ****
+   */
   userData?: string;
+  /**
+   * @remarks
+   * The moderation results of the video.
+   */
   vensorCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResult;
+  /**
+   * @remarks
+   * The video moderation configurations.
+   */
   videoCensorConfig?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfig;
   static names(): { [key: string]: string } {
     return {
@@ -15886,8 +27709,29 @@ export class QueryMediaCensorJobListResponseBodyNonExistIds extends $tea.Model {
 }
 
 export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobInput extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the Object Storage Service (OSS) object that is used as the input file.
+   * 
+   * @example
+   * example.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15911,8 +27755,29 @@ export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobInput 
 }
 
 export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * InvalidParameter.JsonObjectFormatInvalid
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the job failed. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * The parameter \\"Input\\" does not conform to the JSON Object specification
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the message returned if the job was successful. This parameter is not returned if the job fails.
+   * 
+   * @example
+   * 123
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15936,13 +27801,69 @@ export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobMNSMes
 }
 
 export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesFormat extends $tea.Model {
+  /**
+   * @remarks
+   * The total bitrate.
+   * 
+   * @example
+   * 1630.045
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The total duration.
+   * 
+   * @example
+   * 17.226000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The full name of the container format.
+   * 
+   * @example
+   * QuickTime/MOV
+   */
   formatLongName?: string;
+  /**
+   * @remarks
+   * The short name of the container format.
+   * 
+   * @example
+   * mov
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The total number of program streams.
+   * 
+   * @example
+   * 2
+   */
   numPrograms?: string;
+  /**
+   * @remarks
+   * The total number of media streams.
+   * 
+   * @example
+   * 1
+   */
   numStreams?: string;
+  /**
+   * @remarks
+   * The size of the image file.
+   * 
+   * @example
+   * 3509895
+   */
   size?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.042000
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15976,21 +27897,139 @@ export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobProper
 }
 
 export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesStreamsAudioStreamListAudioStream extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the media file.
+   * 
+   * @example
+   * 1536000
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The number of sound channels.
+   * 
+   * @example
+   * 5.1(side)
+   */
   channelLayout?: string;
+  /**
+   * @remarks
+   * The output layout of the sound channels.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * DCA (DTS Coherent Acoustics)
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the encoding format. Valid values:
+   * 
+   * *   **acc**
+   * *   **mp3**
+   * *   **mp4**
+   * *   **ogg**
+   * *   **flac**
+   * 
+   * @example
+   * acc
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
+   * @example
+   * 0x0000
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
+   * @example
+   * [0][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1/48000
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration of the media file.
+   * 
+   * @example
+   * 123
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html?spm=a2c4g.11186623.2.66.243851cd2SntfN#Metadata).
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 123
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The sampling format.
+   * 
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * @example
+   * 48000
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.042000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   * 
+   * @example
+   * 1/1000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16059,15 +28098,88 @@ export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobProper
 }
 
 export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesStreamsSubtitleStreamListSubtitleStream extends $tea.Model {
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * ASS (Advanced SSA) subtitle
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the encoding format. Valid values:
+   * 
+   * *   **srt**
+   * *   **ass**
+   * 
+   * @example
+   * ass
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
+   * @example
+   * 0x0000
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
+   * @example
+   * [0][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 0/1
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration. Unit: seconds.
+   * 
+   * @example
+   * 1370.116000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
+   * 
+   * @example
+   * 3
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   * 
+   * @example
+   * 1/1000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16124,8 +28236,29 @@ export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobProper
 }
 
 export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate of the video stream.
+   * 
+   * @example
+   * 300.34
+   */
   avgBitrate?: string;
+  /**
+   * @remarks
+   * The maximum bandwidth that is consumed.
+   * 
+   * @example
+   * 10
+   */
   costBandwidth?: string;
+  /**
+   * @remarks
+   * The time consumed to preload the video.
+   * 
+   * @example
+   * 8
+   */
   preloadTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16149,32 +28282,223 @@ export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobProper
 }
 
 export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesStreamsVideoStreamListVideoStream extends $tea.Model {
+  /**
+   * @remarks
+   * The average frame rate.
+   * 
+   * @example
+   * 24000/1001
+   */
   avgFPS?: string;
+  /**
+   * @remarks
+   * The bitrate of the media file.
+   * 
+   * @example
+   * 30541090
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * H.264/AVC/MPEG-4 AVC/MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the encoding format. Valid values:
+   * 
+   * *   **h264**
+   * *   **h265**
+   * *   **gif**
+   * *   **webp**
+   * 
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
+   * @example
+   * 0x0000
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
+   * @example
+   * [0][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1001/48000
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The level of color reconstruction.
+   * 
+   * @example
+   * 700
+   */
   colorPrimaries?: string;
+  /**
+   * @remarks
+   * The color range.
+   * 
+   * @example
+   * 700
+   */
   colorRange?: string;
+  /**
+   * @remarks
+   * The color channel.
+   * 
+   * @example
+   * R255 G83 B170
+   */
   colorTransfer?: string;
+  /**
+   * @remarks
+   * The display aspect ratio (DAR).
+   * 
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @remarks
+   * The duration of the media file.
+   * 
+   * @example
+   * 100
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The frame rate of the media file.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames). A value of 1 indicates that the video stream contains B-frames. A value of 0 indicates that the video stream does not contain B-frames.
+   * 
+   * @example
+   * 0
+   */
   hasBFrames?: string;
+  /**
+   * @remarks
+   * The height of the video stream in pixels.
+   * 
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @remarks
+   * The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The codec level.
+   * 
+   * @example
+   * 41
+   */
   level?: string;
+  /**
+   * @remarks
+   * The network bandwidth that is consumed.
+   */
   networkCost?: QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 100
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The pixel format.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The codec profile.
+   * 
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The rotation angle of the video.
+   * 
+   * @example
+   * 180
+   */
   rotate?: string;
+  /**
+   * @remarks
+   * The sample aspect ratio (SAR).
+   * 
+   * @example
+   * 1:1
+   */
   sar?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.042000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   * 
+   * @example
+   * 1/1000
+   */
   timebase?: string;
+  /**
+   * @remarks
+   * The width of the video in pixels.
+   * 
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16265,8 +28589,20 @@ export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobProper
 }
 
 export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesStreams extends $tea.Model {
+  /**
+   * @remarks
+   * The information about each audio stream.
+   */
   audioStreamList?: QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesStreamsAudioStreamList;
+  /**
+   * @remarks
+   * The information about each subtitle stream.
+   */
   subtitleStreamList?: QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesStreamsSubtitleStreamList;
+  /**
+   * @remarks
+   * The information about each video stream.
+   */
   videoStreamList?: QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesStreamsVideoStreamList;
   static names(): { [key: string]: string } {
     return {
@@ -16290,14 +28626,71 @@ export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobProper
 }
 
 export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobProperties extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the media file.
+   * 
+   * @example
+   * 1630.045
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The duration of the media file.
+   * 
+   * @example
+   * 17.226000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The format of the input media file.
+   * 
+   * @example
+   * QuickTime/MOV
+   */
   fileFormat?: string;
+  /**
+   * @remarks
+   * The size of the image file.
+   * 
+   * @example
+   * 3509895
+   */
   fileSize?: string;
+  /**
+   * @remarks
+   * The format information.
+   */
   format?: QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesFormat;
+  /**
+   * @remarks
+   * The frame rate of the media file.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The height of the video. Unit: pixel.
+   * 
+   * @example
+   * 720
+   */
   height?: string;
+  /**
+   * @remarks
+   * The media streams that are contained in the input media file.
+   */
   streams?: QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobPropertiesStreams;
+  /**
+   * @remarks
+   * The width of the video. Unit: pixel.
+   * 
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16333,16 +28726,88 @@ export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobProper
 }
 
 export class QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJob extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the job is in asynchronous mode.
+   * 
+   * @example
+   * true
+   */
   async?: boolean;
+  /**
+   * @remarks
+   * The error code returned if the job fails.
+   * 
+   * @example
+   * InvalidParameter.JsonObjectFormatInvalid
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2014-01-10T12:00:00Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   input?: QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobInput;
+  /**
+   * @remarks
+   * The ID of the job.
+   * 
+   * @example
+   * 23ca1d184c0e4341e5b665e2a12****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The message sent by MNS to notify you of the job result.
+   */
   MNSMessageResult?: QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobMNSMessageResult;
+  /**
+   * @remarks
+   * The error message returned if the job fails.
+   * 
+   * @example
+   * The parameter ”*” does not conform to the JSON Object specification
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the MPS queue.
+   * 
+   * @example
+   * 88c6ca184c0e432bbf5b665e2a15****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The information about the input file. For more information, see [AliyunProperties](https://help.aliyun.com/document_detail/29251.html).
+   */
   properties?: QueryMediaInfoJobListResponseBodyMediaInfoJobListMediaInfoJobProperties;
+  /**
+   * @remarks
+   * The status of the job.
+   * 
+   * *   **Analyzing**: The job is being run.
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job fails.
+   * 
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16420,7 +28885,24 @@ export class QueryMediaInfoJobListResponseBodyNonExistMediaInfoJobIds extends $t
 }
 
 export class QueryMediaListResponseBodyMediaListMediaFile extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the input file. Valid values:
+   * 
+   * *   **Normal**: normal
+   * *   **Deleted**: deleted
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The OSS URL of the input file.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16442,13 +28924,69 @@ export class QueryMediaListResponseBodyMediaListMediaFile extends $tea.Model {
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoFormat extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate.
+   * 
+   * @example
+   * 2659.326
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The total duration.
+   * 
+   * @example
+   * 7.965000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The full name of the container format.
+   * 
+   * @example
+   * QuickTime/MOV
+   */
   formatLongName?: string;
+  /**
+   * @remarks
+   * The short name of the container format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mov
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The total number of program streams.
+   * 
+   * @example
+   * 2
+   */
   numPrograms?: string;
+  /**
+   * @remarks
+   * The total number of media streams.
+   * 
+   * @example
+   * 2
+   */
   numStreams?: string;
+  /**
+   * @remarks
+   * The size of the file.
+   * 
+   * @example
+   * 2647692
+   */
   size?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16482,21 +29020,133 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoFormat extends $te
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsAudioStreamListAudioStream extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate.
+   * 
+   * @example
+   * 160.008
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The output layout of the sound channels.
+   * 
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @remarks
+   * The number of sound channels.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * AAC(Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the encoding format. Valid values: H264, mov, aac, avc, and mpeg.
+   * 
+   * @example
+   * mov
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
+   * @example
+   * 0x6134706d
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
+   * @example
+   * mp4a
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration.
+   * 
+   * @example
+   * 182.591995
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
+   * 
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 100
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The sampling format.
+   * 
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   * 
+   * @example
+   * 1/44100
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16565,7 +29215,21 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsAudioStream
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsSubtitleStreamListSubtitleStream extends $tea.Model {
+  /**
+   * @remarks
+   * The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
+   * 
+   * @example
+   * 3
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
+   * 
+   * @example
+   * und
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16606,8 +29270,29 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsSubtitleStr
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate.
+   * 
+   * @example
+   * 2659.326
+   */
   avgBitrate?: string;
+  /**
+   * @remarks
+   * The maximum bandwidth that was consumed.
+   * 
+   * @example
+   * 100
+   */
   costBandwidth?: string;
+  /**
+   * @remarks
+   * The amount of preload time.
+   * 
+   * @example
+   * 0.01
+   */
   preloadTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16631,29 +29316,194 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStream
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStreamListVideoStream extends $tea.Model {
+  /**
+   * @remarks
+   * The average frame rate.
+   * 
+   * @example
+   * 29.97003
+   */
   avgFPS?: string;
+  /**
+   * @remarks
+   * The bitrate.
+   * 
+   * @example
+   * 2659.326
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * QuickTime/MOV
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the encoding format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mov
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
+   * @example
+   * 0x31637661
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
+   * @example
+   * avc1
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1001/60000
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The display aspect ratio (DAR).
+   * 
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @remarks
+   * The duration.
+   * 
+   * @example
+   * 182.683000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * @example
+   * 29.97003
+   */
   fps?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames). A value of **1** indicates that the video stream contains B-frames. A value of **2** indicates that the video stream does not contain B-frames.
+   * 
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @remarks
+   * The latter number in the video resolution. The number indicates the video height.
+   * 
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @remarks
+   * The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
+   * 
+   * @example
+   * 5
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
+   * 
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The codec level.
+   * 
+   * @example
+   * 40
+   */
   level?: string;
+  /**
+   * @remarks
+   * The network bandwidth consumption.
+   */
   networkCost?: QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStreamListVideoStreamNetworkCost;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 12
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The pixel format.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The codec profile.
+   * 
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The video rotation angle.
+   * 
+   * @example
+   * 90
+   */
   rotate?: string;
+  /**
+   * @remarks
+   * The sample aspect ratio (SAR).
+   * 
+   * @example
+   * 1:1
+   */
   sar?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   * 
+   * @example
+   * 1/30000
+   */
   timebase?: string;
+  /**
+   * @remarks
+   * The former number in the video resolution. The number indicates the video width.
+   * 
+   * @example
+   * 100
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16738,8 +29588,20 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStream
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreams extends $tea.Model {
+  /**
+   * @remarks
+   * The list of audio streams.
+   */
   audioStreamList?: QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsAudioStreamList;
+  /**
+   * @remarks
+   * The list of subtitle streams.
+   */
   subtitleStreamList?: QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsSubtitleStreamList;
+  /**
+   * @remarks
+   * The list of video streams.
+   */
   videoStreamList?: QueryMediaListResponseBodyMediaListMediaMediaInfoStreamsVideoStreamList;
   static names(): { [key: string]: string } {
     return {
@@ -16763,7 +29625,15 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfoStreams extends $t
 }
 
 export class QueryMediaListResponseBodyMediaListMediaMediaInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The format information.
+   */
   format?: QueryMediaListResponseBodyMediaListMediaMediaInfoFormat;
+  /**
+   * @remarks
+   * The stream information.
+   */
   streams?: QueryMediaListResponseBodyMediaListMediaMediaInfoStreams;
   static names(): { [key: string]: string } {
     return {
@@ -16785,7 +29655,24 @@ export class QueryMediaListResponseBodyMediaListMediaMediaInfo extends $tea.Mode
 }
 
 export class QueryMediaListResponseBodyMediaListMediaPlayListPlayFile extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the file. Valid values:
+   * 
+   * *   **Normal**: normal
+   * *   **Deleted**: deleted
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the output file.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16807,17 +29694,101 @@ export class QueryMediaListResponseBodyMediaListMediaPlayListPlayFile extends $t
 }
 
 export class QueryMediaListResponseBodyMediaListMediaPlayListPlay extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the workflow activity.
+   * 
+   * @example
+   * example-activity-****
+   */
   activityName?: string;
+  /**
+   * @remarks
+   * The bitrate of the media file.
+   * 
+   * @example
+   * 2659.326
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The duration of the media file.
+   * 
+   * @example
+   * 7.965000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * Indicates whether the media file is encrypted. Valid values:
+   * 
+   * *   **0**: The media file is not encrypted.
+   * *   **1**: The media file is encrypted.
+   * 
+   * @example
+   * 0
+   */
   encryption?: string;
+  /**
+   * @remarks
+   * The playback file.
+   */
   file?: QueryMediaListResponseBodyMediaListMediaPlayListPlayFile;
+  /**
+   * @remarks
+   * The encoding format of the media file. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mp4
+   */
   format?: string;
+  /**
+   * @remarks
+   * The frame rate of the media file.
+   * 
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The height.
+   * 
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @remarks
+   * The ID of the workflow that generates the playback file.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e91d24d****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the workflow that generates the playback file.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   mediaWorkflowName?: string;
+  /**
+   * @remarks
+   * The size of the media file.
+   * 
+   * @example
+   * 2647692
+   */
   size?: string;
+  /**
+   * @remarks
+   * The width of the media file.
+   * 
+   * @example
+   * 760
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16897,7 +29868,24 @@ export class QueryMediaListResponseBodyMediaListMediaRunIdList extends $tea.Mode
 }
 
 export class QueryMediaListResponseBodyMediaListMediaSnapshotListSnapshotFile extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the file. Valid values:
+   * 
+   * - **Normal**: normal
+   * - **Deleted**: deleted
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The OSS URL of the snapshot.
+   * 
+   * @example
+   * http://example1-bucket1-****.oss-cn-hangzhou.aliyuncs.com//example111-****.png
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16919,11 +29907,53 @@ export class QueryMediaListResponseBodyMediaListMediaSnapshotListSnapshotFile ex
 }
 
 export class QueryMediaListResponseBodyMediaListMediaSnapshotListSnapshot extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the workflow activity that generates the snapshot.
+   * 
+   * @example
+   * example-activity1-****
+   */
   activityName?: string;
+  /**
+   * @remarks
+   * The number of snapshots. This parameter is valid only when the value of the **Type** parameter is **Sequence**.
+   * 
+   * @example
+   * 5
+   */
   count?: string;
+  /**
+   * @remarks
+   * The snapshot.
+   */
   file?: QueryMediaListResponseBodyMediaListMediaSnapshotListSnapshotFile;
+  /**
+   * @remarks
+   * The ID of the workflow that generates the snapshot.
+   * 
+   * @example
+   * 6cc3aa66d1cb4bb2adf14e726c0a****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the workflow that generates the snapshot.
+   * 
+   * @example
+   * example-workflow-****
+   */
   mediaWorkflowName?: string;
+  /**
+   * @remarks
+   * The type of the snapshot. Valid values:
+   * 
+   * - **Single**
+   * - **Sequence**
+   * 
+   * @example
+   * Sequence
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16972,7 +30002,24 @@ export class QueryMediaListResponseBodyMediaListMediaSnapshotList extends $tea.M
 }
 
 export class QueryMediaListResponseBodyMediaListMediaSummaryListSummaryFile extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the file. Valid values:
+   * 
+   * *   **Normal**: normal
+   * *   **Deleted**: deleted
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The OSS URL of the input file.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16994,10 +30041,45 @@ export class QueryMediaListResponseBodyMediaListMediaSummaryListSummaryFile exte
 }
 
 export class QueryMediaListResponseBodyMediaListMediaSummaryListSummary extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the workflow activity.
+   * 
+   * @example
+   * example-activity-****
+   */
   activityName?: string;
+  /**
+   * @remarks
+   * The information about the input file.
+   */
   file?: QueryMediaListResponseBodyMediaListMediaSummaryListSummaryFile;
+  /**
+   * @remarks
+   * The ID of the workflow that generates the summary.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e91d24d****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the workflow that generates the summary.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   mediaWorkflowName?: string;
+  /**
+   * @remarks
+   * The type of the summary. Valid values:
+   * 
+   * *   **Video**: video
+   * *   **Gif**: dynamic image
+   * 
+   * @example
+   * Video
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17063,27 +30145,168 @@ export class QueryMediaListResponseBodyMediaListMediaTags extends $tea.Model {
 }
 
 export class QueryMediaListResponseBodyMediaListMedia extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate.
+   * 
+   * @example
+   * 2659.326
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The ID of the category to which the media file belongs.
+   * 
+   * @example
+   * 1
+   */
   cateId?: number;
+  /**
+   * @remarks
+   * The review status of the media file. Valid values:
+   * 
+   * *   **Initiated**: The media file is uploaded but not reviewed.
+   * *   **Pass**: The media file is uploaded and passes the review.
+   * 
+   * @example
+   * Initiated
+   */
   censorState?: string;
+  /**
+   * @remarks
+   * The OSS URL of the thumbnail.
+   * 
+   * @example
+   * http://example-bucket1-****.oss-cn-hangzhou.aliyuncs.com//example-****.png
+   */
   coverURL?: string;
+  /**
+   * @remarks
+   * The time when the media file was created.
+   * 
+   * @example
+   * 2016-09-14T08:30:33Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * This is description ****
+   */
   description?: string;
+  /**
+   * @remarks
+   * The duration.
+   * 
+   * @example
+   * 7.965000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The details of the input file.
+   */
   file?: QueryMediaListResponseBodyMediaListMediaFile;
+  /**
+   * @remarks
+   * The encoding format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mov
+   */
   format?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The height of the media file.
+   * 
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @remarks
+   * The ID of the media file.
+   * 
+   * @example
+   * 3e1cd21131a94525be55acf65888****
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * The media information.
+   */
   mediaInfo?: QueryMediaListResponseBodyMediaListMediaMediaInfo;
+  /**
+   * @remarks
+   * The playlist.
+   */
   playList?: QueryMediaListResponseBodyMediaListMediaPlayList;
+  /**
+   * @remarks
+   * The publishing status of the media file. Valid values:
+   * 
+   * - **Initiated**: The media file is in the initial state.
+   * - **UnPublish**: The media file has not been published, and the playback permission on the OSS object is Private.
+   * - **Published**: The media file has been published, and the playback permission on the OSS object is Default.
+   * - **Deleted**: The media file has been deleted.
+   * 
+   * @example
+   * Published
+   */
   publishState?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   */
   runIdList?: QueryMediaListResponseBodyMediaListMediaRunIdList;
+  /**
+   * @remarks
+   * The size of the file.
+   * 
+   * @example
+   * 2647692
+   */
   size?: string;
+  /**
+   * @remarks
+   * The list of snapshots.
+   */
   snapshotList?: QueryMediaListResponseBodyMediaListMediaSnapshotList;
+  /**
+   * @remarks
+   * The list of video summaries.
+   */
   summaryList?: QueryMediaListResponseBodyMediaListMediaSummaryList;
+  /**
+   * @remarks
+   * The tags of the media file.
+   */
   tags?: QueryMediaListResponseBodyMediaListMediaTags;
+  /**
+   * @remarks
+   * The title.
+   * 
+   * @example
+   * example-title-****
+   */
   title?: string;
+  /**
+   * @remarks
+   * The width.
+   * 
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17183,7 +30406,24 @@ export class QueryMediaListResponseBodyNonExistMediaIds extends $tea.Model {
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaFile extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the media file. Valid values:
+   * 
+   * *   **Normal**: The file is normal.
+   * *   **Deleted**: The file is deleted.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The OSS URL of the input file.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17205,13 +30445,69 @@ export class QueryMediaListByURLResponseBodyMediaListMediaFile extends $tea.Mode
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoFormat extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate.
+   * 
+   * @example
+   * 593.192
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The duration.
+   * 
+   * @example
+   * 79.204000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * QuickTime/MOV
+   */
   formatLongName?: string;
+  /**
+   * @remarks
+   * The short name of the container format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mov
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The total number of program streams.
+   * 
+   * @example
+   * 0
+   */
   numPrograms?: string;
+  /**
+   * @remarks
+   * The total number of media streams.
+   * 
+   * @example
+   * 2
+   */
   numStreams?: string;
+  /**
+   * @remarks
+   * The size.
+   * 
+   * @example
+   * 5872904
+   */
   size?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17245,21 +30541,133 @@ export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoFormat extend
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsAudioStreamListAudioStream extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate.
+   * 
+   * @example
+   * 76.356
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The output layout of the sound channels.
+   * 
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @remarks
+   * The number of sound channels.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the encoding format. Valid values: H264, mov, aac, avc, and mpeg.
+   * 
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
+   * @example
+   * 0x6134706d
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
+   * @example
+   * mp4a
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration of the media file.
+   * 
+   * @example
+   * 79.203265
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language. For more information, see [FFmpeg language definition](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
+   * 
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 100
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The sampling format.
+   * 
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   * 
+   * @example
+   * 1/44100
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17328,7 +30736,21 @@ export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsAudioS
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsSubtitleStreamListSubtitleStream extends $tea.Model {
+  /**
+   * @remarks
+   * The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language. For more information, see [FFmpeg language definition](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
+   * 
+   * @example
+   * und
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17369,8 +30791,29 @@ export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsSubtit
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate of the video stream.
+   * 
+   * @example
+   * 2659.326
+   */
   avgBitrate?: string;
+  /**
+   * @remarks
+   * The maximum bandwidth that was consumed.
+   * 
+   * @example
+   * 100
+   */
   costBandwidth?: string;
+  /**
+   * @remarks
+   * The amount of preload time.
+   * 
+   * @example
+   * 0.01
+   */
   preloadTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17394,29 +30837,194 @@ export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsVideoS
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsVideoStreamListVideoStream extends $tea.Model {
+  /**
+   * @remarks
+   * The average frame rate.
+   * 
+   * @example
+   * 15.0
+   */
   avgFPS?: string;
+  /**
+   * @remarks
+   * The bitrate.
+   * 
+   * @example
+   * 512.701
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * H.264/AVC/MPEG-4 AVC/MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the encoding format. Valid values: H264, mov, aac, avc, and mpeg.
+   * 
+   * @example
+   * H264
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
+   * @example
+   * 0x31637661
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
+   * @example
+   * avc1
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1/30
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The display aspect ratio (DAR) of the video stream.
+   * 
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @remarks
+   * The duration.
+   * 
+   * @example
+   * 79.200000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * @example
+   * 15.0
+   */
   fps?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames). A value of **1** indicates that the video stream contains B-frames. A value of **2** indicates that the video stream does not contain B-frames.
+   * 
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @remarks
+   * The latter number in the video resolution. The number indicates the video height.
+   * 
+   * @example
+   * 360
+   */
   height?: string;
+  /**
+   * @remarks
+   * The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
+   * 
+   * @example
+   * 5
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata).
+   * 
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The codec level.
+   * 
+   * @example
+   * 31
+   */
   level?: string;
+  /**
+   * @remarks
+   * The network bandwidth consumption.
+   */
   networkCost?: QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsVideoStreamListVideoStreamNetworkCost;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 12
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The pixel format of the video stream.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The codec profile.
+   * 
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The rotation angle of the video.
+   * 
+   * @example
+   * 90
+   */
   rotate?: string;
+  /**
+   * @remarks
+   * The sample aspect ratio (SAR).
+   * 
+   * @example
+   * 1:1
+   */
   sar?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.046029
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   * 
+   * @example
+   * 1/15360
+   */
   timebase?: string;
+  /**
+   * @remarks
+   * The former number in the video resolution. The number indicates the video width and cannot be negative.
+   * 
+   * @example
+   * 640
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17501,8 +31109,20 @@ export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsVideoS
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreams extends $tea.Model {
+  /**
+   * @remarks
+   * The list of audio streams.
+   */
   audioStreamList?: QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsAudioStreamList;
+  /**
+   * @remarks
+   * The list of subtitle streams.
+   */
   subtitleStreamList?: QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsSubtitleStreamList;
+  /**
+   * @remarks
+   * The list of video streams.
+   */
   videoStreamList?: QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreamsVideoStreamList;
   static names(): { [key: string]: string } {
     return {
@@ -17526,7 +31146,15 @@ export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreams exten
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The format information.
+   */
   format?: QueryMediaListByURLResponseBodyMediaListMediaMediaInfoFormat;
+  /**
+   * @remarks
+   * The stream information.
+   */
   streams?: QueryMediaListByURLResponseBodyMediaListMediaMediaInfoStreams;
   static names(): { [key: string]: string } {
     return {
@@ -17548,7 +31176,24 @@ export class QueryMediaListByURLResponseBodyMediaListMediaMediaInfo extends $tea
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaPlayListPlayFile extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the media file. Valid values:
+   * 
+   * *   **Normal**: The file is normal.
+   * *   **Deleted**: The file is deleted.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The OSS URL of the playback file.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4l-test/in/1.mp4
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17570,17 +31215,101 @@ export class QueryMediaListByURLResponseBodyMediaListMediaPlayListPlayFile exten
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaPlayListPlay extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the workflow activity.
+   * 
+   * @example
+   * test name
+   */
   activityName?: string;
+  /**
+   * @remarks
+   * The bitrate of the media file.
+   * 
+   * @example
+   * 25.067
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The duration.
+   * 
+   * @example
+   * 7.965000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * Indicates whether the media file is encrypted. Valid values:
+   * 
+   * *   **0**: The media file is not encrypted.
+   * *   **1**: The media file is encrypted.
+   * 
+   * @example
+   * 1
+   */
   encryption?: string;
+  /**
+   * @remarks
+   * The playback file.
+   */
   file?: QueryMediaListByURLResponseBodyMediaListMediaPlayListPlayFile;
+  /**
+   * @remarks
+   * The encoding format of the media file. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mov
+   */
   format?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The height of the media file.
+   * 
+   * @example
+   * 10
+   */
   height?: string;
+  /**
+   * @remarks
+   * The ID of the workflow that generates the playback file.
+   * 
+   * @example
+   * 6cc3aa66d1cb4bb2adf14e726c0a****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the workflow that generates the playback file.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   mediaWorkflowName?: string;
+  /**
+   * @remarks
+   * The size.
+   * 
+   * @example
+   * 100
+   */
   size?: string;
+  /**
+   * @remarks
+   * The width.
+   * 
+   * @example
+   * 11
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17660,7 +31389,24 @@ export class QueryMediaListByURLResponseBodyMediaListMediaRunIdList extends $tea
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaSnapshotListSnapshotFile extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the file. Valid values:
+   * 
+   * - **Normal**: The file is normal.
+   * - **Deleted**: The file is deleted.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The OSS URL of the snapshot.
+   * 
+   * @example
+   * http://example1-bucket1-****.oss-cn-hangzhou.aliyuncs.com//example111-****.png
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17682,11 +31428,53 @@ export class QueryMediaListByURLResponseBodyMediaListMediaSnapshotListSnapshotFi
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaSnapshotListSnapshot extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the workflow activity that generates the snapshot.
+   * 
+   * @example
+   * example-activity1-****
+   */
   activityName?: string;
+  /**
+   * @remarks
+   * The number of snapshots. This parameter is valid only when the value of the **Type** parameter is **Sequence**.
+   * 
+   * @example
+   * 3
+   */
   count?: string;
+  /**
+   * @remarks
+   * The snapshot.
+   */
   file?: QueryMediaListByURLResponseBodyMediaListMediaSnapshotListSnapshotFile;
+  /**
+   * @remarks
+   * The ID of the workflow that generates the snapshot.
+   * 
+   * @example
+   * 6cc3aa66d1cb4bb2adf14e726c0a****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the workflow that generates the snapshot.
+   * 
+   * @example
+   * example-workflow-****
+   */
   mediaWorkflowName?: string;
+  /**
+   * @remarks
+   * The type of the snapshot. Valid values:
+   * 
+   * - **Single**: a single snapshot
+   * - **Sequence**: snapshots in sequence
+   * 
+   * @example
+   * Single
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17735,7 +31523,24 @@ export class QueryMediaListByURLResponseBodyMediaListMediaSnapshotList extends $
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaSummaryListSummaryFile extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the media file. Valid values:
+   * 
+   * *   **Normal**: The file is normal.
+   * *   **Deleted**: The file is deleted.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The OSS URL of the input file.
+   * 
+   * @example
+   * http://example-bucket-****.o
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17757,10 +31562,45 @@ export class QueryMediaListByURLResponseBodyMediaListMediaSummaryListSummaryFile
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMediaSummaryListSummary extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the workflow activity.
+   * 
+   * @example
+   * example-activity-****
+   */
   activityName?: string;
+  /**
+   * @remarks
+   * The information about the input file.
+   */
   file?: QueryMediaListByURLResponseBodyMediaListMediaSummaryListSummaryFile;
+  /**
+   * @remarks
+   * The ID of the workflow that generates the summary.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e91d24d****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the workflow that generates the summary.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   mediaWorkflowName?: string;
+  /**
+   * @remarks
+   * The type of the summary. Valid values:
+   * 
+   * *   **Video**: video
+   * *   **Gif**: dynamic image
+   * 
+   * @example
+   * Gif
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17826,27 +31666,168 @@ export class QueryMediaListByURLResponseBodyMediaListMediaTags extends $tea.Mode
 }
 
 export class QueryMediaListByURLResponseBodyMediaListMedia extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate.
+   * 
+   * @example
+   * 593.192
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The ID of the category to which the media file belongs.
+   * 
+   * @example
+   * 123
+   */
   cateId?: number;
+  /**
+   * @remarks
+   * The review status of the media file. Valid values:
+   * 
+   * *   **Initiated**: The media file is uploaded but not reviewed.
+   * *   **Pass**: The media file is uploaded and passes the review.
+   * 
+   * @example
+   * Initiated
+   */
   censorState?: string;
+  /**
+   * @remarks
+   * The OSS URL of the thumbnail.
+   * 
+   * @example
+   * http://example-bucket1-****.oss-cn-hangzhou.aliyuncs.com//example-****.png
+   */
   coverURL?: string;
+  /**
+   * @remarks
+   * The time when the media file was created.
+   * 
+   * @example
+   * 2021-07-14T13:05:00Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * This is description ****
+   */
   description?: string;
+  /**
+   * @remarks
+   * The duration.
+   * 
+   * @example
+   * 79.204000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The details of the input file.
+   */
   file?: QueryMediaListByURLResponseBodyMediaListMediaFile;
+  /**
+   * @remarks
+   * The encoding format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mov
+   */
   format?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * @example
+   * 15.0
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The height of the queried media file.
+   * 
+   * @example
+   * 360
+   */
   height?: string;
+  /**
+   * @remarks
+   * The ID of the media file.
+   * 
+   * @example
+   * 52d7e98b05e648199612290bb819****
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * The media information.
+   */
   mediaInfo?: QueryMediaListByURLResponseBodyMediaListMediaMediaInfo;
+  /**
+   * @remarks
+   * The playlist.
+   */
   playList?: QueryMediaListByURLResponseBodyMediaListMediaPlayList;
+  /**
+   * @remarks
+   * The publishing status of the media file. Valid values:
+   * 
+   * - **Initiated**: The media file is in the initial state.
+   * - **UnPublish**: The media file has not been published, and the playback permission on the OSS object is Private.
+   * - **Published**: The media file has been published, and the playback permission on the OSS object is Default.
+   * - **Deleted**: The file is deleted.
+   * 
+   * @example
+   * Published
+   */
   publishState?: string;
+  /**
+   * @remarks
+   * The IDs of the media workflow execution instances.
+   */
   runIdList?: QueryMediaListByURLResponseBodyMediaListMediaRunIdList;
+  /**
+   * @remarks
+   * The size of the file.
+   * 
+   * @example
+   * 5872904
+   */
   size?: string;
+  /**
+   * @remarks
+   * The list of snapshots.
+   */
   snapshotList?: QueryMediaListByURLResponseBodyMediaListMediaSnapshotList;
+  /**
+   * @remarks
+   * The list of video summaries.
+   */
   summaryList?: QueryMediaListByURLResponseBodyMediaListMediaSummaryList;
+  /**
+   * @remarks
+   * The tags of the media file.
+   */
   tags?: QueryMediaListByURLResponseBodyMediaListMediaTags;
+  /**
+   * @remarks
+   * The title.
+   * 
+   * @example
+   * kled.mp4
+   */
   title?: string;
+  /**
+   * @remarks
+   * The width.
+   * 
+   * @example
+   * 640
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17946,8 +31927,29 @@ export class QueryMediaListByURLResponseBodyNonExistFileURLs extends $tea.Model 
 }
 
 export class QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionActivityListActivityMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the MNS message fails to be sent. This parameter is not returned if the MNS message is sent.
+   * 
+   * @example
+   * The Topic/Queue config is empty, not send message
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the MNS message fails to be sent. This parameter is not returned if the MNS message is sent.
+   * 
+   * @example
+   * MessageConfigEmpty
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the message that indicates the MNS message is sent. This parameter is not returned if the MNS message fails to be sent.
+   * 
+   * @example
+   * 4f3bc83233de4e2f81c7dade443e****
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17971,14 +31973,89 @@ export class QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionLi
 }
 
 export class QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionActivityListActivity extends $tea.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   This parameter is returned only if **Fail** is returned for the State parameter.
+   * *   This parameter is not returned if the method status is **Success**.
+   * 
+   * @example
+   * InvalidParameter.ResourceContentBad
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the method ends.
+   * 
+   * @example
+   * 2016-04-01T06:53:44Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The IDs of the jobs that are generated when the methods are called, such as the job IDs for the analysis, transcode, and snapshot methods.
+   * 
+   * @example
+   * 2376030d9d0849399cd20e20f4f3****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The message sent by Message Service (MNS) to notify the user of the job result.
+   */
   MNSMessageResult?: QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionActivityListActivityMNSMessageResult;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * *   This parameter is returned only if **Fail** is returned for the State parameter.
+   * *   This parameter is not returned if the method status is **Success**.
+   * 
+   * @example
+   * The resource operated InputFile is bad
+   */
   message?: string;
+  /**
+   * @remarks
+   * The name of the method.
+   * 
+   * > The name of each method in a media workflow is unique.
+   * 
+   * @example
+   * Start
+   */
   name?: string;
+  /**
+   * @remarks
+   * The time when the method is called.
+   * 
+   * @example
+   * 2016-04-01T06:53:44Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the workflow method. Valid values:
+   * 
+   * *   Running: The method is being called.
+   * *   Success: The method is called.
+   * *   Fail: The method failed to be called.
+   * *   Skipped: The method is skipped.
+   * 
+   * > For example, after the analysis is complete, the transcode method is called and high-definition and standard-definition transcoding jobs are created. The system determines whether to run the jobs based on the analysis result. If the resolution of the input video is low, the high-definition transcoding job may be skipped.
+   * 
+   * @example
+   * Running
+   */
   state?: string;
+  /**
+   * @remarks
+   * The methods that are supported in the media workflow. Valid values: Start, Snapshot, Transcode, Analysis, and Report. For more information, see [Methods supported for media workflows](https://help.aliyun.com/document_detail/68494.html).
+   * 
+   * @example
+   * Start
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18033,8 +32110,26 @@ export class QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionLi
 }
 
 export class QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionInputInputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the input file resides.
+   * 
+   * @example
+   * mps-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18058,7 +32153,18 @@ export class QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionLi
 }
 
 export class QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionInput extends $tea.Model {
+  /**
+   * @remarks
+   * The input file of the media workflow.
+   */
   inputFile?: QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionInputInputFile;
+  /**
+   * @remarks
+   * The user-defined data.
+   * 
+   * @example
+   * example data ****
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18080,13 +32186,70 @@ export class QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionLi
 }
 
 export class QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionListMediaWorkflowExecution extends $tea.Model {
+  /**
+   * @remarks
+   * The methods that are called in the media workflow.
+   */
   activityList?: QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionActivityList;
+  /**
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @example
+   * 016-04-01T06:53:43Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The input data of the media workflow.
+   */
   input?: QueryMediaWorkflowExecutionListResponseBodyMediaWorkflowExecutionListMediaWorkflowExecutionInput;
+  /**
+   * @remarks
+   * The ID of the media asset. A media file contains all the information about a media workflow.
+   * 
+   * @example
+   * 512046582a924698a41e0f8b0d2b****
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * The ID of the media workflow.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e91****81d4
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the media workflow.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the execution instance.
+   * 
+   * @example
+   * 48e33690ac19445488c706924321****
+   */
   runId?: string;
+  /**
+   * @remarks
+   * The status of the media workflow. Valid values:
+   * 
+   * *   Running: The media workflow is running.
+   * *   Completed: The media workflow is complete.
+   * 
+   * > Completed only indicates that the media workflow is complete. View the status of each method in the workflow, such as the transcode and snapshot methods, to check whether the method is called.
+   * 
+   * *   Fail: The media workflow fails.
+   * 
+   * @example
+   * Completed
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18158,11 +32321,60 @@ export class QueryMediaWorkflowExecutionListResponseBodyNonExistRunIds extends $
 }
 
 export class QueryMediaWorkflowListResponseBodyMediaWorkflowListMediaWorkflow extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @example
+   * 2016-04-01T05:29:38Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the media workflow.
+   * 
+   * @example
+   * 93ab850b4f6f44eab54b6e9181d4****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the media workflow.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The state of the media workflow. Valid values:
+   * 
+   * *   **Inactive**: The media workflow was deactivated.
+   * *   **Active**: The media workflow was activated.
+   * *   **Deleted**: The media workflow was deleted.
+   * 
+   * @example
+   * Active
+   */
   state?: string;
+  /**
+   * @remarks
+   * The topology of the media workflow.
+   * 
+   * @example
+   * {mediaworkflow","State":"Active","Topology":"{\\"Activities\\":{\\"Act-Start\\":{\\"Parameters\\":{\\"PipelineId\\":\\"130266f58161436a80bf07cb12c8****\\",\\"InputFile\\":\\"{\\\\\\"Bucket\\\\\\": \\\\\\"example-bucket-****\\\\\\",\\\\\\"Location\\\\\\": \\\\\\"cn-shanghai\\\\\\"}\\"},\\"Type\\":\\"Start\\"},\\"Act-Report\\":{\\"Parameters\\":{},\\"Type\\":\\"Report\\"},\\"Act-Transcode-M3U8\\":{\\"Parameters\\":{\\"Outputs\\":\\"[{\\\\\\"Object\\\\\\":\\\\\\"transcode/{ObjectPrefix}{FileName}\\\\\\",\\\\\\"TemplateId\\\\\\": \\\\\\"957d1719ee85ed6527b90cf62726****\\\\\\"}]\\",\\"OutputBucket\\":\\"example-bucket-****\\",\\"OutputLocation\\":\\"cn-shanghai\\"},\\"Type\\":\\"Transcode\\"}},\\"Dependencies\\":{\\"Act-Start\\":[\\"Act-Transcode-M3U8\\"],\\"Act-Report\\":[],\\"Act-Transcode-M3U8\\":[\\"Act-Report\\"]}}","MediaWorkflowId":"93ab850b4f6f44eab54b6e91d24d****"}]},"RequestId":"16CD0CDD-457E-420D-9755-8385075A1234"}
+   */
   topology?: string;
+  /**
+   * @remarks
+   * The trigger mode of the media workflow. Valid values:
+   * 
+   * *   **OssAutoTrigger**: The media workflow is automatically triggered.
+   * *   **NotInAuto**: The media workflow is not automatically triggered.
+   * 
+   * @example
+   * OssAutoTrigger
+   */
   triggerMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18274,9 +32486,37 @@ export class QueryPipelineListResponseBodyPipelineListPipelineExtendConfig exten
 }
 
 export class QueryPipelineListResponseBodyPipelineListPipelineNotifyConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The tag string.
+   * 
+   * @example
+   * mts-test
+   */
   mqTag?: string;
+  /**
+   * @remarks
+   * The queue of messages that are received.
+   * 
+   * @example
+   * example1,example2
+   */
   mqTopic?: string;
+  /**
+   * @remarks
+   * The name of the queue that is created in MNS.
+   * 
+   * @example
+   * example-queue-****
+   */
   queueName?: string;
+  /**
+   * @remarks
+   * The name of the topic that is created in MNS.
+   * 
+   * @example
+   * example-topic-****
+   */
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18303,13 +32543,81 @@ export class QueryPipelineListResponseBodyPipelineListPipelineNotifyConfig exten
 
 export class QueryPipelineListResponseBodyPipelineListPipeline extends $tea.Model {
   extendConfig?: QueryPipelineListResponseBodyPipelineListPipelineExtendConfig;
+  /**
+   * @remarks
+   * The ID of the MPS queue.
+   * 
+   * @example
+   * d1ce4d3efcb549419193f50f1fcd****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the MPS queue.
+   * 
+   * @example
+   * example-pipeline-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The Message Service (MNS) configuration.
+   */
   notifyConfig?: QueryPipelineListResponseBodyPipelineListPipelineNotifyConfig;
+  /**
+   * @remarks
+   * The quota that is allocated to the MPS queue.
+   * 
+   * @example
+   * 10
+   */
   quotaAllocate?: number;
+  /**
+   * @remarks
+   * The role that is assigned to the current RAM user.
+   * 
+   * @example
+   * AliyunMTSDefaultRole
+   */
   role?: string;
+  /**
+   * @remarks
+   * The type of the MPS queue. Default value: **Standard**. Valid values:
+   * 
+   * *   **Boost**: MPS queue with transcoding speed boosted
+   * *   **Standard**: standard MPS queue
+   * *   **NarrowBandHDV2**: MPS queue that supports Narrowband HD 2.0
+   * *   **AIVideoCover**: MPS queue for intelligent snapshot capture
+   * *   **AIVideoFPShot**: MPS queue for media fingerprinting
+   * *   **AIVideoCensor**: MPS queue for automated review
+   * *   **AIVideoMCU**: MPS queue for smart tagging
+   * *   **AIVideoSummary**: MPS queue for video synopsis
+   * *   **AIVideoPorn**: MPS queue for pornography detection in videos
+   * *   **AIAudioKWS**: MPS queue for keyword recognition in audio
+   * *   **AIAudioASR**: MPS queue for speech-to-text conversion
+   * 
+   * @example
+   * Standard
+   */
   speed?: string;
+  /**
+   * @remarks
+   * The level of the MPS queue.
+   * 
+   * @example
+   * 2
+   */
   speedLevel?: number;
+  /**
+   * @remarks
+   * The state of the MPS queue. Valid values:
+   * 
+   * *   **Active**: The MPS queue is active.
+   * *   **Paused**: The MPS queue is paused.
+   * 
+   * @example
+   * Paused
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18364,7 +32672,15 @@ export class QueryPipelineListResponseBodyPipelineList extends $tea.Model {
 }
 
 export class QuerySmarttagJobResponseBodyResultsResult extends $tea.Model {
+  /**
+   * @example
+   * {"title":"example-title-****"}
+   */
   data?: string;
+  /**
+   * @example
+   * Meta
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18405,19 +32721,202 @@ export class QuerySmarttagJobResponseBodyResults extends $tea.Model {
 }
 
 export class QuerySmarttagTemplateListResponseBodyTemplatesTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The analysis types that are used in the template. One or more values are returned. Valid values:
+   * 
+   * *   **ocr**: text recognition
+   * *   **asr**: speech recognition
+   * *   **classification**: video classification
+   * *   **shows**: program recognition
+   * *   **face**: facial recognition
+   * *   **role**: figure recognition
+   * *   **object**: object recognition
+   * *   **tvstation**: logo recognition
+   * *   **action**: action recognition
+   * *   **emotion**: facial expression recognition
+   * *   **landmark**: landmark recognition
+   * *   **scene**: scene recognition
+   * *   **movieip**: movie intellectual property recognition
+   * *   **subtitle**: subtitle extraction
+   * 
+   * @example
+   * ocr,asr,classification,shows,face,role,object,tvstation,action,emotion,landmark,scene
+   */
   analyseTypes?: string;
+  /**
+   * @remarks
+   * The IDs of the system facial image libraries that are used in the template. One or more values are returned. Valid values:
+   * 
+   * *   celebrity: the facial image library of celebrities
+   * *   politician: the facial image library of politicians
+   * *   sensitive: the facial image library of sensitive figures
+   * 
+   * @example
+   * politician,sensitive,celebrity
+   */
   faceCategoryIds?: string;
+  /**
+   * @remarks
+   * The configurations of face-related algorithms. The value of this parameter is a JSON string and consists of the thresholds set for face detection and facial recognition. Valid values:
+   * 
+   * *   **faceDetThreshold**: The default threshold for face detection is 0.999. The threshold takes effect only for the faces that are strange to the system.
+   * *   **faceRegThreshold**: The default threshold for facial recognition is 0.9.
+   * 
+   * @example
+   * { "faceDetThreshold":0.999, "faceRegThreshold":0.9 }
+   */
   faceCustomParamsConfig?: string;
+  /**
+   * @remarks
+   * The industry to which the template applies. Default value: **common**. Valid values:
+   * 
+   * *   **microVideo**: short video industry
+   * *   **common**: general industries
+   * 
+   * @example
+   * common
+   */
   industry?: string;
+  /**
+   * @remarks
+   * Indicates whether the template is the default template. Valid values:
+   * 
+   * *   **true**: The template is the default template.
+   * *   **false**: The template is not the default template.
+   * 
+   * @example
+   * false
+   */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The configuration of keyword tags. The type field specifies the category of a keyword tag. You can specify one or more values and separate the values with commas (,). Valid values:
+   * 
+   * *   name
+   * *   location
+   * *   organization
+   * *   other
+   * 
+   * > Keyword tags of all the categories are returned in one of the following scenarios: The KeywordConfig parameter is not specified or the Keyword field is invalid because it is not a JSON string, or the KeywordConfig parameter does not contain the type field or the type field is invalid.
+   * 
+   * @example
+   * { "type": "name,location,organization,other" }
+   */
   keywordConfig?: string;
+  /**
+   * @remarks
+   * The fields to be identified as knowledge graph information when tags are returned in Smart tagging V2.0 and Smart tagging V2.0-custom modes. For more information, see [Knowledge graph fields in smart tagging jobs](https://help.aliyun.com/document_detail/356383.html). If this parameter is not specified or the specified value is NULL or invalid because it is not a JSON string, the following fields are returned:
+   * 
+   * *   movie-related fields:
+   * 
+   *     *   name: the name of the intellectual property that is featured in the movie
+   *     *   alias: the alias of the intellectual property that is featured in the movie
+   *     *   chnl: the category of the movie
+   *     *   genre: the genre of the movie
+   *     *   country: the country or region in which the movie was produced
+   *     *   language: the language of the movie
+   *     *   releaseYear: the year when the movie was released
+   * 
+   * *   music-related fields:
+   * 
+   *     *   songName: the name of the song
+   *     *   artistName: the name of the singer
+   *     *   artistArea: the region to which the singer belongs, such as China, Japan, Korea, Europe, and America, or others.
+   *     *   albumName: the name of the album
+   * 
+   * *   person-related fields:
+   * 
+   *     *   name: the name of the person
+   *     *   gender: the gender of the person
+   *     *   citizenship: the nationality of the person
+   *     *   occupation: the occupation of the person
+   *     *   classification: the type into which the person is classified
+   *     *   nationality: the ethnic group of the person
+   *     *   birthPlace: the place where the person was born
+   *     *   birthDate: the date when the person was born
+   * 
+   * *   landmark-related fields:
+   * 
+   *     *   name: the display name of the landmark
+   *     *   nameEn: the English name of the landmark
+   *     *   Description: the description of the parameter
+   *     *   address: the address of the landmark
+   * 
+   * *   item-related fields:
+   * 
+   *     *   brandName: the brand of the item
+   *     *   finegrainName: the fine-grained description of the item
+   * 
+   * @example
+   * { "movie":"name,alias,chnl,genre", "music":"songName,artistName", "person":"name,gender" }
+   */
   knowledgeConfig?: string;
+  /**
+   * @remarks
+   * The type of the tagging. Default value: **auto**. Valid values:
+   * 
+   * *   **auto**: machine tagging
+   * *   **hmi**: tagging by human and machine
+   * 
+   * @example
+   * hmi
+   */
   labelType?: string;
+  /**
+   * @remarks
+   * The version of the smart tagging feature. Default value: 1.0. Valid values:
+   * 
+   * *   1.0: Smart tagging V1.0
+   * *   2.0: Smart tagging V2.0 (CPV tagging)
+   * *   2.0-custom: Smart tagging V2.0-custom (CPV tagging by using custom models)
+   * 
+   * @example
+   * 1.0
+   */
   labelVersion?: string;
+  /**
+   * @remarks
+   * The IDs of the landmark libraries that are used in the template.
+   * 
+   * @example
+   * common
+   */
   landmarkGroupIds?: string;
+  /**
+   * @remarks
+   * The IDs of the object libraries that are used in the template.
+   * 
+   * @example
+   * general,item,weapon,animal
+   */
   objectGroupIds?: string;
+  /**
+   * @remarks
+   * The scenario in which the template is used. Valid values:
+   * 
+   * *   **search**: search scenarios
+   * *   **recommend**: recommendation scenarios
+   * 
+   * @example
+   * search
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The ID of the template.
+   * 
+   * @example
+   * 05de22f255284c7a8d2aab535dde****
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * example-****
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18501,9 +33000,37 @@ export class QuerySnapshotJobListResponseBodyNonExistSnapshotJobIds extends $tea
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobInput extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the snapshot job.
+   * 
+   * @example
+   * example
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which the snapshot job was submitted.
+   * 
+   * @example
+   * example-location
+   */
   location?: string;
+  /**
+   * @remarks
+   * The error code returned when the job fails. This parameter is not returned if the job is successfully processed.
+   * 
+   * @example
+   * example.flv
+   */
   object?: string;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * acs:ram::1:role/testrole
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18529,8 +33056,29 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobInput ext
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The number of snapshots that were taken.
+   * 
+   * @example
+   * InvalidParameter
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The OSS bucket that stores the input file.
+   * 
+   * @example
+   * The resource operated InputFile is bad
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the input OSS bucket is located.
+   * 
+   * @example
+   * 799454621135656C7F815F198A76****
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18554,9 +33102,37 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobMNSMessag
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigOutputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket that stores the output file.
+   * 
+   * @example
+   * example
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the output OSS bucket is located.
+   * 
+   * @example
+   * example-location
+   */
   location?: string;
+  /**
+   * @remarks
+   * The OSS object that is generated as the output file of the tiling job.
+   * 
+   * @example
+   * example.png
+   */
   object?: string;
+  /**
+   * @remarks
+   * The ARN of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+   * 
+   * @example
+   * acs:ram::1:role/testrole
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18582,14 +33158,85 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOut extends $tea.Model {
+  /**
+   * @remarks
+   * The interval for taking snapshots.
+   * 
+   * *   If this Interval parameter is specified in the request, snapshots are taken at intervals. The value must be greater than 0.
+   * *   Unit: seconds.
+   * *   Default value: **10**.
+   * 
+   * @example
+   * 8
+   */
   cellHeight?: string;
+  /**
+   * @remarks
+   * The number of rows that the tiled image can contain. Default value: **10**.
+   * 
+   * @example
+   * 3
+   */
   cellSelStep?: string;
+  /**
+   * @remarks
+   * The type of the snapshot. Valid values:
+   * 
+   * *   **normal**: normal frames.
+   * *   **intra**: I-frames.
+   * *   Default value: **intra**.
+   * 
+   * @example
+   * 8
+   */
   cellWidth?: string;
+  /**
+   * @remarks
+   * Indicates whether the single images are retained. Default value: **true**.
+   * 
+   * @example
+   * black
+   */
   color?: string;
+  /**
+   * @remarks
+   * The height of the output snapshot.
+   * 
+   * @example
+   * 10
+   */
   columns?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) output file of the snapshot job.
+   * 
+   * @example
+   * false
+   */
   isKeepCellPic?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+   * 
+   * @example
+   * 10
+   */
   lines?: string;
+  /**
+   * @remarks
+   * The width of the output snapshot.
+   * 
+   * @example
+   * 0
+   */
   margin?: string;
+  /**
+   * @remarks
+   * The number of columns that the tiled image can contain. Default value: **10**.
+   * 
+   * @example
+   * 0
+   */
   padding?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18625,9 +33272,37 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOutputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned when the job fails. This parameter is not returned if the job is successfully processed.
+   * 
+   * @example
+   * example
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The error message returned when the job fails. This parameter is not returned if the job is successfully processed.
+   * 
+   * @example
+   * example-location
+   */
   location?: string;
+  /**
+   * @remarks
+   * The ID of the message. This parameter is not returned if the job fails.
+   * 
+   * @example
+   * example.png
+   */
   object?: string;
+  /**
+   * @remarks
+   * The message sent by MNS to notify the user of the job result.
+   * 
+   * @example
+   * acs:ram::1:role/testrole
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18672,15 +33347,77 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region in which the output OSS bucket is located.
+   * 
+   * @example
+   * intra
+   */
   frameType?: string;
+  /**
+   * @remarks
+   * The number of snapshots to take. If the Num parameter is set in the request, snapshots are taken at intervals.
+   * 
+   * @example
+   * 8
+   */
   height?: string;
+  /**
+   * @remarks
+   * The OSS object that is generated as the output file of the snapshot job.
+   * 
+   * @example
+   * 10
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The status of the snapshot job. 
+   * 
+   * - **Submitted**: The job was submitted.
+   * - **Snapshoting**: The job is being processed.
+   * - **Success**: The job was successfully processed.
+   * - **Fail**: The job failed.
+   * 
+   * @example
+   * 10
+   */
   num?: string;
+  /**
+   * @remarks
+   * The OSS output file of the tiling job.
+   */
   outputFile?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigOutputFile;
+  /**
+   * @remarks
+   * The margin width of the tiled image.
+   * 
+   * *   Default value: **0**.
+   * *   Unit: pixel.
+   */
   tileOut?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOut;
+  /**
+   * @remarks
+   * The error message returned when the job fails. This parameter is not returned if the job is successfully processed.
+   */
   tileOutputFile?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTileOutputFile;
+  /**
+   * @remarks
+   * The width of a single image. The default value is the width of the output snapshot.
+   * 
+   * @example
+   * 4
+   */
   time?: string;
   timeArray?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfigTimeArray;
+  /**
+   * @remarks
+   * The OSS bucket that stores the output file.
+   * 
+   * @example
+   * 8
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18718,17 +33455,97 @@ export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotC
 }
 
 export class QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJob extends $tea.Model {
+  /**
+   * @remarks
+   * You can call this operation to query up to 10 snapshot jobs at a time.
+   * 
+   * 
+   * ## Limits on QPS
+   * 
+   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+   * 
+   * @example
+   * InvalidParameter
+   */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1
+   */
   count?: string;
+  /**
+   * @remarks
+   * The stride of a single image.
+   * 
+   * @example
+   * 2021-06-30T12:34:29Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The OSS output file of the tiling job.
+   * 
+   * @example
+   * cc6cbef8e8d5481ca536f5d2a466****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The number of snapshots that are contained in the tiled image.
+   */
   input?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobInput;
+  /**
+   * @remarks
+   * The OSS object that is used as the input file.
+   */
   MNSMessageResult?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobMNSMessageResult;
+  /**
+   * @remarks
+   * The ARN of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+   * 
+   * @example
+   * The resource operated InputFile is bad
+   */
   message?: string;
+  /**
+   * @remarks
+   * The start time for taking snapshots. Unit: milliseconds.
+   * 
+   * @example
+   * b11c171cced04565b1f38f1ecc39****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The height of a single image. The default value is the height of the output snapshot.
+   */
   snapshotConfig?: QuerySnapshotJobListResponseBodySnapshotJobListSnapshotJobSnapshotConfig;
+  /**
+   * @remarks
+   * The information about the job input.
+   * 
+   * @example
+   * Snapshoting
+   */
   state?: string;
+  /**
+   * @remarks
+   * The snapshot job IDs that do not exist. This parameter is not returned if all specified snapshot jobs are found.
+   * 
+   * @example
+   * 7
+   */
   tileCount?: string;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of the query results. The value is a 32-bit UUID. If the returned query results cannot be displayed within one page, this parameter is returned. The value of this parameter is updated for each query.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18808,11 +33625,84 @@ export class QueryTemplateListResponseBodyNonExistTids extends $tea.Model {
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateAudioVolume extends $tea.Model {
+  /**
+   * @remarks
+   * The output volume.
+   * 
+   * *   This parameter takes effect only if the value of Method is dynamic.
+   * *   Unit: dB.
+   * *   Valid values: [-70,-5].
+   * *   Default value: -6.
+   * 
+   * @example
+   * -6
+   */
   integratedLoudnessTarget?: string;
+  /**
+   * @remarks
+   * The increased volume relative to the volume of the input audio.
+   * 
+   * *   This parameter takes effect only if the value of Method is linear.
+   * *   Unit: dB.
+   * *   Valid values: less than or equal to 20.
+   * *   Default value: -20.
+   * 
+   * @example
+   * -20
+   */
   level?: string;
+  /**
+   * @remarks
+   * The range of the volume relative to the output volume.
+   * 
+   * *   This parameter takes effect only if the value of Method is dynamic.
+   * *   Unit: dB.
+   * *   Valid values: [1,20].
+   * *   Default value: 8.
+   * 
+   * @example
+   * 8
+   */
   loudnessRangeTarget?: string;
+  /**
+   * @remarks
+   * The method that is used to adjust the volume. Valid values:
+   * 
+   * *   **auto**
+   * *   **dynamic**
+   * *   **linear**
+   * *   Default value: dynamic.
+   * 
+   * @example
+   * auto
+   */
   method?: string;
+  /**
+   * @remarks
+   * The volume adjustment coefficient.
+   * 
+   * This parameter takes effect only if the value of Method is adaptive.
+   * 
+   * Valid values: [0,1].
+   * 
+   * Default value: 0.9.
+   * 
+   * @example
+   * 0.9
+   */
   peakLevel?: string;
+  /**
+   * @remarks
+   * The peak volume.
+   * 
+   * *   This parameter takes effect only if the value of Method is dynamic.
+   * *   Unit: dB.
+   * *   Valid values: [-9,0].
+   * *   Default value: -1.
+   * 
+   * @example
+   * -1
+   */
   truePeak?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18842,13 +33732,88 @@ export class QueryTemplateListResponseBodyTemplateListTemplateAudioVolume extend
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateAudio extends $tea.Model {
+  /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Valid values: **[8,1000]**.
+   * *   Unit: Kbit/s.
+   * *   Default value: **128**.
+   * 
+   * @example
+   * 500
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The number of sound channels. Default value: **2**.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The audio codec format. Default value: **aac**. Valid values:
+   * 
+   * *   **aac**
+   * *   **mp3**
+   * *   **vorbis**
+   * *   **flac**
+   * 
+   * @example
+   * aac
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The codec profile of the audio. Valid values when the value of Codec is aac:
+   * 
+   * *   **aac_low**
+   * *   **aac_he**
+   * *   **aac_he_v2**
+   * *   **aac_ld**
+   * *   **aac_eld**
+   * 
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The strength of the independent denoising algorithm.
+   * 
+   * @example
+   * 1
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio stream is deleted. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Unit: Hz
+   * *   Default value: **44100**.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume control configurations.
+   */
   volume?: QueryTemplateListResponseBodyTemplateListTemplateAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -18882,6 +33847,13 @@ export class QueryTemplateListResponseBodyTemplateListTemplateAudio extends $tea
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateContainer extends $tea.Model {
+  /**
+   * @remarks
+   * The format of the container. Valid values: flv, mp4, ts, m3u8, gif, mp3, ogg, and flac.
+   * 
+   * @example
+   * flv
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18901,9 +33873,37 @@ export class QueryTemplateListResponseBodyTemplateListTemplateContainer extends 
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigGif extends $tea.Model {
+  /**
+   * @remarks
+   * The color dithering algorithm of the palette. Valid values: sierra and bayer.
+   * 
+   * @example
+   * sierra
+   */
   ditherMode?: string;
+  /**
+   * @remarks
+   * The duration for which the final frame is paused.
+   * 
+   * @example
+   * 0
+   */
   finalDelay?: string;
+  /**
+   * @remarks
+   * Indicates whether a custom palette is used.
+   * 
+   * @example
+   * false
+   */
   isCustomPalette?: string;
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18929,6 +33929,13 @@ export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigGif exten
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The length of the segment. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18948,6 +33955,13 @@ export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigSegment e
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigWebp extends $tea.Model {
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18967,8 +33981,20 @@ export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfigWebp exte
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The transmuxing configurations for GIF.
+   */
   gif?: QueryTemplateListResponseBodyTemplateListTemplateMuxConfigGif;
+  /**
+   * @remarks
+   * The segment configurations.
+   */
   segment?: QueryTemplateListResponseBodyTemplateListTemplateMuxConfigSegment;
+  /**
+   * @remarks
+   * The transmuxing configurations for WebP.
+   */
   webp?: QueryTemplateListResponseBodyTemplateListTemplateMuxConfigWebp;
   static names(): { [key: string]: string } {
     return {
@@ -18992,13 +34018,106 @@ export class QueryTemplateListResponseBodyTemplateListTemplateMuxConfig extends 
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method of resolution adjustment. Default value: **none**. Valid values:
+   * 
+   * *   rescale
+   * *   crop
+   * *   none
+   * 
+   * @example
+   * none
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. If the bitrate of the output audio is higher than that of the input audio, the input bitrate is retained and the specified audio bitrate does not take effect. This parameter has a lower priority than IsCheckAudioBitrateFail. Valid values:
+   * 
+   * *   **true**
+   * 
+   * *   **false**
+   * 
+   * *   Default value:
+   * 
+   *     *   If this parameter is not specified and the codec of the output audio is different from that of the input audio, the default value is false.
+   *     *   If this parameter is not specified and the codec of the output audio is the same as that of the input audio, the default value is true.
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether audio bitrate check errors are allowed. This parameter has a greater priority than IsCheckAudioBitrate. Valid values:
+   * 
+   * *   **true**: If the audio bitrate check fails, the input file is not transcoded.
+   * *   **false**: The audio bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, the input resolution is retained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, a transcoding failure is returned. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, the input bitrate is retained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether video bitrate check errors are allowed. This parameter has a higher priority than IsCheckVideoBitrate. Valid values:
+   * 
+   * *   **true**: If the video bitrate check fails, the input file is not transcoded.
+   * *   **false**: The video bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The transcoding mode. Default value: **onepass**. Valid values:
+   * 
+   * *   **onepass**
+   * *   **twopass**
+   * *   **CBR**
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19032,7 +34151,21 @@ export class QueryTemplateListResponseBodyTemplateListTemplateTransConfig extend
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateVideoBitrateBnd extends $tea.Model {
+  /**
+   * @remarks
+   * The upper limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 100
+   */
   max?: string;
+  /**
+   * @remarks
+   * The lower limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 500
+   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19054,8 +34187,29 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideoBitrateBnd ex
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateVideoNarrowBand extends $tea.Model {
+  /**
+   * @remarks
+   * The upper limit of the dynamic bitrate. If this parameter is set, the average bitrate is in the range of (0, 1000000].
+   * 
+   * @example
+   * 3000
+   */
   abrmax?: number;
+  /**
+   * @remarks
+   * The maximum ratio of the upper limit of dynamic bitrate. If this parameter is set, the value of Abrmax does not exceed x times of the source video bitrate. Valid values: (0,1.0].
+   * 
+   * @example
+   * 1.0
+   */
   maxAbrRatio?: number;
+  /**
+   * @remarks
+   * The Narrowband HD version. Only 1.0 may be returned.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19079,29 +34233,226 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideoNarrowBand ex
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplateVideo extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 200
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The average bitrate range of the video.
+   */
   bitrateBnd?: QueryTemplateListResponseBodyTemplateListTemplateVideoBitrateBnd;
+  /**
+   * @remarks
+   * The buffer size.
+   * 
+   * *   Unit: KB.
+   * *   Default value: **6000**.
+   * 
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @remarks
+   * The codec. Default value: **H.264**.
+   * 
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   Default value when the encoding format is H.264: **23**. Default value when the encoding format is H.265: **26**.
+   * *   If this parameter is set, the value of Bitrate becomes invalid.
+   * 
+   * @example
+   * 15
+   */
   crf?: string;
+  /**
+   * @remarks
+   * The method of video cropping. Valid values:
+   * 
+   * *   **border**: automatically detects and removes black bars.
+   * *   **Value in the width:height:left:top format**: crops the video based on custom settings. Format: width:height:left:top. Example: 1280:800:0:140.
+   * 
+   * @example
+   * border
+   */
   crop?: string;
+  /**
+   * @remarks
+   * The level of video quality control.
+   * 
+   * @example
+   * 10
+   */
   degrain?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * *   The value is 60 if the frame rate of the input file exceeds 60.
+   * *   Default value: **the frame rate of the input file**.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The maximum number of frames between two keyframes. Default value: **250**.
+   * 
+   * @example
+   * 10
+   */
   gop?: string;
+  /**
+   * @remarks
+   * Indicates whether the HDR2SDR conversion feature is enabled. If this feature is enabled, high dynamic range (HDR) videos are transcoded to standard dynamic range (SDR) videos.
+   * 
+   * @example
+   * true
+   */
   hdr2sdr?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: **the height of the input video**.
+   * 
+   * @example
+   * 800
+   */
   height?: string;
+  /**
+   * @remarks
+   * Indicates whether the auto-rotate screen feature is enabled.
+   * 
+   * *   If this feature is enabled, the width of the output video corresponds to the long side of the input video, which is the height of the input video in portrait mode. The height of the output video corresponds to the short side of the input video, which is the width of the input video in portrait mode. Valid values:
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   longShortMode?: string;
+  /**
+   * @remarks
+   * The maximum frame rate.
+   * 
+   * @example
+   * 60
+   */
   maxFps?: string;
+  /**
+   * @remarks
+   * The maximum bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 500
+   */
   maxrate?: string;
+  /**
+   * @remarks
+   * The Narrowband HD settings.
+   */
   narrowBand?: QueryTemplateListResponseBodyTemplateListTemplateVideoNarrowBand;
+  /**
+   * @remarks
+   * The black bars that are added to the video. Format: width:height:left:top. Example: 1280:800:0:140.
+   * 
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The preset video algorithm. Valid values: veryfast, fast, medium, slow, and slower. Default value: **medium**.
+   * 
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @remarks
+   * The encoding profile. Valid values:
+   * 
+   * *   **baseline**: applicable to mobile devices.
+   * *   **main**: applicable to standard-definition devices.
+   * *   **high**: applicable to high-definition devices.
+   * *   Default value: **high**.
+   * 
+   * @example
+   * high
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The strength of the independent denoising algorithm.
+   * 
+   * @example
+   * 1
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream is deleted. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @remarks
+   * The policy of resolution adjustment. Valid values: cropFirst, widthFirst, and heightFirst.
+   * 
+   * @example
+   * heightFirst
+   */
   resoPriority?: string;
+  /**
+   * @remarks
+   * The scan mode. Valid values:
+   * 
+   * *   **interlaced**
+   * *   **progressive**
+   * 
+   * @example
+   * interlaced
+   */
   scanMode?: string;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: **the width of the input video**.
+   * 
+   * @example
+   * 256
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19167,14 +34518,65 @@ export class QueryTemplateListResponseBodyTemplateListTemplateVideo extends $tea
 }
 
 export class QueryTemplateListResponseBodyTemplateListTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The audio codec configurations.
+   */
   audio?: QueryTemplateListResponseBodyTemplateListTemplateAudio;
+  /**
+   * @remarks
+   * The container format configurations.
+   */
   container?: QueryTemplateListResponseBodyTemplateListTemplateContainer;
+  /**
+   * @remarks
+   * The time when the template was created.
+   * 
+   * @example
+   * 2021-03-04T06:44:43Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The transcoding template ID.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The transmuxing configurations.
+   */
   muxConfig?: QueryTemplateListResponseBodyTemplateListTemplateMuxConfig;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * MPS-example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the template. Valid values:
+   * 
+   * *   **Normal**
+   * *   **Deleted**
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The general transcoding configurations.
+   */
   transConfig?: QueryTemplateListResponseBodyTemplateListTemplateTransConfig;
+  /**
+   * @remarks
+   * The video codec configurations.
+   */
   video?: QueryTemplateListResponseBodyTemplateListTemplateVideo;
   static names(): { [key: string]: string } {
     return {
@@ -19229,17 +34631,65 @@ export class QueryTemplateListResponseBodyTemplateList extends $tea.Model {
 }
 
 export class QueryTraceAbJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * http://callbacktest.com/callback
+   */
   callback?: string;
+  /**
+   * @example
+   * 1627357322
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1627357325
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * {"Bucket":"ivison-test","Location":"oss-cn-shanghai","Object":"test.mp4"}
+   */
   input?: string;
+  /**
+   * @example
+   * bfb786c639894f4d80648792021e****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 2
+   */
   level?: number;
+  /**
+   * @example
+   * 437bd2b516ffda105d07b12a9a82****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * {"Bucket":"ivison-test","Location":"oss-cn-shanghai","Object":"out.mp4"}
+   */
   output?: string;
+  /**
+   * @example
+   * {"Code":"success","Message":"ok"}
+   */
   result?: string;
+  /**
+   * @example
+   * success
+   */
   status?: string;
+  /**
+   * @example
+   * 123
+   */
   userData?: string;
+  /**
+   * @example
+   * 13466****
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19281,6 +34731,10 @@ export class QueryTraceAbJobResponseBodyData extends $tea.Model {
 }
 
 export class QueryTraceExtractJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * example water mark
+   */
   trace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19300,14 +34754,50 @@ export class QueryTraceExtractJobResponseBodyData extends $tea.Model {
 }
 
 export class QueryTraceM3u8JobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1627357322
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1627357327
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 437bd2b516ffda105d07b12a9a82****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * {"Bucket":"ivison-test","Location":"oss-cn-shanghai","Object":"out.mp4"}
+   */
   output?: string;
+  /**
+   * @example
+   * success
+   */
   status?: string;
+  /**
+   * @example
+   * 平头哥半导体(上海)
+   */
   trace?: string;
+  /**
+   * @example
+   * 123
+   */
   userData?: string;
+  /**
+   * @example
+   * 13466****
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19362,9 +34852,49 @@ export class QueryWaterMarkTemplateListResponseBodyNonExistWids extends $tea.Mod
 }
 
 export class QueryWaterMarkTemplateListResponseBodyWaterMarkTemplateListWaterMarkTemplateRatioRefer extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset of the watermark relative to the output video image. Default value: **0**. The default value indicates no offset. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the vertical offset. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the horizontal offset to the width of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.51
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The vertical offset of the watermark relative to the output video image. Default value: **0**. The default value indicates no offset. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the vertical offset. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the vertical offset to the height of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.4
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The height of the watermark image in the output video. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the height of the watermark image. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the height of the watermark image to the height of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.33
+   */
   height?: string;
+  /**
+   * @remarks
+   * The width of the watermark image in the output video. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the width of the watermark image. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the width of the watermark image to the width of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.36
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19390,7 +34920,24 @@ export class QueryWaterMarkTemplateListResponseBodyWaterMarkTemplateListWaterMar
 }
 
 export class QueryWaterMarkTemplateListResponseBodyWaterMarkTemplateListWaterMarkTemplateTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The display duration of the watermark. Default value: **ToEND**. The default value indicates that the watermark is displayed until the video ends.
+   * 
+   * @example
+   * 10
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which the watermark is displayed.
+   * 
+   * *   Unit: seconds.
+   * *   Default value: **0**.
+   * 
+   * @example
+   * 0
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19412,16 +34959,105 @@ export class QueryWaterMarkTemplateListResponseBodyWaterMarkTemplateListWaterMar
 }
 
 export class QueryWaterMarkTemplateListResponseBodyWaterMarkTemplateListWaterMarkTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset. Unit: pixel.
+   * 
+   * @example
+   * 100
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The vertical offset. Unit: pixel.
+   * 
+   * @example
+   * 100
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The height of the watermark image. Unit: pixel.
+   * 
+   * @example
+   * 8
+   */
   height?: string;
+  /**
+   * @remarks
+   * The ID of the watermark template.
+   * 
+   * @example
+   * 3780bd69b2b74540bc7b1096f564****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the watermark template.
+   * 
+   * @example
+   * example-watermark
+   */
   name?: string;
+  /**
+   * @remarks
+   * The values of the Height, Width, Dx, and Dy parameters relative to the reference edges. If the values of the Height, Width, Dx, and Dy parameters are decimals between 0 and 1, the values are calculated by referring to the following edges in sequence:
+   * 
+   * *   **Width**: the width edge.
+   * *   **Height**: the height edge.
+   * *   **Long**: the long edge.
+   * *   **Short**: the short edge.
+   */
   ratioRefer?: QueryWaterMarkTemplateListResponseBodyWaterMarkTemplateListWaterMarkTemplateRatioRefer;
+  /**
+   * @remarks
+   * The position of the watermark. Valid values:
+   * 
+   * *   **TopRight**: the upper-right corner.
+   * *   **TopLeft**: the upper-left corner.
+   * *   **BottomRight**: the lower-right corner.
+   * *   **BottomLeft**: the lower-left corner.
+   * 
+   * @example
+   * TopRight
+   */
   referPos?: string;
+  /**
+   * @remarks
+   * The status of the watermark template. Valid values: Valid values:
+   * 
+   * *   **Normal**: The watermark template is normal.
+   * *   **Deleted**: The watermark template is deleted.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The timeline of the watermark.
+   */
   timeline?: QueryWaterMarkTemplateListResponseBodyWaterMarkTemplateListWaterMarkTemplateTimeline;
+  /**
+   * @remarks
+   * The type of the watermark. Valid values:
+   * 
+   * *   Image: an image watermark.
+   * *   Text: a text watermark.
+   * 
+   * > Only watermarks of the **Image** type are supported.
+   * 
+   * @example
+   * Image
+   */
   type?: string;
+  /**
+   * @remarks
+   * The width of the watermark image. Unit: pixel.
+   * 
+   * @example
+   * 8
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19480,11 +35116,60 @@ export class QueryWaterMarkTemplateListResponseBodyWaterMarkTemplateList extends
 }
 
 export class SearchMediaWorkflowResponseBodyMediaWorkflowListMediaWorkflow extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @example
+   * 2016-04-01T05:38:41Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the media workflow.
+   * 
+   * @example
+   * 88c6ca184c0e4578645b665e2a12****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the media workflow.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the media workflow. Valid values:
+   * 
+   * *   **Inactive**: The media workflow is deactivated.
+   * *   **Active**: The media workflow is activated.
+   * *   **Deleted**: The media workflow is deleted.
+   * 
+   * @example
+   * Active
+   */
   state?: string;
+  /**
+   * @remarks
+   * The topology of the media workflow.
+   * 
+   * @example
+   * {"MediaWorkflowList":{"MediaWorkflow":[{"CreationTime":"2016-04-01T05:29:38Z","Name":"example-mediaworkflow-****","State":"Active","Topology":"{\\"Activities\\":{\\"Act-Start\\":{\\"Parameters\\":{\\"PipelineId\\":\\"130266f58161436a80bf07cb12c8****\\",\\"InputFile\\":\\"{\\\\\\"Bucket\\\\\\": \\\\\\"example-bucket-****\\\\\\",\\\\\\"Location\\\\\\": \\\\\\"example-location\\\\\\"}\\"},\\"Type\\":\\"Start\\"},\\"Act-Report\\":{\\"Parameters\\":{},\\"Type\\":\\"Report\\"},\\"Act-Transcode-M3U8\\":{\\"Parameters\\":{\\"Outputs\\":\\"[{\\\\\\"Object\\\\\\":\\\\\\"transcode/{ObjectPrefix}{FileName}\\\\\\",\\\\\\"TemplateId\\\\\\": \\\\\\"957d1719ee85ed6527b90cf62726****\\\\\\"}]\\",\\"OutputBucket\\":\\"example-bucket-****\\",\\"OutputLocation\\":\\"example-location\\"},\\"Type\\":\\"Transcode\\"}},\\"Dependencies\\":{\\"Act-Start\\":[\\"Act-Transcode-M3U8\\"],\\"Act-Report\\":[],\\"Act-Transcode-M3U8\\":[\\"Act-Report\\"]}}","MediaWorkflowId":"93ab850b4f6f44eab54b6e91d24d****"}]},"RequestId":"16CD0CDD-457E-420D-9755-8385075A1234"}
+   */
   topology?: string;
+  /**
+   * @remarks
+   * The trigger mode of the media workflow. Valid values:
+   * 
+   * *   **OssAutoTrigger**: The media workflow is automatically triggered.
+   * *   **NotInAuto**: The media workflow is not automatically triggered.
+   * 
+   * @example
+   * OssAutoTrigger
+   */
   triggerMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19533,9 +35218,37 @@ export class SearchMediaWorkflowResponseBodyMediaWorkflowList extends $tea.Model
 }
 
 export class SearchPipelineResponseBodyPipelineListPipelineNotifyConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * mts-test
+   */
   mqTag?: string;
+  /**
+   * @remarks
+   * The queue of messages that are received.
+   * 
+   * @example
+   * example1,example2
+   */
   mqTopic?: string;
+  /**
+   * @remarks
+   * The name of the queue that is created in MNS.
+   * 
+   * @example
+   * example-queue-****
+   */
   queueName?: string;
+  /**
+   * @remarks
+   * The name of the topic that is created in MNS.
+   * 
+   * @example
+   * example-topic-****
+   */
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19562,13 +35275,81 @@ export class SearchPipelineResponseBodyPipelineListPipelineNotifyConfig extends 
 
 export class SearchPipelineResponseBodyPipelineListPipeline extends $tea.Model {
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the MPS queue.
+   * 
+   * @example
+   * d1ce4d3efcb549419193f50f1fcd****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the MPS queue.
+   * 
+   * @example
+   * example-pipeline-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The Message Service (MNS) configuration.
+   */
   notifyConfig?: SearchPipelineResponseBodyPipelineListPipelineNotifyConfig;
+  /**
+   * @remarks
+   * The quota that is allocated to the MPS queue.
+   * 
+   * @example
+   * 10
+   */
   quotaAllocate?: number;
+  /**
+   * @remarks
+   * The role that is assigned to the current RAM user.
+   * 
+   * @example
+   * AliyunMTSDefaultRole
+   */
   role?: string;
+  /**
+   * @remarks
+   * The type of the MPS queue. Default value: **Standard**. Valid values:
+   * 
+   * *   **Boost**: MPS queue with transcoding speed boosted
+   * *   **Standard**: standard MPS queue
+   * *   **NarrowBandHDV2**: MPS queue that supports Narrowband HD 2.0
+   * *   **AIVideoCover**: MPS queue for intelligent snapshot capture
+   * *   **AIVideoFPShot**: MPS queue for media fingerprinting
+   * *   **AIVideoCensor**: MPS queue for automated review
+   * *   **AIVideoMCU**: MPS queue for smart tagging
+   * *   **AIVideoSummary**: MPS queue for video synopsis
+   * *   **AIVideoPorn**: MPS queue for pornography detection in videos
+   * *   **AIAudioKWS**: MPS queue for keyword recognition in audio
+   * *   **AIAudioASR**: MPS queue for speech-to-text conversion
+   * 
+   * @example
+   * Standard
+   */
   speed?: string;
+  /**
+   * @remarks
+   * The level of the MPS queue.
+   * 
+   * @example
+   * 1
+   */
   speedLevel?: number;
+  /**
+   * @remarks
+   * The state of the MPS queue. Valid values:
+   * 
+   * *   **Active**: The MPS queue is active.
+   * *   **Paused**: The MPS queue is paused.
+   * 
+   * @example
+   * Paused
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19623,12 +35404,82 @@ export class SearchPipelineResponseBodyPipelineList extends $tea.Model {
 }
 
 export class SearchTemplateResponseBodyTemplateListTemplateAudio extends $tea.Model {
+  /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Unit: Kbit/s.
+   * *   Default value: **128**.
+   * 
+   * @example
+   * 500
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The number of sound channels. Default value: **2**.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The audio codec format. Default value: **aac**. Valid values:
+   * 
+   * *   **aac**
+   * *   **mp3**
+   * *   **vorbis**
+   * *   **flac**
+   * 
+   * @example
+   * aac
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The codec profile of the audio. Valid values when the value of Codec is aac:
+   * 
+   * *   **aac_low**
+   * *   **aac_he**
+   * *   **aac_he_v2**
+   * *   **aac_ld**
+   * *   **aac_eld**
+   * 
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The strength of the independent denoising algorithm. Valid values: **[1,9]**.
+   * 
+   * @example
+   * 1
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio stream is deleted. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Unit: Hz
+   * *   Default value: **44100**.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19660,6 +35511,22 @@ export class SearchTemplateResponseBodyTemplateListTemplateAudio extends $tea.Mo
 }
 
 export class SearchTemplateResponseBodyTemplateListTemplateContainer extends $tea.Model {
+  /**
+   * @remarks
+   * The format of the container. Valid values:
+   * 
+   * *   **flv**
+   * *   **mp4**
+   * *   **ts**
+   * *   **m3u8**
+   * *   **gif**
+   * *   **mp3**
+   * *   **ogg**
+   * *   **flac**
+   * 
+   * @example
+   * mp4
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19679,9 +35546,37 @@ export class SearchTemplateResponseBodyTemplateListTemplateContainer extends $te
 }
 
 export class SearchTemplateResponseBodyTemplateListTemplateMuxConfigGif extends $tea.Model {
+  /**
+   * @remarks
+   * The color dithering algorithm of the palette. Valid values: sierra and bayer.
+   * 
+   * @example
+   * sierra
+   */
   ditherMode?: string;
+  /**
+   * @remarks
+   * The duration for which the final frame is paused. Unit: centisecond.
+   * 
+   * @example
+   * 0
+   */
   finalDelay?: string;
+  /**
+   * @remarks
+   * Indicates whether a custom palette is used.
+   * 
+   * @example
+   * false
+   */
   isCustomPalette?: string;
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19707,6 +35602,13 @@ export class SearchTemplateResponseBodyTemplateListTemplateMuxConfigGif extends 
 }
 
 export class SearchTemplateResponseBodyTemplateListTemplateMuxConfigSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The length of the segment. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19726,7 +35628,15 @@ export class SearchTemplateResponseBodyTemplateListTemplateMuxConfigSegment exte
 }
 
 export class SearchTemplateResponseBodyTemplateListTemplateMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The transmuxing configurations for GIF.
+   */
   gif?: SearchTemplateResponseBodyTemplateListTemplateMuxConfigGif;
+  /**
+   * @remarks
+   * The segment configurations.
+   */
   segment?: SearchTemplateResponseBodyTemplateListTemplateMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -19748,13 +35658,106 @@ export class SearchTemplateResponseBodyTemplateListTemplateMuxConfig extends $te
 }
 
 export class SearchTemplateResponseBodyTemplateListTemplateTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method of resolution adjustment. Default value: **none**. Valid values:
+   * 
+   * *   rescale
+   * *   crop
+   * *   none
+   * 
+   * @example
+   * none
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. If the bitrate of the output audio is higher than that of the input audio, the input bitrate is retained and the specified audio bitrate does not take effect. This parameter has a lower priority than IsCheckAudioBitrateFail. Valid values:
+   * 
+   * *   **true**
+   * 
+   * *   **false**
+   * 
+   * *   Default value:
+   * 
+   *     *   If this parameter is empty and the codec of the output audio is different from that of the input audio, the default value is false.
+   *     *   If this parameter is empty and the codec of the output audio is the same as that of the input audio, the default value is true.
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether audio bitrate check errors are allowed. This parameter has a greater priority than IsCheckAudioBitrate. Valid values:
+   * 
+   * *   **true**: If the audio bitrate check fails, the input file is not transcoded.
+   * *   **false**: The audio bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, the input resolution is retained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, a transcoding failure is returned. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, the input bitrate is retained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether video bitrate check errors are allowed. This parameter has a higher priority than IsCheckVideoBitrate. Valid values:
+   * 
+   * *   **true**: If the video bitrate check fails, the input file is not transcoded.
+   * *   **false**: The video bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The transcoding mode. Default value: **onepass**. Valid values:
+   * 
+   * *   **onepass**
+   * *   **twopass**
+   * *   **CBR**
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19788,7 +35791,21 @@ export class SearchTemplateResponseBodyTemplateListTemplateTransConfig extends $
 }
 
 export class SearchTemplateResponseBodyTemplateListTemplateVideoBitrateBnd extends $tea.Model {
+  /**
+   * @remarks
+   * The upper limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 500
+   */
   max?: string;
+  /**
+   * @remarks
+   * The lower limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 100
+   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19810,8 +35827,29 @@ export class SearchTemplateResponseBodyTemplateListTemplateVideoBitrateBnd exten
 }
 
 export class SearchTemplateResponseBodyTemplateListTemplateVideoNarrowBand extends $tea.Model {
+  /**
+   * @remarks
+   * The upper limit of the dynamic bitrate. If this parameter is set, the average bitrate is in the range of (0, 1000000].
+   * 
+   * @example
+   * 3000
+   */
   abrmax?: number;
+  /**
+   * @remarks
+   * The maximum ratio of the upper limit of dynamic bitrate. If this parameter is set, the value of Abrmax does not exceed x times of the source video bitrate. Valid values: (0,1.0].
+   * 
+   * @example
+   * 1.0
+   */
   maxAbrRatio?: number;
+  /**
+   * @remarks
+   * The Narrowband HD version. Only 1.0 may be returned.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19835,29 +35873,239 @@ export class SearchTemplateResponseBodyTemplateListTemplateVideoNarrowBand exten
 }
 
 export class SearchTemplateResponseBodyTemplateListTemplateVideo extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 200
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The average bitrate range of the video.
+   */
   bitrateBnd?: SearchTemplateResponseBodyTemplateListTemplateVideoBitrateBnd;
+  /**
+   * @remarks
+   * The buffer size.
+   * 
+   * *   Unit: KB.
+   * *   Default value: **6000**.
+   * 
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @remarks
+   * The codec.
+   * 
+   * *   Valid values: H.264 and H.265.
+   * *   Default value: **H.264**.
+   * 
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   Default value when the value of Codec is H.264: **23**, default value when the value of Codec is H.265: **26**.
+   * *   If this parameter is set, the value of Bitrate becomes invalid.
+   * 
+   * @example
+   * 15
+   */
   crf?: string;
+  /**
+   * @remarks
+   * The method of video cropping. Valid values:
+   * 
+   * *   **border**: automatically detects and removes black bars.
+   * *   **Value in the width:height:left:top format**: crops the video image based on the custom settings. Format: width:height:left:top. Example: 1280:800:0:140.
+   * 
+   * @example
+   * border
+   */
   crop?: string;
+  /**
+   * @remarks
+   * The level of video quality control.
+   * 
+   * @example
+   * 10
+   */
   degrain?: string;
+  /**
+   * @remarks
+   * The frame rate of the video.
+   * 
+   * *   The value is 60 if the frame rate of the input video exceeds 60.
+   * *   Default value: **the frame rate of the input video**.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The maximum number of frames between two keyframes. Default value: **250**.
+   * 
+   * @example
+   * 10
+   */
   gop?: string;
+  /**
+   * @remarks
+   * Indicates whether the HDR2SDR conversion feature is enabled. If this feature is enabled, high dynamic range (HDR) videos are transcoded to standard dynamic range (SDR) videos.
+   * 
+   * @example
+   * true
+   */
   hdr2sdr?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: **the height of the input video**.
+   * 
+   * @example
+   * 800
+   */
   height?: string;
+  /**
+   * @remarks
+   * Indicates whether the auto-rotate screen feature is enabled.
+   * 
+   * *   If this feature is enabled, the width of the output video corresponds to the long side of the input video, which is the height of the input video in portrait mode. The height of the output video corresponds to the short side of the input video, which is the width of the input video in portrait mode. Valid values:
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   longShortMode?: string;
+  /**
+   * @remarks
+   * The maximum frame rate.
+   * 
+   * @example
+   * 60
+   */
   maxFps?: string;
+  /**
+   * @remarks
+   * The maximum bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 500
+   */
   maxrate?: string;
+  /**
+   * @remarks
+   * The Narrowband HD settings.
+   */
   narrowBand?: SearchTemplateResponseBodyTemplateListTemplateVideoNarrowBand;
+  /**
+   * @remarks
+   * The black bars that are added to the video.
+   * 
+   * *   Format: width:height:left:top.
+   * *   Example: 1280:800:0:140.
+   * 
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The preset video algorithm. Default value: **medium**. Valid values:
+   * 
+   * *   **veryfast**
+   * *   **fast**
+   * *   **medium**
+   * *   **slow**
+   * *   **slower**
+   * 
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @remarks
+   * The codec profile. Valid values:
+   * 
+   * *   **baseline**: applicable to mobile devices.
+   * *   **main**: applicable to standard-definition devices.
+   * *   **high**: applicable to high-definition devices.
+   * *   Default value: **high**.
+   * 
+   * @example
+   * high
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The strength of the independent denoising algorithm.
+   * 
+   * @example
+   * 1
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream is deleted. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @remarks
+   * The policy of resolution adjustment.
+   * 
+   * @example
+   * heightFirst
+   */
   resoPriority?: string;
+  /**
+   * @remarks
+   * The scan mode. Valid values:
+   * 
+   * *   **interlaced**
+   * *   **progressive**
+   * 
+   * @example
+   * interlaced
+   */
   scanMode?: string;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * *   Valid values: **[128,4096]**.
+   * *   Unit: pixel.
+   * *   Default value: **the width of the input video**.
+   * 
+   * @example
+   * 256
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19923,14 +36171,65 @@ export class SearchTemplateResponseBodyTemplateListTemplateVideo extends $tea.Mo
 }
 
 export class SearchTemplateResponseBodyTemplateListTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The audio codec configurations.
+   */
   audio?: SearchTemplateResponseBodyTemplateListTemplateAudio;
+  /**
+   * @remarks
+   * The container format configurations.
+   */
   container?: SearchTemplateResponseBodyTemplateListTemplateContainer;
+  /**
+   * @remarks
+   * The time when the template was created.
+   * 
+   * @example
+   * 2021-03-04T06:44:43Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The transcoding template ID.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The transmuxing configurations.
+   */
   muxConfig?: SearchTemplateResponseBodyTemplateListTemplateMuxConfig;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * MPS-example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the template. Valid values:
+   * 
+   * *   **Normal**
+   * *   **Deleted**
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The general transcoding configurations.
+   */
   transConfig?: SearchTemplateResponseBodyTemplateListTemplateTransConfig;
+  /**
+   * @remarks
+   * The video codec configurations.
+   */
   video?: SearchTemplateResponseBodyTemplateListTemplateVideo;
   static names(): { [key: string]: string } {
     return {
@@ -19985,9 +36284,37 @@ export class SearchTemplateResponseBodyTemplateList extends $tea.Model {
 }
 
 export class SearchWaterMarkTemplateResponseBodyWaterMarkTemplateListWaterMarkTemplateRatioRefer extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset. Unit: pixel.
+   * 
+   * @example
+   * 0.51
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The timeline of the watermark.
+   * 
+   * @example
+   * 0.2
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The height of the watermark image. Unit: pixel.
+   * 
+   * @example
+   * 0.33
+   */
   height?: string;
+  /**
+   * @remarks
+   * The width of the watermark image. Unit: pixel.
+   * 
+   * @example
+   * 0.36
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20013,7 +36340,26 @@ export class SearchWaterMarkTemplateResponseBodyWaterMarkTemplateListWaterMarkTe
 }
 
 export class SearchWaterMarkTemplateResponseBodyWaterMarkTemplateListWaterMarkTemplateTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset of the watermark relative to the output video image. Default value: **0**. The default value indicates no offset.
+   * 
+   * The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the vertical offset. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the horizontal offset to the width of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * ToEND
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @example
+   * 0
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20035,16 +36381,106 @@ export class SearchWaterMarkTemplateResponseBodyWaterMarkTemplateListWaterMarkTe
 }
 
 export class SearchWaterMarkTemplateResponseBodyWaterMarkTemplateListWaterMarkTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the watermark template.
+   * 
+   * @example
+   * 100
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The values of the Height, Width, Dx, and Dy parameters relative to the reference edges. If the values of the Height, Width, Dx, and Dy parameters are decimals between 0 and 1, the values are calculated by referring to the following edges in sequence:
+   * 
+   * *   **Width**: the width edge.
+   * *   **Height**: the height edge.
+   * *   **Long**: the long edge.
+   * *   **Short**: the short edge.
+   * 
+   * @example
+   * 100
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The ID of the watermark template.
+   * 
+   * @example
+   * 8
+   */
   height?: string;
+  /**
+   * @remarks
+   * The vertical offset. Unit: pixel.
+   * 
+   * @example
+   * 88c6ca184c0e4578645b665e2a12****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The width of the watermark image in the output video. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the width of the watermark image. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the width of the watermark image to the width of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * example-watermark
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the watermark template. Valid values: Valid values:
+   * 
+   * *   **Normal**: The watermark template is normal.
+   * *   **Deleted**: The watermark template is deleted.
+   */
   ratioRefer?: SearchWaterMarkTemplateResponseBodyWaterMarkTemplateListWaterMarkTemplateRatioRefer;
+  /**
+   * @remarks
+   * The beginning of the time range during which the watermark is displayed.
+   * 
+   * *   Unit: seconds.
+   * *   Default value: **0**.
+   * 
+   * @example
+   * TopRight
+   */
   referPos?: string;
+  /**
+   * @remarks
+   * The display duration of the watermark. Default value: **ToEND**. The default value indicates that the watermark is displayed until the video ends.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The timeline of the watermark.
+   */
   timeline?: SearchWaterMarkTemplateResponseBodyWaterMarkTemplateListWaterMarkTemplateTimeline;
+  /**
+   * @remarks
+   * The position of the watermark. Valid values:
+   * 
+   * *   TopRight: the upper-right corner.
+   * *   TopLeft: the upper-left corner.
+   * *   BottomRight: the lower-right corner.
+   * *   BottomLeft: the lower-left corner.
+   * 
+   * @example
+   * Image
+   */
   type?: string;
+  /**
+   * @remarks
+   * The vertical offset. Unit: pixel.
+   * 
+   * @example
+   * 8
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20103,10 +36539,57 @@ export class SearchWaterMarkTemplateResponseBodyWaterMarkTemplateList extends $t
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfigPropertiesControlCrop extends $tea.Model {
+  /**
+   * @remarks
+   * The height of the video after the margins were cropped out.
+   * 
+   * > This parameter is invalid if the **Mode** parameter is set to Auto or None.
+   * 
+   * @example
+   * 8
+   */
   height?: string;
+  /**
+   * @remarks
+   * The left margin that was cropped out.
+   * 
+   * > This parameter is invalid if the **Mode** parameter is set to Auto or None.
+   * 
+   * @example
+   * 8
+   */
   left?: string;
+  /**
+   * @remarks
+   * The cropping mode. Valid values:
+   * 
+   * *   **Auto**: Cropping was automatically run. This is the default value.
+   * *   **Force**: Cropping was forced to run.
+   * *   **None**: Cropping was forced not to run.
+   * 
+   * @example
+   * Auto
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The top margin that was cropped out.
+   * 
+   * > This parameter is invalid if the **Mode** parameter is set to Auto or None.
+   * 
+   * @example
+   * 8
+   */
   top?: string;
+  /**
+   * @remarks
+   * The width of the video after the margins were cropped out.
+   * 
+   * > This parameter is invalid if the **Mode** parameter is set to Auto or None.
+   * 
+   * @example
+   * 8
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20134,7 +36617,22 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfigPropertiesCon
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfigPropertiesControl extends $tea.Model {
+  /**
+   * @remarks
+   * The cropping configurations of video images.
+   */
   crop?: SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfigPropertiesControlCrop;
+  /**
+   * @remarks
+   * Indicates whether deinterlacing was forced to run. Valid values:
+   * 
+   * *   **Auto**: Deinterlacing was automatically run.
+   * *   **Force**: Deinterlacing was forced to run.
+   * *   **None**: Deinterlacing was forced not to run.
+   * 
+   * @example
+   * Force
+   */
   deinterlace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20156,7 +36654,25 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfigPropertiesCon
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfigQualityControl extends $tea.Model {
+  /**
+   * @remarks
+   * The playback mode. Valid values:
+   * 
+   * *   **network**: online playback
+   * *   **local**: playback on local devices
+   * *   Default value: **network**.
+   * 
+   * @example
+   * network
+   */
   methodStreaming?: string;
+  /**
+   * @remarks
+   * The quality level of the output file.
+   * 
+   * @example
+   * 50
+   */
   rateQuality?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20178,7 +36694,15 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfigQualityContro
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The control on the attributes of the job output.
+   */
   propertiesControl?: SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfigPropertiesControl;
+  /**
+   * @remarks
+   * The quality control on the job output.
+   */
   qualityControl?: SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfigQualityControl;
   static names(): { [key: string]: string } {
     return {
@@ -20200,8 +36724,29 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfig extends $tea
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobInputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
+   * @example
+   * example.flv
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20225,8 +36770,29 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobInputFile extends $tea.Mode
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * The resource operated \\"PipelineId\\" cannot be found
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the message returned if the job was successful. This parameter is not returned if the job failed.
+   * 
+   * @example
+   * 3ca84a39a9024f19853b21be9cf9****
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20250,11 +36816,59 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobMNSMessageResult extends $t
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateAudio extends $tea.Model {
+  /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Unit: Kbit/s.
+   * *   Default value: **128**.
+   * 
+   * @example
+   * 8
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The number of sound channels. Default value: **2**.
+   * 
+   * @example
+   * 1
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The audio codec format. Default value: **acc**.
+   * 
+   * @example
+   * mp3
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The codec profile of the audio. Valid values if the **Codec** parameter is set to **aac**: aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
+   * 
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of quality control on the audio.
+   * 
+   * @example
+   * 10
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Unit: Hz.
+   * *   Default value: **44100**.
+   * 
+   * @example
+   * 32000
+   */
   samplerate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20284,6 +36898,13 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateAudio e
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateContainer extends $tea.Model {
+  /**
+   * @remarks
+   * The container format.
+   * 
+   * @example
+   * flv
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20303,7 +36924,21 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateContain
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfigGif extends $tea.Model {
+  /**
+   * @remarks
+   * The interval between two consecutive loops for the GIF format. Unit: 0.01s. For example, a value of 500 indicates 5 seconds.
+   * 
+   * @example
+   * 0
+   */
   finalDelay?: string;
+  /**
+   * @remarks
+   * The number of loops for the GIF or WebP format. Default value: 0.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20325,6 +36960,13 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConf
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfigSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The length of the segment. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20344,7 +36986,15 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConf
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The transmuxing configurations for the GIF format.
+   */
   gif?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfigGif;
+  /**
+   * @remarks
+   * The segment configurations.
+   */
   segment?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -20366,6 +37016,13 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConf
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The transcoding mode. Valid values: onepass, twopass, and CBR. Default value: **onepass**.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20385,7 +37042,21 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateTransCo
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideoBitrateBnd extends $tea.Model {
+  /**
+   * @remarks
+   * The upper limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 20
+   */
   max?: string;
+  /**
+   * @remarks
+   * The lower limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 10
+   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20407,21 +37078,153 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideoBi
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideo extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 10
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The average bitrate range of the video.
+   */
   bitrateBnd?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideoBitrateBnd;
+  /**
+   * @remarks
+   * The size of the buffer.
+   * 
+   * *   Unit: KB.
+   * *   Default value: **6000**.
+   * 
+   * @example
+   * 5000
+   */
   bufsize?: string;
+  /**
+   * @remarks
+   * The video codec. Default value: **H.264**.
+   * 
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   Default value if the Codec parameter is set to H.264: **23**. Default value if the Codec parameter is set to H.265: **26**.
+   * *   If this parameter is returned, the setting of the Bitrate parameter is invalid.
+   * 
+   * @example
+   * 27
+   */
   crf?: string;
+  /**
+   * @remarks
+   * The strength of the independent noise reduction algorithm.
+   * 
+   * @example
+   * 5
+   */
   degrain?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * *   The value is 60 if the frame rate of the input video exceeds 60.
+   * *   Default value: the frame rate of the input video.
+   * 
+   * @example
+   * 60
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The maximum number of frames between two keyframes. Default value: **250**.
+   * 
+   * @example
+   * 1
+   */
   gop?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: the height of the input video.
+   * 
+   * @example
+   * 1880
+   */
   height?: string;
+  /**
+   * @remarks
+   * The maximum bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 10
+   */
   maxrate?: string;
+  /**
+   * @remarks
+   * The pixel format for video color encoding. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
+   * @example
+   * yuvj420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The preset video algorithm. Valid values: veryfast, fast, medium, slow, and slower. Default value: **medium**.
+   * 
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @remarks
+   * The codec profile. Valid values:
+   * 
+   * *   **baseline**: applicable to mobile devices.
+   * *   **main**: applicable to standard-definition devices.
+   * *   **high**: applicable to high-definition devices.
+   * *   Default value: **high**.
+   * 
+   * @example
+   * baseline
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of quality control on the video.
+   * 
+   * @example
+   * 15
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The scan mode. Valid values:
+   * 
+   * *   **interlaced**
+   * *   **progressive**
+   * 
+   * @example
+   * progressive
+   */
   scanMode?: string;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: the width of the input video.
+   * 
+   * @example
+   * 1990
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20471,13 +37274,57 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideo e
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The audio codec configurations.
+   */
   audio?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateAudio;
+  /**
+   * @remarks
+   * The container format configurations.
+   */
   container?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateContainer;
+  /**
+   * @remarks
+   * The ID of the transcoding template.
+   * 
+   * @example
+   * S00000000-00****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The transmuxing configurations.
+   */
   muxConfig?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateMuxConfig;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * FLV-UD
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the template.
+   * 
+   * *   **Normal**: The template is normal.
+   * *   **Deleted**: The template is deleted.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The general transcoding configurations.
+   */
   transConfig?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateTransConfig;
+  /**
+   * @remarks
+   * The video codec configurations.
+   */
   video?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateListTemplateVideo;
   static names(): { [key: string]: string } {
     return {
@@ -20530,18 +37377,105 @@ export class SubmitAnalysisJobResponseBodyAnalysisJobTemplateList extends $tea.M
 }
 
 export class SubmitAnalysisJobResponseBodyAnalysisJob extends $tea.Model {
+  /**
+   * @remarks
+   * The job configurations.
+   */
   analysisConfig?: SubmitAnalysisJobResponseBodyAnalysisJobAnalysisConfig;
+  /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2014-01-10T12:00:00Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the template analysis job.
+   * 
+   * @example
+   * 57f6aa3f84824309bcba67231b40****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   inputFile?: SubmitAnalysisJobResponseBodyAnalysisJobInputFile;
+  /**
+   * @remarks
+   * The message sent by MNS to notify users of the job result.
+   */
   MNSMessageResult?: SubmitAnalysisJobResponseBodyAnalysisJobMNSMessageResult;
+  /**
+   * @remarks
+   * The error message returned if the job failed.
+   * 
+   * @example
+   * The resource operated \\"PipelineId\\" cannot be found
+   */
   message?: string;
+  /**
+   * @remarks
+   * The transcoding progress.
+   * 
+   * @example
+   * 100
+   */
   percent?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which the analysis job was submitted.
+   * 
+   * @example
+   * bb558c1cc25b45309aab5be44d19****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The priority of the job in the MPS queue to which the job was submitted.
+   * 
+   * *   Valid values: **1 to 10**. A value of 10 indicates the highest priority.
+   * *   Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   **Submitted**: The job is submitted.
+   * *   **Analyzing**: The job is being run.
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job fails.
+   * 
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @remarks
+   * The matched preset templates.
+   */
   templateList?: SubmitAnalysisJobResponseBodyAnalysisJobTemplateList;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20585,6 +37519,10 @@ export class SubmitAnalysisJobResponseBodyAnalysisJob extends $tea.Model {
 }
 
 export class SubmitCopyrightExtractJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ebbfe90c63b54ed4b61acb2f6c44****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20604,6 +37542,10 @@ export class SubmitCopyrightExtractJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitCopyrightJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * bfb786c639894f4d80648792021e****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20623,6 +37565,10 @@ export class SubmitCopyrightJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitImageCopyrightResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * bfb786c639894f4d80648792021e****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20642,8 +37588,29 @@ export class SubmitImageCopyrightResponseBodyData extends $tea.Model {
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobInput extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the job input is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the job input is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the job input.
+   * 
+   * @example
+   * example.flv
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20667,8 +37634,29 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobInput extends $tea.M
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * The resource operated "%s" cannot be found.
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the error message returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * 123
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20692,10 +37680,52 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobMNSMessageResult ext
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputAmixListAmix extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the audio track that is mixed as the background music.
+   * 
+   * *   The URL can be an OSS URL or the string `input`.
+   * *   A value of input indicates that two audio tracks are mixed in a video.
+   * 
+   * @example
+   * https://outpu***.oss-cn-shanghai.aliyuncs.com/mp4-to-mp3%5E1571025263578816%40.mp3
+   */
   amixURL?: string;
+  /**
+   * @remarks
+   * The duration of the mixed audio track. The value is in the number or time format.
+   * 
+   * @example
+   * 20
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The audio track that is mixed. Format: 0:a:{audio_index}. Example: 0:a:0.
+   * 
+   * @example
+   * 0:a:0
+   */
   map?: string;
+  /**
+   * @remarks
+   * The mode to specify the mixing duration. Valid values: **first** and **long**.
+   * 
+   * *   **first**: The length of the output media equals the length of the input media.
+   * *   **long**: The length of the output media equals the length of the output media or the length of the input media, whichever is longer.
+   * *   Default value: **long**.
+   * 
+   * @example
+   * long
+   */
   mixDurMode?: string;
+  /**
+   * @remarks
+   * The start time. The value is in the number or time format. Examples: 1:25:36.240 and 32000.23.
+   * 
+   * @example
+   * 0
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20742,7 +37772,28 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputAmixList exten
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputAudioVolume extends $tea.Model {
+  /**
+   * @remarks
+   * The volume adjustment range.
+   * 
+   * *   Unit: decibel.
+   * *   Default value: **-20**.
+   * 
+   * @example
+   * -20
+   */
   level?: string;
+  /**
+   * @remarks
+   * The method that is used to adjust the volume. Valid values:
+   * 
+   * *   **auto**
+   * *   **dynamic**
+   * *   **linear**
+   * 
+   * @example
+   * auto
+   */
   method?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20764,12 +37815,76 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputAudioVolume ex
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputAudio extends $tea.Model {
+  /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Unit: Kbit/s.
+   * *   Default value: **128**.
+   * 
+   * @example
+   * 128
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The number of sound channels.
+   * 
+   * *   If the value of Codec is mp3, the value of this parameter can only be **1** or **2**.
+   * *   If the value of Codec is aac, the value of this parameter can only be **1**, **2**, **4**, **5**, **6**, or **8**.
+   * *   Default value: **2**.
+   * 
+   * @example
+   * 6
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The audio codec.
+   * 
+   * *   Valid values: **aac**, **mp3**, **vorbis**, and **flac**.
+   * *   Default value: **aac**.
+   * 
+   * @example
+   * aac
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The codec profile of the audio.
+   * 
+   * >  Valid values if the value of **Codec** is **aac**: **aac_low**, **aac_he**, **aac_he_v2**, **aac_ld**, and **aac_eld**.
+   * 
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of quality control on the audio.
+   * 
+   * @example
+   * 15
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Valid values: **22050**, **32000**, **44100**, **48000**, and **96000**.
+   * *   Unit: Hz.
+   * *   Default value: **44100**.
+   * 
+   * >  If the video container format is FLV and the audio codec is MP3, the value of this parameter cannot be 32000, 48000, or 96000. If the audio codec is MP3, the value of this parameter cannot be 96000.
+   * 
+   * @example
+   * 32000
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume configurations.
+   */
   volume?: SubmitJobsResponseBodyJobResultListJobResultJobOutputAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -20801,7 +37916,27 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputAudio extends 
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputClipTimeSpan extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   * 
+   * @example
+   * 01:00:59.999
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   * 
+   * @example
+   * 01:59:59.999
+   */
   seek?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20823,6 +37958,10 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputClipTimeSpan e
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputClip extends $tea.Model {
+  /**
+   * @remarks
+   * The time span of the clip.
+   */
   timeSpan?: SubmitJobsResponseBodyJobResultListJobResultJobOutputClipTimeSpan;
   static names(): { [key: string]: string } {
     return {
@@ -20842,6 +37981,21 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputClip extends $
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputContainer extends $tea.Model {
+  /**
+   * @remarks
+   * The container format.
+   * 
+   * *   Default value: **mp4**.
+   * *   Video formats include FLV, MP4, HLS (M3U8 + TS), and MPEG-DASH (MPD + fMP4).
+   * *   Audio formats include MP3, MP4, Ogg, FLAC, and M4A.
+   * *   Image formats include GIF and WebP.
+   * *   If the container format is GIF, the video codec must be GIF.
+   * *   If the container format is WebP, the video codec must be WebP.
+   * *   If the container format is FLV, the video codec cannot be H.265.
+   * 
+   * @example
+   * flv
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20861,8 +38015,29 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputContainer exte
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputDigiWaterMarkInputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the input file is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
+   * @example
+   * example-intput.flv
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20886,8 +38061,32 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputDigiWaterMarkI
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputDigiWaterMark extends $tea.Model {
+  /**
+   * @remarks
+   * The transparency of the text or image.
+   * 
+   * *   Value values: **(0,1]**.
+   * *   Default value: **1.0**.
+   * 
+   * @example
+   * 1.0
+   */
   alpha?: string;
+  /**
+   * @remarks
+   * The details of the input file.
+   */
   inputFile?: SubmitJobsResponseBodyJobResultListJobResultJobOutputDigiWaterMarkInputFile;
+  /**
+   * @remarks
+   * The type of the watermark. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. Valid values:
+   * 
+   * *   **Image** (default)
+   * *   **Text**
+   * 
+   * @example
+   * Image
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20911,11 +38110,53 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputDigiWaterMark 
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputEncryption extends $tea.Model {
+  /**
+   * @remarks
+   * The encryption ID.
+   * 
+   * @example
+   * 31fa3c9ca8134f9cec2b4b0b0f78****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The key that is used to encrypt the video.
+   * 
+   * @example
+   * encryptionkey128
+   */
   key?: string;
+  /**
+   * @remarks
+   * The key encryption method. Keys cannot be transmitted to MPS in plaintext. Keys must be encrypted by using Base64 or Key Management Service (KMS). For example, if the key is encryptionkey128, you can encrypt the key by using the following method: Base64("encryptionkey128") or KMS(Base64("encryptionkey128").
+   * 
+   * @example
+   * Base64
+   */
   keyType?: string;
+  /**
+   * @remarks
+   * The URL that is used to request the key. The URL is Base64-encoded.
+   * 
+   * @example
+   * https://1161758785*****.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/HLS-decyptServer/decyptServer/
+   */
   keyUri?: string;
+  /**
+   * @remarks
+   * The number of unencrypted frames at the beginning of the video. Leaving these frames unencrypted enables video playback to quickly start.
+   * 
+   * @example
+   * 3
+   */
   skipCnt?: string;
+  /**
+   * @remarks
+   * The encryption type. Only **hls-aes-128** may be returned.
+   * 
+   * @example
+   * hls-aes-128
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20945,7 +38186,27 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputEncryption ext
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputM3U8NonStandardSupportTS extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the output of the MD5 value of the TS file is supported in the M3U8 video. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   md5Support?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the size of the TS file is generated in the output M3U8 video. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   sizeSupport?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -20967,6 +38228,10 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputM3U8NonStandar
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputM3U8NonStandardSupport extends $tea.Model {
+  /**
+   * @remarks
+   * The non-standard support configurations for TS files. The value is a JSON object. For more information, see the **TS** section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   */
   TS?: SubmitJobsResponseBodyJobResultListJobResultJobOutputM3U8NonStandardSupportTS;
   static names(): { [key: string]: string } {
     return {
@@ -20986,9 +38251,46 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputM3U8NonStandar
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputMergeListMerge extends $tea.Model {
+  /**
+   * @remarks
+   * The duration of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Examples: 01:59:59.999 and 32000.23.
+   * 
+   * @example
+   * 00000.20
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The OSS URL of the clip.
+   * 
+   * *   Example: `http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com/example-object-****.flv`.
+   * *   The OSS URL of the object must be URL-encoded by using the UTF-8 standard.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com/example-object-****.flv
+   */
   mergeURL?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role used for delegated authorization.
+   * 
+   * @example
+   * acs:ram::<your uid>:role/<your role name>
+   */
   roleArn?: string;
+  /**
+   * @remarks
+   * The start point in time of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Examples: 01:59:59.999 and 32000.23.
+   * 
+   * @example
+   * 00000.50
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21033,9 +38335,40 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputMergeList exte
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfigGif extends $tea.Model {
+  /**
+   * @remarks
+   * The color dithering algorithm of the palette. Valid values: **sierra** and **bayer**.
+   * 
+   * @example
+   * bayer
+   */
   ditherMode?: string;
+  /**
+   * @remarks
+   * The duration for which the final frame is paused. Unit: centisecond.
+   * 
+   * @example
+   * 0
+   */
   finalDelay?: string;
+  /**
+   * @remarks
+   * Indicates whether a custom palette is used. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   isCustomPalette?: string;
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21061,6 +38394,16 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfigGif e
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfigSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The length of the segment. The value is an integer. Unit: seconds.
+   * 
+   * *   Valid values: **[1,10]**.
+   * *   Default value: **10**.
+   * 
+   * @example
+   * 20
+   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21080,6 +38423,13 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfigSegme
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfigWebp extends $tea.Model {
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21099,8 +38449,20 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfigWebp 
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The transmuxing configurations for GIF.
+   */
   gif?: SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfigGif;
+  /**
+   * @remarks
+   * The segment configuration. The value is a JSON object.
+   */
   segment?: SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfigSegment;
+  /**
+   * @remarks
+   * The transmuxing configurations for WebP.
+   */
   webp?: SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfigWebp;
   static names(): { [key: string]: string } {
     return {
@@ -21124,9 +38486,50 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfig exte
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputOpeningListOpening extends $tea.Model {
+  /**
+   * @remarks
+   * The height of the opening part.
+   * 
+   * *   Valid values: values in the range of **(0,4096)**, **-1**, and **full**.
+   * *   Default value: **-1**.
+   * *   A value of **-1** indicates that the height of the source of the opening part is retained.
+   * *   A value of **full** indicates that the height of the main part is used for the opening part.
+   * 
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @remarks
+   * The amount of time after which the opening part is played. The value starts from 0.
+   * 
+   * *   Unit: seconds.
+   * *   Default value: **0**.
+   * 
+   * @example
+   * 1
+   */
   start?: string;
+  /**
+   * @remarks
+   * The width of the opening part.
+   * 
+   * *   Valid values: values in the range of **(0,4096)**, **-1**, and **full**.
+   * *   Default value: **-1**.
+   * *   A value of **-1** indicates that the width of the source of the opening part is retained.
+   * *   A value of **full** indicates that the width of the main part is used for the opening part.
+   * 
+   * @example
+   * 1920
+   */
   width?: string;
+  /**
+   * @remarks
+   * The OSS URL of the opening part.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com/opening_01.flv
+   */
   openUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21171,9 +38574,37 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputOpeningList ex
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputOutSubtitleListOutSubtitleOutSubtitleFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the output file is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the output file.
+   * 
+   * @example
+   * example-output.flv
+   */
   object?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role used for delegated authorization.
+   * 
+   * @example
+   * acs:ram::<your uid>:role/<your role name>
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21199,9 +38630,37 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputOutSubtitleLis
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputOutSubtitleListOutSubtitle extends $tea.Model {
+  /**
+   * @remarks
+   * The video track. Format: `0:{Stream}:{Stream sequence number}`, which is `0:v:{video_index}`. The value of Stream is v, which indicates a video stream. The sequence number is the index of the video stream in the list and starts from 0.
+   * 
+   * @example
+   * 0:v:0
+   */
   map?: string;
+  /**
+   * @remarks
+   * The error message returned if the job failed to be created. This parameter is not returned if the job was created.
+   * 
+   * @example
+   * The specified parameter “%s” cannot be null.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The details of the output file.
+   */
   outSubtitleFile?: SubmitJobsResponseBodyJobResultListJobResultJobOutputOutSubtitleListOutSubtitleOutSubtitleFile;
+  /**
+   * @remarks
+   * Indicates whether the job was created. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -21246,9 +38705,37 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputOutSubtitleLis
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputOutputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the output file is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the output file.
+   * 
+   * @example
+   * example-output.flv
+   */
   object?: string;
+  /**
+   * @remarks
+   * The ARN of the RAM role used for delegated authorization.
+   * 
+   * @example
+   * acs:ram::<your uid>:role/<your role name>
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21274,13 +38761,69 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputOutputFile ext
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesFormat extends $tea.Model {
+  /**
+   * @remarks
+   * The total bitrate.
+   * 
+   * @example
+   * 1000
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The total duration.
+   * 
+   * @example
+   * 55
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The full name of the container format.
+   * 
+   * @example
+   * QuickTime / MOV
+   */
   formatLongName?: string;
+  /**
+   * @remarks
+   * The short name of the container format. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mov
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The total number of program streams.
+   * 
+   * @example
+   * 0
+   */
   numPrograms?: string;
+  /**
+   * @remarks
+   * The total number of media streams.
+   * 
+   * @example
+   * 2
+   */
   numStreams?: string;
+  /**
+   * @remarks
+   * The size of the file.
+   * 
+   * @example
+   * 3509895
+   */
   size?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21314,21 +38857,133 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesForm
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStreamsAudioStreamListAudioStream extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the audio stream.
+   * 
+   * @example
+   * 128.806
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The output layout of the sound channels.
+   * 
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @remarks
+   * The number of sound channels.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The full name of the codec.
+   * 
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the codec.
+   * 
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the codec.
+   * 
+   * @example
+   * 0x6134706d
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the codec.
+   * 
+   * @example
+   * mp4a
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration of the audio stream.
+   * 
+   * @example
+   * 17.159546
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language of the audio stream. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata) and [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 25
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The sampling format.
+   * 
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @remarks
+   * The sampling rate of the audio stream.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The start time of the audio stream.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base of the audio stream.
+   * 
+   * @example
+   * 1/44100
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21397,7 +39052,21 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStre
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStreamsSubtitleStreamListSubtitleStream extends $tea.Model {
+  /**
+   * @remarks
+   * The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language of the subtitle stream. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata) and [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21438,8 +39107,29 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStre
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate of the video stream.
+   * 
+   * @example
+   * 100
+   */
   avgBitrate?: string;
+  /**
+   * @remarks
+   * The maximum bandwidth that was consumed.
+   * 
+   * @example
+   * 10
+   */
   costBandwidth?: string;
+  /**
+   * @remarks
+   * The amount of time consumed to preload the video stream.
+   * 
+   * @example
+   * 8
+   */
   preloadTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21463,28 +39153,186 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStre
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStreamsVideoStreamListVideoStream extends $tea.Model {
+  /**
+   * @remarks
+   * The average frame rate of the video stream.
+   * 
+   * @example
+   * 23.976025
+   */
   avgFPS?: string;
+  /**
+   * @remarks
+   * The bitrate of the video stream.
+   * 
+   * @example
+   * 1496.46
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The full name of the codec.
+   * 
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the codec.
+   * 
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the codec.
+   * 
+   * @example
+   * 0x31637661
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the codec.
+   * 
+   * @example
+   * avc1
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1001/48000
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The display aspect ratio (DAR) of the video stream.
+   * 
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @remarks
+   * The duration of the video stream.
+   * 
+   * @example
+   * 17.225542
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The frame rate of the video stream.
+   * 
+   * @example
+   * 23.976025
+   */
   fps?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream contains B-frames.
+   * 
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @remarks
+   * The height of the video stream in pixels.
+   * 
+   * @example
+   * 720
+   */
   height?: string;
+  /**
+   * @remarks
+   * The sequence number of the video stream. The value indicates the position of the video stream in all video streams.
+   * 
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language of the video stream. For more information, see [FFmpeg documentation](https://www.ffmpeg.org/ffmpeg-all.html#Metadata) and [ISO 639](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The codec level.
+   * 
+   * @example
+   * 51
+   */
   level?: string;
+  /**
+   * @remarks
+   * The network bandwidth that was consumed.
+   */
   networkCost?: SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 25
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The pixel format of the video stream.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The codec profile.
+   * 
+   * @example
+   * high
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The sample aspect ratio (SAR) of the video stream.
+   * 
+   * @example
+   * 1:1
+   */
   sar?: string;
+  /**
+   * @remarks
+   * The start time of the video stream.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base of the video stream.
+   * 
+   * @example
+   * 1/24000
+   */
   timebase?: string;
+  /**
+   * @remarks
+   * The width of the video stream in pixels.
+   * 
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21567,8 +39415,20 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStre
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStreams extends $tea.Model {
+  /**
+   * @remarks
+   * The audio streams.
+   */
   audioStreamList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStreamsAudioStreamList;
+  /**
+   * @remarks
+   * The subtitle streams.
+   */
   subtitleStreamList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStreamsSubtitleStreamList;
+  /**
+   * @remarks
+   * The video streams.
+   */
   videoStreamList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStreamsVideoStreamList;
   static names(): { [key: string]: string } {
     return {
@@ -21592,14 +39452,71 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStre
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputProperties extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the video.
+   * 
+   * @example
+   * 1000
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The duration of the video.
+   * 
+   * @example
+   * 55
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The format of the video.
+   * 
+   * @example
+   * QuickTime / MOV
+   */
   fileFormat?: string;
+  /**
+   * @remarks
+   * The size of the file.
+   * 
+   * @example
+   * 3509895
+   */
   fileSize?: string;
+  /**
+   * @remarks
+   * The format information.
+   */
   format?: SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesFormat;
+  /**
+   * @remarks
+   * The frame rate of the video. The value is a number.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   * 
+   * @example
+   * 720
+   */
   height?: string;
+  /**
+   * @remarks
+   * The stream information.
+   */
   streams?: SubmitJobsResponseBodyJobResultListJobResultJobOutputPropertiesStreams;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21635,8 +39552,29 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputProperties ext
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfigExtSubtitleListExtSubtitleInput extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket-****
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the input file is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
+   * @example
+   * example-output.flv
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21660,8 +39598,31 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfig
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfigExtSubtitleListExtSubtitle extends $tea.Model {
+  /**
+   * @remarks
+   * The character set used by the external subtitle.
+   * 
+   * *   Valid values: **UTF-8**, **GBK**, **BIG5**, and **auto**.
+   * *   Default value: **auto**.
+   * 
+   * >  If this parameter is set to **auto**, the detected character set may not be the actual character set. We recommend that you set this parameter to another value.
+   * 
+   * @example
+   * UTF-8
+   */
   charEnc?: string;
+  /**
+   * @remarks
+   * The font of the hardcoded subtitles converted from external subtitles. Default value: **SimSun**. For more information, see [Fonts](https://help.aliyun.com/document_detail/59950.html).
+   * 
+   * @example
+   * "WenQuanYi Zen Hei", "Yuanti SC Regular", "SimSun"
+   */
   fontName?: string;
+  /**
+   * @remarks
+   * The OSS object that is used as the external subtitle. The value is a JSON object. Files in the **SRT** or **ASS** format are supported.
+   */
   input?: SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfigExtSubtitleListExtSubtitleInput;
   static names(): { [key: string]: string } {
     return {
@@ -21704,6 +39665,13 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfig
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfigSubtitleListSubtitle extends $tea.Model {
+  /**
+   * @remarks
+   * The audio track. Format: `0:{Stream}:{Stream sequence number}`, which is `0:a:{audio_index}`. The value of Stream is a, which indicates an audio stream. The sequence number is the index of the audio stream in the list and starts from 0.
+   * 
+   * @example
+   * 0:a:0
+   */
   map?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21742,7 +39710,15 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfig
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The external subtitles. The value is a JSON array that contains up to **four** objects.
+   */
   extSubtitleList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfigExtSubtitleList;
+  /**
+   * @remarks
+   * The subtitles.
+   */
   subtitleList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfigSubtitleList;
   static names(): { [key: string]: string } {
     return {
@@ -21764,6 +39740,16 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfig
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputSuperReso extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether parameters related to the sampling rate are obtained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isHalfSample?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21783,12 +39769,72 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputSuperReso exte
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputTailSlateListTailSlate extends $tea.Model {
+  /**
+   * @remarks
+   * The color of the bars that are added to the ending part if the size of the ending part is smaller than that of the main part. Default value: **White**. For more information, see [Background colors](https://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/29253/cn_zh/1502784952344/color.txt?spm=a2c4g.11186623.2.63.241240f77qp3Yy\\&file=color.txt).
+   * 
+   * @example
+   * White
+   */
   bgColor?: string;
+  /**
+   * @remarks
+   * The duration of the transition between the main part and the ending part. A fade transition is used: The last frame of the main part fades out, and the first frame of the ending part fades in. Unit: seconds. Default value: **0**.
+   * 
+   * @example
+   * 2
+   */
   blendDuration?: string;
+  /**
+   * @remarks
+   * The height of the ending part.
+   * 
+   * *   Valid values: values in the range of **(0,4096)**, **-1**, and **full**.
+   * *   A value of **-1** indicates that the height of the source of the ending part is retained. A value of **full** indicates that the height of the main part is used for the ending part.
+   * *   Default value: -1.
+   * 
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio content of the ending part is merged. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   isMergeAudio?: boolean;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 1
+   */
   start?: string;
+  /**
+   * @remarks
+   * The OSS URL of the ending part.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com/opening_01.flv
+   */
   tailUrl?: string;
+  /**
+   * @remarks
+   * The width of the ending part.
+   * 
+   * *   Valid values: values in the range of **(0,4096)**, **-1**, and **full**.
+   * *   A value of **-1** indicates that the width of the source of the ending part is retained. A value of **full** indicates that the width of the main part is used for the ending part.
+   * *   Default value: -1.
+   * 
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21839,13 +39885,106 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputTailSlateList 
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method of resolution adjustment. Default value: **none**. Valid values:
+   * 
+   * *   rescale: The video image is resized.
+   * *   crop: The video image is cropped.
+   * *   pad: The video image is scaled out to fill the view.
+   * *   none: The resolution is not adjusted.
+   * 
+   * @example
+   * crop
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. If the bitrate of the output audio is higher than that of the input audio, the input bitrate is retained and the specified audio bitrate does not take effect. This parameter has a lower priority than IsCheckAudioBitrateFail. Valid values:
+   * 
+   * *   **true**
+   * 
+   * *   **false**
+   * 
+   * *   Default value:
+   * 
+   *     *   If this parameter is empty and the codec of the output audio is different from the codec of the input audio, the default value is false.
+   *     *   If this parameter is empty and the codec of the output audio is the same as the codec of the input audio, the default value is true.
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. This parameter has a higher priority than **IsCheckAudioBitrate**. If the bitrate of the output audio is higher than that of the input audio, a transcoding failure is returned without transcoding the audio. Valid values:
+   * 
+   * *   **false**
+   * *   **true**
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, the input resolution is retained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. This parameter has a higher priority than IsCheckReso. If the output resolution is higher than the input resolution based on the width or height, a transcoding failure is returned without transcoding the video. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, the input bitrate is retained. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. If the bitrate of the output video is higher than that of the input video, a transcoding failure is returned without transcoding the video. This parameter has a higher priority than**IsCheckVideoBitrate**. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * *   Default value: **false**.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The transcoding mode. Valid values:
+   * 
+   * *   **onepass**: transcoding based on one-pass algorithms, which has higher accuracy.
+   * *   **twopass**: transcoding based on two-pass algorithms, which has lower accuracy.
+   * *   **CBR**: transcoding based on a fixed bitrate.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21879,7 +40018,21 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputTransConfig ex
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputVideoBitrateBnd extends $tea.Model {
+  /**
+   * @remarks
+   * The upper limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 20
+   */
   max?: string;
+  /**
+   * @remarks
+   * The lower limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 10
+   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21901,25 +40054,221 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputVideoBitrateBn
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputVideo extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the output video. Unit: Kbit/s.
+   * 
+   * @example
+   * 10
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The average bitrate range of the video.
+   */
   bitrateBnd?: SubmitJobsResponseBodyJobResultListJobResultJobOutputVideoBitrateBnd;
+  /**
+   * @remarks
+   * The size of the buffer.
+   * 
+   * *   Unit: KB.
+   * *   Default value: **6000**.
+   * 
+   * @example
+   * 1000
+   */
   bufsize?: string;
+  /**
+   * @remarks
+   * The video codec.
+   * 
+   * *   Valid values: **H.264**, **H.265**, **GIF**, and **WEBP**.
+   * *   Default value: **H.264**.
+   * 
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   If **Crf** is returned, the value of **Bitrate** is invalid.
+   * *   Default value if the value of Codec is H.264: **23**. Default value if the value of Codec is H.265: **26**.
+   * 
+   * @example
+   * 22
+   */
   crf?: string;
+  /**
+   * @remarks
+   * The method of video cropping. Valid values:
+   * 
+   * *   **border**: Black borders are automatically detected and removed.
+   * *   A value in the format of width:height:left:top: The video is cropped based on the custom settings.
+   * 
+   * @example
+   * 1280:800:0:140
+   */
   crop?: string;
+  /**
+   * @remarks
+   * The strength of the independent noise reduction algorithm.
+   * 
+   * @example
+   * 5
+   */
   degrain?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * *   Unit: frames per second.
+   * *   Valid values: 0 to 60. The value is 60 if the frame rate of the input file exceeds 60.
+   * *   Default value: the frame rate of the input file.
+   * 
+   * @example
+   * 60
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The maximum interval between keyframes or the maximum number of frames in a frame group. Unit: seconds.
+   * 
+   * *   Default value: 10.
+   * *   If the maximum number of frames is returned, the value does not have a unit.
+   * 
+   * @example
+   * 1
+   */
   gop?: string;
+  /**
+   * @remarks
+   * The height of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: the height of the input video.
+   * 
+   * @example
+   * 1280
+   */
   height?: string;
+  /**
+   * @remarks
+   * The maximum frame rate.
+   * 
+   * @example
+   * 15
+   */
   maxFps?: string;
+  /**
+   * @remarks
+   * The maximum bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 10
+   */
   maxrate?: string;
+  /**
+   * @remarks
+   * The black borders that are added to the video.
+   * 
+   * *   The value is in the width:height:left:top format.
+   * *   Unit: pixel.
+   * 
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @remarks
+   * The pixel format of the video.
+   * 
+   * *   The default pixel format can be **yuv420p** or the pixel format of the input file.
+   * 
+   * *   Valid values: standard pixel formats such as **yuv420p** and **yuvj420p**.
+   * 
+   *     **
+   * 
+   *     **Note** If a non-standard pixel format such as yuvj420p(pc, bt470bg/bt470bg/smpte170m) is used, compatibility with the pixel format must be configured. Otherwise, the transcoding job fails.
+   * 
+   * @example
+   * yuvj420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The preset video algorithm. Default value: **medium**. Valid values:
+   * 
+   * *   **veryfast**
+   * *   **fast**
+   * *   **medium**
+   * *   **slow**
+   * *   **slower**
+   * 
+   * @example
+   * veryfast
+   */
   preset?: string;
+  /**
+   * @remarks
+   * The encoding profile. This parameter is returned only for the H.264 codec. Default value: **high**. Valid values:
+   * 
+   * >  If multiple definitions are involved, we recommend that you use baseline for the lowest definition to ensure normal playback on low-definition devices, and use main or high for other definitions.
+   * 
+   * *   **baseline**: applicable to mobile devices.
+   * *   **main**: applicable to standard-definition devices.
+   * *   **high**: applicable to high-definition devices.
+   * 
+   * @example
+   * baseline
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The level of quality control on the video.
+   * 
+   * @example
+   * 15
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The priority of the resource.
+   * 
+   * @example
+   * 1
+   */
   resoPriority?: string;
+  /**
+   * @remarks
+   * The scan mode. Valid values:
+   * 
+   * *   If this parameter is **empty**, the scan mode of the input file is used.
+   * *   **auto**: automatic deinterlacing.
+   * *   **progressive**: progressive scan.
+   * *   **interlaced**: interlaced scan.
+   * *   **By default**, this parameter is empty.
+   * 
+   * **Best practice**: Interlaced scan consumes less bandwidth than progressive scan, but the image quality is poor. Therefore, mainstream video production uses progressive scan.
+   * 
+   * *   If **progressive scan** or **interlaced scan** is used when the scan mode of the input file is neither of them, the transcoding job fails.
+   * *   We recommend that you use **the scan mode of the input file** or **automatic deinterlacing** to improve compatibility.
+   * 
+   * @example
+   * interlaced
+   */
   scanMode?: string;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: **the width of the input video**.
+   * 
+   * @example
+   * 1080
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21977,8 +40326,29 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputVideo extends 
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputWaterMarkListWaterMarkInputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the OSS region in which the input file is stored.
+   * 
+   * @example
+   * oss-cn-hangzhou
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
+   * @example
+   * example-logo-****.png
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22002,13 +40372,114 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputWaterMarkListW
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutputWaterMarkListWaterMark extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset of the watermark image relative to the output video. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. Default value: 0. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the horizontal offset.
+   * 
+   *     *   Valid values: **[8,4096]**.
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal number indicates the ratio of the horizontal offset to the width in the output video resolution.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excess digits are automatically deleted.
+   * 
+   * @example
+   * 1
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The vertical offset of the watermark image relative to the output video. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the vertical offset.
+   * 
+   *     *   Valid values: **[8,4096]**.
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal number indicates the ratio of the vertical offset to the height in the output video resolution.
+   * 
+   *     *   Valid values: **(0,1)**.
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excess digits are automatically deleted.
+   * 
+   * @example
+   * 1
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The height of the watermark. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the watermark height.
+   * 
+   *     *   Valid values: **[8,4096]**.
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal number indicates the ratio of the watermark height to the height in the output video resolution.
+   * 
+   *     *   Valid values: **(0,1)**.
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excess digits are automatically deleted.
+   * 
+   * @example
+   * 1280
+   */
   height?: string;
+  /**
+   * @remarks
+   * The watermark input file. PNG images and MOV files are supported.
+   */
   inputFile?: SubmitJobsResponseBodyJobResultListJobResultJobOutputWaterMarkListWaterMarkInputFile;
+  /**
+   * @remarks
+   * The position of the watermark. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. Valid values:
+   * 
+   * *   **TopRight**
+   * *   **TopLeft**
+   * *   **BottomRight**
+   * *   **BottomLeft**
+   * 
+   * @example
+   * TopRight
+   */
   referPos?: string;
+  /**
+   * @remarks
+   * The type of the watermark. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. For more information, see [Parameter details](https://help.aliyun.com/document_detail/29253.html). Valid values:
+   * 
+   * *   **Image**
+   * *   **Text**
+   * 
+   * @example
+   * Image
+   */
   type?: string;
+  /**
+   * @remarks
+   * The ID of the watermark template.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   waterMarkTemplateId?: string;
+  /**
+   * @remarks
+   * The width of the watermark image. If this parameter is specified in the request, the corresponding parameter in the watermark template is overwritten. The value can be an integer or a decimal number.
+   * 
+   * *   An integer indicates the pixel value of the watermark width.
+   * 
+   *     *   Valid values: **[8,4096]**.
+   *     *   Unit: pixel.
+   * 
+   * *   A decimal number indicates the ratio of the watermark width to the width in the output video resolution.
+   * 
+   *     *   Valid values: **(0,1)**.
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excess digits are automatically deleted.
+   * 
+   * @example
+   * 1080
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22061,33 +40532,196 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutputWaterMarkList 
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJobOutput extends $tea.Model {
+  /**
+   * @remarks
+   * The audio tracks that are mixed.
+   */
   amixList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputAmixList;
+  /**
+   * @remarks
+   * The audio configurations.
+   * 
+   * >  If this parameter is specified in the request, the corresponding configurations in the specified transcoding template are overwritten.
+   */
   audio?: SubmitJobsResponseBodyJobResultListJobResultJobOutputAudio;
+  /**
+   * @remarks
+   * The sequence number of the audio stream.
+   * 
+   * *   Format: 0:a:{Sequence number}. Example: 0:a:0.
+   * *   The sequence number is the index of the audio stream in the list and starts from 0.
+   * *   If no sequence number is specified, the default audio stream is used.
+   * 
+   * @example
+   * 0:a:0
+   */
   audioStreamMap?: string;
+  /**
+   * @remarks
+   * The information about the clip.
+   */
   clip?: SubmitJobsResponseBodyJobResultListJobResultJobOutputClip;
+  /**
+   * @remarks
+   * The container format configurations.
+   */
   container?: SubmitJobsResponseBodyJobResultListJobResultJobOutputContainer;
+  /**
+   * @remarks
+   * The configurations of watermark blurring. The value is a JSON object. For more information, see the **DeWatermark** section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   * 
+   * @example
+   * {"0": [{"l": 10,"t": 10,"w": 10,"h": 10},{"l": 100,"t": 0.1,"w": 10,"h": 10}],"128000": [],"250000": [{"l": 0.2,"t": 0.1,"w": 0.01,"h": 0.05}]}
+   */
   deWatermark?: string;
+  /**
+   * @remarks
+   * The digital watermarks.
+   */
   digiWaterMark?: SubmitJobsResponseBodyJobResultListJobResultJobOutputDigiWaterMark;
+  /**
+   * @remarks
+   * The encryption configurations. Only outputs in the M3U8 format are supported.
+   */
   encryption?: SubmitJobsResponseBodyJobResultListJobResultJobOutputEncryption;
+  /**
+   * @remarks
+   * The non-standard support configuration for M3U8. The value is a JSON object. For more information, see the **M3U8NonStandardSupport** section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
+   */
   m3U8NonStandardSupport?: SubmitJobsResponseBodyJobResultListJobResultJobOutputM3U8NonStandardSupport;
+  /**
+   * @remarks
+   * The URL of the merging configuration file. Only one of **MergeList** and **MergeConfigUrl** takes effect.
+   * 
+   * *   The configuration file specified by MergeConfigUrl can contain up to 50 clips.
+   * *   MergeConfigUrl indicates the URL of the configuration file for merging clips.
+   * *   Make sure that the configuration file is stored as an object in OSS and that MPS can access the OSS object. For information about the file content, see the details about merging parameters.
+   * *   Example of the content of the merging configuration file: `{"MergeList":[{"MergeURL":"http://exampleBucket****.oss-cn-hangzhou.aliyuncs.com/video_01.mp4"}]}`.
+   * 
+   * @example
+   * `{"MergeList":[{"MergeURL":"http://exampleBucket****.oss-cn-hangzhou.aliyuncs.com/video_01.mp4"}]}
+   */
   mergeConfigUrl?: string;
+  /**
+   * @remarks
+   * The configurations for merging clips.
+   */
   mergeList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputMergeList;
+  /**
+   * @remarks
+   * The transmuxing configurations. If this parameter is specified in the request, the corresponding configurations in the specified transcoding template are overwritten.
+   */
   muxConfig?: SubmitJobsResponseBodyJobResultListJobResultJobOutputMuxConfig;
+  /**
+   * @remarks
+   * The opening parts. The value is a JSON object.
+   */
   openingList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputOpeningList;
+  /**
+   * @remarks
+   * The output subtitles.
+   */
   outSubtitleList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputOutSubtitleList;
+  /**
+   * @remarks
+   * The details of the output file.
+   */
   outputFile?: SubmitJobsResponseBodyJobResultListJobResultJobOutputOutputFile;
+  /**
+   * @remarks
+   * The priority of the job in the MPS queue to which the job is added.
+   * 
+   * *   A value of **10** indicates the highest priority.
+   * *   Default value: **6**.
+   * 
+   * @example
+   * 5
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The media properties.
+   */
   properties?: SubmitJobsResponseBodyJobResultListJobResultJobOutputProperties;
+  /**
+   * @remarks
+   * The rotation angle of the video, in the clockwise direction.
+   * 
+   * @example
+   * 180
+   */
   rotate?: string;
+  /**
+   * @remarks
+   * The subtitle configurations.
+   */
   subtitleConfig?: SubmitJobsResponseBodyJobResultListJobResultJobOutputSubtitleConfig;
+  /**
+   * @remarks
+   * The configurations for using the resolution of the source video.
+   */
   superReso?: SubmitJobsResponseBodyJobResultListJobResultJobOutputSuperReso;
+  /**
+   * @remarks
+   * The ending parts. The value is a JSON object.
+   */
   tailSlateList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputTailSlateList;
+  /**
+   * @remarks
+   * The ID of the transcoding template.
+   * 
+   * @example
+   * S00000000-000010
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The general transcoding configurations.
+   * 
+   * >  If this parameter is specified in the request, the corresponding parameter in the specified transcoding template are overwritten.
+   */
   transConfig?: SubmitJobsResponseBodyJobResultListJobResultJobOutputTransConfig;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * example data
+   */
   userData?: string;
+  /**
+   * @remarks
+   * The video configurations.
+   * 
+   * >  If this parameter is specified, **AliyunVideoCodec** in the template specified by **TemplateId** is overwritten.
+   */
   video?: SubmitJobsResponseBodyJobResultListJobResultJobOutputVideo;
+  /**
+   * @remarks
+   * The sequence number of the video stream.
+   * 
+   * *   Format: 0:a:{Sequence number}. Example: 0:a:0.
+   * *   The sequence number is the index of the video stream in the list and starts from 0.
+   * *   If no sequence number is specified, the default video stream is used.
+   * 
+   * @example
+   * 0:a:0
+   */
   videoStreamMap?: string;
+  /**
+   * @remarks
+   * The URL of the watermark configuration file.
+   * 
+   * @example
+   * http://example.com/configure
+   */
   waterMarkConfigUrl?: string;
+  /**
+   * @remarks
+   * The watermarks.
+   * 
+   * >  If watermarks are truncated or fail to be generated, check whether the text watermarks that you add contain special characters. If the text watermarks contain special characters, you must escape the special characters before you add the watermarks. Alternatively, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.12246746.top-nav.dticket.68797bbcm8H408#/ticket/add/?productId=1232) to contact Alibaba Cloud customer service for compatibility processing.
+   */
   waterMarkList?: SubmitJobsResponseBodyJobResultListJobResultJobOutputWaterMarkList;
   static names(): { [key: string]: string } {
     return {
@@ -22161,16 +40795,87 @@ export class SubmitJobsResponseBodyJobResultListJobResultJobOutput extends $tea.
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResultJob extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * InternalError
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2014-01-10T12:00:00Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The time when the job was complete.
+   * 
+   * @example
+   * 2014-01-10T12:20:00Z
+   */
   finishTime?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   input?: SubmitJobsResponseBodyJobResultListJobResultJobInput;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * 31fa3c9ca8134f9cec2b4b0b0f78****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The message sent by MNS to notify users of the job result.
+   */
   MNSMessageResult?: SubmitJobsResponseBodyJobResultListJobResultJobMNSMessageResult;
+  /**
+   * @remarks
+   * The error message returned if the job failed. This parameter is not returned if the job was successful.
+   * 
+   * @example
+   * The operation has failed due to some unknown error, exception or failure.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The output of the job.
+   */
   output?: SubmitJobsResponseBodyJobResultListJobResultJobOutput;
+  /**
+   * @remarks
+   * The transcoding progress.
+   * 
+   * @example
+   * 100
+   */
   percent?: number;
+  /**
+   * @remarks
+   * The ID of the MPS queue.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2a126797
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The state of the job. Valid values:
+   * 
+   * *   **Submitted**
+   * *   **TranscodeFail**
+   * 
+   * @example
+   * Submitted
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22210,9 +40915,37 @@ export class SubmitJobsResponseBodyJobResultListJobResultJob extends $tea.Model 
 }
 
 export class SubmitJobsResponseBodyJobResultListJobResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job failed to be created. This parameter is not returned if the job was created.
+   * 
+   * @example
+   * InvalidParameter.NullValue
+   */
   code?: string;
+  /**
+   * @remarks
+   * The details of the job. If the job fails to be submitted, no job ID is generated.
+   */
   job?: SubmitJobsResponseBodyJobResultListJobResultJob;
+  /**
+   * @remarks
+   * The error message returned if the job failed to be created. This parameter is not returned if the job was created.
+   * 
+   * @example
+   * The specified parameter "%s" cannot be null.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the job was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -22257,8 +40990,29 @@ export class SubmitJobsResponseBodyJobResultList extends $tea.Model {
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input media file is stored.
+   * 
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The region in which the OSS bucket that stores the input media file resides.
+   * 
+   * @example
+   * example-location
+   */
   location?: string;
+  /**
+   * @remarks
+   * The name of the OSS object that is used as the input media file.
+   * 
+   * @example
+   * example.flv
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22282,8 +41036,29 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model 
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code that is returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * The parameter \\"Input\\" does not conform to the JSON Object specification
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message that is returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * InvalidParameter.JsonObjectFormatInvalid
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the message that is returned if the job is successful. This parameter is not returned if the job fails.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22307,13 +41082,69 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMNSMessageResult extends 
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesFormat extends $tea.Model {
+  /**
+   * @remarks
+   * The total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 1630.045
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The duration of the input media file. Unit: seconds.
+   * 
+   * @example
+   * 17.226000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The full name of the container format.
+   * 
+   * @example
+   * QuickTime/MOV
+   */
   formatLongName?: string;
+  /**
+   * @remarks
+   * The short name of the container format. For more information about the parameters, see [Parameter details](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/parameter-details-a).
+   * 
+   * @example
+   * mov
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The total number of program streams.
+   * 
+   * @example
+   * 0
+   */
   numPrograms?: string;
+  /**
+   * @remarks
+   * The total number of media streams.
+   * 
+   * @example
+   * 2
+   */
   numStreams?: string;
+  /**
+   * @remarks
+   * The size of the file. Unit: bytes.
+   * 
+   * @example
+   * 3509895
+   */
   size?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22347,21 +41178,139 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesFormat extends 
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsAudioStreamListAudioStream extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 128.806
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The output layout of the sound channels.
+   * 
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @remarks
+   * The number of sound channels.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the encoding format. Default value: acc. Valid values:
+   * 
+   * *   **acc**
+   * *   **mp3**
+   * *   **mp4**
+   * *   **ogg**
+   * *   **flac**
+   * 
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
+   * @example
+   * 0x6134706d
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
+   * @example
+   * mp4a
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration of the audio stream. Unit: seconds.
+   * 
+   * @example
+   * 17.159546
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 123
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The sampling format.
+   * 
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @remarks
+   * The sampling rate. Unit: Hz.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The start time of the audio stream.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   * 
+   * @example
+   * 1/44100
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22430,15 +41379,88 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsAudioStr
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsSubtitleStreamListSubtitleStream extends $tea.Model {
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * ASS (Advanced SSA) subtitle
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the encoding format. Valid values:
+   * 
+   * *   **srt**
+   * *   **ass**
+   * 
+   * @example
+   * ass
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
+   * @example
+   * 0x0000
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
+   * @example
+   * [0][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 0/1
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The duration of the audio stream. Unit: seconds.
+   * 
+   * @example
+   * 1370.116000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The sequence number of the subtitle stream. The value indicates the position of the subtitle stream in all subtitle streams.
+   * 
+   * @example
+   * 3
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The start time of the subtitle stream.
+   * 
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   * 
+   * @example
+   * 1/1000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22495,8 +41517,29 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsSubtitle
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamListVideoStreamNetworkCost extends $tea.Model {
+  /**
+   * @remarks
+   * The average bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 300.34
+   */
   avgBitrate?: string;
+  /**
+   * @remarks
+   * The maximum bandwidth that is consumed.
+   * 
+   * @example
+   * 10
+   */
   costBandwidth?: string;
+  /**
+   * @remarks
+   * The time consumed to preload the video.
+   * 
+   * @example
+   * 8
+   */
   preloadTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22520,32 +41563,223 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStr
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamListVideoStream extends $tea.Model {
+  /**
+   * @remarks
+   * The average frame rate.
+   * 
+   * @example
+   * 23.976025
+   */
   avgFPS?: string;
+  /**
+   * @remarks
+   * The bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 1496.46
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The full name of the encoding format.
+   * 
+   * @example
+   * H.264/AVC/MPEG-4 AVC/MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @remarks
+   * The short name of the encoding format. Valid values:
+   * 
+   * *   **h264**
+   * *   **h265**
+   * *   **gif**
+   * *   **webp**
+   * 
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
+   * @example
+   * 0x31637661
+   */
   codecTag?: string;
+  /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
+   * @example
+   * avc1
+   */
   codecTagString?: string;
+  /**
+   * @remarks
+   * The codec time base.
+   * 
+   * @example
+   * 1001/48000
+   */
   codecTimeBase?: string;
+  /**
+   * @remarks
+   * The level of color reconstruction.
+   * 
+   * @example
+   * 700
+   */
   colorPrimaries?: string;
+  /**
+   * @remarks
+   * The color range.
+   * 
+   * @example
+   * 700
+   */
   colorRange?: string;
+  /**
+   * @remarks
+   * The color channel.
+   * 
+   * @example
+   * R255 G83 B170
+   */
   colorTransfer?: string;
+  /**
+   * @remarks
+   * The display aspect ratio (DAR). DAR is the proportional relationship between the width and the height of a video. The value is used to determine whether the video is in portrait mode or landscape mode.
+   * 
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @remarks
+   * The duration of the video stream. Unit: seconds.
+   * 
+   * @example
+   * 17.225542
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames). A value of 1 indicates that the video stream contains B-frames. A value of 0 indicates that the video stream does not contain B-frames.
+   * 
+   * @example
+   * 0
+   */
   hasBFrames?: string;
+  /**
+   * @remarks
+   * The height of the video. Unit: pixel.
+   * 
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @remarks
+   * The sequence number of the video stream. The value indicates the position of the video stream in all video streams. The sequence number of the first video stream to be played can be specified in some players. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * eng
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The codec level.
+   * 
+   * @example
+   * 41
+   */
   level?: string;
+  /**
+   * @remarks
+   * The network bandwidth that is consumed.
+   */
   networkCost?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamListVideoStreamNetworkCost;
+  /**
+   * @remarks
+   * The total number of frames.
+   * 
+   * @example
+   * 100
+   */
   numFrames?: string;
+  /**
+   * @remarks
+   * The pixel format.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The codec profile.
+   * 
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The rotation angle of the video.
+   * 
+   * @example
+   * 90
+   */
   rotate?: string;
+  /**
+   * @remarks
+   * The sample aspect ratio (SAR).
+   * 
+   * @example
+   * 1:1
+   */
   sar?: string;
+  /**
+   * @remarks
+   * The start time of the video stream.
+   * 
+   * @example
+   * 0.042000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time base.
+   * 
+   * @example
+   * 1/24000
+   */
   timebase?: string;
+  /**
+   * @remarks
+   * The width of the video. Unit: pixel.
+   * 
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22636,8 +41870,20 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStr
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreams extends $tea.Model {
+  /**
+   * @remarks
+   * The audio streams. A media file can contain up to four audio streams.
+   */
   audioStreamList?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsAudioStreamList;
+  /**
+   * @remarks
+   * The subtitle streams. A media file can contain up to four subtitle streams.
+   */
   subtitleStreamList?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsSubtitleStreamList;
+  /**
+   * @remarks
+   * The video streams. A media file can contain up to four video streams.
+   */
   videoStreamList?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreamsVideoStreamList;
   static names(): { [key: string]: string } {
     return {
@@ -22661,14 +41907,71 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreams extends
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobProperties extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 1630.045
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The duration of the input media file. Unit: seconds.
+   * 
+   * @example
+   * 17.226000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The format of the input media file.
+   * 
+   * @example
+   * QuickTime/MOV
+   */
   fileFormat?: string;
+  /**
+   * @remarks
+   * The size of the file. Unit: bytes.
+   * 
+   * @example
+   * 3509895
+   */
   fileSize?: string;
+  /**
+   * @remarks
+   * The format information.
+   */
   format?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesFormat;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The height of the video. Unit: pixel.
+   * 
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @remarks
+   * The media streams that are contained in the input media file.
+   */
   streams?: SubmitMediaInfoJobResponseBodyMediaInfoJobPropertiesStreams;
+  /**
+   * @remarks
+   * The width of the video. Unit: pixel.
+   * 
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22704,16 +42007,88 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobProperties extends $tea.M
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the job is run in asynchronous mode.
+   * 
+   * @example
+   * true
+   */
   async?: boolean;
+  /**
+   * @remarks
+   * The error code returned if the job fails.
+   * 
+   * @example
+   * InvalidParameter.JsonObjectFormatInvalid
+   */
   code?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2014-01-10T12:00:00Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The information about the input media file.
+   */
   input?: SubmitMediaInfoJobResponseBodyMediaInfoJobInput;
+  /**
+   * @remarks
+   * The ID of the job.
+   * 
+   * @example
+   * 23ca1d184c0e4341e5b665e2a12****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The message sent by Message Service (MNS) to notify users of the job result.
+   */
   MNSMessageResult?: SubmitMediaInfoJobResponseBodyMediaInfoJobMNSMessageResult;
+  /**
+   * @remarks
+   * The error message returned if the job fails.
+   * 
+   * @example
+   * The parameter ”*” does not conform to the JSON Object specification
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which the analysis job is submitted.
+   * 
+   * @example
+   * 88c6ca184c0e432bbf5b665e2a15****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The properties of the input media file.
+   */
   properties?: SubmitMediaInfoJobResponseBodyMediaInfoJobProperties;
+  /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job fails.
+   * *   **Analyzing**: The job is being run.
+   * 
+   * @example
+   * Analyzing
+   */
   state?: string;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22753,9 +42128,37 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
 }
 
 export class SubmitSnapshotJobResponseBodySnapshotJobInput extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket that stores the object.
+   * 
+   * @example
+   * example
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The region in which the OSS bucket resides.
+   * 
+   * @example
+   * example-location\\"
+   */
   location?: string;
+  /**
+   * @remarks
+   * The OSS object that is used as the input file.
+   * 
+   * @example
+   * example.flv
+   */
   object?: string;
+  /**
+   * @remarks
+   * The ARN of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+   * 
+   * @example
+   * acs:ram::1:role/testrole
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22781,8 +42184,29 @@ export class SubmitSnapshotJobResponseBodySnapshotJobInput extends $tea.Model {
 }
 
 export class SubmitSnapshotJobResponseBodySnapshotJobMNSMessageResult extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * InvalidParameter
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * The resource operated InputFile is bad
+   */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The ID of the message. This parameter is not returned if the job fails.
+   * 
+   * @example
+   * 799454621135656C7F815F198A76****
+   */
   messageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22806,9 +42230,37 @@ export class SubmitSnapshotJobResponseBodySnapshotJobMNSMessageResult extends $t
 }
 
 export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigOutputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket that stores the output snapshot.
+   * 
+   * @example
+   * example
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The OSS region in which the OSS bucket for storing the output snapshot resides.
+   * 
+   * @example
+   * example-location
+   */
   location?: string;
+  /**
+   * @remarks
+   * The OSS object that is generated as the output file of the snapshot job.
+   * 
+   * @example
+   * test.png
+   */
   object?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+   * 
+   * @example
+   * acs:ram::1:role/testrole
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22834,14 +42286,92 @@ export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigOutputFile ex
 }
 
 export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTileOut extends $tea.Model {
+  /**
+   * @remarks
+   * The height of a single image. The default value is the height of the output snapshot.
+   * 
+   * @example
+   * 100
+   */
   cellHeight?: string;
+  /**
+   * @remarks
+   * The step for selecting a single image.
+   * 
+   * @example
+   * 3
+   */
   cellSelStep?: string;
+  /**
+   * @remarks
+   * The width of a single image. The default value is the width of the output snapshot.
+   * 
+   * @example
+   * 100
+   */
   cellWidth?: string;
+  /**
+   * @remarks
+   * The background color.
+   * 
+   * *   Default value: **black**.
+   * *   You can set the Color parameter to a **color keyword** or **random** in the request.
+   * 
+   * > If you want to set the background color to black, you can specify the color keyword in one of the following three formats: Black, black, and #000000.
+   * 
+   * @example
+   * black
+   */
   color?: string;
+  /**
+   * @remarks
+   * The number of columns that the tiled image contains. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   columns?: string;
+  /**
+   * @remarks
+   * Indicates whether the single images are retained. Valid values:
+   * 
+   * *   **true**: The single images are retained.
+   * *   **false**: The single images are not retained.
+   * *   Default value: **true**.
+   * 
+   * @example
+   * false
+   */
   isKeepCellPic?: string;
+  /**
+   * @remarks
+   * The number of rows that the tiled image contains. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   lines?: string;
+  /**
+   * @remarks
+   * The margin width of the tiled image.
+   * 
+   * *   Default value: **0**.
+   * *   Unit: pixel.
+   * 
+   * @example
+   * 5
+   */
   margin?: string;
+  /**
+   * @remarks
+   * The distance between two consecutive single images in the tiled image.
+   * 
+   * *   Default value: **0**.
+   * *   Unit: pixel.
+   * 
+   * @example
+   * 0
+   */
   padding?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22877,9 +42407,37 @@ export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTileOut exten
 }
 
 export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTileOutputFile extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket that stores the object.
+   * 
+   * @example
+   * example
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the OSS bucket that stores the object is located.
+   * 
+   * @example
+   * example-location
+   */
   location?: string;
+  /**
+   * @remarks
+   * The OSS object that is generated as the output file of the tiling job.
+   * 
+   * @example
+   * example.png
+   */
   object?: string;
+  /**
+   * @remarks
+   * The ARN of the specified RAM role. Format: acs:ram::$accountID:role/$roleName.
+   * 
+   * @example
+   * acs:ram::1:role/testrole
+   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22924,15 +42482,78 @@ export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTimeArray ext
 }
 
 export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the snapshot. Default value: **Normal**. Valid values:
+   * 
+   * *   **normal**: normal frames.
+   * *   **intra**: I-frames (keyframes).
+   * 
+   * > If the FrameType parameter is set to intra in the request, only keyframes are captured. If no keyframe is found at the specified point in time, the keyframe closest to the specified point in time is captured. Keyframes are captured faster than normal frames if the same snapshot rules are applied.
+   * 
+   * @example
+   * intra
+   */
   frameType?: string;
+  /**
+   * @remarks
+   * The height of the output snapshot.
+   * 
+   * @example
+   * 8
+   */
   height?: string;
+  /**
+   * @remarks
+   * The interval for capturing snapshots.
+   * 
+   * *   If this parameter is specified in the request, snapshots are captured at intervals. The value must be greater than 0 in the request.
+   * *   Unit: seconds.
+   * *   Default value: **10**.
+   * 
+   * @example
+   * 20
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The number of snapshots. If the Num parameter is set in the request, snapshots are captured at intervals.
+   * 
+   * @example
+   * 10
+   */
   num?: string;
+  /**
+   * @remarks
+   * The information about the output file of the snapshot job.
+   */
   outputFile?: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigOutputFile;
+  /**
+   * @remarks
+   * The tiling configurations.
+   */
   tileOut?: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTileOut;
+  /**
+   * @remarks
+   * The information about the output file of the tiling job.
+   */
   tileOutputFile?: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTileOutputFile;
+  /**
+   * @remarks
+   * The start time for capturing snapshots. Unit: milliseconds.
+   * 
+   * @example
+   * 5
+   */
   time?: string;
   timeArray?: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfigTimeArray;
+  /**
+   * @remarks
+   * The width of the output snapshot.
+   * 
+   * @example
+   * 8
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22970,17 +42591,97 @@ export class SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfig extends $tea
 }
 
 export class SubmitSnapshotJobResponseBodySnapshotJob extends $tea.Model {
+  /**
+   * @remarks
+   * The error code returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * ResourceContentBad
+   */
   code?: string;
+  /**
+   * @remarks
+   * The number of snapshots that are captured.
+   * 
+   * @example
+   * 1
+   */
   count?: string;
+  /**
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @example
+   * 2021-05-19T03:11:48Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the snapshot job.
+   * 
+   * @example
+   * f4e3b9ba9f3840c39d6e288056f0****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   input?: SubmitSnapshotJobResponseBodySnapshotJobInput;
+  /**
+   * @remarks
+   * The message sent by MNS to notify the user of the job result.
+   */
   MNSMessageResult?: SubmitSnapshotJobResponseBodySnapshotJobMNSMessageResult;
+  /**
+   * @remarks
+   * The error message returned if the job fails. This parameter is not returned if the job is successful.
+   * 
+   * @example
+   * The resource operated InputFile is bad
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the MPS queue to which the snapshot job is submitted.
+   * 
+   * @example
+   * dd3dae411e704030b921e52698e5****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The snapshot configurations.
+   */
   snapshotConfig?: SubmitSnapshotJobResponseBodySnapshotJobSnapshotConfig;
+  /**
+   * @remarks
+   * The status of the snapshot job. Valid values:
+   * 
+   * *   **Submitted**: The job is submitted.
+   * *   **Snapshoting**: The job is being processed.
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job fails.
+   * 
+   * @example
+   * Snapshoting
+   */
   state?: string;
+  /**
+   * @remarks
+   * The number of single images that are contained in the tiled image.
+   * 
+   * @example
+   * 5
+   */
   tileCount?: string;
+  /**
+   * @remarks
+   * The custom data.
+   * 
+   * @example
+   * testid-001
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23022,7 +42723,15 @@ export class SubmitSnapshotJobResponseBodySnapshotJob extends $tea.Model {
 }
 
 export class SubmitTraceAbJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * bfb786c639894f4d80648792021e****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 437bd2b516ffda105d07b12a9a82****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23044,6 +42753,10 @@ export class SubmitTraceAbJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitTraceExtractJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * bfb786c639894f4d80648792021e****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23063,6 +42776,10 @@ export class SubmitTraceExtractJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitTraceM3u8JobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * bfb786c639894f4d80648792021e****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23082,7 +42799,24 @@ export class SubmitTraceM3u8JobResponseBodyData extends $tea.Model {
 }
 
 export class UpdateMediaResponseBodyMediaFile extends $tea.Model {
+  /**
+   * @remarks
+   * The state of the input file. Valid values:
+   * 
+   * *   **Normal**: The input file is normal.
+   * *   **Deleted**: The input file is deleted.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket in which the input media file is stored.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-hangzhou.aliyuncs.com//example-****.mp4
+   */
   URL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23142,23 +42876,148 @@ export class UpdateMediaResponseBodyMediaTags extends $tea.Model {
 }
 
 export class UpdateMediaResponseBodyMedia extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the media file.
+   * 
+   * @example
+   * 2659.326
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The ID of the category to which the media file belongs.
+   * 
+   * @example
+   * 1
+   */
   cateId?: number;
+  /**
+   * @remarks
+   * The review state of the media file. Valid values:
+   * 
+   * *   **Initiated**: The media file is uploaded but not reviewed.
+   * *   **Pass**: The media file is uploaded and passes the review.
+   * 
+   * @example
+   * Initiated
+   */
   censorState?: string;
+  /**
+   * @remarks
+   * The URL of the thumbnail.
+   * 
+   * @example
+   * http://example-bucket-****.oss-cn-shanghai.aliyuncs.com/example-****.jpg
+   */
   coverURL?: string;
+  /**
+   * @remarks
+   * The time when the media file was created.
+   * 
+   * @example
+   * 2016-09-14T08:30:33Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The description of the media file.
+   * 
+   * @example
+   * example description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The duration of the media file.
+   * 
+   * @example
+   * 7.965000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The information about the input file.
+   */
   file?: UpdateMediaResponseBodyMediaFile;
+  /**
+   * @remarks
+   * The format of the media file. Valid values: mov, mp4, m4a, 3gp, 3g2, and mj2.
+   * 
+   * @example
+   * mov
+   */
   format?: string;
+  /**
+   * @remarks
+   * The frame rate of the media file.
+   * 
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The height of the media file.
+   * 
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @remarks
+   * The ID of the media file.
+   * 
+   * @example
+   * 3e1cd21131a94525be55acf65888****
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * The publishing state of the media file. Valid values:
+   * 
+   * *   **Initiated**: The media file is in the initial state.
+   * *   **UnPublish**: The media file has not been published, and the playback permission on the OSS object is Private.
+   * *   **Published**: The media file has been published, and the playback permission on the OSS object is Default.
+   * *   **Deleted**: The media file is deleted.
+   * 
+   * @example
+   * Published
+   */
   publishState?: string;
+  /**
+   * @remarks
+   * The IDs of the media workflow execution instances.
+   */
   runIdList?: UpdateMediaResponseBodyMediaRunIdList;
+  /**
+   * @remarks
+   * The size of the media file.
+   * 
+   * @example
+   * 2647692
+   */
   size?: string;
+  /**
+   * @remarks
+   * The information about the tags.
+   */
   tags?: UpdateMediaResponseBodyMediaTags;
+  /**
+   * @remarks
+   * The title of the media file.
+   * 
+   * @example
+   * hello
+   */
   title?: string;
+  /**
+   * @remarks
+   * The width of the media file.
+   * 
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23212,11 +43071,90 @@ export class UpdateMediaResponseBodyMedia extends $tea.Model {
 }
 
 export class UpdateMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @example
+   * 2016-04-01T05:29:38Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the media workflow that is updated.
+   * 
+   * @example
+   * 6307eb0d3f85477882d205aa040f****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the media workflow.
+   * 
+   * @example
+   * examp-mediaworkflow-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The state of the media workflow. Valid values:
+   * 
+   * *   **Inactive**: The media workflow is disabled.
+   * *   **Active**: The media workflow is enabled.
+   * 
+   * @example
+   * Active
+   */
   state?: string;
+  /**
+   * @remarks
+   * The topology of the media workflow.
+   * 
+   * @example
+   * {
+   *       "Activities": {
+   *             "Act-Start": {
+   *                   "Parameters": {
+   *                         "PipelineId": "130266f58161436a80bf07cb12c8****",
+   *                         "InputFile": "{\\"Bucket\\": \\"example-bucket-****\\",\\"Location\\": \\"cn-shanghai\\"}"
+   *                   },
+   *                   "Type": "Start"
+   *             },
+   *             "Act-Report": {
+   *                   "Parameters": {},
+   *                   "Type": "Report"
+   *             },
+   *             "Act-Transcode-M3U8": {
+   *                   "Parameters": {
+   *                         "Outputs": "[{\\"Object\\":\\"transcode/{ObjectPrefix}{FileName}\\",\\"TemplateId\\": \\"957d1719ee85ed6527b90cf62726****\\"}]",
+   *                         "OutputBucket": "example-bucket-****",
+   *                         "OutputLocation": "cn-shanghai"
+   *                   },
+   *                   "Type": "Transcode"
+   *             }
+   *       },
+   *       "Dependencies": {
+   *             "Act-Start": [
+   *                   "Act-Transcode-M3U8"
+   *             ],
+   *             "Act-Report": [],
+   *             "Act-Transcode-M3U8": [
+   *                   "Act-Report"
+   *             ]
+   *       }
+   * }
+   */
   topology?: string;
+  /**
+   * @remarks
+   * The trigger mode of the media workflow. Valid values:
+   * 
+   * *   **OssAutoTrigger**: The media workflow is automatically triggered.
+   * *   **NotInAuto**: The media workflow is not automatically triggered.
+   * 
+   * @example
+   * OssAutoTrigger
+   */
   triggerMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23246,11 +43184,59 @@ export class UpdateMediaWorkflowResponseBodyMediaWorkflow extends $tea.Model {
 }
 
 export class UpdateMediaWorkflowTriggerModeResponseBodyMediaWorkflow extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @example
+   * 2016-04-01T05:29:37Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The ID of the media workflow.
+   * 
+   * @example
+   * e00732b977da427d9177a4dee646****
+   */
   mediaWorkflowId?: string;
+  /**
+   * @remarks
+   * The name of the media workflow.
+   * 
+   * @example
+   * example-mediaworkflow-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the media workflow. Valid values:
+   * 
+   * *   **Inactive**: The media workflow is disabled.
+   * *   **Active**: The media workflow is enabled.
+   * 
+   * @example
+   * Inactive
+   */
   state?: string;
+  /**
+   * @remarks
+   * The topology of the media workflow.
+   * 
+   * @example
+   * {mediaworkflow","State":"Active","Topology":"{\\"Activities\\":{\\"Act-Start\\":{\\"Parameters\\":{\\"PipelineId\\":\\"130266f58161436a80bf07cb12c8****\\",\\"InputFile\\":\\"{\\\\\\"Bucket\\\\\\": \\\\\\"example-bucket-****\\\\\\",\\\\\\"Location\\\\\\": \\\\\\"cn-shanghai\\\\\\"}\\"},\\"Type\\":\\"Start\\"},\\"Act-Report\\":{\\"Parameters\\":{},\\"Type\\":\\"Report\\"},\\"Act-Transcode-M3U8\\":{\\"Parameters\\":{\\"Outputs\\":\\"[{\\\\\\"Object\\\\\\":\\\\\\"transcode/{ObjectPrefix}{FileName}\\\\\\",\\\\\\"TemplateId\\\\\\": \\\\\\"957d1719ee85ed6527b90cf62726****\\\\\\"}]\\",\\"OutputBucket\\":\\"example-bucket-****\\",\\"OutputLocation\\":\\"cn-shanghai\\"},\\"Type\\":\\"Transcode\\"}},\\"Dependencies\\":{\\"Act-Start\\":[\\"Act-Transcode-M3U8\\"],\\"Act-Report\\":[],\\"Act-Transcode-M3U8\\":[\\"Act-Report\\"]}}","MediaWorkflowId":"93ab850b4f6f44eab54b6e91d24d****"}]},"RequestId":"16CD0CDD-457E-420D-9755-8385075A1234"}
+   */
   topology?: string;
+  /**
+   * @remarks
+   * The trigger mode of the media workflow. Valid values:
+   * 
+   * *   **OssAutoTrigger**: The media workflow is automatically triggered.
+   * *   **NotInAuto**: The media workflow is not automatically triggered.
+   * 
+   * @example
+   * NotInAuto
+   */
   triggerMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23280,9 +43266,37 @@ export class UpdateMediaWorkflowTriggerModeResponseBodyMediaWorkflow extends $te
 }
 
 export class UpdatePipelineResponseBodyPipelineNotifyConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The tags of the messages.
+   * 
+   * @example
+   * mts-test
+   */
   mqTag?: string;
+  /**
+   * @remarks
+   * The queue of messages that are received.
+   * 
+   * @example
+   * example1,example2
+   */
   mqTopic?: string;
+  /**
+   * @remarks
+   * The queue that is created in MNS.
+   * 
+   * @example
+   * example-queue-****
+   */
   queueName?: string;
+  /**
+   * @remarks
+   * The topic that is created in MNS.
+   * 
+   * @example
+   * example-topic-****
+   */
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23308,12 +43322,73 @@ export class UpdatePipelineResponseBodyPipelineNotifyConfig extends $tea.Model {
 }
 
 export class UpdatePipelineResponseBodyPipeline extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the MPS queue.
+   * 
+   * @example
+   * d1ce4d3efcb549419193f50f1fcd****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The new name of the MPS queue.
+   * 
+   * @example
+   * example-pipeline-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The MNS configuration.
+   */
   notifyConfig?: UpdatePipelineResponseBodyPipelineNotifyConfig;
+  /**
+   * @remarks
+   * The quota that is allocated to the MPS queue.
+   * 
+   * @example
+   * 10
+   */
   quotaAllocate?: number;
+  /**
+   * @remarks
+   * The role that is assigned to the current RAM user.
+   * 
+   * @example
+   * AliyunMTSExampleRole
+   */
   role?: string;
+  /**
+   * @remarks
+   * The type of the MPS queue. Default value: **Standard**. Valid values:
+   * 
+   * *   **Boost**: MPS queue with transcoding speed boosted
+   * *   **Standard**: standard MPS queue
+   * *   **NarrowBandHDV2**: MPS queue that supports Narrowband HD 2.0
+   * *   **AIVideoCover**: MPS queue for intelligent snapshot capture
+   * *   **AIVideoFPShot**: MPS queue for media fingerprinting
+   * *   **AIVideoCensor**: MPS queue for automated review
+   * *   **AIVideoMCU**: MPS queue for smart tagging
+   * *   **AIVideoSummary**: MPS queue for video synopsis
+   * *   **AIVideoPorn**: MPS queue for pornography detection in videos
+   * *   **AIAudioKWS**: MPS queue for keyword recognition in audio
+   * *   **AIAudioASR**: MPS queue for speech-to-text conversion
+   * 
+   * @example
+   * Standard
+   */
   speed?: string;
+  /**
+   * @remarks
+   * The state of the MPS queue. Valid values:
+   * 
+   * *   **Active**: The MPS queue is active.
+   * *   **Paused**: The MPS queue is paused.
+   * 
+   * @example
+   * Paused
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23345,11 +43420,83 @@ export class UpdatePipelineResponseBodyPipeline extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBodyTemplateAudioVolume extends $tea.Model {
+  /**
+   * @remarks
+   * The expected volume.
+   * 
+   * *   This parameter takes effect only if the value of Method is dynamic.
+   * *   Unit: decibel.
+   * *   Valid values: [-70,-5].
+   * *   Default value: -6.
+   * 
+   * @example
+   * -6
+   */
   integratedLoudnessTarget?: string;
+  /**
+   * @remarks
+   * The increased volume relative to the volume of the input audio.
+   * 
+   * *   This parameter takes effect only if the value of Method is linear.
+   * *   Unit: decibel.
+   * *   Valid values: less than or equal to 20.
+   * *   Default value: -20.
+   * 
+   * @example
+   * -20
+   */
   level?: string;
+  /**
+   * @remarks
+   * The range of the volume relative to the expected volume.
+   * 
+   * *   This parameter takes effect only if the value of Method is dynamic.
+   * *   Unit: decibel.
+   * *   Valid values: [1,20].
+   * *   Default value: 8.
+   * 
+   * @example
+   * 8
+   */
   loudnessRangeTarget?: string;
+  /**
+   * @remarks
+   * The volume adjustment method. Valid values:
+   * 
+   * *   **auto**
+   * *   **dynamic**
+   * *   **linear**
+   * 
+   * @example
+   * auto
+   */
   method?: string;
+  /**
+   * @remarks
+   * The volume adjustment coefficient.
+   * 
+   * This parameter takes effect only if the value of Method is adaptive.
+   * 
+   * Valid values: [0,1].
+   * 
+   * Default value: 0.9.
+   * 
+   * @example
+   * 0.9
+   */
   peakLevel?: string;
+  /**
+   * @remarks
+   * The peak volume.
+   * 
+   * *   This parameter takes effect only if the value of Method is dynamic.
+   * *   Unit: decibel.
+   * *   Valid values: [-9,0].
+   * *   Default value: -1.
+   * 
+   * @example
+   * -1
+   */
   truePeak?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23379,13 +43526,82 @@ export class UpdateTemplateResponseBodyTemplateAudioVolume extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBodyTemplateAudio extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the transcoding template.
+   * 
+   * @example
+   * 500
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Valid values: 8 to 1000.****
+   * *   Unit: Kbit/s.
+   * *   Default value: **128**.
+   * 
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Unit: Hz.
+   * *   Default value: **44100**.
+   * 
+   * @example
+   * aac
+   */
   codec?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio stream is deleted.
+   * 
+   * *   **true**: The audio stream is deleted.
+   * *   **false**: The audio stream is retained.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The number of sound channels. Default value: **2**.
+   * 
+   * @example
+   * 1
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The audio codec format. Default value: **aac**. Valid values:
+   * 
+   * *   **aac**
+   * *   **mp3**
+   * *   **vorbis**
+   * *   **flac**
+   * 
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @remarks
+   * The level of the independent denoising algorithm.
+   * 
+   * @example
+   * 44100
+   */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume control configurations.
+   */
   volume?: UpdateTemplateResponseBodyTemplateAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -23419,6 +43635,13 @@ export class UpdateTemplateResponseBodyTemplateAudio extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBodyTemplateContainer extends $tea.Model {
+  /**
+   * @remarks
+   * The container format.
+   * 
+   * @example
+   * mp4
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23438,9 +43661,37 @@ export class UpdateTemplateResponseBodyTemplateContainer extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBodyTemplateMuxConfigGif extends $tea.Model {
+  /**
+   * @remarks
+   * The loop count.
+   * 
+   * @example
+   * bayer
+   */
   ditherMode?: string;
+  /**
+   * @remarks
+   * The color dithering algorithm of the palette. Valid values: sierra and bayer.
+   * 
+   * @example
+   * false
+   */
   finalDelay?: string;
+  /**
+   * @remarks
+   * The segment configurations.
+   * 
+   * @example
+   * 0
+   */
   isCustomPalette?: string;
+  /**
+   * @remarks
+   * Indicates whether the custom palette is used.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23466,6 +43717,13 @@ export class UpdateTemplateResponseBodyTemplateMuxConfigGif extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBodyTemplateMuxConfigSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * 10
+   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23485,6 +43743,13 @@ export class UpdateTemplateResponseBodyTemplateMuxConfigSegment extends $tea.Mod
 }
 
 export class UpdateTemplateResponseBodyTemplateMuxConfigWebp extends $tea.Model {
+  /**
+   * @remarks
+   * The transmuxing configurations for GIF.
+   * 
+   * @example
+   * 0
+   */
   loop?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23504,8 +43769,20 @@ export class UpdateTemplateResponseBodyTemplateMuxConfigWebp extends $tea.Model 
 }
 
 export class UpdateTemplateResponseBodyTemplateMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The duration for which the final frame is paused. Unit: milliseconds.
+   */
   gif?: UpdateTemplateResponseBodyTemplateMuxConfigGif;
+  /**
+   * @remarks
+   * The length of the segment. Unit: seconds.
+   */
   segment?: UpdateTemplateResponseBodyTemplateMuxConfigSegment;
+  /**
+   * @remarks
+   * The loop count.
+   */
   webp?: UpdateTemplateResponseBodyTemplateMuxConfigWebp;
   static names(): { [key: string]: string } {
     return {
@@ -23529,13 +43806,100 @@ export class UpdateTemplateResponseBodyTemplateMuxConfig extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBodyTemplateTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. If this parameter is set to true and the system detects that the video bitrate of the output file is greater than that of the input file, the video bitrate of the input file is retained after transcoding. Valid values:
+   * 
+   * *   **true**: The video bitrate is checked.
+   * *   **false**: The video bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * none
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * The transcoding mode. Default value: **onepass**. Valid values:
+   * 
+   * *   **onepass**
+   * *   **twopass**
+   * *   **CBR**
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * The status of the template. Valid values:
+   * 
+   * *   **Normal**: The template is normal.
+   * *   **Deleted**: The template is deleted.
+   * 
+   * @example
+   * false
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate is checked. This parameter has a higher priority than the IsCheckVideoBitrate parameter. Valid values:
+   * 
+   * *   **true**: The video bitrate is checked
+   * *   **false**: The video bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. This parameter has a higher priority than the IsCheckAudioBitrate parameter. Valid values:
+   * 
+   * *   **true**: The audio bitrate is checked.
+   * *   **false**: The audio bitrate is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If this parameter is set to true and the system detects that the resolution of the output file is higher than that of the input file based on the width or height, an error that indicates a transcoding failure is returned. Valid values:
+   * 
+   * *   **true**: The resolution is checked.
+   * *   **false**: The resolution is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * The method of resolution adjustment. Default value: **none**. Valid values:
+   * 
+   * *   rescale: The input video is rescaled.
+   * *   crop: The input video is cropped.
+   * *   none: No change is made.
+   * 
+   * @example
+   * false
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the resolution is checked. If the output resolution is higher than the input resolution based on the width or height, the input resolution is retained after transcoding. Valid values:
+   * 
+   * *   **true**: The resolution is checked.
+   * *   **false**: The resolution is not checked.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23569,7 +43933,21 @@ export class UpdateTemplateResponseBodyTemplateTransConfig extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBodyTemplateVideoBitrateBnd extends $tea.Model {
+  /**
+   * @remarks
+   * The lower limit of the total bitrate. Unit: Kbit/s.
+   * 
+   * @example
+   * 500
+   */
   max?: string;
+  /**
+   * @remarks
+   * The pixel format. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
+   * @example
+   * 100
+   */
   min?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23591,8 +43969,29 @@ export class UpdateTemplateResponseBodyTemplateVideoBitrateBnd extends $tea.Mode
 }
 
 export class UpdateTemplateResponseBodyTemplateVideoNarrowBand extends $tea.Model {
+  /**
+   * @remarks
+   * The upper limit of the dynamic bitrate. If this parameter is set, the average bitrate is in the range of (0, 1000000].
+   * 
+   * @example
+   * 3000
+   */
   abrmax?: number;
+  /**
+   * @remarks
+   * The maximum ratio of the upper limit of dynamic bitrate. If this parameter is set, the value of Abrmax does not exceed x times of the source video bitrate. Valid values: (0,1.0].
+   * 
+   * @example
+   * 1.0
+   */
   maxAbrRatio?: number;
+  /**
+   * @remarks
+   * The Narrowband HD version. Only 1.0 may be returned.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23616,29 +44015,230 @@ export class UpdateTemplateResponseBodyTemplateVideoNarrowBand extends $tea.Mode
 }
 
 export class UpdateTemplateResponseBodyTemplateVideo extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * 200
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The upper limit of the total bitrate. Unit: Kbit/s.
+   */
   bitrateBnd?: UpdateTemplateResponseBodyTemplateVideoBitrateBnd;
+  /**
+   * @remarks
+   * The level of quality control on the video.
+   * 
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @remarks
+   * The height of the output video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: the height of the input video.
+   * 
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @remarks
+   * Indicates whether the video stream is deleted. Valid values:
+   * 
+   * *   **true**: The video stream is deleted.
+   * *   **false**: The video stream is retained.
+   * *   Default value: **false**.
+   * 
+   * @example
+   * 15
+   */
   crf?: string;
+  /**
+   * @remarks
+   * The average bitrate of the video. Unit: Kbit/s.
+   * 
+   * @example
+   * border
+   */
   crop?: string;
+  /**
+   * @remarks
+   * The average bitrate range of the video.
+   * 
+   * @example
+   * 10
+   */
   degrain?: string;
+  /**
+   * @remarks
+   * The preset video algorithm. Default value: **medium**. Valid values:
+   * 
+   * *   **veryfast**
+   * *   **fast**
+   * *   **medium**
+   * *   **slow**
+   * *   **slower**
+   * 
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @remarks
+   * The width of the video.
+   * 
+   * *   Unit: pixel.
+   * *   Default value: **the width of the input video**.
+   * 
+   * @example
+   * 10
+   */
   gop?: string;
+  /**
+   * @remarks
+   * Indicates whether the HDR2SDR conversion feature is enabled. If this feature is enabled, high dynamic range (HDR) videos are transcoded to standard dynamic range (SDR) videos.
+   * 
+   * @example
+   * true
+   */
   hdr2sdr?: string;
+  /**
+   * @remarks
+   * The level of the independent denoising algorithm.
+   * 
+   * @example
+   * 800
+   */
   height?: string;
+  /**
+   * @remarks
+   * The size of the buffer.
+   * 
+   * *   Unit: KB.
+   * *   Default value: **6000**.
+   * 
+   * @example
+   * false
+   */
   longShortMode?: string;
+  /**
+   * @remarks
+   * The encoding profile. Valid values:
+   * 
+   * *   **baseline**: applicable to mobile devices.
+   * *   **main**: applicable to standard-definition devices.
+   * *   **high**: applicable to high-definition devices.
+   * *   Default value: **high**.
+   * 
+   * @example
+   * 60
+   */
   maxFps?: string;
+  /**
+   * @remarks
+   * The maximum frame rate.
+   * 
+   * @example
+   * 500
+   */
   maxrate?: string;
+  /**
+   * @remarks
+   * The Narrowband HD settings.
+   */
   narrowBand?: UpdateTemplateResponseBodyTemplateVideoNarrowBand;
+  /**
+   * @remarks
+   * The video codec. Default value: **H.264**.
+   * 
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @remarks
+   * The black borders added to the video.
+   * 
+   * *   Format: width:height:left:top.
+   * *   Example: 1280:800:0:140.
+   * 
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @remarks
+   * The scan mode. Valid values:
+   * 
+   * *   **interlaced**: An interlaced scan is performed.
+   * *   **progressive**: A progressive scan is performed.
+   * 
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @remarks
+   * The bitrate quality control factor.
+   * 
+   * *   Default value if the Codec parameter is set to H.264: **23**. Default value if the Codec parameter is set to H.265: **26**.
+   * *   If this parameter is returned, the setting of the Bitrate parameter is invalid.
+   * 
+   * @example
+   * high
+   */
   profile?: string;
+  /**
+   * @remarks
+   * The method used to crop the video.
+   * 
+   * *   **border**: automatically detects and removes borders.
+   * *   Value in the width:height:left:top format: crops the video based on custom settings.**** Example: 1280:800:0:140.
+   * 
+   * @example
+   * 1
+   */
   qscale?: string;
+  /**
+   * @remarks
+   * The maximum number of frames between two keyframes. Default value: **250**.
+   * 
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @remarks
+   * The general transcoding configurations.
+   * 
+   * @example
+   * 1
+   */
   resoPriority?: string;
+  /**
+   * @remarks
+   * The policy of resolution adjustment.
+   * 
+   * @example
+   * interlaced
+   */
   scanMode?: string;
+  /**
+   * @remarks
+   * The frame rate.
+   * 
+   * *   A value of 60 is returned if the frame rate of the input video exceeds 60.
+   * *   Default value: the frame rate of the input video.
+   * 
+   * @example
+   * 256
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23704,13 +44304,63 @@ export class UpdateTemplateResponseBodyTemplateVideo extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBodyTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The audio codec settings.
+   */
   audio?: UpdateTemplateResponseBodyTemplateAudio;
+  /**
+   * @remarks
+   * The container format.
+   */
   container?: UpdateTemplateResponseBodyTemplateContainer;
+  /**
+   * @remarks
+   * The container configurations.
+   * 
+   * @example
+   * 16f01ad6175e4230ac42bb5182cd****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The transmuxing configurations for WebP.
+   */
   muxConfig?: UpdateTemplateResponseBodyTemplateMuxConfig;
+  /**
+   * @remarks
+   * The audio codec configurations.
+   * 
+   * @example
+   * MPS-example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The transmuxing configurations.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate is checked. If the bitrate of the output audio is greater than the bitrate of the input audio, the bitrate of the input audio is retained after transcoding. In this case, the specified audio bitrate does not take effect. This parameter has a lower priority than the IsCheckAudioBitrateFail parameter. Valid values:
+   * 
+   * *   **true**: The audio bitrate is checked.
+   * 
+   * *   **false**: The audio bitrate is not checked.
+   * 
+   * *   Default value:
+   * 
+   *     *   If the parameter is left empty and the codec of the output audio is different from that of the input audio, the default value is false.
+   *     *   If the parameter is left empty and the codec of the output audio is the same as that of the input audio, the default value is true.
+   */
   transConfig?: UpdateTemplateResponseBodyTemplateTransConfig;
+  /**
+   * @remarks
+   * The video codec configurations.
+   */
   video?: UpdateTemplateResponseBodyTemplateVideo;
   static names(): { [key: string]: string } {
     return {
@@ -23744,9 +44394,49 @@ export class UpdateTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateRatioRefer extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset of the watermark relative to the output video image. Default value: **0**. The default value indicates no offset. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the vertical offset. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the horizontal offset to the width of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.51
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The vertical offset of the watermark relative to the output video image. Default value: **0**. The default value indicates no offset. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the vertical offset. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the vertical offset to the height of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.28
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The height of the watermark image in the output video. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the height of the watermark image. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the height of the watermark image to the height of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.33
+   */
   height?: string;
+  /**
+   * @remarks
+   * The width of the watermark image in the output video. The value can be an integer or a decimal.
+   * 
+   * *   **Integer**: the width of the watermark image. This indicates the absolute position. Unit: pixel.
+   * *   **Decimal**: the ratio of the width of the watermark image to the width of the output video. The ratio varies based on the size of the video. Four decimal places are supported, such as 0.9999. More decimal places are discarded.
+   * 
+   * @example
+   * 0.36
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23772,7 +44462,24 @@ export class UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateRatioRefer exte
 }
 
 export class UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The display duration of the watermark. Default value: **ToEND**. The default value indicates that the watermark is displayed until the video ends.
+   * 
+   * @example
+   * 10
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which the watermark is displayed.
+   * 
+   * *   Unit: seconds.
+   * *   Default value: **0**.
+   * 
+   * @example
+   * 0
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23794,16 +44501,102 @@ export class UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline extend
 }
 
 export class UpdateWaterMarkTemplateResponseBodyWaterMarkTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The horizontal offset. Unit: pixel.
+   * 
+   * @example
+   * 10
+   */
   dx?: string;
+  /**
+   * @remarks
+   * The vertical offset. Unit: pixel.
+   * 
+   * @example
+   * 5
+   */
   dy?: string;
+  /**
+   * @remarks
+   * The height of the watermark image. Unit: pixel.
+   * 
+   * @example
+   * 30
+   */
   height?: string;
+  /**
+   * @remarks
+   * The ID of the watermark template. We recommend that you keep this ID for subsequent operation calls.
+   * 
+   * @example
+   * 3780bd69b2b74540bc7b1096f564****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the watermark template.
+   * 
+   * @example
+   * example-watermark-****
+   */
   name?: string;
+  /**
+   * @remarks
+   * The values of the Height, Width, Dx, and Dy parameters relative to the reference edges. If the values of the Height, Width, Dx, and Dy parameters are decimals between 0 and 1, the values are calculated by referring to the following edges in sequence:
+   * 
+   * *   **Width**: the width edge.
+   * *   **Height**: the height edge.
+   * *   **Long**: the long edge.
+   * *   **Short**: the short edge.
+   */
   ratioRefer?: UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateRatioRefer;
+  /**
+   * @remarks
+   * The position of the watermark. Valid values:
+   * 
+   * *   **TopRight**: the upper-right corner.
+   * *   **TopLeft**: the upper-left corner.
+   * *   **BottomRight**: the lower-right corner.
+   * *   **BottomLeft**: the lower-left corner.
+   * 
+   * @example
+   * TopRight
+   */
   referPos?: string;
+  /**
+   * @remarks
+   * The status of the watermark template. Default value: **Normal**.
+   * 
+   * @example
+   * Normal
+   */
   state?: string;
+  /**
+   * @remarks
+   * The timeline of the watermark.
+   */
   timeline?: UpdateWaterMarkTemplateResponseBodyWaterMarkTemplateTimeline;
+  /**
+   * @remarks
+   * The type of the watermark. Valid values:
+   * 
+   * *   Image: an image watermark.
+   * *   Text: a text watermark.
+   * 
+   * > Only watermarks of the Image type are supported.
+   * 
+   * @example
+   * Image
+   */
   type?: string;
+  /**
+   * @remarks
+   * The width of the watermark image. Unit: pixel.
+   * 
+   * @example
+   * 10
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23910,15 +44703,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Activates a media workflow.
-   *
-   * @description You can call this operation to activate a media workflow that has been deactivated. After you activate a media workflow, you cannot modify the workflow information, such as the name, topology, or trigger mode. A media workflow is activated by default after it is created.
+   * Activates a media workflow.
+   * 
+   * @remarks
+   * You can call this operation to activate a media workflow that has been deactivated. After you activate a media workflow, you cannot modify the workflow information, such as the name, topology, or trigger mode. A media workflow is activated by default after it is created.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ActivateMediaWorkflowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ActivateMediaWorkflowResponse
+   * 
+   * @param request - ActivateMediaWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActivateMediaWorkflowResponse
    */
   async activateMediaWorkflowWithOptions(request: ActivateMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<ActivateMediaWorkflowResponse> {
     Util.validateModel(request);
@@ -23961,14 +44755,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Activates a media workflow.
-   *
-   * @description You can call this operation to activate a media workflow that has been deactivated. After you activate a media workflow, you cannot modify the workflow information, such as the name, topology, or trigger mode. A media workflow is activated by default after it is created.
+   * Activates a media workflow.
+   * 
+   * @remarks
+   * You can call this operation to activate a media workflow that has been deactivated. After you activate a media workflow, you cannot modify the workflow information, such as the name, topology, or trigger mode. A media workflow is activated by default after it is created.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ActivateMediaWorkflowRequest
-   * @return ActivateMediaWorkflowResponse
+   * 
+   * @param request - ActivateMediaWorkflowRequest
+   * @returns ActivateMediaWorkflowResponse
    */
   async activateMediaWorkflow(request: ActivateMediaWorkflowRequest): Promise<ActivateMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23976,16 +44771,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a media file.
-   *
-   * @description *   You can call this operation to process videos that are uploaded to Object Storage Service (OSS) but not processed. This way, you do not need to upload the videos to OSS again. If you have configured media workflows, OSS automatically notifies ApsaraVideo Media Processing (MPS) when a media file is uploaded to OSS. MPS automatically finds the corresponding workflow in the Active state based on the specified OSS bucket and object. Therefore, in most cases, you do not need to manually call the AddMedia operation to process the media file.
+   * Adds a media file.
+   * 
+   * @remarks
+   *   You can call this operation to process videos that are uploaded to Object Storage Service (OSS) but not processed. This way, you do not need to upload the videos to OSS again. If you have configured media workflows, OSS automatically notifies ApsaraVideo Media Processing (MPS) when a media file is uploaded to OSS. MPS automatically finds the corresponding workflow in the Active state based on the specified OSS bucket and object. Therefore, in most cases, you do not need to manually call the AddMedia operation to process the media file.
    * *   Media information is automatically obtained only when the specified media workflow is in the Active state. If no media workflow is specified or the specified media workflow is not in the Active state, media information is not obtained.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request AddMediaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddMediaResponse
+   * 
+   * @param request - AddMediaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddMediaResponse
    */
   async addMediaWithOptions(request: AddMediaRequest, runtime: $Util.RuntimeOptions): Promise<AddMediaResponse> {
     Util.validateModel(request);
@@ -24064,15 +44860,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a media file.
-   *
-   * @description *   You can call this operation to process videos that are uploaded to Object Storage Service (OSS) but not processed. This way, you do not need to upload the videos to OSS again. If you have configured media workflows, OSS automatically notifies ApsaraVideo Media Processing (MPS) when a media file is uploaded to OSS. MPS automatically finds the corresponding workflow in the Active state based on the specified OSS bucket and object. Therefore, in most cases, you do not need to manually call the AddMedia operation to process the media file.
+   * Adds a media file.
+   * 
+   * @remarks
+   *   You can call this operation to process videos that are uploaded to Object Storage Service (OSS) but not processed. This way, you do not need to upload the videos to OSS again. If you have configured media workflows, OSS automatically notifies ApsaraVideo Media Processing (MPS) when a media file is uploaded to OSS. MPS automatically finds the corresponding workflow in the Active state based on the specified OSS bucket and object. Therefore, in most cases, you do not need to manually call the AddMedia operation to process the media file.
    * *   Media information is automatically obtained only when the specified media workflow is in the Active state. If no media workflow is specified or the specified media workflow is not in the Active state, media information is not obtained.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request AddMediaRequest
-   * @return AddMediaResponse
+   * 
+   * @param request - AddMediaRequest
+   * @returns AddMediaResponse
    */
   async addMedia(request: AddMediaRequest): Promise<AddMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24080,15 +44877,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a tag to a media file.
-   *
-   * @description You can call this operation to add only one tag. To add multiple tags at a time, you can call the [UpdateMedia](https://help.aliyun.com/document_detail/44464.html) operation.
+   * Adds a tag to a media file.
+   * 
+   * @remarks
+   * You can call this operation to add only one tag. To add multiple tags at a time, you can call the [UpdateMedia](https://help.aliyun.com/document_detail/44464.html) operation.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request AddMediaTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddMediaTagResponse
+   * 
+   * @param request - AddMediaTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddMediaTagResponse
    */
   async addMediaTagWithOptions(request: AddMediaTagRequest, runtime: $Util.RuntimeOptions): Promise<AddMediaTagResponse> {
     Util.validateModel(request);
@@ -24135,14 +44933,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a tag to a media file.
-   *
-   * @description You can call this operation to add only one tag. To add multiple tags at a time, you can call the [UpdateMedia](https://help.aliyun.com/document_detail/44464.html) operation.
+   * Adds a tag to a media file.
+   * 
+   * @remarks
+   * You can call this operation to add only one tag. To add multiple tags at a time, you can call the [UpdateMedia](https://help.aliyun.com/document_detail/44464.html) operation.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request AddMediaTagRequest
-   * @return AddMediaTagResponse
+   * 
+   * @param request - AddMediaTagRequest
+   * @returns AddMediaTagResponse
    */
   async addMediaTag(request: AddMediaTagRequest): Promise<AddMediaTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24150,16 +44949,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a media workflow.
-   *
-   * @description *   You can call this operation to define the topology, activities, and dependencies of a media workflow. The topology is represented by a directed acyclic graph (DAG) in the console. For more information, see [Workflow activities](https://help.aliyun.com/document_detail/68494.html). You can view and run the workflows that are created by calling this operation in the ApsaraVideo Media Processing (MPS) console.
+   * Creates a media workflow.
+   * 
+   * @remarks
+   *   You can call this operation to define the topology, activities, and dependencies of a media workflow. The topology is represented by a directed acyclic graph (DAG) in the console. For more information, see [Workflow activities](https://help.aliyun.com/document_detail/68494.html). You can view and run the workflows that are created by calling this operation in the ApsaraVideo Media Processing (MPS) console.
    * *   MPS media workflows can be automatically triggered only by using the prefix of the file path. Automatic triggering by using the suffix is not supported. For more information about the trigger rules, see [Workflow triggering rules for files](https://help.aliyun.com/document_detail/68574.html).
    * ### [](#qps)QPS limits
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request AddMediaWorkflowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddMediaWorkflowResponse
+   * 
+   * @param request - AddMediaWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddMediaWorkflowResponse
    */
   async addMediaWorkflowWithOptions(request: AddMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<AddMediaWorkflowResponse> {
     Util.validateModel(request);
@@ -24210,15 +45010,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a media workflow.
-   *
-   * @description *   You can call this operation to define the topology, activities, and dependencies of a media workflow. The topology is represented by a directed acyclic graph (DAG) in the console. For more information, see [Workflow activities](https://help.aliyun.com/document_detail/68494.html). You can view and run the workflows that are created by calling this operation in the ApsaraVideo Media Processing (MPS) console.
+   * Creates a media workflow.
+   * 
+   * @remarks
+   *   You can call this operation to define the topology, activities, and dependencies of a media workflow. The topology is represented by a directed acyclic graph (DAG) in the console. For more information, see [Workflow activities](https://help.aliyun.com/document_detail/68494.html). You can view and run the workflows that are created by calling this operation in the ApsaraVideo Media Processing (MPS) console.
    * *   MPS media workflows can be automatically triggered only by using the prefix of the file path. Automatic triggering by using the suffix is not supported. For more information about the trigger rules, see [Workflow triggering rules for files](https://help.aliyun.com/document_detail/68574.html).
    * ### [](#qps)QPS limits
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request AddMediaWorkflowRequest
-   * @return AddMediaWorkflowResponse
+   * 
+   * @param request - AddMediaWorkflowRequest
+   * @returns AddMediaWorkflowResponse
    */
   async addMediaWorkflow(request: AddMediaWorkflowRequest): Promise<AddMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24226,11 +45027,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds an ApsaraVideo Media Processing (MPS) queue.
-   *
-   * @param request AddPipelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddPipelineResponse
+   * Adds an ApsaraVideo Media Processing (MPS) queue.
+   * 
+   * @param request - AddPipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddPipelineResponse
    */
   async addPipelineWithOptions(request: AddPipelineRequest, runtime: $Util.RuntimeOptions): Promise<AddPipelineResponse> {
     Util.validateModel(request);
@@ -24289,10 +45090,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds an ApsaraVideo Media Processing (MPS) queue.
-   *
-   * @param request AddPipelineRequest
-   * @return AddPipelineResponse
+   * Adds an ApsaraVideo Media Processing (MPS) queue.
+   * 
+   * @param request - AddPipelineRequest
+   * @returns AddPipelineResponse
    */
   async addPipeline(request: AddPipelineRequest): Promise<AddPipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24300,11 +45101,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加labelVersion、knowledgeConfig配置
-   *
-   * @param request AddSmarttagTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddSmarttagTemplateResponse
+   * 添加labelVersion、knowledgeConfig配置
+   * 
+   * @param request - AddSmarttagTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddSmarttagTemplateResponse
    */
   async addSmarttagTemplateWithOptions(request: AddSmarttagTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddSmarttagTemplateResponse> {
     Util.validateModel(request);
@@ -24395,10 +45196,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加labelVersion、knowledgeConfig配置
-   *
-   * @param request AddSmarttagTemplateRequest
-   * @return AddSmarttagTemplateResponse
+   * 添加labelVersion、knowledgeConfig配置
+   * 
+   * @param request - AddSmarttagTemplateRequest
+   * @returns AddSmarttagTemplateResponse
    */
   async addSmarttagTemplate(request: AddSmarttagTemplateRequest): Promise<AddSmarttagTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24406,15 +45207,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom transcoding template. You need to configure the information such as the container format, video stream settings, and audio stream settings.
-   *
-   * @description When you call this operation, you need to set transcoding parameters such as those related to the container format, video stream, and audio stream. If you do not specify some parameters, streams that are generated by using the template do not contain the information specified by those parameters.
+   * Creates a custom transcoding template. You need to configure the information such as the container format, video stream settings, and audio stream settings.
+   * 
+   * @remarks
+   * When you call this operation, you need to set transcoding parameters such as those related to the container format, video stream, and audio stream. If you do not specify some parameters, streams that are generated by using the template do not contain the information specified by those parameters.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request AddTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddTemplateResponse
+   * 
+   * @param request - AddTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddTemplateResponse
    */
   async addTemplateWithOptions(request: AddTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddTemplateResponse> {
     Util.validateModel(request);
@@ -24477,14 +45279,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a custom transcoding template. You need to configure the information such as the container format, video stream settings, and audio stream settings.
-   *
-   * @description When you call this operation, you need to set transcoding parameters such as those related to the container format, video stream, and audio stream. If you do not specify some parameters, streams that are generated by using the template do not contain the information specified by those parameters.
+   * Creates a custom transcoding template. You need to configure the information such as the container format, video stream settings, and audio stream settings.
+   * 
+   * @remarks
+   * When you call this operation, you need to set transcoding parameters such as those related to the container format, video stream, and audio stream. If you do not specify some parameters, streams that are generated by using the template do not contain the information specified by those parameters.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request AddTemplateRequest
-   * @return AddTemplateResponse
+   * 
+   * @param request - AddTemplateRequest
+   * @returns AddTemplateResponse
    */
   async addTemplate(request: AddTemplateRequest): Promise<AddTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24492,15 +45295,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a watermark template.
-   *
-   * @description After you create a watermark template by calling this operation, you can specify the watermark template and watermark asset when you [submit a transcoding job](https://help.aliyun.com/document_detail/29226.html). This allows you to add watermark information to the output video.
+   * Creates a watermark template.
+   * 
+   * @remarks
+   * After you create a watermark template by calling this operation, you can specify the watermark template and watermark asset when you [submit a transcoding job](https://help.aliyun.com/document_detail/29226.html). This allows you to add watermark information to the output video.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request AddWaterMarkTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddWaterMarkTemplateResponse
+   * 
+   * @param request - AddWaterMarkTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddWaterMarkTemplateResponse
    */
   async addWaterMarkTemplateWithOptions(request: AddWaterMarkTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddWaterMarkTemplateResponse> {
     Util.validateModel(request);
@@ -24547,14 +45351,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a watermark template.
-   *
-   * @description After you create a watermark template by calling this operation, you can specify the watermark template and watermark asset when you [submit a transcoding job](https://help.aliyun.com/document_detail/29226.html). This allows you to add watermark information to the output video.
+   * Creates a watermark template.
+   * 
+   * @remarks
+   * After you create a watermark template by calling this operation, you can specify the watermark template and watermark asset when you [submit a transcoding job](https://help.aliyun.com/document_detail/29226.html). This allows you to add watermark information to the output video.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request AddWaterMarkTemplateRequest
-   * @return AddWaterMarkTemplateResponse
+   * 
+   * @param request - AddWaterMarkTemplateRequest
+   * @returns AddWaterMarkTemplateResponse
    */
   async addWaterMarkTemplate(request: AddWaterMarkTemplateRequest): Promise<AddWaterMarkTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24562,15 +45367,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Binds an input media bucket.
-   *
-   * @description Before you call this operation to bind an input media bucket, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+   * Binds an input media bucket.
+   * 
+   * @remarks
+   * Before you call this operation to bind an input media bucket, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request BindInputBucketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BindInputBucketResponse
+   * 
+   * @param request - BindInputBucketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindInputBucketResponse
    */
   async bindInputBucketWithOptions(request: BindInputBucketRequest, runtime: $Util.RuntimeOptions): Promise<BindInputBucketResponse> {
     Util.validateModel(request);
@@ -24617,14 +45423,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Binds an input media bucket.
-   *
-   * @description Before you call this operation to bind an input media bucket, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+   * Binds an input media bucket.
+   * 
+   * @remarks
+   * Before you call this operation to bind an input media bucket, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request BindInputBucketRequest
-   * @return BindInputBucketResponse
+   * 
+   * @param request - BindInputBucketRequest
+   * @returns BindInputBucketResponse
    */
   async bindInputBucket(request: BindInputBucketRequest): Promise<BindInputBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24632,15 +45439,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Binds an output media bucket to the media library.
-   *
-   * @description Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+   * Binds an output media bucket to the media library.
+   * 
+   * @remarks
+   * Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request BindOutputBucketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BindOutputBucketResponse
+   * 
+   * @param request - BindOutputBucketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindOutputBucketResponse
    */
   async bindOutputBucketWithOptions(request: BindOutputBucketRequest, runtime: $Util.RuntimeOptions): Promise<BindOutputBucketResponse> {
     Util.validateModel(request);
@@ -24683,14 +45491,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Binds an output media bucket to the media library.
-   *
-   * @description Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
+   * Binds an output media bucket to the media library.
+   * 
+   * @remarks
+   * Before you call this operation to bind an output media bucket to the media library, you must create a media bucket. For more information, see [Add media buckets](https://help.aliyun.com/document_detail/42430.html).
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request BindOutputBucketRequest
-   * @return BindOutputBucketResponse
+   * 
+   * @param request - BindOutputBucketRequest
+   * @returns BindOutputBucketResponse
    */
   async bindOutputBucket(request: BindOutputBucketRequest): Promise<BindOutputBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24698,16 +45507,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Cancels a transcoding job.
-   *
-   * @description *   You can cancel a transcoding job only if the job is in the Submitted state.
+   * Cancels a transcoding job.
+   * 
+   * @remarks
+   *   You can cancel a transcoding job only if the job is in the Submitted state.
    * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request CancelJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelJobResponse
+   * 
+   * @param request - CancelJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelJobResponse
    */
   async cancelJobWithOptions(request: CancelJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelJobResponse> {
     Util.validateModel(request);
@@ -24750,15 +45560,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Cancels a transcoding job.
-   *
-   * @description *   You can cancel a transcoding job only if the job is in the Submitted state.
+   * Cancels a transcoding job.
+   * 
+   * @remarks
+   *   You can cancel a transcoding job only if the job is in the Submitted state.
    * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request CancelJobRequest
-   * @return CancelJobResponse
+   * 
+   * @param request - CancelJobRequest
+   * @returns CancelJobResponse
    */
   async cancelJob(request: CancelJobRequest): Promise<CancelJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24766,9 +45577,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateCustomEntityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCustomEntityResponse
+   * @param request - CreateCustomEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomEntityResponse
    */
   async createCustomEntityWithOptions(request: CreateCustomEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomEntityResponse> {
     Util.validateModel(request);
@@ -24823,8 +45634,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateCustomEntityRequest
-   * @return CreateCustomEntityResponse
+   * @param request - CreateCustomEntityRequest
+   * @returns CreateCustomEntityResponse
    */
   async createCustomEntity(request: CreateCustomEntityRequest): Promise<CreateCustomEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24832,9 +45643,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateCustomGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCustomGroupResponse
+   * @param request - CreateCustomGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomGroupResponse
    */
   async createCustomGroupWithOptions(request: CreateCustomGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomGroupResponse> {
     Util.validateModel(request);
@@ -24885,8 +45696,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateCustomGroupRequest
-   * @return CreateCustomGroupResponse
+   * @param request - CreateCustomGroupRequest
+   * @returns CreateCustomGroupResponse
    */
   async createCustomGroup(request: CreateCustomGroupRequest): Promise<CreateCustomGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24894,17 +45705,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a job of creating a media fingerprint library.
-   *
-   * @description *   You can call this operation to submit a job to create a video or text fingerprint library. You can use a text fingerprint library to store fingerprints for text.
+   * Submits a job of creating a media fingerprint library.
+   * 
+   * @remarks
+   *   You can call this operation to submit a job to create a video or text fingerprint library. You can use a text fingerprint library to store fingerprints for text.
    * *   You can submit a job of creating a text fingerprint library only in the China (Shanghai) region.
    * *   By default, you can submit up to 10 jobs of creating a video fingerprint library to an ApsaraVideo Media Processing (MPS) queue at a time. If you submit more than 10 jobs at a time, the call may fail.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request CreateFpShotDBRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFpShotDBResponse
+   * 
+   * @param request - CreateFpShotDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFpShotDBResponse
    */
   async createFpShotDBWithOptions(request: CreateFpShotDBRequest, runtime: $Util.RuntimeOptions): Promise<CreateFpShotDBResponse> {
     Util.validateModel(request);
@@ -24959,16 +45771,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a job of creating a media fingerprint library.
-   *
-   * @description *   You can call this operation to submit a job to create a video or text fingerprint library. You can use a text fingerprint library to store fingerprints for text.
+   * Submits a job of creating a media fingerprint library.
+   * 
+   * @remarks
+   *   You can call this operation to submit a job to create a video or text fingerprint library. You can use a text fingerprint library to store fingerprints for text.
    * *   You can submit a job of creating a text fingerprint library only in the China (Shanghai) region.
    * *   By default, you can submit up to 10 jobs of creating a video fingerprint library to an ApsaraVideo Media Processing (MPS) queue at a time. If you submit more than 10 jobs at a time, the call may fail.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request CreateFpShotDBRequest
-   * @return CreateFpShotDBResponse
+   * 
+   * @param request - CreateFpShotDBRequest
+   * @returns CreateFpShotDBResponse
    */
   async createFpShotDB(request: CreateFpShotDBRequest): Promise<CreateFpShotDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24976,13 +45789,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables a media workflow.
-   *
-   * @description The time when the media workflow was created.
-   *
-   * @param request DeactivateMediaWorkflowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeactivateMediaWorkflowResponse
+   * Disables a media workflow.
+   * 
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @param request - DeactivateMediaWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeactivateMediaWorkflowResponse
    */
   async deactivateMediaWorkflowWithOptions(request: DeactivateMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<DeactivateMediaWorkflowResponse> {
     Util.validateModel(request);
@@ -25025,12 +45839,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables a media workflow.
-   *
-   * @description The time when the media workflow was created.
-   *
-   * @param request DeactivateMediaWorkflowRequest
-   * @return DeactivateMediaWorkflowResponse
+   * Disables a media workflow.
+   * 
+   * @remarks
+   * The time when the media workflow was created.
+   * 
+   * @param request - DeactivateMediaWorkflowRequest
+   * @returns DeactivateMediaWorkflowResponse
    */
   async deactivateMediaWorkflow(request: DeactivateMediaWorkflowRequest): Promise<DeactivateMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25038,11 +45853,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom entity from a custom library.
-   *
-   * @param request DeleteCustomEntityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCustomEntityResponse
+   * Deletes a custom entity from a custom library.
+   * 
+   * @param request - DeleteCustomEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomEntityResponse
    */
   async deleteCustomEntityWithOptions(request: DeleteCustomEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomEntityResponse> {
     Util.validateModel(request);
@@ -25093,10 +45908,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom entity from a custom library.
-   *
-   * @param request DeleteCustomEntityRequest
-   * @return DeleteCustomEntityResponse
+   * Deletes a custom entity from a custom library.
+   * 
+   * @param request - DeleteCustomEntityRequest
+   * @returns DeleteCustomEntityResponse
    */
   async deleteCustomEntity(request: DeleteCustomEntityRequest): Promise<DeleteCustomEntityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25104,15 +45919,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete a custom image library.
-   *
-   * @description You can call this operation only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions.
+   * Delete a custom image library.
+   * 
+   * @remarks
+   * You can call this operation only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions.
    * ### QPS limit
    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteCustomGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCustomGroupResponse
+   * 
+   * @param request - DeleteCustomGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomGroupResponse
    */
   async deleteCustomGroupWithOptions(request: DeleteCustomGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomGroupResponse> {
     Util.validateModel(request);
@@ -25159,14 +45975,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete a custom image library.
-   *
-   * @description You can call this operation only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions.
+   * Delete a custom image library.
+   * 
+   * @remarks
+   * You can call this operation only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions.
    * ### QPS limit
    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteCustomGroupRequest
-   * @return DeleteCustomGroupResponse
+   * 
+   * @param request - DeleteCustomGroupRequest
+   * @returns DeleteCustomGroupResponse
    */
   async deleteCustomGroup(request: DeleteCustomGroupRequest): Promise<DeleteCustomGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25174,9 +45991,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteCustomViewRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCustomViewResponse
+   * @param request - DeleteCustomViewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomViewResponse
    */
   async deleteCustomViewWithOptions(request: DeleteCustomViewRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomViewResponse> {
     Util.validateModel(request);
@@ -25231,8 +46048,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteCustomViewRequest
-   * @return DeleteCustomViewResponse
+   * @param request - DeleteCustomViewRequest
+   * @returns DeleteCustomViewResponse
    */
   async deleteCustomView(request: DeleteCustomViewRequest): Promise<DeleteCustomViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25240,15 +46057,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes media files from ApsaraVideo Media Processing (MPS).
-   *
-   * @description This operation allows you to logically delete a media file. The media file can no longer be processed, but the corresponding objects in the input and output Object Storage Service (OSS) buckets are retained.
+   * Deletes media files from ApsaraVideo Media Processing (MPS).
+   * 
+   * @remarks
+   * This operation allows you to logically delete a media file. The media file can no longer be processed, but the corresponding objects in the input and output Object Storage Service (OSS) buckets are retained.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteMediaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMediaResponse
+   * 
+   * @param request - DeleteMediaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaResponse
    */
   async deleteMediaWithOptions(request: DeleteMediaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaResponse> {
     Util.validateModel(request);
@@ -25291,14 +46109,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes media files from ApsaraVideo Media Processing (MPS).
-   *
-   * @description This operation allows you to logically delete a media file. The media file can no longer be processed, but the corresponding objects in the input and output Object Storage Service (OSS) buckets are retained.
+   * Deletes media files from ApsaraVideo Media Processing (MPS).
+   * 
+   * @remarks
+   * This operation allows you to logically delete a media file. The media file can no longer be processed, but the corresponding objects in the input and output Object Storage Service (OSS) buckets are retained.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteMediaRequest
-   * @return DeleteMediaResponse
+   * 
+   * @param request - DeleteMediaRequest
+   * @returns DeleteMediaResponse
    */
   async deleteMedia(request: DeleteMediaRequest): Promise<DeleteMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25306,15 +46125,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes a tag for a media file.
-   *
-   * @description You can call this operation to remove only one tag at a time.
+   * Removes a tag for a media file.
+   * 
+   * @remarks
+   * You can call this operation to remove only one tag at a time.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteMediaTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMediaTagResponse
+   * 
+   * @param request - DeleteMediaTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaTagResponse
    */
   async deleteMediaTagWithOptions(request: DeleteMediaTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaTagResponse> {
     Util.validateModel(request);
@@ -25361,14 +46181,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes a tag for a media file.
-   *
-   * @description You can call this operation to remove only one tag at a time.
+   * Removes a tag for a media file.
+   * 
+   * @remarks
+   * You can call this operation to remove only one tag at a time.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteMediaTagRequest
-   * @return DeleteMediaTagResponse
+   * 
+   * @param request - DeleteMediaTagRequest
+   * @returns DeleteMediaTagResponse
    */
   async deleteMediaTag(request: DeleteMediaTagRequest): Promise<DeleteMediaTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25376,15 +46197,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a media workflow. This does not affect workflow instances that are running.
-   *
-   * @description After you delete or disable a workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+   * Deletes a media workflow. This does not affect workflow instances that are running.
+   * 
+   * @remarks
+   * After you delete or disable a workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteMediaWorkflowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMediaWorkflowResponse
+   * 
+   * @param request - DeleteMediaWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaWorkflowResponse
    */
   async deleteMediaWorkflowWithOptions(request: DeleteMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaWorkflowResponse> {
     Util.validateModel(request);
@@ -25427,14 +46249,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a media workflow. This does not affect workflow instances that are running.
-   *
-   * @description After you delete or disable a workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
+   * Deletes a media workflow. This does not affect workflow instances that are running.
+   * 
+   * @remarks
+   * After you delete or disable a workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteMediaWorkflowRequest
-   * @return DeleteMediaWorkflowResponse
+   * 
+   * @param request - DeleteMediaWorkflowRequest
+   * @returns DeleteMediaWorkflowResponse
    */
   async deleteMediaWorkflow(request: DeleteMediaWorkflowRequest): Promise<DeleteMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25442,15 +46265,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an ApsaraVideo Media Processing (MPS) queue.
-   *
-   * @description You can call this operation to delete only one MPS queue at a time.
+   * Deletes an ApsaraVideo Media Processing (MPS) queue.
+   * 
+   * @remarks
+   * You can call this operation to delete only one MPS queue at a time.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeletePipelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePipelineResponse
+   * 
+   * @param request - DeletePipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePipelineResponse
    */
   async deletePipelineWithOptions(request: DeletePipelineRequest, runtime: $Util.RuntimeOptions): Promise<DeletePipelineResponse> {
     Util.validateModel(request);
@@ -25493,14 +46317,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an ApsaraVideo Media Processing (MPS) queue.
-   *
-   * @description You can call this operation to delete only one MPS queue at a time.
+   * Deletes an ApsaraVideo Media Processing (MPS) queue.
+   * 
+   * @remarks
+   * You can call this operation to delete only one MPS queue at a time.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeletePipelineRequest
-   * @return DeletePipelineResponse
+   * 
+   * @param request - DeletePipelineRequest
+   * @returns DeletePipelineResponse
    */
   async deletePipeline(request: DeletePipelineRequest): Promise<DeletePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25508,15 +46333,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a template.
-   *
-   * @description You can call this operation to delete only one template at a time.
+   * Deletes a template.
+   * 
+   * @remarks
+   * You can call this operation to delete only one template at a time.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteSmarttagTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSmarttagTemplateResponse
+   * 
+   * @param request - DeleteSmarttagTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSmarttagTemplateResponse
    */
   async deleteSmarttagTemplateWithOptions(request: DeleteSmarttagTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmarttagTemplateResponse> {
     Util.validateModel(request);
@@ -25559,14 +46385,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a template.
-   *
-   * @description You can call this operation to delete only one template at a time.
+   * Deletes a template.
+   * 
+   * @remarks
+   * You can call this operation to delete only one template at a time.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteSmarttagTemplateRequest
-   * @return DeleteSmarttagTemplateResponse
+   * 
+   * @param request - DeleteSmarttagTemplateRequest
+   * @returns DeleteSmarttagTemplateResponse
    */
   async deleteSmarttagTemplate(request: DeleteSmarttagTemplateRequest): Promise<DeleteSmarttagTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25574,15 +46401,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom transcoding template.
-   *
-   * @description A custom transcoding template cannot be deleted if it is being used by a job that has been submitted.
+   * Deletes a custom transcoding template.
+   * 
+   * @remarks
+   * A custom transcoding template cannot be deleted if it is being used by a job that has been submitted.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTemplateResponse
+   * 
+   * @param request - DeleteTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTemplateResponse
    */
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
@@ -25625,14 +46453,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom transcoding template.
-   *
-   * @description A custom transcoding template cannot be deleted if it is being used by a job that has been submitted.
+   * Deletes a custom transcoding template.
+   * 
+   * @remarks
+   * A custom transcoding template cannot be deleted if it is being used by a job that has been submitted.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteTemplateRequest
-   * @return DeleteTemplateResponse
+   * 
+   * @param request - DeleteTemplateRequest
+   * @returns DeleteTemplateResponse
    */
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25640,15 +46469,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a watermark template.
-   *
-   * @description A watermark template cannot be deleted if it is being used by a submitted job.
+   * Deletes a watermark template.
+   * 
+   * @remarks
+   * A watermark template cannot be deleted if it is being used by a submitted job.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteWaterMarkTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWaterMarkTemplateResponse
+   * 
+   * @param request - DeleteWaterMarkTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWaterMarkTemplateResponse
    */
   async deleteWaterMarkTemplateWithOptions(request: DeleteWaterMarkTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWaterMarkTemplateResponse> {
     Util.validateModel(request);
@@ -25691,14 +46521,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a watermark template.
-   *
-   * @description A watermark template cannot be deleted if it is being used by a submitted job.
+   * Deletes a watermark template.
+   * 
+   * @remarks
+   * A watermark template cannot be deleted if it is being used by a submitted job.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request DeleteWaterMarkTemplateRequest
-   * @return DeleteWaterMarkTemplateResponse
+   * 
+   * @param request - DeleteWaterMarkTemplateRequest
+   * @returns DeleteWaterMarkTemplateResponse
    */
   async deleteWaterMarkTemplate(request: DeleteWaterMarkTemplateRequest): Promise<DeleteWaterMarkTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25706,16 +46537,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Reviews images and text and returns the review results.
-   *
-   * @description *   The moderation results are synchronously returned after the moderation is complete.
+   * Reviews images and text and returns the review results.
+   * 
+   * @remarks
+   *   The moderation results are synchronously returned after the moderation is complete.
    * *   You can use the image and text moderation feature only in the China (Beijing), China (Shanghai), and Singapore regions.
    * ### QPS limits
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ImAuditRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImAuditResponse
+   * 
+   * @param request - ImAuditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImAuditResponse
    */
   async imAuditWithOptions(request: ImAuditRequest, runtime: $Util.RuntimeOptions): Promise<ImAuditResponse> {
     Util.validateModel(request);
@@ -25766,15 +46598,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Reviews images and text and returns the review results.
-   *
-   * @description *   The moderation results are synchronously returned after the moderation is complete.
+   * Reviews images and text and returns the review results.
+   * 
+   * @remarks
+   *   The moderation results are synchronously returned after the moderation is complete.
    * *   You can use the image and text moderation feature only in the China (Beijing), China (Shanghai), and Singapore regions.
    * ### QPS limits
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ImAuditRequest
-   * @return ImAuditResponse
+   * 
+   * @param request - ImAuditRequest
+   * @returns ImAuditResponse
    */
   async imAudit(request: ImAuditRequest): Promise<ImAuditResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25782,16 +46615,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a job of importing text files to a text fingerprint library.
-   *
-   * @description *   You can call this operation to import multiple text files to a text fingerprint library at a time. The system extracts fingerprints from the text files and saves the fingerprints to the text fingerprint library.
+   * Submits a job of importing text files to a text fingerprint library.
+   * 
+   * @remarks
+   *   You can call this operation to import multiple text files to a text fingerprint library at a time. The system extracts fingerprints from the text files and saves the fingerprints to the text fingerprint library.
    * *   You can call this operation only in the China (Shanghai) region.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ImportFpShotJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportFpShotJobResponse
+   * 
+   * @param request - ImportFpShotJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportFpShotJobResponse
    */
   async importFpShotJobWithOptions(request: ImportFpShotJobRequest, runtime: $Util.RuntimeOptions): Promise<ImportFpShotJobResponse> {
     Util.validateModel(request);
@@ -25850,15 +46684,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a job of importing text files to a text fingerprint library.
-   *
-   * @description *   You can call this operation to import multiple text files to a text fingerprint library at a time. The system extracts fingerprints from the text files and saves the fingerprints to the text fingerprint library.
+   * Submits a job of importing text files to a text fingerprint library.
+   * 
+   * @remarks
+   *   You can call this operation to import multiple text files to a text fingerprint library at a time. The system extracts fingerprints from the text files and saves the fingerprints to the text fingerprint library.
    * *   You can call this operation only in the China (Shanghai) region.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ImportFpShotJobRequest
-   * @return ImportFpShotJobResponse
+   * 
+   * @param request - ImportFpShotJobRequest
+   * @returns ImportFpShotJobResponse
    */
   async importFpShotJob(request: ImportFpShotJobRequest): Promise<ImportFpShotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25866,15 +46701,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all media buckets bound to the media library.
-   *
-   * @description A maximum of 100 media buckets can be returned.
+   * Queries all media buckets bound to the media library.
+   * 
+   * @remarks
+   * A maximum of 100 media buckets can be returned.
    * ### QPS limit
    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListAllMediaBucketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAllMediaBucketResponse
+   * 
+   * @param request - ListAllMediaBucketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAllMediaBucketResponse
    */
   async listAllMediaBucketWithOptions(request: ListAllMediaBucketRequest, runtime: $Util.RuntimeOptions): Promise<ListAllMediaBucketResponse> {
     Util.validateModel(request);
@@ -25921,14 +46757,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all media buckets bound to the media library.
-   *
-   * @description A maximum of 100 media buckets can be returned.
+   * Queries all media buckets bound to the media library.
+   * 
+   * @remarks
+   * A maximum of 100 media buckets can be returned.
    * ### QPS limit
    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListAllMediaBucketRequest
-   * @return ListAllMediaBucketResponse
+   * 
+   * @param request - ListAllMediaBucketRequest
+   * @returns ListAllMediaBucketResponse
    */
   async listAllMediaBucket(request: ListAllMediaBucketRequest): Promise<ListAllMediaBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25936,11 +46773,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of entities in a custom library.
-   *
-   * @param request ListCustomEntitiesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCustomEntitiesResponse
+   * Queries a list of entities in a custom library.
+   * 
+   * @param request - ListCustomEntitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomEntitiesResponse
    */
   async listCustomEntitiesWithOptions(request: ListCustomEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomEntitiesResponse> {
     Util.validateModel(request);
@@ -25995,10 +46832,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of entities in a custom library.
-   *
-   * @param request ListCustomEntitiesRequest
-   * @return ListCustomEntitiesResponse
+   * Queries a list of entities in a custom library.
+   * 
+   * @param request - ListCustomEntitiesRequest
+   * @returns ListCustomEntitiesResponse
    */
   async listCustomEntities(request: ListCustomEntitiesRequest): Promise<ListCustomEntitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26006,9 +46843,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCustomGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCustomGroupsResponse
+   * @param request - ListCustomGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomGroupsResponse
    */
   async listCustomGroupsWithOptions(request: ListCustomGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomGroupsResponse> {
     Util.validateModel(request);
@@ -26059,8 +46896,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCustomGroupsRequest
-   * @return ListCustomGroupsResponse
+   * @param request - ListCustomGroupsRequest
+   * @returns ListCustomGroupsResponse
    */
   async listCustomGroups(request: ListCustomGroupsRequest): Promise<ListCustomGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26068,15 +46905,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about all figures and faces in a specific figure library.
-   *
-   * @description You can specify the ID of a figure or a figure library to query the corresponding information. If neither the figure ID nor figure library ID is specified, the operation returns the information about all figures and faces in all figure libraries within the current RAM user.
+   * Queries the information about all figures and faces in a specific figure library.
+   * 
+   * @remarks
+   * You can specify the ID of a figure or a figure library to query the corresponding information. If neither the figure ID nor figure library ID is specified, the operation returns the information about all figures and faces in all figure libraries within the current RAM user.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListCustomPersonsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCustomPersonsResponse
+   * 
+   * @param request - ListCustomPersonsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomPersonsResponse
    */
   async listCustomPersonsWithOptions(request: ListCustomPersonsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomPersonsResponse> {
     Util.validateModel(request);
@@ -26123,14 +46961,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about all figures and faces in a specific figure library.
-   *
-   * @description You can specify the ID of a figure or a figure library to query the corresponding information. If neither the figure ID nor figure library ID is specified, the operation returns the information about all figures and faces in all figure libraries within the current RAM user.
+   * Queries the information about all figures and faces in a specific figure library.
+   * 
+   * @remarks
+   * You can specify the ID of a figure or a figure library to query the corresponding information. If neither the figure ID nor figure library ID is specified, the operation returns the information about all figures and faces in all figure libraries within the current RAM user.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListCustomPersonsRequest
-   * @return ListCustomPersonsResponse
+   * 
+   * @param request - ListCustomPersonsRequest
+   * @returns ListCustomPersonsResponse
    */
   async listCustomPersons(request: ListCustomPersonsRequest): Promise<ListCustomPersonsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26138,9 +46977,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCustomViewsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCustomViewsResponse
+   * @param request - ListCustomViewsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomViewsResponse
    */
   async listCustomViewsWithOptions(request: ListCustomViewsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomViewsResponse> {
     Util.validateModel(request);
@@ -26199,8 +47038,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCustomViewsRequest
-   * @return ListCustomViewsResponse
+   * @param request - ListCustomViewsRequest
+   * @returns ListCustomViewsResponse
    */
   async listCustomViews(request: ListCustomViewsRequest): Promise<ListCustomViewsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26208,17 +47047,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media fingerprint libraries.
-   *
-   * @description *   You can call this operation to query the status and information about the media fingerprint libraries based on the specified IDs.
+   * Queries media fingerprint libraries.
+   * 
+   * @remarks
+   *   You can call this operation to query the status and information about the media fingerprint libraries based on the specified IDs.
    * *   You can query text fingerprint libraries only in the China (Shanghai) region.
    * *   You can call this operation to query up to 10 media fingerprint libraries.
    * ### QPS limit
    * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListFpShotDBRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFpShotDBResponse
+   * 
+   * @param request - ListFpShotDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFpShotDBResponse
    */
   async listFpShotDBWithOptions(request: ListFpShotDBRequest, runtime: $Util.RuntimeOptions): Promise<ListFpShotDBResponse> {
     Util.validateModel(request);
@@ -26261,16 +47101,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media fingerprint libraries.
-   *
-   * @description *   You can call this operation to query the status and information about the media fingerprint libraries based on the specified IDs.
+   * Queries media fingerprint libraries.
+   * 
+   * @remarks
+   *   You can call this operation to query the status and information about the media fingerprint libraries based on the specified IDs.
    * *   You can query text fingerprint libraries only in the China (Shanghai) region.
    * *   You can call this operation to query up to 10 media fingerprint libraries.
    * ### QPS limit
    * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListFpShotDBRequest
-   * @return ListFpShotDBResponse
+   * 
+   * @param request - ListFpShotDBRequest
+   * @returns ListFpShotDBResponse
    */
   async listFpShotDB(request: ListFpShotDBRequest): Promise<ListFpShotDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26278,16 +47119,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media files in a media fingerprint library.
-   *
-   * @description *   You can call this operation to query media files in a specific media fingerprint library based on the library ID. This operation supports paged queries.
+   * Queries media files in a media fingerprint library.
+   * 
+   * @remarks
+   *   You can call this operation to query media files in a specific media fingerprint library based on the library ID. This operation supports paged queries.
    * *   You can call this operation only in the China (Beijing), China (Hangzhou), China (Shanghai), and Singapore regions.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListFpShotFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFpShotFilesResponse
+   * 
+   * @param request - ListFpShotFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFpShotFilesResponse
    */
   async listFpShotFilesWithOptions(request: ListFpShotFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListFpShotFilesResponse> {
     Util.validateModel(request);
@@ -26346,15 +47188,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media files in a media fingerprint library.
-   *
-   * @description *   You can call this operation to query media files in a specific media fingerprint library based on the library ID. This operation supports paged queries.
+   * Queries media files in a media fingerprint library.
+   * 
+   * @remarks
+   *   You can call this operation to query media files in a specific media fingerprint library based on the library ID. This operation supports paged queries.
    * *   You can call this operation only in the China (Beijing), China (Hangzhou), China (Shanghai), and Singapore regions.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListFpShotFilesRequest
-   * @return ListFpShotFilesResponse
+   * 
+   * @param request - ListFpShotFilesRequest
+   * @returns ListFpShotFilesResponse
    */
   async listFpShotFiles(request: ListFpShotFilesRequest): Promise<ListFpShotFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26362,15 +47205,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries jobs of importing text files to a text fingerprint library.
-   *
-   * @description You can call this operation only in the China (Shanghai) region.
+   * Queries jobs of importing text files to a text fingerprint library.
+   * 
+   * @remarks
+   * You can call this operation only in the China (Shanghai) region.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListFpShotImportJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFpShotImportJobResponse
+   * 
+   * @param request - ListFpShotImportJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFpShotImportJobResponse
    */
   async listFpShotImportJobWithOptions(request: ListFpShotImportJobRequest, runtime: $Util.RuntimeOptions): Promise<ListFpShotImportJobResponse> {
     Util.validateModel(request);
@@ -26413,14 +47257,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries jobs of importing text files to a text fingerprint library.
-   *
-   * @description You can call this operation only in the China (Shanghai) region.
+   * Queries jobs of importing text files to a text fingerprint library.
+   * 
+   * @remarks
+   * You can call this operation only in the China (Shanghai) region.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListFpShotImportJobRequest
-   * @return ListFpShotImportJobResponse
+   * 
+   * @param request - ListFpShotImportJobRequest
+   * @returns ListFpShotImportJobResponse
    */
   async listFpShotImportJob(request: ListFpShotImportJobRequest): Promise<ListFpShotImportJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26428,18 +47273,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Traverses transcoding jobs
-   *
-   * @description *   By default, the returned transcoding jobs are sorted by CreationTime in descending order.
+   * Traverses transcoding jobs
+   * 
+   * @remarks
+   *   By default, the returned transcoding jobs are sorted by CreationTime in descending order.
    * *   You can call this operation to return transcoding jobs of the last 90 days. The jobs are returned based on the specified time range.
    * *   You can filter query results by configuring request parameters such as job status, creation time interval, and ApsaraVideo Media Processing (MPS) queue for transcoding.
    * *   By default, MPS does not allow you to access data across regions within the same account. Before you call this operation, make sure that the region that you specify is the same as the region of the transcoding jobs to be queried. Otherwise, this operation may fail to be called, or invalid information may be returned.
    * ### [](#qps)QPS limits
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListJobResponse
+   * 
+   * @param request - ListJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobResponse
    */
   async listJobWithOptions(request: ListJobRequest, runtime: $Util.RuntimeOptions): Promise<ListJobResponse> {
     Util.validateModel(request);
@@ -26502,17 +47348,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Traverses transcoding jobs
-   *
-   * @description *   By default, the returned transcoding jobs are sorted by CreationTime in descending order.
+   * Traverses transcoding jobs
+   * 
+   * @remarks
+   *   By default, the returned transcoding jobs are sorted by CreationTime in descending order.
    * *   You can call this operation to return transcoding jobs of the last 90 days. The jobs are returned based on the specified time range.
    * *   You can filter query results by configuring request parameters such as job status, creation time interval, and ApsaraVideo Media Processing (MPS) queue for transcoding.
    * *   By default, MPS does not allow you to access data across regions within the same account. Before you call this operation, make sure that the region that you specify is the same as the region of the transcoding jobs to be queried. Otherwise, this operation may fail to be called, or invalid information may be returned.
    * ### [](#qps)QPS limits
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListJobRequest
-   * @return ListJobResponse
+   * 
+   * @param request - ListJobRequest
+   * @returns ListJobResponse
    */
   async listJob(request: ListJobRequest): Promise<ListJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26520,15 +47367,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the execution instances of a media workflow.
-   *
-   * @description This operation returns execution instances only in the recent 90 days.
+   * Queries the execution instances of a media workflow.
+   * 
+   * @remarks
+   * This operation returns execution instances only in the recent 90 days.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListMediaWorkflowExecutionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMediaWorkflowExecutionsResponse
+   * 
+   * @param request - ListMediaWorkflowExecutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaWorkflowExecutionsResponse
    */
   async listMediaWorkflowExecutionsWithOptions(request: ListMediaWorkflowExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaWorkflowExecutionsResponse> {
     Util.validateModel(request);
@@ -26587,14 +47435,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the execution instances of a media workflow.
-   *
-   * @description This operation returns execution instances only in the recent 90 days.
+   * Queries the execution instances of a media workflow.
+   * 
+   * @remarks
+   * This operation returns execution instances only in the recent 90 days.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request ListMediaWorkflowExecutionsRequest
-   * @return ListMediaWorkflowExecutionsResponse
+   * 
+   * @param request - ListMediaWorkflowExecutionsRequest
+   * @returns ListMediaWorkflowExecutionsResponse
    */
   async listMediaWorkflowExecutions(request: ListMediaWorkflowExecutionsRequest): Promise<ListMediaWorkflowExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26602,13 +47451,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the template analysis job and returns a list of available preset templates when the template analysis job is complete.
-   *
-   * @description The time when the job was created.
-   *
-   * @param request QueryAnalysisJobListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryAnalysisJobListResponse
+   * Queries the template analysis job and returns a list of available preset templates when the template analysis job is complete.
+   * 
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @param request - QueryAnalysisJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAnalysisJobListResponse
    */
   async queryAnalysisJobListWithOptions(request: QueryAnalysisJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryAnalysisJobListResponse> {
     Util.validateModel(request);
@@ -26651,12 +47501,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the template analysis job and returns a list of available preset templates when the template analysis job is complete.
-   *
-   * @description The time when the job was created.
-   *
-   * @param request QueryAnalysisJobListRequest
-   * @return QueryAnalysisJobListResponse
+   * Queries the template analysis job and returns a list of available preset templates when the template analysis job is complete.
+   * 
+   * @remarks
+   * The time when the job was created.
+   * 
+   * @param request - QueryAnalysisJobListRequest
+   * @returns QueryAnalysisJobListResponse
    */
   async queryAnalysisJobList(request: QueryAnalysisJobListRequest): Promise<QueryAnalysisJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26664,11 +47515,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询版权水印提取任务
-   *
-   * @param request QueryCopyrightExtractJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryCopyrightExtractJobResponse
+   * 查询版权水印提取任务
+   * 
+   * @param request - QueryCopyrightExtractJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCopyrightExtractJobResponse
    */
   async queryCopyrightExtractJobWithOptions(request: QueryCopyrightExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightExtractJobResponse> {
     Util.validateModel(request);
@@ -26695,10 +47546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询版权水印提取任务
-   *
-   * @param request QueryCopyrightExtractJobRequest
-   * @return QueryCopyrightExtractJobResponse
+   * 查询版权水印提取任务
+   * 
+   * @param request - QueryCopyrightExtractJobRequest
+   * @returns QueryCopyrightExtractJobResponse
    */
   async queryCopyrightExtractJob(request: QueryCopyrightExtractJobRequest): Promise<QueryCopyrightExtractJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26706,11 +47557,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询视频版权水印任务
-   *
-   * @param request QueryCopyrightJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryCopyrightJobResponse
+   * 查询视频版权水印任务
+   * 
+   * @param request - QueryCopyrightJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCopyrightJobResponse
    */
   async queryCopyrightJobWithOptions(request: QueryCopyrightJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightJobResponse> {
     Util.validateModel(request);
@@ -26757,10 +47608,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询视频版权水印任务
-   *
-   * @param request QueryCopyrightJobRequest
-   * @return QueryCopyrightJobResponse
+   * 查询视频版权水印任务
+   * 
+   * @param request - QueryCopyrightJobRequest
+   * @returns QueryCopyrightJobResponse
    */
   async queryCopyrightJob(request: QueryCopyrightJobRequest): Promise<QueryCopyrightJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26768,15 +47619,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the jobs of clearing or deleting a media fingerprint library.
-   *
-   * @description You can call this operation to query the specified jobs of clearing or deleting a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+   * Queries the jobs of clearing or deleting a media fingerprint library.
+   * 
+   * @remarks
+   * You can call this operation to query the specified jobs of clearing or deleting a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryFpDBDeleteJobListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryFpDBDeleteJobListResponse
+   * 
+   * @param request - QueryFpDBDeleteJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryFpDBDeleteJobListResponse
    */
   async queryFpDBDeleteJobListWithOptions(request: QueryFpDBDeleteJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryFpDBDeleteJobListResponse> {
     Util.validateModel(request);
@@ -26819,14 +47671,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the jobs of clearing or deleting a media fingerprint library.
-   *
-   * @description You can call this operation to query the specified jobs of clearing or deleting a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+   * Queries the jobs of clearing or deleting a media fingerprint library.
+   * 
+   * @remarks
+   * You can call this operation to query the specified jobs of clearing or deleting a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryFpDBDeleteJobListRequest
-   * @return QueryFpDBDeleteJobListResponse
+   * 
+   * @param request - QueryFpDBDeleteJobListRequest
+   * @returns QueryFpDBDeleteJobListResponse
    */
   async queryFpDBDeleteJobList(request: QueryFpDBDeleteJobListRequest): Promise<QueryFpDBDeleteJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26834,15 +47687,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the jobs of deleting media files from a media fingerprint library.
-   *
-   * @description You can call this operation to query the specified jobs of deleting media files from a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+   * Queries the jobs of deleting media files from a media fingerprint library.
+   * 
+   * @remarks
+   * You can call this operation to query the specified jobs of deleting media files from a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
    * ### QPS limit
    * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryFpFileDeleteJobListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryFpFileDeleteJobListResponse
+   * 
+   * @param request - QueryFpFileDeleteJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryFpFileDeleteJobListResponse
    */
   async queryFpFileDeleteJobListWithOptions(request: QueryFpFileDeleteJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryFpFileDeleteJobListResponse> {
     Util.validateModel(request);
@@ -26885,14 +47739,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the jobs of deleting media files from a media fingerprint library.
-   *
-   * @description You can call this operation to query the specified jobs of deleting media files from a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
+   * Queries the jobs of deleting media files from a media fingerprint library.
+   * 
+   * @remarks
+   * You can call this operation to query the specified jobs of deleting media files from a media fingerprint library based on the job IDs. If you do not specify job IDs, the system returns the latest 20 jobs that are submitted.
    * ### QPS limit
    * You can call this operation up to 500 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryFpFileDeleteJobListRequest
-   * @return QueryFpFileDeleteJobListResponse
+   * 
+   * @param request - QueryFpFileDeleteJobListRequest
+   * @returns QueryFpFileDeleteJobListResponse
    */
   async queryFpFileDeleteJobList(request: QueryFpFileDeleteJobListRequest): Promise<QueryFpFileDeleteJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26900,16 +47755,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media fingerprint analysis jobs. You can call this operation to query video fingerprint analysis jobs and text fingerprint analysis jobs.
-   *
-   * @description *   After a media fingerprint analysis job is submitted, the media fingerprinting service compares the fingerprints of the job input with those of the media files in the media fingerprint library. You can call this operation to query the job results.
+   * Queries media fingerprint analysis jobs. You can call this operation to query video fingerprint analysis jobs and text fingerprint analysis jobs.
+   * 
+   * @remarks
+   *   After a media fingerprint analysis job is submitted, the media fingerprinting service compares the fingerprints of the job input with those of the media files in the media fingerprint library. You can call this operation to query the job results.
    * *   You can query the results of a text fingerprint analysis job only in the China (Shanghai) region.
    * ### [](#qps)QPS limits
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryFpShotJobListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryFpShotJobListResponse
+   * 
+   * @param request - QueryFpShotJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryFpShotJobListResponse
    */
   async queryFpShotJobListWithOptions(request: QueryFpShotJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryFpShotJobListResponse> {
     Util.validateModel(request);
@@ -26976,15 +47832,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media fingerprint analysis jobs. You can call this operation to query video fingerprint analysis jobs and text fingerprint analysis jobs.
-   *
-   * @description *   After a media fingerprint analysis job is submitted, the media fingerprinting service compares the fingerprints of the job input with those of the media files in the media fingerprint library. You can call this operation to query the job results.
+   * Queries media fingerprint analysis jobs. You can call this operation to query video fingerprint analysis jobs and text fingerprint analysis jobs.
+   * 
+   * @remarks
+   *   After a media fingerprint analysis job is submitted, the media fingerprinting service compares the fingerprints of the job input with those of the media files in the media fingerprint library. You can call this operation to query the job results.
    * *   You can query the results of a text fingerprint analysis job only in the China (Shanghai) region.
    * ### [](#qps)QPS limits
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryFpShotJobListRequest
-   * @return QueryFpShotJobListResponse
+   * 
+   * @param request - QueryFpShotJobListRequest
+   * @returns QueryFpShotJobListResponse
    */
   async queryFpShotJobList(request: QueryFpShotJobListRequest): Promise<QueryFpShotJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26992,9 +47849,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryIProductionJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryIProductionJobResponse
+   * @param request - QueryIProductionJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryIProductionJobResponse
    */
   async queryIProductionJobWithOptions(request: QueryIProductionJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryIProductionJobResponse> {
     Util.validateModel(request);
@@ -27037,8 +47894,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryIProductionJobRequest
-   * @return QueryIProductionJobResponse
+   * @param request - QueryIProductionJobRequest
+   * @returns QueryIProductionJobResponse
    */
   async queryIProductionJob(request: QueryIProductionJobRequest): Promise<QueryIProductionJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27046,17 +47903,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries transcoding jobs at a time by job ID.
-   *
-   * @description *   By default, returned jobs are sorted in descending order by CreationTime.
+   * Queries transcoding jobs at a time by job ID.
+   * 
+   * @remarks
+   *   By default, returned jobs are sorted in descending order by CreationTime.
    * *   You can call this operation to query up to 10 transcoding jobs at a time.
    * *   If you do not set the JobIds parameter, the `InvalidParameter` error code is returned.
    * ## QPS limit
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   *
-   * @param request QueryJobListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryJobListResponse
+   * 
+   * @param request - QueryJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryJobListResponse
    */
   async queryJobListWithOptions(request: QueryJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryJobListResponse> {
     Util.validateModel(request);
@@ -27099,16 +47957,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries transcoding jobs at a time by job ID.
-   *
-   * @description *   By default, returned jobs are sorted in descending order by CreationTime.
+   * Queries transcoding jobs at a time by job ID.
+   * 
+   * @remarks
+   *   By default, returned jobs are sorted in descending order by CreationTime.
    * *   You can call this operation to query up to 10 transcoding jobs at a time.
    * *   If you do not set the JobIds parameter, the `InvalidParameter` error code is returned.
    * ## QPS limit
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   *
-   * @param request QueryJobListRequest
-   * @return QueryJobListResponse
+   * 
+   * @param request - QueryJobListRequest
+   * @returns QueryJobListResponse
    */
   async queryJobList(request: QueryJobListRequest): Promise<QueryJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27116,15 +47975,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a content moderation job.
-   *
-   * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+   * Queries the information about a content moderation job.
+   * 
+   * @remarks
+   * In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryMediaCensorJobDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMediaCensorJobDetailResponse
+   * 
+   * @param request - QueryMediaCensorJobDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMediaCensorJobDetailResponse
    */
   async queryMediaCensorJobDetailWithOptions(request: QueryMediaCensorJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaCensorJobDetailResponse> {
     Util.validateModel(request);
@@ -27175,14 +48035,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a content moderation job.
-   *
-   * @description In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+   * Queries the information about a content moderation job.
+   * 
+   * @remarks
+   * In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryMediaCensorJobDetailRequest
-   * @return QueryMediaCensorJobDetailResponse
+   * 
+   * @param request - QueryMediaCensorJobDetailRequest
+   * @returns QueryMediaCensorJobDetailResponse
    */
   async queryMediaCensorJobDetail(request: QueryMediaCensorJobDetailRequest): Promise<QueryMediaCensorJobDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27190,15 +48051,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries content moderation jobs.
-   *
-   * @description You can call this operation to query only the content moderation jobs within three months.
+   * Queries content moderation jobs.
+   * 
+   * @remarks
+   * You can call this operation to query only the content moderation jobs within three months.
    * ### QPS limit
    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryMediaCensorJobListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMediaCensorJobListResponse
+   * 
+   * @param request - QueryMediaCensorJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMediaCensorJobListResponse
    */
   async queryMediaCensorJobListWithOptions(request: QueryMediaCensorJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaCensorJobListResponse> {
     Util.validateModel(request);
@@ -27265,14 +48127,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries content moderation jobs.
-   *
-   * @description You can call this operation to query only the content moderation jobs within three months.
+   * Queries content moderation jobs.
+   * 
+   * @remarks
+   * You can call this operation to query only the content moderation jobs within three months.
    * ### QPS limit
    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryMediaCensorJobListRequest
-   * @return QueryMediaCensorJobListResponse
+   * 
+   * @param request - QueryMediaCensorJobListRequest
+   * @returns QueryMediaCensorJobListResponse
    */
   async queryMediaCensorJobList(request: QueryMediaCensorJobListRequest): Promise<QueryMediaCensorJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27280,17 +48143,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the results of media information analysis jobs.
-   *
-   * @description *   In asynchronous mode, the media information can be retrieved only after the Message Service (MNS) callback of **submitting a media information job** is returned. If you have not retrieved the media information for a long period, the job may have failed.
+   * Queries the results of media information analysis jobs.
+   * 
+   * @remarks
+   *   In asynchronous mode, the media information can be retrieved only after the Message Service (MNS) callback of **submitting a media information job** is returned. If you have not retrieved the media information for a long period, the job may have failed.
    * *   You can call this operation to query up to 10 media information analysis jobs at a time.
    * *   By default, returned jobs are sorted in descending order by CreationTime.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryMediaInfoJobListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMediaInfoJobListResponse
+   * 
+   * @param request - QueryMediaInfoJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMediaInfoJobListResponse
    */
   async queryMediaInfoJobListWithOptions(request: QueryMediaInfoJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaInfoJobListResponse> {
     Util.validateModel(request);
@@ -27333,16 +48197,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the results of media information analysis jobs.
-   *
-   * @description *   In asynchronous mode, the media information can be retrieved only after the Message Service (MNS) callback of **submitting a media information job** is returned. If you have not retrieved the media information for a long period, the job may have failed.
+   * Queries the results of media information analysis jobs.
+   * 
+   * @remarks
+   *   In asynchronous mode, the media information can be retrieved only after the Message Service (MNS) callback of **submitting a media information job** is returned. If you have not retrieved the media information for a long period, the job may have failed.
    * *   You can call this operation to query up to 10 media information analysis jobs at a time.
    * *   By default, returned jobs are sorted in descending order by CreationTime.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryMediaInfoJobListRequest
-   * @return QueryMediaInfoJobListResponse
+   * 
+   * @param request - QueryMediaInfoJobListRequest
+   * @returns QueryMediaInfoJobListResponse
    */
   async queryMediaInfoJobList(request: QueryMediaInfoJobListRequest): Promise<QueryMediaInfoJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27350,15 +48215,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media files based on media file IDs.
-   *
-   * @description You can call this operation to query up to 10 media files at a time.
+   * Queries media files based on media file IDs.
+   * 
+   * @remarks
+   * You can call this operation to query up to 10 media files at a time.
    * ## QPS limit
    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   *
-   * @param request QueryMediaListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMediaListResponse
+   * 
+   * @param request - QueryMediaListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMediaListResponse
    */
   async queryMediaListWithOptions(request: QueryMediaListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaListResponse> {
     Util.validateModel(request);
@@ -27417,14 +48283,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media files based on media file IDs.
-   *
-   * @description You can call this operation to query up to 10 media files at a time.
+   * Queries media files based on media file IDs.
+   * 
+   * @remarks
+   * You can call this operation to query up to 10 media files at a time.
    * ## QPS limit
    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   *
-   * @param request QueryMediaListRequest
-   * @return QueryMediaListResponse
+   * 
+   * @param request - QueryMediaListRequest
+   * @returns QueryMediaListResponse
    */
   async queryMediaList(request: QueryMediaListRequest): Promise<QueryMediaListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27432,17 +48299,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media files based on their Object Storage Service (OSS) URLs.
-   *
-   * @description *   You can call this operation to query up to 10 media files at a time.
+   * Queries media files based on their Object Storage Service (OSS) URLs.
+   * 
+   * @remarks
+   *   You can call this operation to query up to 10 media files at a time.
    * *   Before you call this operation, you must call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation to add media files.
    * *   You can call this operation to query only media files that are processed in a workflow. To obtain comprehensive information about a media file that is newly uploaded to OSS, you can call this operation after the corresponding workflow is complete. To query media files that are not processed in a workflow, you must call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/29220.html) operation to submit a media information analysis job. After the job is complete, you can query the information about the media files.
    * ## QPS limit
    * You can call this API operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   *
-   * @param request QueryMediaListByURLRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMediaListByURLResponse
+   * 
+   * @param request - QueryMediaListByURLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMediaListByURLResponse
    */
   async queryMediaListByURLWithOptions(request: QueryMediaListByURLRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaListByURLResponse> {
     Util.validateModel(request);
@@ -27501,16 +48369,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media files based on their Object Storage Service (OSS) URLs.
-   *
-   * @description *   You can call this operation to query up to 10 media files at a time.
+   * Queries media files based on their Object Storage Service (OSS) URLs.
+   * 
+   * @remarks
+   *   You can call this operation to query up to 10 media files at a time.
    * *   Before you call this operation, you must call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation to add media files.
    * *   You can call this operation to query only media files that are processed in a workflow. To obtain comprehensive information about a media file that is newly uploaded to OSS, you can call this operation after the corresponding workflow is complete. To query media files that are not processed in a workflow, you must call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/29220.html) operation to submit a media information analysis job. After the job is complete, you can query the information about the media files.
    * ## QPS limit
    * You can call this API operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   *
-   * @param request QueryMediaListByURLRequest
-   * @return QueryMediaListByURLResponse
+   * 
+   * @param request - QueryMediaListByURLRequest
+   * @returns QueryMediaListByURLResponse
    */
   async queryMediaListByURL(request: QueryMediaListByURLRequest): Promise<QueryMediaListByURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27518,16 +48387,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media workflow execution instances.
-   *
-   * @description *   You can call this operation to query a maximum of 10 media workflow execution instances at a time.
+   * Queries media workflow execution instances.
+   * 
+   * @remarks
+   *   You can call this operation to query a maximum of 10 media workflow execution instances at a time.
    * *   Before you call this operation, make sure that the workflow pipeline is enabled. Otherwise, the workflow may not run as expected. For example, the following exceptions may occur: the workflow node is invalid and jobs created in the workflow cannot be executed.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryMediaWorkflowExecutionListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMediaWorkflowExecutionListResponse
+   * 
+   * @param request - QueryMediaWorkflowExecutionListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMediaWorkflowExecutionListResponse
    */
   async queryMediaWorkflowExecutionListWithOptions(request: QueryMediaWorkflowExecutionListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaWorkflowExecutionListResponse> {
     Util.validateModel(request);
@@ -27570,15 +48440,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media workflow execution instances.
-   *
-   * @description *   You can call this operation to query a maximum of 10 media workflow execution instances at a time.
+   * Queries media workflow execution instances.
+   * 
+   * @remarks
+   *   You can call this operation to query a maximum of 10 media workflow execution instances at a time.
    * *   Before you call this operation, make sure that the workflow pipeline is enabled. Otherwise, the workflow may not run as expected. For example, the following exceptions may occur: the workflow node is invalid and jobs created in the workflow cannot be executed.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryMediaWorkflowExecutionListRequest
-   * @return QueryMediaWorkflowExecutionListResponse
+   * 
+   * @param request - QueryMediaWorkflowExecutionListRequest
+   * @returns QueryMediaWorkflowExecutionListResponse
    */
   async queryMediaWorkflowExecutionList(request: QueryMediaWorkflowExecutionListRequest): Promise<QueryMediaWorkflowExecutionListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27586,15 +48457,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries registered media workflows.
-   *
-   * @description You can call this operation to query up to 10 media workflows at a time.
+   * Queries registered media workflows.
+   * 
+   * @remarks
+   * You can call this operation to query up to 10 media workflows at a time.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryMediaWorkflowListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMediaWorkflowListResponse
+   * 
+   * @param request - QueryMediaWorkflowListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMediaWorkflowListResponse
    */
   async queryMediaWorkflowListWithOptions(request: QueryMediaWorkflowListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaWorkflowListResponse> {
     Util.validateModel(request);
@@ -27637,14 +48509,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries registered media workflows.
-   *
-   * @description You can call this operation to query up to 10 media workflows at a time.
+   * Queries registered media workflows.
+   * 
+   * @remarks
+   * You can call this operation to query up to 10 media workflows at a time.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryMediaWorkflowListRequest
-   * @return QueryMediaWorkflowListResponse
+   * 
+   * @param request - QueryMediaWorkflowListRequest
+   * @returns QueryMediaWorkflowListResponse
    */
   async queryMediaWorkflowList(request: QueryMediaWorkflowListRequest): Promise<QueryMediaWorkflowListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27652,16 +48525,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries an ApsaraVideo Media Processing (MPS) queue by using the ID of the queue.
-   *
-   * @description *   You can call this operation to query up to 10 MPS queues at a time.
+   * Queries an ApsaraVideo Media Processing (MPS) queue by using the ID of the queue.
+   * 
+   * @remarks
+   *   You can call this operation to query up to 10 MPS queues at a time.
    * *   If `"Code": "InvalidIdentity.ServiceDisabled","Message": "The request identity was not allowed operated.","Recommend"` is returned after you call this operation, check whether the RAM user that you use is assigned the AliyunMTSDefaultRole role to obtain the permissions on MPS and whether your Alibaba Cloud account has overdue payments.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryPipelineListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryPipelineListResponse
+   * 
+   * @param request - QueryPipelineListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPipelineListResponse
    */
   async queryPipelineListWithOptions(request: QueryPipelineListRequest, runtime: $Util.RuntimeOptions): Promise<QueryPipelineListResponse> {
     Util.validateModel(request);
@@ -27704,15 +48578,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries an ApsaraVideo Media Processing (MPS) queue by using the ID of the queue.
-   *
-   * @description *   You can call this operation to query up to 10 MPS queues at a time.
+   * Queries an ApsaraVideo Media Processing (MPS) queue by using the ID of the queue.
+   * 
+   * @remarks
+   *   You can call this operation to query up to 10 MPS queues at a time.
    * *   If `"Code": "InvalidIdentity.ServiceDisabled","Message": "The request identity was not allowed operated.","Recommend"` is returned after you call this operation, check whether the RAM user that you use is assigned the AliyunMTSDefaultRole role to obtain the permissions on MPS and whether your Alibaba Cloud account has overdue payments.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryPipelineListRequest
-   * @return QueryPipelineListResponse
+   * 
+   * @param request - QueryPipelineListRequest
+   * @returns QueryPipelineListResponse
    */
   async queryPipelineList(request: QueryPipelineListRequest): Promise<QueryPipelineListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27720,9 +48595,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QuerySmarttagJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySmarttagJobResponse
+   * @param request - QuerySmarttagJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmarttagJobResponse
    */
   async querySmarttagJobWithOptions(request: QuerySmarttagJobRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmarttagJobResponse> {
     Util.validateModel(request);
@@ -27769,8 +48644,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QuerySmarttagJobRequest
-   * @return QuerySmarttagJobResponse
+   * @param request - QuerySmarttagJobRequest
+   * @returns QuerySmarttagJobResponse
    */
   async querySmarttagJob(request: QuerySmarttagJobRequest): Promise<QuerySmarttagJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27778,15 +48653,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the analysis template of a smart tagging job.
-   *
-   * @description If you call this operation to query the information about a smart tagging template, you must specify the template ID. Otherwise, the operation returns the information about all the templates that are created by the current RAM user.
+   * Queries the analysis template of a smart tagging job.
+   * 
+   * @remarks
+   * If you call this operation to query the information about a smart tagging template, you must specify the template ID. Otherwise, the operation returns the information about all the templates that are created by the current RAM user.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QuerySmarttagTemplateListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySmarttagTemplateListResponse
+   * 
+   * @param request - QuerySmarttagTemplateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmarttagTemplateListResponse
    */
   async querySmarttagTemplateListWithOptions(request: QuerySmarttagTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmarttagTemplateListResponse> {
     Util.validateModel(request);
@@ -27829,14 +48705,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the analysis template of a smart tagging job.
-   *
-   * @description If you call this operation to query the information about a smart tagging template, you must specify the template ID. Otherwise, the operation returns the information about all the templates that are created by the current RAM user.
+   * Queries the analysis template of a smart tagging job.
+   * 
+   * @remarks
+   * If you call this operation to query the information about a smart tagging template, you must specify the template ID. Otherwise, the operation returns the information about all the templates that are created by the current RAM user.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QuerySmarttagTemplateListRequest
-   * @return QuerySmarttagTemplateListResponse
+   * 
+   * @param request - QuerySmarttagTemplateListRequest
+   * @returns QuerySmarttagTemplateListResponse
    */
   async querySmarttagTemplateList(request: QuerySmarttagTemplateListRequest): Promise<QuerySmarttagTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27844,17 +48721,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries snapshot jobs.
-   *
-   * @description The status of the snapshot jobs that you want to query.
+   * Queries snapshot jobs.
+   * 
+   * @remarks
+   * The status of the snapshot jobs that you want to query.
    * *   **Submitted**: The job was submitted.
    * *   **Snapshoting**: The job is being processed.
    * *   **Success**: The job was successfully processed.
    * *   **Fail**: The job failed.
-   *
-   * @param request QuerySnapshotJobListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySnapshotJobListResponse
+   * 
+   * @param request - QuerySnapshotJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySnapshotJobListResponse
    */
   async querySnapshotJobListWithOptions(request: QuerySnapshotJobListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySnapshotJobListResponse> {
     Util.validateModel(request);
@@ -27921,16 +48799,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries snapshot jobs.
-   *
-   * @description The status of the snapshot jobs that you want to query.
+   * Queries snapshot jobs.
+   * 
+   * @remarks
+   * The status of the snapshot jobs that you want to query.
    * *   **Submitted**: The job was submitted.
    * *   **Snapshoting**: The job is being processed.
    * *   **Success**: The job was successfully processed.
    * *   **Fail**: The job failed.
-   *
-   * @param request QuerySnapshotJobListRequest
-   * @return QuerySnapshotJobListResponse
+   * 
+   * @param request - QuerySnapshotJobListRequest
+   * @returns QuerySnapshotJobListResponse
    */
   async querySnapshotJobList(request: QuerySnapshotJobListRequest): Promise<QuerySnapshotJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27938,13 +48817,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query up to 10 transcoding templates at a time.
-   *
-   * @description The IDs of the transcoding templates that you want to query. You can query up to 10 transcoding templates at a time. Separate multiple IDs of custom transcoding templates with commas (,).
-   *
-   * @param request QueryTemplateListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryTemplateListResponse
+   * You can call this operation to query up to 10 transcoding templates at a time.
+   * 
+   * @remarks
+   * The IDs of the transcoding templates that you want to query. You can query up to 10 transcoding templates at a time. Separate multiple IDs of custom transcoding templates with commas (,).
+   * 
+   * @param request - QueryTemplateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTemplateListResponse
    */
   async queryTemplateListWithOptions(request: QueryTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTemplateListResponse> {
     Util.validateModel(request);
@@ -27987,12 +48867,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query up to 10 transcoding templates at a time.
-   *
-   * @description The IDs of the transcoding templates that you want to query. You can query up to 10 transcoding templates at a time. Separate multiple IDs of custom transcoding templates with commas (,).
-   *
-   * @param request QueryTemplateListRequest
-   * @return QueryTemplateListResponse
+   * You can call this operation to query up to 10 transcoding templates at a time.
+   * 
+   * @remarks
+   * The IDs of the transcoding templates that you want to query. You can query up to 10 transcoding templates at a time. Separate multiple IDs of custom transcoding templates with commas (,).
+   * 
+   * @param request - QueryTemplateListRequest
+   * @returns QueryTemplateListResponse
    */
   async queryTemplateList(request: QueryTemplateListRequest): Promise<QueryTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28000,11 +48881,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询视频溯源水印ab流任务
-   *
-   * @param request QueryTraceAbJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryTraceAbJobResponse
+   * 查询视频溯源水印ab流任务
+   * 
+   * @param request - QueryTraceAbJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTraceAbJobResponse
    */
   async queryTraceAbJobWithOptions(request: QueryTraceAbJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryTraceAbJobResponse> {
     Util.validateModel(request);
@@ -28035,10 +48916,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询视频溯源水印ab流任务
-   *
-   * @param request QueryTraceAbJobRequest
-   * @return QueryTraceAbJobResponse
+   * 查询视频溯源水印ab流任务
+   * 
+   * @param request - QueryTraceAbJobRequest
+   * @returns QueryTraceAbJobResponse
    */
   async queryTraceAbJob(request: QueryTraceAbJobRequest): Promise<QueryTraceAbJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28046,11 +48927,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询溯源水印提取任务
-   *
-   * @param request QueryTraceExtractJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryTraceExtractJobResponse
+   * 查询溯源水印提取任务
+   * 
+   * @param request - QueryTraceExtractJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTraceExtractJobResponse
    */
   async queryTraceExtractJobWithOptions(request: QueryTraceExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryTraceExtractJobResponse> {
     Util.validateModel(request);
@@ -28077,10 +48958,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询溯源水印提取任务
-   *
-   * @param request QueryTraceExtractJobRequest
-   * @return QueryTraceExtractJobResponse
+   * 查询溯源水印提取任务
+   * 
+   * @param request - QueryTraceExtractJobRequest
+   * @returns QueryTraceExtractJobResponse
    */
   async queryTraceExtractJob(request: QueryTraceExtractJobRequest): Promise<QueryTraceExtractJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28088,11 +48969,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询视频溯源水印m3u8任务
-   *
-   * @param request QueryTraceM3u8JobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryTraceM3u8JobResponse
+   * 查询视频溯源水印m3u8任务
+   * 
+   * @param request - QueryTraceM3u8JobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTraceM3u8JobResponse
    */
   async queryTraceM3u8JobWithOptions(request: QueryTraceM3u8JobRequest, runtime: $Util.RuntimeOptions): Promise<QueryTraceM3u8JobResponse> {
     Util.validateModel(request);
@@ -28135,10 +49016,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询视频溯源水印m3u8任务
-   *
-   * @param request QueryTraceM3u8JobRequest
-   * @return QueryTraceM3u8JobResponse
+   * 查询视频溯源水印m3u8任务
+   * 
+   * @param request - QueryTraceM3u8JobRequest
+   * @returns QueryTraceM3u8JobResponse
    */
   async queryTraceM3u8Job(request: QueryTraceM3u8JobRequest): Promise<QueryTraceM3u8JobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28146,15 +49027,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries watermark templates.
-   *
-   * @description You can call this operation to query up to 10 watermark templates at a time.
+   * Queries watermark templates.
+   * 
+   * @remarks
+   * You can call this operation to query up to 10 watermark templates at a time.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryWaterMarkTemplateListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryWaterMarkTemplateListResponse
+   * 
+   * @param request - QueryWaterMarkTemplateListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryWaterMarkTemplateListResponse
    */
   async queryWaterMarkTemplateListWithOptions(request: QueryWaterMarkTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<QueryWaterMarkTemplateListResponse> {
     Util.validateModel(request);
@@ -28197,14 +49079,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries watermark templates.
-   *
-   * @description You can call this operation to query up to 10 watermark templates at a time.
+   * Queries watermark templates.
+   * 
+   * @remarks
+   * You can call this operation to query up to 10 watermark templates at a time.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request QueryWaterMarkTemplateListRequest
-   * @return QueryWaterMarkTemplateListResponse
+   * 
+   * @param request - QueryWaterMarkTemplateListRequest
+   * @returns QueryWaterMarkTemplateListResponse
    */
   async queryWaterMarkTemplateList(request: QueryWaterMarkTemplateListRequest): Promise<QueryWaterMarkTemplateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28212,16 +49095,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Registers a custom face.
-   *
-   * @description *   You can call this operation to register only one custom face at a time.
+   * Registers a custom face.
+   * 
+   * @remarks
+   *   You can call this operation to register only one custom face at a time.
    * *   A maximum of 10 images can be registered for a custom face.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request RegisterCustomFaceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RegisterCustomFaceResponse
+   * 
+   * @param request - RegisterCustomFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterCustomFaceResponse
    */
   async registerCustomFaceWithOptions(request: RegisterCustomFaceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterCustomFaceResponse> {
     Util.validateModel(request);
@@ -28272,15 +49156,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Registers a custom face.
-   *
-   * @description *   You can call this operation to register only one custom face at a time.
+   * Registers a custom face.
+   * 
+   * @remarks
+   *   You can call this operation to register only one custom face at a time.
    * *   A maximum of 10 images can be registered for a custom face.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request RegisterCustomFaceRequest
-   * @return RegisterCustomFaceResponse
+   * 
+   * @param request - RegisterCustomFaceRequest
+   * @returns RegisterCustomFaceResponse
    */
   async registerCustomFace(request: RegisterCustomFaceRequest): Promise<RegisterCustomFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28288,9 +49173,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RegisterCustomViewRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RegisterCustomViewResponse
+   * @param request - RegisterCustomViewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterCustomViewResponse
    */
   async registerCustomViewWithOptions(request: RegisterCustomViewRequest, runtime: $Util.RuntimeOptions): Promise<RegisterCustomViewResponse> {
     Util.validateModel(request);
@@ -28345,8 +49230,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RegisterCustomViewRequest
-   * @return RegisterCustomViewResponse
+   * @param request - RegisterCustomViewRequest
+   * @returns RegisterCustomViewResponse
    */
   async registerCustomView(request: RegisterCustomViewRequest): Promise<RegisterCustomViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28354,15 +49239,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media workflows in the specified state.
-   *
-   * @description You can call this operation to query media workflows in the specified state. If you do not specify the state, all media workflows are queried by default.
+   * Queries media workflows in the specified state.
+   * 
+   * @remarks
+   * You can call this operation to query media workflows in the specified state. If you do not specify the state, all media workflows are queried by default.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SearchMediaWorkflowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchMediaWorkflowResponse
+   * 
+   * @param request - SearchMediaWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMediaWorkflowResponse
    */
   async searchMediaWorkflowWithOptions(request: SearchMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaWorkflowResponse> {
     Util.validateModel(request);
@@ -28413,14 +49299,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries media workflows in the specified state.
-   *
-   * @description You can call this operation to query media workflows in the specified state. If you do not specify the state, all media workflows are queried by default.
+   * Queries media workflows in the specified state.
+   * 
+   * @remarks
+   * You can call this operation to query media workflows in the specified state. If you do not specify the state, all media workflows are queried by default.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SearchMediaWorkflowRequest
-   * @return SearchMediaWorkflowResponse
+   * 
+   * @param request - SearchMediaWorkflowRequest
+   * @returns SearchMediaWorkflowResponse
    */
   async searchMediaWorkflow(request: SearchMediaWorkflowRequest): Promise<SearchMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28428,15 +49315,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Searches for ApsaraVideo Media Processing (MPS) queues in the specified state.
-   *
-   * @description You can call this operation to query MPS queues in the specified state. If you do not specify the state, all MPS queues are queried by default.
+   * Searches for ApsaraVideo Media Processing (MPS) queues in the specified state.
+   * 
+   * @remarks
+   * You can call this operation to query MPS queues in the specified state. If you do not specify the state, all MPS queues are queried by default.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SearchPipelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchPipelineResponse
+   * 
+   * @param request - SearchPipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchPipelineResponse
    */
   async searchPipelineWithOptions(request: SearchPipelineRequest, runtime: $Util.RuntimeOptions): Promise<SearchPipelineResponse> {
     Util.validateModel(request);
@@ -28487,14 +49375,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Searches for ApsaraVideo Media Processing (MPS) queues in the specified state.
-   *
-   * @description You can call this operation to query MPS queues in the specified state. If you do not specify the state, all MPS queues are queried by default.
+   * Searches for ApsaraVideo Media Processing (MPS) queues in the specified state.
+   * 
+   * @remarks
+   * You can call this operation to query MPS queues in the specified state. If you do not specify the state, all MPS queues are queried by default.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SearchPipelineRequest
-   * @return SearchPipelineResponse
+   * 
+   * @param request - SearchPipelineRequest
+   * @returns SearchPipelineResponse
    */
   async searchPipeline(request: SearchPipelineRequest): Promise<SearchPipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28502,13 +49391,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query custom transcoding templates in the specified state.
-   *
-   * @description You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SearchTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchTemplateResponse
+   * You can call this operation to query custom transcoding templates in the specified state.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   * 
+   * @param request - SearchTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchTemplateResponse
    */
   async searchTemplateWithOptions(request: SearchTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SearchTemplateResponse> {
     Util.validateModel(request);
@@ -28563,12 +49453,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query custom transcoding templates in the specified state.
-   *
-   * @description You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SearchTemplateRequest
-   * @return SearchTemplateResponse
+   * You can call this operation to query custom transcoding templates in the specified state.
+   * 
+   * @remarks
+   * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
+   * 
+   * @param request - SearchTemplateRequest
+   * @returns SearchTemplateResponse
    */
   async searchTemplate(request: SearchTemplateRequest): Promise<SearchTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28576,13 +49467,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Searches for watermark templates.
-   *
-   * @description The total number of returned entries.
-   *
-   * @param request SearchWaterMarkTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchWaterMarkTemplateResponse
+   * Searches for watermark templates.
+   * 
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @param request - SearchWaterMarkTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchWaterMarkTemplateResponse
    */
   async searchWaterMarkTemplateWithOptions(request: SearchWaterMarkTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SearchWaterMarkTemplateResponse> {
     Util.validateModel(request);
@@ -28633,12 +49525,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Searches for watermark templates.
-   *
-   * @description The total number of returned entries.
-   *
-   * @param request SearchWaterMarkTemplateRequest
-   * @return SearchWaterMarkTemplateResponse
+   * Searches for watermark templates.
+   * 
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @param request - SearchWaterMarkTemplateRequest
+   * @returns SearchWaterMarkTemplateResponse
    */
   async searchWaterMarkTemplate(request: SearchWaterMarkTemplateRequest): Promise<SearchWaterMarkTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28646,16 +49539,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a preset template analysis job.
-   *
-   * @description *   After you call the SubmitAnalysisJob operation to submit a preset template analysis job, ApsaraVideo Media Processing (MPS) intelligently analyzes the input file of the job and recommends a suitable preset template. You can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html) operation to query the analysis result or enable asynchronous notifications to receive the analysis result.
+   * Submits a preset template analysis job.
+   * 
+   * @remarks
+   *   After you call the SubmitAnalysisJob operation to submit a preset template analysis job, ApsaraVideo Media Processing (MPS) intelligently analyzes the input file of the job and recommends a suitable preset template. You can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html) operation to query the analysis result or enable asynchronous notifications to receive the analysis result.
    * *   The analysis result is retained only for two weeks after it is generated. The analysis result is deleted after two weeks. If you use the recommended preset template in a transcoding job after two weeks, the job fails, and the `AnalysisResultNotFound` error code is returned.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitAnalysisJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitAnalysisJobResponse
+   * 
+   * @param request - SubmitAnalysisJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAnalysisJobResponse
    */
   async submitAnalysisJobWithOptions(request: SubmitAnalysisJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAnalysisJobResponse> {
     Util.validateModel(request);
@@ -28714,15 +49608,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a preset template analysis job.
-   *
-   * @description *   After you call the SubmitAnalysisJob operation to submit a preset template analysis job, ApsaraVideo Media Processing (MPS) intelligently analyzes the input file of the job and recommends a suitable preset template. You can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html) operation to query the analysis result or enable asynchronous notifications to receive the analysis result.
+   * Submits a preset template analysis job.
+   * 
+   * @remarks
+   *   After you call the SubmitAnalysisJob operation to submit a preset template analysis job, ApsaraVideo Media Processing (MPS) intelligently analyzes the input file of the job and recommends a suitable preset template. You can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html) operation to query the analysis result or enable asynchronous notifications to receive the analysis result.
    * *   The analysis result is retained only for two weeks after it is generated. The analysis result is deleted after two weeks. If you use the recommended preset template in a transcoding job after two weeks, the job fails, and the `AnalysisResultNotFound` error code is returned.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitAnalysisJobRequest
-   * @return SubmitAnalysisJobResponse
+   * 
+   * @param request - SubmitAnalysisJobRequest
+   * @returns SubmitAnalysisJobResponse
    */
   async submitAnalysisJob(request: SubmitAnalysisJobRequest): Promise<SubmitAnalysisJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28730,11 +49625,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交版权水印提取任务
-   *
-   * @param request SubmitCopyrightExtractJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitCopyrightExtractJobResponse
+   * 提交版权水印提取任务
+   * 
+   * @param request - SubmitCopyrightExtractJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCopyrightExtractJobResponse
    */
   async submitCopyrightExtractJobWithOptions(request: SubmitCopyrightExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightExtractJobResponse> {
     Util.validateModel(request);
@@ -28777,10 +49672,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交版权水印提取任务
-   *
-   * @param request SubmitCopyrightExtractJobRequest
-   * @return SubmitCopyrightExtractJobResponse
+   * 提交版权水印提取任务
+   * 
+   * @param request - SubmitCopyrightExtractJobRequest
+   * @returns SubmitCopyrightExtractJobResponse
    */
   async submitCopyrightExtractJob(request: SubmitCopyrightExtractJobRequest): Promise<SubmitCopyrightExtractJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28788,11 +49683,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交视频版权水印
-   *
-   * @param request SubmitCopyrightJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitCopyrightJobResponse
+   * 提交视频版权水印
+   * 
+   * @param request - SubmitCopyrightJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCopyrightJobResponse
    */
   async submitCopyrightJobWithOptions(request: SubmitCopyrightJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightJobResponse> {
     Util.validateModel(request);
@@ -28859,10 +49754,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交视频版权水印
-   *
-   * @param request SubmitCopyrightJobRequest
-   * @return SubmitCopyrightJobResponse
+   * 提交视频版权水印
+   * 
+   * @param request - SubmitCopyrightJobRequest
+   * @returns SubmitCopyrightJobResponse
    */
   async submitCopyrightJob(request: SubmitCopyrightJobRequest): Promise<SubmitCopyrightJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28870,15 +49765,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a job of clearing or deleting a media fingerprint library.
-   *
-   * @description You can call this operation to clear or delete the specified media fingerprint library based on the library ID. If you clear a media fingerprint library, the content in the library is deleted, but the library is not deleted. If you delete a media fingerprint library, both the library and the content in the library are deleted. If you do not specify the operation type, the system clears the media fingerprint library by default.
+   * Submits a job of clearing or deleting a media fingerprint library.
+   * 
+   * @remarks
+   * You can call this operation to clear or delete the specified media fingerprint library based on the library ID. If you clear a media fingerprint library, the content in the library is deleted, but the library is not deleted. If you delete a media fingerprint library, both the library and the content in the library are deleted. If you do not specify the operation type, the system clears the media fingerprint library by default.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitFpDBDeleteJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitFpDBDeleteJobResponse
+   * 
+   * @param request - SubmitFpDBDeleteJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitFpDBDeleteJobResponse
    */
   async submitFpDBDeleteJobWithOptions(request: SubmitFpDBDeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFpDBDeleteJobResponse> {
     Util.validateModel(request);
@@ -28933,14 +49829,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a job of clearing or deleting a media fingerprint library.
-   *
-   * @description You can call this operation to clear or delete the specified media fingerprint library based on the library ID. If you clear a media fingerprint library, the content in the library is deleted, but the library is not deleted. If you delete a media fingerprint library, both the library and the content in the library are deleted. If you do not specify the operation type, the system clears the media fingerprint library by default.
+   * Submits a job of clearing or deleting a media fingerprint library.
+   * 
+   * @remarks
+   * You can call this operation to clear or delete the specified media fingerprint library based on the library ID. If you clear a media fingerprint library, the content in the library is deleted, but the library is not deleted. If you delete a media fingerprint library, both the library and the content in the library are deleted. If you do not specify the operation type, the system clears the media fingerprint library by default.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitFpDBDeleteJobRequest
-   * @return SubmitFpDBDeleteJobResponse
+   * 
+   * @param request - SubmitFpDBDeleteJobRequest
+   * @returns SubmitFpDBDeleteJobResponse
    */
   async submitFpDBDeleteJob(request: SubmitFpDBDeleteJobRequest): Promise<SubmitFpDBDeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28948,17 +49845,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a job of deleting media files from a media fingerprint library.
-   *
-   * @description ## [](#)Limits
+   * Submits a job of deleting media files from a media fingerprint library.
+   * 
+   * @remarks
+   * ## [](#)Limits
    * *   You can call this operation to delete up to 200 media files from a media fingerprint library at a time.
    * *   This operation is available in the following regions: China (Beijing), China (Hangzhou), China (Shanghai), and Singapore.
    * ## [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitFpFileDeleteJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitFpFileDeleteJobResponse
+   * 
+   * @param request - SubmitFpFileDeleteJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitFpFileDeleteJobResponse
    */
   async submitFpFileDeleteJobWithOptions(request: SubmitFpFileDeleteJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFpFileDeleteJobResponse> {
     Util.validateModel(request);
@@ -29017,16 +49915,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a job of deleting media files from a media fingerprint library.
-   *
-   * @description ## [](#)Limits
+   * Submits a job of deleting media files from a media fingerprint library.
+   * 
+   * @remarks
+   * ## [](#)Limits
    * *   You can call this operation to delete up to 200 media files from a media fingerprint library at a time.
    * *   This operation is available in the following regions: China (Beijing), China (Hangzhou), China (Shanghai), and Singapore.
    * ## [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitFpFileDeleteJobRequest
-   * @return SubmitFpFileDeleteJobResponse
+   * 
+   * @param request - SubmitFpFileDeleteJobRequest
+   * @returns SubmitFpFileDeleteJobResponse
    */
   async submitFpFileDeleteJob(request: SubmitFpFileDeleteJobRequest): Promise<SubmitFpFileDeleteJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29034,9 +49933,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a media fingerprint analysis job to query the media fingerprint repository for a media file with the identical or similar fingerprint as the input file.
-   *
-   * @description *   You can call this operation to submit a video, audio, image, or text fingerprint analysis job.
+   * Submits a media fingerprint analysis job to query the media fingerprint repository for a media file with the identical or similar fingerprint as the input file.
+   * 
+   * @remarks
+   *   You can call this operation to submit a video, audio, image, or text fingerprint analysis job.
    * *   This operation asynchronously submits a job. The query results may not have been generated when the response is returned. After the results are generated, an asynchronous message is returned.
    * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
    * *   The input file of the job must be in one of the following formats:
@@ -29045,10 +49945,10 @@ export default class Client extends OpenApi {
    *     *   Video encoding formats: MPEG2, MPEG4, H264, HEVC, and WMV.
    * ### QPS limit
    * You can call this operation up to 150 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitFpShotJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitFpShotJobResponse
+   * 
+   * @param request - SubmitFpShotJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitFpShotJobResponse
    */
   async submitFpShotJobWithOptions(request: SubmitFpShotJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFpShotJobResponse> {
     Util.validateModel(request);
@@ -29103,9 +50003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a media fingerprint analysis job to query the media fingerprint repository for a media file with the identical or similar fingerprint as the input file.
-   *
-   * @description *   You can call this operation to submit a video, audio, image, or text fingerprint analysis job.
+   * Submits a media fingerprint analysis job to query the media fingerprint repository for a media file with the identical or similar fingerprint as the input file.
+   * 
+   * @remarks
+   *   You can call this operation to submit a video, audio, image, or text fingerprint analysis job.
    * *   This operation asynchronously submits a job. The query results may not have been generated when the response is returned. After the results are generated, an asynchronous message is returned.
    * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
    * *   The input file of the job must be in one of the following formats:
@@ -29114,9 +50015,9 @@ export default class Client extends OpenApi {
    *     *   Video encoding formats: MPEG2, MPEG4, H264, HEVC, and WMV.
    * ### QPS limit
    * You can call this operation up to 150 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitFpShotJobRequest
-   * @return SubmitFpShotJobResponse
+   * 
+   * @param request - SubmitFpShotJobRequest
+   * @returns SubmitFpShotJobResponse
    */
   async submitFpShotJob(request: SubmitFpShotJobRequest): Promise<SubmitFpShotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29124,14 +50025,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
+   * @remarks
+   *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
    * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
    * ### [](#qps)QPS limit
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitIProductionJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitIProductionJobResponse
+   * 
+   * @param request - SubmitIProductionJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitIProductionJobResponse
    */
   async submitIProductionJobWithOptions(request: SubmitIProductionJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIProductionJobResponse> {
     Util.validateModel(request);
@@ -29206,13 +50108,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
+   * @remarks
+   *   Jobs that are submitted by calling this operation run in an asynchronous manner. After a job is added to the ApsaraVideo Media Processing (MPS) queue, the job is scheduled to run. You can call the [QueryIProductionJob](https://help.aliyun.com/document_detail/170217.html) operation or configure a callback to query the job result.
    * *   Capabilities provided by the intelligent production feature vary based on the region. Before you call this operation to submit an intelligent production job, check whether the job is supported in the region in which your service is activated. For more information, see [Regions and endpoints](https://help.aliyun.com/document_detail/43248.html).
    * ### [](#qps)QPS limit
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitIProductionJobRequest
-   * @return SubmitIProductionJobResponse
+   * 
+   * @param request - SubmitIProductionJobRequest
+   * @returns SubmitIProductionJobResponse
    */
   async submitIProductionJob(request: SubmitIProductionJobRequest): Promise<SubmitIProductionJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29220,11 +50123,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交图片版权水印任务
-   *
-   * @param request SubmitImageCopyrightRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitImageCopyrightResponse
+   * 提交图片版权水印任务
+   * 
+   * @param request - SubmitImageCopyrightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitImageCopyrightResponse
    */
   async submitImageCopyrightWithOptions(request: SubmitImageCopyrightRequest, runtime: $Util.RuntimeOptions): Promise<SubmitImageCopyrightResponse> {
     Util.validateModel(request);
@@ -29259,10 +50162,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交图片版权水印任务
-   *
-   * @param request SubmitImageCopyrightRequest
-   * @return SubmitImageCopyrightResponse
+   * 提交图片版权水印任务
+   * 
+   * @param request - SubmitImageCopyrightRequest
+   * @returns SubmitImageCopyrightResponse
    */
   async submitImageCopyright(request: SubmitImageCopyrightRequest): Promise<SubmitImageCopyrightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29270,9 +50173,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits transcoding jobs. If the transcoding jobs and workflows created in the ApsaraVideo Media Processing (MPS) console cannot meet your business requirements, you can call the SubmitJobs operation to submit transcoding jobs. Specify transcoding parameters as required when you call the SubmitJobs operation.
-   *
-   * @description *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+   * Submits transcoding jobs. If the transcoding jobs and workflows created in the ApsaraVideo Media Processing (MPS) console cannot meet your business requirements, you can call the SubmitJobs operation to submit transcoding jobs. Specify transcoding parameters as required when you call the SubmitJobs operation.
+   * 
+   * @remarks
+   *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
    * *   An input file can be up to 100 GB in size. If the size of the input file exceeds this limit, the job may fail.
    * *   If you use an **intelligent preset template** to transcode an input file, you must first call the [SubmitAnalysisJob](https://help.aliyun.com/document_detail/29223.html) operation to submit a preset template analysis job. After the analysis job is complete, you can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html)operation to obtain the available preset templates for the input file. When you submit a transcoding job, set TemplateId to the ID of an available preset template. If you specify a preset template that is not in the available preset templates, the transcoding job fails.
    * *   If you use a **static preset template** to transcode an input file, you do not need to submit a preset template analysis job.
@@ -29280,10 +50184,10 @@ export default class Client extends OpenApi {
    * *   For information about transcoding FAQ, see [FAQ about MPS](https://help.aliyun.com/document_detail/38986.html).
    * ### [](#qps)QPS limits
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitJobsResponse
+   * 
+   * @param request - SubmitJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitJobsResponse
    */
   async submitJobsWithOptions(request: SubmitJobsRequest, runtime: $Util.RuntimeOptions): Promise<SubmitJobsResponse> {
     Util.validateModel(request);
@@ -29342,9 +50246,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits transcoding jobs. If the transcoding jobs and workflows created in the ApsaraVideo Media Processing (MPS) console cannot meet your business requirements, you can call the SubmitJobs operation to submit transcoding jobs. Specify transcoding parameters as required when you call the SubmitJobs operation.
-   *
-   * @description *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
+   * Submits transcoding jobs. If the transcoding jobs and workflows created in the ApsaraVideo Media Processing (MPS) console cannot meet your business requirements, you can call the SubmitJobs operation to submit transcoding jobs. Specify transcoding parameters as required when you call the SubmitJobs operation.
+   * 
+   * @remarks
+   *   SubmitJobs is an asynchronous operation. After you submit transcoding jobs, the jobs are added to an MPS queue to be scheduled and run. The transcoding jobs may not have been complete when the response is returned. After you call this operation, you can call the [QueryJobList](https://help.aliyun.com/document_detail/602836.html) operation to query the job results. You can also associate a Message Service (MNS) queue or topic with the MPS queue to receive notifications on the jobs. For more information, see [Receive notifications](https://www.alibabacloud.com/help/zh/apsaravideo-for-media-processing/latest/receive-message-notifications).
    * *   An input file can be up to 100 GB in size. If the size of the input file exceeds this limit, the job may fail.
    * *   If you use an **intelligent preset template** to transcode an input file, you must first call the [SubmitAnalysisJob](https://help.aliyun.com/document_detail/29223.html) operation to submit a preset template analysis job. After the analysis job is complete, you can call the [QueryAnalysisJobList](https://help.aliyun.com/document_detail/29224.html)operation to obtain the available preset templates for the input file. When you submit a transcoding job, set TemplateId to the ID of an available preset template. If you specify a preset template that is not in the available preset templates, the transcoding job fails.
    * *   If you use a **static preset template** to transcode an input file, you do not need to submit a preset template analysis job.
@@ -29352,9 +50257,9 @@ export default class Client extends OpenApi {
    * *   For information about transcoding FAQ, see [FAQ about MPS](https://help.aliyun.com/document_detail/38986.html).
    * ### [](#qps)QPS limits
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitJobsRequest
-   * @return SubmitJobsResponse
+   * 
+   * @param request - SubmitJobsRequest
+   * @returns SubmitJobsResponse
    */
   async submitJobs(request: SubmitJobsRequest): Promise<SubmitJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29362,15 +50267,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a content moderation job.
-   *
-   * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue and then scheduled, queued, and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/91779.html) operation or configure an asynchronous notification to obtain the job result.
+   * Submits a content moderation job.
+   * 
+   * @remarks
+   * The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue and then scheduled, queued, and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/91779.html) operation or configure an asynchronous notification to obtain the job result.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitMediaCensorJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitMediaCensorJobResponse
+   * 
+   * @param request - SubmitMediaCensorJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitMediaCensorJobResponse
    */
   async submitMediaCensorJobWithOptions(request: SubmitMediaCensorJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaCensorJobResponse> {
     Util.validateModel(request);
@@ -29445,14 +50351,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a content moderation job.
-   *
-   * @description The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue and then scheduled, queued, and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/91779.html) operation or configure an asynchronous notification to obtain the job result.
+   * Submits a content moderation job.
+   * 
+   * @remarks
+   * The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue and then scheduled, queued, and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/91779.html) operation or configure an asynchronous notification to obtain the job result.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitMediaCensorJobRequest
-   * @return SubmitMediaCensorJobResponse
+   * 
+   * @param request - SubmitMediaCensorJobRequest
+   * @returns SubmitMediaCensorJobResponse
    */
   async submitMediaCensorJob(request: SubmitMediaCensorJobRequest): Promise<SubmitMediaCensorJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29460,16 +50367,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a media information analysis job.
-   *
-   * @description After you call the SubmitMediaInfoJob operation, ApsaraVideo Media Processing (MPS) analyzes the input media file and generates the analysis results. You can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/29221.html) operation to query the analysis results.
+   * Submits a media information analysis job.
+   * 
+   * @remarks
+   * After you call the SubmitMediaInfoJob operation, ApsaraVideo Media Processing (MPS) analyzes the input media file and generates the analysis results. You can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/29221.html) operation to query the analysis results.
    * > We recommend that you submit a media information analysis job after you confirm that the media file is uploaded to Object Storage Service (OSS). You can configure upload callbacks to be notified of the upload status of files.
    * ### QPS limit
    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitMediaInfoJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitMediaInfoJobResponse
+   * 
+   * @param request - SubmitMediaInfoJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitMediaInfoJobResponse
    */
   async submitMediaInfoJobWithOptions(request: SubmitMediaInfoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaInfoJobResponse> {
     Util.validateModel(request);
@@ -29524,15 +50432,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a media information analysis job.
-   *
-   * @description After you call the SubmitMediaInfoJob operation, ApsaraVideo Media Processing (MPS) analyzes the input media file and generates the analysis results. You can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/29221.html) operation to query the analysis results.
+   * Submits a media information analysis job.
+   * 
+   * @remarks
+   * After you call the SubmitMediaInfoJob operation, ApsaraVideo Media Processing (MPS) analyzes the input media file and generates the analysis results. You can call the [QueryMediaInfoJobList](https://help.aliyun.com/document_detail/29221.html) operation to query the analysis results.
    * > We recommend that you submit a media information analysis job after you confirm that the media file is uploaded to Object Storage Service (OSS). You can configure upload callbacks to be notified of the upload status of files.
    * ### QPS limit
    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitMediaInfoJobRequest
-   * @return SubmitMediaInfoJobResponse
+   * 
+   * @param request - SubmitMediaInfoJobRequest
+   * @returns SubmitMediaInfoJobResponse
    */
   async submitMediaInfoJob(request: SubmitMediaInfoJobRequest): Promise<SubmitMediaInfoJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29540,9 +50449,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SubmitSmarttagJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitSmarttagJobResponse
+   * @param request - SubmitSmarttagJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSmarttagJobResponse
    */
   async submitSmarttagJobWithOptions(request: SubmitSmarttagJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSmarttagJobResponse> {
     Util.validateModel(request);
@@ -29625,8 +50534,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SubmitSmarttagJobRequest
-   * @return SubmitSmarttagJobResponse
+   * @param request - SubmitSmarttagJobRequest
+   * @returns SubmitSmarttagJobResponse
    */
   async submitSmarttagJob(request: SubmitSmarttagJobRequest): Promise<SubmitSmarttagJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29634,17 +50543,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a snapshot job.
-   *
-   * @description *   Only JPG images can be generated by calling this operation.
+   * Submits a snapshot job.
+   * 
+   * @remarks
+   *   Only JPG images can be generated by calling this operation.
    * *   Asynchronous mode: This operation may return a response before snapshots are captured. Snapshot jobs are queued in the background and asynchronously processed by ApsaraVideo Media Processing (MPS). If the **Interval** or **Num** parameter is set, the snapshot job is processed in asynchronous mode. For more information about FAQ about capturing snapshots, see [FAQ about taking snapshots](https://help.aliyun.com/document_detail/60805.html).
    * *   Notifications: When you submit a snapshot job, the **PipelineId** parameter is required. An asynchronous message is sent only after the notification feature is enabled for the MPS queue.
    * ### QPS limit
    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitSnapshotJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitSnapshotJobResponse
+   * 
+   * @param request - SubmitSnapshotJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSnapshotJobResponse
    */
   async submitSnapshotJobWithOptions(request: SubmitSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSnapshotJobResponse> {
     Util.validateModel(request);
@@ -29699,16 +50609,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a snapshot job.
-   *
-   * @description *   Only JPG images can be generated by calling this operation.
+   * Submits a snapshot job.
+   * 
+   * @remarks
+   *   Only JPG images can be generated by calling this operation.
    * *   Asynchronous mode: This operation may return a response before snapshots are captured. Snapshot jobs are queued in the background and asynchronously processed by ApsaraVideo Media Processing (MPS). If the **Interval** or **Num** parameter is set, the snapshot job is processed in asynchronous mode. For more information about FAQ about capturing snapshots, see [FAQ about taking snapshots](https://help.aliyun.com/document_detail/60805.html).
    * *   Notifications: When you submit a snapshot job, the **PipelineId** parameter is required. An asynchronous message is sent only after the notification feature is enabled for the MPS queue.
    * ### QPS limit
    * You can call this operation up to 50 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request SubmitSnapshotJobRequest
-   * @return SubmitSnapshotJobResponse
+   * 
+   * @param request - SubmitSnapshotJobRequest
+   * @returns SubmitSnapshotJobResponse
    */
   async submitSnapshotJob(request: SubmitSnapshotJobRequest): Promise<SubmitSnapshotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29716,11 +50627,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交视频溯源水印ab流任务
-   *
-   * @param request SubmitTraceAbJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitTraceAbJobResponse
+   * 提交视频溯源水印ab流任务
+   * 
+   * @param request - SubmitTraceAbJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTraceAbJobResponse
    */
   async submitTraceAbJobWithOptions(request: SubmitTraceAbJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTraceAbJobResponse> {
     Util.validateModel(request);
@@ -29779,10 +50690,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交视频溯源水印ab流任务
-   *
-   * @param request SubmitTraceAbJobRequest
-   * @return SubmitTraceAbJobResponse
+   * 提交视频溯源水印ab流任务
+   * 
+   * @param request - SubmitTraceAbJobRequest
+   * @returns SubmitTraceAbJobResponse
    */
   async submitTraceAbJob(request: SubmitTraceAbJobRequest): Promise<SubmitTraceAbJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29790,11 +50701,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交溯源水印提取任务
-   *
-   * @param request SubmitTraceExtractJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitTraceExtractJobResponse
+   * 提交溯源水印提取任务
+   * 
+   * @param request - SubmitTraceExtractJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTraceExtractJobResponse
    */
   async submitTraceExtractJobWithOptions(request: SubmitTraceExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTraceExtractJobResponse> {
     Util.validateModel(request);
@@ -29837,10 +50748,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交溯源水印提取任务
-   *
-   * @param request SubmitTraceExtractJobRequest
-   * @return SubmitTraceExtractJobResponse
+   * 提交溯源水印提取任务
+   * 
+   * @param request - SubmitTraceExtractJobRequest
+   * @returns SubmitTraceExtractJobResponse
    */
   async submitTraceExtractJob(request: SubmitTraceExtractJobRequest): Promise<SubmitTraceExtractJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29848,11 +50759,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交视频溯源水印m3u8文件任务
-   *
-   * @param request SubmitTraceM3u8JobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitTraceM3u8JobResponse
+   * 提交视频溯源水印m3u8文件任务
+   * 
+   * @param request - SubmitTraceM3u8JobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTraceM3u8JobResponse
    */
   async submitTraceM3u8JobWithOptions(request: SubmitTraceM3u8JobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTraceM3u8JobResponse> {
     Util.validateModel(request);
@@ -29895,10 +50806,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交视频溯源水印m3u8文件任务
-   *
-   * @param request SubmitTraceM3u8JobRequest
-   * @return SubmitTraceM3u8JobResponse
+   * 提交视频溯源水印m3u8文件任务
+   * 
+   * @param request - SubmitTraceM3u8JobRequest
+   * @returns SubmitTraceM3u8JobResponse
    */
   async submitTraceM3u8Job(request: SubmitTraceM3u8JobRequest): Promise<SubmitTraceM3u8JobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29906,13 +50817,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The description of the figure. The description can be up to 512 characters in length.
-   *
-   * @description The response parameters.
-   *
-   * @param request TagCustomPersonRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagCustomPersonResponse
+   * The description of the figure. The description can be up to 512 characters in length.
+   * 
+   * @remarks
+   * The response parameters.
+   * 
+   * @param request - TagCustomPersonRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagCustomPersonResponse
    */
   async tagCustomPersonWithOptions(request: TagCustomPersonRequest, runtime: $Util.RuntimeOptions): Promise<TagCustomPersonResponse> {
     Util.validateModel(request);
@@ -29975,12 +50887,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The description of the figure. The description can be up to 512 characters in length.
-   *
-   * @description The response parameters.
-   *
-   * @param request TagCustomPersonRequest
-   * @return TagCustomPersonResponse
+   * The description of the figure. The description can be up to 512 characters in length.
+   * 
+   * @remarks
+   * The response parameters.
+   * 
+   * @param request - TagCustomPersonRequest
+   * @returns TagCustomPersonResponse
    */
   async tagCustomPerson(request: TagCustomPersonRequest): Promise<TagCustomPersonResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29988,16 +50901,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Unbinds an input media bucket from the media library.
-   *
-   * @description # Usage notes
+   * Unbinds an input media bucket from the media library.
+   * 
+   * @remarks
+   * # Usage notes
    * You can call this operation to unbind an input media bucket from the media library based on the name of the output media bucket.
    * # QPS limits
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UnbindInputBucketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnbindInputBucketResponse
+   * 
+   * @param request - UnbindInputBucketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindInputBucketResponse
    */
   async unbindInputBucketWithOptions(request: UnbindInputBucketRequest, runtime: $Util.RuntimeOptions): Promise<UnbindInputBucketResponse> {
     Util.validateModel(request);
@@ -30044,15 +50958,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Unbinds an input media bucket from the media library.
-   *
-   * @description # Usage notes
+   * Unbinds an input media bucket from the media library.
+   * 
+   * @remarks
+   * # Usage notes
    * You can call this operation to unbind an input media bucket from the media library based on the name of the output media bucket.
    * # QPS limits
    * You can call this API operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UnbindInputBucketRequest
-   * @return UnbindInputBucketResponse
+   * 
+   * @param request - UnbindInputBucketRequest
+   * @returns UnbindInputBucketResponse
    */
   async unbindInputBucket(request: UnbindInputBucketRequest): Promise<UnbindInputBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30060,15 +50975,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
+   * You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
    * ## QPS limit
    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   *
-   * @description The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
-   *
-   * @param request UnbindOutputBucketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnbindOutputBucketResponse
+   * 
+   * @remarks
+   * The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
+   * 
+   * @param request - UnbindOutputBucketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindOutputBucketResponse
    */
   async unbindOutputBucketWithOptions(request: UnbindOutputBucketRequest, runtime: $Util.RuntimeOptions): Promise<UnbindOutputBucketResponse> {
     Util.validateModel(request);
@@ -30111,14 +51027,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
+   * You can call this operation to unbind an output media bucket from the media library based on the name of the output media bucket.
    * ## QPS limit
    * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   *
-   * @description The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
-   *
-   * @param request UnbindOutputBucketRequest
-   * @return UnbindOutputBucketResponse
+   * 
+   * @remarks
+   * The name of the output media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS)** console and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **My OSS Paths**.
+   * 
+   * @param request - UnbindOutputBucketRequest
+   * @returns UnbindOutputBucketResponse
    */
   async unbindOutputBucket(request: UnbindOutputBucketRequest): Promise<UnbindOutputBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30126,15 +51043,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
-   *
-   * @description You can call this operation to delete a specific custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+   * Deletes a custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+   * 
+   * @remarks
+   * You can call this operation to delete a specific custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UnregisterCustomFaceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnregisterCustomFaceResponse
+   * 
+   * @param request - UnregisterCustomFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnregisterCustomFaceResponse
    */
   async unregisterCustomFaceWithOptions(request: UnregisterCustomFaceRequest, runtime: $Util.RuntimeOptions): Promise<UnregisterCustomFaceResponse> {
     Util.validateModel(request);
@@ -30185,14 +51103,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
-   *
-   * @description You can call this operation to delete a specific custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+   * Deletes a custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
+   * 
+   * @remarks
+   * You can call this operation to delete a specific custom face, all the custom faces that are registered in a custom figure library, or a custom figure library.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped, and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UnregisterCustomFaceRequest
-   * @return UnregisterCustomFaceResponse
+   * 
+   * @param request - UnregisterCustomFaceRequest
+   * @returns UnregisterCustomFaceResponse
    */
   async unregisterCustomFace(request: UnregisterCustomFaceRequest): Promise<UnregisterCustomFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30200,15 +51119,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the basic information about a media file.
-   *
-   * @description The basic information that you can update by calling this operation includes the title, description, and category of a media file. This operation applies to a full update. You must set all the parameters unless you want to replace the value of a specific parameter with a NULL value.
+   * Updates the basic information about a media file.
+   * 
+   * @remarks
+   * The basic information that you can update by calling this operation includes the title, description, and category of a media file. This operation applies to a full update. You must set all the parameters unless you want to replace the value of a specific parameter with a NULL value.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateMediaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMediaResponse
+   * 
+   * @param request - UpdateMediaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaResponse
    */
   async updateMediaWithOptions(request: UpdateMediaRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaResponse> {
     Util.validateModel(request);
@@ -30271,14 +51191,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the basic information about a media file.
-   *
-   * @description The basic information that you can update by calling this operation includes the title, description, and category of a media file. This operation applies to a full update. You must set all the parameters unless you want to replace the value of a specific parameter with a NULL value.
+   * Updates the basic information about a media file.
+   * 
+   * @remarks
+   * The basic information that you can update by calling this operation includes the title, description, and category of a media file. This operation applies to a full update. You must set all the parameters unless you want to replace the value of a specific parameter with a NULL value.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateMediaRequest
-   * @return UpdateMediaResponse
+   * 
+   * @param request - UpdateMediaRequest
+   * @returns UpdateMediaResponse
    */
   async updateMedia(request: UpdateMediaRequest): Promise<UpdateMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30286,15 +51207,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the category to which a media file belongs.
-   *
-   * @description You can call this operation to update only the category of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+   * Updates the category to which a media file belongs.
+   * 
+   * @remarks
+   * You can call this operation to update only the category of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateMediaCategoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMediaCategoryResponse
+   * 
+   * @param request - UpdateMediaCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaCategoryResponse
    */
   async updateMediaCategoryWithOptions(request: UpdateMediaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaCategoryResponse> {
     Util.validateModel(request);
@@ -30341,14 +51263,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the category to which a media file belongs.
-   *
-   * @description You can call this operation to update only the category of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+   * Updates the category to which a media file belongs.
+   * 
+   * @remarks
+   * You can call this operation to update only the category of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateMediaCategoryRequest
-   * @return UpdateMediaCategoryResponse
+   * 
+   * @param request - UpdateMediaCategoryRequest
+   * @returns UpdateMediaCategoryResponse
    */
   async updateMediaCategory(request: UpdateMediaCategoryRequest): Promise<UpdateMediaCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30356,15 +51279,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the thumbnail of a media file.
-   *
-   * @description You can call this operation to update only the thumbnail of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+   * Updates the thumbnail of a media file.
+   * 
+   * @remarks
+   * You can call this operation to update only the thumbnail of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
    * ## Limits on QPS
    * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   *
-   * @param request UpdateMediaCoverRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMediaCoverResponse
+   * 
+   * @param request - UpdateMediaCoverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaCoverResponse
    */
   async updateMediaCoverWithOptions(request: UpdateMediaCoverRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaCoverResponse> {
     Util.validateModel(request);
@@ -30411,14 +51335,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the thumbnail of a media file.
-   *
-   * @description You can call this operation to update only the thumbnail of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
+   * Updates the thumbnail of a media file.
+   * 
+   * @remarks
+   * You can call this operation to update only the thumbnail of a media file. For more information about how to update all the information about a media file, see [UpdateMedia](https://help.aliyun.com/document_detail/44464.html).
    * ## Limits on QPS
    * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
-   *
-   * @param request UpdateMediaCoverRequest
-   * @return UpdateMediaCoverResponse
+   * 
+   * @param request - UpdateMediaCoverRequest
+   * @returns UpdateMediaCoverResponse
    */
   async updateMediaCover(request: UpdateMediaCoverRequest): Promise<UpdateMediaCoverResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30426,15 +51351,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the publishing status of a media file.
-   *
-   * @description The published state indicates that the access control list (ACL) of media playback resources and snapshot files is set to inherit the ACL of the bucket to which they belong. The unpublished state indicates that the ACL of media playback resources and snapshot files is set to private.
+   * Updates the publishing status of a media file.
+   * 
+   * @remarks
+   * The published state indicates that the access control list (ACL) of media playback resources and snapshot files is set to inherit the ACL of the bucket to which they belong. The unpublished state indicates that the ACL of media playback resources and snapshot files is set to private.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateMediaPublishStateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMediaPublishStateResponse
+   * 
+   * @param request - UpdateMediaPublishStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaPublishStateResponse
    */
   async updateMediaPublishStateWithOptions(request: UpdateMediaPublishStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaPublishStateResponse> {
     Util.validateModel(request);
@@ -30481,14 +51407,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the publishing status of a media file.
-   *
-   * @description The published state indicates that the access control list (ACL) of media playback resources and snapshot files is set to inherit the ACL of the bucket to which they belong. The unpublished state indicates that the ACL of media playback resources and snapshot files is set to private.
+   * Updates the publishing status of a media file.
+   * 
+   * @remarks
+   * The published state indicates that the access control list (ACL) of media playback resources and snapshot files is set to inherit the ACL of the bucket to which they belong. The unpublished state indicates that the ACL of media playback resources and snapshot files is set to private.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateMediaPublishStateRequest
-   * @return UpdateMediaPublishStateResponse
+   * 
+   * @param request - UpdateMediaPublishStateRequest
+   * @returns UpdateMediaPublishStateResponse
    */
   async updateMediaPublishState(request: UpdateMediaPublishStateRequest): Promise<UpdateMediaPublishStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30496,17 +51423,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the topology of a media workflow.
-   *
-   * @description *   You can call this operation to update the topology of a media workflow. To update the trigger mode of a media workflow, call the [UpdateMediaWorkflowTriggerMode](https://help.aliyun.com/document_detail/70372.html) operation.
+   * Updates the topology of a media workflow.
+   * 
+   * @remarks
+   *   You can call this operation to update the topology of a media workflow. To update the trigger mode of a media workflow, call the [UpdateMediaWorkflowTriggerMode](https://help.aliyun.com/document_detail/70372.html) operation.
    * *   After you delete or deactivate a media workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
    * <warning>Deleting or deactivating a workflow will not affect tasks that have already been submitted. If a workflow is deleted or deactivated after a task has been submitted, tasks that are already in the processing queue will not be canceled and will be executed normally and charged the corresponding fees.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).>
-   *
-   * @param request UpdateMediaWorkflowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMediaWorkflowResponse
+   * 
+   * @param request - UpdateMediaWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaWorkflowResponse
    */
   async updateMediaWorkflowWithOptions(request: UpdateMediaWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaWorkflowResponse> {
     Util.validateModel(request);
@@ -30561,16 +51489,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the topology of a media workflow.
-   *
-   * @description *   You can call this operation to update the topology of a media workflow. To update the trigger mode of a media workflow, call the [UpdateMediaWorkflowTriggerMode](https://help.aliyun.com/document_detail/70372.html) operation.
+   * Updates the topology of a media workflow.
+   * 
+   * @remarks
+   *   You can call this operation to update the topology of a media workflow. To update the trigger mode of a media workflow, call the [UpdateMediaWorkflowTriggerMode](https://help.aliyun.com/document_detail/70372.html) operation.
    * *   After you delete or deactivate a media workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
    * <warning>Deleting or deactivating a workflow will not affect tasks that have already been submitted. If a workflow is deleted or deactivated after a task has been submitted, tasks that are already in the processing queue will not be canceled and will be executed normally and charged the corresponding fees.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).>
-   *
-   * @param request UpdateMediaWorkflowRequest
-   * @return UpdateMediaWorkflowResponse
+   * 
+   * @param request - UpdateMediaWorkflowRequest
+   * @returns UpdateMediaWorkflowResponse
    */
   async updateMediaWorkflow(request: UpdateMediaWorkflowRequest): Promise<UpdateMediaWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30578,15 +51507,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the trigger mode of a media workflow.
-   *
-   * @description You can call this operation only to modify the trigger mode of a media workflow. To modify other information about the workflow, call the [UpdateMediaWorkflow](https://help.aliyun.com/document_detail/44438.html) operation.
+   * Updates the trigger mode of a media workflow.
+   * 
+   * @remarks
+   * You can call this operation only to modify the trigger mode of a media workflow. To modify other information about the workflow, call the [UpdateMediaWorkflow](https://help.aliyun.com/document_detail/44438.html) operation.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateMediaWorkflowTriggerModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMediaWorkflowTriggerModeResponse
+   * 
+   * @param request - UpdateMediaWorkflowTriggerModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaWorkflowTriggerModeResponse
    */
   async updateMediaWorkflowTriggerModeWithOptions(request: UpdateMediaWorkflowTriggerModeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaWorkflowTriggerModeResponse> {
     Util.validateModel(request);
@@ -30633,14 +51563,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the trigger mode of a media workflow.
-   *
-   * @description You can call this operation only to modify the trigger mode of a media workflow. To modify other information about the workflow, call the [UpdateMediaWorkflow](https://help.aliyun.com/document_detail/44438.html) operation.
+   * Updates the trigger mode of a media workflow.
+   * 
+   * @remarks
+   * You can call this operation only to modify the trigger mode of a media workflow. To modify other information about the workflow, call the [UpdateMediaWorkflow](https://help.aliyun.com/document_detail/44438.html) operation.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateMediaWorkflowTriggerModeRequest
-   * @return UpdateMediaWorkflowTriggerModeResponse
+   * 
+   * @param request - UpdateMediaWorkflowTriggerModeRequest
+   * @returns UpdateMediaWorkflowTriggerModeResponse
    */
   async updateMediaWorkflowTriggerMode(request: UpdateMediaWorkflowTriggerModeRequest): Promise<UpdateMediaWorkflowTriggerModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30648,16 +51579,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an ApsaraVideo Media Processing (MPS) queue.
-   *
-   * @description *   You can call this operation to modify the name, status, and notification settings of the specified MPS queue.
+   * Updates an ApsaraVideo Media Processing (MPS) queue.
+   * 
+   * @remarks
+   *   You can call this operation to modify the name, status, and notification settings of the specified MPS queue.
    * *   If a paused MPS queue is selected in a workflow or a job, such as a video review or media fingerprint job, the workflow or job fails.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdatePipelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePipelineResponse
+   * 
+   * @param request - UpdatePipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePipelineResponse
    */
   async updatePipelineWithOptions(request: UpdatePipelineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineResponse> {
     Util.validateModel(request);
@@ -30720,15 +51652,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an ApsaraVideo Media Processing (MPS) queue.
-   *
-   * @description *   You can call this operation to modify the name, status, and notification settings of the specified MPS queue.
+   * Updates an ApsaraVideo Media Processing (MPS) queue.
+   * 
+   * @remarks
+   *   You can call this operation to modify the name, status, and notification settings of the specified MPS queue.
    * *   If a paused MPS queue is selected in a workflow or a job, such as a video review or media fingerprint job, the workflow or job fails.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdatePipelineRequest
-   * @return UpdatePipelineResponse
+   * 
+   * @param request - UpdatePipelineRequest
+   * @returns UpdatePipelineResponse
    */
   async updatePipeline(request: UpdatePipelineRequest): Promise<UpdatePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30736,11 +51669,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新智能标签模板接口支持cpv
-   *
-   * @param request UpdateSmarttagTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSmarttagTemplateResponse
+   * 更新智能标签模板接口支持cpv
+   * 
+   * @param request - UpdateSmarttagTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSmarttagTemplateResponse
    */
   async updateSmarttagTemplateWithOptions(request: UpdateSmarttagTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmarttagTemplateResponse> {
     Util.validateModel(request);
@@ -30835,10 +51768,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新智能标签模板接口支持cpv
-   *
-   * @param request UpdateSmarttagTemplateRequest
-   * @return UpdateSmarttagTemplateResponse
+   * 更新智能标签模板接口支持cpv
+   * 
+   * @param request - UpdateSmarttagTemplateRequest
+   * @returns UpdateSmarttagTemplateResponse
    */
   async updateSmarttagTemplate(request: UpdateSmarttagTemplateRequest): Promise<UpdateSmarttagTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30846,13 +51779,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description A custom transcoding template cannot be updated if it is being used by a job that has been submitted.The ID of the template. You can obtain the template ID from the response of the [AddTemplate](https://help.aliyun.com/document_detail/213306.html) operation.
+   * @remarks
+   * A custom transcoding template cannot be updated if it is being used by a job that has been submitted.The ID of the template. You can obtain the template ID from the response of the [AddTemplate](https://help.aliyun.com/document_detail/213306.html) operation.
    * ### QPS limits
    * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTemplateResponse
+   * 
+   * @param request - UpdateTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTemplateResponse
    */
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
@@ -30919,12 +51853,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description A custom transcoding template cannot be updated if it is being used by a job that has been submitted.The ID of the template. You can obtain the template ID from the response of the [AddTemplate](https://help.aliyun.com/document_detail/213306.html) operation.
+   * @remarks
+   * A custom transcoding template cannot be updated if it is being used by a job that has been submitted.The ID of the template. You can obtain the template ID from the response of the [AddTemplate](https://help.aliyun.com/document_detail/213306.html) operation.
    * ### QPS limits
    * You can call this operation up to 100 times per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateTemplateRequest
-   * @return UpdateTemplateResponse
+   * 
+   * @param request - UpdateTemplateRequest
+   * @returns UpdateTemplateResponse
    */
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30932,16 +51867,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the name and configurations of the specified watermark template.
-   *
-   * @description *   You can call this operation to update the information about a watermark template based on the ID of the watermark template. For example, you can update the name and configurations of a watermark template.
+   * Updates the name and configurations of the specified watermark template.
+   * 
+   * @remarks
+   *   You can call this operation to update the information about a watermark template based on the ID of the watermark template. For example, you can update the name and configurations of a watermark template.
    * *   A watermark template cannot be updated if it is being used by a job that has been submitted.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateWaterMarkTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateWaterMarkTemplateResponse
+   * 
+   * @param request - UpdateWaterMarkTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWaterMarkTemplateResponse
    */
   async updateWaterMarkTemplateWithOptions(request: UpdateWaterMarkTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWaterMarkTemplateResponse> {
     Util.validateModel(request);
@@ -30992,15 +51928,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the name and configurations of the specified watermark template.
-   *
-   * @description *   You can call this operation to update the information about a watermark template based on the ID of the watermark template. For example, you can update the name and configurations of a watermark template.
+   * Updates the name and configurations of the specified watermark template.
+   * 
+   * @remarks
+   *   You can call this operation to update the information about a watermark template based on the ID of the watermark template. For example, you can update the name and configurations of a watermark template.
    * *   A watermark template cannot be updated if it is being used by a job that has been submitted.
    * ### QPS limit
    * You can call this operation up to 100 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](https://help.aliyun.com/document_detail/342832.html).
-   *
-   * @param request UpdateWaterMarkTemplateRequest
-   * @return UpdateWaterMarkTemplateResponse
+   * 
+   * @param request - UpdateWaterMarkTemplateRequest
+   * @returns UpdateWaterMarkTemplateResponse
    */
   async updateWaterMarkTemplate(request: UpdateWaterMarkTemplateRequest): Promise<UpdateWaterMarkTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
