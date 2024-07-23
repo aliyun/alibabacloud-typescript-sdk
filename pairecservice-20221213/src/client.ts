@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,6 +8,10 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ExperimentReportValue extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   baseline?: boolean;
   metricResults?: { [key: string]: {[key: string]: any} };
   static names(): { [key: string]: string } {
@@ -30,16 +33,157 @@ export class ExperimentReportValue extends $tea.Model {
   }
 }
 
-export class BackflowFeatureConsistencyCheckJobDataRequest extends $tea.Model {
-  featureConsistencyCheckJobConfigId?: string;
+export class ApplyEngineConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-***test
+   */
   instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyEngineConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F8F613A9-DF1C-551A-88E1-397A3981A785
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyEngineConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyEngineConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyEngineConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BackflowFeatureConsistencyCheckJobDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
+  featureConsistencyCheckJobConfigId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [\\"{\\\\\\"itemid\\\\\\":{\\\\\\"value\\\\\\":1010,\\\\\\"type\\\\\\":\\\\\\"string\\\\\\"}}\\"]
+   */
   itemFeatures?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9010
+   */
   logItemId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   logRequestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1693900981465
+   */
   logRequestTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1010
+   */
   logUserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * video-feed
+   */
   sceneName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [\\"{\\\\\\"dbmtl_probs_is_valid_play\\\\\\":0.00032182207107543945,\\\\\\"dbmtl_y_play_time\\\\\\":0.0043269748210906982}\\"]
+   */
   scores?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {\\"userid\\":{\\"value\\":1010,\\"type\\":\\"string\\"},\\"click_5_seq\\":{\\"value\\":\\"9001;9002;9003;9004;9005\\",\\"type\\":\\"string\\"}}
+   */
   userFeatures?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,6 +221,10 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $tea.Model {
 }
 
 export class BackflowFeatureConsistencyCheckJobDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BDB621CB-A81E-5D39-8793-39A365CBCC74
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,7 +269,18 @@ export class BackflowFeatureConsistencyCheckJobDataResponse extends $tea.Model {
 }
 
 export class CheckInstanceResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
+  /**
+   * @example
+   * bucket-test-123
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -143,6 +302,10 @@ export class CheckInstanceResourcesRequest extends $tea.Model {
 }
 
 export class CheckInstanceResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9763624B-5FBB-5E3A-9193-B1ADB554CEAE
+   */
   requestId?: string;
   resources?: CheckInstanceResourcesResponseBodyResources[];
   static names(): { [key: string]: string } {
@@ -189,7 +352,106 @@ export class CheckInstanceResourcesResponse extends $tea.Model {
   }
 }
 
+export class CloneEngineConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  configValue?: string;
+  /**
+   * @example
+   * Pre
+   */
+  environment?: string;
+  /**
+   * @example
+   * pairec-cn-********
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configValue: 'ConfigValue',
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configValue: 'string',
+      environment: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneEngineConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
+  engineConfigId?: string;
+  /**
+   * @example
+   * A04CB8C0-E74A-5E83-BC61-64D153574EC7
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      engineConfigId: 'EngineConfigId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engineConfigId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloneEngineConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloneEngineConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloneEngineConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloneExperimentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -209,7 +471,18 @@ export class CloneExperimentRequest extends $tea.Model {
 }
 
 export class CloneExperimentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   experimentId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F8F613A9-DF1C-551A-88E1-397A3981A785
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -256,8 +529,29 @@ export class CloneExperimentResponse extends $tea.Model {
 }
 
 export class CloneExperimentGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   layerId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -281,7 +575,18 @@ export class CloneExperimentGroupRequest extends $tea.Model {
 }
 
 export class CloneExperimentGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   experimentGroupId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 12A65C6C-AFA1-59B2-9A66-A9E0BB73F0E5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -328,6 +633,13 @@ export class CloneExperimentGroupResponse extends $tea.Model {
 }
 
 export class CloneFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -347,7 +659,15 @@ export class CloneFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
 }
 
 export class CloneFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   featureConsistencyCheckId?: string;
+  /**
+   * @example
+   * 74D958EF-3598-56FA-8296-FF1575CE43DF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -394,8 +714,29 @@ export class CloneFeatureConsistencyCheckJobConfigResponse extends $tea.Model {
 }
 
 export class CloneLaboratoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   cloneExperimentGroup?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -419,7 +760,18 @@ export class CloneLaboratoryRequest extends $tea.Model {
 }
 
 export class CloneLaboratoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   laboratoryId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 01D22D08-BA20-5F35-8302-99115F288220
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -532,18 +884,91 @@ export class CloneTrafficControlTaskResponse extends $tea.Model {
 }
 
 export class CreateABMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sum(click_cnt)
+   */
   definition?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 2
+   */
   leftMetricId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pv
+   */
   name?: string;
+  /**
+   * @example
+   * Division
+   */
   operator?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   realtime?: boolean;
+  /**
+   * @example
+   * 3
+   */
   resultResourceId?: string;
+  /**
+   * @example
+   * 3
+   */
   rightMetricId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * 1
+   */
   statisticsCycle?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   tableMetaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Single
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -587,7 +1012,15 @@ export class CreateABMetricRequest extends $tea.Model {
 }
 
 export class CreateABMetricResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   ABMetricId?: string;
+  /**
+   * @example
+   * F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -634,11 +1067,50 @@ export class CreateABMetricResponse extends $tea.Model {
 }
 
 export class CreateABMetricGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1,2
+   */
   ABMetricIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * visits
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   realtime?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -668,7 +1140,15 @@ export class CreateABMetricGroupRequest extends $tea.Model {
 }
 
 export class CreateABMetricGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   ABMetricGroupId?: string;
+  /**
+   * @example
+   * E15A1443-7917-5BE0-AE70-25538ECF398D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -715,9 +1195,37 @@ export class CreateABMetricGroupResponse extends $tea.Model {
 }
 
 export class CreateCalculationJobsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2,3,4
+   */
   ABMetricIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-03
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-01-01
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -744,6 +1252,10 @@ export class CreateCalculationJobsRequest extends $tea.Model {
 
 export class CreateCalculationJobsResponseBody extends $tea.Model {
   calculationJobIds?: string[];
+  /**
+   * @example
+   * 8C27790E-CCA5-56BB-BA17-646295DEC0A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -790,11 +1302,44 @@ export class CreateCalculationJobsResponse extends $tea.Model {
 }
 
 export class CreateCrowdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @example
+   * os=android
+   */
   label?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xx人群
+   */
   name?: string;
+  /**
+   * @example
+   * ManualInput
+   */
   source?: string;
+  /**
+   * @example
+   * user1,user2,user3
+   */
   users?: string;
   static names(): { [key: string]: string } {
     return {
@@ -824,7 +1369,18 @@ export class CreateCrowdRequest extends $tea.Model {
 }
 
 export class CreateCrowdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   crowdId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 59CE7EC6-F268-5D71-9215-32922CC50D72
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -870,15 +1426,165 @@ export class CreateCrowdResponse extends $tea.Model {
   }
 }
 
-export class CreateExperimentRequest extends $tea.Model {
-  config?: string;
-  debugCrowdId?: string;
-  debugUsers?: string;
-  description?: string;
-  experimentGroupId?: string;
-  flowPercent?: number;
+export class CreateEngineConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  configValue?: string;
+  /**
+   * @example
+   * Pre
+   */
+  environment?: string;
+  /**
+   * @example
+   * pairec-cn-***test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * engine_config_v1
+   */
   name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configValue: 'ConfigValue',
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configValue: 'string',
+      environment: 'string',
+      instanceId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEngineConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  engineConfigId?: string;
+  /**
+   * @example
+   * E15A1443-7917-5BE0-AE70-25538ECF398D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      engineConfigId: 'EngineConfigId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engineConfigId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEngineConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEngineConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEngineConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExperimentRequest extends $tea.Model {
+  /**
+   * @example
+   * {"RankBy": "Score"}
+   */
+  config?: string;
+  /**
+   * @example
+   * 3
+   */
+  debugCrowdId?: string;
+  /**
+   * @example
+   * 1124512470******,1124512471******,1124512472******
+   */
+  debugUsers?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * This is a test.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
+  experimentGroupId?: string;
+  /**
+   * @example
+   * 100
+   */
+  flowPercent?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * experiment_test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Baseline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -914,7 +1620,18 @@ export class CreateExperimentRequest extends $tea.Model {
 }
 
 export class CreateExperimentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   experimentId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 3AAA45F6-0798-5461-9360-81D133823CE7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -961,20 +1678,84 @@ export class CreateExperimentResponse extends $tea.Model {
 }
 
 export class CreateExperimentGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * {"RankBy": "Score"}
+   */
   config?: string;
+  /**
+   * @example
+   * 1
+   */
   crowdId?: string;
   crowdTargetType?: string;
+  /**
+   * @example
+   * 3
+   */
   debugCrowdId?: string;
+  /**
+   * @example
+   * 1124512470******,1124512471******,1124512472******
+   */
   debugUsers?: string;
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * 3
+   */
   distributionTimeDuration?: number;
+  /**
+   * @example
+   * UserId
+   */
   distributionType?: string;
+  /**
+   * @example
+   * gender=male
+   */
   filter?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   layerId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * experiment_group_test
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   needAA?: boolean;
   randomFlow?: number;
+  /**
+   * @example
+   * 1,2,3
+   */
   reservedBuckets?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1022,7 +1803,18 @@ export class CreateExperimentGroupRequest extends $tea.Model {
 }
 
 export class CreateExperimentGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   experimentGroupId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A04CB8C0-E74A-5E83-BC61-64D153574EC7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1069,9 +1861,37 @@ export class CreateExperimentGroupResponse extends $tea.Model {
 }
 
 export class CreateFeatureConsistencyCheckJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Pre
+   */
   environment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   featureConsistencyCheckJobConfigId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   samplingDuration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1097,7 +1917,15 @@ export class CreateFeatureConsistencyCheckJobRequest extends $tea.Model {
 }
 
 export class CreateFeatureConsistencyCheckJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   featureConsistencyCheckJobId?: string;
+  /**
+   * @example
+   * 7D59453C-48AA-5FC5-8848-2D373BD1A17F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1144,12 +1972,49 @@ export class CreateFeatureConsistencyCheckJobResponse extends $tea.Model {
 }
 
 export class CreateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   compareFeature?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * service_123
+   */
   easServiceName?: string;
+  /**
+   * @example
+   * oss://*******
+   */
   easyRecPackagePath?: string;
+  /**
+   * @example
+   * 1.3.60
+   */
   easyRecVersion?: string;
+  /**
+   * @example
+   * feature1,feature2
+   */
   featureDisplayExclude?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * reso-********
+   */
   featureLandingResourceId?: string;
+  /**
+   * @example
+   * feature1,feature2,feature3
+   */
   featurePriority?: string;
   featureStoreItemId?: string;
   featureStoreModelId?: string;
@@ -1157,24 +2022,121 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
   featureStoreProjectName?: string;
   featureStoreSeqFeatureView?: string;
   featureStoreUserId?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   fgJarVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * file.json
+   */
   fgJsonFileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   generateZip?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
+  /**
+   * @example
+   * item_id
+   */
   itemIdField?: string;
+  /**
+   * @example
+   * item_table
+   */
   itemTable?: string;
+  /**
+   * @example
+   * ds
+   */
   itemTablePartitionField?: string;
+  /**
+   * @example
+   * yyyymmdd
+   */
   itemTablePartitionFieldFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * feature_consistency_check1
+   */
   name?: string;
+  /**
+   * @example
+   * reso-********
+   */
   ossResourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.89
+   */
   sampleRate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   sceneId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   useFeatureStore?: boolean;
+  /**
+   * @example
+   * user_id
+   */
   userIdField?: string;
+  /**
+   * @example
+   * user_table
+   */
   userTable?: string;
+  /**
+   * @example
+   * ds
+   */
   userTablePartitionField?: string;
+  /**
+   * @example
+   * yyyymmdd
+   */
   userTablePartitionFieldFormat?: string;
+  /**
+   * @example
+   * work_flow_1
+   */
   workflowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1256,7 +2218,15 @@ export class CreateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
 }
 
 export class CreateFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   featureConsistencyCheckJobConfigId?: string;
+  /**
+   * @example
+   * E15A1443-7917-5BE0-AE70-25538ECF398D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1303,9 +2273,37 @@ export class CreateFeatureConsistencyCheckJobConfigResponse extends $tea.Model {
 }
 
 export class CreateInstanceResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DataManagement
+   */
   category?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * storage
+   */
   group?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bucket-test-123
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1331,7 +2329,15 @@ export class CreateInstanceResourceRequest extends $tea.Model {
 }
 
 export class CreateInstanceResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6CF1E160-3F36-5E73-A170-C75504F05BBC
+   */
   requestId?: string;
+  /**
+   * @example
+   * reso-2s416t***
+   */
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1378,17 +2384,83 @@ export class CreateInstanceResourceResponse extends $tea.Model {
 }
 
 export class CreateLaboratoryRequest extends $tea.Model {
+  /**
+   * @example
+   * 24
+   */
   bucketCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UidHash
+   */
   bucketType?: string;
+  /**
+   * @example
+   * 1,2,3,10-20
+   */
   buckets?: string;
+  /**
+   * @example
+   * 3
+   */
   debugCrowdId?: string;
+  /**
+   * @example
+   * 1124512470******,1124512471******,1124512472******
+   */
   debugUsers?: string;
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @example
+   * filter=xxx
+   */
   filter?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * laboratory1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   sceneId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Base
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1430,7 +2502,18 @@ export class CreateLaboratoryRequest extends $tea.Model {
 }
 
 export class CreateLaboratoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   laboratoryId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 42391E6D-822C-58F8-9F7E-D991BB86D6AD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1477,9 +2560,37 @@ export class CreateLaboratoryResponse extends $tea.Model {
 }
 
 export class CreateLayerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   laboratoryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * layer1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1505,7 +2616,18 @@ export class CreateLayerRequest extends $tea.Model {
 }
 
 export class CreateLayerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   layerId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 59CE7EC6-F268-5D71-9215-32922CC50D72
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1552,10 +2674,30 @@ export class CreateLayerResponse extends $tea.Model {
 }
 
 export class CreateParamRequest extends $tea.Model {
+  /**
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @example
+   * home
+   */
   name?: string;
+  /**
+   * @example
+   * 4
+   */
   sceneId?: string;
+  /**
+   * @example
+   * house
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1583,7 +2725,18 @@ export class CreateParamRequest extends $tea.Model {
 }
 
 export class CreateParamResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   paramId?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F8F613A9-DF1C-551A-88E1-397A3981A785
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1631,12 +2784,32 @@ export class CreateParamResponse extends $tea.Model {
 
 export class CreateResourceRuleRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   metricOperationType?: string;
   metricPullInfo?: string;
   metricPullPeriod?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ruleComputingDefinition?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ruleItems?: CreateResourceRuleRequestRuleItems[];
   static names(): { [key: string]: string } {
     return {
@@ -1718,10 +2891,30 @@ export class CreateResourceRuleResponse extends $tea.Model {
 
 export class CreateResourceRuleItemRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   maxValue?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   minValue?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1798,9 +2991,21 @@ export class CreateResourceRuleItemResponse extends $tea.Model {
 }
 
 export class CreateSceneRequest extends $tea.Model {
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
   flows?: CreateSceneRequestFlows[];
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @example
+   * scene1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1826,7 +3031,18 @@ export class CreateSceneRequest extends $tea.Model {
 }
 
 export class CreateSceneResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FCF741D8-9C30-578E-807F-B935487DB34A
+   */
   requestId?: string;
+  /**
+   * @example
+   * 3
+   */
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1873,8 +3089,29 @@ export class CreateSceneResponse extends $tea.Model {
 }
 
 export class CreateSubCrowdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ManualInput
+   */
   source?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user1,user2,user3
+   */
   users?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1898,7 +3135,18 @@ export class CreateSubCrowdRequest extends $tea.Model {
 }
 
 export class CreateSubCrowdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9763624B-5FBB-5E3A-9193-B1ADB554CEAE
+   */
   requestId?: string;
+  /**
+   * @example
+   * 3
+   */
   subCrowdId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1945,12 +3193,58 @@ export class CreateSubCrowdResponse extends $tea.Model {
 }
 
 export class CreateTableMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * this is a test table
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fields?: CreateTableMetaRequestFields[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test123
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ABTest
+   */
   module?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table_test
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * reso-2s416t146ffjc3yefx
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table_mysql
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1982,7 +3276,15 @@ export class CreateTableMetaRequest extends $tea.Model {
 }
 
 export class CreateTableMetaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2
+   */
   tableMetaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2266,7 +3568,15 @@ export class CreateTrafficControlTaskResponse extends $tea.Model {
 }
 
 export class DebugResourceRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   metricInfo?: { [key: string]: any };
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -2291,7 +3601,15 @@ export class DebugResourceRuleRequest extends $tea.Model {
 }
 
 export class DebugResourceRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   metricInfoShrink?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -2366,6 +3684,13 @@ export class DebugResourceRuleResponse extends $tea.Model {
 }
 
 export class DeleteABMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2385,6 +3710,10 @@ export class DeleteABMetricRequest extends $tea.Model {
 }
 
 export class DeleteABMetricResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2429,6 +3758,13 @@ export class DeleteABMetricResponse extends $tea.Model {
 }
 
 export class DeleteABMetricGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2448,6 +3784,10 @@ export class DeleteABMetricGroupRequest extends $tea.Model {
 }
 
 export class DeleteABMetricGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BDB621CB-A81E-5D39-8793-39A365CBCC74
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2492,6 +3832,13 @@ export class DeleteABMetricGroupResponse extends $tea.Model {
 }
 
 export class DeleteCrowdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2511,6 +3858,13 @@ export class DeleteCrowdRequest extends $tea.Model {
 }
 
 export class DeleteCrowdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A04CB8C0-E74A-5E83-BC61-64D153574EC7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2554,7 +3908,85 @@ export class DeleteCrowdResponse extends $tea.Model {
   }
 }
 
+export class DeleteEngineConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-***test1
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEngineConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEngineConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEngineConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEngineConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteExperimentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2574,6 +4006,13 @@ export class DeleteExperimentRequest extends $tea.Model {
 }
 
 export class DeleteExperimentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2A734D87-2212-5C84-B63A-1AC87CA843D4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2618,6 +4057,13 @@ export class DeleteExperimentResponse extends $tea.Model {
 }
 
 export class DeleteExperimentGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2637,6 +4083,13 @@ export class DeleteExperimentGroupRequest extends $tea.Model {
 }
 
 export class DeleteExperimentGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A009D9BE-C85E-57B2-AE05-BD78BB6EBF50
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2681,6 +4134,10 @@ export class DeleteExperimentGroupResponse extends $tea.Model {
 }
 
 export class DeleteInstanceResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7D59453C-48AA-5FC5-8848-2D373BD1A17F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2725,6 +4182,13 @@ export class DeleteInstanceResourceResponse extends $tea.Model {
 }
 
 export class DeleteLaboratoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2744,6 +4208,13 @@ export class DeleteLaboratoryRequest extends $tea.Model {
 }
 
 export class DeleteLaboratoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1C0898E5-9220-5443-B2D9-445FF0688215
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2788,6 +4259,10 @@ export class DeleteLaboratoryResponse extends $tea.Model {
 }
 
 export class DeleteLayerRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2807,6 +4282,13 @@ export class DeleteLayerRequest extends $tea.Model {
 }
 
 export class DeleteLayerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8F457D79-C4A2-5E8C-83E4-0D089456E2AC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2851,6 +4333,10 @@ export class DeleteLayerResponse extends $tea.Model {
 }
 
 export class DeleteParamRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2870,6 +4356,13 @@ export class DeleteParamRequest extends $tea.Model {
 }
 
 export class DeleteParamResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F0AB6527-093F-5C44-B3BD-42C8C210C619
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2914,6 +4407,10 @@ export class DeleteParamResponse extends $tea.Model {
 }
 
 export class DeleteResourceRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2977,6 +4474,10 @@ export class DeleteResourceRuleResponse extends $tea.Model {
 }
 
 export class DeleteResourceRuleItemRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3040,6 +4541,10 @@ export class DeleteResourceRuleItemResponse extends $tea.Model {
 }
 
 export class DeleteSceneRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3059,6 +4564,13 @@ export class DeleteSceneRequest extends $tea.Model {
 }
 
 export class DeleteSceneResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * D75C43DC-3D3A-5CC8-9AAC-8C77306C433B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3103,6 +4615,13 @@ export class DeleteSceneResponse extends $tea.Model {
 }
 
 export class DeleteSubCrowdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3122,6 +4641,13 @@ export class DeleteSubCrowdRequest extends $tea.Model {
 }
 
 export class DeleteSubCrowdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EE97D06A-2AA0-5AD9-B6CF-8A267924D691
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3166,6 +4692,10 @@ export class DeleteSubCrowdResponse extends $tea.Model {
 }
 
 export class DeleteTableMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3185,6 +4715,10 @@ export class DeleteTableMetaRequest extends $tea.Model {
 }
 
 export class DeleteTableMetaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3487,6 +5021,13 @@ export class GenerateTrafficControlTaskConfigResponse extends $tea.Model {
 }
 
 export class GetABMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3506,20 +5047,76 @@ export class GetABMetricRequest extends $tea.Model {
 }
 
 export class GetABMetricResponseBody extends $tea.Model {
+  /**
+   * @example
+   * sum(click_cnt)
+   */
   definition?: string;
   description?: string;
+  /**
+   * @example
+   * 3
+   */
   leftMetricId?: string;
+  /**
+   * @example
+   * pv
+   */
   name?: string;
+  /**
+   * @example
+   * Division
+   */
   operator?: string;
+  /**
+   * @example
+   * false
+   */
   realtime?: string;
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * 5
+   */
   resultResourceId?: string;
+  /**
+   * @example
+   * 3
+   */
   resultTableMetaId?: string;
+  /**
+   * @example
+   * 2
+   */
   rightMetricId?: string;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * home_feed
+   */
   sceneName?: string;
+  /**
+   * @example
+   * 1
+   */
   statisticsCycle?: number;
+  /**
+   * @example
+   * 2
+   */
   tableMetaId?: string;
+  /**
+   * @example
+   * Single
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3592,6 +5189,13 @@ export class GetABMetricResponse extends $tea.Model {
 }
 
 export class GetABMetricGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3611,13 +5215,41 @@ export class GetABMetricGroupRequest extends $tea.Model {
 }
 
 export class GetABMetricGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1,2
+   */
   ABMetricIds?: string;
+  /**
+   * @example
+   * pv,uv
+   */
   ABMetricNames?: string;
   description?: string;
+  /**
+   * @example
+   * visits
+   */
   name?: string;
+  /**
+   * @example
+   * 2799614***
+   */
   owner?: string;
+  /**
+   * @example
+   * false
+   */
   realtime?: boolean;
+  /**
+   * @example
+   * 01D22D08-BA20-5F35-8302-99115F288220
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3676,6 +5308,13 @@ export class GetABMetricGroupResponse extends $tea.Model {
 }
 
 export class GetCalculationJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3695,14 +5334,46 @@ export class GetCalculationJobRequest extends $tea.Model {
 }
 
 export class GetCalculationJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   ABMetricId?: string;
+  /**
+   * @example
+   * pv
+   */
   ABMetricName?: string;
+  /**
+   * @example
+   * 2021-12-15
+   */
   bizDate?: string;
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtRanTime?: string;
   jobMessage?: string[];
+  /**
+   * @example
+   * CronOffline
+   */
   jobSource?: string;
+  /**
+   * @example
+   * 7D59453C-48AA-5FC5-8848-2D373BD1A17F
+   */
   requestId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3762,7 +5433,134 @@ export class GetCalculationJobResponse extends $tea.Model {
   }
 }
 
+export class GetEngineConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-***test
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEngineConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  configValue?: string;
+  /**
+   * @example
+   * Pre
+   */
+  environment?: string;
+  /**
+   * @example
+   * 2024-01-03T02:28:00.000Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2024-08-27T12:00:00Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @example
+   * 2024-01-03 02:28:00
+   */
+  gmtReleasedTime?: string;
+  /**
+   * @example
+   * engine_config_v1
+   */
+  name?: string;
+  /**
+   * @example
+   * 59CE7EC6-F268-5D71-9215-32922CC50D72
+   */
+  requestId?: string;
+  /**
+   * @example
+   * Released
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configValue: 'ConfigValue',
+      environment: 'Environment',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      gmtReleasedTime: 'GmtReleasedTime',
+      name: 'Name',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configValue: 'string',
+      environment: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      gmtReleasedTime: 'string',
+      name: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEngineConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEngineConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEngineConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetExperimentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3782,22 +5580,93 @@ export class GetExperimentRequest extends $tea.Model {
 }
 
 export class GetExperimentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * L1#EG1#E1
+   */
   aliasExperimentId?: string;
+  /**
+   * @example
+   * 1,2,3
+   */
   buckets?: string;
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * 3
+   */
   debugCrowdId?: string;
+  /**
+   * @example
+   * uid1,uid2,uid3
+   */
   debugUsers?: string;
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * 3
+   */
   experimentGroupId?: string;
+  /**
+   * @example
+   * 100
+   */
   flowPercent?: number;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * 3
+   */
   laboratoryId?: string;
+  /**
+   * @example
+   * 3
+   */
   layerId?: string;
+  /**
+   * @example
+   * experiment_test1
+   */
   name?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 74D958EF-3598-56FA-8296-FF1575CE43DF
+   */
   requestId?: string;
+  /**
+   * @example
+   * 3
+   */
   sceneId?: string;
+  /**
+   * @example
+   * Offline
+   */
   status?: string;
+  /**
+   * @example
+   * Baseline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3874,6 +5743,13 @@ export class GetExperimentResponse extends $tea.Model {
 }
 
 export class GetExperimentGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3893,25 +5769,96 @@ export class GetExperimentGroupRequest extends $tea.Model {
 }
 
 export class GetExperimentGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {"RankBy": "Score"}
+   */
   config?: string;
+  /**
+   * @example
+   * 3
+   */
   crowdId?: string;
   crowdTargetType?: string;
+  /**
+   * @example
+   * 4
+   */
   debugCrowdId?: string;
+  /**
+   * @example
+   * 1124512470******,1124512471******,1124512472******
+   */
   debugUsers?: string;
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * 5
+   */
   distributionTimeDuration?: number;
+  /**
+   * @example
+   * UserId
+   */
   distributionType?: string;
+  /**
+   * @example
+   * gender=female
+   */
   filter?: string;
   holdingBuckets?: string;
+  /**
+   * @example
+   * 4
+   */
   laboratoryId?: string;
+  /**
+   * @example
+   * 3
+   */
   layerId?: string;
+  /**
+   * @example
+   * experiment_group1
+   */
   name?: string;
+  /**
+   * @example
+   * true
+   */
   needAA?: boolean;
+  /**
+   * @example
+   * 1124512470******
+   */
   owner?: string;
   randomFlow?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * BDB621CB-A81E-5D39-8793-39A365CBCC74
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1,2,3,4
+   */
   reservedBuckets?: string;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * Offline
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3994,6 +5941,10 @@ export class GetExperimentGroupResponse extends $tea.Model {
 }
 
 export class GetFeatureConsistencyCheckJobRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4013,13 +5964,41 @@ export class GetFeatureConsistencyCheckJobRequest extends $tea.Model {
 }
 
 export class GetFeatureConsistencyCheckJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * 5
+   */
   featureConsistencyCheckJobConfigId?: string;
+  /**
+   * @example
+   * feature_consistency_check_1
+   */
   featureConsistencyCheckJobConfigName?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtEndTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtStartTime?: string;
   logs?: string[];
+  /**
+   * @example
+   * A04CB8C0-E74A-5E83-BC61-64D153574EC7
+   */
   requestId?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4078,6 +6057,13 @@ export class GetFeatureConsistencyCheckJobResponse extends $tea.Model {
 }
 
 export class GetFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4097,13 +6083,45 @@ export class GetFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
 }
 
 export class GetFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   compareFeature?: boolean;
+  /**
+   * @example
+   * eas_service_1
+   */
   easServiceName?: string;
+  /**
+   * @example
+   * oss://*******
+   */
   easyRecPackagePath?: string;
+  /**
+   * @example
+   * 1.3.60
+   */
   easyRecVersion?: string;
+  /**
+   * @example
+   * feature1,feature2
+   */
   featureDisplayExclude?: string;
+  /**
+   * @example
+   * reso-********
+   */
   featureLandingResourceId?: string;
+  /**
+   * @example
+   * mc_project_1
+   */
   featureLandingResourceUri?: string;
+  /**
+   * @example
+   * feature1,feature2,feature3
+   */
   featurePriority?: string;
   featureStoreItemId?: string;
   featureStoreModelId?: string;
@@ -4111,33 +6129,141 @@ export class GetFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model 
   featureStoreProjectName?: string;
   featureStoreSeqFeatureView?: string;
   featureStoreUserId?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   fgJarVersion?: string;
+  /**
+   * @example
+   * file.json
+   */
   fgJsonFileName?: string;
+  /**
+   * @example
+   * true
+   */
   generateZip?: boolean;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * item_id
+   */
   itemIdField?: string;
+  /**
+   * @example
+   * item_table
+   */
   itemTable?: string;
+  /**
+   * @example
+   * ds
+   */
   itemTablePartitionField?: string;
+  /**
+   * @example
+   * yyyymmdd
+   */
   itemTablePartitionFieldFormat?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   latestJobGmtSamplingEndTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   latestJobGmtSamplingStartTime?: string;
+  /**
+   * @example
+   * 3
+   */
   latestJobId?: string;
+  /**
+   * @example
+   * feature_consistency_check1
+   */
   name?: string;
+  /**
+   * @example
+   * oss_bucket_1
+   */
   ossBucket?: string;
+  /**
+   * @example
+   * reso-********
+   */
   ossResourceId?: string;
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0.89
+   */
   sampleRate?: string;
+  /**
+   * @example
+   * 3
+   */
   sceneId?: string;
+  /**
+   * @example
+   * scene1
+   */
   sceneName?: string;
+  /**
+   * @example
+   * 4
+   */
   serviceId?: string;
+  /**
+   * @example
+   * service1
+   */
   serviceName?: string;
+  /**
+   * @example
+   * Editable
+   */
   status?: string;
   useFeatureStore?: boolean;
+  /**
+   * @example
+   * user_id
+   */
   userIdField?: string;
+  /**
+   * @example
+   * user_table
+   */
   userTable?: string;
+  /**
+   * @example
+   * ds
+   */
   userTablePartitionField?: string;
+  /**
+   * @example
+   * yyyymmdd
+   */
   userTablePartitionFieldFormat?: string;
+  /**
+   * @example
+   * work_flow_1
+   */
   workflowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4264,16 +6390,56 @@ export class GetFeatureConsistencyCheckJobConfigResponse extends $tea.Model {
 }
 
 export class GetInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Subscription
+   */
   chargeType?: string;
+  /**
+   * @example
+   * airec_developers_public_cn
+   */
   commodityCode?: string;
   config?: GetInstanceResponseBodyConfig;
+  /**
+   * @example
+   * 2022-12-14 00:00:00.0
+   */
   expiredTime?: string;
+  /**
+   * @example
+   * 2022-10-13 17:34:52.0
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2022-11-05 09:02:30.0
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * Initializing
+   */
   status?: string;
+  /**
+   * @example
+   * basic
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4338,14 +6504,50 @@ export class GetInstanceResponse extends $tea.Model {
 }
 
 export class GetInstanceResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DataManagement
+   */
   category?: string;
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * 2020-10-13 17:34:52
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2020-10-13 17:34:52
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * storage
+   */
   group?: string;
+  /**
+   * @example
+   * D75C43DC-3D3A-5CC8-9AAC-8C77306C433B
+   */
   requestId?: string;
+  /**
+   * @example
+   * reso-2s416t***
+   */
   resourceId?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
+  /**
+   * @example
+   * bucket-test-123
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4407,7 +6609,15 @@ export class GetInstanceResourceResponse extends $tea.Model {
 
 export class GetInstanceResourceTableResponseBody extends $tea.Model {
   fields?: GetInstanceResourceTableResponseBodyFields[];
+  /**
+   * @example
+   * 74D958EF-3598-56FA-8296-FF1575CE43DF
+   */
   requestId?: string;
+  /**
+   * @example
+   * test_table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4456,6 +6666,13 @@ export class GetInstanceResourceTableResponse extends $tea.Model {
 }
 
 export class GetLaboratoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4475,19 +6692,78 @@ export class GetLaboratoryRequest extends $tea.Model {
 }
 
 export class GetLaboratoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   bucketCount?: number;
+  /**
+   * @example
+   * Filter
+   */
   bucketType?: string;
+  /**
+   * @example
+   * 1,2,3,10-20
+   */
   buckets?: string;
+  /**
+   * @example
+   * 3
+   */
   crowdId?: string;
+  /**
+   * @example
+   * 3
+   */
   debugCrowdId?: string;
+  /**
+   * @example
+   * user1,user2,user3
+   */
   debugUsers?: string;
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @example
+   * filter=xxx
+   */
   filter?: string;
+  /**
+   * @example
+   * laboratory1
+   */
   name?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1C0898E5-9220-5443-B2D9-445FF0688215
+   */
   requestId?: string;
+  /**
+   * @example
+   * 3
+   */
   sceneId?: string;
+  /**
+   * @example
+   * Offline
+   */
   status?: string;
+  /**
+   * @example
+   * Base
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4558,6 +6834,13 @@ export class GetLaboratoryResponse extends $tea.Model {
 }
 
 export class GetLayerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4577,12 +6860,35 @@ export class GetLayerRequest extends $tea.Model {
 }
 
 export class GetLayerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 3
+   */
   laboratoryId?: string;
+  /**
+   * @example
+   * layer1
+   */
   name?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EE97D06A-2AA0-5AD9-B6CF-8A267924D691
+   */
   requestId?: string;
   residualFlow?: number;
+  /**
+   * @example
+   * 4
+   */
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4639,6 +6945,10 @@ export class GetLayerResponse extends $tea.Model {
 }
 
 export class GetResourceRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4726,6 +7036,10 @@ export class GetResourceRuleResponse extends $tea.Model {
 }
 
 export class GetSceneRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4745,9 +7059,24 @@ export class GetSceneRequest extends $tea.Model {
 }
 
 export class GetSceneResponseBody extends $tea.Model {
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
   flows?: GetSceneResponseBodyFlows[];
+  /**
+   * @example
+   * scene1
+   */
   name?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * B8987BF7-6028-5B17-80E0-251B7BD67BBA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4798,6 +7127,13 @@ export class GetSceneResponse extends $tea.Model {
 }
 
 export class GetSubCrowdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4817,10 +7153,33 @@ export class GetSubCrowdRequest extends $tea.Model {
 }
 
 export class GetSubCrowdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 3
+   */
   quantity?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 01D22D08-BA20-5F35-8302-99115F288220
+   */
   requestId?: string;
+  /**
+   * @example
+   * ManualInput
+   */
   source?: string;
+  /**
+   * @example
+   * user1,user2
+   */
   users?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4873,6 +7232,10 @@ export class GetSubCrowdResponse extends $tea.Model {
 }
 
 export class GetTableMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4892,20 +7255,64 @@ export class GetTableMetaRequest extends $tea.Model {
 }
 
 export class GetTableMetaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   canDelete?: boolean;
   config?: string;
+  /**
+   * @example
+   * this is a test table
+   */
   description?: string;
   fields?: GetTableMetaResponseBodyFields[];
+  /**
+   * @example
+   * 2021-12-15:24:33
+   */
   gmtCreateTime?: string;
   gmtImportedTime?: string;
+  /**
+   * @example
+   * 2021-12-15:24:33
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * ABTest
+   */
   module?: string;
+  /**
+   * @example
+   * test_table
+   */
   name?: string;
+  /**
+   * @example
+   * 28C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * reso-wkgo***
+   */
   resourceId?: string;
   tableMetaId?: string;
+  /**
+   * @example
+   * table_mysql
+   */
   tableName?: string;
+  /**
+   * @example
+   * MaxCompute
+   */
   type?: string;
+  /**
+   * @example
+   * https://dmc-xxx.com/dm/table/xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4978,6 +7385,10 @@ export class GetTableMetaResponse extends $tea.Model {
 }
 
 export class GetTrafficControlTargetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5320,11 +7731,34 @@ export class GetTrafficControlTaskTrafficResponse extends $tea.Model {
 }
 
 export class ListABMetricGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * false
+   */
   realtime?: boolean;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
   sortBy?: string;
   static names(): { [key: string]: string } {
@@ -5358,7 +7792,15 @@ export class ListABMetricGroupsRequest extends $tea.Model {
 
 export class ListABMetricGroupsResponseBody extends $tea.Model {
   ABMetricGroups?: ListABMetricGroupsResponseBodyABMetricGroups[];
+  /**
+   * @example
+   * E15A1443-7917-5BE0-AE70-25538ECF398D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5407,13 +7849,48 @@ export class ListABMetricGroupsResponse extends $tea.Model {
 }
 
 export class ListABMetricsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
+  /**
+   * @example
+   * home
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * false
+   */
   realtime?: boolean;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * 1
+   */
   tableMetaId?: string;
+  /**
+   * @example
+   * Single
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5448,7 +7925,15 @@ export class ListABMetricsRequest extends $tea.Model {
 
 export class ListABMetricsResponseBody extends $tea.Model {
   ABMetrics?: ListABMetricsResponseBodyABMetrics[];
+  /**
+   * @example
+   * F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5497,10 +7982,36 @@ export class ListABMetricsResponse extends $tea.Model {
 }
 
 export class ListCalculationJobsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5529,7 +8040,15 @@ export class ListCalculationJobsRequest extends $tea.Model {
 
 export class ListCalculationJobsResponseBody extends $tea.Model {
   calculationJobs?: ListCalculationJobsResponseBodyCalculationJobs[];
+  /**
+   * @example
+   * F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5578,6 +8097,13 @@ export class ListCalculationJobsResponse extends $tea.Model {
 }
 
 export class ListCrowdUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5597,7 +8123,18 @@ export class ListCrowdUsersRequest extends $tea.Model {
 }
 
 export class ListCrowdUsersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F0AB6527-093F-5C44-B3BD-42C8C210C619
+   */
   requestId?: string;
+  /**
+   * @example
+   * 3
+   */
   totalCount?: number;
   users?: string[];
   static names(): { [key: string]: string } {
@@ -5647,6 +8184,13 @@ export class ListCrowdUsersResponse extends $tea.Model {
 }
 
 export class ListCrowdsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5667,7 +8211,18 @@ export class ListCrowdsRequest extends $tea.Model {
 
 export class ListCrowdsResponseBody extends $tea.Model {
   crowds?: ListCrowdsResponseBodyCrowds[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9763624B-5FBB-5E3A-9193-B1ADB554CEAE
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5715,10 +8270,151 @@ export class ListCrowdsResponse extends $tea.Model {
   }
 }
 
-export class ListExperimentGroupsRequest extends $tea.Model {
+export class ListEngineConfigsRequest extends $tea.Model {
+  /**
+   * @example
+   * Pre
+   */
+  environment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-***test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * engine_config_v1
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * Released
+   */
+  status?: string;
+  /**
+   * @example
+   * latest
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environment: 'string',
+      instanceId: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      status: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEngineConfigsResponseBody extends $tea.Model {
+  engineConfigs?: ListEngineConfigsResponseBodyEngineConfigs[];
+  /**
+   * @example
+   * 74D958EF-3598-56FA-8296-FF1575CE43DF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      engineConfigs: 'EngineConfigs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engineConfigs: { 'type': 'array', 'itemType': ListEngineConfigsResponseBodyEngineConfigs },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEngineConfigsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEngineConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEngineConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExperimentGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 3
+   */
   layerId?: string;
   regionId?: string;
+  /**
+   * @example
+   * Online
+   */
   status?: string;
   timeRangeEnd?: string;
   timeRangeStart?: string;
@@ -5751,7 +8447,18 @@ export class ListExperimentGroupsRequest extends $tea.Model {
 
 export class ListExperimentGroupsResponseBody extends $tea.Model {
   experimentGroups?: ListExperimentGroupsResponseBodyExperimentGroups[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 59CE7EC6-F268-5D71-9215-32922CC50D72
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5800,9 +8507,28 @@ export class ListExperimentGroupsResponse extends $tea.Model {
 }
 
 export class ListExperimentsRequest extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   experimentGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
+  /**
+   * @example
+   * experiment_test1
+   */
   query?: string;
+  /**
+   * @example
+   * Offline
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5829,7 +8555,18 @@ export class ListExperimentsRequest extends $tea.Model {
 
 export class ListExperimentsResponseBody extends $tea.Model {
   experiments?: ListExperimentsResponseBodyExperiments[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 68075085-1A7D-55C2-B51D-7AD9B02A6DD6
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5878,10 +8615,33 @@ export class ListExperimentsResponse extends $tea.Model {
 }
 
 export class ListFeatureConsistencyCheckJobConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @example
+   * GmtCreateTime
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5910,7 +8670,15 @@ export class ListFeatureConsistencyCheckJobConfigsRequest extends $tea.Model {
 
 export class ListFeatureConsistencyCheckJobConfigsResponseBody extends $tea.Model {
   featureConsistencyCheckConfigs?: ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistencyCheckConfigs[];
+  /**
+   * @example
+   * FCF741D8-9C30-578E-807F-B935487DB34A
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5959,9 +8727,37 @@ export class ListFeatureConsistencyCheckJobConfigsResponse extends $tea.Model {
 }
 
 export class ListFeatureConsistencyCheckJobFeatureReportsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9010
+   */
   logItemId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
+   */
   logRequestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1010
+   */
   logUserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5987,9 +8783,21 @@ export class ListFeatureConsistencyCheckJobFeatureReportsRequest extends $tea.Mo
 }
 
 export class ListFeatureConsistencyCheckJobFeatureReportsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * https://********
+   */
   dataPath?: string;
+  /**
+   * @example
+   * oss://********
+   */
   ossPath?: string;
   reportsOfFeatureDiff?: ListFeatureConsistencyCheckJobFeatureReportsResponseBodyReportsOfFeatureDiff[];
+  /**
+   * @example
+   * BBD41FBF-E75C-551A-92FA-CAD654AA006F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6041,6 +8849,10 @@ export class ListFeatureConsistencyCheckJobFeatureReportsResponse extends $tea.M
 
 export class ListFeatureConsistencyCheckJobScoreReportsRequest extends $tea.Model {
   excludeRequestIds?: string[];
+  /**
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6063,6 +8875,10 @@ export class ListFeatureConsistencyCheckJobScoreReportsRequest extends $tea.Mode
 
 export class ListFeatureConsistencyCheckJobScoreReportsShrinkRequest extends $tea.Model {
   excludeRequestIdsShrink?: string;
+  /**
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6084,9 +8900,21 @@ export class ListFeatureConsistencyCheckJobScoreReportsShrinkRequest extends $te
 }
 
 export class ListFeatureConsistencyCheckJobScoreReportsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * http://*******
+   */
   dataPath?: string;
+  /**
+   * @example
+   * oss://********
+   */
   ossPath?: string;
   reportsOfScoreDiff?: ListFeatureConsistencyCheckJobScoreReportsResponseBodyReportsOfScoreDiff[];
+  /**
+   * @example
+   * F0AB6527-093F-5C44-B3BD-42C8C210C619
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6137,11 +8965,38 @@ export class ListFeatureConsistencyCheckJobScoreReportsResponse extends $tea.Mod
 }
 
 export class ListFeatureConsistencyCheckJobsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @example
+   * GmtCreateTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6172,7 +9027,15 @@ export class ListFeatureConsistencyCheckJobsRequest extends $tea.Model {
 
 export class ListFeatureConsistencyCheckJobsResponseBody extends $tea.Model {
   featureConsistencyCheckJobs?: ListFeatureConsistencyCheckJobsResponseBodyFeatureConsistencyCheckJobs[];
+  /**
+   * @example
+   * A04CB8C0-E74A-5E83-BC61-64D153574EC7
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6221,8 +9084,20 @@ export class ListFeatureConsistencyCheckJobsResponse extends $tea.Model {
 }
 
 export class ListInstanceResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * DataManagement
+   */
   category?: string;
+  /**
+   * @example
+   * storage
+   */
   group?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6246,8 +9121,16 @@ export class ListInstanceResourcesRequest extends $tea.Model {
 }
 
 export class ListInstanceResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9763624B-5FBB-5E3A-9193-B1ADB554CEAE
+   */
   requestId?: string;
   resources?: ListInstanceResourcesResponseBodyResources[];
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6296,11 +9179,35 @@ export class ListInstanceResourcesResponse extends $tea.Model {
 }
 
 export class ListInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Desc
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 50
+   */
   pageSize?: number;
+  /**
+   * @example
+   * Type
+   */
   sortBy?: string;
+  /**
+   * @example
+   * basic
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6331,7 +9238,15 @@ export class ListInstancesRequest extends $tea.Model {
 
 export class ListInstancesResponseBody extends $tea.Model {
   instances?: ListInstancesResponseBodyInstances[];
+  /**
+   * @example
+   * BDB621CB-A81E-5D39-8793-39A365CBCC74
+   */
   requestId?: string;
+  /**
+   * @example
+   * 7
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6380,9 +9295,31 @@ export class ListInstancesResponse extends $tea.Model {
 }
 
 export class ListLaboratoriesRequest extends $tea.Model {
+  /**
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   sceneId?: string;
+  /**
+   * @example
+   * Offline
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6409,7 +9346,18 @@ export class ListLaboratoriesRequest extends $tea.Model {
 
 export class ListLaboratoriesResponseBody extends $tea.Model {
   laboratories?: ListLaboratoriesResponseBodyLaboratories[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1C0898E5-9220-5443-B2D9-445FF0688215
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6458,7 +9406,21 @@ export class ListLaboratoriesResponse extends $tea.Model {
 }
 
 export class ListLayersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   laboratoryId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6481,7 +9443,18 @@ export class ListLayersRequest extends $tea.Model {
 
 export class ListLayersResponseBody extends $tea.Model {
   layers?: ListLayersResponseBodyLayers[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 518C64F6-DFF7-11ED-85B0-00163E14B3D1
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6530,11 +9503,41 @@ export class ListLayersResponse extends $tea.Model {
 }
 
 export class ListParamsRequest extends $tea.Model {
+  /**
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @example
+   * home
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 50
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6565,7 +9568,18 @@ export class ListParamsRequest extends $tea.Model {
 
 export class ListParamsResponseBody extends $tea.Model {
   params?: ListParamsResponseBodyParams[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A2D07551-38DA-531E-9B22-877D1D86A579
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6615,6 +9629,10 @@ export class ListParamsResponse extends $tea.Model {
 
 export class ListResourceRulesRequest extends $tea.Model {
   all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   order?: string;
   pageNumber?: number;
@@ -6704,7 +9722,15 @@ export class ListResourceRulesResponse extends $tea.Model {
 }
 
 export class ListScenesRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @example
+   * scene1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6726,8 +9752,19 @@ export class ListScenesRequest extends $tea.Model {
 }
 
 export class ListScenesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * B8987BF7-6028-5B17-80E0-251B7BD67BBA
+   */
   requestId?: string;
   scenes?: ListScenesResponseBodyScenes[];
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6776,6 +9813,13 @@ export class ListScenesResponse extends $tea.Model {
 }
 
 export class ListSubCrowdsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6795,8 +9839,19 @@ export class ListSubCrowdsRequest extends $tea.Model {
 }
 
 export class ListSubCrowdsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C5AEB79E-FAA4-5DCE-8CD7-1CAF549ECC3E
+   */
   requestId?: string;
   subCrowds?: ListSubCrowdsResponseBodySubCrowds[];
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6845,11 +9900,41 @@ export class ListSubCrowdsResponse extends $tea.Model {
 }
 
 export class ListTableMetasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ABTest
+   */
   module?: string;
+  /**
+   * @example
+   * test1
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * MaxCompute
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6879,8 +9964,16 @@ export class ListTableMetasRequest extends $tea.Model {
 }
 
 export class ListTableMetasResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
   tableMetas?: ListTableMetasResponseBodyTableMetas[];
+  /**
+   * @example
+   * 20
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7124,6 +10217,13 @@ export class ListTrafficControlTasksResponse extends $tea.Model {
 }
 
 export class OfflineExperimentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7143,6 +10243,13 @@ export class OfflineExperimentRequest extends $tea.Model {
 }
 
 export class OfflineExperimentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 872951C9-7755-5FA1-AACD-7F9375A6D27A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7187,6 +10294,13 @@ export class OfflineExperimentResponse extends $tea.Model {
 }
 
 export class OfflineExperimentGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7206,6 +10320,13 @@ export class OfflineExperimentGroupRequest extends $tea.Model {
 }
 
 export class OfflineExperimentGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 518C64F6-DFF7-11ED-85B0-00163E14B3D1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7250,6 +10371,13 @@ export class OfflineExperimentGroupResponse extends $tea.Model {
 }
 
 export class OfflineLaboratoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7269,6 +10397,13 @@ export class OfflineLaboratoryRequest extends $tea.Model {
 }
 
 export class OfflineLaboratoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 59CE7EC6-F268-5D71-9215-32922CC50D72
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7313,6 +10448,10 @@ export class OfflineLaboratoryResponse extends $tea.Model {
 }
 
 export class OnlineExperimentRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7332,6 +10471,13 @@ export class OnlineExperimentRequest extends $tea.Model {
 }
 
 export class OnlineExperimentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 6CF1E160-3F36-5E73-A170-C75504F05BBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7376,6 +10522,13 @@ export class OnlineExperimentResponse extends $tea.Model {
 }
 
 export class OnlineExperimentGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7395,6 +10548,13 @@ export class OnlineExperimentGroupRequest extends $tea.Model {
 }
 
 export class OnlineExperimentGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 47F761ED-BE4E-51A6-B678-78E1490DF313
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7439,6 +10599,13 @@ export class OnlineExperimentGroupResponse extends $tea.Model {
 }
 
 export class OnlineLaboratoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7458,6 +10625,13 @@ export class OnlineLaboratoryRequest extends $tea.Model {
 }
 
 export class OnlineLaboratoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8C27790E-CCA5-56BB-BA17-646295DEC0A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7502,6 +10676,10 @@ export class OnlineLaboratoryResponse extends $tea.Model {
 }
 
 export class PushAllExperimentRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7521,6 +10699,13 @@ export class PushAllExperimentRequest extends $tea.Model {
 }
 
 export class PushAllExperimentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 74D958EF-3598-56FA-8296-FF1575CE43DF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7565,7 +10750,15 @@ export class PushAllExperimentResponse extends $tea.Model {
 }
 
 export class PushResourceRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   metricInfo?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -7587,7 +10780,15 @@ export class PushResourceRuleRequest extends $tea.Model {
 }
 
 export class PushResourceRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   metricInfoShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7743,15 +10944,67 @@ export class ReleaseTrafficControlTaskResponse extends $tea.Model {
 }
 
 export class ReportABMetricGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   baseExperimentId?: string;
+  /**
+   * @example
+   * {"gender":"man"}
+   */
   dimensionFields?: string;
+  /**
+   * @example
+   * 2021-07-01
+   */
   endDate?: string;
+  /**
+   * @example
+   * 3
+   */
   experimentGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3,4,5
+   */
   experimentIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Offline
+   */
   reportType?: string;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * 2021-07-01
+   */
   startDate?: string;
+  /**
+   * @example
+   * Hour
+   */
   timeStatisticsMethod?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7791,6 +11044,10 @@ export class ReportABMetricGroupRequest extends $tea.Model {
 export class ReportABMetricGroupResponseBody extends $tea.Model {
   experimentReport?: { [key: string]: ExperimentReportValue };
   groupDimension?: string[];
+  /**
+   * @example
+   * 59CE7EC6-F268-5D71-9215-32922CC50D72
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8175,15 +11432,82 @@ export class StopTrafficControlTaskResponse extends $tea.Model {
 }
 
 export class SyncFeatureConsistencyCheckJobReplayLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{\\"Value\\":{\\"FloatFeature\\":0.1}}]
+   */
   contextFeatures?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   featureConsistencyCheckJobConfigId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * week_day:1 | userid:3 | itemid:9001 | cate:cat1 | click_5_seq__cate:cat1
+   */
   generatedFeatures?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9010
+   */
   logItemId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   logRequestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1693900981465
+   */
   logRequestTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1010
+   */
   logUserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   rawFeatures?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * video-feed
+   */
   sceneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8221,6 +11545,10 @@ export class SyncFeatureConsistencyCheckJobReplayLogRequest extends $tea.Model {
 }
 
 export class SyncFeatureConsistencyCheckJobReplayLogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C7D0B48F-0105-52B9-B60A-FA7606E2234D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8265,6 +11593,13 @@ export class SyncFeatureConsistencyCheckJobReplayLogResponse extends $tea.Model 
 }
 
 export class TerminateFeatureConsistencyCheckJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8284,6 +11619,10 @@ export class TerminateFeatureConsistencyCheckJobRequest extends $tea.Model {
 }
 
 export class TerminateFeatureConsistencyCheckJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A6C01890-54CA-5C49-BC91-AD85A98E4A98
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8328,18 +11667,91 @@ export class TerminateFeatureConsistencyCheckJobResponse extends $tea.Model {
 }
 
 export class UpdateABMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sum(click_cnt)
+   */
   definition?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test123
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 2
+   */
   leftMetricId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pv
+   */
   name?: string;
+  /**
+   * @example
+   * Division
+   */
   operator?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   realtime?: boolean;
+  /**
+   * @example
+   * 3
+   */
   resultResourceId?: string;
+  /**
+   * @example
+   * 3
+   */
   rightMetricId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * 1
+   */
   statisticsCycle?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   tableMetaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Single
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8383,6 +11795,10 @@ export class UpdateABMetricRequest extends $tea.Model {
 }
 
 export class UpdateABMetricResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6CF1E160-3F36-5E73-A170-C75504F05BBC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8427,11 +11843,50 @@ export class UpdateABMetricResponse extends $tea.Model {
 }
 
 export class UpdateABMetricGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1,2
+   */
   ABMetricIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * visits
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   realtime?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8461,6 +11916,10 @@ export class UpdateABMetricGroupRequest extends $tea.Model {
 }
 
 export class UpdateABMetricGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 74D958EF-3598-56FA-8296-FF1575CE43DF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8505,8 +11964,29 @@ export class UpdateABMetricGroupResponse extends $tea.Model {
 }
 
 export class UpdateCrowdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xx人群
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8530,6 +12010,13 @@ export class UpdateCrowdRequest extends $tea.Model {
 }
 
 export class UpdateCrowdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8C27790E-CCA5-56BB-BA17-646295DEC0A2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8573,14 +12060,155 @@ export class UpdateCrowdResponse extends $tea.Model {
   }
 }
 
-export class UpdateExperimentRequest extends $tea.Model {
-  config?: string;
-  debugCrowdId?: string;
-  debugUsers?: string;
-  description?: string;
-  flowPercent?: number;
+export class UpdateEngineConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * {
+   * 	"ListenConf": {
+   * 		"HttpAddr": "",
+   * 		"HttpPort": 8000
+   * 	}
+   * }
+   */
+  configValue?: string;
+  /**
+   * @example
+   * Pre
+   */
+  environment?: string;
+  /**
+   * @example
+   * pairec-cn-***test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * engine_config_v1
+   */
   name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configValue: 'ConfigValue',
+      environment: 'Environment',
+      instanceId: 'InstanceId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configValue: 'string',
+      environment: 'string',
+      instanceId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEngineConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F8F613A9-DF1C-551A-88E1-397A3981A785
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEngineConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEngineConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEngineConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateExperimentRequest extends $tea.Model {
+  /**
+   * @example
+   * {"RankBy": "Score"}
+   */
+  config?: string;
+  /**
+   * @example
+   * 3
+   */
+  debugCrowdId?: string;
+  /**
+   * @example
+   * 1124512470******,1124512471******,1124512472******
+   */
+  debugUsers?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * This is a test.
+   */
+  description?: string;
+  /**
+   * @example
+   * 100
+   */
+  flowPercent?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * experiment_test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Baseline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8614,6 +12242,13 @@ export class UpdateExperimentRequest extends $tea.Model {
 }
 
 export class UpdateExperimentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A760D972-1475-58C0-BBB3-92B5FB08904F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8658,20 +12293,84 @@ export class UpdateExperimentResponse extends $tea.Model {
 }
 
 export class UpdateExperimentGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * {"RankBy": "Score"}
+   */
   config?: string;
+  /**
+   * @example
+   * 3
+   */
   crowdId?: string;
   crowdTargetType?: string;
+  /**
+   * @example
+   * 3
+   */
   debugCrowdId?: string;
+  /**
+   * @example
+   * user1,user2,user3
+   */
   debugUsers?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * 3
+   */
   distributionTimeDuration?: number;
+  /**
+   * @example
+   * UserId
+   */
   distributionType?: string;
+  /**
+   * @example
+   * gender=male
+   */
   filter?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   layerId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * experiment_group1
+   */
   name?: string;
+  /**
+   * @example
+   * true
+   */
   needAA?: boolean;
   randomFlow?: number;
+  /**
+   * @example
+   * 1,2,3
+   */
   reservcedBuckets?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8719,6 +12418,13 @@ export class UpdateExperimentGroupRequest extends $tea.Model {
 }
 
 export class UpdateExperimentGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8763,12 +12469,49 @@ export class UpdateExperimentGroupResponse extends $tea.Model {
 }
 
 export class UpdateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   compareFeature?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * service_123
+   */
   easServiceName?: string;
+  /**
+   * @example
+   * oss://********
+   */
   easyRecPackagePath?: string;
+  /**
+   * @example
+   * 1.3.60
+   */
   easyRecVersion?: string;
+  /**
+   * @example
+   * feature1,feature2
+   */
   featureDisplayExclude?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * reso-********
+   */
   featureLandingResourceId?: string;
+  /**
+   * @example
+   * feature1,feature2,feature3
+   */
   featurePriority?: string;
   featureStoreItemId?: string;
   featureStoreModelId?: string;
@@ -8776,24 +12519,138 @@ export class UpdateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
   featureStoreProjectName?: string;
   featureStoreSeqFeatureView?: string;
   featureStoreUserId?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   fgJarVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * file.json
+   */
   fgJsonFileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   generateZip?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
   isUseFeatureStore?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * item_id
+   */
   itemIdField?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * item_table
+   */
   itemTable?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ds
+   */
   itemTablePartitionField?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yyyymmdd
+   */
   itemTablePartitionFieldFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * feature_consistency_check1
+   */
   name?: string;
+  /**
+   * @example
+   * reso-********
+   */
   ossResourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.89
+   */
   sampleRate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   sceneId?: string;
+  /**
+   * @example
+   * 4
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_id
+   */
   userIdField?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_table
+   */
   userTable?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ds
+   */
   userTablePartitionField?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yyyymmdd
+   */
   userTablePartitionFieldFormat?: string;
+  /**
+   * @example
+   * work_flow_1
+   */
   workflowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8875,6 +12732,10 @@ export class UpdateFeatureConsistencyCheckJobConfigRequest extends $tea.Model {
 }
 
 export class UpdateFeatureConsistencyCheckJobConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A04CB8C0-E74A-5E83-BC61-64D153574EC7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8919,7 +12780,15 @@ export class UpdateFeatureConsistencyCheckJobConfigResponse extends $tea.Model {
 }
 
 export class UpdateInstanceResourceRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * bucket-test-123
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8941,6 +12810,10 @@ export class UpdateInstanceResourceRequest extends $tea.Model {
 }
 
 export class UpdateInstanceResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3AAA45F6-0798-5461-9360-81D133823CE7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8985,16 +12858,72 @@ export class UpdateInstanceResourceResponse extends $tea.Model {
 }
 
 export class UpdateLaboratoryRequest extends $tea.Model {
+  /**
+   * @example
+   * 24
+   */
   bucketCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Filter
+   */
   bucketType?: string;
+  /**
+   * @example
+   * 1,2,3,10-20
+   */
   buckets?: string;
+  /**
+   * @example
+   * 3
+   */
   debugCrowdId?: string;
+  /**
+   * @example
+   * 1124512470******,1124512471******,1124512472******
+   */
   debugUsers?: string;
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @example
+   * filter=xxx
+   */
   filter?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * laboratory1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Base
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9034,6 +12963,13 @@ export class UpdateLaboratoryRequest extends $tea.Model {
 }
 
 export class UpdateLaboratoryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A04CB8C0-E74A-5E83-BC61-64D153574EC7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9078,8 +13014,29 @@ export class UpdateLaboratoryResponse extends $tea.Model {
 }
 
 export class UpdateLayerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * layer1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9103,6 +13060,13 @@ export class UpdateLayerRequest extends $tea.Model {
 }
 
 export class UpdateLayerResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 0EA9215E-EC21-53AB-B8D9-D3DEA90D040A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9147,7 +13111,15 @@ export class UpdateLayerResponse extends $tea.Model {
 }
 
 export class UpdateParamRequest extends $tea.Model {
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @example
+   * house
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9169,6 +13141,13 @@ export class UpdateParamRequest extends $tea.Model {
 }
 
 export class UpdateParamResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * BBD41FBF-E75C-551A-92FA-CAD654AA006F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9214,11 +13193,27 @@ export class UpdateParamResponse extends $tea.Model {
 
 export class UpdateResourceRuleRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   metricOperationType?: string;
   metricPullInfo?: string;
   metricPullPeriod?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ruleComputingDefinition?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9295,9 +13290,17 @@ export class UpdateResourceRuleResponse extends $tea.Model {
 
 export class UpdateResourceRuleItemRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   maxValue?: number;
   minValue?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
   value?: number;
   static names(): { [key: string]: string } {
@@ -9372,9 +13375,21 @@ export class UpdateResourceRuleItemResponse extends $tea.Model {
 }
 
 export class UpdateSceneRequest extends $tea.Model {
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
   flows?: UpdateSceneRequestFlows[];
+  /**
+   * @example
+   * pairec-cn-abcdefg1234
+   */
   instanceId?: string;
+  /**
+   * @example
+   * scene1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9400,6 +13415,13 @@ export class UpdateSceneRequest extends $tea.Model {
 }
 
 export class UpdateSceneResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FC17887E-3C82-5096-8AA6-F4C2E7417245
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9444,12 +13466,55 @@ export class UpdateSceneResponse extends $tea.Model {
 }
 
 export class UpdateTableMetaRequest extends $tea.Model {
+  /**
+   * @example
+   * this is a test table
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fields?: UpdateTableMetaRequestFields[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ABTest
+   */
   module?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table_test
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * reso-2s416t***
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table_mysql
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9481,6 +13546,10 @@ export class UpdateTableMetaRequest extends $tea.Model {
 }
 
 export class UpdateTableMetaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9900,8 +13969,20 @@ export class UploadRecommendationDataResponse extends $tea.Model {
 }
 
 export class CheckInstanceResourcesResponseBodyResources extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
+  /**
+   * @example
+   * bucket-test-123
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9926,9 +14007,25 @@ export class CheckInstanceResourcesResponseBodyResources extends $tea.Model {
 
 export class CreateResourceRuleRequestRuleItems extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   maxValue?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   minValue?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9956,7 +14053,15 @@ export class CreateResourceRuleRequestRuleItems extends $tea.Model {
 }
 
 export class CreateSceneRequestFlows extends $tea.Model {
+  /**
+   * @example
+   * liuliang1
+   */
   flowCode?: string;
+  /**
+   * @example
+   * 流量1
+   */
   flowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9979,10 +14084,42 @@ export class CreateSceneRequestFlows extends $tea.Model {
 
 export class CreateTableMetaRequestFields extends $tea.Model {
   dataType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   isDimensionField?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   isPartitionField?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * this is gender of people
+   */
   meaning?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gender
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BIGINT
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10067,8 +14204,16 @@ export class CreateTrafficControlTaskRequestTrafficControlTargets extends $tea.M
 }
 
 export class GetInstanceResponseBodyConfigDataManagements extends $tea.Model {
+  /**
+   * @example
+   * storage
+   */
   componentCode?: string;
   meta?: { [key: string]: any };
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10092,8 +14237,16 @@ export class GetInstanceResponseBodyConfigDataManagements extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyConfigEngines extends $tea.Model {
+  /**
+   * @example
+   * feature
+   */
   componentCode?: string;
   meta?: { [key: string]: any };
+  /**
+   * @example
+   * Hologres
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10117,8 +14270,16 @@ export class GetInstanceResponseBodyConfigEngines extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyConfigMonitors extends $tea.Model {
+  /**
+   * @example
+   * featuresets
+   */
   componentCode?: string;
   meta?: { [key: string]: any };
+  /**
+   * @example
+   * Platform
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10167,10 +14328,26 @@ export class GetInstanceResponseBodyConfig extends $tea.Model {
 }
 
 export class GetInstanceResourceTableResponseBodyFields extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   isDimensionField?: boolean;
   isPartitionField?: boolean;
+  /**
+   * @example
+   * ""
+   */
   meaning?: string;
+  /**
+   * @example
+   * age
+   */
   name?: string;
+  /**
+   * @example
+   * BIGINT
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10229,7 +14406,15 @@ export class GetResourceRuleResponseBodyRuleItems extends $tea.Model {
 }
 
 export class GetSceneResponseBodyFlows extends $tea.Model {
+  /**
+   * @example
+   * liuliang1
+   */
   flowCode?: string;
+  /**
+   * @example
+   * 流量1
+   */
   flowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10251,9 +14436,25 @@ export class GetSceneResponseBodyFlows extends $tea.Model {
 }
 
 export class GetTableMetaResponseBodyFields extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   isDimensionField?: boolean;
+  /**
+   * @example
+   * the gender of people
+   */
   meaning?: string;
+  /**
+   * @example
+   * gender
+   */
   name?: string;
+  /**
+   * @example
+   * BIGINT
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10440,13 +14641,41 @@ export class GetTrafficControlTaskTrafficResponseBodyTrafficControlTaskTrafficIn
 }
 
 export class ListABMetricGroupsResponseBodyABMetricGroups extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   ABMetricGroupId?: string;
+  /**
+   * @example
+   * 1,2
+   */
   ABMetricIds?: string;
+  /**
+   * @example
+   * pv,uv
+   */
   ABMetricNames?: string;
   description?: string;
+  /**
+   * @example
+   * visits
+   */
   name?: string;
+  /**
+   * @example
+   * 2799614***
+   */
   owner?: string;
+  /**
+   * @example
+   * false
+   */
   realtime?: boolean;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10480,20 +14709,76 @@ export class ListABMetricGroupsResponseBodyABMetricGroups extends $tea.Model {
 }
 
 export class ListABMetricsResponseBodyABMetrics extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   ABMetricId?: string;
+  /**
+   * @example
+   * sum(click_cnt)
+   */
   definition?: string;
   description?: string;
+  /**
+   * @example
+   * 3
+   */
   leftMetricId?: string;
+  /**
+   * @example
+   * pv
+   */
   name?: string;
+  /**
+   * @example
+   * Division
+   */
   operator?: string;
+  /**
+   * @example
+   * false
+   */
   realtime?: string;
+  /**
+   * @example
+   * 3
+   */
   resultResourceId?: string;
+  /**
+   * @example
+   * 2
+   */
   resultTableMetaId?: string;
+  /**
+   * @example
+   * 2
+   */
   rightMetricId?: string;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * home_feed
+   */
   sceneName?: string;
+  /**
+   * @example
+   * 1
+   */
   statisticsCycle?: number;
+  /**
+   * @example
+   * 1
+   */
   tableMetaId?: string;
+  /**
+   * @example
+   * Single
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10541,13 +14826,41 @@ export class ListABMetricsResponseBodyABMetrics extends $tea.Model {
 }
 
 export class ListCalculationJobsResponseBodyCalculationJobs extends $tea.Model {
+  /**
+   * @example
+   * pv
+   */
   ABMetricName?: string;
+  /**
+   * @example
+   * 2021-12-15
+   */
   bizDate?: string;
+  /**
+   * @example
+   * 2
+   */
   calculationJobId?: string;
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtRanTime?: string;
   jobMessage?: string[];
+  /**
+   * @example
+   * CronOffline
+   */
   jobSource?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10581,13 +14894,45 @@ export class ListCalculationJobsResponseBodyCalculationJobs extends $tea.Model {
 }
 
 export class ListCrowdsResponseBodyCrowds extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   crowdId?: string;
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * os=android
+   */
   label?: string;
+  /**
+   * @example
+   * crowd1
+   */
   name?: string;
+  /**
+   * @example
+   * 10
+   */
   quantity?: string;
+  /**
+   * @example
+   * ManualInput
+   */
   source?: string;
+  /**
+   * @example
+   * user1,user2
+   */
   users?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10620,26 +14965,173 @@ export class ListCrowdsResponseBodyCrowds extends $tea.Model {
   }
 }
 
+export class ListEngineConfigsResponseBodyEngineConfigs extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  configValue?: string;
+  /**
+   * @example
+   * 2
+   */
+  engineConfigId?: string;
+  /**
+   * @example
+   * Pre
+   */
+  environment?: string;
+  /**
+   * @example
+   * 2023-08-07T01:43:42Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2023-08-27T12:00:00Z
+   */
+  gmtModifiedTime?: string;
+  /**
+   * @example
+   * 2023-08-29 12:00:00
+   */
+  gmtReleasedTime?: string;
+  /**
+   * @example
+   * engine_config_v1
+   */
+  name?: string;
+  /**
+   * @example
+   * Released
+   */
+  status?: string;
+  /**
+   * @example
+   * 20230509161300
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configValue: 'ConfigValue',
+      engineConfigId: 'EngineConfigId',
+      environment: 'Environment',
+      gmtCreateTime: 'GmtCreateTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      gmtReleasedTime: 'GmtReleasedTime',
+      name: 'Name',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configValue: 'string',
+      engineConfigId: 'string',
+      environment: 'string',
+      gmtCreateTime: 'string',
+      gmtModifiedTime: 'string',
+      gmtReleasedTime: 'string',
+      name: 'string',
+      status: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListExperimentGroupsResponseBodyExperimentGroups extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * 3
+   */
   crowdId?: string;
   crowdTargetType?: string;
+  /**
+   * @example
+   * 4
+   */
   debugCrowdId?: string;
+  /**
+   * @example
+   * 1124512470******,1124512471******,1124512472******
+   */
   debugUsers?: string;
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * 5
+   */
   distributionTimeDuration?: number;
+  /**
+   * @example
+   * UserId
+   */
   distributionType?: string;
+  /**
+   * @example
+   * 3
+   */
   experimentGroupId?: string;
+  /**
+   * @example
+   * gender=female
+   */
   filter?: string;
   holdingBuckets?: string;
+  /**
+   * @example
+   * 4
+   */
   laboratoryId?: string;
+  /**
+   * @example
+   * 3
+   */
   layerId?: string;
+  /**
+   * @example
+   * experiment_group1
+   */
   name?: string;
+  /**
+   * @example
+   * true
+   */
   needAA?: boolean;
+  /**
+   * @example
+   * 1124512470******
+   */
   owner?: string;
   randomFlow?: number;
+  /**
+   * @example
+   * 1,2,3,4
+   */
   reservedBuckets?: string;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * Offline
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10697,22 +15189,90 @@ export class ListExperimentGroupsResponseBodyExperimentGroups extends $tea.Model
 }
 
 export class ListExperimentsResponseBodyExperiments extends $tea.Model {
+  /**
+   * @example
+   * L1#EG1#E1
+   */
   aliasExperimentId?: string;
+  /**
+   * @example
+   * 1,2,3
+   */
   buckets?: string;
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * 3
+   */
   debugCrowdId?: string;
+  /**
+   * @example
+   * uid1,uid2,uid3
+   */
   debugUsers?: string;
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * 3
+   */
   experimentGroupId?: string;
+  /**
+   * @example
+   * 3
+   */
   experimentId?: string;
+  /**
+   * @example
+   * 100
+   */
   flowPercent?: number;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * 3
+   */
   laboratoryId?: string;
+  /**
+   * @example
+   * 3
+   */
   layerId?: string;
+  /**
+   * @example
+   * experiment_test1
+   */
   name?: string;
+  /**
+   * @example
+   * 3
+   */
   sceneId?: string;
+  /**
+   * @example
+   * Offline
+   */
   status?: string;
+  /**
+   * @example
+   * Baseline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10764,14 +15324,50 @@ export class ListExperimentsResponseBodyExperiments extends $tea.Model {
 }
 
 export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistencyCheckConfigs extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   compareFeature?: boolean;
+  /**
+   * @example
+   * eas_service_1
+   */
   easServiceName?: string;
+  /**
+   * @example
+   * oss://*******
+   */
   easyRecPackagePath?: string;
+  /**
+   * @example
+   * 1.3.60
+   */
   easyRecVersion?: string;
+  /**
+   * @example
+   * 3
+   */
   featureConsistencyCheckJobConfigId?: string;
+  /**
+   * @example
+   * feature1,feature2
+   */
   featureDisplayExclude?: string;
+  /**
+   * @example
+   * reso-********
+   */
   featureLandingResourceId?: string;
+  /**
+   * @example
+   * mc_project_1
+   */
   featureLandingResourceUri?: string;
+  /**
+   * @example
+   * feature1,feature2,feature3
+   */
   featurePriority?: string;
   featureStoreItemId?: string;
   featureStoreModelId?: string;
@@ -10779,32 +15375,136 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
   featureStoreProjectName?: string;
   featureStoreSeqFeatureView?: string;
   featureStoreUserId?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   fgJarVersion?: string;
+  /**
+   * @example
+   * file.json
+   */
   fgJsonFileName?: string;
+  /**
+   * @example
+   * true
+   */
   generateZip?: boolean;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * item_id
+   */
   itemIdField?: string;
+  /**
+   * @example
+   * item_table
+   */
   itemTable?: string;
+  /**
+   * @example
+   * ds
+   */
   itemTablePartitionField?: string;
+  /**
+   * @example
+   * yyyymmdd
+   */
   itemTablePartitionFieldFormat?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   latestJobGmtSamplingEndTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   latestJobGmtSamplingStartTime?: string;
+  /**
+   * @example
+   * 3
+   */
   latestJobId?: string;
+  /**
+   * @example
+   * feature_consistency_check1
+   */
   name?: string;
+  /**
+   * @example
+   * oss_bucket_1
+   */
   ossBucket?: string;
+  /**
+   * @example
+   * reso-********
+   */
   ossResourceId?: string;
+  /**
+   * @example
+   * 0.89
+   */
   sampleRate?: string;
+  /**
+   * @example
+   * 3
+   */
   sceneId?: string;
+  /**
+   * @example
+   * scene1
+   */
   sceneName?: string;
+  /**
+   * @example
+   * 4
+   */
   serviceId?: string;
+  /**
+   * @example
+   * service1
+   */
   serviceName?: string;
+  /**
+   * @example
+   * Editable
+   */
   status?: string;
   useFeatureStore?: string;
+  /**
+   * @example
+   * user_id
+   */
   userIdField?: string;
+  /**
+   * @example
+   * user_table
+   */
   userTable?: string;
+  /**
+   * @example
+   * ds
+   */
   userTablePartitionField?: string;
+  /**
+   * @example
+   * yyyymmdd
+   */
   userTablePartitionFieldFormat?: string;
+  /**
+   * @example
+   * work_flow_1
+   */
   workflowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10906,11 +15606,35 @@ export class ListFeatureConsistencyCheckJobConfigsResponseBodyFeatureConsistency
 }
 
 export class ListFeatureConsistencyCheckJobFeatureReportsResponseBodyReportsOfFeatureDiff extends $tea.Model {
+  /**
+   * @example
+   * gender
+   */
   featureName?: string;
+  /**
+   * @example
+   * 9010
+   */
   logItemId?: string;
+  /**
+   * @example
+   * F7AC05FF-EDE7-5C2B-B9AE-33D6DF4178BA
+   */
   logRequestId?: string;
+  /**
+   * @example
+   * 1010
+   */
   logUserId?: string;
+  /**
+   * @example
+   * male
+   */
   offlineValue?: string;
+  /**
+   * @example
+   * male
+   */
   onlineValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10940,10 +15664,30 @@ export class ListFeatureConsistencyCheckJobFeatureReportsResponseBodyReportsOfFe
 }
 
 export class ListFeatureConsistencyCheckJobScoreReportsResponseBodyReportsOfScoreDiff extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   logItemId?: string;
+  /**
+   * @example
+   * 323
+   */
   logRequestId?: string;
+  /**
+   * @example
+   * 3
+   */
   logUserId?: string;
+  /**
+   * @example
+   * 0.00000234
+   */
   scoreDiff?: string;
+  /**
+   * @example
+   * {}
+   */
   scoreDiffDetail?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10971,13 +15715,41 @@ export class ListFeatureConsistencyCheckJobScoreReportsResponseBodyReportsOfScor
 }
 
 export class ListFeatureConsistencyCheckJobsResponseBodyFeatureConsistencyCheckJobs extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * 5
+   */
   featureConsistencyCheckJobConfigId?: string;
+  /**
+   * @example
+   * feature_consistency_check_1
+   */
   featureConsistencyCheckJobConfigName?: string;
+  /**
+   * @example
+   * 4
+   */
   featureConsistencyCheckJobId?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtEndTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtStartTime?: string;
   logs?: string[];
+  /**
+   * @example
+   * Running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11011,13 +15783,45 @@ export class ListFeatureConsistencyCheckJobsResponseBodyFeatureConsistencyCheckJ
 }
 
 export class ListInstanceResourcesResponseBodyResources extends $tea.Model {
+  /**
+   * @example
+   * DataManagement
+   */
   category?: string;
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * 2020-10-13 17:34:52
+   */
   gmtCreateAt?: string;
+  /**
+   * @example
+   * 2020-10-13 17:34:52
+   */
   gmtModifiedAt?: string;
+  /**
+   * @example
+   * storage
+   */
   group?: string;
+  /**
+   * @example
+   * reso-2s416t***
+   */
   resourceId?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
+  /**
+   * @example
+   * bucket-test-123
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11051,8 +15855,16 @@ export class ListInstanceResourcesResponseBodyResources extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyInstancesConfigDataManagements extends $tea.Model {
+  /**
+   * @example
+   * storage
+   */
   componentCode?: string;
   meta?: { [key: string]: any };
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11076,8 +15888,16 @@ export class ListInstancesResponseBodyInstancesConfigDataManagements extends $te
 }
 
 export class ListInstancesResponseBodyInstancesConfigEngines extends $tea.Model {
+  /**
+   * @example
+   * feature
+   */
   componentCode?: string;
   meta?: { [key: string]: any };
+  /**
+   * @example
+   * Hologres
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11101,8 +15921,16 @@ export class ListInstancesResponseBodyInstancesConfigEngines extends $tea.Model 
 }
 
 export class ListInstancesResponseBodyInstancesConfigMonitors extends $tea.Model {
+  /**
+   * @example
+   * featuresets
+   */
   componentCode?: string;
   meta?: { [key: string]: any };
+  /**
+   * @example
+   * Platform
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11151,15 +15979,51 @@ export class ListInstancesResponseBodyInstancesConfig extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyInstances extends $tea.Model {
+  /**
+   * @example
+   * Subscription
+   */
   chargeType?: string;
+  /**
+   * @example
+   * airec_developers_public_cn
+   */
   commodityCode?: string;
   config?: ListInstancesResponseBodyInstancesConfig;
+  /**
+   * @example
+   * 2022-12-14 00:00:00.0
+   */
   expiredTime?: string;
+  /**
+   * @example
+   * 2022-10-13 17:34:52.0
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2022-11-05 09:02:30.0
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * pairec-test1
+   */
   instanceId?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
+  /**
+   * @example
+   * Initializing
+   */
   status?: string;
+  /**
+   * @example
+   * basic
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11197,19 +16061,75 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class ListLaboratoriesResponseBodyLaboratories extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   bucketCount?: number;
+  /**
+   * @example
+   * Filter
+   */
   bucketType?: string;
+  /**
+   * @example
+   * 1,2,3,10-20
+   */
   buckets?: string;
+  /**
+   * @example
+   * 3
+   */
   crowdId?: string;
+  /**
+   * @example
+   * 3
+   */
   debugCrowdId?: string;
+  /**
+   * @example
+   * user1,user2,user3
+   */
   debugUsers?: string;
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
+  /**
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @example
+   * filter=xxx
+   */
   filter?: string;
+  /**
+   * @example
+   * 3
+   */
   laboratoryId?: string;
+  /**
+   * @example
+   * laboratory1
+   */
   name?: string;
+  /**
+   * @example
+   * 3
+   */
   sceneId?: string;
+  /**
+   * @example
+   * Offline
+   */
   status?: string;
+  /**
+   * @example
+   * Base
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11255,12 +16175,32 @@ export class ListLaboratoriesResponseBodyLaboratories extends $tea.Model {
 }
 
 export class ListLayersResponseBodyLayers extends $tea.Model {
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 3
+   */
   laboratoryId?: string;
+  /**
+   * @example
+   * 3
+   */
   layerId?: string;
+  /**
+   * @example
+   * layer1
+   */
   name?: string;
   residualFlow?: number;
+  /**
+   * @example
+   * 3
+   */
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11292,10 +16232,30 @@ export class ListLayersResponseBodyLayers extends $tea.Model {
 }
 
 export class ListParamsResponseBodyParams extends $tea.Model {
+  /**
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * home
+   */
   name?: string;
+  /**
+   * @example
+   * 4
+   */
   paramId?: string;
+  /**
+   * @example
+   * house
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11394,7 +16354,15 @@ export class ListResourceRulesResponseBodyResourceRules extends $tea.Model {
 }
 
 export class ListScenesResponseBodyScenesFlows extends $tea.Model {
+  /**
+   * @example
+   * liuliang1
+   */
   flowCode?: string;
+  /**
+   * @example
+   * 流量1
+   */
   flowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11416,9 +16384,21 @@ export class ListScenesResponseBodyScenesFlows extends $tea.Model {
 }
 
 export class ListScenesResponseBodyScenes extends $tea.Model {
+  /**
+   * @example
+   * This is a test.
+   */
   description?: string;
   flows?: ListScenesResponseBodyScenesFlows[];
+  /**
+   * @example
+   * scene1
+   */
   name?: string;
+  /**
+   * @example
+   * 3
+   */
   sceneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11444,10 +16424,30 @@ export class ListScenesResponseBodyScenes extends $tea.Model {
 }
 
 export class ListSubCrowdsResponseBodySubCrowds extends $tea.Model {
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2
+   */
   quantity?: number;
+  /**
+   * @example
+   * ManualInput
+   */
   source?: string;
+  /**
+   * @example
+   * 3
+   */
   subCrowdId?: string;
+  /**
+   * @example
+   * user1,user2
+   */
   users?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11475,9 +16475,25 @@ export class ListSubCrowdsResponseBodySubCrowds extends $tea.Model {
 }
 
 export class ListTableMetasResponseBodyTableMetasFields extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   isDimensionField?: boolean;
+  /**
+   * @example
+   * the gender of people
+   */
   meaning?: string;
+  /**
+   * @example
+   * gender
+   */
   name?: string;
+  /**
+   * @example
+   * BIGINT
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11503,19 +16519,67 @@ export class ListTableMetasResponseBodyTableMetasFields extends $tea.Model {
 }
 
 export class ListTableMetasResponseBodyTableMetas extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   canDelete?: boolean;
   config?: string;
+  /**
+   * @example
+   * this is a test table
+   */
   description?: string;
   fields?: ListTableMetasResponseBodyTableMetasFields[];
+  /**
+   * @example
+   * 2021-12-12 12:24:33
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * imprecation
+   */
   gmtImportedTime?: string;
+  /**
+   * @example
+   * 2021-12-12 12:24:33
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * ABTest
+   */
   module?: string;
+  /**
+   * @example
+   * test_table
+   */
   name?: string;
+  /**
+   * @example
+   * reso-2s416t***
+   */
   resourceId?: string;
+  /**
+   * @example
+   * 3
+   */
   tableMetaId?: string;
+  /**
+   * @example
+   * table_mysql
+   */
   tableName?: string;
+  /**
+   * @example
+   * MaxCompute
+   */
   type?: string;
+  /**
+   * @example
+   * https://dmc-xxx.com/dm/table/xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11818,7 +16882,15 @@ export class PushResourceRuleResponseBodyRuleItems extends $tea.Model {
 }
 
 export class UpdateSceneRequestFlows extends $tea.Model {
+  /**
+   * @example
+   * liuliang1
+   */
   flowCode?: string;
+  /**
+   * @example
+   * 流量1
+   */
   flowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11841,10 +16913,39 @@ export class UpdateSceneRequestFlows extends $tea.Model {
 
 export class UpdateTableMetaRequestFields extends $tea.Model {
   dataType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   isDimensionField?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   isPartitionField?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   meaning?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * BIGINT
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12008,12 +17109,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 特征一致性检查数据回流。
-   *
-   * @param request BackflowFeatureConsistencyCheckJobDataRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BackflowFeatureConsistencyCheckJobDataResponse
+   * 应用/发布指定的推荐引擎配置
+   * 
+   * @param request - ApplyEngineConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyEngineConfigResponse
+   */
+  async applyEngineConfigWithOptions(EngineConfigId: string, request: ApplyEngineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ApplyEngineConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApplyEngineConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/engineconfigs/${OpenApiUtil.getEncodeParam(EngineConfigId)}/action/apply`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyEngineConfigResponse>(await this.callApi(params, req, runtime), new ApplyEngineConfigResponse({}));
+  }
+
+  /**
+   * 应用/发布指定的推荐引擎配置
+   * 
+   * @param request - ApplyEngineConfigRequest
+   * @returns ApplyEngineConfigResponse
+   */
+  async applyEngineConfig(EngineConfigId: string, request: ApplyEngineConfigRequest): Promise<ApplyEngineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.applyEngineConfigWithOptions(EngineConfigId, request, headers, runtime);
+  }
+
+  /**
+   * 特征一致性检查数据回流。
+   * 
+   * @param request - BackflowFeatureConsistencyCheckJobDataRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BackflowFeatureConsistencyCheckJobDataResponse
    */
   async backflowFeatureConsistencyCheckJobDataWithOptions(request: BackflowFeatureConsistencyCheckJobDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BackflowFeatureConsistencyCheckJobDataResponse> {
     Util.validateModel(request);
@@ -12077,10 +17223,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 特征一致性检查数据回流。
-   *
-   * @param request BackflowFeatureConsistencyCheckJobDataRequest
-   * @return BackflowFeatureConsistencyCheckJobDataResponse
+   * 特征一致性检查数据回流。
+   * 
+   * @param request - BackflowFeatureConsistencyCheckJobDataRequest
+   * @returns BackflowFeatureConsistencyCheckJobDataResponse
    */
   async backflowFeatureConsistencyCheckJobData(request: BackflowFeatureConsistencyCheckJobDataRequest): Promise<BackflowFeatureConsistencyCheckJobDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12089,12 +17235,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测实例下配置的资源的连接状态。
-   *
-   * @param request CheckInstanceResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckInstanceResourcesResponse
+   * 检测实例下配置的资源的连接状态。
+   * 
+   * @param request - CheckInstanceResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckInstanceResourcesResponse
    */
   async checkInstanceResourcesWithOptions(InstanceId: string, request: CheckInstanceResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CheckInstanceResourcesResponse> {
     Util.validateModel(request);
@@ -12126,10 +17272,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测实例下配置的资源的连接状态。
-   *
-   * @param request CheckInstanceResourcesRequest
-   * @return CheckInstanceResourcesResponse
+   * 检测实例下配置的资源的连接状态。
+   * 
+   * @param request - CheckInstanceResourcesRequest
+   * @returns CheckInstanceResourcesResponse
    */
   async checkInstanceResources(InstanceId: string, request: CheckInstanceResourcesRequest): Promise<CheckInstanceResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12138,12 +17284,65 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 克隆实验。
-   *
-   * @param request CloneExperimentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CloneExperimentResponse
+   * 克隆指定的推荐引擎配置
+   * 
+   * @param request - CloneEngineConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneEngineConfigResponse
+   */
+  async cloneEngineConfigWithOptions(EngineConfigId: string, request: CloneEngineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneEngineConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configValue)) {
+      body["ConfigValue"] = request.configValue;
+    }
+
+    if (!Util.isUnset(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloneEngineConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/engineconfigs/${OpenApiUtil.getEncodeParam(EngineConfigId)}/action/clone`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CloneEngineConfigResponse>(await this.callApi(params, req, runtime), new CloneEngineConfigResponse({}));
+  }
+
+  /**
+   * 克隆指定的推荐引擎配置
+   * 
+   * @param request - CloneEngineConfigRequest
+   * @returns CloneEngineConfigResponse
+   */
+  async cloneEngineConfig(EngineConfigId: string, request: CloneEngineConfigRequest): Promise<CloneEngineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cloneEngineConfigWithOptions(EngineConfigId, request, headers, runtime);
+  }
+
+  /**
+   * 克隆实验。
+   * 
+   * @param request - CloneExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneExperimentResponse
    */
   async cloneExperimentWithOptions(ExperimentId: string, request: CloneExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneExperimentResponse> {
     Util.validateModel(request);
@@ -12171,10 +17370,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 克隆实验。
-   *
-   * @param request CloneExperimentRequest
-   * @return CloneExperimentResponse
+   * 克隆实验。
+   * 
+   * @param request - CloneExperimentRequest
+   * @returns CloneExperimentResponse
    */
   async cloneExperiment(ExperimentId: string, request: CloneExperimentRequest): Promise<CloneExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12183,12 +17382,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 克隆实验组，并克隆实验组下的所有实验至新的实验组中。
-   *
-   * @param request CloneExperimentGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CloneExperimentGroupResponse
+   * 克隆实验组，并克隆实验组下的所有实验至新的实验组中。
+   * 
+   * @param request - CloneExperimentGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneExperimentGroupResponse
    */
   async cloneExperimentGroupWithOptions(ExperimentGroupId: string, request: CloneExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneExperimentGroupResponse> {
     Util.validateModel(request);
@@ -12224,10 +17423,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 克隆实验组，并克隆实验组下的所有实验至新的实验组中。
-   *
-   * @param request CloneExperimentGroupRequest
-   * @return CloneExperimentGroupResponse
+   * 克隆实验组，并克隆实验组下的所有实验至新的实验组中。
+   * 
+   * @param request - CloneExperimentGroupRequest
+   * @returns CloneExperimentGroupResponse
    */
   async cloneExperimentGroup(ExperimentGroupId: string, request: CloneExperimentGroupRequest): Promise<CloneExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12236,12 +17435,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 克隆特征一致性检查配置。
-   *
-   * @param request CloneFeatureConsistencyCheckJobConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CloneFeatureConsistencyCheckJobConfigResponse
+   * 克隆特征一致性检查配置。
+   * 
+   * @param request - CloneFeatureConsistencyCheckJobConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneFeatureConsistencyCheckJobConfigResponse
    */
   async cloneFeatureConsistencyCheckJobConfigWithOptions(SourceFeatureConsistencyCheckJobConfigId: string, request: CloneFeatureConsistencyCheckJobConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneFeatureConsistencyCheckJobConfigResponse> {
     Util.validateModel(request);
@@ -12269,10 +17468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 克隆特征一致性检查配置。
-   *
-   * @param request CloneFeatureConsistencyCheckJobConfigRequest
-   * @return CloneFeatureConsistencyCheckJobConfigResponse
+   * 克隆特征一致性检查配置。
+   * 
+   * @param request - CloneFeatureConsistencyCheckJobConfigRequest
+   * @returns CloneFeatureConsistencyCheckJobConfigResponse
    */
   async cloneFeatureConsistencyCheckJobConfig(SourceFeatureConsistencyCheckJobConfigId: string, request: CloneFeatureConsistencyCheckJobConfigRequest): Promise<CloneFeatureConsistencyCheckJobConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12281,12 +17480,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 克隆实验室。
-   *
-   * @param request CloneLaboratoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CloneLaboratoryResponse
+   * 克隆实验室。
+   * 
+   * @param request - CloneLaboratoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneLaboratoryResponse
    */
   async cloneLaboratoryWithOptions(LaboratoryId: string, request: CloneLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneLaboratoryResponse> {
     Util.validateModel(request);
@@ -12322,10 +17521,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 克隆实验室。
-   *
-   * @param request CloneLaboratoryRequest
-   * @return CloneLaboratoryResponse
+   * 克隆实验室。
+   * 
+   * @param request - CloneLaboratoryRequest
+   * @returns CloneLaboratoryResponse
    */
   async cloneLaboratory(LaboratoryId: string, request: CloneLaboratoryRequest): Promise<CloneLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12334,12 +17533,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 克隆流量调控任务
-   *
-   * @param request CloneTrafficControlTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CloneTrafficControlTaskResponse
+   * 克隆流量调控任务
+   * 
+   * @param request - CloneTrafficControlTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneTrafficControlTaskResponse
    */
   async cloneTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: CloneTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneTrafficControlTaskResponse> {
     Util.validateModel(request);
@@ -12367,10 +17566,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 克隆流量调控任务
-   *
-   * @param request CloneTrafficControlTaskRequest
-   * @return CloneTrafficControlTaskResponse
+   * 克隆流量调控任务
+   * 
+   * @param request - CloneTrafficControlTaskRequest
+   * @returns CloneTrafficControlTaskResponse
    */
   async cloneTrafficControlTask(TrafficControlTaskId: string, request: CloneTrafficControlTaskRequest): Promise<CloneTrafficControlTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12379,12 +17578,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建AB test实验指标
-   *
-   * @param request CreateABMetricRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateABMetricResponse
+   * 创建AB test实验指标
+   * 
+   * @param request - CreateABMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateABMetricResponse
    */
   async createABMetricWithOptions(request: CreateABMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateABMetricResponse> {
     Util.validateModel(request);
@@ -12460,10 +17659,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建AB test实验指标
-   *
-   * @param request CreateABMetricRequest
-   * @return CreateABMetricResponse
+   * 创建AB test实验指标
+   * 
+   * @param request - CreateABMetricRequest
+   * @returns CreateABMetricResponse
    */
   async createABMetric(request: CreateABMetricRequest): Promise<CreateABMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12472,12 +17671,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建指标组
-   *
-   * @param request CreateABMetricGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateABMetricGroupResponse
+   * 创建指标组
+   * 
+   * @param request - CreateABMetricGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateABMetricGroupResponse
    */
   async createABMetricGroupWithOptions(request: CreateABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateABMetricGroupResponse> {
     Util.validateModel(request);
@@ -12525,10 +17724,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建指标组
-   *
-   * @param request CreateABMetricGroupRequest
-   * @return CreateABMetricGroupResponse
+   * 创建指标组
+   * 
+   * @param request - CreateABMetricGroupRequest
+   * @returns CreateABMetricGroupResponse
    */
   async createABMetricGroup(request: CreateABMetricGroupRequest): Promise<CreateABMetricGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12537,12 +17736,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建AB指标的计算任务。
-   *
-   * @param request CreateCalculationJobsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCalculationJobsResponse
+   * 创建AB指标的计算任务。
+   * 
+   * @param request - CreateCalculationJobsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCalculationJobsResponse
    */
   async createCalculationJobsWithOptions(request: CreateCalculationJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCalculationJobsResponse> {
     Util.validateModel(request);
@@ -12582,10 +17781,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建AB指标的计算任务。
-   *
-   * @param request CreateCalculationJobsRequest
-   * @return CreateCalculationJobsResponse
+   * 创建AB指标的计算任务。
+   * 
+   * @param request - CreateCalculationJobsRequest
+   * @returns CreateCalculationJobsResponse
    */
   async createCalculationJobs(request: CreateCalculationJobsRequest): Promise<CreateCalculationJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12594,12 +17793,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建人群。
-   *
-   * @param request CreateCrowdRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCrowdResponse
+   * 创建人群。
+   * 
+   * @param request - CreateCrowdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCrowdResponse
    */
   async createCrowdWithOptions(request: CreateCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCrowdResponse> {
     Util.validateModel(request);
@@ -12647,10 +17846,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建人群。
-   *
-   * @param request CreateCrowdRequest
-   * @return CreateCrowdResponse
+   * 创建人群。
+   * 
+   * @param request - CreateCrowdRequest
+   * @returns CreateCrowdResponse
    */
   async createCrowd(request: CreateCrowdRequest): Promise<CreateCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12659,12 +17858,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实验。
-   *
-   * @param request CreateExperimentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateExperimentResponse
+   * 创建引擎配置
+   * 
+   * @param request - CreateEngineConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEngineConfigResponse
+   */
+  async createEngineConfigWithOptions(request: CreateEngineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateEngineConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configValue)) {
+      body["ConfigValue"] = request.configValue;
+    }
+
+    if (!Util.isUnset(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEngineConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/engineconfigs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEngineConfigResponse>(await this.callApi(params, req, runtime), new CreateEngineConfigResponse({}));
+  }
+
+  /**
+   * 创建引擎配置
+   * 
+   * @param request - CreateEngineConfigRequest
+   * @returns CreateEngineConfigResponse
+   */
+  async createEngineConfig(request: CreateEngineConfigRequest): Promise<CreateEngineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createEngineConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建实验。
+   * 
+   * @param request - CreateExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExperimentResponse
    */
   async createExperimentWithOptions(request: CreateExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateExperimentResponse> {
     Util.validateModel(request);
@@ -12724,10 +17980,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实验。
-   *
-   * @param request CreateExperimentRequest
-   * @return CreateExperimentResponse
+   * 创建实验。
+   * 
+   * @param request - CreateExperimentRequest
+   * @returns CreateExperimentResponse
    */
   async createExperiment(request: CreateExperimentRequest): Promise<CreateExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12736,12 +17992,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实验组。
-   *
-   * @param request CreateExperimentGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateExperimentGroupResponse
+   * 创建实验组。
+   * 
+   * @param request - CreateExperimentGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExperimentGroupResponse
    */
   async createExperimentGroupWithOptions(request: CreateExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateExperimentGroupResponse> {
     Util.validateModel(request);
@@ -12825,10 +18081,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实验组。
-   *
-   * @param request CreateExperimentGroupRequest
-   * @return CreateExperimentGroupResponse
+   * 创建实验组。
+   * 
+   * @param request - CreateExperimentGroupRequest
+   * @returns CreateExperimentGroupResponse
    */
   async createExperimentGroup(request: CreateExperimentGroupRequest): Promise<CreateExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12837,12 +18093,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建特征一致性检查任务。
-   *
-   * @param request CreateFeatureConsistencyCheckJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFeatureConsistencyCheckJobResponse
+   * 创建特征一致性检查任务。
+   * 
+   * @param request - CreateFeatureConsistencyCheckJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFeatureConsistencyCheckJobResponse
    */
   async createFeatureConsistencyCheckJobWithOptions(request: CreateFeatureConsistencyCheckJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFeatureConsistencyCheckJobResponse> {
     Util.validateModel(request);
@@ -12882,10 +18138,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建特征一致性检查任务。
-   *
-   * @param request CreateFeatureConsistencyCheckJobRequest
-   * @return CreateFeatureConsistencyCheckJobResponse
+   * 创建特征一致性检查任务。
+   * 
+   * @param request - CreateFeatureConsistencyCheckJobRequest
+   * @returns CreateFeatureConsistencyCheckJobResponse
    */
   async createFeatureConsistencyCheckJob(request: CreateFeatureConsistencyCheckJobRequest): Promise<CreateFeatureConsistencyCheckJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12894,12 +18150,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建特征一致性检查配置。
-   *
-   * @param request CreateFeatureConsistencyCheckJobConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFeatureConsistencyCheckJobConfigResponse
+   * 创建特征一致性检查配置。
+   * 
+   * @param request - CreateFeatureConsistencyCheckJobConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFeatureConsistencyCheckJobConfigResponse
    */
   async createFeatureConsistencyCheckJobConfigWithOptions(request: CreateFeatureConsistencyCheckJobConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFeatureConsistencyCheckJobConfigResponse> {
     Util.validateModel(request);
@@ -13051,10 +18307,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建特征一致性检查配置。
-   *
-   * @param request CreateFeatureConsistencyCheckJobConfigRequest
-   * @return CreateFeatureConsistencyCheckJobConfigResponse
+   * 创建特征一致性检查配置。
+   * 
+   * @param request - CreateFeatureConsistencyCheckJobConfigRequest
+   * @returns CreateFeatureConsistencyCheckJobConfigResponse
    */
   async createFeatureConsistencyCheckJobConfig(request: CreateFeatureConsistencyCheckJobConfigRequest): Promise<CreateFeatureConsistencyCheckJobConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13063,12 +18319,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为指定实例配置创建新的配置资源
-   *
-   * @param request CreateInstanceResourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstanceResourceResponse
+   * 为指定实例配置创建新的配置资源
+   * 
+   * @param request - CreateInstanceResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResourceResponse
    */
   async createInstanceResourceWithOptions(InstanceId: string, request: CreateInstanceResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResourceResponse> {
     Util.validateModel(request);
@@ -13108,10 +18364,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为指定实例配置创建新的配置资源
-   *
-   * @param request CreateInstanceResourceRequest
-   * @return CreateInstanceResourceResponse
+   * 为指定实例配置创建新的配置资源
+   * 
+   * @param request - CreateInstanceResourceRequest
+   * @returns CreateInstanceResourceResponse
    */
   async createInstanceResource(InstanceId: string, request: CreateInstanceResourceRequest): Promise<CreateInstanceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13120,12 +18376,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实验室
-   *
-   * @param request CreateLaboratoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLaboratoryResponse
+   * 创建实验室
+   * 
+   * @param request - CreateLaboratoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLaboratoryResponse
    */
   async createLaboratoryWithOptions(request: CreateLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLaboratoryResponse> {
     Util.validateModel(request);
@@ -13197,10 +18453,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实验室
-   *
-   * @param request CreateLaboratoryRequest
-   * @return CreateLaboratoryResponse
+   * 创建实验室
+   * 
+   * @param request - CreateLaboratoryRequest
+   * @returns CreateLaboratoryResponse
    */
   async createLaboratory(request: CreateLaboratoryRequest): Promise<CreateLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13209,12 +18465,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建层。
-   *
-   * @param request CreateLayerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLayerResponse
+   * 创建层。
+   * 
+   * @param request - CreateLayerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLayerResponse
    */
   async createLayerWithOptions(request: CreateLayerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLayerResponse> {
     Util.validateModel(request);
@@ -13254,10 +18510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建层。
-   *
-   * @param request CreateLayerRequest
-   * @return CreateLayerResponse
+   * 创建层。
+   * 
+   * @param request - CreateLayerRequest
+   * @returns CreateLayerResponse
    */
   async createLayer(request: CreateLayerRequest): Promise<CreateLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13266,12 +18522,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建参数。
-   *
-   * @param request CreateParamRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateParamResponse
+   * 创建参数。
+   * 
+   * @param request - CreateParamRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateParamResponse
    */
   async createParamWithOptions(request: CreateParamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateParamResponse> {
     Util.validateModel(request);
@@ -13315,10 +18571,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建参数。
-   *
-   * @param request CreateParamRequest
-   * @return CreateParamResponse
+   * 创建参数。
+   * 
+   * @param request - CreateParamRequest
+   * @returns CreateParamResponse
    */
   async createParam(request: CreateParamRequest): Promise<CreateParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13327,12 +18583,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建资源规则
-   *
-   * @param request CreateResourceRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateResourceRuleResponse
+   * 创建资源规则
+   * 
+   * @param request - CreateResourceRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceRuleResponse
    */
   async createResourceRuleWithOptions(request: CreateResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceRuleResponse> {
     Util.validateModel(request);
@@ -13388,10 +18644,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建资源规则
-   *
-   * @param request CreateResourceRuleRequest
-   * @return CreateResourceRuleResponse
+   * 创建资源规则
+   * 
+   * @param request - CreateResourceRuleRequest
+   * @returns CreateResourceRuleResponse
    */
   async createResourceRule(request: CreateResourceRuleRequest): Promise<CreateResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13400,12 +18656,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建资源规则条目
-   *
-   * @param request CreateResourceRuleItemRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateResourceRuleItemResponse
+   * 创建资源规则条目
+   * 
+   * @param request - CreateResourceRuleItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResourceRuleItemResponse
    */
   async createResourceRuleItemWithOptions(ResourceRuleId: string, request: CreateResourceRuleItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceRuleItemResponse> {
     Util.validateModel(request);
@@ -13453,10 +18709,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建资源规则条目
-   *
-   * @param request CreateResourceRuleItemRequest
-   * @return CreateResourceRuleItemResponse
+   * 创建资源规则条目
+   * 
+   * @param request - CreateResourceRuleItemRequest
+   * @returns CreateResourceRuleItemResponse
    */
   async createResourceRuleItem(ResourceRuleId: string, request: CreateResourceRuleItemRequest): Promise<CreateResourceRuleItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13465,12 +18721,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建场景
-   *
-   * @param request CreateSceneRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSceneResponse
+   * 创建场景
+   * 
+   * @param request - CreateSceneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSceneResponse
    */
   async createSceneWithOptions(request: CreateSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSceneResponse> {
     Util.validateModel(request);
@@ -13510,10 +18766,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建场景
-   *
-   * @param request CreateSceneRequest
-   * @return CreateSceneResponse
+   * 创建场景
+   * 
+   * @param request - CreateSceneRequest
+   * @returns CreateSceneResponse
    */
   async createScene(request: CreateSceneRequest): Promise<CreateSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13522,12 +18778,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 在指定人群下创建子人群。
-   *
-   * @param request CreateSubCrowdRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSubCrowdResponse
+   * 在指定人群下创建子人群。
+   * 
+   * @param request - CreateSubCrowdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSubCrowdResponse
    */
   async createSubCrowdWithOptions(CrowdId: string, request: CreateSubCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSubCrowdResponse> {
     Util.validateModel(request);
@@ -13563,10 +18819,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 在指定人群下创建子人群。
-   *
-   * @param request CreateSubCrowdRequest
-   * @return CreateSubCrowdResponse
+   * 在指定人群下创建子人群。
+   * 
+   * @param request - CreateSubCrowdRequest
+   * @returns CreateSubCrowdResponse
    */
   async createSubCrowd(CrowdId: string, request: CreateSubCrowdRequest): Promise<CreateSubCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13575,12 +18831,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数据表。
-   *
-   * @param request CreateTableMetaRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTableMetaResponse
+   * 创建数据表。
+   * 
+   * @param request - CreateTableMetaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTableMetaResponse
    */
   async createTableMetaWithOptions(request: CreateTableMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTableMetaResponse> {
     Util.validateModel(request);
@@ -13632,10 +18888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数据表。
-   *
-   * @param request CreateTableMetaRequest
-   * @return CreateTableMetaResponse
+   * 创建数据表。
+   * 
+   * @param request - CreateTableMetaRequest
+   * @returns CreateTableMetaResponse
    */
   async createTableMeta(request: CreateTableMetaRequest): Promise<CreateTableMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13644,12 +18900,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建流量调控目标
-   *
-   * @param request CreateTrafficControlTargetRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTrafficControlTargetResponse
+   * 创建流量调控目标
+   * 
+   * @param request - CreateTrafficControlTargetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTrafficControlTargetResponse
    */
   async createTrafficControlTargetWithOptions(request: CreateTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTrafficControlTargetResponse> {
     Util.validateModel(request);
@@ -13729,10 +18985,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建流量调控目标
-   *
-   * @param request CreateTrafficControlTargetRequest
-   * @return CreateTrafficControlTargetResponse
+   * 创建流量调控目标
+   * 
+   * @param request - CreateTrafficControlTargetRequest
+   * @returns CreateTrafficControlTargetResponse
    */
   async createTrafficControlTarget(request: CreateTrafficControlTargetRequest): Promise<CreateTrafficControlTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13741,12 +18997,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建流量调控任务
-   *
-   * @param request CreateTrafficControlTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTrafficControlTaskResponse
+   * 创建流量调控任务
+   * 
+   * @param request - CreateTrafficControlTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTrafficControlTaskResponse
    */
   async createTrafficControlTaskWithOptions(request: CreateTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTrafficControlTaskResponse> {
     Util.validateModel(request);
@@ -13862,10 +19118,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建流量调控任务
-   *
-   * @param request CreateTrafficControlTaskRequest
-   * @return CreateTrafficControlTaskResponse
+   * 创建流量调控任务
+   * 
+   * @param request - CreateTrafficControlTaskRequest
+   * @returns CreateTrafficControlTaskResponse
    */
   async createTrafficControlTask(request: CreateTrafficControlTaskRequest): Promise<CreateTrafficControlTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13874,12 +19130,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 对指定资源规则中的计算公式进行调试
-   *
-   * @param tmpReq DebugResourceRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DebugResourceRuleResponse
+   * 对指定资源规则中的计算公式进行调试
+   * 
+   * @param tmpReq - DebugResourceRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DebugResourceRuleResponse
    */
   async debugResourceRuleWithOptions(ResourceRuleId: string, tmpReq: DebugResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DebugResourceRuleResponse> {
     Util.validateModel(tmpReq);
@@ -13921,10 +19177,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 对指定资源规则中的计算公式进行调试
-   *
-   * @param request DebugResourceRuleRequest
-   * @return DebugResourceRuleResponse
+   * 对指定资源规则中的计算公式进行调试
+   * 
+   * @param request - DebugResourceRuleRequest
+   * @returns DebugResourceRuleResponse
    */
   async debugResourceRule(ResourceRuleId: string, request: DebugResourceRuleRequest): Promise<DebugResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13933,12 +19189,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定AB实验指标。
-   *
-   * @param request DeleteABMetricRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteABMetricResponse
+   * 删除指定AB实验指标。
+   * 
+   * @param request - DeleteABMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteABMetricResponse
    */
   async deleteABMetricWithOptions(ABMetricId: string, request: DeleteABMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteABMetricResponse> {
     Util.validateModel(request);
@@ -13966,10 +19222,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定AB实验指标。
-   *
-   * @param request DeleteABMetricRequest
-   * @return DeleteABMetricResponse
+   * 删除指定AB实验指标。
+   * 
+   * @param request - DeleteABMetricRequest
+   * @returns DeleteABMetricResponse
    */
   async deleteABMetric(ABMetricId: string, request: DeleteABMetricRequest): Promise<DeleteABMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13978,12 +19234,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除AB实验指标组。
-   *
-   * @param request DeleteABMetricGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteABMetricGroupResponse
+   * 删除AB实验指标组。
+   * 
+   * @param request - DeleteABMetricGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteABMetricGroupResponse
    */
   async deleteABMetricGroupWithOptions(ABMetricGroupId: string, request: DeleteABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteABMetricGroupResponse> {
     Util.validateModel(request);
@@ -14011,10 +19267,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除AB实验指标组。
-   *
-   * @param request DeleteABMetricGroupRequest
-   * @return DeleteABMetricGroupResponse
+   * 删除AB实验指标组。
+   * 
+   * @param request - DeleteABMetricGroupRequest
+   * @returns DeleteABMetricGroupResponse
    */
   async deleteABMetricGroup(ABMetricGroupId: string, request: DeleteABMetricGroupRequest): Promise<DeleteABMetricGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14023,12 +19279,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定人群。
-   *
-   * @param request DeleteCrowdRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCrowdResponse
+   * 删除指定人群。
+   * 
+   * @param request - DeleteCrowdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCrowdResponse
    */
   async deleteCrowdWithOptions(CrowdId: string, request: DeleteCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCrowdResponse> {
     Util.validateModel(request);
@@ -14056,10 +19312,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定人群。
-   *
-   * @param request DeleteCrowdRequest
-   * @return DeleteCrowdResponse
+   * 删除指定人群。
+   * 
+   * @param request - DeleteCrowdRequest
+   * @returns DeleteCrowdResponse
    */
   async deleteCrowd(CrowdId: string, request: DeleteCrowdRequest): Promise<DeleteCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14068,12 +19324,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除实验。
-   *
-   * @param request DeleteExperimentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteExperimentResponse
+   * 删除指定推荐引擎配置。
+   * 
+   * @param request - DeleteEngineConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEngineConfigResponse
+   */
+  async deleteEngineConfigWithOptions(EngineConfigId: string, request: DeleteEngineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteEngineConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEngineConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/engineconfigs/${OpenApiUtil.getEncodeParam(EngineConfigId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEngineConfigResponse>(await this.callApi(params, req, runtime), new DeleteEngineConfigResponse({}));
+  }
+
+  /**
+   * 删除指定推荐引擎配置。
+   * 
+   * @param request - DeleteEngineConfigRequest
+   * @returns DeleteEngineConfigResponse
+   */
+  async deleteEngineConfig(EngineConfigId: string, request: DeleteEngineConfigRequest): Promise<DeleteEngineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteEngineConfigWithOptions(EngineConfigId, request, headers, runtime);
+  }
+
+  /**
+   * 删除实验。
+   * 
+   * @param request - DeleteExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExperimentResponse
    */
   async deleteExperimentWithOptions(ExperimentId: string, request: DeleteExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteExperimentResponse> {
     Util.validateModel(request);
@@ -14101,10 +19402,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除实验。
-   *
-   * @param request DeleteExperimentRequest
-   * @return DeleteExperimentResponse
+   * 删除实验。
+   * 
+   * @param request - DeleteExperimentRequest
+   * @returns DeleteExperimentResponse
    */
   async deleteExperiment(ExperimentId: string, request: DeleteExperimentRequest): Promise<DeleteExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14113,12 +19414,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定实验组。
-   *
-   * @param request DeleteExperimentGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteExperimentGroupResponse
+   * 删除指定实验组。
+   * 
+   * @param request - DeleteExperimentGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExperimentGroupResponse
    */
   async deleteExperimentGroupWithOptions(ExperimentGroupId: string, request: DeleteExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteExperimentGroupResponse> {
     Util.validateModel(request);
@@ -14146,10 +19447,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定实验组。
-   *
-   * @param request DeleteExperimentGroupRequest
-   * @return DeleteExperimentGroupResponse
+   * 删除指定实验组。
+   * 
+   * @param request - DeleteExperimentGroupRequest
+   * @returns DeleteExperimentGroupResponse
    */
   async deleteExperimentGroup(ExperimentGroupId: string, request: DeleteExperimentGroupRequest): Promise<DeleteExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14158,11 +19459,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定实例下的指定配置资源。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInstanceResourceResponse
+   * 删除指定实例下的指定配置资源。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceResourceResponse
    */
   async deleteInstanceResourceWithOptions(InstanceId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14183,9 +19484,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定实例下的指定配置资源。
-   *
-   * @return DeleteInstanceResourceResponse
+   * 删除指定实例下的指定配置资源。
+   * @returns DeleteInstanceResourceResponse
    */
   async deleteInstanceResource(InstanceId: string, ResourceId: string): Promise<DeleteInstanceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14194,12 +19494,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除实验室。
-   *
-   * @param request DeleteLaboratoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLaboratoryResponse
+   * 删除实验室。
+   * 
+   * @param request - DeleteLaboratoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLaboratoryResponse
    */
   async deleteLaboratoryWithOptions(LaboratoryId: string, request: DeleteLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLaboratoryResponse> {
     Util.validateModel(request);
@@ -14227,10 +19527,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除实验室。
-   *
-   * @param request DeleteLaboratoryRequest
-   * @return DeleteLaboratoryResponse
+   * 删除实验室。
+   * 
+   * @param request - DeleteLaboratoryRequest
+   * @returns DeleteLaboratoryResponse
    */
   async deleteLaboratory(LaboratoryId: string, request: DeleteLaboratoryRequest): Promise<DeleteLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14239,12 +19539,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除层。
-   *
-   * @param request DeleteLayerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLayerResponse
+   * 删除层。
+   * 
+   * @param request - DeleteLayerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLayerResponse
    */
   async deleteLayerWithOptions(LayerId: string, request: DeleteLayerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLayerResponse> {
     Util.validateModel(request);
@@ -14272,10 +19572,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除层。
-   *
-   * @param request DeleteLayerRequest
-   * @return DeleteLayerResponse
+   * 删除层。
+   * 
+   * @param request - DeleteLayerRequest
+   * @returns DeleteLayerResponse
    */
   async deleteLayer(LayerId: string, request: DeleteLayerRequest): Promise<DeleteLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14284,12 +19584,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定参数。
-   *
-   * @param request DeleteParamRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteParamResponse
+   * 删除指定参数。
+   * 
+   * @param request - DeleteParamRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteParamResponse
    */
   async deleteParamWithOptions(ParamId: string, request: DeleteParamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteParamResponse> {
     Util.validateModel(request);
@@ -14317,10 +19617,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定参数。
-   *
-   * @param request DeleteParamRequest
-   * @return DeleteParamResponse
+   * 删除指定参数。
+   * 
+   * @param request - DeleteParamRequest
+   * @returns DeleteParamResponse
    */
   async deleteParam(ParamId: string, request: DeleteParamRequest): Promise<DeleteParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14329,12 +19629,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除资源规则
-   *
-   * @param request DeleteResourceRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteResourceRuleResponse
+   * 删除资源规则
+   * 
+   * @param request - DeleteResourceRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceRuleResponse
    */
   async deleteResourceRuleWithOptions(ResourceRuleId: string, request: DeleteResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceRuleResponse> {
     Util.validateModel(request);
@@ -14362,10 +19662,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除资源规则
-   *
-   * @param request DeleteResourceRuleRequest
-   * @return DeleteResourceRuleResponse
+   * 删除资源规则
+   * 
+   * @param request - DeleteResourceRuleRequest
+   * @returns DeleteResourceRuleResponse
    */
   async deleteResourceRule(ResourceRuleId: string, request: DeleteResourceRuleRequest): Promise<DeleteResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14374,12 +19674,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除资源规则条目
-   *
-   * @param request DeleteResourceRuleItemRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteResourceRuleItemResponse
+   * 删除资源规则条目
+   * 
+   * @param request - DeleteResourceRuleItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceRuleItemResponse
    */
   async deleteResourceRuleItemWithOptions(ResourceRuleId: string, ResourceRuleItemId: string, request: DeleteResourceRuleItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceRuleItemResponse> {
     Util.validateModel(request);
@@ -14407,10 +19707,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除资源规则条目
-   *
-   * @param request DeleteResourceRuleItemRequest
-   * @return DeleteResourceRuleItemResponse
+   * 删除资源规则条目
+   * 
+   * @param request - DeleteResourceRuleItemRequest
+   * @returns DeleteResourceRuleItemResponse
    */
   async deleteResourceRuleItem(ResourceRuleId: string, ResourceRuleItemId: string, request: DeleteResourceRuleItemRequest): Promise<DeleteResourceRuleItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14419,12 +19719,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除场景
-   *
-   * @param request DeleteSceneRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSceneResponse
+   * 删除场景
+   * 
+   * @param request - DeleteSceneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSceneResponse
    */
   async deleteSceneWithOptions(SceneId: string, request: DeleteSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSceneResponse> {
     Util.validateModel(request);
@@ -14452,10 +19752,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除场景
-   *
-   * @param request DeleteSceneRequest
-   * @return DeleteSceneResponse
+   * 删除场景
+   * 
+   * @param request - DeleteSceneRequest
+   * @returns DeleteSceneResponse
    */
   async deleteScene(SceneId: string, request: DeleteSceneRequest): Promise<DeleteSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14464,12 +19764,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定人群下的指定子人群。
-   *
-   * @param request DeleteSubCrowdRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSubCrowdResponse
+   * 删除指定人群下的指定子人群。
+   * 
+   * @param request - DeleteSubCrowdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSubCrowdResponse
    */
   async deleteSubCrowdWithOptions(CrowdId: string, SubCrowdId: string, request: DeleteSubCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSubCrowdResponse> {
     Util.validateModel(request);
@@ -14497,10 +19797,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定人群下的指定子人群。
-   *
-   * @param request DeleteSubCrowdRequest
-   * @return DeleteSubCrowdResponse
+   * 删除指定人群下的指定子人群。
+   * 
+   * @param request - DeleteSubCrowdRequest
+   * @returns DeleteSubCrowdResponse
    */
   async deleteSubCrowd(CrowdId: string, SubCrowdId: string, request: DeleteSubCrowdRequest): Promise<DeleteSubCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14509,12 +19809,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除数据表。
-   *
-   * @param request DeleteTableMetaRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTableMetaResponse
+   * 删除数据表。
+   * 
+   * @param request - DeleteTableMetaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTableMetaResponse
    */
   async deleteTableMetaWithOptions(TableMetaId: string, request: DeleteTableMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTableMetaResponse> {
     Util.validateModel(request);
@@ -14542,10 +19842,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除数据表。
-   *
-   * @param request DeleteTableMetaRequest
-   * @return DeleteTableMetaResponse
+   * 删除数据表。
+   * 
+   * @param request - DeleteTableMetaRequest
+   * @returns DeleteTableMetaResponse
    */
   async deleteTableMeta(TableMetaId: string, request: DeleteTableMetaRequest): Promise<DeleteTableMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14554,12 +19854,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流量调控目标
-   *
-   * @param request DeleteTrafficControlTargetRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTrafficControlTargetResponse
+   * 更新流量调控目标
+   * 
+   * @param request - DeleteTrafficControlTargetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTrafficControlTargetResponse
    */
   async deleteTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: DeleteTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficControlTargetResponse> {
     Util.validateModel(request);
@@ -14587,10 +19887,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流量调控目标
-   *
-   * @param request DeleteTrafficControlTargetRequest
-   * @return DeleteTrafficControlTargetResponse
+   * 更新流量调控目标
+   * 
+   * @param request - DeleteTrafficControlTargetRequest
+   * @returns DeleteTrafficControlTargetResponse
    */
   async deleteTrafficControlTarget(TrafficControlTargetId: string, request: DeleteTrafficControlTargetRequest): Promise<DeleteTrafficControlTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14599,12 +19899,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定的流量调控任务
-   *
-   * @param request DeleteTrafficControlTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTrafficControlTaskResponse
+   * 删除指定的流量调控任务
+   * 
+   * @param request - DeleteTrafficControlTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTrafficControlTaskResponse
    */
   async deleteTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: DeleteTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficControlTaskResponse> {
     Util.validateModel(request);
@@ -14632,10 +19932,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定的流量调控任务
-   *
-   * @param request DeleteTrafficControlTaskRequest
-   * @return DeleteTrafficControlTaskResponse
+   * 删除指定的流量调控任务
+   * 
+   * @param request - DeleteTrafficControlTaskRequest
+   * @returns DeleteTrafficControlTaskResponse
    */
   async deleteTrafficControlTask(TrafficControlTaskId: string, request: DeleteTrafficControlTaskRequest): Promise<DeleteTrafficControlTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14644,12 +19944,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 产生流量调控的相关代码
-   *
-   * @param request GenerateTrafficControlTaskCodeRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateTrafficControlTaskCodeResponse
+   * 产生流量调控的相关代码
+   * 
+   * @param request - GenerateTrafficControlTaskCodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateTrafficControlTaskCodeResponse
    */
   async generateTrafficControlTaskCodeWithOptions(TrafficControlTaskId: string, request: GenerateTrafficControlTaskCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateTrafficControlTaskCodeResponse> {
     Util.validateModel(request);
@@ -14677,10 +19977,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 产生流量调控的相关代码
-   *
-   * @param request GenerateTrafficControlTaskCodeRequest
-   * @return GenerateTrafficControlTaskCodeResponse
+   * 产生流量调控的相关代码
+   * 
+   * @param request - GenerateTrafficControlTaskCodeRequest
+   * @returns GenerateTrafficControlTaskCodeResponse
    */
   async generateTrafficControlTaskCode(TrafficControlTaskId: string, request: GenerateTrafficControlTaskCodeRequest): Promise<GenerateTrafficControlTaskCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14689,12 +19989,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 产生流量调控的相关召回配置
-   *
-   * @param request GenerateTrafficControlTaskConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateTrafficControlTaskConfigResponse
+   * 产生流量调控的相关召回配置
+   * 
+   * @param request - GenerateTrafficControlTaskConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateTrafficControlTaskConfigResponse
    */
   async generateTrafficControlTaskConfigWithOptions(TrafficControlTaskId: string, request: GenerateTrafficControlTaskConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateTrafficControlTaskConfigResponse> {
     Util.validateModel(request);
@@ -14722,10 +20022,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 产生流量调控的相关召回配置
-   *
-   * @param request GenerateTrafficControlTaskConfigRequest
-   * @return GenerateTrafficControlTaskConfigResponse
+   * 产生流量调控的相关召回配置
+   * 
+   * @param request - GenerateTrafficControlTaskConfigRequest
+   * @returns GenerateTrafficControlTaskConfigResponse
    */
   async generateTrafficControlTaskConfig(TrafficControlTaskId: string, request: GenerateTrafficControlTaskConfigRequest): Promise<GenerateTrafficControlTaskConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14734,12 +20034,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取AB Test实验指标详细信息。
-   *
-   * @param request GetABMetricRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetABMetricResponse
+   * 获取AB Test实验指标详细信息。
+   * 
+   * @param request - GetABMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetABMetricResponse
    */
   async getABMetricWithOptions(ABMetricId: string, request: GetABMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetABMetricResponse> {
     Util.validateModel(request);
@@ -14767,10 +20067,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取AB Test实验指标详细信息。
-   *
-   * @param request GetABMetricRequest
-   * @return GetABMetricResponse
+   * 获取AB Test实验指标详细信息。
+   * 
+   * @param request - GetABMetricRequest
+   * @returns GetABMetricResponse
    */
   async getABMetric(ABMetricId: string, request: GetABMetricRequest): Promise<GetABMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14779,12 +20079,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取AB实验指标组详细信息。
-   *
-   * @param request GetABMetricGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetABMetricGroupResponse
+   * 获取AB实验指标组详细信息。
+   * 
+   * @param request - GetABMetricGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetABMetricGroupResponse
    */
   async getABMetricGroupWithOptions(ABMetricGroupId: string, request: GetABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetABMetricGroupResponse> {
     Util.validateModel(request);
@@ -14812,10 +20112,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取AB实验指标组详细信息。
-   *
-   * @param request GetABMetricGroupRequest
-   * @return GetABMetricGroupResponse
+   * 获取AB实验指标组详细信息。
+   * 
+   * @param request - GetABMetricGroupRequest
+   * @returns GetABMetricGroupResponse
    */
   async getABMetricGroup(ABMetricGroupId: string, request: GetABMetricGroupRequest): Promise<GetABMetricGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14824,12 +20124,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定计算任务详细信息。
-   *
-   * @param request GetCalculationJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCalculationJobResponse
+   * 获取指定计算任务详细信息。
+   * 
+   * @param request - GetCalculationJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCalculationJobResponse
    */
   async getCalculationJobWithOptions(CalculationJobId: string, request: GetCalculationJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCalculationJobResponse> {
     Util.validateModel(request);
@@ -14857,10 +20157,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定计算任务详细信息。
-   *
-   * @param request GetCalculationJobRequest
-   * @return GetCalculationJobResponse
+   * 获取指定计算任务详细信息。
+   * 
+   * @param request - GetCalculationJobRequest
+   * @returns GetCalculationJobResponse
    */
   async getCalculationJob(CalculationJobId: string, request: GetCalculationJobRequest): Promise<GetCalculationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14869,12 +20169,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实验详细信息。
-   *
-   * @param request GetExperimentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetExperimentResponse
+   * 获取引擎配置详细信息。
+   * 
+   * @param request - GetEngineConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEngineConfigResponse
+   */
+  async getEngineConfigWithOptions(EngineConfigId: string, request: GetEngineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEngineConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEngineConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/engineconfigs/${OpenApiUtil.getEncodeParam(EngineConfigId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEngineConfigResponse>(await this.callApi(params, req, runtime), new GetEngineConfigResponse({}));
+  }
+
+  /**
+   * 获取引擎配置详细信息。
+   * 
+   * @param request - GetEngineConfigRequest
+   * @returns GetEngineConfigResponse
+   */
+  async getEngineConfig(EngineConfigId: string, request: GetEngineConfigRequest): Promise<GetEngineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getEngineConfigWithOptions(EngineConfigId, request, headers, runtime);
+  }
+
+  /**
+   * 获取实验详细信息。
+   * 
+   * @param request - GetExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetExperimentResponse
    */
   async getExperimentWithOptions(ExperimentId: string, request: GetExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetExperimentResponse> {
     Util.validateModel(request);
@@ -14902,10 +20247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实验详细信息。
-   *
-   * @param request GetExperimentRequest
-   * @return GetExperimentResponse
+   * 获取实验详细信息。
+   * 
+   * @param request - GetExperimentRequest
+   * @returns GetExperimentResponse
    */
   async getExperiment(ExperimentId: string, request: GetExperimentRequest): Promise<GetExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14914,12 +20259,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定实验组详细信息。
-   *
-   * @param request GetExperimentGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetExperimentGroupResponse
+   * 获取指定实验组详细信息。
+   * 
+   * @param request - GetExperimentGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetExperimentGroupResponse
    */
   async getExperimentGroupWithOptions(ExperimentGroupId: string, request: GetExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetExperimentGroupResponse> {
     Util.validateModel(request);
@@ -14947,10 +20292,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定实验组详细信息。
-   *
-   * @param request GetExperimentGroupRequest
-   * @return GetExperimentGroupResponse
+   * 获取指定实验组详细信息。
+   * 
+   * @param request - GetExperimentGroupRequest
+   * @returns GetExperimentGroupResponse
    */
   async getExperimentGroup(ExperimentGroupId: string, request: GetExperimentGroupRequest): Promise<GetExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14959,12 +20304,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检查任务详细信息。
-   *
-   * @param request GetFeatureConsistencyCheckJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFeatureConsistencyCheckJobResponse
+   * 获取特征一致性检查任务详细信息。
+   * 
+   * @param request - GetFeatureConsistencyCheckJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFeatureConsistencyCheckJobResponse
    */
   async getFeatureConsistencyCheckJobWithOptions(FeatureConsistencyCheckJobId: string, request: GetFeatureConsistencyCheckJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFeatureConsistencyCheckJobResponse> {
     Util.validateModel(request);
@@ -14992,10 +20337,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检查任务详细信息。
-   *
-   * @param request GetFeatureConsistencyCheckJobRequest
-   * @return GetFeatureConsistencyCheckJobResponse
+   * 获取特征一致性检查任务详细信息。
+   * 
+   * @param request - GetFeatureConsistencyCheckJobRequest
+   * @returns GetFeatureConsistencyCheckJobResponse
    */
   async getFeatureConsistencyCheckJob(FeatureConsistencyCheckJobId: string, request: GetFeatureConsistencyCheckJobRequest): Promise<GetFeatureConsistencyCheckJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15004,12 +20349,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检测配置详情。
-   *
-   * @param request GetFeatureConsistencyCheckJobConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFeatureConsistencyCheckJobConfigResponse
+   * 获取特征一致性检测配置详情。
+   * 
+   * @param request - GetFeatureConsistencyCheckJobConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFeatureConsistencyCheckJobConfigResponse
    */
   async getFeatureConsistencyCheckJobConfigWithOptions(FeatureConsistencyCheckJobConfigId: string, request: GetFeatureConsistencyCheckJobConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFeatureConsistencyCheckJobConfigResponse> {
     Util.validateModel(request);
@@ -15037,10 +20382,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检测配置详情。
-   *
-   * @param request GetFeatureConsistencyCheckJobConfigRequest
-   * @return GetFeatureConsistencyCheckJobConfigResponse
+   * 获取特征一致性检测配置详情。
+   * 
+   * @param request - GetFeatureConsistencyCheckJobConfigRequest
+   * @returns GetFeatureConsistencyCheckJobConfigResponse
    */
   async getFeatureConsistencyCheckJobConfig(FeatureConsistencyCheckJobConfigId: string, request: GetFeatureConsistencyCheckJobConfigRequest): Promise<GetFeatureConsistencyCheckJobConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15049,11 +20394,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定推荐全链路深度定制开发平台实例信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceResponse
+   * 获取指定推荐全链路深度定制开发平台实例信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceResponse
    */
   async getInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -15074,9 +20419,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定推荐全链路深度定制开发平台实例信息。
-   *
-   * @return GetInstanceResponse
+   * 获取指定推荐全链路深度定制开发平台实例信息。
+   * @returns GetInstanceResponse
    */
   async getInstance(InstanceId: string): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15085,11 +20429,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定实例下指定资源的详细信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceResourceResponse
+   * 获取指定实例下指定资源的详细信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceResourceResponse
    */
   async getInstanceResourceWithOptions(InstanceId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -15110,9 +20454,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定实例下指定资源的详细信息。
-   *
-   * @return GetInstanceResourceResponse
+   * 获取指定实例下指定资源的详细信息。
+   * @returns GetInstanceResourceResponse
    */
   async getInstanceResource(InstanceId: string, ResourceId: string): Promise<GetInstanceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15121,11 +20464,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源下指定表的详细信息。
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceResourceTableResponse
+   * 获取数据源下指定表的详细信息。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceResourceTableResponse
    */
   async getInstanceResourceTableWithOptions(InstanceId: string, ResourceId: string, TableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResourceTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -15146,9 +20489,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源下指定表的详细信息。
-   *
-   * @return GetInstanceResourceTableResponse
+   * 获取数据源下指定表的详细信息。
+   * @returns GetInstanceResourceTableResponse
    */
   async getInstanceResourceTable(InstanceId: string, ResourceId: string, TableName: string): Promise<GetInstanceResourceTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15157,12 +20499,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实验室详细信息。
-   *
-   * @param request GetLaboratoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLaboratoryResponse
+   * 获取实验室详细信息。
+   * 
+   * @param request - GetLaboratoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLaboratoryResponse
    */
   async getLaboratoryWithOptions(LaboratoryId: string, request: GetLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLaboratoryResponse> {
     Util.validateModel(request);
@@ -15190,10 +20532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实验室详细信息。
-   *
-   * @param request GetLaboratoryRequest
-   * @return GetLaboratoryResponse
+   * 获取实验室详细信息。
+   * 
+   * @param request - GetLaboratoryRequest
+   * @returns GetLaboratoryResponse
    */
   async getLaboratory(LaboratoryId: string, request: GetLaboratoryRequest): Promise<GetLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15202,12 +20544,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取层详细信息。
-   *
-   * @param request GetLayerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLayerResponse
+   * 获取层详细信息。
+   * 
+   * @param request - GetLayerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLayerResponse
    */
   async getLayerWithOptions(LayerId: string, request: GetLayerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerResponse> {
     Util.validateModel(request);
@@ -15235,10 +20577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取层详细信息。
-   *
-   * @param request GetLayerRequest
-   * @return GetLayerResponse
+   * 获取层详细信息。
+   * 
+   * @param request - GetLayerRequest
+   * @returns GetLayerResponse
    */
   async getLayer(LayerId: string, request: GetLayerRequest): Promise<GetLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15247,12 +20589,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取资源规则详细信息
-   *
-   * @param request GetResourceRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourceRuleResponse
+   * 获取资源规则详细信息
+   * 
+   * @param request - GetResourceRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceRuleResponse
    */
   async getResourceRuleWithOptions(ResourceRuleId: string, request: GetResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceRuleResponse> {
     Util.validateModel(request);
@@ -15280,10 +20622,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取资源规则详细信息
-   *
-   * @param request GetResourceRuleRequest
-   * @return GetResourceRuleResponse
+   * 获取资源规则详细信息
+   * 
+   * @param request - GetResourceRuleRequest
+   * @returns GetResourceRuleResponse
    */
   async getResourceRule(ResourceRuleId: string, request: GetResourceRuleRequest): Promise<GetResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15292,12 +20634,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取场景详细信息
-   *
-   * @param request GetSceneRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSceneResponse
+   * 获取场景详细信息
+   * 
+   * @param request - GetSceneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSceneResponse
    */
   async getSceneWithOptions(SceneId: string, request: GetSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSceneResponse> {
     Util.validateModel(request);
@@ -15325,10 +20667,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取场景详细信息
-   *
-   * @param request GetSceneRequest
-   * @return GetSceneResponse
+   * 获取场景详细信息
+   * 
+   * @param request - GetSceneRequest
+   * @returns GetSceneResponse
    */
   async getScene(SceneId: string, request: GetSceneRequest): Promise<GetSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15337,12 +20679,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定人群下的指定子人群的详细信息。
-   *
-   * @param request GetSubCrowdRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSubCrowdResponse
+   * 获取指定人群下的指定子人群的详细信息。
+   * 
+   * @param request - GetSubCrowdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSubCrowdResponse
    */
   async getSubCrowdWithOptions(CrowdId: string, SubCrowdId: string, request: GetSubCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSubCrowdResponse> {
     Util.validateModel(request);
@@ -15370,10 +20712,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定人群下的指定子人群的详细信息。
-   *
-   * @param request GetSubCrowdRequest
-   * @return GetSubCrowdResponse
+   * 获取指定人群下的指定子人群的详细信息。
+   * 
+   * @param request - GetSubCrowdRequest
+   * @returns GetSubCrowdResponse
    */
   async getSubCrowd(CrowdId: string, SubCrowdId: string, request: GetSubCrowdRequest): Promise<GetSubCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15382,12 +20724,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据表详细信息。
-   *
-   * @param request GetTableMetaRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTableMetaResponse
+   * 获取数据表详细信息。
+   * 
+   * @param request - GetTableMetaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableMetaResponse
    */
   async getTableMetaWithOptions(TableMetaId: string, request: GetTableMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTableMetaResponse> {
     Util.validateModel(request);
@@ -15415,10 +20757,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据表详细信息。
-   *
-   * @param request GetTableMetaRequest
-   * @return GetTableMetaResponse
+   * 获取数据表详细信息。
+   * 
+   * @param request - GetTableMetaRequest
+   * @returns GetTableMetaResponse
    */
   async getTableMeta(TableMetaId: string, request: GetTableMetaRequest): Promise<GetTableMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15427,12 +20769,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流量调控目标详情
-   *
-   * @param request GetTrafficControlTargetRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTrafficControlTargetResponse
+   * 获取流量调控目标详情
+   * 
+   * @param request - GetTrafficControlTargetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTrafficControlTargetResponse
    */
   async getTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: GetTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTrafficControlTargetResponse> {
     Util.validateModel(request);
@@ -15460,10 +20802,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流量调控目标详情
-   *
-   * @param request GetTrafficControlTargetRequest
-   * @return GetTrafficControlTargetResponse
+   * 获取流量调控目标详情
+   * 
+   * @param request - GetTrafficControlTargetRequest
+   * @returns GetTrafficControlTargetResponse
    */
   async getTrafficControlTarget(TrafficControlTargetId: string, request: GetTrafficControlTargetRequest): Promise<GetTrafficControlTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15472,12 +20814,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流量调控任务详情
-   *
-   * @param request GetTrafficControlTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTrafficControlTaskResponse
+   * 获取流量调控任务详情
+   * 
+   * @param request - GetTrafficControlTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTrafficControlTaskResponse
    */
   async getTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: GetTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTrafficControlTaskResponse> {
     Util.validateModel(request);
@@ -15521,10 +20863,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流量调控任务详情
-   *
-   * @param request GetTrafficControlTaskRequest
-   * @return GetTrafficControlTaskResponse
+   * 获取流量调控任务详情
+   * 
+   * @param request - GetTrafficControlTaskRequest
+   * @returns GetTrafficControlTaskResponse
    */
   async getTrafficControlTask(TrafficControlTaskId: string, request: GetTrafficControlTaskRequest): Promise<GetTrafficControlTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15533,12 +20875,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流量调控任务的流量详情
-   *
-   * @param request GetTrafficControlTaskTrafficRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTrafficControlTaskTrafficResponse
+   * 获取流量调控任务的流量详情
+   * 
+   * @param request - GetTrafficControlTaskTrafficRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTrafficControlTaskTrafficResponse
    */
   async getTrafficControlTaskTrafficWithOptions(TrafficControlTaskId: string, request: GetTrafficControlTaskTrafficRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTrafficControlTaskTrafficResponse> {
     Util.validateModel(request);
@@ -15570,10 +20912,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流量调控任务的流量详情
-   *
-   * @param request GetTrafficControlTaskTrafficRequest
-   * @return GetTrafficControlTaskTrafficResponse
+   * 获取流量调控任务的流量详情
+   * 
+   * @param request - GetTrafficControlTaskTrafficRequest
+   * @returns GetTrafficControlTaskTrafficResponse
    */
   async getTrafficControlTaskTraffic(TrafficControlTaskId: string, request: GetTrafficControlTaskTrafficRequest): Promise<GetTrafficControlTaskTrafficResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15582,12 +20924,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取AB Test实验指标组列表。
-   *
-   * @param request ListABMetricGroupsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListABMetricGroupsResponse
+   * 获取AB Test实验指标组列表。
+   * 
+   * @param request - ListABMetricGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListABMetricGroupsResponse
    */
   async listABMetricGroupsWithOptions(request: ListABMetricGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListABMetricGroupsResponse> {
     Util.validateModel(request);
@@ -15639,10 +20981,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取AB Test实验指标组列表。
-   *
-   * @param request ListABMetricGroupsRequest
-   * @return ListABMetricGroupsResponse
+   * 获取AB Test实验指标组列表。
+   * 
+   * @param request - ListABMetricGroupsRequest
+   * @returns ListABMetricGroupsResponse
    */
   async listABMetricGroups(request: ListABMetricGroupsRequest): Promise<ListABMetricGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15651,12 +20993,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取AB Test实验指标列表。
-   *
-   * @param request ListABMetricsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListABMetricsResponse
+   * 获取AB Test实验指标列表。
+   * 
+   * @param request - ListABMetricsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListABMetricsResponse
    */
   async listABMetricsWithOptions(request: ListABMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListABMetricsResponse> {
     Util.validateModel(request);
@@ -15712,10 +21054,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取AB Test实验指标列表。
-   *
-   * @param request ListABMetricsRequest
-   * @return ListABMetricsResponse
+   * 获取AB Test实验指标列表。
+   * 
+   * @param request - ListABMetricsRequest
+   * @returns ListABMetricsResponse
    */
   async listABMetrics(request: ListABMetricsRequest): Promise<ListABMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15724,12 +21066,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取计算任务列表。
-   *
-   * @param request ListCalculationJobsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCalculationJobsResponse
+   * 获取计算任务列表。
+   * 
+   * @param request - ListCalculationJobsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCalculationJobsResponse
    */
   async listCalculationJobsWithOptions(request: ListCalculationJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCalculationJobsResponse> {
     Util.validateModel(request);
@@ -15773,10 +21115,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取计算任务列表。
-   *
-   * @param request ListCalculationJobsRequest
-   * @return ListCalculationJobsResponse
+   * 获取计算任务列表。
+   * 
+   * @param request - ListCalculationJobsRequest
+   * @returns ListCalculationJobsResponse
    */
   async listCalculationJobs(request: ListCalculationJobsRequest): Promise<ListCalculationJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15785,12 +21127,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取人群下的所有用户。
-   *
-   * @param request ListCrowdUsersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCrowdUsersResponse
+   * 获取人群下的所有用户。
+   * 
+   * @param request - ListCrowdUsersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCrowdUsersResponse
    */
   async listCrowdUsersWithOptions(CrowdId: string, request: ListCrowdUsersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCrowdUsersResponse> {
     Util.validateModel(request);
@@ -15818,10 +21160,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取人群下的所有用户。
-   *
-   * @param request ListCrowdUsersRequest
-   * @return ListCrowdUsersResponse
+   * 获取人群下的所有用户。
+   * 
+   * @param request - ListCrowdUsersRequest
+   * @returns ListCrowdUsersResponse
    */
   async listCrowdUsers(CrowdId: string, request: ListCrowdUsersRequest): Promise<ListCrowdUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15830,12 +21172,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取人群列表。
-   *
-   * @param request ListCrowdsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCrowdsResponse
+   * 获取人群列表。
+   * 
+   * @param request - ListCrowdsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCrowdsResponse
    */
   async listCrowdsWithOptions(request: ListCrowdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCrowdsResponse> {
     Util.validateModel(request);
@@ -15863,10 +21205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取人群列表。
-   *
-   * @param request ListCrowdsRequest
-   * @return ListCrowdsResponse
+   * 获取人群列表。
+   * 
+   * @param request - ListCrowdsRequest
+   * @returns ListCrowdsResponse
    */
   async listCrowds(request: ListCrowdsRequest): Promise<ListCrowdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15875,12 +21217,81 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实验组列表。
-   *
-   * @param request ListExperimentGroupsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListExperimentGroupsResponse
+   * 获取引擎配置列表。
+   * 
+   * @param request - ListEngineConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEngineConfigsResponse
+   */
+  async listEngineConfigsWithOptions(request: ListEngineConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEngineConfigsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.environment)) {
+      query["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.version)) {
+      query["Version"] = request.version;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEngineConfigs",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/engineconfigs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEngineConfigsResponse>(await this.callApi(params, req, runtime), new ListEngineConfigsResponse({}));
+  }
+
+  /**
+   * 获取引擎配置列表。
+   * 
+   * @param request - ListEngineConfigsRequest
+   * @returns ListEngineConfigsResponse
+   */
+  async listEngineConfigs(request: ListEngineConfigsRequest): Promise<ListEngineConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listEngineConfigsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取实验组列表。
+   * 
+   * @param request - ListExperimentGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExperimentGroupsResponse
    */
   async listExperimentGroupsWithOptions(request: ListExperimentGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExperimentGroupsResponse> {
     Util.validateModel(request);
@@ -15928,10 +21339,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实验组列表。
-   *
-   * @param request ListExperimentGroupsRequest
-   * @return ListExperimentGroupsResponse
+   * 获取实验组列表。
+   * 
+   * @param request - ListExperimentGroupsRequest
+   * @returns ListExperimentGroupsResponse
    */
   async listExperimentGroups(request: ListExperimentGroupsRequest): Promise<ListExperimentGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15940,12 +21351,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实验列表。
-   *
-   * @param request ListExperimentsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListExperimentsResponse
+   * 获取实验列表。
+   * 
+   * @param request - ListExperimentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExperimentsResponse
    */
   async listExperimentsWithOptions(request: ListExperimentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListExperimentsResponse> {
     Util.validateModel(request);
@@ -15985,10 +21396,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实验列表。
-   *
-   * @param request ListExperimentsRequest
-   * @return ListExperimentsResponse
+   * 获取实验列表。
+   * 
+   * @param request - ListExperimentsRequest
+   * @returns ListExperimentsResponse
    */
   async listExperiments(request: ListExperimentsRequest): Promise<ListExperimentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15997,12 +21408,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检查配置列表。
-   *
-   * @param request ListFeatureConsistencyCheckJobConfigsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFeatureConsistencyCheckJobConfigsResponse
+   * 获取特征一致性检查配置列表。
+   * 
+   * @param request - ListFeatureConsistencyCheckJobConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeatureConsistencyCheckJobConfigsResponse
    */
   async listFeatureConsistencyCheckJobConfigsWithOptions(request: ListFeatureConsistencyCheckJobConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureConsistencyCheckJobConfigsResponse> {
     Util.validateModel(request);
@@ -16046,10 +21457,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检查配置列表。
-   *
-   * @param request ListFeatureConsistencyCheckJobConfigsRequest
-   * @return ListFeatureConsistencyCheckJobConfigsResponse
+   * 获取特征一致性检查配置列表。
+   * 
+   * @param request - ListFeatureConsistencyCheckJobConfigsRequest
+   * @returns ListFeatureConsistencyCheckJobConfigsResponse
    */
   async listFeatureConsistencyCheckJobConfigs(request: ListFeatureConsistencyCheckJobConfigsRequest): Promise<ListFeatureConsistencyCheckJobConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16058,12 +21469,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检查任务的特征报表/比对结果。
-   *
-   * @param request ListFeatureConsistencyCheckJobFeatureReportsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFeatureConsistencyCheckJobFeatureReportsResponse
+   * 获取特征一致性检查任务的特征报表/比对结果。
+   * 
+   * @param request - ListFeatureConsistencyCheckJobFeatureReportsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeatureConsistencyCheckJobFeatureReportsResponse
    */
   async listFeatureConsistencyCheckJobFeatureReportsWithOptions(FeatureConsistencyCheckJobId: string, request: ListFeatureConsistencyCheckJobFeatureReportsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureConsistencyCheckJobFeatureReportsResponse> {
     Util.validateModel(request);
@@ -16103,10 +21514,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检查任务的特征报表/比对结果。
-   *
-   * @param request ListFeatureConsistencyCheckJobFeatureReportsRequest
-   * @return ListFeatureConsistencyCheckJobFeatureReportsResponse
+   * 获取特征一致性检查任务的特征报表/比对结果。
+   * 
+   * @param request - ListFeatureConsistencyCheckJobFeatureReportsRequest
+   * @returns ListFeatureConsistencyCheckJobFeatureReportsResponse
    */
   async listFeatureConsistencyCheckJobFeatureReports(FeatureConsistencyCheckJobId: string, request: ListFeatureConsistencyCheckJobFeatureReportsRequest): Promise<ListFeatureConsistencyCheckJobFeatureReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16115,12 +21526,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检查任务分数报表/比对结果。
-   *
-   * @param tmpReq ListFeatureConsistencyCheckJobScoreReportsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFeatureConsistencyCheckJobScoreReportsResponse
+   * 获取特征一致性检查任务分数报表/比对结果。
+   * 
+   * @param tmpReq - ListFeatureConsistencyCheckJobScoreReportsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeatureConsistencyCheckJobScoreReportsResponse
    */
   async listFeatureConsistencyCheckJobScoreReportsWithOptions(FeatureConsistencyCheckJobId: string, tmpReq: ListFeatureConsistencyCheckJobScoreReportsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureConsistencyCheckJobScoreReportsResponse> {
     Util.validateModel(tmpReq);
@@ -16158,10 +21569,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检查任务分数报表/比对结果。
-   *
-   * @param request ListFeatureConsistencyCheckJobScoreReportsRequest
-   * @return ListFeatureConsistencyCheckJobScoreReportsResponse
+   * 获取特征一致性检查任务分数报表/比对结果。
+   * 
+   * @param request - ListFeatureConsistencyCheckJobScoreReportsRequest
+   * @returns ListFeatureConsistencyCheckJobScoreReportsResponse
    */
   async listFeatureConsistencyCheckJobScoreReports(FeatureConsistencyCheckJobId: string, request: ListFeatureConsistencyCheckJobScoreReportsRequest): Promise<ListFeatureConsistencyCheckJobScoreReportsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16170,12 +21581,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检查任务列表。
-   *
-   * @param request ListFeatureConsistencyCheckJobsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFeatureConsistencyCheckJobsResponse
+   * 获取特征一致性检查任务列表。
+   * 
+   * @param request - ListFeatureConsistencyCheckJobsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFeatureConsistencyCheckJobsResponse
    */
   async listFeatureConsistencyCheckJobsWithOptions(request: ListFeatureConsistencyCheckJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFeatureConsistencyCheckJobsResponse> {
     Util.validateModel(request);
@@ -16223,10 +21634,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取特征一致性检查任务列表。
-   *
-   * @param request ListFeatureConsistencyCheckJobsRequest
-   * @return ListFeatureConsistencyCheckJobsResponse
+   * 获取特征一致性检查任务列表。
+   * 
+   * @param request - ListFeatureConsistencyCheckJobsRequest
+   * @returns ListFeatureConsistencyCheckJobsResponse
    */
   async listFeatureConsistencyCheckJobs(request: ListFeatureConsistencyCheckJobsRequest): Promise<ListFeatureConsistencyCheckJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16235,12 +21646,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例下配置的资源列表。
-   *
-   * @param request ListInstanceResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstanceResourcesResponse
+   * 获取实例下配置的资源列表。
+   * 
+   * @param request - ListInstanceResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceResourcesResponse
    */
   async listInstanceResourcesWithOptions(InstanceId: string, request: ListInstanceResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceResourcesResponse> {
     Util.validateModel(request);
@@ -16276,10 +21687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例下配置的资源列表。
-   *
-   * @param request ListInstanceResourcesRequest
-   * @return ListInstanceResourcesResponse
+   * 获取实例下配置的资源列表。
+   * 
+   * @param request - ListInstanceResourcesRequest
+   * @returns ListInstanceResourcesResponse
    */
   async listInstanceResources(InstanceId: string, request: ListInstanceResourcesRequest): Promise<ListInstanceResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16288,12 +21699,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取推荐全链路深度定制开发平台实例信息列表。
-   *
-   * @param request ListInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstancesResponse
+   * 获取推荐全链路深度定制开发平台实例信息列表。
+   * 
+   * @param request - ListInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesResponse
    */
   async listInstancesWithOptions(request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
@@ -16341,10 +21752,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取推荐全链路深度定制开发平台实例信息列表。
-   *
-   * @param request ListInstancesRequest
-   * @return ListInstancesResponse
+   * 获取推荐全链路深度定制开发平台实例信息列表。
+   * 
+   * @param request - ListInstancesRequest
+   * @returns ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16353,12 +21764,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实验室列表。
-   *
-   * @param request ListLaboratoriesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLaboratoriesResponse
+   * 获取实验室列表。
+   * 
+   * @param request - ListLaboratoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLaboratoriesResponse
    */
   async listLaboratoriesWithOptions(request: ListLaboratoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLaboratoriesResponse> {
     Util.validateModel(request);
@@ -16398,10 +21809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实验室列表。
-   *
-   * @param request ListLaboratoriesRequest
-   * @return ListLaboratoriesResponse
+   * 获取实验室列表。
+   * 
+   * @param request - ListLaboratoriesRequest
+   * @returns ListLaboratoriesResponse
    */
   async listLaboratories(request: ListLaboratoriesRequest): Promise<ListLaboratoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16410,12 +21821,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取层列表。
-   *
-   * @param request ListLayersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLayersResponse
+   * 获取层列表。
+   * 
+   * @param request - ListLayersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLayersResponse
    */
   async listLayersWithOptions(request: ListLayersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayersResponse> {
     Util.validateModel(request);
@@ -16447,10 +21858,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取层列表。
-   *
-   * @param request ListLayersRequest
-   * @return ListLayersResponse
+   * 获取层列表。
+   * 
+   * @param request - ListLayersRequest
+   * @returns ListLayersResponse
    */
   async listLayers(request: ListLayersRequest): Promise<ListLayersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16459,12 +21870,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取参数列表。
-   *
-   * @param request ListParamsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListParamsResponse
+   * 获取参数列表。
+   * 
+   * @param request - ListParamsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListParamsResponse
    */
   async listParamsWithOptions(request: ListParamsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListParamsResponse> {
     Util.validateModel(request);
@@ -16512,10 +21923,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取参数列表。
-   *
-   * @param request ListParamsRequest
-   * @return ListParamsResponse
+   * 获取参数列表。
+   * 
+   * @param request - ListParamsRequest
+   * @returns ListParamsResponse
    */
   async listParams(request: ListParamsRequest): Promise<ListParamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16524,12 +21935,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取资源规则列表
-   *
-   * @param request ListResourceRulesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListResourceRulesResponse
+   * 获取资源规则列表
+   * 
+   * @param request - ListResourceRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceRulesResponse
    */
   async listResourceRulesWithOptions(request: ListResourceRulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceRulesResponse> {
     Util.validateModel(request);
@@ -16585,10 +21996,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取资源规则列表
-   *
-   * @param request ListResourceRulesRequest
-   * @return ListResourceRulesResponse
+   * 获取资源规则列表
+   * 
+   * @param request - ListResourceRulesRequest
+   * @returns ListResourceRulesResponse
    */
   async listResourceRules(request: ListResourceRulesRequest): Promise<ListResourceRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16597,12 +22008,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取场景列表
-   *
-   * @param request ListScenesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListScenesResponse
+   * 获取场景列表
+   * 
+   * @param request - ListScenesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScenesResponse
    */
   async listScenesWithOptions(request: ListScenesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListScenesResponse> {
     Util.validateModel(request);
@@ -16634,10 +22045,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取场景列表
-   *
-   * @param request ListScenesRequest
-   * @return ListScenesResponse
+   * 获取场景列表
+   * 
+   * @param request - ListScenesRequest
+   * @returns ListScenesResponse
    */
   async listScenes(request: ListScenesRequest): Promise<ListScenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16646,12 +22057,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取人群下的所有子人群。
-   *
-   * @param request ListSubCrowdsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSubCrowdsResponse
+   * 获取人群下的所有子人群。
+   * 
+   * @param request - ListSubCrowdsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSubCrowdsResponse
    */
   async listSubCrowdsWithOptions(CrowdId: string, request: ListSubCrowdsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSubCrowdsResponse> {
     Util.validateModel(request);
@@ -16679,10 +22090,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取人群下的所有子人群。
-   *
-   * @param request ListSubCrowdsRequest
-   * @return ListSubCrowdsResponse
+   * 获取人群下的所有子人群。
+   * 
+   * @param request - ListSubCrowdsRequest
+   * @returns ListSubCrowdsResponse
    */
   async listSubCrowds(CrowdId: string, request: ListSubCrowdsRequest): Promise<ListSubCrowdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16691,12 +22102,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据表列表。
-   *
-   * @param request ListTableMetasRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTableMetasResponse
+   * 获取数据表列表。
+   * 
+   * @param request - ListTableMetasRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTableMetasResponse
    */
   async listTableMetasWithOptions(request: ListTableMetasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTableMetasResponse> {
     Util.validateModel(request);
@@ -16744,10 +22155,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据表列表。
-   *
-   * @param request ListTableMetasRequest
-   * @return ListTableMetasResponse
+   * 获取数据表列表。
+   * 
+   * @param request - ListTableMetasRequest
+   * @returns ListTableMetasResponse
    */
   async listTableMetas(request: ListTableMetasRequest): Promise<ListTableMetasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16756,12 +22167,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流量调控任务流量变更的历史列表
-   *
-   * @param request ListTrafficControlTargetTrafficHistoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTrafficControlTargetTrafficHistoryResponse
+   * 获取流量调控任务流量变更的历史列表
+   * 
+   * @param request - ListTrafficControlTargetTrafficHistoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTrafficControlTargetTrafficHistoryResponse
    */
   async listTrafficControlTargetTrafficHistoryWithOptions(TrafficControlTargetId: string, request: ListTrafficControlTargetTrafficHistoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTrafficControlTargetTrafficHistoryResponse> {
     Util.validateModel(request);
@@ -16817,10 +22228,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流量调控任务流量变更的历史列表
-   *
-   * @param request ListTrafficControlTargetTrafficHistoryRequest
-   * @return ListTrafficControlTargetTrafficHistoryResponse
+   * 获取流量调控任务流量变更的历史列表
+   * 
+   * @param request - ListTrafficControlTargetTrafficHistoryRequest
+   * @returns ListTrafficControlTargetTrafficHistoryResponse
    */
   async listTrafficControlTargetTrafficHistory(TrafficControlTargetId: string, request: ListTrafficControlTargetTrafficHistoryRequest): Promise<ListTrafficControlTargetTrafficHistoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16829,12 +22240,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流量调控列表
-   *
-   * @param request ListTrafficControlTasksRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTrafficControlTasksResponse
+   * 获取流量调控列表
+   * 
+   * @param request - ListTrafficControlTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTrafficControlTasksResponse
    */
   async listTrafficControlTasksWithOptions(request: ListTrafficControlTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTrafficControlTasksResponse> {
     Util.validateModel(request);
@@ -16910,10 +22321,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取流量调控列表
-   *
-   * @param request ListTrafficControlTasksRequest
-   * @return ListTrafficControlTasksResponse
+   * 获取流量调控列表
+   * 
+   * @param request - ListTrafficControlTasksRequest
+   * @returns ListTrafficControlTasksResponse
    */
   async listTrafficControlTasks(request: ListTrafficControlTasksRequest): Promise<ListTrafficControlTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16922,12 +22333,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上线实验。
-   *
-   * @param request OfflineExperimentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OfflineExperimentResponse
+   * 上线实验。
+   * 
+   * @param request - OfflineExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflineExperimentResponse
    */
   async offlineExperimentWithOptions(ExperimentId: string, request: OfflineExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OfflineExperimentResponse> {
     Util.validateModel(request);
@@ -16955,10 +22366,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上线实验。
-   *
-   * @param request OfflineExperimentRequest
-   * @return OfflineExperimentResponse
+   * 上线实验。
+   * 
+   * @param request - OfflineExperimentRequest
+   * @returns OfflineExperimentResponse
    */
   async offlineExperiment(ExperimentId: string, request: OfflineExperimentRequest): Promise<OfflineExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16967,12 +22378,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 下线实验组。
-   *
-   * @param request OfflineExperimentGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OfflineExperimentGroupResponse
+   * 下线实验组。
+   * 
+   * @param request - OfflineExperimentGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflineExperimentGroupResponse
    */
   async offlineExperimentGroupWithOptions(ExperimentGroupId: string, request: OfflineExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OfflineExperimentGroupResponse> {
     Util.validateModel(request);
@@ -17000,10 +22411,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 下线实验组。
-   *
-   * @param request OfflineExperimentGroupRequest
-   * @return OfflineExperimentGroupResponse
+   * 下线实验组。
+   * 
+   * @param request - OfflineExperimentGroupRequest
+   * @returns OfflineExperimentGroupResponse
    */
   async offlineExperimentGroup(ExperimentGroupId: string, request: OfflineExperimentGroupRequest): Promise<OfflineExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17012,12 +22423,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 下线实验室。
-   *
-   * @param request OfflineLaboratoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OfflineLaboratoryResponse
+   * 下线实验室。
+   * 
+   * @param request - OfflineLaboratoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OfflineLaboratoryResponse
    */
   async offlineLaboratoryWithOptions(LaboratoryId: string, request: OfflineLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OfflineLaboratoryResponse> {
     Util.validateModel(request);
@@ -17045,10 +22456,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 下线实验室。
-   *
-   * @param request OfflineLaboratoryRequest
-   * @return OfflineLaboratoryResponse
+   * 下线实验室。
+   * 
+   * @param request - OfflineLaboratoryRequest
+   * @returns OfflineLaboratoryResponse
    */
   async offlineLaboratory(LaboratoryId: string, request: OfflineLaboratoryRequest): Promise<OfflineLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17057,12 +22468,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上线实验
-   *
-   * @param request OnlineExperimentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OnlineExperimentResponse
+   * 上线实验
+   * 
+   * @param request - OnlineExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OnlineExperimentResponse
    */
   async onlineExperimentWithOptions(ExperimentId: string, request: OnlineExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OnlineExperimentResponse> {
     Util.validateModel(request);
@@ -17090,10 +22501,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上线实验
-   *
-   * @param request OnlineExperimentRequest
-   * @return OnlineExperimentResponse
+   * 上线实验
+   * 
+   * @param request - OnlineExperimentRequest
+   * @returns OnlineExperimentResponse
    */
   async onlineExperiment(ExperimentId: string, request: OnlineExperimentRequest): Promise<OnlineExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17102,12 +22513,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上线实验组。
-   *
-   * @param request OnlineExperimentGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OnlineExperimentGroupResponse
+   * 上线实验组。
+   * 
+   * @param request - OnlineExperimentGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OnlineExperimentGroupResponse
    */
   async onlineExperimentGroupWithOptions(ExperimentGroupId: string, request: OnlineExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OnlineExperimentGroupResponse> {
     Util.validateModel(request);
@@ -17135,10 +22546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上线实验组。
-   *
-   * @param request OnlineExperimentGroupRequest
-   * @return OnlineExperimentGroupResponse
+   * 上线实验组。
+   * 
+   * @param request - OnlineExperimentGroupRequest
+   * @returns OnlineExperimentGroupResponse
    */
   async onlineExperimentGroup(ExperimentGroupId: string, request: OnlineExperimentGroupRequest): Promise<OnlineExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17147,12 +22558,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上线实验室。
-   *
-   * @param request OnlineLaboratoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OnlineLaboratoryResponse
+   * 上线实验室。
+   * 
+   * @param request - OnlineLaboratoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OnlineLaboratoryResponse
    */
   async onlineLaboratoryWithOptions(LaboratoryId: string, request: OnlineLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OnlineLaboratoryResponse> {
     Util.validateModel(request);
@@ -17180,10 +22591,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上线实验室。
-   *
-   * @param request OnlineLaboratoryRequest
-   * @return OnlineLaboratoryResponse
+   * 上线实验室。
+   * 
+   * @param request - OnlineLaboratoryRequest
+   * @returns OnlineLaboratoryResponse
    */
   async onlineLaboratory(LaboratoryId: string, request: OnlineLaboratoryRequest): Promise<OnlineLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17192,12 +22603,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 推全。
-   *
-   * @param request PushAllExperimentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushAllExperimentResponse
+   * 推全。
+   * 
+   * @param request - PushAllExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushAllExperimentResponse
    */
   async pushAllExperimentWithOptions(ExperimentId: string, request: PushAllExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushAllExperimentResponse> {
     Util.validateModel(request);
@@ -17225,10 +22636,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 推全。
-   *
-   * @param request PushAllExperimentRequest
-   * @return PushAllExperimentResponse
+   * 推全。
+   * 
+   * @param request - PushAllExperimentRequest
+   * @returns PushAllExperimentResponse
    */
   async pushAllExperiment(ExperimentId: string, request: PushAllExperimentRequest): Promise<PushAllExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17237,12 +22648,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 推送指标到指定资源规则
-   *
-   * @param tmpReq PushResourceRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushResourceRuleResponse
+   * 推送指标到指定资源规则
+   * 
+   * @param tmpReq - PushResourceRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushResourceRuleResponse
    */
   async pushResourceRuleWithOptions(ResourceRuleId: string, tmpReq: PushResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushResourceRuleResponse> {
     Util.validateModel(tmpReq);
@@ -17280,10 +22691,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 推送指标到指定资源规则
-   *
-   * @param request PushResourceRuleRequest
-   * @return PushResourceRuleResponse
+   * 推送指标到指定资源规则
+   * 
+   * @param request - PushResourceRuleRequest
+   * @returns PushResourceRuleResponse
    */
   async pushResourceRule(ResourceRuleId: string, request: PushResourceRuleRequest): Promise<PushResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17292,12 +22703,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发布流量调控任务
-   *
-   * @param request ReleaseTrafficControlTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleaseTrafficControlTaskResponse
+   * 发布流量调控任务
+   * 
+   * @param request - ReleaseTrafficControlTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseTrafficControlTaskResponse
    */
   async releaseTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: ReleaseTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReleaseTrafficControlTaskResponse> {
     Util.validateModel(request);
@@ -17329,10 +22740,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发布流量调控任务
-   *
-   * @param request ReleaseTrafficControlTaskRequest
-   * @return ReleaseTrafficControlTaskResponse
+   * 发布流量调控任务
+   * 
+   * @param request - ReleaseTrafficControlTaskRequest
+   * @returns ReleaseTrafficControlTaskResponse
    */
   async releaseTrafficControlTask(TrafficControlTaskId: string, request: ReleaseTrafficControlTaskRequest): Promise<ReleaseTrafficControlTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17341,12 +22752,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 对指标组进行报表。
-   *
-   * @param request ReportABMetricGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReportABMetricGroupResponse
+   * 对指标组进行报表。
+   * 
+   * @param request - ReportABMetricGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReportABMetricGroupResponse
    */
   async reportABMetricGroupWithOptions(ABMetricGroupId: string, request: ReportABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReportABMetricGroupResponse> {
     Util.validateModel(request);
@@ -17410,10 +22821,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 对指标组进行报表。
-   *
-   * @param request ReportABMetricGroupRequest
-   * @return ReportABMetricGroupResponse
+   * 对指标组进行报表。
+   * 
+   * @param request - ReportABMetricGroupRequest
+   * @returns ReportABMetricGroupResponse
    */
   async reportABMetricGroup(ABMetricGroupId: string, request: ReportABMetricGroupRequest): Promise<ReportABMetricGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17422,12 +22833,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 拆分流量调控目标
-   *
-   * @param request SplitTrafficControlTargetRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SplitTrafficControlTargetResponse
+   * 拆分流量调控目标
+   * 
+   * @param request - SplitTrafficControlTargetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SplitTrafficControlTargetResponse
    */
   async splitTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: SplitTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SplitTrafficControlTargetResponse> {
     Util.validateModel(request);
@@ -17471,10 +22882,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 拆分流量调控目标
-   *
-   * @param request SplitTrafficControlTargetRequest
-   * @return SplitTrafficControlTargetResponse
+   * 拆分流量调控目标
+   * 
+   * @param request - SplitTrafficControlTargetRequest
+   * @returns SplitTrafficControlTargetResponse
    */
   async splitTrafficControlTarget(TrafficControlTargetId: string, request: SplitTrafficControlTargetRequest): Promise<SplitTrafficControlTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17483,12 +22894,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启流量调控目标
-   *
-   * @param request StartTrafficControlTargetRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartTrafficControlTargetResponse
+   * 开启流量调控目标
+   * 
+   * @param request - StartTrafficControlTargetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartTrafficControlTargetResponse
    */
   async startTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: StartTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartTrafficControlTargetResponse> {
     Util.validateModel(request);
@@ -17516,10 +22927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启流量调控目标
-   *
-   * @param request StartTrafficControlTargetRequest
-   * @return StartTrafficControlTargetResponse
+   * 开启流量调控目标
+   * 
+   * @param request - StartTrafficControlTargetRequest
+   * @returns StartTrafficControlTargetResponse
    */
   async startTrafficControlTarget(TrafficControlTargetId: string, request: StartTrafficControlTargetRequest): Promise<StartTrafficControlTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17528,12 +22939,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启流量调控任务
-   *
-   * @param request StartTrafficControlTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartTrafficControlTaskResponse
+   * 开启流量调控任务
+   * 
+   * @param request - StartTrafficControlTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartTrafficControlTaskResponse
    */
   async startTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: StartTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartTrafficControlTaskResponse> {
     Util.validateModel(request);
@@ -17565,10 +22976,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启流量调控任务
-   *
-   * @param request StartTrafficControlTaskRequest
-   * @return StartTrafficControlTaskResponse
+   * 开启流量调控任务
+   * 
+   * @param request - StartTrafficControlTaskRequest
+   * @returns StartTrafficControlTaskResponse
    */
   async startTrafficControlTask(TrafficControlTaskId: string, request: StartTrafficControlTaskRequest): Promise<StartTrafficControlTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17577,12 +22988,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止流量调控目标
-   *
-   * @param request StopTrafficControlTargetRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopTrafficControlTargetResponse
+   * 停止流量调控目标
+   * 
+   * @param request - StopTrafficControlTargetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopTrafficControlTargetResponse
    */
   async stopTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: StopTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopTrafficControlTargetResponse> {
     Util.validateModel(request);
@@ -17610,10 +23021,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止流量调控目标
-   *
-   * @param request StopTrafficControlTargetRequest
-   * @return StopTrafficControlTargetResponse
+   * 停止流量调控目标
+   * 
+   * @param request - StopTrafficControlTargetRequest
+   * @returns StopTrafficControlTargetResponse
    */
   async stopTrafficControlTarget(TrafficControlTargetId: string, request: StopTrafficControlTargetRequest): Promise<StopTrafficControlTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17622,12 +23033,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止流量调控任务
-   *
-   * @param request StopTrafficControlTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopTrafficControlTaskResponse
+   * 停止流量调控任务
+   * 
+   * @param request - StopTrafficControlTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopTrafficControlTaskResponse
    */
   async stopTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: StopTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopTrafficControlTaskResponse> {
     Util.validateModel(request);
@@ -17665,10 +23076,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止流量调控任务
-   *
-   * @param request StopTrafficControlTaskRequest
-   * @return StopTrafficControlTaskResponse
+   * 停止流量调控任务
+   * 
+   * @param request - StopTrafficControlTaskRequest
+   * @returns StopTrafficControlTaskResponse
    */
   async stopTrafficControlTask(TrafficControlTaskId: string, request: StopTrafficControlTaskRequest): Promise<StopTrafficControlTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17677,12 +23088,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 同步特征一致性检测任务重放日志。
-   *
-   * @param request SyncFeatureConsistencyCheckJobReplayLogRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SyncFeatureConsistencyCheckJobReplayLogResponse
+   * 同步特征一致性检测任务重放日志。
+   * 
+   * @param request - SyncFeatureConsistencyCheckJobReplayLogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncFeatureConsistencyCheckJobReplayLogResponse
    */
   async syncFeatureConsistencyCheckJobReplayLogWithOptions(request: SyncFeatureConsistencyCheckJobReplayLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SyncFeatureConsistencyCheckJobReplayLogResponse> {
     Util.validateModel(request);
@@ -17746,10 +23157,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 同步特征一致性检测任务重放日志。
-   *
-   * @param request SyncFeatureConsistencyCheckJobReplayLogRequest
-   * @return SyncFeatureConsistencyCheckJobReplayLogResponse
+   * 同步特征一致性检测任务重放日志。
+   * 
+   * @param request - SyncFeatureConsistencyCheckJobReplayLogRequest
+   * @returns SyncFeatureConsistencyCheckJobReplayLogResponse
    */
   async syncFeatureConsistencyCheckJobReplayLog(request: SyncFeatureConsistencyCheckJobReplayLogRequest): Promise<SyncFeatureConsistencyCheckJobReplayLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17758,12 +23169,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消指定特征一致性检查正在运行中的任务。
-   *
-   * @param request TerminateFeatureConsistencyCheckJobRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TerminateFeatureConsistencyCheckJobResponse
+   * 取消指定特征一致性检查正在运行中的任务。
+   * 
+   * @param request - TerminateFeatureConsistencyCheckJobRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TerminateFeatureConsistencyCheckJobResponse
    */
   async terminateFeatureConsistencyCheckJobWithOptions(FeatureConsistencyCheckJobId: string, request: TerminateFeatureConsistencyCheckJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TerminateFeatureConsistencyCheckJobResponse> {
     Util.validateModel(request);
@@ -17791,10 +23202,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消指定特征一致性检查正在运行中的任务。
-   *
-   * @param request TerminateFeatureConsistencyCheckJobRequest
-   * @return TerminateFeatureConsistencyCheckJobResponse
+   * 取消指定特征一致性检查正在运行中的任务。
+   * 
+   * @param request - TerminateFeatureConsistencyCheckJobRequest
+   * @returns TerminateFeatureConsistencyCheckJobResponse
    */
   async terminateFeatureConsistencyCheckJob(FeatureConsistencyCheckJobId: string, request: TerminateFeatureConsistencyCheckJobRequest): Promise<TerminateFeatureConsistencyCheckJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17803,12 +23214,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新AB Test实验指标。
-   *
-   * @param request UpdateABMetricRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateABMetricResponse
+   * 更新AB Test实验指标。
+   * 
+   * @param request - UpdateABMetricRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateABMetricResponse
    */
   async updateABMetricWithOptions(ABMetricId: string, request: UpdateABMetricRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateABMetricResponse> {
     Util.validateModel(request);
@@ -17884,10 +23295,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新AB Test实验指标。
-   *
-   * @param request UpdateABMetricRequest
-   * @return UpdateABMetricResponse
+   * 更新AB Test实验指标。
+   * 
+   * @param request - UpdateABMetricRequest
+   * @returns UpdateABMetricResponse
    */
   async updateABMetric(ABMetricId: string, request: UpdateABMetricRequest): Promise<UpdateABMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17896,12 +23307,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新AB test实验指标组。
-   *
-   * @param request UpdateABMetricGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateABMetricGroupResponse
+   * 更新AB test实验指标组。
+   * 
+   * @param request - UpdateABMetricGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateABMetricGroupResponse
    */
   async updateABMetricGroupWithOptions(ABMetricGroupId: string, request: UpdateABMetricGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateABMetricGroupResponse> {
     Util.validateModel(request);
@@ -17949,10 +23360,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新AB test实验指标组。
-   *
-   * @param request UpdateABMetricGroupRequest
-   * @return UpdateABMetricGroupResponse
+   * 更新AB test实验指标组。
+   * 
+   * @param request - UpdateABMetricGroupRequest
+   * @returns UpdateABMetricGroupResponse
    */
   async updateABMetricGroup(ABMetricGroupId: string, request: UpdateABMetricGroupRequest): Promise<UpdateABMetricGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17961,12 +23372,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新指定人群。
-   *
-   * @param request UpdateCrowdRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCrowdResponse
+   * 更新指定人群。
+   * 
+   * @param request - UpdateCrowdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCrowdResponse
    */
   async updateCrowdWithOptions(CrowdId: string, request: UpdateCrowdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCrowdResponse> {
     Util.validateModel(request);
@@ -18002,10 +23413,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新指定人群。
-   *
-   * @param request UpdateCrowdRequest
-   * @return UpdateCrowdResponse
+   * 更新指定人群。
+   * 
+   * @param request - UpdateCrowdRequest
+   * @returns UpdateCrowdResponse
    */
   async updateCrowd(CrowdId: string, request: UpdateCrowdRequest): Promise<UpdateCrowdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18014,12 +23425,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新实验。
-   *
-   * @param request UpdateExperimentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateExperimentResponse
+   * 更新引擎配置。
+   * 
+   * @param request - UpdateEngineConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEngineConfigResponse
+   */
+  async updateEngineConfigWithOptions(EngineConfigId: string, request: UpdateEngineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateEngineConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.configValue)) {
+      body["ConfigValue"] = request.configValue;
+    }
+
+    if (!Util.isUnset(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEngineConfig",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/engineconfigs/${OpenApiUtil.getEncodeParam(EngineConfigId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEngineConfigResponse>(await this.callApi(params, req, runtime), new UpdateEngineConfigResponse({}));
+  }
+
+  /**
+   * 更新引擎配置。
+   * 
+   * @param request - UpdateEngineConfigRequest
+   * @returns UpdateEngineConfigResponse
+   */
+  async updateEngineConfig(EngineConfigId: string, request: UpdateEngineConfigRequest): Promise<UpdateEngineConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateEngineConfigWithOptions(EngineConfigId, request, headers, runtime);
+  }
+
+  /**
+   * 更新实验。
+   * 
+   * @param request - UpdateExperimentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExperimentResponse
    */
   async updateExperimentWithOptions(ExperimentId: string, request: UpdateExperimentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExperimentResponse> {
     Util.validateModel(request);
@@ -18075,10 +23543,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新实验。
-   *
-   * @param request UpdateExperimentRequest
-   * @return UpdateExperimentResponse
+   * 更新实验。
+   * 
+   * @param request - UpdateExperimentRequest
+   * @returns UpdateExperimentResponse
    */
   async updateExperiment(ExperimentId: string, request: UpdateExperimentRequest): Promise<UpdateExperimentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18087,12 +23555,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新指定实验组。
-   *
-   * @param request UpdateExperimentGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateExperimentGroupResponse
+   * 更新指定实验组。
+   * 
+   * @param request - UpdateExperimentGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExperimentGroupResponse
    */
   async updateExperimentGroupWithOptions(ExperimentGroupId: string, request: UpdateExperimentGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateExperimentGroupResponse> {
     Util.validateModel(request);
@@ -18176,10 +23644,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新指定实验组。
-   *
-   * @param request UpdateExperimentGroupRequest
-   * @return UpdateExperimentGroupResponse
+   * 更新指定实验组。
+   * 
+   * @param request - UpdateExperimentGroupRequest
+   * @returns UpdateExperimentGroupResponse
    */
   async updateExperimentGroup(ExperimentGroupId: string, request: UpdateExperimentGroupRequest): Promise<UpdateExperimentGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18188,12 +23656,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新特征一致性检查配置信息。
-   *
-   * @param request UpdateFeatureConsistencyCheckJobConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateFeatureConsistencyCheckJobConfigResponse
+   * 更新特征一致性检查配置信息。
+   * 
+   * @param request - UpdateFeatureConsistencyCheckJobConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFeatureConsistencyCheckJobConfigResponse
    */
   async updateFeatureConsistencyCheckJobConfigWithOptions(FeatureConsistencyCheckJobConfigId: string, request: UpdateFeatureConsistencyCheckJobConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFeatureConsistencyCheckJobConfigResponse> {
     Util.validateModel(request);
@@ -18345,10 +23813,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新特征一致性检查配置信息。
-   *
-   * @param request UpdateFeatureConsistencyCheckJobConfigRequest
-   * @return UpdateFeatureConsistencyCheckJobConfigResponse
+   * 更新特征一致性检查配置信息。
+   * 
+   * @param request - UpdateFeatureConsistencyCheckJobConfigRequest
+   * @returns UpdateFeatureConsistencyCheckJobConfigResponse
    */
   async updateFeatureConsistencyCheckJobConfig(FeatureConsistencyCheckJobConfigId: string, request: UpdateFeatureConsistencyCheckJobConfigRequest): Promise<UpdateFeatureConsistencyCheckJobConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18357,12 +23825,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新指定实例下指定资源的信息。
-   *
-   * @param request UpdateInstanceResourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateInstanceResourceResponse
+   * 更新指定实例下指定资源的信息。
+   * 
+   * @param request - UpdateInstanceResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceResourceResponse
    */
   async updateInstanceResourceWithOptions(InstanceId: string, ResourceId: string, request: UpdateInstanceResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResourceResponse> {
     Util.validateModel(request);
@@ -18394,10 +23862,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新指定实例下指定资源的信息。
-   *
-   * @param request UpdateInstanceResourceRequest
-   * @return UpdateInstanceResourceResponse
+   * 更新指定实例下指定资源的信息。
+   * 
+   * @param request - UpdateInstanceResourceRequest
+   * @returns UpdateInstanceResourceResponse
    */
   async updateInstanceResource(InstanceId: string, ResourceId: string, request: UpdateInstanceResourceRequest): Promise<UpdateInstanceResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18406,12 +23874,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新实验室。
-   *
-   * @param request UpdateLaboratoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLaboratoryResponse
+   * 更新实验室。
+   * 
+   * @param request - UpdateLaboratoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLaboratoryResponse
    */
   async updateLaboratoryWithOptions(LaboratoryId: string, request: UpdateLaboratoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLaboratoryResponse> {
     Util.validateModel(request);
@@ -18479,10 +23947,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新实验室。
-   *
-   * @param request UpdateLaboratoryRequest
-   * @return UpdateLaboratoryResponse
+   * 更新实验室。
+   * 
+   * @param request - UpdateLaboratoryRequest
+   * @returns UpdateLaboratoryResponse
    */
   async updateLaboratory(LaboratoryId: string, request: UpdateLaboratoryRequest): Promise<UpdateLaboratoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18491,12 +23959,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新层。
-   *
-   * @param request UpdateLayerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLayerResponse
+   * 更新层。
+   * 
+   * @param request - UpdateLayerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLayerResponse
    */
   async updateLayerWithOptions(LayerId: string, request: UpdateLayerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLayerResponse> {
     Util.validateModel(request);
@@ -18532,10 +24000,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新层。
-   *
-   * @param request UpdateLayerRequest
-   * @return UpdateLayerResponse
+   * 更新层。
+   * 
+   * @param request - UpdateLayerRequest
+   * @returns UpdateLayerResponse
    */
   async updateLayer(LayerId: string, request: UpdateLayerRequest): Promise<UpdateLayerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18544,12 +24012,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新参数。
-   *
-   * @param request UpdateParamRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateParamResponse
+   * 更新参数。
+   * 
+   * @param request - UpdateParamRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateParamResponse
    */
   async updateParamWithOptions(ParamId: string, request: UpdateParamRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateParamResponse> {
     Util.validateModel(request);
@@ -18581,10 +24049,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新参数。
-   *
-   * @param request UpdateParamRequest
-   * @return UpdateParamResponse
+   * 更新参数。
+   * 
+   * @param request - UpdateParamRequest
+   * @returns UpdateParamResponse
    */
   async updateParam(ParamId: string, request: UpdateParamRequest): Promise<UpdateParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18593,12 +24061,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取资源规则列表
-   *
-   * @param request UpdateResourceRuleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateResourceRuleResponse
+   * 获取资源规则列表
+   * 
+   * @param request - UpdateResourceRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceRuleResponse
    */
   async updateResourceRuleWithOptions(ResourceRuleId: string, request: UpdateResourceRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceRuleResponse> {
     Util.validateModel(request);
@@ -18650,10 +24118,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取资源规则列表
-   *
-   * @param request UpdateResourceRuleRequest
-   * @return UpdateResourceRuleResponse
+   * 获取资源规则列表
+   * 
+   * @param request - UpdateResourceRuleRequest
+   * @returns UpdateResourceRuleResponse
    */
   async updateResourceRule(ResourceRuleId: string, request: UpdateResourceRuleRequest): Promise<UpdateResourceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18662,12 +24130,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新资源规则条目
-   *
-   * @param request UpdateResourceRuleItemRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateResourceRuleItemResponse
+   * 更新资源规则条目
+   * 
+   * @param request - UpdateResourceRuleItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceRuleItemResponse
    */
   async updateResourceRuleItemWithOptions(ResourceRuleId: string, ResourceRuleItemId: string, request: UpdateResourceRuleItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceRuleItemResponse> {
     Util.validateModel(request);
@@ -18715,10 +24183,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新资源规则条目
-   *
-   * @param request UpdateResourceRuleItemRequest
-   * @return UpdateResourceRuleItemResponse
+   * 更新资源规则条目
+   * 
+   * @param request - UpdateResourceRuleItemRequest
+   * @returns UpdateResourceRuleItemResponse
    */
   async updateResourceRuleItem(ResourceRuleId: string, ResourceRuleItemId: string, request: UpdateResourceRuleItemRequest): Promise<UpdateResourceRuleItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18727,12 +24195,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新场景
-   *
-   * @param request UpdateSceneRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSceneResponse
+   * 更新场景
+   * 
+   * @param request - UpdateSceneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSceneResponse
    */
   async updateSceneWithOptions(SceneId: string, request: UpdateSceneRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSceneResponse> {
     Util.validateModel(request);
@@ -18772,10 +24240,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新场景
-   *
-   * @param request UpdateSceneRequest
-   * @return UpdateSceneResponse
+   * 更新场景
+   * 
+   * @param request - UpdateSceneRequest
+   * @returns UpdateSceneResponse
    */
   async updateScene(SceneId: string, request: UpdateSceneRequest): Promise<UpdateSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18784,12 +24252,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据表详细信息。
-   *
-   * @param request UpdateTableMetaRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTableMetaResponse
+   * 获取数据表详细信息。
+   * 
+   * @param request - UpdateTableMetaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTableMetaResponse
    */
   async updateTableMetaWithOptions(TableMetaId: string, request: UpdateTableMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTableMetaResponse> {
     Util.validateModel(request);
@@ -18841,10 +24309,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据表详细信息。
-   *
-   * @param request UpdateTableMetaRequest
-   * @return UpdateTableMetaResponse
+   * 获取数据表详细信息。
+   * 
+   * @param request - UpdateTableMetaRequest
+   * @returns UpdateTableMetaResponse
    */
   async updateTableMeta(TableMetaId: string, request: UpdateTableMetaRequest): Promise<UpdateTableMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18853,12 +24321,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流量调控目标
-   *
-   * @param request UpdateTrafficControlTargetRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTrafficControlTargetResponse
+   * 更新流量调控目标
+   * 
+   * @param request - UpdateTrafficControlTargetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTrafficControlTargetResponse
    */
   async updateTrafficControlTargetWithOptions(TrafficControlTargetId: string, request: UpdateTrafficControlTargetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficControlTargetResponse> {
     Util.validateModel(request);
@@ -18940,10 +24408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流量调控目标
-   *
-   * @param request UpdateTrafficControlTargetRequest
-   * @return UpdateTrafficControlTargetResponse
+   * 更新流量调控目标
+   * 
+   * @param request - UpdateTrafficControlTargetRequest
+   * @returns UpdateTrafficControlTargetResponse
    */
   async updateTrafficControlTarget(TrafficControlTargetId: string, request: UpdateTrafficControlTargetRequest): Promise<UpdateTrafficControlTargetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18952,12 +24420,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流量调控任务
-   *
-   * @param request UpdateTrafficControlTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTrafficControlTaskResponse
+   * 更新流量调控任务
+   * 
+   * @param request - UpdateTrafficControlTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTrafficControlTaskResponse
    */
   async updateTrafficControlTaskWithOptions(TrafficControlTaskId: string, request: UpdateTrafficControlTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficControlTaskResponse> {
     Util.validateModel(request);
@@ -19073,10 +24541,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流量调控任务
-   *
-   * @param request UpdateTrafficControlTaskRequest
-   * @return UpdateTrafficControlTaskResponse
+   * 更新流量调控任务
+   * 
+   * @param request - UpdateTrafficControlTaskRequest
+   * @returns UpdateTrafficControlTaskResponse
    */
   async updateTrafficControlTask(TrafficControlTaskId: string, request: UpdateTrafficControlTaskRequest): Promise<UpdateTrafficControlTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19085,12 +24553,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流量调控任务的流量参数
-   *
-   * @param request UpdateTrafficControlTaskTrafficRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTrafficControlTaskTrafficResponse
+   * 更新流量调控任务的流量参数
+   * 
+   * @param request - UpdateTrafficControlTaskTrafficRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTrafficControlTaskTrafficResponse
    */
   async updateTrafficControlTaskTrafficWithOptions(TrafficControlTaskId: string, request: UpdateTrafficControlTaskTrafficRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficControlTaskTrafficResponse> {
     Util.validateModel(request);
@@ -19132,10 +24600,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新流量调控任务的流量参数
-   *
-   * @param request UpdateTrafficControlTaskTrafficRequest
-   * @return UpdateTrafficControlTaskTrafficResponse
+   * 更新流量调控任务的流量参数
+   * 
+   * @param request - UpdateTrafficControlTaskTrafficRequest
+   * @returns UpdateTrafficControlTaskTrafficResponse
    */
   async updateTrafficControlTaskTraffic(TrafficControlTaskId: string, request: UpdateTrafficControlTaskTrafficRequest): Promise<UpdateTrafficControlTaskTrafficResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19144,12 +24612,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上传数据
-   *
-   * @param request UploadRecommendationDataRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UploadRecommendationDataResponse
+   * 上传数据
+   * 
+   * @param request - UploadRecommendationDataRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadRecommendationDataResponse
    */
   async uploadRecommendationDataWithOptions(request: UploadRecommendationDataRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UploadRecommendationDataResponse> {
     Util.validateModel(request);
@@ -19187,10 +24655,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 上传数据
-   *
-   * @param request UploadRecommendationDataRequest
-   * @return UploadRecommendationDataResponse
+   * 上传数据
+   * 
+   * @param request - UploadRecommendationDataRequest
+   * @returns UploadRecommendationDataResponse
    */
   async uploadRecommendationData(request: UploadRecommendationDataRequest): Promise<UploadRecommendationDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
