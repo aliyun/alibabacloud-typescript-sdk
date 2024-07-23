@@ -3959,6 +3959,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * 2
    */
   amount?: number;
+  autoCreateProxy?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the automatic payment feature. Valid values:
@@ -4645,6 +4646,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      autoCreateProxy: 'AutoCreateProxy',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       babelfishConfig: 'BabelfishConfig',
@@ -4706,6 +4708,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      autoCreateProxy: 'boolean',
       autoPay: 'boolean',
       autoRenew: 'string',
       babelfishConfig: 'string',
@@ -4784,6 +4787,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * 2
    */
   amount?: number;
+  autoCreateProxy?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the automatic payment feature. Valid values:
@@ -5470,6 +5474,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      autoCreateProxy: 'AutoCreateProxy',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       babelfishConfig: 'BabelfishConfig',
@@ -5531,6 +5536,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      autoCreateProxy: 'boolean',
       autoPay: 'boolean',
       autoRenew: 'string',
       babelfishConfig: 'string',
@@ -9561,6 +9567,7 @@ export class CreatePostgresExtensionsResponse extends $tea.Model {
 }
 
 export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
+  autoCreateProxy?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the automatic payment feature. Valid values:
@@ -9889,6 +9896,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoCreateProxy: 'AutoCreateProxy',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       bpeEnabled: 'BpeEnabled',
@@ -9929,6 +9937,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoCreateProxy: 'boolean',
       autoPay: 'boolean',
       autoRenew: 'string',
       bpeEnabled: 'string',
@@ -74986,6 +74995,10 @@ export default class Client extends OpenApi {
       query["Amount"] = request.amount;
     }
 
+    if (!Util.isUnset(request.autoCreateProxy)) {
+      query["AutoCreateProxy"] = request.autoCreateProxy;
+    }
+
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
@@ -76992,6 +77005,10 @@ export default class Client extends OpenApi {
   async createReadOnlyDBInstanceWithOptions(request: CreateReadOnlyDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateReadOnlyDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.autoCreateProxy)) {
+      query["AutoCreateProxy"] = request.autoCreateProxy;
+    }
+
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
     }
