@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,8 +8,20 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddCategoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   cateName?: string;
+  /**
+   * @example
+   * 5
+   */
   parentId?: number;
+  /**
+   * @example
+   * default
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,6 +46,10 @@ export class AddCategoryRequest extends $tea.Model {
 
 export class AddCategoryResponseBody extends $tea.Model {
   category?: AddCategoryResponseBodyCategory;
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,7 +96,21 @@ export class AddCategoryResponse extends $tea.Model {
 }
 
 export class AddEditingProjectMaterialsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"video":"*****2e057304fcd9b145c5cafc*****", "image":"****8021a8d493da643c8acd98*****,*****cb6307a4edea614d8b3f3c*****", "liveStream": "[{\\"appName\\":\\"testrecord\\",\\"domainName\\":\\"test.alivecdn.com\\",\\"liveUrl\\":\\"rtmp://test.alivecdn.com/testrecord/teststream\\",\\"streamName\\":\\"teststream\\"}]", "editingProject": "*****9b145c5cafc2e057304fcd*****"}
+   */
   materialMaps?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * *****b2101cb318c*****
+   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,8 +134,20 @@ export class AddEditingProjectMaterialsRequest extends $tea.Model {
 export class AddEditingProjectMaterialsResponseBody extends $tea.Model {
   liveMaterials?: AddEditingProjectMaterialsResponseBodyLiveMaterials[];
   mediaInfos?: AddEditingProjectMaterialsResponseBodyMediaInfos[];
+  /**
+   * @example
+   * *****67ae06542b9b93e0d1c387*****
+   */
   projectId?: string;
+  /**
+   * @example
+   * *****9b145c5cafc2e057304fcd*****
+   */
   projectMaterials?: string[];
+  /**
+   * @example
+   * *****ACB-44F2-5F2D-88D7-1283E70*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -159,6 +200,10 @@ export class AddEditingProjectMaterialsResponse extends $tea.Model {
 }
 
 export class AddFavoritePublicMediaRequest extends $tea.Model {
+  /**
+   * @example
+   * icepublic-****7213c6050cbc66750b469701****,icepublic-****0b4697017213c6050cbc6675****
+   */
   mediaIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -179,6 +224,10 @@ export class AddFavoritePublicMediaRequest extends $tea.Model {
 
 export class AddFavoritePublicMediaResponseBody extends $tea.Model {
   ignoredList?: string[];
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -225,7 +274,18 @@ export class AddFavoritePublicMediaResponse extends $tea.Model {
 }
 
 export class AddMediaMarksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 53afdf003a2171ed9c6a16b5feac6402
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   mediaMarks?: string;
   static names(): { [key: string]: string } {
     return {
@@ -247,8 +307,20 @@ export class AddMediaMarksRequest extends $tea.Model {
 }
 
 export class AddMediaMarksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 53afdf003a******6a16b5feac6402
+   */
   mediaId?: string;
+  /**
+   * @example
+   * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
+   */
   mediaMarkIds?: string;
+  /**
+   * @example
+   * 771A1414-27BF-53E6-AB73-EFCB*****ACF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -297,13 +369,45 @@ export class AddMediaMarksResponse extends $tea.Model {
 }
 
 export class AddTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * 参见Timeline模板Config文档
+   */
   config?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * 视频添加水印模板
+   */
   name?: string;
+  /**
+   * @example
+   * ****01bf24bf41c78b2754cb3187****
+   */
   previewMedia?: string;
+  /**
+   * @example
+   * {"video":["1805a0c6ca544fb395a06ca683619655"]}
+   */
   relatedMediaids?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
   source?: string;
+  /**
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @example
+   * Timeline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -337,6 +441,13 @@ export class AddTemplateRequest extends $tea.Model {
 }
 
 export class AddTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ****2876-6263-4B75-8F2C-CD0F7FCF****
+   */
   requestId?: string;
   template?: AddTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {
@@ -384,9 +495,24 @@ export class AddTemplateResponse extends $tea.Model {
 }
 
 export class AlterSearchIndexRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   indexConfig?: string;
   indexStatus?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mm
+   */
   indexType?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -413,6 +539,13 @@ export class AlterSearchIndexRequest extends $tea.Model {
 
 export class AlterSearchIndexResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   success?: string;
   static names(): { [key: string]: string } {
@@ -462,7 +595,15 @@ export class AlterSearchIndexResponse extends $tea.Model {
 }
 
 export class BatchGetMediaInfosRequest extends $tea.Model {
+  /**
+   * @example
+   * FileInfo,DynamicMetaData
+   */
   additionType?: string;
+  /**
+   * @example
+   * ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******
+   */
   mediaIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -485,6 +626,10 @@ export class BatchGetMediaInfosRequest extends $tea.Model {
 
 export class BatchGetMediaInfosResponseBody extends $tea.Model {
   mediaInfos?: BatchGetMediaInfosResponseBodyMediaInfos[];
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -531,6 +676,13 @@ export class BatchGetMediaInfosResponse extends $tea.Model {
 }
 
 export class CancelDNAJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   jobId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -562,7 +714,15 @@ export class CancelDNAJobRequest extends $tea.Model {
 }
 
 export class CancelDNAJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -609,6 +769,10 @@ export class CancelDNAJobResponse extends $tea.Model {
 }
 
 export class CancelFavoritePublicMediaRequest extends $tea.Model {
+  /**
+   * @example
+   * icepublic-****7213c6050cbc66750b469701****,icepublic-****0b4697017213c6050cbc6675****
+   */
   mediaIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -629,6 +793,10 @@ export class CancelFavoritePublicMediaRequest extends $tea.Model {
 
 export class CancelFavoritePublicMediaResponseBody extends $tea.Model {
   ignoredList?: string[];
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -675,6 +843,24 @@ export class CancelFavoritePublicMediaResponse extends $tea.Model {
 }
 
 export class CreateAuditRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [
+   *       {
+   *             "MediaId": "93ab850b4f*****b54b6e91d24d81d4",
+   *             "Status": "Normal"
+   *       },
+   *       {
+   *             "MediaId": "f867fbfb58*****8bbab65c4480ae1d",
+   *             "Status": "Blocked",
+   *             "Reason": "xxxx",
+   *             "Comment": "xxxx"
+   *       }
+   * ]
+   */
   auditContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -694,6 +880,10 @@ export class CreateAuditRequest extends $tea.Model {
 }
 
 export class CreateAuditResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -739,11 +929,35 @@ export class CreateAuditResponse extends $tea.Model {
 
 export class CreateAvatarTrainingJobRequest extends $tea.Model {
   avatarDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   avatarName?: string;
+  /**
+   * @example
+   * 2DAvatar
+   */
   avatarType?: string;
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****
+   */
   portrait?: string;
+  /**
+   * @example
+   * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
+   */
   thumbnail?: string;
+  /**
+   * @example
+   * True
+   */
   transparent?: boolean;
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****
+   */
   video?: string;
   static names(): { [key: string]: string } {
     return {
@@ -776,7 +990,15 @@ export class CreateAvatarTrainingJobRequest extends $tea.Model {
 
 export class CreateAvatarTrainingJobResponseBody extends $tea.Model {
   data?: CreateAvatarTrainingJobResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -825,9 +1047,34 @@ export class CreateAvatarTrainingJobResponse extends $tea.Model {
 }
 
 export class CreateCustomTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-template
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   subtype?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
+   */
   templateConfig?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -854,6 +1101,10 @@ export class CreateCustomTemplateRequest extends $tea.Model {
 
 export class CreateCustomTemplateResponseBody extends $tea.Model {
   customTemplate?: CreateCustomTemplateResponseBodyCustomTemplate;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -900,9 +1151,30 @@ export class CreateCustomTemplateResponse extends $tea.Model {
 }
 
 export class CreateCustomizedVoiceJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * female
+   */
   gender?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * story
+   */
   scenario?: string;
   voiceDesc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -932,7 +1204,15 @@ export class CreateCustomizedVoiceJobRequest extends $tea.Model {
 
 export class CreateCustomizedVoiceJobResponseBody extends $tea.Model {
   data?: CreateCustomizedVoiceJobResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -982,7 +1262,18 @@ export class CreateCustomizedVoiceJobResponse extends $tea.Model {
 
 export class CreateDNADBRequest extends $tea.Model {
   description?: string;
+  /**
+   * @example
+   * Video
+   */
   model?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example name
+   */
   name?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1019,6 +1310,10 @@ export class CreateDNADBRequest extends $tea.Model {
 
 export class CreateDNADBResponseBody extends $tea.Model {
   DBInfo?: CreateDNADBResponseBodyDBInfo;
+  /**
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1065,15 +1360,50 @@ export class CreateDNADBResponse extends $tea.Model {
 }
 
 export class CreateEditingProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
+   */
   businessConfig?: string;
   clipsParam?: string;
+  /**
+   * @example
+   * https://example.com/example.png
+   */
   coverURL?: string;
+  /**
+   * @example
+   * 描述
+   */
   description?: string;
+  /**
+   * @example
+   * {"video":"*****2e057304fcd9b145c5cafc*****", "image":"****8021a8d493da643c8acd98*****,*****cb6307a4edea614d8b3f3c*****", "liveStream": "[{\\"appName\\":\\"testrecord\\",\\"domainName\\":\\"test.alivecdn.com\\",\\"liveUrl\\":\\"rtmp://test.alivecdn.com/testrecord/teststream\\",\\"streamName\\":\\"teststream\\"}]", "editingProject": "*****9b145c5cafc2e057304fcd*****"}
+   */
   materialMaps?: string;
+  /**
+   * @example
+   * LiveEditingProject
+   */
   projectType?: string;
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   templateType?: string;
+  /**
+   * @example
+   * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
+   */
   timeline?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * example
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1112,6 +1442,13 @@ export class CreateEditingProjectRequest extends $tea.Model {
 
 export class CreateEditingProjectResponseBody extends $tea.Model {
   project?: CreateEditingProjectResponseBodyProject;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1158,7 +1495,19 @@ export class CreateEditingProjectResponse extends $tea.Model {
 }
 
 export class CreateLiveRecordTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * 录制格式
+   * 
+   * This parameter is required.
+   */
   recordFormat?: CreateLiveRecordTemplateRequestRecordFormat[];
   static names(): { [key: string]: string } {
     return {
@@ -1180,7 +1529,19 @@ export class CreateLiveRecordTemplateRequest extends $tea.Model {
 }
 
 export class CreateLiveRecordTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * 录制格式
+   * 
+   * This parameter is required.
+   */
   recordFormatShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1202,7 +1563,18 @@ export class CreateLiveRecordTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateLiveRecordTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0622C702-41BE-467E-AF2E-883D4517962E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1249,9 +1621,28 @@ export class CreateLiveRecordTemplateResponse extends $tea.Model {
 }
 
 export class CreateLiveSnapshotTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * snapshot/{JobId}.jpg
+   */
   overwriteFormat?: string;
+  /**
+   * @example
+   * snapshot/{JobId}/{UnixTimestamp}.jpg
+   */
   sequenceFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   timeInterval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1277,7 +1668,15 @@ export class CreateLiveSnapshotTemplateRequest extends $tea.Model {
 }
 
 export class CreateLiveSnapshotTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1324,8 +1723,22 @@ export class CreateLiveSnapshotTemplateResponse extends $tea.Model {
 }
 
 export class CreateLiveTranscodeTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my template
+   */
   name?: string;
   templateConfig?: CreateLiveTranscodeTemplateRequestTemplateConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * normal
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1349,8 +1762,22 @@ export class CreateLiveTranscodeTemplateRequest extends $tea.Model {
 }
 
 export class CreateLiveTranscodeTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my template
+   */
   name?: string;
   templateConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * normal
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1374,7 +1801,15 @@ export class CreateLiveTranscodeTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateLiveTranscodeTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1421,8 +1856,26 @@ export class CreateLiveTranscodeTemplateResponse extends $tea.Model {
 }
 
 export class CreatePipelineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-pipeline
+   */
   name?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Standard
+   */
   speed?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1447,6 +1900,10 @@ export class CreatePipelineRequest extends $tea.Model {
 
 export class CreatePipelineResponseBody extends $tea.Model {
   pipeline?: CreatePipelineResponseBodyPipeline;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1493,9 +1950,24 @@ export class CreatePipelineResponse extends $tea.Model {
 }
 
 export class CreateSearchIndexRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   indexConfig?: string;
   indexStatus?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mm
+   */
   indexType?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1522,6 +1994,10 @@ export class CreateSearchIndexRequest extends $tea.Model {
 
 export class CreateSearchIndexResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @example
+   * *****ACB-44F2-5F2D-88D7-1283E70*****
+   */
   requestId?: string;
   success?: string;
   static names(): { [key: string]: string } {
@@ -1571,6 +2047,13 @@ export class CreateSearchIndexResponse extends $tea.Model {
 }
 
 export class CreateSearchLibRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1591,7 +2074,18 @@ export class CreateSearchLibRequest extends $tea.Model {
 
 export class CreateSearchLibResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
   success?: string;
   static names(): { [key: string]: string } {
@@ -1643,12 +2137,40 @@ export class CreateSearchLibResponse extends $tea.Model {
 }
 
 export class CreateUploadMediaRequest extends $tea.Model {
+  /**
+   * @example
+   * app-1000000
+   */
   appId?: string;
+  /**
+   * @example
+   * 9e177cac2fb44f8b8c67b199fcc7bffd
+   */
   entityId?: string;
+  /**
+   * @example
+   * {\\"Type\\":\\"video\\",\\"Name\\":\\"test.mp4\\",\\"Size\\":108078336,\\"Ext\\":\\"mp4\\"}
+   */
   fileInfo?: string;
+  /**
+   * @example
+   * {\\"Title\\": \\"UploadTest\\", \\"Description\\": \\"UploadImageTest\\", \\"Tags\\": \\"tag1,tag2\\",\\"BusinessType\\":\\"cover\\"}
+   */
   mediaMetaData?: string;
+  /**
+   * @example
+   * {\\"ProcessType\\":\\"Workflow\\",\\"ProcessID\\":\\"74ba870f1a4873a3ba238e0bf6fa9***\\"}
+   */
   postProcessConfig?: string;
+  /**
+   * @example
+   * {\\"StorageType\\":\\"oss\\",\\"StorageLocation\\":\\"outin-***.oss-cn-shanghai.aliyuncs.com\\"}
+   */
   uploadTargetConfig?: string;
+  /**
+   * @example
+   * {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"*****","test":"www"}}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1680,11 +2202,35 @@ export class CreateUploadMediaRequest extends $tea.Model {
 }
 
 export class CreateUploadMediaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * http://outin-***.oss-cn-north-2-gov-1.aliyuncs.com/sv/40360f05-181f63c3110-0004-cd8e-27f-de3c9.mp4
+   */
   fileURL?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * https://xxq-live-playback.oss-cn-shanghai.aliyuncs.com/capture/5d96d2b4-111b-4e5d-a0e5-20f44405bb55.mp4
+   */
   mediaURL?: string;
+  /**
+   * @example
+   * 4E84BE44-58A7-****-****-FBEBEA16EF94
+   */
   requestId?: string;
+  /**
+   * @example
+   * eyJFbmRwb2ludCI6Imh0dHBzOi8vb3NzLWNuLXNoYW5naGFpLmFsaXl1bmNzLmNvbSIsIkJ1Y2tldCI6InN6aGQtdmlkZW8iLCJGaWxlTmFtZSI6InZvZC0yOTYzMWEvc3YvNTBmYTJlODQtMTgxMjdhZGRiMTcvNTBmYTJlODQtMTgxMjdhZGRiM***
+   */
   uploadAddress?: string;
+  /**
+   * @example
+   * eyJBY2Nlc3NLZXlJZCI6IkxUQUk0Rm53bTk1dHdxQjMxR3IzSE5hRCIsIkFjY2Vzc0tleVNlY3JldCI6Ik9lWllKR0dTMTlkNkZaM1E3UVpJQmdmSVdnM3BPaiIsIkV4cGlyYXRpb24iOiI***
+   */
   uploadAuth?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1739,10 +2285,30 @@ export class CreateUploadMediaResponse extends $tea.Model {
 }
 
 export class CreateUploadStreamRequest extends $tea.Model {
+  /**
+   * @example
+   * HD
+   */
   definition?: string;
+  /**
+   * @example
+   * MP4
+   */
   fileExtension?: string;
+  /**
+   * @example
+   * HDR10
+   */
   HDRType?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * {"MessageCallback":{"CallbackURL":"http://aliyundoc.com"}, "Extend":{"localId":"xxx","test":"www"}}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1770,10 +2336,30 @@ export class CreateUploadStreamRequest extends $tea.Model {
 }
 
 export class CreateUploadStreamResponseBody extends $tea.Model {
+  /**
+   * @example
+   * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.mp4
+   */
   fileURL?: string;
+  /**
+   * @example
+   * ****c469e944b5a856828dc2****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * eyJFbmRwb2ludCI6Imh0dHBzOi8vb3NzLWNuLXNoYW5naGFpLmFsaXl1bmNzLmNvbSIsIkJ1Y2tldCI6InN6aGQtdmlkZW8iLCJGaWxlTmFtZSI6InZvZC0yOTYzMWEvc3YvNTBmYTJlODQtMTgxMjdhZGRiMTcvNTBmYTJlODQtMTgxMjdhZGRiM***
+   */
   uploadAddress?: string;
+  /**
+   * @example
+   * eyJBY2Nlc3NLZXlJZCI6IkxUQUk0Rm53bTk1dHdxQjMxR3IzSE5hRCIsIkFjY2Vzc0tleVNlY3JldCI6Ik9lWllKR0dTMTlkNkZaM1E3UVpJQmdmSVdnM3BPaiIsIkV4cGlyYXRpb24iOiI***
+   */
   uploadAuth?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1826,6 +2412,13 @@ export class CreateUploadStreamResponse extends $tea.Model {
 }
 
 export class DecryptKMSDataKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901qOjop4bTS****
+   */
   ciphertextBlob?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1846,6 +2439,10 @@ export class DecryptKMSDataKeyRequest extends $tea.Model {
 
 export class DecryptKMSDataKeyResponseBody extends $tea.Model {
   dataKey?: DecryptKMSDataKeyResponseBodyDataKey;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1892,6 +2489,13 @@ export class DecryptKMSDataKeyResponse extends $tea.Model {
 }
 
 export class DeleteAvatarTrainingJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1912,7 +2516,15 @@ export class DeleteAvatarTrainingJobRequest extends $tea.Model {
 
 export class DeleteAvatarTrainingJobResponseBody extends $tea.Model {
   data?: DeleteAvatarTrainingJobResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1961,6 +2573,13 @@ export class DeleteAvatarTrainingJobResponse extends $tea.Model {
 }
 
 export class DeleteCategoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 46
+   */
   cateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1980,6 +2599,10 @@ export class DeleteCategoryRequest extends $tea.Model {
 }
 
 export class DeleteCategoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2024,6 +2647,13 @@ export class DeleteCategoryResponse extends $tea.Model {
 }
 
 export class DeleteCustomTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2043,7 +2673,15 @@ export class DeleteCustomTemplateRequest extends $tea.Model {
 }
 
 export class DeleteCustomTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2090,6 +2728,13 @@ export class DeleteCustomTemplateResponse extends $tea.Model {
 }
 
 export class DeleteCustomizedVoiceJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2109,7 +2754,15 @@ export class DeleteCustomizedVoiceJobRequest extends $tea.Model {
 }
 
 export class DeleteCustomizedVoiceJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2156,6 +2809,13 @@ export class DeleteCustomizedVoiceJobResponse extends $tea.Model {
 }
 
 export class DeleteDNADBRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fb712a6890464059b1b2ea7c8647****
+   */
   DBId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -2187,6 +2847,10 @@ export class DeleteDNADBRequest extends $tea.Model {
 }
 
 export class DeleteDNADBResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2231,9 +2895,23 @@ export class DeleteDNADBResponse extends $tea.Model {
 }
 
 export class DeleteDNAFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fb712a6890464059b1b2ea7c8647****
+   */
   DBId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 41e6536e4f2250e2e9bf26cdea19****
+   */
   primaryKeys?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2265,6 +2943,10 @@ export class DeleteDNAFilesRequest extends $tea.Model {
 }
 
 export class DeleteDNAFilesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2309,8 +2991,29 @@ export class DeleteDNAFilesResponse extends $tea.Model {
 }
 
 export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * *****cbd721b418a89a7dafb1dc*****,*****86f5d534c95997c55c96f*****
+   */
   materialIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * video
+   */
   materialType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * *****fb2101cb318*****
+   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2334,6 +3037,10 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
 }
 
 export class DeleteEditingProjectMaterialsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******36-3C1E-4417-BDB2-1E034F******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2378,6 +3085,10 @@ export class DeleteEditingProjectMaterialsResponse extends $tea.Model {
 }
 
 export class DeleteEditingProjectsRequest extends $tea.Model {
+  /**
+   * @example
+   * ****fb2101bf24bf41cb318787dc****,****87dcfb2101bf24bf41cb3187****
+   */
   projectIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2397,6 +3108,10 @@ export class DeleteEditingProjectsRequest extends $tea.Model {
 }
 
 export class DeleteEditingProjectsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****25818875-5F78-4AF6-D7393642CA58****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2441,7 +3156,15 @@ export class DeleteEditingProjectsResponse extends $tea.Model {
 }
 
 export class DeleteLiveRecordFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   recordIds?: string[];
+  /**
+   * @example
+   * true
+   */
   removeFile?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2464,7 +3187,18 @@ export class DeleteLiveRecordFilesRequest extends $tea.Model {
 
 export class DeleteLiveRecordFilesResponseBody extends $tea.Model {
   deleteFileInfoList?: DeleteLiveRecordFilesResponseBodyDeleteFileInfoList[];
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 13cbb83e-043c-4728-ac35-*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2513,6 +3247,15 @@ export class DeleteLiveRecordFilesResponse extends $tea.Model {
 }
 
 export class DeleteLiveRecordTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2532,6 +3275,10 @@ export class DeleteLiveRecordTemplateRequest extends $tea.Model {
 }
 
 export class DeleteLiveRecordTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3E5330CF-B4C8-5BEF-AA6B-8E70BD20FAEE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2576,8 +3323,23 @@ export class DeleteLiveRecordTemplateResponse extends $tea.Model {
 }
 
 export class DeleteLiveSnapshotFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   createTimestampList?: number[];
+  /**
+   * @example
+   * true
+   */
   deleteOriginalFile?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2601,8 +3363,23 @@ export class DeleteLiveSnapshotFilesRequest extends $tea.Model {
 }
 
 export class DeleteLiveSnapshotFilesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   createTimestampListShrink?: string;
+  /**
+   * @example
+   * true
+   */
   deleteOriginalFile?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2627,6 +3404,10 @@ export class DeleteLiveSnapshotFilesShrinkRequest extends $tea.Model {
 
 export class DeleteLiveSnapshotFilesResponseBody extends $tea.Model {
   deleteFileResultList?: DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList[];
+  /**
+   * @example
+   * ****2876-6263-4B75-8F2C-CD0F7FCF****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2673,6 +3454,13 @@ export class DeleteLiveSnapshotFilesResponse extends $tea.Model {
 }
 
 export class DeleteLiveSnapshotTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2692,6 +3480,10 @@ export class DeleteLiveSnapshotTemplateRequest extends $tea.Model {
 }
 
 export class DeleteLiveSnapshotTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2736,6 +3528,13 @@ export class DeleteLiveSnapshotTemplateResponse extends $tea.Model {
 }
 
 export class DeleteLiveTranscodeJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2755,6 +3554,10 @@ export class DeleteLiveTranscodeJobRequest extends $tea.Model {
 }
 
 export class DeleteLiveTranscodeJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2799,6 +3602,13 @@ export class DeleteLiveTranscodeJobResponse extends $tea.Model {
 }
 
 export class DeleteLiveTranscodeTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2818,6 +3628,10 @@ export class DeleteLiveTranscodeTemplateRequest extends $tea.Model {
 }
 
 export class DeleteLiveTranscodeTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2862,8 +3676,23 @@ export class DeleteLiveTranscodeTemplateResponse extends $tea.Model {
 }
 
 export class DeleteMediaFromSearchLibRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * {}
+   */
   msgBody?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2888,7 +3717,15 @@ export class DeleteMediaFromSearchLibRequest extends $tea.Model {
 
 export class DeleteMediaFromSearchLibResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @example
+   * ******b48fb04483915d4f2cd8******
+   */
   mediaId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   success?: string;
   static names(): { [key: string]: string } {
@@ -2940,8 +3777,16 @@ export class DeleteMediaFromSearchLibResponse extends $tea.Model {
 }
 
 export class DeleteMediaInfosRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   deletePhysicalFiles?: boolean;
   inputURLs?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****,****15d4a4b0448391508f2cb486****
+   */
   mediaIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2967,6 +3812,10 @@ export class DeleteMediaInfosRequest extends $tea.Model {
 export class DeleteMediaInfosResponseBody extends $tea.Model {
   forbiddenList?: string[];
   ignoredList?: string[];
+  /**
+   * @example
+   * 0622C702-41BE-467E-AF2E-883D4517962E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3015,7 +3864,15 @@ export class DeleteMediaInfosResponse extends $tea.Model {
 }
 
 export class DeleteMediaMarksRequest extends $tea.Model {
+  /**
+   * @example
+   * ****c469e944b5a856828dc2****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
+   */
   mediaMarkIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3037,8 +3894,20 @@ export class DeleteMediaMarksRequest extends $tea.Model {
 }
 
 export class DeleteMediaMarksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****019b82e24b37a1c2958dec38****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
+   */
   mediaMarkIds?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3087,6 +3956,13 @@ export class DeleteMediaMarksResponse extends $tea.Model {
 }
 
 export class DeletePipelineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   pipelineId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3106,7 +3982,15 @@ export class DeletePipelineRequest extends $tea.Model {
 }
 
 export class DeletePipelineResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3153,8 +4037,20 @@ export class DeletePipelineResponse extends $tea.Model {
 }
 
 export class DeletePlayInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   deletePhysicalFiles?: boolean;
+  /**
+   * @example
+   * https://ice-test001.oss-cn-shanghai.aliyuncs.com/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/%E5%B0%8F%E7%8C%AA%E4%BD%A9%E5%A5%87640*360.mp4
+   */
   fileURLs?: string;
+  /**
+   * @example
+   * 1d3518e0027d71ed80cd909598416303
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3180,6 +4076,10 @@ export class DeletePlayInfoRequest extends $tea.Model {
 export class DeletePlayInfoResponseBody extends $tea.Model {
   forbiddenList?: string[];
   ignoredList?: string[];
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3228,6 +4128,10 @@ export class DeletePlayInfoResponse extends $tea.Model {
 }
 
 export class DeleteSmartJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ******b48fb04483915d4f2cd8******,******042d5e4db6866f6289d1******
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3247,6 +4151,13 @@ export class DeleteSmartJobRequest extends $tea.Model {
 }
 
 export class DeleteSmartJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * RequestId
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3291,6 +4202,10 @@ export class DeleteSmartJobResponse extends $tea.Model {
 }
 
 export class DeleteTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****,****20b48fb04483915d4f2cd8ac****
+   */
   templateIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3310,6 +4225,10 @@ export class DeleteTemplateRequest extends $tea.Model {
 }
 
 export class DeleteTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3354,9 +4273,34 @@ export class DeleteTemplateResponse extends $tea.Model {
 }
 
 export class DescribeMeterImsEditUsageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1656995036
+   */
   endTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 86400
+   */
   interval?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1654403036
+   */
   startTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3383,6 +4327,10 @@ export class DescribeMeterImsEditUsageRequest extends $tea.Model {
 
 export class DescribeMeterImsEditUsageResponseBody extends $tea.Model {
   data?: DescribeMeterImsEditUsageResponseBodyData[];
+  /**
+   * @example
+   * 7F3AE2C6-5CC6-5712-BAC5-5A735A157687
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3429,9 +4377,34 @@ export class DescribeMeterImsEditUsageResponse extends $tea.Model {
 }
 
 export class DescribeMeterImsMediaConvertUHDUsageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1656995036
+   */
   endTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3600
+   */
   interval?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1654403036
+   */
   startTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3458,6 +4431,10 @@ export class DescribeMeterImsMediaConvertUHDUsageRequest extends $tea.Model {
 
 export class DescribeMeterImsMediaConvertUHDUsageResponseBody extends $tea.Model {
   data?: DescribeMeterImsMediaConvertUHDUsageResponseBodyData[];
+  /**
+   * @example
+   * BEA98A0C-7870-15FE-B96F-8880BB600A2C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3504,9 +4481,34 @@ export class DescribeMeterImsMediaConvertUHDUsageResponse extends $tea.Model {
 }
 
 export class DescribeMeterImsMediaConvertUsageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1656995036
+   */
   endTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 86400
+   */
   interval?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1654403036
+   */
   startTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3533,6 +4535,10 @@ export class DescribeMeterImsMediaConvertUsageRequest extends $tea.Model {
 
 export class DescribeMeterImsMediaConvertUsageResponseBody extends $tea.Model {
   data?: DescribeMeterImsMediaConvertUsageResponseBodyData[];
+  /**
+   * @example
+   * FBBB5210-2B78-58FB-A6FE-9DD887BB2C61
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3579,9 +4585,34 @@ export class DescribeMeterImsMediaConvertUsageResponse extends $tea.Model {
 }
 
 export class DescribeMeterImsMpsAiUsageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1656995036
+   */
   endTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 86400
+   */
   interval?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1654403036
+   */
   startTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3608,6 +4639,10 @@ export class DescribeMeterImsMpsAiUsageRequest extends $tea.Model {
 
 export class DescribeMeterImsMpsAiUsageResponseBody extends $tea.Model {
   data?: DescribeMeterImsMpsAiUsageResponseBodyData[];
+  /**
+   * @example
+   * 0622C702-41BE-467E-AF2E-883D4517962E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3654,8 +4689,26 @@ export class DescribeMeterImsMpsAiUsageResponse extends $tea.Model {
 }
 
 export class DescribeMeterImsSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1656995036
+   */
   endTs?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1654403036
+   */
   startTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3680,6 +4733,10 @@ export class DescribeMeterImsSummaryRequest extends $tea.Model {
 
 export class DescribeMeterImsSummaryResponseBody extends $tea.Model {
   data?: DescribeMeterImsSummaryResponseBodyData[];
+  /**
+   * @example
+   * BEA98A0C-7870-15FE-B96F-8880BB600A2C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3726,14 +4783,62 @@ export class DescribeMeterImsSummaryResponse extends $tea.Model {
 }
 
 export class DescribePlayListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1676170500011
+   */
   beginTs?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1682474405173
+   */
   endTs?: string;
+  /**
+   * @example
+   * FirstFrameDuration
+   */
   orderName?: string;
+  /**
+   * @example
+   * DESC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * vod
+   */
   playType?: string;
+  /**
+   * @example
+   * complete
+   */
   status?: string;
+  /**
+   * @example
+   * 0bc5e70516766285805381012d271e
+   */
   traceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3769,10 +4874,29 @@ export class DescribePlayListRequest extends $tea.Model {
 }
 
 export class DescribePlayListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   playList?: DescribePlayListResponseBodyPlayList[];
+  /**
+   * @remarks
+   * Id
+   * 
+   * @example
+   * B960580D-26FA-5547-8AFC-3CDC812DBF27
+   */
   requestId?: string;
+  /**
+   * @example
+   * 49
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3825,8 +4949,29 @@ export class DescribePlayListResponse extends $tea.Model {
 }
 
 export class DetectAudioForCustomizedVoiceJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   audioRecordId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/record1.wav
+   */
   recordUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3851,7 +4996,15 @@ export class DetectAudioForCustomizedVoiceJobRequest extends $tea.Model {
 
 export class DetectAudioForCustomizedVoiceJobResponseBody extends $tea.Model {
   data?: DetectAudioForCustomizedVoiceJobResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3900,7 +5053,18 @@ export class DetectAudioForCustomizedVoiceJobResponse extends $tea.Model {
 }
 
 export class DropSearchIndexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mm
+   */
   indexType?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3923,6 +5087,10 @@ export class DropSearchIndexRequest extends $tea.Model {
 
 export class DropSearchIndexResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   success?: string;
   static names(): { [key: string]: string } {
@@ -3972,6 +5140,13 @@ export class DropSearchIndexResponse extends $tea.Model {
 }
 
 export class DropSearchLibRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3992,6 +5167,13 @@ export class DropSearchLibRequest extends $tea.Model {
 
 export class DropSearchLibResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
   requestId?: string;
   success?: string;
   static names(): { [key: string]: string } {
@@ -4042,6 +5224,10 @@ export class DropSearchLibResponse extends $tea.Model {
 
 export class GenerateKMSDataKeyResponseBody extends $tea.Model {
   dataKey?: GenerateKMSDataKeyResponseBodyDataKey;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4088,6 +5274,13 @@ export class GenerateKMSDataKeyResponse extends $tea.Model {
 }
 
 export class GetAvatarRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Avatar-XXXX
+   */
   avatarId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4108,7 +5301,15 @@ export class GetAvatarRequest extends $tea.Model {
 
 export class GetAvatarResponseBody extends $tea.Model {
   data?: GetAvatarResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4157,6 +5358,13 @@ export class GetAvatarResponse extends $tea.Model {
 }
 
 export class GetAvatarTrainingJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4177,7 +5385,15 @@ export class GetAvatarTrainingJobRequest extends $tea.Model {
 
 export class GetAvatarTrainingJobResponseBody extends $tea.Model {
   data?: GetAvatarTrainingJobResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4226,31 +5442,20 @@ export class GetAvatarTrainingJobResponse extends $tea.Model {
 }
 
 export class GetBatchMediaProducingJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ****b4549d46c88681030f6e****
+   */
   jobId?: string;
-  signature?: string;
-  signatureMehtod?: string;
-  signatureNonce?: string;
-  signatureType?: string;
-  signatureVersion?: string;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
-      signature: 'Signature',
-      signatureMehtod: 'SignatureMehtod',
-      signatureNonce: 'SignatureNonce',
-      signatureType: 'SignatureType',
-      signatureVersion: 'SignatureVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       jobId: 'string',
-      signature: 'string',
-      signatureMehtod: 'string',
-      signatureNonce: 'string',
-      signatureType: 'string',
-      signatureVersion: 'string',
     };
   }
 
@@ -4261,6 +5466,10 @@ export class GetBatchMediaProducingJobRequest extends $tea.Model {
 
 export class GetBatchMediaProducingJobResponseBody extends $tea.Model {
   editingBatchJob?: GetBatchMediaProducingJobResponseBodyEditingBatchJob;
+  /**
+   * @example
+   * ****36-3C1E-4417-BDB2-1E034F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4307,10 +5516,30 @@ export class GetBatchMediaProducingJobResponse extends $tea.Model {
 }
 
 export class GetCategoriesRequest extends $tea.Model {
+  /**
+   * @example
+   * 33
+   */
   cateId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * CreationTime:Desc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * default
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4339,8 +5568,16 @@ export class GetCategoriesRequest extends $tea.Model {
 
 export class GetCategoriesResponseBody extends $tea.Model {
   category?: GetCategoriesResponseBodyCategory;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   subCategories?: GetCategoriesResponseBodySubCategories;
+  /**
+   * @example
+   * 100
+   */
   subTotal?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4392,6 +5629,10 @@ export class GetCategoriesResponse extends $tea.Model {
 
 export class GetContentAnalyzeConfigResponseBody extends $tea.Model {
   contentAnalyzeConfig?: GetContentAnalyzeConfigResponseBodyContentAnalyzeConfig;
+  /**
+   * @example
+   * 31FEC819-2344-5771-9366-9172DB0D26C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4438,8 +5679,20 @@ export class GetContentAnalyzeConfigResponse extends $tea.Model {
 }
 
 export class GetCustomTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   subtype?: number;
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4464,6 +5717,10 @@ export class GetCustomTemplateRequest extends $tea.Model {
 
 export class GetCustomTemplateResponseBody extends $tea.Model {
   customTemplate?: GetCustomTemplateResponseBodyCustomTemplate;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4510,6 +5767,10 @@ export class GetCustomTemplateResponse extends $tea.Model {
 }
 
 export class GetCustomizedVoiceRequest extends $tea.Model {
+  /**
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4530,7 +5791,15 @@ export class GetCustomizedVoiceRequest extends $tea.Model {
 
 export class GetCustomizedVoiceResponseBody extends $tea.Model {
   data?: GetCustomizedVoiceResponseBodyData;
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4579,6 +5848,13 @@ export class GetCustomizedVoiceResponse extends $tea.Model {
 }
 
 export class GetCustomizedVoiceJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4599,7 +5875,15 @@ export class GetCustomizedVoiceJobRequest extends $tea.Model {
 
 export class GetCustomizedVoiceJobResponseBody extends $tea.Model {
   data?: GetCustomizedVoiceJobResponseBodyData;
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4648,10 +5932,30 @@ export class GetCustomizedVoiceJobResponse extends $tea.Model {
 }
 
 export class GetDefaultStorageLocationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * oss-test-bucket
+   */
   bucket?: string;
+  /**
+   * @example
+   * ice/dir
+   */
   path?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * normal
+   */
   status?: string;
+  /**
+   * @example
+   * user_oss_bucket
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4704,6 +6008,13 @@ export class GetDefaultStorageLocationResponse extends $tea.Model {
 }
 
 export class GetDemonstrationForCustomizedVoiceJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * story
+   */
   scenario?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4724,7 +6035,15 @@ export class GetDemonstrationForCustomizedVoiceJobRequest extends $tea.Model {
 
 export class GetDemonstrationForCustomizedVoiceJobResponseBody extends $tea.Model {
   data?: GetDemonstrationForCustomizedVoiceJobResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4773,6 +6092,10 @@ export class GetDemonstrationForCustomizedVoiceJobResponse extends $tea.Model {
 }
 
 export class GetDynamicImageJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4793,6 +6116,10 @@ export class GetDynamicImageJobRequest extends $tea.Model {
 
 export class GetDynamicImageJobResponseBody extends $tea.Model {
   dynamicImageJob?: GetDynamicImageJobResponseBodyDynamicImageJob;
+  /**
+   * @example
+   * ******36-3C1E-4417-BDB2-1E034F******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4839,6 +6166,13 @@ export class GetDynamicImageJobResponse extends $tea.Model {
 }
 
 export class GetEditingProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****fb2101bf24b2754cb318787dc****
+   */
   projectId?: string;
   requestSource?: string;
   static names(): { [key: string]: string } {
@@ -4862,6 +6196,10 @@ export class GetEditingProjectRequest extends $tea.Model {
 
 export class GetEditingProjectResponseBody extends $tea.Model {
   project?: GetEditingProjectResponseBodyProject;
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4908,6 +6246,13 @@ export class GetEditingProjectResponse extends $tea.Model {
 }
 
 export class GetEditingProjectMaterialsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * *****fb2101cb318*****
+   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4929,8 +6274,20 @@ export class GetEditingProjectMaterialsRequest extends $tea.Model {
 export class GetEditingProjectMaterialsResponseBody extends $tea.Model {
   liveMaterials?: GetEditingProjectMaterialsResponseBodyLiveMaterials[];
   mediaInfos?: GetEditingProjectMaterialsResponseBodyMediaInfos[];
+  /**
+   * @example
+   * *****67ae06542b9b93e0d1c387*****
+   */
   projectId?: string;
+  /**
+   * @example
+   * *****9b145c5cafc2e057304fcd*****
+   */
   projectMaterials?: string[];
+  /**
+   * @example
+   * ******89-C21D-4B78-AE24-3788B8******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4983,12 +6340,40 @@ export class GetEditingProjectMaterialsResponse extends $tea.Model {
 }
 
 export class GetEventCallbackResponseBody extends $tea.Model {
+  /**
+   * @example
+   * TestKey001
+   */
   authKey?: string;
+  /**
+   * @example
+   * on
+   */
   authSwitch?: string;
+  /**
+   * @example
+   * ice-callback-queue
+   */
   callbackQueueName?: string;
+  /**
+   * @example
+   * HTTP
+   */
   callbackType?: string;
+  /**
+   * @example
+   * http://xxx.yyy/callback
+   */
   callbackURL?: string;
+  /**
+   * @example
+   * ProduceMediaComplete,TranscodeComplete
+   */
   eventTypeList?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5045,9 +6430,25 @@ export class GetEventCallbackResponse extends $tea.Model {
 }
 
 export class GetLiveEditingIndexFileRequest extends $tea.Model {
+  /**
+   * @example
+   * testrecord
+   */
   appName?: string;
+  /**
+   * @example
+   * test.alivecdn.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * *****cb6307a4edea614d8b3f3c*****
+   */
   projectId?: string;
+  /**
+   * @example
+   * teststream
+   */
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5074,6 +6475,10 @@ export class GetLiveEditingIndexFileRequest extends $tea.Model {
 
 export class GetLiveEditingIndexFileResponseBody extends $tea.Model {
   indexFile?: string;
+  /**
+   * @example
+   * 4E84BE44-58A7-****-****-FBEBEA16EF94
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5120,6 +6525,10 @@ export class GetLiveEditingIndexFileResponse extends $tea.Model {
 }
 
 export class GetLiveEditingJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5140,6 +6549,10 @@ export class GetLiveEditingJobRequest extends $tea.Model {
 
 export class GetLiveEditingJobResponseBody extends $tea.Model {
   liveEditingJob?: GetLiveEditingJobResponseBodyLiveEditingJob;
+  /**
+   * @example
+   * ****36-3C1E-4417-BDB2-1E034F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5186,6 +6599,13 @@ export class GetLiveEditingJobResponse extends $tea.Model {
 }
 
 export class GetLiveRecordJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5205,7 +6625,15 @@ export class GetLiveRecordJobRequest extends $tea.Model {
 }
 
 export class GetLiveRecordJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 录制任务
+   */
   recordJob?: GetLiveRecordJobResponseBodyRecordJob;
+  /**
+   * @example
+   * B57A046C-CE33-5FBB-B57A-D2B89ACF6907
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5252,7 +6680,18 @@ export class GetLiveRecordJobResponse extends $tea.Model {
 }
 
 export class GetLiveRecordTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5274,7 +6713,15 @@ export class GetLiveRecordTemplateRequest extends $tea.Model {
 }
 
 export class GetLiveRecordTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 录制模板
+   */
   recordTemplate?: GetLiveRecordTemplateResponseBodyRecordTemplate;
+  /**
+   * @example
+   * C892855F-95DF-50D6-A28C-279ABDB76810
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5321,6 +6768,13 @@ export class GetLiveRecordTemplateResponse extends $tea.Model {
 }
 
 export class GetLiveSnapshotJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5340,19 +6794,59 @@ export class GetLiveSnapshotJobRequest extends $tea.Model {
 }
 
 export class GetLiveSnapshotJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * http://www.aliyun.com/snapshot/callback
+   */
   callbackUrl?: string;
+  /**
+   * @example
+   * 2022-02-02T22:22:22Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   jobId?: string;
   jobName?: string;
+  /**
+   * @example
+   * 2022-02-02T22:22:22Z
+   */
   lastModified?: string;
+  /**
+   * @example
+   * snapshot/{JobId}.jpg
+   */
   overwriteFormat?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * snapshot/{JobId}/{UnixTimestamp}.jpg
+   */
   sequenceFormat?: string;
   snapshotOutput?: GetLiveSnapshotJobResponseBodySnapshotOutput;
+  /**
+   * @example
+   * started
+   */
   status?: string;
   streamInput?: GetLiveSnapshotJobResponseBodyStreamInput;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287666****
+   */
   templateId?: string;
   templateName?: string;
+  /**
+   * @example
+   * 5
+   */
   timeInterval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5423,6 +6917,13 @@ export class GetLiveSnapshotJobResponse extends $tea.Model {
 }
 
 export class GetLiveSnapshotTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5442,14 +6943,46 @@ export class GetLiveSnapshotTemplateRequest extends $tea.Model {
 }
 
 export class GetLiveSnapshotTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2022-02-02T22:22:22Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-02-02T22:22:22Z
+   */
   lastModified?: string;
+  /**
+   * @example
+   * snapshot/{JobId}.jpg
+   */
   overwriteFormat?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * snapshot/{JobId}/{UnixTimestamp}.jpg
+   */
   sequenceFormat?: string;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   templateId?: string;
   templateName?: string;
+  /**
+   * @example
+   * 5
+   */
   timeInterval?: number;
+  /**
+   * @example
+   * custom
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5510,6 +7043,13 @@ export class GetLiveSnapshotTemplateResponse extends $tea.Model {
 }
 
 export class GetLiveTranscodeJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5530,6 +7070,10 @@ export class GetLiveTranscodeJobRequest extends $tea.Model {
 
 export class GetLiveTranscodeJobResponseBody extends $tea.Model {
   job?: GetLiveTranscodeJobResponseBodyJob;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5576,6 +7120,13 @@ export class GetLiveTranscodeJobResponse extends $tea.Model {
 }
 
 export class GetLiveTranscodeTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287666****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5595,6 +7146,10 @@ export class GetLiveTranscodeTemplateRequest extends $tea.Model {
 }
 
 export class GetLiveTranscodeTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   templateContent?: GetLiveTranscodeTemplateResponseBodyTemplateContent;
   static names(): { [key: string]: string } {
@@ -5642,8 +7197,20 @@ export class GetLiveTranscodeTemplateResponse extends $tea.Model {
 }
 
 export class GetMediaInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+   */
   inputURL?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * cdn
+   */
   outputType?: string;
   returnDetailedInfo?: string;
   static names(): { [key: string]: string } {
@@ -5671,6 +7238,10 @@ export class GetMediaInfoRequest extends $tea.Model {
 
 export class GetMediaInfoResponseBody extends $tea.Model {
   mediaInfo?: GetMediaInfoResponseBodyMediaInfo;
+  /**
+   * @example
+   * 2FDE2411-DB8D-4A9A-875B-275798F14A5E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5717,6 +7288,10 @@ export class GetMediaInfoResponse extends $tea.Model {
 }
 
 export class GetMediaInfoJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5736,7 +7311,15 @@ export class GetMediaInfoJobRequest extends $tea.Model {
 }
 
 export class GetMediaInfoJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * MediaInfoJobDTO
+   */
   mediaInfoJob?: GetMediaInfoJobResponseBodyMediaInfoJob;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5783,7 +7366,15 @@ export class GetMediaInfoJobResponse extends $tea.Model {
 }
 
 export class GetMediaMarksRequest extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
+   */
   mediaMarkIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5805,8 +7396,16 @@ export class GetMediaMarksRequest extends $tea.Model {
 }
 
 export class GetMediaMarksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
   mediaMarks?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5855,6 +7454,10 @@ export class GetMediaMarksResponse extends $tea.Model {
 }
 
 export class GetMediaProducingJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5875,6 +7478,10 @@ export class GetMediaProducingJobRequest extends $tea.Model {
 
 export class GetMediaProducingJobResponseBody extends $tea.Model {
   mediaProducingJob?: GetMediaProducingJobResponseBodyMediaProducingJob;
+  /**
+   * @example
+   * ****83B7-7F87-4792-BFE9-63CD2137****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5921,6 +7528,13 @@ export class GetMediaProducingJobResponse extends $tea.Model {
 }
 
 export class GetPackageJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5941,6 +7555,10 @@ export class GetPackageJobRequest extends $tea.Model {
 
 export class GetPackageJobResponseBody extends $tea.Model {
   packageJob?: GetPackageJobResponseBodyPackageJob;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5987,6 +7605,13 @@ export class GetPackageJobResponse extends $tea.Model {
 }
 
 export class GetPipelineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   pipelineId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6007,6 +7632,10 @@ export class GetPipelineRequest extends $tea.Model {
 
 export class GetPipelineResponseBody extends $tea.Model {
   pipeline?: GetPipelineResponseBodyPipeline;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6054,6 +7683,10 @@ export class GetPipelineResponse extends $tea.Model {
 
 export class GetPlayInfoRequest extends $tea.Model {
   inputURL?: string;
+  /**
+   * @example
+   * 86434e152b7d4f20be480574439fe***
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6077,6 +7710,10 @@ export class GetPlayInfoRequest extends $tea.Model {
 export class GetPlayInfoResponseBody extends $tea.Model {
   mediaBase?: GetPlayInfoResponseBodyMediaBase;
   playInfoList?: GetPlayInfoResponseBodyPlayInfoList[];
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6125,6 +7762,10 @@ export class GetPlayInfoResponse extends $tea.Model {
 }
 
 export class GetPublicMediaInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * icepublic-****14e501538aeef0a3140176f6****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6145,6 +7786,13 @@ export class GetPublicMediaInfoRequest extends $tea.Model {
 
 export class GetPublicMediaInfoResponseBody extends $tea.Model {
   mediaInfo?: GetPublicMediaInfoResponseBodyMediaInfo;
+  /**
+   * @remarks
+   * RequestId
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6191,6 +7839,10 @@ export class GetPublicMediaInfoResponse extends $tea.Model {
 }
 
 export class GetSmartHandleJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6210,12 +7862,32 @@ export class GetSmartHandleJobRequest extends $tea.Model {
 }
 
 export class GetSmartHandleJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   jobResult?: GetSmartHandleJobResponseBodyJobResult;
+  /**
+   * @example
+   * {}
+   */
   output?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   smartJobInfo?: GetSmartHandleJobResponseBodySmartJobInfo;
+  /**
+   * @example
+   * Finished
+   */
   state?: string;
+  /**
+   * @example
+   * {"user":"data"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6272,6 +7944,13 @@ export class GetSmartHandleJobResponse extends $tea.Model {
 }
 
 export class GetSnapshotJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6291,6 +7970,10 @@ export class GetSnapshotJobRequest extends $tea.Model {
 }
 
 export class GetSnapshotJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   snapshotJob?: GetSnapshotJobResponseBodySnapshotJob;
   static names(): { [key: string]: string } {
@@ -6338,10 +8021,30 @@ export class GetSnapshotJobResponse extends $tea.Model {
 }
 
 export class GetSnapshotUrlsRequest extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * Asc
+   */
   orderBy?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 3600
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6369,9 +8072,21 @@ export class GetSnapshotUrlsRequest extends $tea.Model {
 }
 
 export class GetSnapshotUrlsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   snapshotUrls?: string[];
+  /**
+   * @example
+   * 30
+   */
   total?: number;
+  /**
+   * @example
+   * http://test-bucket.oss-cn-shanghai.aliyuncs.com/ouoput.vtt
+   */
   webVTTUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6422,8 +8137,20 @@ export class GetSnapshotUrlsResponse extends $tea.Model {
 }
 
 export class GetStorageListRequest extends $tea.Model {
+  /**
+   * @example
+   * app-****
+   */
   appId?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * vod_oss_bucket
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6447,6 +8174,13 @@ export class GetStorageListRequest extends $tea.Model {
 }
 
 export class GetStorageListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******73-8B78-5D86-A50C-49B96C******
+   */
   requestId?: string;
   storageInfoList?: GetStorageListResponseBodyStorageInfoList[];
   static names(): { [key: string]: string } {
@@ -6494,6 +8228,13 @@ export class GetStorageListResponse extends $tea.Model {
 }
 
 export class GetSystemTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * S00000001-100060
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6513,6 +8254,10 @@ export class GetSystemTemplateRequest extends $tea.Model {
 }
 
 export class GetSystemTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   systemTemplate?: GetSystemTemplateResponseBodySystemTemplate;
   static names(): { [key: string]: string } {
@@ -6560,7 +8305,15 @@ export class GetSystemTemplateResponse extends $tea.Model {
 }
 
 export class GetTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   relatedMediaidFlag?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6582,6 +8335,10 @@ export class GetTemplateRequest extends $tea.Model {
 }
 
 export class GetTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   template?: GetTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {
@@ -6629,7 +8386,18 @@ export class GetTemplateResponse extends $tea.Model {
 }
 
 export class GetTemplateMaterialsRequest extends $tea.Model {
+  /**
+   * @example
+   * ["music.mp3","config.json","assets/1.jpg"]
+   */
   fileList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6651,7 +8419,18 @@ export class GetTemplateMaterialsRequest extends $tea.Model {
 }
 
 export class GetTemplateMaterialsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {"music.mp3":"https://bucket.oss-cn-shanghai.aliyuncs.com/music.mp3?sign=xxx","config.json":"https://bucket.oss-cn-shanghai.aliyuncs.com/config.json?sign=xxx","assets/1.jpg":"https://bucket.oss-cn-shanghai.aliyuncs.com/assets/1.jpg?sign=xxx"}
+   */
   materialUrls?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6698,6 +8477,10 @@ export class GetTemplateMaterialsResponse extends $tea.Model {
 }
 
 export class GetTemplateParamsRequest extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6718,7 +8501,18 @@ export class GetTemplateParamsRequest extends $tea.Model {
 
 export class GetTemplateParamsResponseBody extends $tea.Model {
   paramList?: GetTemplateParamsResponseBodyParamList[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ****2876-6263-4B75-8F2C-CD0F7FCF****
+   */
   requestId?: string;
+  /**
+   * @example
+   * ******419c8741c1b4325f035b******
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6767,6 +8561,10 @@ export class GetTemplateParamsResponse extends $tea.Model {
 }
 
 export class GetTranscodeJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   parentJobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6786,7 +8584,15 @@ export class GetTranscodeJobRequest extends $tea.Model {
 }
 
 export class GetTranscodeJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9EDC30DC-0050-5459-B788-F761B2BE359B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * TranscodeParentJobWithSubJobDTO
+   */
   transcodeParentJob?: GetTranscodeJobResponseBodyTranscodeParentJob;
   static names(): { [key: string]: string } {
     return {
@@ -6833,7 +8639,15 @@ export class GetTranscodeJobResponse extends $tea.Model {
 }
 
 export class GetUrlUploadInfosRequest extends $tea.Model {
+  /**
+   * @example
+   * df2ac80b481346daa1db6a7c40edc7f8
+   */
   jobIds?: string;
+  /**
+   * @example
+   * https://media.w3.org/2010/05/sintel/trailer.mp4
+   */
   uploadURLs?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6856,6 +8670,10 @@ export class GetUrlUploadInfosRequest extends $tea.Model {
 
 export class GetUrlUploadInfosResponseBody extends $tea.Model {
   nonExists?: string[];
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   URLUploadInfoList?: GetUrlUploadInfosResponseBodyURLUploadInfoList[];
   static names(): { [key: string]: string } {
@@ -6905,12 +8723,40 @@ export class GetUrlUploadInfosResponse extends $tea.Model {
 }
 
 export class GetVideoListRequest extends $tea.Model {
+  /**
+   * @example
+   * 781111
+   */
   cateId?: number;
+  /**
+   * @example
+   * 2017-01-11T12:59:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * CreationTime:Asc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Uploading,Normal
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6942,10 +8788,29 @@ export class GetVideoListRequest extends $tea.Model {
 }
 
 export class GetVideoListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   mediaList?: GetVideoListResponseBodyMediaList[];
+  /**
+   * @remarks
+   * Id of the request。
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 163
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6998,6 +8863,10 @@ export class GetVideoListResponse extends $tea.Model {
 }
 
 export class GetWorkflowTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * ******4215e042b3966ca5441e******
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7017,6 +8886,13 @@ export class GetWorkflowTaskRequest extends $tea.Model {
 }
 
 export class GetWorkflowTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******0C-7870-15FE-B96F-8880BB******
+   */
   requestId?: string;
   workflowTask?: GetWorkflowTaskResponseBodyWorkflowTask;
   static names(): { [key: string]: string } {
@@ -7064,10 +8940,33 @@ export class GetWorkflowTaskResponse extends $tea.Model {
 }
 
 export class InsertMediaToSearchLibRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://example-test-****.mp4
+   */
   input?: string;
+  /**
+   * @example
+   * 411bed50018971edb60b0764a0ec6***
+   */
   mediaId?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * {}
+   */
   msgBody?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7096,7 +8995,18 @@ export class InsertMediaToSearchLibRequest extends $tea.Model {
 
 export class InsertMediaToSearchLibResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * *****ACB-44F2-5F2D-88D7-1283E70*****
+   */
   requestId?: string;
   success?: string;
   static names(): { [key: string]: string } {
@@ -7148,7 +9058,15 @@ export class InsertMediaToSearchLibResponse extends $tea.Model {
 }
 
 export class ListAllPublicMediaTagsRequest extends $tea.Model {
+  /**
+   * @example
+   * "sticker"
+   */
   businessType?: string;
+  /**
+   * @example
+   * Copyright_Music
+   */
   entityId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7171,6 +9089,10 @@ export class ListAllPublicMediaTagsRequest extends $tea.Model {
 
 export class ListAllPublicMediaTagsResponseBody extends $tea.Model {
   mediaTagList?: ListAllPublicMediaTagsResponseBodyMediaTagList[];
+  /**
+   * @example
+   * B45F83B7-7F87-4792-BFE9-63CD2137CAF0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7217,8 +9139,20 @@ export class ListAllPublicMediaTagsResponse extends $tea.Model {
 }
 
 export class ListAvatarTrainingJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7243,7 +9177,15 @@ export class ListAvatarTrainingJobsRequest extends $tea.Model {
 
 export class ListAvatarTrainingJobsResponseBody extends $tea.Model {
   data?: ListAvatarTrainingJobsResponseBodyData;
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7292,8 +9234,20 @@ export class ListAvatarTrainingJobsResponse extends $tea.Model {
 }
 
 export class ListAvatarsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2DAvatar
+   */
   avatarType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7318,7 +9272,15 @@ export class ListAvatarsRequest extends $tea.Model {
 
 export class ListAvatarsResponseBody extends $tea.Model {
   data?: ListAvatarsResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7367,13 +9329,45 @@ export class ListAvatarsResponse extends $tea.Model {
 }
 
 export class ListBatchMediaProducingJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2023-06-05T15:59:59Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
+  /**
+   * @example
+   * Script
+   */
   jobType?: string;
+  /**
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @example
+   * mRZkKAovub0xWVfH14he4Q==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 2022-02-02T00:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Finished
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7408,8 +9402,23 @@ export class ListBatchMediaProducingJobsRequest extends $tea.Model {
 
 export class ListBatchMediaProducingJobsResponseBody extends $tea.Model {
   editingBatchJobList?: ListBatchMediaProducingJobsResponseBodyEditingBatchJobList[];
+  /**
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7460,12 +9469,43 @@ export class ListBatchMediaProducingJobsResponse extends $tea.Model {
 }
 
 export class ListCustomTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * test-template
+   */
   name?: string;
+  /**
+   * @example
+   * CreateTimeDesc
+   */
   orderBy?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2
+   */
   subtype?: string;
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7498,7 +9538,15 @@ export class ListCustomTemplatesRequest extends $tea.Model {
 
 export class ListCustomTemplatesResponseBody extends $tea.Model {
   customTemplateList?: ListCustomTemplatesResponseBodyCustomTemplateList[];
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7547,7 +9595,15 @@ export class ListCustomTemplatesResponse extends $tea.Model {
 }
 
 export class ListCustomizedVoiceJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   type?: string;
   static names(): { [key: string]: string } {
@@ -7573,7 +9629,15 @@ export class ListCustomizedVoiceJobsRequest extends $tea.Model {
 
 export class ListCustomizedVoiceJobsResponseBody extends $tea.Model {
   data?: ListCustomizedVoiceJobsResponseBodyData;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7622,7 +9686,15 @@ export class ListCustomizedVoiceJobsResponse extends $tea.Model {
 }
 
 export class ListCustomizedVoicesRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   type?: string;
   static names(): { [key: string]: string } {
@@ -7648,7 +9720,15 @@ export class ListCustomizedVoicesRequest extends $tea.Model {
 
 export class ListCustomizedVoicesResponseBody extends $tea.Model {
   data?: ListCustomizedVoicesResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7697,6 +9777,10 @@ export class ListCustomizedVoicesResponse extends $tea.Model {
 }
 
 export class ListDNADBRequest extends $tea.Model {
+  /**
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****,78dc866518b843259669df58ed30****
+   */
   DBIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -7729,6 +9813,10 @@ export class ListDNADBRequest extends $tea.Model {
 
 export class ListDNADBResponseBody extends $tea.Model {
   DBList?: ListDNADBResponseBodyDBList[];
+  /**
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7775,10 +9863,25 @@ export class ListDNADBResponse extends $tea.Model {
 }
 
 export class ListDNAFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   DBId?: string;
+  /**
+   * @example
+   * ae0fd49c0840e14daf0d66a75b83****
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -7813,7 +9916,15 @@ export class ListDNAFilesRequest extends $tea.Model {
 
 export class ListDNAFilesResponseBody extends $tea.Model {
   fileList?: ListDNAFilesResponseBodyFileList[];
+  /**
+   * @example
+   * ae0fd49c0840e14daf0d66a75b83****
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * 2AE89FA5-E620-56C7-9B80-75D09757385A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7862,12 +9973,40 @@ export class ListDNAFilesResponse extends $tea.Model {
 }
 
 export class ListDynamicImageJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-14T00:00:00Z
+   */
   endOfCreateTime?: string;
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   jobId?: string;
+  /**
+   * @example
+   * cdb3e74639973036bc84
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * CreateTimeDesc
+   */
   orderBy?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2022-07-12T00:00:00Z
+   */
   startOfCreateTime?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7900,7 +10039,15 @@ export class ListDynamicImageJobsRequest extends $tea.Model {
 
 export class ListDynamicImageJobsResponseBody extends $tea.Model {
   jobs?: ListDynamicImageJobsResponseBodyJobs[];
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7949,12 +10096,36 @@ export class ListDynamicImageJobsResponse extends $tea.Model {
 }
 
 export class ListLiveRecordFilesRequest extends $tea.Model {
+  /**
+   * @example
+   * 2017-12-22T08:00:00Z
+   */
   endTime?: string;
   jobIds?: string[];
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * m3u8
+   */
   recordFormat?: string;
+  /**
+   * @example
+   * asc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 2017-12-21T08:00:01Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7987,10 +10158,30 @@ export class ListLiveRecordFilesRequest extends $tea.Model {
 
 export class ListLiveRecordFilesResponseBody extends $tea.Model {
   files?: ListLiveRecordFilesResponseBodyFiles[];
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @example
+   * DE24625C-7C0F-4020-8448-****
+   */
   requestId?: string;
+  /**
+   * @example
+   * asc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8045,12 +10236,46 @@ export class ListLiveRecordFilesResponse extends $tea.Model {
 }
 
 export class ListLiveRecordJobsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-07-11T08:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
+   */
   keyword?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
+  /**
+   * @remarks
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-07-15T08:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * started
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8083,10 +10308,30 @@ export class ListLiveRecordJobsRequest extends $tea.Model {
 
 export class ListLiveRecordJobsResponseBody extends $tea.Model {
   liveRecordJobs?: ListLiveRecordJobsResponseBodyLiveRecordJobs[];
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * A27DFFA4-F272-5563-8363-CB0BC42740BA
+   */
   requestId?: string;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 180
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8141,11 +10386,31 @@ export class ListLiveRecordJobsResponse extends $tea.Model {
 }
 
 export class ListLiveRecordTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * test template
+   */
   keyword?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
   templateIds?: string[];
+  /**
+   * @example
+   * custom
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8175,11 +10440,31 @@ export class ListLiveRecordTemplatesRequest extends $tea.Model {
 }
 
 export class ListLiveRecordTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   recordTemplateList?: ListLiveRecordTemplatesResponseBodyRecordTemplateList[];
+  /**
+   * @example
+   * BEA98A0C-7870-15FE-B96F-8880BB600A2C
+   */
   requestId?: string;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8234,10 +10519,39 @@ export class ListLiveRecordTemplatesResponse extends $tea.Model {
 }
 
 export class ListLiveSnapshotFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-02-02T23:59:59Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-02-02T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8266,7 +10580,15 @@ export class ListLiveSnapshotFilesRequest extends $tea.Model {
 
 export class ListLiveSnapshotFilesResponseBody extends $tea.Model {
   fileList?: ListLiveSnapshotFilesResponseBodyFileList[];
+  /**
+   * @example
+   * 2022-02-02T22:22:22Z
+   */
   nextStartTime?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8315,11 +10637,35 @@ export class ListLiveSnapshotFilesResponse extends $tea.Model {
 }
 
 export class ListLiveSnapshotJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2022-02-02T23:59:59Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   searchKeyWord?: string;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 2022-02-02T00:00:00Z
+   */
   startTime?: string;
   status?: string;
   static names(): { [key: string]: string } {
@@ -8353,10 +10699,30 @@ export class ListLiveSnapshotJobsRequest extends $tea.Model {
 
 export class ListLiveSnapshotJobsResponseBody extends $tea.Model {
   jobList?: ListLiveSnapshotJobsResponseBodyJobList[];
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8411,11 +10777,31 @@ export class ListLiveSnapshotJobsResponse extends $tea.Model {
 }
 
 export class ListLiveSnapshotTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   searchKeyWord?: string;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
   templateIds?: string[];
+  /**
+   * @example
+   * custom
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8445,11 +10831,31 @@ export class ListLiveSnapshotTemplatesRequest extends $tea.Model {
 }
 
 export class ListLiveSnapshotTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
   templateList?: ListLiveSnapshotTemplatesResponseBodyTemplateList[];
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8504,12 +10910,40 @@ export class ListLiveSnapshotTemplatesResponse extends $tea.Model {
 }
 
 export class ListLiveTranscodeJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 24ecbb5c-4f98-4194-9400-f17102e27fc5
+   */
   keyWord?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * asc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 0
+   */
   startMode?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * normal
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8542,7 +10976,15 @@ export class ListLiveTranscodeJobsRequest extends $tea.Model {
 
 export class ListLiveTranscodeJobsResponseBody extends $tea.Model {
   jobList?: ListLiveTranscodeJobsResponseBodyJobList[];
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8591,12 +11033,40 @@ export class ListLiveTranscodeJobsResponse extends $tea.Model {
 }
 
 export class ListLiveTranscodeTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * customized
+   */
   category?: string;
+  /**
+   * @example
+   * my_template
+   */
   keyWord?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * asc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * normal
+   */
   type?: string;
+  /**
+   * @example
+   * H.264
+   */
   videoCodec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8628,8 +11098,16 @@ export class ListLiveTranscodeTemplatesRequest extends $tea.Model {
 }
 
 export class ListLiveTranscodeTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   templateContentList?: ListLiveTranscodeTemplatesResponseBodyTemplateContentList[];
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8678,16 +11156,60 @@ export class ListLiveTranscodeTemplatesResponse extends $tea.Model {
 }
 
 export class ListMediaBasicInfosRequest extends $tea.Model {
+  /**
+   * @example
+   * opening
+   */
   businessType?: string;
+  /**
+   * @example
+   * 2020-12-20T13:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * true
+   */
   includeFileBasicInfo?: boolean;
+  /**
+   * @example
+   * 5
+   */
   maxResults?: number;
+  /**
+   * @example
+   * ****019b82e24b37a1c2958dec38****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * pSa1SQ0wCe5pzVrQ6mWZEw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * desc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * oss
+   */
   source?: string;
+  /**
+   * @example
+   * 2020-12-20T12:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8727,10 +11249,26 @@ export class ListMediaBasicInfosRequest extends $tea.Model {
 }
 
 export class ListMediaBasicInfosResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   maxResults?: number;
   mediaInfos?: ListMediaBasicInfosResponseBodyMediaInfos[];
+  /**
+   * @example
+   * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * ******B7-7F87-4792-BFE9-63CD21******
+   */
   requestId?: string;
+  /**
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8783,12 +11321,40 @@ export class ListMediaBasicInfosResponse extends $tea.Model {
 }
 
 export class ListMediaInfoJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-15T00:00:00Z
+   */
   endOfCreateTime?: string;
+  /**
+   * @example
+   * 7b38a5d86f1e47838927b6e7ccb11cbe
+   */
   jobId?: string;
+  /**
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * CreateTimeDesc
+   */
   orderBy?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2022-07-01T00:00:00Z
+   */
   startOfCreateTime?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8821,7 +11387,15 @@ export class ListMediaInfoJobsRequest extends $tea.Model {
 
 export class ListMediaInfoJobsResponseBody extends $tea.Model {
   jobs?: ListMediaInfoJobsResponseBodyJobs[];
+  /**
+   * @example
+   * 019daf5780f74831b0e1a767c9f1c178
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8870,7 +11444,15 @@ export class ListMediaInfoJobsResponse extends $tea.Model {
 }
 
 export class ListMediaMarksRequest extends $tea.Model {
+  /**
+   * @example
+   * 411bed50018971edb60b0764a0ec6***
+   */
   mediaId?: string;
+  /**
+   * @example
+   * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
+   */
   mediaMarkIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8892,8 +11474,16 @@ export class ListMediaMarksRequest extends $tea.Model {
 }
 
 export class ListMediaMarksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******b48fb04483915d4f2cd8******
+   */
   mediaId?: string;
   mediaMarks?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8942,14 +11532,50 @@ export class ListMediaMarksResponse extends $tea.Model {
 }
 
 export class ListMediaProducingJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2022-02-02T23:59:59Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * EditingJob
+   */
   jobType?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   keyword?: string;
+  /**
+   * @example
+   * ******8750b54e3c976a47da6f******
+   */
   masterJobId?: string;
+  /**
+   * @example
+   * 100
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * CreationTime:Desc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8985,9 +11611,24 @@ export class ListMediaProducingJobsRequest extends $tea.Model {
 }
 
 export class ListMediaProducingJobsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   maxResults?: string;
   mediaProducingJobList?: ListMediaProducingJobsResponseBodyMediaProducingJobList[];
+  /**
+   * @example
+   * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9038,12 +11679,40 @@ export class ListMediaProducingJobsResponse extends $tea.Model {
 }
 
 export class ListPackageJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-15T00:00:00Z
+   */
   endOfCreateTime?: string;
+  /**
+   * @example
+   * 7b38a5d86f1e47838927b6e7ccb11cbe
+   */
   jobId?: string;
+  /**
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * CreateTimeDesc
+   */
   orderBy?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2022-07-01T00:00:00Z
+   */
   startOfCreateTime?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9076,6 +11745,10 @@ export class ListPackageJobsRequest extends $tea.Model {
 
 export class ListPackageJobsResponseBody extends $tea.Model {
   packageJobList?: ListPackageJobsResponseBodyPackageJobList;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9122,6 +11795,10 @@ export class ListPackageJobsResponse extends $tea.Model {
 }
 
 export class ListPipelinesRequest extends $tea.Model {
+  /**
+   * @example
+   * Standard
+   */
   speed?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9142,6 +11819,10 @@ export class ListPipelinesRequest extends $tea.Model {
 
 export class ListPipelinesResponseBody extends $tea.Model {
   pipelineList?: ListPipelinesResponseBodyPipelineList[];
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9189,11 +11870,35 @@ export class ListPipelinesResponse extends $tea.Model {
 
 export class ListPublicMediaBasicInfosRequest extends $tea.Model {
   businessType?: string;
+  /**
+   * @example
+   * true
+   */
   includeFileBasicInfo?: boolean;
+  /**
+   * @example
+   * 5
+   */
   maxResults?: number;
+  /**
+   * @example
+   * ticker-atmosphere
+   */
   mediaTagId?: string;
+  /**
+   * @example
+   * pSa1SQ0wCe5pzVrQ6mWZEw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9225,10 +11930,26 @@ export class ListPublicMediaBasicInfosRequest extends $tea.Model {
 }
 
 export class ListPublicMediaBasicInfosResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   maxResults?: number;
   mediaInfos?: ListPublicMediaBasicInfosResponseBodyMediaInfos[];
+  /**
+   * @example
+   * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * ******B7-7F87-4792-BFE9-63CD21******
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9281,12 +12002,40 @@ export class ListPublicMediaBasicInfosResponse extends $tea.Model {
 }
 
 export class ListSmartJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * Finished
+   */
   jobState?: string;
+  /**
+   * @example
+   * ASR
+   */
   jobType?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * ****73f33c91-d59383e8280b****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * CreationTime:Desc
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9318,10 +12067,26 @@ export class ListSmartJobsRequest extends $tea.Model {
 }
 
 export class ListSmartJobsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: string;
+  /**
+   * @example
+   * CBB6BC61D08
+   */
   nextToken?: string;
+  /**
+   * @example
+   * ****9262E3DA-07FA-4862-FCBB6BC61D08*****
+   */
   requestId?: string;
   smartJobList?: ListSmartJobsResponseBodySmartJobList[];
+  /**
+   * @example
+   * 110
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9374,7 +12139,15 @@ export class ListSmartJobsResponse extends $tea.Model {
 }
 
 export class ListSmartSysAvatarModelsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   sdkVersion?: string;
   static names(): { [key: string]: string } {
@@ -9399,8 +12172,16 @@ export class ListSmartSysAvatarModelsRequest extends $tea.Model {
 }
 
 export class ListSmartSysAvatarModelsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
   requestId?: string;
   smartSysAvatarModelList?: ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList[];
+  /**
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9449,6 +12230,10 @@ export class ListSmartSysAvatarModelsResponse extends $tea.Model {
 }
 
 export class ListSmartVoiceGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
   requestId?: string;
   voiceGroups?: ListSmartVoiceGroupsResponseBodyVoiceGroups[];
   static names(): { [key: string]: string } {
@@ -9496,12 +12281,40 @@ export class ListSmartVoiceGroupsResponse extends $tea.Model {
 }
 
 export class ListSnapshotJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-14T00:00:00Z
+   */
   endOfCreateTime?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * CreateTimeDesc
+   */
   orderBy?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2022-07-12T00:00:00Z
+   */
   startOfCreateTime?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9534,7 +12347,15 @@ export class ListSnapshotJobsRequest extends $tea.Model {
 
 export class ListSnapshotJobsResponseBody extends $tea.Model {
   jobs?: ListSnapshotJobsResponseBodyJobs[];
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9583,12 +12404,43 @@ export class ListSnapshotJobsResponse extends $tea.Model {
 }
 
 export class ListSystemTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * SampleTemplate
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * 1
+   */
   subtype?: string;
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1,2
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9620,8 +12472,16 @@ export class ListSystemTemplatesRequest extends $tea.Model {
 }
 
 export class ListSystemTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   systemTemplateList?: ListSystemTemplatesResponseBodySystemTemplateList[];
+  /**
+   * @example
+   * 20
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9670,12 +12530,40 @@ export class ListSystemTemplatesResponse extends $tea.Model {
 }
 
 export class ListTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * OpenAPI
+   */
   createSource?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   keyword?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * CreationTime:Desc
+   */
   sortType?: string;
+  /**
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @example
+   * Timeline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9707,8 +12595,16 @@ export class ListTemplatesRequest extends $tea.Model {
 }
 
 export class ListTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   templates?: ListTemplatesResponseBodyTemplates[];
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9757,12 +12653,40 @@ export class ListTemplatesResponse extends $tea.Model {
 }
 
 export class ListTranscodeJobsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-15T00:00:00Z
+   */
   endOfCreateTime?: string;
+  /**
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * CreateTimeDesc
+   */
   orderBy?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 7b38a5d86f1e47838927b6e7ccb11cbe
+   */
   parentJobId?: string;
+  /**
+   * @example
+   * 2022-07-01T00:00:00Z
+   */
   startOfCreateTime?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9795,7 +12719,15 @@ export class ListTranscodeJobsRequest extends $tea.Model {
 
 export class ListTranscodeJobsResponseBody extends $tea.Model {
   jobs?: ListTranscodeJobsResponseBodyJobs[];
+  /**
+   * @example
+   * 019daf5780f74831b0e1a767c9f1c178
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9844,6 +12776,10 @@ export class ListTranscodeJobsResponse extends $tea.Model {
 }
 
 export class QueryDNAJobListRequest extends $tea.Model {
+  /**
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   jobIds?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -9876,6 +12812,10 @@ export class QueryDNAJobListRequest extends $tea.Model {
 
 export class QueryDNAJobListResponseBody extends $tea.Model {
   jobList?: QueryDNAJobListResponseBodyJobList[];
+  /**
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9923,6 +12863,13 @@ export class QueryDNAJobListResponse extends $tea.Model {
 
 export class QueryIProductionJobRequest extends $tea.Model {
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9944,21 +12891,57 @@ export class QueryIProductionJobRequest extends $tea.Model {
 }
 
 export class QueryIProductionJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-07T07:16:11Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2021-11-26T14:50:25Z
+   */
   finishTime?: string;
+  /**
+   * @example
+   * Cover
+   */
   functionName?: string;
   input?: QueryIProductionJobResponseBodyInput;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * {"Model":"gif"}
+   */
   jobParams?: string;
   name?: string;
   output?: QueryIProductionJobResponseBodyOutput;
   outputFiles?: string[];
   outputUrls?: string[];
   requestId?: string;
+  /**
+   * @example
+   * {}
+   */
   result?: string;
   scheduleConfig?: QueryIProductionJobResponseBodyScheduleConfig;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
+  /**
+   * @example
+   * {"test":1}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10033,8 +13016,23 @@ export class QueryIProductionJobResponse extends $tea.Model {
 }
 
 export class QueryMediaCensorJobDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 30
+   */
   maximumPageSize?: number;
+  /**
+   * @example
+   * ae0fd49c0840e14daf0d66a75b83****
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -10071,6 +13069,10 @@ export class QueryMediaCensorJobDetailRequest extends $tea.Model {
 
 export class QueryMediaCensorJobDetailResponseBody extends $tea.Model {
   mediaCensorJobDetail?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail;
+  /**
+   * @example
+   * B42299E6-F71F-465F-8FE9-4FC2E3D3C2CA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10117,16 +13119,44 @@ export class QueryMediaCensorJobDetailResponse extends $tea.Model {
 }
 
 export class QueryMediaCensorJobListRequest extends $tea.Model {
+  /**
+   * @example
+   * 2022-02-14T02:16:07Z
+   */
   endOfJobCreatedTimeRange?: string;
+  /**
+   * @example
+   * fa9c34be3bcf42919ac4d1775239****,78dc866518b843259669df58ed30****
+   */
   jobIds?: string;
+  /**
+   * @example
+   * 20
+   */
   maximumPageSize?: number;
+  /**
+   * @example
+   * 79aff3eee82242e092899db5f669
+   */
   nextPageToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * c5b30b7c0d0e4a0abde1d5f9e751****
+   */
   pipelineId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 2021-12-22T03:48:05Z
+   */
   startOfJobCreatedTimeRange?: string;
+  /**
+   * @example
+   * All
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10167,8 +13197,16 @@ export class QueryMediaCensorJobListRequest extends $tea.Model {
 
 export class QueryMediaCensorJobListResponseBody extends $tea.Model {
   mediaCensorJobList?: QueryMediaCensorJobListResponseBodyMediaCensorJobList;
+  /**
+   * @example
+   * 9b1a42bc6e8d46e6a1383b7e7f01****
+   */
   nextPageToken?: string;
   nonExistIds?: QueryMediaCensorJobListResponseBodyNonExistIds;
+  /**
+   * @example
+   * D1D5C080-8E2F-5030-8AB4-13092F17631B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10219,7 +13257,18 @@ export class QueryMediaCensorJobListResponse extends $tea.Model {
 }
 
 export class QueryMediaIndexJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c2e77390f75271ec802f0674a2ce6***
+   */
   mediaId?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10241,9 +13290,21 @@ export class QueryMediaIndexJobRequest extends $tea.Model {
 }
 
 export class QueryMediaIndexJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   indexJobInfoList?: QueryMediaIndexJobResponseBodyIndexJobInfoList[];
+  /**
+   * @example
+   * 4E84BE44-58A7-****-****-FBEBEA16EF94
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10294,7 +13355,18 @@ export class QueryMediaIndexJobResponse extends $tea.Model {
 }
 
 export class QuerySearchIndexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mm
+   */
   indexType?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10318,9 +13390,24 @@ export class QuerySearchIndexRequest extends $tea.Model {
 export class QuerySearchIndexResponseBody extends $tea.Model {
   code?: string;
   indexStatus?: string;
+  /**
+   * @example
+   * mm
+   */
   indexType?: string;
   mediaTotal?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4E84BE44-58A7-****-****-FBEBEA16EF94
+   */
   requestId?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
   success?: string;
   static names(): { [key: string]: string } {
@@ -10378,6 +13465,13 @@ export class QuerySearchIndexResponse extends $tea.Model {
 }
 
 export class QuerySearchLibRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10398,8 +13492,23 @@ export class QuerySearchLibRequest extends $tea.Model {
 
 export class QuerySearchLibResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
+  /**
+   * @example
+   * normal
+   */
   status?: string;
   success?: string;
   static names(): { [key: string]: string } {
@@ -10453,7 +13562,18 @@ export class QuerySearchLibResponse extends $tea.Model {
 }
 
 export class QuerySmarttagJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 88c6ca184c0e47098a5b665e2****
+   */
   jobId?: string;
+  /**
+   * @example
+   * {"labelResultType":"auto"}
+   */
   params?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10475,9 +13595,21 @@ export class QuerySmarttagJobRequest extends $tea.Model {
 }
 
 export class QuerySmarttagJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   jobStatus?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   results?: QuerySmarttagJobResponseBodyResults;
+  /**
+   * @example
+   * {"userId":"123432412831"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10528,6 +13660,10 @@ export class QuerySmarttagJobResponse extends $tea.Model {
 }
 
 export class RefreshUploadMediaRequest extends $tea.Model {
+  /**
+   * @example
+   * 411bed50018971edb60b0764a0ec6***
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10547,9 +13683,25 @@ export class RefreshUploadMediaRequest extends $tea.Model {
 }
 
 export class RefreshUploadMediaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * c2e77390f75271ec802f0674a2ce6***
+   */
   mediaId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * eyJFbmRwb2ludCI6Imh0dHBzOi8vb3NzLWNuLXNoYW5naGFpLmFsaXl1bmNzLmNvbSIsIkJ1Y2tldCI6InN6aGQtdmlkZW8iLCJGaWxlTmFtZSI6InZvZC0yOTYzMWEvc3YvNTBmYTJlODQtMTgxMjdhZGRiMTcvNTBmYTJlODQtMTgxMjdhZGRiM***
+   */
   uploadAddress?: string;
+  /**
+   * @example
+   * eyJBY2Nlc3NLZXlJZCI6IkxUQUk0Rm53bTk1dHdxQjMxR3IzSE5hRCIsIkFjY2Vzc0tleVNlY3JldCI6Ik9lWllKR0dTMTlkNkZaM1E3UVpJQmdmSVdnM3BPaiIsIkV4cGlyYXRpb24iOiI***
+   */
   uploadAuth?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10600,20 +13752,68 @@ export class RefreshUploadMediaResponse extends $tea.Model {
 }
 
 export class RegisterMediaInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * opening
+   */
   businessType?: string;
+  /**
+   * @example
+   * 3048
+   */
   cateId?: number;
+  /**
+   * @example
+   * ****0311a423d11a5f7dee713535****
+   */
   clientToken?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png
+   */
   coverURL?: string;
+  /**
+   * @example
+   * defaultDescription
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputURL?: string;
+  /**
+   * @example
+   * tag1,tag2
+   */
   mediaTags?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * true
+   */
   overwrite?: boolean;
+  /**
+   * @example
+   * 123-123
+   */
   referenceId?: string;
   registerConfig?: string;
   smartTagTemplateId?: string;
+  /**
+   * @example
+   * defaultTitle
+   */
   title?: string;
   userData?: string;
+  /**
+   * @example
+   * ******b4fb044839815d4f2cd8******
+   */
   workflowId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10661,7 +13861,15 @@ export class RegisterMediaInfoRequest extends $tea.Model {
 }
 
 export class RegisterMediaInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******b48fb04483915d4f2cd8******
+   */
   mediaId?: string;
+  /**
+   * @example
+   * ******5A-CAAC-4850-A3AF-B74606******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10709,7 +13917,15 @@ export class RegisterMediaInfoResponse extends $tea.Model {
 
 export class RegisterMediaStreamRequest extends $tea.Model {
   inputURL?: string;
+  /**
+   * @example
+   * 5e778ec0027b71ed80a8909598506***
+   */
   mediaId?: string;
+  /**
+   * @example
+   * {"MessageCallback":{"CallbackURL":"http://test.test.com"}, "Extend":{"localId":"xxx","test":"www"}}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10733,7 +13949,15 @@ export class RegisterMediaStreamRequest extends $tea.Model {
 }
 
 export class RegisterMediaStreamResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5e778ec0027b71ed80a8909598506302
+   */
   mediaId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10780,14 +14004,50 @@ export class RegisterMediaStreamResponse extends $tea.Model {
 }
 
 export class SearchEditingProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * WebSDK
+   */
   createSource?: string;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EditingProject
+   */
   projectType?: string;
+  /**
+   * @example
+   * CreationTime:Desc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Producing
+   */
   status?: string;
+  /**
+   * @example
+   * Timeline
+   */
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10823,10 +14083,26 @@ export class SearchEditingProjectRequest extends $tea.Model {
 }
 
 export class SearchEditingProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * null
+   */
   nextToken?: string;
   projectList?: SearchEditingProjectResponseBodyProjectList[];
+  /**
+   * @example
+   * ****9262E3DA-07FA-4862-FCBB6BC61D08*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 110
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10879,12 +14155,58 @@ export class SearchEditingProjectResponse extends $tea.Model {
 }
 
 export class SearchMediaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the entity.
+   * 
+   * @example
+   * 2d3bf1e35a1e42b5ab338d701efa7603
+   */
   entityId?: string;
+  /**
+   * @remarks
+   * The filter conditions. For more information about the parameter syntax, see [Media asset search protocols](https://help.aliyun.com/document_detail/2584256.html).
+   */
   match?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The pagination identifier. The value can be up to 32 characters in length. The first time you call this operation for each new search, you do not need to specify this parameter. The value of this parameter is returned each time data records that meet the specified filter condition are found. The value is used to record the current position of queried data. Record the returned parameter value and set this parameter according to the following requirements during the next search: If you need to traverse all data that meets the filter criteria, you must set the ScrollToken parameter. If the value of the PageNo parameter exceeds 200, we recommend that you set this parameter to optimize search performance. You can only page backward. You can page a maximum of 1,000 entries in an operation.
+   * 
+   * @example
+   * F8C4F642184DBDA5D93907A70AAE****
+   */
   scrollToken?: string;
+  /**
+   * @remarks
+   * The search library.
+   * 
+   * @example
+   * test-1
+   */
   searchLibName?: string;
+  /**
+   * @remarks
+   * The sort field and order. Separate multiple parameters with commas (,).
+   * 
+   * @example
+   * utcCreate:Desc, utcModified:Desc
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10916,11 +14238,50 @@ export class SearchMediaRequest extends $tea.Model {
 }
 
 export class SearchMediaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status code returned.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The media assets that meet the requirements.
+   */
   mediaInfoList?: SearchMediaResponseBodyMediaInfoList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6F61C357-ACC0-57FB-876E-D58795335E59
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The pagination identifier.
+   * 
+   * @example
+   * F8C4F642184DBDA5D93907A70AAE****
+   */
   scrollToken?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * True
+   */
   success?: string;
+  /**
+   * @remarks
+   * The total number of media assets that meet the conditions.
+   * 
+   * @example
+   * 163
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10975,13 +14336,41 @@ export class SearchMediaResponse extends $tea.Model {
 }
 
 export class SearchMediaByAILabelRequest extends $tea.Model {
+  /**
+   * @example
+   * ****c469e944b5a856828dc2****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * Ocr
+   */
   multimodalSearchType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   searchLibName?: string;
+  /**
+   * @example
+   * CreationTime:Desc
+   */
   sortBy?: string;
+  /**
+   * @example
+   * true
+   */
   specificSearch?: boolean;
   text?: string;
   static names(): { [key: string]: string } {
@@ -11018,10 +14407,26 @@ export class SearchMediaByAILabelRequest extends $tea.Model {
 }
 
 export class SearchMediaByAILabelResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   mediaList?: SearchMediaByAILabelResponseBodyMediaList[];
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 30
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11074,11 +14479,37 @@ export class SearchMediaByAILabelResponse extends $tea.Model {
 }
 
 export class SearchMediaByFaceRequest extends $tea.Model {
+  /**
+   * @example
+   * 2d3bf1e35a1e42b5ab338d701efa****
+   */
   entityId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * zxtest-huangxuan-2023-3-7-V1
+   */
   faceSearchToken?: string;
   mediaType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://****.oss-cn-shanghai.aliyuncs.com/input/huangxuan****.jpg
+   */
   personImageUrl?: string;
   searchLibName?: string;
   static names(): { [key: string]: string } {
@@ -11111,10 +14542,26 @@ export class SearchMediaByFaceRequest extends $tea.Model {
 }
 
 export class SearchMediaByFaceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   mediaInfoList?: SearchMediaByFaceResponseBodyMediaInfoList[];
+  /**
+   * @example
+   * 7CA7D615-CFB1-5437-9A12-2D185C3EE6CB
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 163
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11167,10 +14614,30 @@ export class SearchMediaByFaceResponse extends $tea.Model {
 }
 
 export class SearchMediaByHybridRequest extends $tea.Model {
+  /**
+   * @example
+   * ****c469e944b5a856828dc2****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * test-1
+   */
   searchLibName?: string;
   text?: string;
   static names(): { [key: string]: string } {
@@ -11201,10 +14668,26 @@ export class SearchMediaByHybridRequest extends $tea.Model {
 }
 
 export class SearchMediaByHybridResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   mediaList?: SearchMediaByHybridResponseBodyMediaList[];
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 30
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11257,9 +14740,25 @@ export class SearchMediaByHybridResponse extends $tea.Model {
 }
 
 export class SearchMediaByMultimodalRequest extends $tea.Model {
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * test-1
+   */
   searchLibName?: string;
   text?: string;
   static names(): { [key: string]: string } {
@@ -11288,10 +14787,26 @@ export class SearchMediaByMultimodalRequest extends $tea.Model {
 }
 
 export class SearchMediaByMultimodalResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   mediaList?: SearchMediaByMultimodalResponseBodyMediaList[];
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 20
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11344,10 +14859,36 @@ export class SearchMediaByMultimodalResponse extends $tea.Model {
 }
 
 export class SearchMediaClipByFaceRequest extends $tea.Model {
+  /**
+   * @example
+   * 2d3bf1e35a1e42b5ab338d701efa****
+   */
   entityId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * zxtest-huangxuan-2023-3-7-V1
+   */
   faceSearchToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3b187b3620c8490886cfc2a9578c****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   searchLibName?: string;
   static names(): { [key: string]: string } {
@@ -11378,10 +14919,26 @@ export class SearchMediaClipByFaceRequest extends $tea.Model {
 }
 
 export class SearchMediaClipByFaceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   mediaClipList?: SearchMediaClipByFaceResponseBodyMediaClipList[];
+  /**
+   * @example
+   * E44FFACD-9E90-555A-A09A-6FD3B7335E39
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 5
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11434,13 +14991,45 @@ export class SearchMediaClipByFaceResponse extends $tea.Model {
 }
 
 export class SearchPublicMediaInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   authorized?: boolean;
+  /**
+   * @example
+   * "ApprovalStatus=\\"Available\\"&amp;MaterialBags=\\"boutiquemusic\\"&amp;Mood=\\"Nervous\\""
+   */
   dynamicMetaDataMatchFields?: string;
+  /**
+   * @example
+   * Copyright_Music
+   */
   entityId?: string;
+  /**
+   * @example
+   * true
+   */
   favorite?: boolean;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****,****15d4a4b0448391508f2cb486****
+   */
   mediaIds?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * UsageCount:Desc,UnitPrice:Asc
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11475,7 +15064,15 @@ export class SearchPublicMediaInfoRequest extends $tea.Model {
 
 export class SearchPublicMediaInfoResponseBody extends $tea.Model {
   publicMediaInfos?: SearchPublicMediaInfoResponseBodyPublicMediaInfos[];
+  /**
+   * @example
+   * ****3CFB-2767-54FD-B311-BD15A4C1****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11524,7 +15121,21 @@ export class SearchPublicMediaInfoResponse extends $tea.Model {
 }
 
 export class SendLiveSnapshotJobCommandRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * start
+   */
   command?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11546,6 +15157,10 @@ export class SendLiveSnapshotJobCommandRequest extends $tea.Model {
 }
 
 export class SendLiveSnapshotJobCommandResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11590,7 +15205,21 @@ export class SendLiveSnapshotJobCommandResponse extends $tea.Model {
 }
 
 export class SendLiveTranscodeJobCommandRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * stop
+   */
   command?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11612,6 +15241,10 @@ export class SendLiveTranscodeJobCommandRequest extends $tea.Model {
 }
 
 export class SendLiveTranscodeJobCommandResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11656,8 +15289,20 @@ export class SendLiveTranscodeJobCommandResponse extends $tea.Model {
 }
 
 export class SetContentAnalyzeConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   auto?: boolean;
+  /**
+   * @example
+   * TEXT,FACE
+   */
   saveType?: string;
+  /**
+   * @example
+   * S00000101-100070
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11681,7 +15326,15 @@ export class SetContentAnalyzeConfigRequest extends $tea.Model {
 }
 
 export class SetContentAnalyzeConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 953CFD27-4A2C-54AD-857F-B79EF3A338E0
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11728,6 +15381,13 @@ export class SetContentAnalyzeConfigResponse extends $tea.Model {
 }
 
 export class SetDefaultCustomTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11747,7 +15407,15 @@ export class SetDefaultCustomTemplateRequest extends $tea.Model {
 }
 
 export class SetDefaultCustomTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11794,8 +15462,20 @@ export class SetDefaultCustomTemplateResponse extends $tea.Model {
 }
 
 export class SetDefaultStorageLocationRequest extends $tea.Model {
+  /**
+   * @example
+   * oss-test-bucket
+   */
   bucket?: string;
+  /**
+   * @example
+   * ims/dir
+   */
   path?: string;
+  /**
+   * @example
+   * user_oss_bucket
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11819,7 +15499,15 @@ export class SetDefaultStorageLocationRequest extends $tea.Model {
 }
 
 export class SetDefaultStorageLocationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******5A-CAAC-4850-A3AF-B74606******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11866,11 +15554,35 @@ export class SetDefaultStorageLocationResponse extends $tea.Model {
 }
 
 export class SetEventCallbackRequest extends $tea.Model {
+  /**
+   * @example
+   * TestKey001
+   */
   authKey?: string;
+  /**
+   * @example
+   * on
+   */
   authSwitch?: string;
+  /**
+   * @example
+   * ice-callback-queue
+   */
   callbackQueueName?: string;
+  /**
+   * @example
+   * HTTP
+   */
   callbackType?: string;
+  /**
+   * @example
+   * http://xxx.yyy/callback
+   */
   callbackURL?: string;
+  /**
+   * @example
+   * ProduceMediaComplete
+   */
   eventTypeList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11900,7 +15612,15 @@ export class SetEventCallbackRequest extends $tea.Model {
 }
 
 export class SetEventCallbackResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11947,8 +15667,19 @@ export class SetEventCallbackResponse extends $tea.Model {
 }
 
 export class StartWorkflowRequest extends $tea.Model {
+  /**
+   * @example
+   * {
+   *       "Type": "Media",
+   *       "Media": "******30706071edbfe290b488******"
+   * }
+   */
   taskInput?: string;
   userData?: string;
+  /**
+   * @example
+   * ******f0e54971ecbffd472190******
+   */
   workflowId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11972,7 +15703,15 @@ export class StartWorkflowRequest extends $tea.Model {
 }
 
 export class StartWorkflowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******42-E8E1-4FBB-8E52-F4225C******
+   */
   requestId?: string;
+  /**
+   * @example
+   * ******22dad741d086a50325f9******
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12019,11 +15758,35 @@ export class StartWorkflowResponse extends $tea.Model {
 }
 
 export class SubmitASRJobRequest extends $tea.Model {
+  /**
+   * @example
+   * 测试描述
+   */
   description?: string;
+  /**
+   * @example
+   * 00:00:10
+   */
   duration?: string;
+  /**
+   * @example
+   * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 或 ****20b48fb04483915d4f2cd8ac****
+   */
   inputFile?: string;
+  /**
+   * @example
+   * 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * 测试标题
+   */
   title?: string;
+  /**
+   * @example
+   * {"user":"data"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12053,8 +15816,20 @@ export class SubmitASRJobRequest extends $tea.Model {
 }
 
 export class SubmitASRJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * Finished
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12103,12 +15878,49 @@ export class SubmitASRJobResponse extends $tea.Model {
 }
 
 export class SubmitAudioProduceJobRequest extends $tea.Model {
+  /**
+   * @example
+   * 任务描述  长度不超过1024字节  UTF8编码
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"voice":"Siqi","format":"MP3","volume":50}
+   */
   editingConfig?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 测试文本
+   */
   inputConfig?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"bucket":"bucket","object":"objeck"}
+   */
   outputConfig?: string;
+  /**
+   * @example
+   * true
+   */
   overwrite?: boolean;
+  /**
+   * @example
+   * 任务标题。若不提供，根据日期自动生成默认title  长度不超过128字节  UTF8编码
+   */
   title?: string;
+  /**
+   * @example
+   * {"user":"data"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12140,9 +15952,25 @@ export class SubmitAudioProduceJobRequest extends $tea.Model {
 }
 
 export class SubmitAudioProduceJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ****2bcbfcfa30fccb36f72dca22****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * Created
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12193,6 +16021,13 @@ export class SubmitAudioProduceJobResponse extends $tea.Model {
 }
 
 export class SubmitAvatarTrainingJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12213,7 +16048,15 @@ export class SubmitAvatarTrainingJobRequest extends $tea.Model {
 
 export class SubmitAvatarTrainingJobResponseBody extends $tea.Model {
   data?: SubmitAvatarTrainingJobResponseBodyData;
+  /**
+   * @example
+   * *****ACB-44F2-5F2D-88D7-1283E70*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12262,11 +16105,31 @@ export class SubmitAvatarTrainingJobResponse extends $tea.Model {
 }
 
 export class SubmitAvatarVideoJobRequest extends $tea.Model {
+  /**
+   * @example
+   * 测试描述
+   */
   description?: string;
+  /**
+   * @example
+   * {"AvatarId":"yunqiao"}
+   */
   editingConfig?: string;
   inputConfig?: string;
+  /**
+   * @example
+   * {"MediaURL":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/xxx.mp4","Width":1920,"Height":1080}
+   */
   outputConfig?: string;
+  /**
+   * @example
+   * 测试标题
+   */
   title?: string;
+  /**
+   * @example
+   * {"user":"data","env":"prod"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12296,8 +16159,23 @@ export class SubmitAvatarVideoJobRequest extends $tea.Model {
 }
 
 export class SubmitAvatarVideoJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ******70dcc471edaf00e6f6f4******
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12346,9 +16224,38 @@ export class SubmitAvatarVideoJobResponse extends $tea.Model {
 }
 
 export class SubmitBatchMediaProducingJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ****12e8864746a0a398****
+   */
   clientToken?: string;
+  /**
+   * @example
+   * {
+   *   "MediaConfig": {
+   *       "Volume": 0
+   *   },
+   *   "SpeechConfig": {
+   *       "Volume": 1
+   *   },
+   *  "BackgroundMusicConfig": {
+   *       "Volume": 0.3
+   *   }
+   * }
+   */
   editingConfig?: string;
   inputConfig?: string;
+  /**
+   * @example
+   * {
+   *   "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
+   *   "Count": 20,
+   *   "MaxDuration": 15,
+   *   "Width": 1080,
+   *   "Height": 1920,
+   *   "Video": {"Crf": 27}
+   * }
+   */
   outputConfig?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -12377,7 +16284,15 @@ export class SubmitBatchMediaProducingJobRequest extends $tea.Model {
 }
 
 export class SubmitBatchMediaProducingJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ****36-3C1E-4417-BDB2-1E034F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12424,7 +16339,18 @@ export class SubmitBatchMediaProducingJobResponse extends $tea.Model {
 }
 
 export class SubmitCustomizedVoiceJobRequest extends $tea.Model {
+  /**
+   * @example
+   * https://your-bucket.oss-cn-shanghai.aliyuncs.com/demo.MP3
+   */
   demoAudioMediaURL?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12447,7 +16373,15 @@ export class SubmitCustomizedVoiceJobRequest extends $tea.Model {
 
 export class SubmitCustomizedVoiceJobResponseBody extends $tea.Model {
   data?: SubmitCustomizedVoiceJobResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12496,16 +16430,50 @@ export class SubmitCustomizedVoiceJobResponse extends $tea.Model {
 }
 
 export class SubmitDNAJobRequest extends $tea.Model {
+  /**
+   * @example
+   * {"SaveType": "save","MediaType"":"video"}
+   */
   config?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   DBId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: SubmitDNAJobRequestInput;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 5246b8d12a62433ab77845074039****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3ca84a39a9024f19853b21be9cf9****
+   */
   primaryKey?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * S00000101-100060
+   */
   templateId?: string;
+  /**
+   * @example
+   * userData
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12545,16 +16513,50 @@ export class SubmitDNAJobRequest extends $tea.Model {
 }
 
 export class SubmitDNAJobShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * {"SaveType": "save","MediaType"":"video"}
+   */
   config?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   DBId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputShrink?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 5246b8d12a62433ab77845074039****
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3ca84a39a9024f19853b21be9cf9****
+   */
   primaryKey?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * S00000101-100060
+   */
   templateId?: string;
+  /**
+   * @example
+   * userData
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12594,7 +16596,15 @@ export class SubmitDNAJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitDNAJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 88c6ca184c0e47098a5b665e2****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12641,18 +16651,55 @@ export class SubmitDNAJobResponse extends $tea.Model {
 }
 
 export class SubmitDynamicChartJobRequest extends $tea.Model {
+  /**
+   * @example
+   * {"FontFile":"Microsoft YaHei","XAxisFontSize":"30","YAxisFontSize":"30","XAxisFontInterval":"30","AxisColor":"30"}
+   */
   axisParams?: string;
+  /**
+   * @example
+   * {"Color":"#000000","ImageUrl":"http://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.jpg"}
+   */
   background?: string;
+  /**
+   * @example
+   * {"Style":"Normal","TitleStartTime":"3000","ChartStartTime":"3000","VideoDuration":"15000"}
+   */
   chartConfig?: string;
   chartTitle?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Line
+   */
   chartType?: string;
   dataSource?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"XlsFile":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.xls"}
+   */
   input?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"MediaURL":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.mp4","Bitrate":2000,"Width":800,"Height":680}
+   */
   outputConfig?: string;
   subtitle?: string;
   title?: string;
   unit?: string;
+  /**
+   * @example
+   * {"user":"data"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12696,7 +16743,15 @@ export class SubmitDynamicChartJobRequest extends $tea.Model {
 }
 
 export class SubmitDynamicChartJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12743,11 +16798,31 @@ export class SubmitDynamicChartJobResponse extends $tea.Model {
 }
 
 export class SubmitDynamicImageJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: SubmitDynamicImageJobRequestInput;
+  /**
+   * @example
+   * SampleJob
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   output?: SubmitDynamicImageJobRequestOutput;
   scheduleConfig?: SubmitDynamicImageJobRequestScheduleConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateConfig?: SubmitDynamicImageJobRequestTemplateConfig;
+  /**
+   * @example
+   * {"SampleKey": "SampleValue"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12777,11 +16852,31 @@ export class SubmitDynamicImageJobRequest extends $tea.Model {
 }
 
 export class SubmitDynamicImageJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputShrink?: string;
+  /**
+   * @example
+   * SampleJob
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outputShrink?: string;
   scheduleConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateConfigShrink?: string;
+  /**
+   * @example
+   * {"SampleKey": "SampleValue"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12811,7 +16906,15 @@ export class SubmitDynamicImageJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitDynamicImageJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12858,13 +16961,40 @@ export class SubmitDynamicImageJobResponse extends $tea.Model {
 }
 
 export class SubmitIProductionJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Cover
+   */
   functionName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: SubmitIProductionJobRequestInput;
+  /**
+   * @example
+   * {"Model":"gif"}
+   */
   jobParams?: string;
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   output?: SubmitIProductionJobRequestOutput;
   scheduleConfig?: SubmitIProductionJobRequestScheduleConfig;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
+  /**
+   * @example
+   * {"test":1}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12898,13 +17028,40 @@ export class SubmitIProductionJobRequest extends $tea.Model {
 }
 
 export class SubmitIProductionJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Cover
+   */
   functionName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputShrink?: string;
+  /**
+   * @example
+   * {"Model":"gif"}
+   */
   jobParams?: string;
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outputShrink?: string;
   scheduleConfigShrink?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
+  /**
+   * @example
+   * {"test":1}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12938,7 +17095,15 @@ export class SubmitIProductionJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitIProductionJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * C1849434-FC47-5DC1-92B6-F7EAAFE3851E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12985,12 +17150,35 @@ export class SubmitIProductionJobResponse extends $tea.Model {
 }
 
 export class SubmitLiveEditingJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{\\"StartTime\\": \\" 2021-06-21T08:01:00Z\\",  \\"EndTime\\": \\" 2021-06-21T08:03:00Z\\" ,  "AppName": "app", "DomainName": "domain.com", "StreamName": "stream"},  {\\"StartTime\\": \\" 2021-06-21T08:05:00Z\\",  \\"EndTime\\": \\" 2021-06-21T08:09:00Z\\" }]
+   */
   clips?: string;
+  /**
+   * @example
+   * { "AppName": "app", "DomainName": "domain.com", "StreamName": "stream"  }
+   */
   liveStreamConfig?: string;
+  /**
+   * @example
+   * { "Mode": "AccurateFast"}
+   */
   mediaProduceConfig?: string;
   outputMediaConfig?: string;
   outputMediaTarget?: string;
+  /**
+   * @example
+   * ****fddd7748b58bf1d47e95****
+   */
   projectId?: string;
+  /**
+   * @example
+   * {"key": "value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13022,11 +17210,35 @@ export class SubmitLiveEditingJobRequest extends $tea.Model {
 }
 
 export class SubmitLiveEditingJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ****c469e944b5a856828dc2****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * http://test-bucket.cn-shanghai.aliyuncs.com/test.mp4
+   */
   mediaURL?: string;
+  /**
+   * @example
+   * ****fddd7748b58bf1d47e95****
+   */
   projectId?: string;
+  /**
+   * @example
+   * ****36-3C1E-4417-BDB2-1E034F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * ****d7578s4h75ci945c14b****
+   */
   vodMediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13081,10 +17293,43 @@ export class SubmitLiveEditingJobResponse extends $tea.Model {
 }
 
 export class SubmitLiveRecordJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * live stream record 1
+   */
   name?: string;
+  /**
+   * @remarks
+   * 回调地址
+   * 
+   * @example
+   * https://example.com/imsnotify
+   */
   notifyUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   recordOutput?: SubmitLiveRecordJobRequestRecordOutput;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamInput?: SubmitLiveRecordJobRequestStreamInput;
+  /**
+   * @remarks
+   * 录制模板ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13112,10 +17357,43 @@ export class SubmitLiveRecordJobRequest extends $tea.Model {
 }
 
 export class SubmitLiveRecordJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * live stream record 1
+   */
   name?: string;
+  /**
+   * @remarks
+   * 回调地址
+   * 
+   * @example
+   * https://example.com/imsnotify
+   */
   notifyUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   recordOutputShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamInputShrink?: string;
+  /**
+   * @remarks
+   * 录制模板ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13143,7 +17421,15 @@ export class SubmitLiveRecordJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitLiveRecordJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
+   */
   jobId?: string;
+  /**
+   * @example
+   * BEA98A0C-7870-15FE-B96F-8880BB600A2C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13190,10 +17476,33 @@ export class SubmitLiveRecordJobResponse extends $tea.Model {
 }
 
 export class SubmitLiveSnapshotJobRequest extends $tea.Model {
+  /**
+   * @example
+   * http://www.aliyun.com/snapshot/callback
+   */
   callbackUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   jobName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   snapshotOutput?: SubmitLiveSnapshotJobRequestSnapshotOutput;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamInput?: SubmitLiveSnapshotJobRequestStreamInput;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13221,10 +17530,33 @@ export class SubmitLiveSnapshotJobRequest extends $tea.Model {
 }
 
 export class SubmitLiveSnapshotJobShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * http://www.aliyun.com/snapshot/callback
+   */
   callbackUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   jobName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   snapshotOutputShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamInputShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13252,7 +17584,15 @@ export class SubmitLiveSnapshotJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitLiveSnapshotJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287666****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13299,11 +17639,40 @@ export class SubmitLiveSnapshotJobResponse extends $tea.Model {
 }
 
 export class SubmitLiveTranscodeJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * task1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   startMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamInput?: SubmitLiveTranscodeJobRequestStreamInput;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   timedConfig?: SubmitLiveTranscodeJobRequestTimedConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   transcodeOutput?: SubmitLiveTranscodeJobRequestTranscodeOutput;
   static names(): { [key: string]: string } {
     return {
@@ -13333,11 +17702,40 @@ export class SubmitLiveTranscodeJobRequest extends $tea.Model {
 }
 
 export class SubmitLiveTranscodeJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * task1
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   startMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamInputShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   timedConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   transcodeOutputShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13367,7 +17765,15 @@ export class SubmitLiveTranscodeJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitLiveTranscodeJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13414,15 +17820,47 @@ export class SubmitLiveTranscodeJobResponse extends $tea.Model {
 }
 
 export class SubmitMediaCensorJobRequest extends $tea.Model {
+  /**
+   * @example
+   * hello world
+   */
   barrages?: string;
+  /**
+   * @example
+   * [{"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.jpeg","RoleArn":"acs:ram::1997018457688683:role/AliyunICEDefaultRole"}]
+   */
   coverImages?: string;
+  /**
+   * @example
+   * example description
+   */
   description?: string;
   input?: SubmitMediaCensorJobRequestInput;
+  /**
+   * @example
+   * mns://125340688170****.oss-cn-shanghai.aliyuncs.com/queues/example-pipeline
+   */
   notifyUrl?: string;
+  /**
+   * @example
+   * oss://sashimi-cn-shanghai/censor/snapshot-{Count}.jpg
+   */
   output?: string;
   scheduleConfig?: SubmitMediaCensorJobRequestScheduleConfig;
+  /**
+   * @example
+   * S00000001-100060
+   */
   templateId?: string;
+  /**
+   * @example
+   * Hello World
+   */
   title?: string;
+  /**
+   * @example
+   * UserDatatestid-001-****
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13460,15 +17898,47 @@ export class SubmitMediaCensorJobRequest extends $tea.Model {
 }
 
 export class SubmitMediaCensorJobShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * hello world
+   */
   barrages?: string;
+  /**
+   * @example
+   * [{"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.jpeg","RoleArn":"acs:ram::1997018457688683:role/AliyunICEDefaultRole"}]
+   */
   coverImages?: string;
+  /**
+   * @example
+   * example description
+   */
   description?: string;
   inputShrink?: string;
+  /**
+   * @example
+   * mns://125340688170****.oss-cn-shanghai.aliyuncs.com/queues/example-pipeline
+   */
   notifyUrl?: string;
+  /**
+   * @example
+   * oss://sashimi-cn-shanghai/censor/snapshot-{Count}.jpg
+   */
   output?: string;
   scheduleConfigShrink?: string;
+  /**
+   * @example
+   * S00000001-100060
+   */
   templateId?: string;
+  /**
+   * @example
+   * Hello World
+   */
   title?: string;
+  /**
+   * @example
+   * UserDatatestid-001-****
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13506,7 +17976,15 @@ export class SubmitMediaCensorJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitMediaCensorJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 88c6ca184c0e47098a5b665e2****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13553,9 +18031,21 @@ export class SubmitMediaCensorJobResponse extends $tea.Model {
 }
 
 export class SubmitMediaInfoJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: SubmitMediaInfoJobRequestInput;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
   scheduleConfig?: SubmitMediaInfoJobRequestScheduleConfig;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13581,9 +18071,21 @@ export class SubmitMediaInfoJobRequest extends $tea.Model {
 }
 
 export class SubmitMediaInfoJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputShrink?: string;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
   scheduleConfigShrink?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13609,7 +18111,15 @@ export class SubmitMediaInfoJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitMediaInfoJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * MediaInfoJobDTO
+   */
   mediaInfoJob?: SubmitMediaInfoJobResponseBodyMediaInfoJob;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13656,15 +18166,49 @@ export class SubmitMediaInfoJobResponse extends $tea.Model {
 }
 
 export class SubmitMediaProducingJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ****12e8864746a0a398****
+   */
   clientToken?: string;
   clipsParam?: string;
   editingProduceConfig?: string;
+  /**
+   * @example
+   * {
+   *       "Title":"test-title",
+   *       "Tags":"test-tags1,tags2"
+   * }
+   */
   mediaMetadata?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"MediaURL":"https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4"}
+   */
   outputMediaConfig?: string;
+  /**
+   * @example
+   * oss-object
+   */
   outputMediaTarget?: string;
+  /**
+   * @example
+   * xxxxxfb2101cb318xxxxx
+   */
   projectId?: string;
   projectMetadata?: string;
+  /**
+   * @example
+   * OPENAPI
+   */
   source?: string;
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   timeline?: string;
   userData?: string;
@@ -13708,10 +18252,30 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
 }
 
 export class SubmitMediaProducingJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ****c469e944b5a856828dc2****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * ****b4549d46c88681030f6e****
+   */
   projectId?: string;
+  /**
+   * @example
+   * ****36-3C1E-4417-BDB2-1E034F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * ****d8s4h75ci975745c14b****
+   */
   vodMediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13764,10 +18328,26 @@ export class SubmitMediaProducingJobResponse extends $tea.Model {
 }
 
 export class SubmitPackageJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputs?: SubmitPackageJobRequestInputs[];
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   output?: SubmitPackageJobRequestOutput;
   scheduleConfig?: SubmitPackageJobRequestScheduleConfig;
+  /**
+   * @example
+   * {"param": "value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13795,10 +18375,26 @@ export class SubmitPackageJobRequest extends $tea.Model {
 }
 
 export class SubmitPackageJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputsShrink?: string;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outputShrink?: string;
   scheduleConfigShrink?: string;
+  /**
+   * @example
+   * {"param": "value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13826,7 +18422,15 @@ export class SubmitPackageJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitPackageJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2d705f385b704ee5b*******a36d93e0
+   */
   jobId?: string;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13873,15 +18477,55 @@ export class SubmitPackageJobResponse extends $tea.Model {
 }
 
 export class SubmitSmarttagJobRequest extends $tea.Model {
+  /**
+   * @example
+   * example content ****
+   */
   content?: string;
+  /**
+   * @example
+   * http://123.com/testVideo.mp4
+   */
   contentAddr?: string;
+  /**
+   * @example
+   * application/zip
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * input
+   */
   input?: SubmitSmarttagJobRequestInput;
+  /**
+   * @example
+   * https://example.com/endpoint/aliyun/ai?id=76401125000***
+   */
   notifyUrl?: string;
+  /**
+   * @example
+   * {"needAsrData":true, "needOcrData":false}
+   */
   params?: string;
+  /**
+   * @remarks
+   * scheduleConfig
+   */
   scheduleConfig?: SubmitSmarttagJobRequestScheduleConfig;
+  /**
+   * @example
+   * 39f8e0bc005e4f309379701645f4
+   */
   templateId?: string;
+  /**
+   * @example
+   * example-title-****
+   */
   title?: string;
+  /**
+   * @example
+   * {“a”:"test"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13919,15 +18563,55 @@ export class SubmitSmarttagJobRequest extends $tea.Model {
 }
 
 export class SubmitSmarttagJobShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * example content ****
+   */
   content?: string;
+  /**
+   * @example
+   * http://123.com/testVideo.mp4
+   */
   contentAddr?: string;
+  /**
+   * @example
+   * application/zip
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * input
+   */
   inputShrink?: string;
+  /**
+   * @example
+   * https://example.com/endpoint/aliyun/ai?id=76401125000***
+   */
   notifyUrl?: string;
+  /**
+   * @example
+   * {"needAsrData":true, "needOcrData":false}
+   */
   params?: string;
+  /**
+   * @remarks
+   * scheduleConfig
+   */
   scheduleConfigShrink?: string;
+  /**
+   * @example
+   * 39f8e0bc005e4f309379701645f4
+   */
   templateId?: string;
+  /**
+   * @example
+   * example-title-****
+   */
   title?: string;
+  /**
+   * @example
+   * {“a”:"test"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13965,7 +18649,15 @@ export class SubmitSmarttagJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitSmarttagJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14012,11 +18704,31 @@ export class SubmitSmarttagJobResponse extends $tea.Model {
 }
 
 export class SubmitSnapshotJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: SubmitSnapshotJobRequestInput;
+  /**
+   * @example
+   * SampleJob
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   output?: SubmitSnapshotJobRequestOutput;
   scheduleConfig?: SubmitSnapshotJobRequestScheduleConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateConfig?: SubmitSnapshotJobRequestTemplateConfig;
+  /**
+   * @example
+   * {"test parameter": "test value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14046,11 +18758,31 @@ export class SubmitSnapshotJobRequest extends $tea.Model {
 }
 
 export class SubmitSnapshotJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputShrink?: string;
+  /**
+   * @example
+   * SampleJob
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outputShrink?: string;
   scheduleConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateConfigShrink?: string;
+  /**
+   * @example
+   * {"test parameter": "test value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14080,7 +18812,15 @@ export class SubmitSnapshotJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitSnapshotJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14127,9 +18867,25 @@ export class SubmitSnapshotJobResponse extends $tea.Model {
 }
 
 export class SubmitStandardCustomizedVoiceJobRequest extends $tea.Model {
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****,****571c704445f9a0ee011406c2****,****571c704445f9a0ee011406c2****
+   */
   audios?: string;
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****
+   */
   authentication?: string;
+  /**
+   * @example
+   * https://your-bucket.oss-cn-shanghai.aliyuncs.com/demo.mp3
+   */
   demoAudioMediaURL?: string;
+  /**
+   * @example
+   * female
+   */
   gender?: string;
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -14159,7 +18915,15 @@ export class SubmitStandardCustomizedVoiceJobRequest extends $tea.Model {
 
 export class SubmitStandardCustomizedVoiceJobResponseBody extends $tea.Model {
   data?: SubmitStandardCustomizedVoiceJobResponseBodyData;
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14208,9 +18972,21 @@ export class SubmitStandardCustomizedVoiceJobResponse extends $tea.Model {
 }
 
 export class SubmitSyncMediaInfoJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: SubmitSyncMediaInfoJobRequestInput;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
   scheduleConfig?: SubmitSyncMediaInfoJobRequestScheduleConfig;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14236,9 +19012,21 @@ export class SubmitSyncMediaInfoJobRequest extends $tea.Model {
 }
 
 export class SubmitSyncMediaInfoJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputShrink?: string;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
   scheduleConfigShrink?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14264,7 +19052,15 @@ export class SubmitSyncMediaInfoJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitSyncMediaInfoJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * MediaInfoJobDTO
+   */
   mediaInfoJob?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJob;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14314,6 +19110,10 @@ export class SubmitTextGenerateJobRequest extends $tea.Model {
   description?: string;
   generateConfig?: string;
   title?: string;
+  /**
+   * @example
+   * MarketingCopy
+   */
   type?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -14342,7 +19142,18 @@ export class SubmitTextGenerateJobRequest extends $tea.Model {
 }
 
 export class SubmitTextGenerateJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14390,10 +19201,30 @@ export class SubmitTextGenerateJobResponse extends $tea.Model {
 
 export class SubmitTranscodeJobRequest extends $tea.Model {
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputGroup?: SubmitTranscodeJobRequestInputGroup[];
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outputGroup?: SubmitTranscodeJobRequestOutputGroup[];
+  /**
+   * @example
+   * job-name
+   */
   scheduleConfig?: SubmitTranscodeJobRequestScheduleConfig;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14424,10 +19255,30 @@ export class SubmitTranscodeJobRequest extends $tea.Model {
 
 export class SubmitTranscodeJobShrinkRequest extends $tea.Model {
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputGroupShrink?: string;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outputGroupShrink?: string;
+  /**
+   * @example
+   * job-name
+   */
   scheduleConfigShrink?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14457,7 +19308,15 @@ export class SubmitTranscodeJobShrinkRequest extends $tea.Model {
 }
 
 export class SubmitTranscodeJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * TranscodeParentJobWithSubJobDTO
+   */
   transcodeParentJob?: SubmitTranscodeJobResponseBodyTranscodeParentJob;
   static names(): { [key: string]: string } {
     return {
@@ -14506,8 +19365,20 @@ export class SubmitTranscodeJobResponse extends $tea.Model {
 export class SubmitVideoTranslationJobRequest extends $tea.Model {
   clientToken?: string;
   description?: string;
+  /**
+   * @example
+   * {"SourceLanguage":"zh","TargetLanguage":"en","DetextArea":"Auto"}
+   */
   editingConfig?: string;
+  /**
+   * @example
+   * {"Type":"Video","Media":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/xxx.mp4"}
+   */
   inputConfig?: string;
+  /**
+   * @example
+   * {"MediaURL": "https://your-bucket.oss-cn-shanghai.aliyuncs.com/your-object.mp4"}
+   */
   outputConfig?: string;
   title?: string;
   userData?: string;
@@ -14542,6 +19413,10 @@ export class SubmitVideoTranslationJobRequest extends $tea.Model {
 
 export class SubmitVideoTranslationJobResponseBody extends $tea.Model {
   data?: SubmitVideoTranslationJobResponseBodyData;
+  /**
+   * @remarks
+   * Id of the request
+   */
   requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
@@ -14593,10 +19468,33 @@ export class SubmitVideoTranslationJobResponse extends $tea.Model {
 export class UpdateAvatarTrainingJobRequest extends $tea.Model {
   avatarDescription?: string;
   avatarName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****
+   */
   portrait?: string;
+  /**
+   * @example
+   * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
+   */
   thumbnail?: string;
+  /**
+   * @example
+   * True
+   */
   transparent?: boolean;
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****
+   */
   video?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14629,7 +19527,15 @@ export class UpdateAvatarTrainingJobRequest extends $tea.Model {
 
 export class UpdateAvatarTrainingJobResponseBody extends $tea.Model {
   data?: UpdateAvatarTrainingJobResponseBodyData;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14678,7 +19584,18 @@ export class UpdateAvatarTrainingJobResponse extends $tea.Model {
 }
 
 export class UpdateCategoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 43
+   */
   cateId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   cateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14700,6 +19617,10 @@ export class UpdateCategoryRequest extends $tea.Model {
 }
 
 export class UpdateCategoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4E84BE44-58A7-****-****-FBEBEA16EF94
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14744,8 +19665,23 @@ export class UpdateCategoryResponse extends $tea.Model {
 }
 
 export class UpdateCustomTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * test-template
+   */
   name?: string;
+  /**
+   * @example
+   * {"param": "sample"}
+   */
   templateConfig?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14769,7 +19705,15 @@ export class UpdateCustomTemplateRequest extends $tea.Model {
 }
 
 export class UpdateCustomTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14816,7 +19760,18 @@ export class UpdateCustomTemplateResponse extends $tea.Model {
 }
 
 export class UpdateCustomizedVoiceRequest extends $tea.Model {
+  /**
+   * @example
+   * ****4d5e829d498aaf966b119348****
+   */
   demoAudioMediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14838,7 +19793,15 @@ export class UpdateCustomizedVoiceRequest extends $tea.Model {
 }
 
 export class UpdateCustomizedVoiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4E84BE44-58A7-****-****-FBEBEA16EF94
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14885,13 +19848,40 @@ export class UpdateCustomizedVoiceResponse extends $tea.Model {
 }
 
 export class UpdateEditingProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * Reserving
+   */
   businessStatus?: string;
   clipsParam?: string;
+  /**
+   * @example
+   * https://****.com/6AB4D0E1E1C7446888****.png
+   */
   coverURL?: string;
+  /**
+   * @example
+   * testtimeline001desciption
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****4ee4b97e27b525142a6b2****
+   */
   projectId?: string;
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   timeline?: string;
+  /**
+   * @example
+   * testtimeline
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14925,6 +19915,10 @@ export class UpdateEditingProjectRequest extends $tea.Model {
 }
 
 export class UpdateEditingProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****25818875-5F78-4AF6-D7393642CA58****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14969,8 +19963,32 @@ export class UpdateEditingProjectResponse extends $tea.Model {
 }
 
 export class UpdateLiveRecordTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test template
+   */
   name?: string;
+  /**
+   * @remarks
+   * 录制格式
+   * 
+   * This parameter is required.
+   */
   recordFormat?: UpdateLiveRecordTemplateRequestRecordFormat[];
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14994,8 +20012,32 @@ export class UpdateLiveRecordTemplateRequest extends $tea.Model {
 }
 
 export class UpdateLiveRecordTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test template
+   */
   name?: string;
+  /**
+   * @remarks
+   * 录制格式
+   * 
+   * This parameter is required.
+   */
   recordFormatShrink?: string;
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15019,6 +20061,13 @@ export class UpdateLiveRecordTemplateShrinkRequest extends $tea.Model {
 }
 
 export class UpdateLiveRecordTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * 0F3D5C03-4B6E-5F40-B7F6-B1956776E7D3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15063,10 +20112,36 @@ export class UpdateLiveRecordTemplateResponse extends $tea.Model {
 }
 
 export class UpdateLiveSnapshotTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * snapshot/{JobId}.jpg
+   */
   overwriteFormat?: string;
+  /**
+   * @example
+   * snapshot/{JobId}/{UnixTimestamp}.jpg
+   */
   sequenceFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   timeInterval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15094,6 +20169,10 @@ export class UpdateLiveSnapshotTemplateRequest extends $tea.Model {
 }
 
 export class UpdateLiveSnapshotTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15138,7 +20217,18 @@ export class UpdateLiveSnapshotTemplateResponse extends $tea.Model {
 }
 
 export class UpdateLiveTranscodeJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * mytest3
+   */
   name?: string;
   streamInput?: UpdateLiveTranscodeJobRequestStreamInput;
   timedConfig?: UpdateLiveTranscodeJobRequestTimedConfig;
@@ -15169,7 +20259,18 @@ export class UpdateLiveTranscodeJobRequest extends $tea.Model {
 }
 
 export class UpdateLiveTranscodeJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * mytest3
+   */
   name?: string;
   streamInputShrink?: string;
   timedConfigShrink?: string;
@@ -15200,6 +20301,10 @@ export class UpdateLiveTranscodeJobShrinkRequest extends $tea.Model {
 }
 
 export class UpdateLiveTranscodeJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15246,6 +20351,13 @@ export class UpdateLiveTranscodeJobResponse extends $tea.Model {
 export class UpdateLiveTranscodeTemplateRequest extends $tea.Model {
   name?: string;
   templateConfig?: UpdateLiveTranscodeTemplateRequestTemplateConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15271,6 +20383,13 @@ export class UpdateLiveTranscodeTemplateRequest extends $tea.Model {
 export class UpdateLiveTranscodeTemplateShrinkRequest extends $tea.Model {
   name?: string;
   templateConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15294,6 +20413,10 @@ export class UpdateLiveTranscodeTemplateShrinkRequest extends $tea.Model {
 }
 
 export class UpdateLiveTranscodeTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15338,17 +20461,65 @@ export class UpdateLiveTranscodeTemplateResponse extends $tea.Model {
 }
 
 export class UpdateMediaInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   appendTags?: boolean;
+  /**
+   * @example
+   * video
+   */
   businessType?: string;
+  /**
+   * @example
+   * 3048
+   */
   cateId?: number;
+  /**
+   * @example
+   * defaultCategory
+   */
   category?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png
+   */
   coverURL?: string;
+  /**
+   * @example
+   * defaultDescription
+   */
   description?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+   */
   inputURL?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * updateTags1,updateTags2
+   */
   mediaTags?: string;
+  /**
+   * @example
+   * 123-123
+   */
   referenceId?: string;
+  /**
+   * @example
+   * defaultTitle
+   */
   title?: string;
+  /**
+   * @example
+   * userData
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15390,7 +20561,15 @@ export class UpdateMediaInfoRequest extends $tea.Model {
 }
 
 export class UpdateMediaInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15437,7 +20616,18 @@ export class UpdateMediaInfoResponse extends $tea.Model {
 }
 
 export class UpdateMediaMarksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 53afdf003a******6a16b5feac6402
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   mediaMarks?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15459,8 +20649,20 @@ export class UpdateMediaMarksRequest extends $tea.Model {
 }
 
 export class UpdateMediaMarksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 53afdf003a******6a16b5feac6402
+   */
   mediaId?: string;
+  /**
+   * @example
+   * mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
+   */
   mediaMarkIds?: string;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15509,8 +20711,26 @@ export class UpdateMediaMarksResponse extends $tea.Model {
 }
 
 export class UpdateMediaToSearchLibRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****019b82e24b37a1c2958dec38****
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {}
+   */
   msgBody?: string;
+  /**
+   * @example
+   * test1
+   */
   searchLibName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15535,7 +20755,15 @@ export class UpdateMediaToSearchLibRequest extends $tea.Model {
 
 export class UpdateMediaToSearchLibResponseBody extends $tea.Model {
   code?: string;
+  /**
+   * @example
+   * ******b48fb04483915d4f2cd8******
+   */
   mediaId?: string;
+  /**
+   * @example
+   * 4E84BE44-58A7-****-****-FBEBEA16EF94
+   */
   requestId?: string;
   success?: string;
   static names(): { [key: string]: string } {
@@ -15587,9 +20815,28 @@ export class UpdateMediaToSearchLibResponse extends $tea.Model {
 }
 
 export class UpdatePipelineRequest extends $tea.Model {
+  /**
+   * @example
+   * test-pipeline
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
+  /**
+   * @example
+   * Paused
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15615,7 +20862,15 @@ export class UpdatePipelineRequest extends $tea.Model {
 }
 
 export class UpdatePipelineResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15662,13 +20917,45 @@ export class UpdatePipelineResponse extends $tea.Model {
 }
 
 export class UpdateTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * 参见模板Config文档
+   */
   config?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * 视频添加水印模板
+   */
   name?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   previewMedia?: string;
+  /**
+   * @example
+   * {"video":["******c04f1d4a06996144cc1a******","******cb7db64841b159b4f2ea******"],"audio":["******c04f1d4a06996144cc1a******"],"image":["******c04f1d4a06996144cc1a******"]}
+   */
   relatedMediaids?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
   source?: string;
+  /**
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15702,6 +20989,10 @@ export class UpdateTemplateRequest extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15746,12 +21037,40 @@ export class UpdateTemplateResponse extends $tea.Model {
 }
 
 export class UploadMediaByURLRequest extends $tea.Model {
+  /**
+   * @example
+   * app-1000000
+   */
   appId?: string;
+  /**
+   * @example
+   * d67281da3c8743b8823ad12976187***
+   */
   entityId?: string;
+  /**
+   * @example
+   * [{"SourceURL":"https://example.aliyundoc.com/video01.mp4","Title":"urlUploadTest"}]
+   */
   mediaMetaData?: string;
+  /**
+   * @example
+   * {"ProcessType": "Workflow","ProcessID":"b72a06c6beeb4dcdb898feef067b1***"}
+   */
   postProcessConfig?: string;
+  /**
+   * @example
+   * {"StorageType":"oss","StorageLocation":"outin-***.oss-cn-shanghai.aliyuncs.com"}
+   */
   uploadTargetConfig?: string;
+  /**
+   * @example
+   * https://diffurl.mp4
+   */
   uploadURLs?: string;
+  /**
+   * @example
+   * {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"xxx","test":"www"}}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15783,6 +21102,10 @@ export class UploadMediaByURLRequest extends $tea.Model {
 }
 
 export class UploadMediaByURLResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ****83B7-7F87-4792-BFE9-63CD2137****
+   */
   requestId?: string;
   uploadJobs?: UploadMediaByURLResponseBodyUploadJobs[];
   static names(): { [key: string]: string } {
@@ -15830,11 +21153,35 @@ export class UploadMediaByURLResponse extends $tea.Model {
 }
 
 export class UploadStreamByURLRequest extends $tea.Model {
+  /**
+   * @example
+   * HD
+   */
   definition?: string;
+  /**
+   * @example
+   * mp4
+   */
   fileExtension?: string;
+  /**
+   * @example
+   * HDR10
+   */
   HDRType?: string;
+  /**
+   * @example
+   * 411bed50018971edb60b0764a0ec6***
+   */
   mediaId?: string;
+  /**
+   * @example
+   * https://example.com/sample-stream.mp4
+   */
   streamURL?: string;
+  /**
+   * @example
+   * {"MessageCallback":{"CallbackURL":"http://test.test.com"}, "Extend":{"localId":"xxx","test":"www"}}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15864,10 +21211,30 @@ export class UploadStreamByURLRequest extends $tea.Model {
 }
 
 export class UploadStreamByURLResponseBody extends $tea.Model {
+  /**
+   * @example
+   * http://outin-***.oss-cn-shanghai.aliyuncs.com/stream/48555e8b-181dd5a8c07/48555e8b-181dd5a8c07.mp4
+   */
   fileURL?: string;
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 411bed50018971edb60b0764a0ec6***
+   */
   mediaId?: string;
+  /**
+   * @example
+   * ******89-C21D-4B78-AE24-3788B8******
+   */
   requestId?: string;
+  /**
+   * @example
+   * https://example.com/sample-stream.mp4
+   */
   sourceURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15920,10 +21287,26 @@ export class UploadStreamByURLResponse extends $tea.Model {
 }
 
 export class AddCategoryResponseBodyCategory extends $tea.Model {
+  /**
+   * @example
+   * 45
+   */
   cateId?: number;
   cateName?: string;
+  /**
+   * @example
+   * 0
+   */
   level?: number;
+  /**
+   * @example
+   * -1
+   */
   parentId?: number;
+  /**
+   * @example
+   * default
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15951,9 +21334,25 @@ export class AddCategoryResponseBodyCategory extends $tea.Model {
 }
 
 export class AddEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Model {
+  /**
+   * @example
+   * testrecord
+   */
   appName?: string;
+  /**
+   * @example
+   * test.alivecdn.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * rtmp://test.alivecdn.com/testrecord/teststream
+   */
   liveUrl?: string;
+  /**
+   * @example
+   * teststream
+   */
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15979,16 +21378,60 @@ export class AddEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Mo
 }
 
 export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 1132.68
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 216.206667
+   */
   duration?: string;
+  /**
+   * @example
+   * example.mp4
+   */
   fileName?: string;
+  /**
+   * @example
+   * 30611502
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * mov,mp4,m4a,3gp,3g2,mj2
+   */
   formatName?: string;
+  /**
+   * @example
+   * 540
+   */
   height?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 960
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16047,23 +21490,95 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extend
 }
 
 export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * general
+   */
   businessType?: string;
+  /**
+   * @example
+   * audio
+   */
   category?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   coverURL?: string;
+  /**
+   * @example
+   * 2020-12-23T03:32:59Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2020-12-23T03:32:59Z
+   */
   deletedTime?: string;
+  /**
+   * @example
+   * sample_description
+   */
   description?: string;
+  /**
+   * @example
+   * http://bucket.oss-cn-shanghai.aliyuncs.com/file.mp4
+   */
   inputURL?: string;
+  /**
+   * @example
+   * *****5cb2e35433198daae94a72*****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * sample_tag
+   */
   mediaTags?: string;
+  /**
+   * @example
+   * Video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 2020-12-23T03:32:59Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * null
+   */
   snapshots?: string;
+  /**
+   * @example
+   * oss
+   */
   source?: string;
+  /**
+   * @example
+   * http://outin-example.oss-cn-shanghai.aliyuncs.com/test.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   spriteImages?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * default_title_2020-12-23T03:32:59Z
+   */
   title?: string;
+  /**
+   * @example
+   * Init
+   */
   transcodeStatus?: string;
+  /**
+   * @example
+   * userData
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16117,8 +21632,16 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
 }
 
 export class AddEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model {
+  /**
+   * @remarks
+   * FileInfos
+   */
   fileInfoList?: AddEditingProjectMaterialsResponseBodyMediaInfosFileInfoList[];
   mediaBasicInfo?: AddEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo;
+  /**
+   * @example
+   * *****5cb2e35433198daae94a72*****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16142,14 +21665,50 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model
 }
 
 export class AddTemplateResponseBodyTemplate extends $tea.Model {
+  /**
+   * @example
+   * 参见Timeline模板Config文档
+   */
   config?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
   createSource?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
   modifiedSource?: string;
+  /**
+   * @example
+   * 视频添加水印模板
+   */
   name?: string;
+  /**
+   * @example
+   * ****01bf24bf41c78b2754cb3187****
+   */
   previewMedia?: string;
+  /**
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @example
+   * ****01bf24bf41c78b2754cb3187****
+   */
   templateId?: string;
+  /**
+   * @example
+   * Timeline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16185,16 +21744,60 @@ export class AddTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 1132.68
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 200
+   */
   duration?: string;
+  /**
+   * @example
+   * example
+   */
   fileName?: string;
+  /**
+   * @example
+   * 30611502
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * mov,mp4,m4a,3gp,3g2,mj2
+   */
   formatName?: string;
+  /**
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16253,23 +21856,82 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $tea.M
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * general
+   */
   businessType?: string;
   category?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   coverURL?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   deletedTime?: string;
   description?: string;
+  /**
+   * @example
+   * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+   */
   inputURL?: string;
+  /**
+   * @remarks
+   * MediaId
+   * 
+   * @example
+   * ******c48fb37407365d4f2cd8******
+   */
   mediaId?: string;
   mediaTags?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:12Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * [{"bucket":"example-bucket","count":"3","iceJobId":"******f48f0e4154976b2b8c45******","location":"oss-cn-beijing","snapshotRegular":"example.jpg","templateId":"******e6a6440b29eb60bd7c******"}]
+   */
   snapshots?: string;
+  /**
+   * @example
+   * oss
+   */
   source?: string;
+  /**
+   * @example
+   * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
+   */
   spriteImages?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
   title?: string;
+  /**
+   * @example
+   * Init
+   */
   transcodeStatus?: string;
+  /**
+   * @example
+   * userDataTest
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16323,8 +21985,16 @@ export class BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo extends $tea
 }
 
 export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
+  /**
+   * @remarks
+   * FileInfos
+   */
   fileInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoList[];
   mediaBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosMediaBasicInfo;
+  /**
+   * @example
+   * ******c48fb37407365d4f2cd8******
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16348,6 +22018,10 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
 }
 
 export class CreateAvatarTrainingJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ****d718e2ff4f018ccf419a7b71****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16367,15 +22041,55 @@ export class CreateAvatarTrainingJobResponseBodyData extends $tea.Model {
 }
 
 export class CreateCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
+  /**
+   * @example
+   * 2022-04-19T02:04:31Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * true
+   */
   isDefault?: boolean;
+  /**
+   * @example
+   * 2022-04-19T02:04:31Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * Remux
+   */
   subtype?: string;
+  /**
+   * @example
+   * {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
+   */
   templateConfig?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
+  /**
+   * @example
+   * test-template
+   */
   templateName?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
+  /**
+   * @example
+   * TranscodeTemplate
+   */
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16413,7 +22127,15 @@ export class CreateCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
 }
 
 export class CreateCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ****29faef8144638ba42eb8e037****
+   */
   jobId?: string;
+  /**
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16435,10 +22157,26 @@ export class CreateCustomizedVoiceJobResponseBodyData extends $tea.Model {
 }
 
 export class CreateDNADBResponseBodyDBInfo extends $tea.Model {
+  /**
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   DBId?: string;
   description?: string;
+  /**
+   * @example
+   * Video
+   */
   model?: string;
+  /**
+   * @example
+   * example name
+   */
   name?: string;
+  /**
+   * @example
+   * offline
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16466,23 +22204,91 @@ export class CreateDNADBResponseBodyDBInfo extends $tea.Model {
 }
 
 export class CreateEditingProjectResponseBodyProject extends $tea.Model {
+  /**
+   * @example
+   * { "OutputMediaConfig" :    { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path"   }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
+   */
   businessConfig?: string;
+  /**
+   * @example
+   * Reserving
+   */
   businessStatus?: string;
   clipsParam?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   coverURL?: string;
+  /**
+   * @example
+   * WebSDK
+   */
   createSource?: string;
+  /**
+   * @example
+   * 2021-01-08T16:52:07Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * example_description
+   */
   description?: string;
+  /**
+   * @example
+   * 3.4200000
+   */
   duration?: number;
+  /**
+   * @example
+   * WebSDK
+   */
   modifiedSource?: string;
+  /**
+   * @example
+   * 2021-01-08T16:52:07Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * ****01bf24bf41c78b2754cb3187****
+   */
   projectId?: string;
+  /**
+   * @example
+   * LiveEditingProject
+   */
   projectType?: string;
+  /**
+   * @example
+   * 2
+   */
   status?: number;
+  /**
+   * @example
+   * Editing
+   */
   statusName?: string;
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
+  /**
+   * @example
+   * Timeline
+   */
   templateType?: string;
+  /**
+   * @example
+   * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
+   */
   timeline?: string;
+  /**
+   * @example
+   * example_title
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16536,10 +22342,44 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
 }
 
 export class CreateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
+  /**
+   * @example
+   * 3600
+   */
   cycleDuration?: number;
+  /**
+   * @remarks
+   * 格式
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * m3u8
+   */
   format?: string;
+  /**
+   * @remarks
+   * Oss对象名，不包含后缀
+   * 
+   * @example
+   * record/{JobId}/{Sequence}_{EscapedStartTime}_{EscapedEndTime}
+   */
   ossObjectPrefix?: string;
+  /**
+   * @remarks
+   * 切片时长
+   * 
+   * @example
+   * 30
+   */
   sliceDuration?: number;
+  /**
+   * @remarks
+   * 切片Oss对象名，不包含后缀
+   * 
+   * @example
+   * record/{JobId}/{UnixTimestamp}_{Sequence}
+   */
   sliceOssObjectPrefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16567,10 +22407,30 @@ export class CreateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
 }
 
 export class CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC
+   */
   codec?: string;
+  /**
+   * @example
+   * aaclow
+   */
   profile?: string;
+  /**
+   * @example
+   * 44100
+   */
   samplerate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16598,12 +22458,40 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
 }
 
 export class CreateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends $tea.Model {
+  /**
+   * @example
+   * 2500
+   */
   bitrate?: string;
+  /**
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @example
+   * 1000
+   */
   gop?: string;
+  /**
+   * @example
+   * 720
+   */
   height?: string;
+  /**
+   * @example
+   * 2
+   */
   profile?: string;
+  /**
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16657,12 +22545,40 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfig extends $tea.Model
 }
 
 export class CreatePipelineResponseBodyPipeline extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * test-pipeline
+   */
   name?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
+  /**
+   * @example
+   * Standard
+   */
   speed?: string;
+  /**
+   * @example
+   * Active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16694,7 +22610,15 @@ export class CreatePipelineResponseBodyPipeline extends $tea.Model {
 }
 
 export class DecryptKMSDataKeyResponseBodyDataKey extends $tea.Model {
+  /**
+   * @example
+   * 202b9877-5a25-46e3-a763-e20791b5****
+   */
   keyId?: string;
+  /**
+   * @example
+   * tRYXuCwgja12xxO1N/gZERDDCLw9doZEQiPDk/Bv****
+   */
   plaintext?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16716,6 +22640,10 @@ export class DecryptKMSDataKeyResponseBodyDataKey extends $tea.Model {
 }
 
 export class DeleteAvatarTrainingJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ****d718e2ff4f018ccf419a7b71****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16735,8 +22663,20 @@ export class DeleteAvatarTrainingJobResponseBodyData extends $tea.Model {
 }
 
 export class DeleteLiveRecordFilesResponseBodyDeleteFileInfoList extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * 13cbb83e-043c-4728-ac35-*****
+   */
   recordId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16760,7 +22700,15 @@ export class DeleteLiveRecordFilesResponseBodyDeleteFileInfoList extends $tea.Mo
 }
 
 export class DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList extends $tea.Model {
+  /**
+   * @example
+   * 1660638613798
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * OK
+   */
   result?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16782,8 +22730,20 @@ export class DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList extends $te
 }
 
 export class DescribeMeterImsEditUsageResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1.23
+   */
   duration?: number;
+  /**
+   * @example
+   * 1080P
+   */
   profile?: string;
+  /**
+   * @example
+   * 1656950400
+   */
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16807,8 +22767,20 @@ export class DescribeMeterImsEditUsageResponseBodyData extends $tea.Model {
 }
 
 export class DescribeMeterImsMediaConvertUHDUsageResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 308028
+   */
   duration?: number;
+  /**
+   * @example
+   * SuperResolution.Standard.1080P
+   */
   specification?: string;
+  /**
+   * @example
+   * 1656950400
+   */
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16832,8 +22804,20 @@ export class DescribeMeterImsMediaConvertUHDUsageResponseBodyData extends $tea.M
 }
 
 export class DescribeMeterImsMediaConvertUsageResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   duration?: number;
+  /**
+   * @example
+   * H264.HD
+   */
   specification?: string;
+  /**
+   * @example
+   * 1656950400
+   */
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16857,7 +22841,15 @@ export class DescribeMeterImsMediaConvertUsageResponseBodyData extends $tea.Mode
 }
 
 export class DescribeMeterImsMpsAiUsageResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 644
+   */
   duration?: number;
+  /**
+   * @example
+   * 1656950400
+   */
   time?: number;
   type?: string;
   static names(): { [key: string]: string } {
@@ -16882,13 +22874,33 @@ export class DescribeMeterImsMpsAiUsageResponseBodyData extends $tea.Model {
 }
 
 export class DescribeMeterImsSummaryResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 8722
+   */
   editingDuration?: string;
   liveEditDuration?: string;
   liveRecordDuration?: string;
   liveSnapshotCount?: string;
+  /**
+   * @example
+   * 12356
+   */
   liveTranscodeDuration?: number;
+  /**
+   * @example
+   * 0
+   */
   mpsAiDuration?: number;
+  /**
+   * @example
+   * 17337
+   */
   mpsTranscodeDuration?: number;
+  /**
+   * @example
+   * 300
+   */
   mpsTranscodeUHDDuration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16922,15 +22934,55 @@ export class DescribeMeterImsSummaryResponseBodyData extends $tea.Model {
 }
 
 export class DescribePlayListResponseBodyPlayList extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   firstFrameDuration?: string;
+  /**
+   * @example
+   * 1000
+   */
   playDuration?: string;
+  /**
+   * @example
+   * 1675922209572
+   */
   playTs?: string;
+  /**
+   * @example
+   * vod
+   */
   playType?: string;
+  /**
+   * @example
+   * 91488be2-8381-40c9-8494-e8afe22c4a2d
+   */
   sessionId?: string;
+  /**
+   * @example
+   * complete
+   */
   status?: string;
+  /**
+   * @example
+   * 20
+   */
   stuckDuration?: string;
+  /**
+   * @example
+   * 0b736abf16724820210842673d9543
+   */
   traceId?: string;
+  /**
+   * @example
+   * 2000
+   */
   videoDuration?: string;
+  /**
+   * @example
+   * 250314203f0171eebff17035d0b20102
+   */
   videoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16968,6 +23020,10 @@ export class DescribePlayListResponseBodyPlayList extends $tea.Model {
 }
 
 export class DetectAudioForCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   pass?: boolean;
   reason?: string;
   static names(): { [key: string]: string } {
@@ -16990,8 +23046,20 @@ export class DetectAudioForCustomizedVoiceJobResponseBodyData extends $tea.Model
 }
 
 export class GenerateKMSDataKeyResponseBodyDataKey extends $tea.Model {
+  /**
+   * @example
+   * ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901qOjop4bTS****
+   */
   ciphertextBlob?: string;
+  /**
+   * @example
+   * 7906979c-8e06-46a2-be2d-68e3ccbc****
+   */
   keyId?: string;
+  /**
+   * @example
+   * QmFzZTY0IGVuY29kZWQgcGxhaW50****
+   */
   plaintext?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17016,12 +23084,32 @@ export class GenerateKMSDataKeyResponseBodyDataKey extends $tea.Model {
 
 export class GetAvatarResponseBodyDataAvatar extends $tea.Model {
   avatarDescription?: string;
+  /**
+   * @example
+   * Avatar-XXXX
+   */
   avatarId?: string;
   avatarName?: string;
+  /**
+   * @example
+   * 2DAvatar
+   */
   avatarType?: string;
   height?: number;
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****
+   */
   portrait?: string;
+  /**
+   * @example
+   * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
+   */
   thumbnail?: string;
+  /**
+   * @example
+   * true
+   */
   transparent?: boolean;
   width?: number;
   static names(): { [key: string]: string } {
@@ -17078,17 +23166,57 @@ export class GetAvatarResponseBodyData extends $tea.Model {
 
 export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $tea.Model {
   avatarDescription?: string;
+  /**
+   * @example
+   * Avatar-XXXX
+   */
   avatarId?: string;
   avatarName?: string;
+  /**
+   * @example
+   * 2DAvatar
+   */
   avatarType?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:40Z
+   */
   firstTrainingTime?: string;
+  /**
+   * @example
+   * ****55d86f7f4587943ce7734d6b****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:40Z
+   */
   lastTrainingTime?: string;
   message?: string;
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****
+   */
   portrait?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
+   */
   thumbnail?: string;
+  /**
+   * @example
+   * true
+   */
   transparent?: boolean;
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****
+   */
   video?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17151,11 +23279,36 @@ export class GetAvatarTrainingJobResponseBodyData extends $tea.Model {
 }
 
 export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList extends $tea.Model {
+  /**
+   * @example
+   * InvalidMaterial.NotFound
+   */
   errorCode?: string;
+  /**
+   * @example
+   * The specified clips id not found:["****30d0b5e871eebb2ff7f6c75a****"]
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * ****8e81933d44e3ae69e2f81485****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ****1470b11171ee9d19e7e6c66a****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * http:/xxx.oss-cn-shanghai.aliyuncs.com/xxx_0.mp4
+   */
   mediaURL?: string;
+  projectId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17164,6 +23317,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
       jobId: 'JobId',
       mediaId: 'MediaId',
       mediaURL: 'MediaURL',
+      projectId: 'ProjectId',
       status: 'Status',
     };
   }
@@ -17175,6 +23329,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
       jobId: 'string',
       mediaId: 'string',
       mediaURL: 'string',
+      projectId: 'string',
       status: 'string',
     };
   }
@@ -17187,15 +23342,59 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
 export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.Model {
   completeTime?: string;
   createTime?: string;
+  /**
+   * @example
+   * {
+   *   "MediaConfig": {
+   *       "Volume": 0
+   *   },
+   *   "SpeechConfig": {
+   *       "Volume": 1
+   *   },
+   *  "BackgroundMusicConfig": {
+   *       "Volume": 0.3
+   *   }
+   * }
+   */
   editingConfig?: string;
+  /**
+   * @example
+   * {
+   * 	"ErrorCode": "InvalidMaterial.NotFound",
+   * 	"ErrorMessage": "The specified clips id not found:[\\"****30d0b5e871eebb2ff7f6c75a****\\"]"
+   * }
+   */
   extend?: string;
   inputConfig?: string;
+  /**
+   * @example
+   * ****b6b2750d4308892ac3330238****
+   */
   jobId?: string;
   jobType?: string;
   modifiedTime?: string;
+  /**
+   * @example
+   * {
+   *   "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
+   *   "Count": 20,
+   *   "MaxDuration": 15,
+   *   "Width": 1080,
+   *   "Height": 1920,
+   *   "Video": {"Crf": 27}
+   * }
+   */
   outputConfig?: string;
+  /**
+   * @example
+   * Finished
+   */
   status?: string;
   subJobList?: GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList[];
+  /**
+   * @example
+   * {"NotifyAddress":"http://xx.xx.xxx"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17237,10 +23436,26 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.M
 }
 
 export class GetCategoriesResponseBodyCategory extends $tea.Model {
+  /**
+   * @example
+   * 46
+   */
   cateId?: number;
   cateName?: string;
+  /**
+   * @example
+   * 0
+   */
   level?: number;
+  /**
+   * @example
+   * -1
+   */
   parentId?: number;
+  /**
+   * @example
+   * default
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17268,11 +23483,31 @@ export class GetCategoriesResponseBodyCategory extends $tea.Model {
 }
 
 export class GetCategoriesResponseBodySubCategoriesCategory extends $tea.Model {
+  /**
+   * @example
+   * 129
+   */
   cateId?: number;
   cateName?: string;
+  /**
+   * @example
+   * 1
+   */
   level?: number;
+  /**
+   * @example
+   * 46
+   */
   parentId?: number;
+  /**
+   * @example
+   * 100
+   */
   subTotal?: number;
+  /**
+   * @example
+   * default
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17321,8 +23556,20 @@ export class GetCategoriesResponseBodySubCategories extends $tea.Model {
 }
 
 export class GetContentAnalyzeConfigResponseBodyContentAnalyzeConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   auto?: boolean;
+  /**
+   * @example
+   * TEXT,FACE
+   */
   saveType?: string;
+  /**
+   * @example
+   * S00000101-100070
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17346,16 +23593,60 @@ export class GetContentAnalyzeConfigResponseBodyContentAnalyzeConfig extends $te
 }
 
 export class GetCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
+  /**
+   * @example
+   * 2022-01-01T10:00:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * true
+   */
   isDefault?: boolean;
+  /**
+   * @example
+   * 2022-01-01T11:00:00Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * 1
+   */
   subtype?: number;
+  /**
+   * @example
+   * Normal
+   */
   subtypeName?: string;
+  /**
+   * @example
+   * {"Type":"Normal","FrameType":"normal","Time":0,"Count":10}
+   */
   templateConfig?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
+  /**
+   * @example
+   * 测试转码模板
+   */
   templateName?: string;
+  /**
+   * @example
+   * 2
+   */
   type?: number;
+  /**
+   * @example
+   * SnapshotTemplate
+   */
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17395,10 +23686,26 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
 }
 
 export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $tea.Model {
+  /**
+   * @example
+   * ****42d3c312402982be65975f5b****
+   */
   demoAudioMediaId?: string;
+  /**
+   * @example
+   * female
+   */
   gender?: string;
+  /**
+   * @example
+   * interaction
+   */
   scenario?: string;
   voiceDesc?: string;
+  /**
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -17450,12 +23757,24 @@ export class GetCustomizedVoiceResponseBodyData extends $tea.Model {
 export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $tea.Model {
   createTime?: string;
   gender?: string;
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****
+   */
   jobId?: string;
   message?: string;
   scenario?: string;
+  /**
+   * @example
+   * Fail
+   */
   status?: string;
   type?: string;
   voiceDesc?: string;
+  /**
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -17513,7 +23832,15 @@ export class GetCustomizedVoiceJobResponseBodyData extends $tea.Model {
 }
 
 export class GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationList extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   audioId?: number;
+  /**
+   * @example
+   * http://bucket.oss-cn-shanghai.aliyuncs.com/1.wav
+   */
   demoAudio?: string;
   text?: string;
   static names(): { [key: string]: string } {
@@ -17557,8 +23884,29 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBodyData extends $tea.
 }
 
 export class GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile extends $tea.Model {
+  /**
+   * @remarks
+   * OSS Bucket
+   * 
+   * @example
+   * test-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * OSS Location
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * OSS Object
+   * 
+   * @example
+   * sample-input.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17582,8 +23930,16 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile extends $
 }
 
 export class GetDynamicImageJobResponseBodyDynamicImageJobInput extends $tea.Model {
+  /**
+   * @example
+   * oss://test-bucket/sample-input.mp4
+   */
   media?: string;
   ossFile?: GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17607,8 +23963,29 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInput extends $tea.Mod
 }
 
 export class GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile extends $tea.Model {
+  /**
+   * @remarks
+   * OSS Bucket
+   * 
+   * @example
+   * sample-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * OSS Location
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * OSS Object
+   * 
+   * @example
+   * path/to/object
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17632,8 +24009,16 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile extends 
 }
 
 export class GetDynamicImageJobResponseBodyDynamicImageJobOutput extends $tea.Model {
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   media?: string;
   ossFile?: GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile;
+  /**
+   * @example
+   * Media
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17657,22 +24042,82 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutput extends $tea.Mo
 }
 
 export class GetDynamicImageJobResponseBodyDynamicImageJob extends $tea.Model {
+  /**
+   * @example
+   * ResourceNotFound
+   */
   code?: string;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-07-12T16:30:54Z
+   */
   finishTime?: string;
   input?: GetDynamicImageJobResponseBodyDynamicImageJobInput;
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
+  /**
+   * @example
+   * The specified resource for "CustomTemplate" could not be found.
+   */
   message?: string;
+  /**
+   * @example
+   * 2022-07-12T16:30:54Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * SampleJob
+   */
   name?: string;
   output?: GetDynamicImageJobResponseBodyDynamicImageJobOutput;
+  /**
+   * @example
+   * http://test-bucket.oss-cn-shanghai.aliyuncs.com/output.gif
+   */
   outputUrl?: string;
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * {"Format":"gif","Fps":5,"Height":1080,"Width":1920}
+   */
   templateConfig?: string;
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   templateId?: string;
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * {"sampleParam": "sampleValue"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17724,21 +24169,77 @@ export class GetDynamicImageJobResponseBodyDynamicImageJob extends $tea.Model {
 }
 
 export class GetEditingProjectResponseBodyProject extends $tea.Model {
+  /**
+   * @example
+   * { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
+   */
   businessConfig?: string;
+  /**
+   * @example
+   * Reserving
+   */
   businessStatus?: string;
   clipsParam?: string;
+  /**
+   * @example
+   * oss://example-bucket/example.jpg
+   */
   coverURL?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
   createSource?: string;
+  /**
+   * @example
+   * 2020-12-20T12:00:00Z
+   */
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * 24.120000
+   */
   duration?: number;
+  /**
+   * @example
+   * OpenAPI
+   */
   modifiedSource?: string;
+  /**
+   * @example
+   * 2020-12-20T13:00:00Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * ****fb2101bf24b2754cb318787dc****
+   */
   projectId?: string;
+  /**
+   * @example
+   * EditingProject
+   */
   projectType?: string;
+  /**
+   * @example
+   * Editing
+   */
   status?: string;
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
+  /**
+   * @example
+   * Timeline
+   */
   templateType?: string;
+  /**
+   * @example
+   * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****9b4d7cf14dc7b83b0e801cbe****"},{"MediaId":"****9b4d7cf14dc7b83b0e801cbe****"},{"MediaId":"****1656bca4474999c961a6d2a2****"}]}]}
+   */
   timeline?: string;
   timelineConvertErrorMessage?: string;
   timelineConvertStatus?: string;
@@ -17797,9 +24298,25 @@ export class GetEditingProjectResponseBodyProject extends $tea.Model {
 }
 
 export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Model {
+  /**
+   * @example
+   * testrecord
+   */
   appName?: string;
+  /**
+   * @example
+   * test.alivecdn.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * rtmp://test.alivecdn.com/testrecord/teststream
+   */
   liveUrl?: string;
+  /**
+   * @example
+   * testrecord
+   */
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17825,16 +24342,60 @@ export class GetEditingProjectMaterialsResponseBodyLiveMaterials extends $tea.Mo
 }
 
 export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 1132.68
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 216.206667
+   */
   duration?: string;
+  /**
+   * @example
+   * example.mp4
+   */
   fileName?: string;
+  /**
+   * @example
+   * 30611502
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * mov,mp4,m4a,3gp,3g2,mj2
+   */
   formatName?: string;
+  /**
+   * @example
+   * 540
+   */
   height?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 960
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17893,23 +24454,94 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList extend
 }
 
 export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * general
+   */
   businessType?: string;
+  /**
+   * @example
+   * video
+   */
   category?: string;
+  /**
+   * @example
+   * http://sample-bucket.oss-cn-shanghai.aliyuncs.com/sample-corver.jpg?Expires=1628670610&OSSAccessKeyId=AK&Signature=signature
+   */
   coverURL?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:08Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:08Z
+   */
   deletedTime?: string;
+  /**
+   * @example
+   * sample_description
+   */
   description?: string;
+  /**
+   * @example
+   * http://bucket.oss-cn-shanghai.aliyuncs.com/file.mp4
+   */
   inputURL?: string;
+  /**
+   * @remarks
+   * MediaId
+   * 
+   * @example
+   * *****64623a94eca8516569c8f*****
+   */
   mediaId?: string;
   mediaTags?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:08Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * null
+   */
   snapshots?: string;
+  /**
+   * @example
+   * oss
+   */
   source?: string;
+  /**
+   * @example
+   * null
+   */
   spriteImages?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * file.mp4
+   */
   title?: string;
+  /**
+   * @example
+   * Init
+   */
   transcodeStatus?: string;
+  /**
+   * @example
+   * userData
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17963,8 +24595,20 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo exte
 }
 
 export class GetEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model {
+  /**
+   * @remarks
+   * FileInfos
+   */
   fileInfoList?: GetEditingProjectMaterialsResponseBodyMediaInfosFileInfoList[];
+  /**
+   * @remarks
+   * BasicInfo
+   */
   mediaBasicInfo?: GetEditingProjectMaterialsResponseBodyMediaInfosMediaBasicInfo;
+  /**
+   * @example
+   * *****64623a94eca8516569c8fe*****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17988,8 +24632,20 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model
 }
 
 export class GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig extends $tea.Model {
+  /**
+   * @example
+   * app
+   */
   appName?: string;
+  /**
+   * @example
+   * domain.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * streamName
+   */
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18013,6 +24669,10 @@ export class GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig extends
 }
 
 export class GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig extends $tea.Model {
+  /**
+   * @example
+   * Accurate
+   */
   mode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18032,12 +24692,40 @@ export class GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig exten
 }
 
 export class GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
   bitrate?: number;
+  /**
+   * @example
+   * test.mp4
+   */
   fileName?: string;
+  /**
+   * @example
+   * 480
+   */
   height?: number;
+  /**
+   * @example
+   * https://testice-testbucket.oss-cn-shanghai.aliyuncs.com/test.mp4
+   */
   mediaURL?: string;
+  /**
+   * @example
+   * outin-xxxxxx.oss-cn-shanghai.aliyuncs.com
+   */
   storageLocation?: string;
+  /**
+   * @example
+   * VOD_NO_TRANSCODE
+   */
   vodTemplateGroupId?: string;
+  /**
+   * @example
+   * 640
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18069,20 +24757,68 @@ export class GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig extend
 }
 
 export class GetLiveEditingJobResponseBodyLiveEditingJob extends $tea.Model {
+  /**
+   * @example
+   * [{\\"StartTime\\": \\" 2021-06-21T08:01:00Z\\",  \\"EndTime\\": \\" 2021-06-21T08:03:00Z\\" }]
+   */
   clips?: string;
+  /**
+   * @example
+   * InvalidParameter
+   */
   code?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:52Z
+   */
   completeTime?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:40Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   jobId?: string;
   liveStreamConfig?: GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig;
+  /**
+   * @example
+   * ****0cc6ba49eab379332c5b****
+   */
   mediaId?: string;
   mediaProduceConfig?: GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4
+   */
   mediaURL?: string;
+  /**
+   * @example
+   * The specific parameter LiveStreamConfig is not valid.
+   */
   message?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:49Z
+   */
   modifiedTime?: string;
   outputMediaConfig?: GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig;
+  /**
+   * @example
+   * ****fddd7748b58bf1d47e95****
+   */
   projectId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * {"key": "value\\"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18130,8 +24866,20 @@ export class GetLiveEditingJobResponseBodyLiveEditingJob extends $tea.Model {
 }
 
 export class GetLiveRecordJobResponseBodyRecordJobRecordOutput extends $tea.Model {
+  /**
+   * @example
+   * imsbucket1
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-shanghai.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @example
+   * oss
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18155,7 +24903,15 @@ export class GetLiveRecordJobResponseBodyRecordJobRecordOutput extends $tea.Mode
 }
 
 export class GetLiveRecordJobResponseBodyRecordJobStreamInput extends $tea.Model {
+  /**
+   * @example
+   * rtmp
+   */
   type?: string;
+  /**
+   * @example
+   * rtmp://example.com/app/stream
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18177,14 +24933,62 @@ export class GetLiveRecordJobResponseBodyRecordJobStreamInput extends $tea.Model
 }
 
 export class GetLiveRecordJobResponseBodyRecordJob extends $tea.Model {
+  /**
+   * @remarks
+   * 代表创建时间的资源属性字段
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-07-20T02:48:58Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * @example
+   * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   */
   name?: string;
+  /**
+   * @remarks
+   * 回调地址
+   * 
+   * @example
+   * https://example.com/imsnotify
+   */
   notifyUrl?: string;
   recordOutput?: GetLiveRecordJobResponseBodyRecordJobRecordOutput;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * @example
+   * paused
+   */
   status?: string;
   streamInput?: GetLiveRecordJobResponseBodyRecordJobStreamInput;
+  /**
+   * @remarks
+   * 录制模板ID
+   * 
+   * @example
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * 录制模板ID
+   * 
+   * @example
+   * test template
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18220,10 +25024,39 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $tea.Model {
 }
 
 export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList extends $tea.Model {
+  /**
+   * @example
+   * 7200
+   */
   cycleDuration?: number;
+  /**
+   * @remarks
+   * 格式
+   * 
+   * @example
+   * m3u8
+   */
   format?: string;
+  /**
+   * @remarks
+   * Oss对象名，不包含后缀
+   * 
+   * @example
+   * record/{JobId}/{Sequence}{EscapedStartTime}{EscapedEndTime}
+   */
   ossObjectPrefix?: string;
+  /**
+   * @example
+   * 30
+   */
   sliceDuration?: number;
+  /**
+   * @remarks
+   * 切片Oss对象名，不包含后缀
+   * 
+   * @example
+   * record/{JobId}/{UnixTimestamp}_{Sequence}
+   */
   sliceOssObjectPrefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18251,11 +25084,54 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList ext
 }
 
 export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * 代表创建时间的资源属性字段
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-07-20T03:26:36Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 代表创建时间的资源属性字段
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-07-20T03:26:36Z
+   */
   lastModified?: string;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * @example
+   * test template
+   */
   name?: string;
+  /**
+   * @remarks
+   * 录制格式
+   */
   recordFormatList?: GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList[];
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * @example
+   * custom
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18285,8 +25161,20 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $tea.Model 
 }
 
 export class GetLiveSnapshotJobResponseBodySnapshotOutput extends $tea.Model {
+  /**
+   * @example
+   * testbucket
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-shanghai.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @example
+   * oss
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18310,7 +25198,15 @@ export class GetLiveSnapshotJobResponseBodySnapshotOutput extends $tea.Model {
 }
 
 export class GetLiveSnapshotJobResponseBodyStreamInput extends $tea.Model {
+  /**
+   * @example
+   * rtmp
+   */
   type?: string;
+  /**
+   * @example
+   * rtmp://www.aliyun.com/stream
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18332,7 +25228,15 @@ export class GetLiveSnapshotJobResponseBodyStreamInput extends $tea.Model {
 }
 
 export class GetLiveTranscodeJobResponseBodyJobOutputStreamStreamInfos extends $tea.Model {
+  /**
+   * @example
+   * rtmp://mydomain/app/mytranscode1
+   */
   outputUrl?: string;
+  /**
+   * @example
+   * rtmp
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18373,7 +25277,15 @@ export class GetLiveTranscodeJobResponseBodyJobOutputStream extends $tea.Model {
 }
 
 export class GetLiveTranscodeJobResponseBodyJobStreamInput extends $tea.Model {
+  /**
+   * @example
+   * rtmp://mydomain/app/stream1
+   */
   inputUrl?: string;
+  /**
+   * @example
+   * rtmp
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18395,15 +25307,47 @@ export class GetLiveTranscodeJobResponseBodyJobStreamInput extends $tea.Model {
 }
 
 export class GetLiveTranscodeJobResponseBodyJob extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-20T02:48:58Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * task1
+   */
   name?: string;
   outputStream?: GetLiveTranscodeJobResponseBodyJobOutputStream;
+  /**
+   * @example
+   * 0
+   */
   startMode?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   streamInput?: GetLiveTranscodeJobResponseBodyJobStreamInput;
+  /**
+   * @example
+   * b6491d5b3e514b7d895d14b5453ea119
+   */
   templateId?: string;
+  /**
+   * @example
+   * basic
+   */
   templateName?: string;
+  /**
+   * @example
+   * normal
+   */
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18441,10 +25385,30 @@ export class GetLiveTranscodeJobResponseBodyJob extends $tea.Model {
 }
 
 export class GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfigAudioParams extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC
+   */
   codec?: string;
+  /**
+   * @example
+   * 1
+   */
   profile?: string;
+  /**
+   * @example
+   * 44100
+   */
   samplerate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18472,12 +25436,40 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfigAu
 }
 
 export class GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfigVideoParams extends $tea.Model {
+  /**
+   * @example
+   * 2500
+   */
   bitrate?: string;
+  /**
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @example
+   * 30
+   */
   fps?: string;
+  /**
+   * @example
+   * 1000
+   */
   gop?: string;
+  /**
+   * @example
+   * 720
+   */
   height?: string;
+  /**
+   * @example
+   * 2
+   */
   profile?: string;
+  /**
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18531,11 +25523,31 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfig e
 }
 
 export class GetLiveTranscodeTemplateResponseBodyTemplateContent extends $tea.Model {
+  /**
+   * @example
+   * customized
+   */
   category?: string;
+  /**
+   * @example
+   * 2022-07-25T06:15:14Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * my-template
+   */
   name?: string;
   templateConfig?: GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfig;
+  /**
+   * @example
+   * bcfa57950bc649b2abfb476ecd36ea4f
+   */
   templateId?: string;
+  /**
+   * @example
+   * normal
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18616,10 +25628,26 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob ext
 
 export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $tea.Model {
   aiCategory?: string;
+  /**
+   * @example
+   * ****483915d4f2cd8ac20b48fb04****
+   */
   aiJobId?: string;
+  /**
+   * @example
+   * https://sample-bucket.cn-shanghai.aliyuncs.com/result.json
+   */
   result?: string;
+  /**
+   * @example
+   * TEXT
+   */
   saveType?: string;
   standardSmartTagJob?: GetMediaInfoResponseBodyMediaInfoAiRoughDataStandardSmartTagJob;
+  /**
+   * @example
+   * Analyzing
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18649,23 +25677,95 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughData extends $tea.Model {
 }
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 127.794
+   */
   bitrate?: string;
+  /**
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x6134706d
+   */
   codecTag?: string;
+  /**
+   * @example
+   * mp4a
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/24000
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 16.200998
+   */
   duration?: string;
+  /**
+   * @example
+   * 8
+   */
   fps?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @example
+   * 10
+   */
   numFrames?: string;
+  /**
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @example
+   * 44100
+   */
   sampleRate?: string;
+  /**
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/44100
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18719,18 +25819,70 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList ex
 }
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 1132.68
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:08Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 216.206667
+   */
   duration?: string;
+  /**
+   * @example
+   * example.mp4
+   */
   fileName?: string;
+  /**
+   * @example
+   * 30611502
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * mov,mp4,m4a,3gp,3g2,mj2
+   */
   formatName?: string;
+  /**
+   * @example
+   * 540
+   */
   height?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 960
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18774,15 +25926,55 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends 
 }
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * SubRip Text
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * srt
+   */
   codecName?: string;
+  /**
+   * @example
+   * unicode
+   */
   codecTag?: string;
+  /**
+   * @example
+   * unicode
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 29.97
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 1
+   */
   duration?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @example
+   * 0
+   */
   startTime?: string;
+  /**
+   * @example
+   * 30
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18820,29 +26012,125 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList
 }
 
 export class GetMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 24.0
+   */
   avgFPS?: string;
+  /**
+   * @example
+   * 1001.594
+   */
   bitrate?: string;
+  /**
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x0000
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [0][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/48
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 0:1
+   */
   dar?: string;
+  /**
+   * @example
+   * 216.206706
+   */
   duration?: string;
+  /**
+   * @example
+   * 24.0
+   */
   fps?: string;
+  /**
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @example
+   * 540
+   */
   height?: string;
+  /**
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @example
+   * 30
+   */
   level?: string;
+  /**
+   * @example
+   * 5184
+   */
   nbFrames?: string;
+  /**
+   * @example
+   * 5184
+   */
   numFrames?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @example
+   * 0
+   */
   rotate?: string;
+  /**
+   * @example
+   * 0:1
+   */
   sar?: string;
+  /**
+   * @example
+   * 0.081706
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/12288
+   */
   timebase?: string;
+  /**
+   * @example
+   * 960
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18936,27 +26224,98 @@ export class GetMediaInfoResponseBodyMediaInfoFileInfoList extends $tea.Model {
 }
 
 export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * ICE
+   */
   biz?: string;
+  /**
+   * @example
+   * general
+   */
   businessType?: string;
+  /**
+   * @example
+   * 3048
+   */
   cateId?: number;
+  /**
+   * @example
+   * cateName
+   */
   cateName?: string;
   category?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   coverURL?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:08Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:15Z
+   */
   deletedTime?: string;
   description?: string;
+  /**
+   * @example
+   * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+   */
   inputURL?: string;
+  /**
+   * @remarks
+   * MediaId
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
   mediaTags?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 123-1234
+   */
   referenceId?: string;
   snapshots?: string;
+  /**
+   * @example
+   * oss
+   */
   source?: string;
+  /**
+   * @example
+   * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
+   */
   spriteImages?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
   title?: string;
+  /**
+   * @example
+   * general
+   */
   uploadSource?: string;
+  /**
+   * @example
+   * userDataTest
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19020,7 +26379,15 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model 
 export class GetMediaInfoResponseBodyMediaInfo extends $tea.Model {
   aiRoughData?: GetMediaInfoResponseBodyMediaInfoAiRoughData;
   fileInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoList[];
+  /**
+   * @remarks
+   * BasicInfo
+   */
   mediaBasicInfo?: GetMediaInfoResponseBodyMediaInfoMediaBasicInfo;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19046,7 +26413,15 @@ export class GetMediaInfoResponseBodyMediaInfo extends $tea.Model {
 }
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19068,20 +26443,80 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model {
 }
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 0.f
+   */
   bitrate?: string;
+  /**
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x000f
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [15][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * us
+   */
   lang?: string;
+  /**
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @example
+   * 44100
+   */
   sampleRate?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19129,17 +26564,65 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStream
 }
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 888.563
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 403.039999
+   */
   duration?: string;
+  /**
+   * @example
+   * file.m3u8
+   */
   fileName?: string;
+  /**
+   * @example
+   * 31737
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * hls,applehttp
+   */
   formatName?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * e520090207114cc7a392d44f0b211574
+   */
   mediaId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19181,28 +26664,120 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicIn
 }
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 25.0
+   */
   avgFps?: string;
+  /**
+   * @example
+   * 888.563
+   */
   bitRate?: string;
+  /**
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x001b
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [27][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/50
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @example
+   * 31
+   */
   level?: string;
+  /**
+   * @example
+   * 10040
+   */
   numFrames?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @example
+   * 0
+   */
   rotate?: string;
+  /**
+   * @example
+   * 478:477
+   */
   sar?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timeBase?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19291,7 +26866,15 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty extends $t
 }
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19313,18 +26896,54 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $tea.
 }
 
 export class GetMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   async?: boolean;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   finishTime?: string;
   input?: GetMediaInfoJobResponseBodyMediaInfoJobInput;
+  /**
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   jobId?: string;
   mediaInfoProperty?: GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
+  /**
+   * @example
+   * 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
+   */
   requestId?: string;
   scheduleConfig?: GetMediaInfoJobResponseBodyMediaInfoJobScheduleConfig;
+  /**
+   * @example
+   * Init
+   */
   status?: string;
   submitResultJson?: { [key: string]: any };
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19368,22 +26987,82 @@ export class GetMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
 }
 
 export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Model {
+  /**
+   * @example
+   * {"VideoArray":["****05512043f49f697f7425****","****05512043f49f697f7425****","****05512043f49f697f7425****"]}
+   */
   clipsParam?: string;
+  /**
+   * @example
+   * ExceededMaximumValue
+   */
   code?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:52Z
+   */
   completeTime?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:40Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 30.500000
+   */
   duration?: number;
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   jobId?: string;
+  /**
+   * @example
+   * ****0cc6ba49eab379332c5b****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4
+   */
   mediaURL?: string;
+  /**
+   * @example
+   * The specified "Width_Height" has exceeded maximum value.
+   */
   message?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:49Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * ****fddd7748b58bf1d47e95****
+   */
   projectId?: string;
+  /**
+   * @example
+   * Failed
+   */
   status?: string;
   subJobMaterials?: string;
+  /**
+   * @example
+   * ****6e76134d739cc3e85d3e****
+   */
   templateId?: string;
+  /**
+   * @example
+   * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
+   */
   timeline?: string;
   userData?: string;
+  /**
+   * @example
+   * ****332c5b0cc6ba49eab379****
+   */
   vodMediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19435,7 +27114,15 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
 }
 
 export class GetPackageJobResponseBodyPackageJobInputsInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19476,7 +27163,15 @@ export class GetPackageJobResponseBodyPackageJobInputs extends $tea.Model {
 }
 
 export class GetPackageJobResponseBodyPackageJobOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.m3u8
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19498,21 +27193,73 @@ export class GetPackageJobResponseBodyPackageJobOutput extends $tea.Model {
 }
 
 export class GetPackageJobResponseBodyPackageJob extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter
+   */
   code?: string;
+  /**
+   * @example
+   * 2022-09-08T11:34:05Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-09-08T11:44:05Z
+   */
   finishTime?: string;
   inputs?: GetPackageJobResponseBodyPackageJobInputs[];
+  /**
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   jobId?: string;
+  /**
+   * @example
+   * Resource content bad.
+   */
   message?: string;
+  /**
+   * @example
+   * 2022-09-08T11:44:05Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
   output?: GetPackageJobResponseBodyPackageJobOutput;
+  /**
+   * @example
+   * http://bucket.oss-cn-shanghai.aliyuncs.com/output.m3u8
+   */
   outputUrl?: string;
+  /**
+   * @example
+   * 36f3fee40aa047c0b067d0fb85edc12b
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
+  /**
+   * @example
+   * Init
+   */
   status?: string;
+  /**
+   * @example
+   * 2022-09-08T11:34:05Z
+   */
   submitTime?: string;
   triggerSource?: string;
+  /**
+   * @example
+   * {"param": "value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19562,12 +27309,40 @@ export class GetPackageJobResponseBodyPackageJob extends $tea.Model {
 }
 
 export class GetPipelineResponseBodyPipeline extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * test-pipeline
+   */
   name?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
+  /**
+   * @example
+   * Standard
+   */
   speed?: string;
+  /**
+   * @example
+   * Active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19600,13 +27375,37 @@ export class GetPipelineResponseBodyPipeline extends $tea.Model {
 
 export class GetPlayInfoResponseBodyMediaBase extends $tea.Model {
   cateId?: number;
+  /**
+   * @example
+   * https://***.oss-cn-shanghai.aliyuncs.com/cover/281c64d6-b5fb-4c57-97cd-84da56a8b151_large_cover_url.jpg
+   */
   coverURL?: string;
+  /**
+   * @example
+   * 2021-09-22T10:07:31+08:00
+   */
   creationTime?: string;
   description?: string;
+  /**
+   * @example
+   * 2eea77a61c7b4ddd95bec34a6f65b***
+   */
   mediaId?: string;
   mediaTags?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * testTitle
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19642,28 +27441,120 @@ export class GetPlayInfoResponseBodyMediaBase extends $tea.Model {
 }
 
 export class GetPlayInfoResponseBodyPlayInfoList extends $tea.Model {
+  /**
+   * @example
+   * 8
+   */
   bitDepth?: number;
+  /**
+   * @example
+   * 20
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2022-05-10T02:28:49Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * HD
+   */
   definition?: string;
+  /**
+   * @example
+   * 9.0464
+   */
   duration?: string;
+  /**
+   * @example
+   * 0
+   */
   encrypt?: number;
+  /**
+   * @example
+   * AliyunVoDEncryption
+   */
   encryptType?: string;
+  /**
+   * @example
+   * http://outin-***.oss-cn-shanghai.aliyuncs.com/sv/43a68ee9-181809b6aba/43a68ee9-181809b6aba.mpeg
+   */
   fileURL?: string;
+  /**
+   * @example
+   * mp4
+   */
   format?: string;
+  /**
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @example
+   * HDR
+   */
   HDRType?: string;
+  /**
+   * @example
+   * 1080
+   */
   height?: number;
+  /**
+   * @example
+   * 36c9d38e70bf43ed9f7f8f48d6356***
+   */
   jobId?: string;
+  /**
+   * @example
+   * 2022-05-13T11:39:41.714+08:00
+   */
   modificationTime?: string;
+  /**
+   * @example
+   * 0
+   */
   narrowBandType?: string;
+  /**
+   * @example
+   * https://***.aliyuncdn.com/sv/756bee1-17f980f0945/756bee1-17f980f0945.mp4
+   */
   playURL?: string;
+  /**
+   * @example
+   * 418112
+   */
   size?: number;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * "{\\"ims.audioServiceType\\": \\"AudioEnhancement\\"}"
+   */
   streamTags?: string;
+  /**
+   * @example
+   * video
+   */
   streamType?: string;
+  /**
+   * @example
+   * Normal
+   */
   transTemplateType?: string;
+  /**
+   * @example
+   * 5bed88672b1e2520ead228935ed51***
+   */
   watermarkId?: string;
+  /**
+   * @example
+   * 1024
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19727,7 +27618,15 @@ export class GetPlayInfoResponseBodyPlayInfoList extends $tea.Model {
 }
 
 export class GetPublicMediaInfoResponseBodyMediaInfoDynamicMetaData extends $tea.Model {
+  /**
+   * @example
+   * {"AuditionUrl": "http://example-bucket.cdn.domain.com/example.mp4", "AuditionCount": 3}
+   */
   data?: string;
+  /**
+   * @example
+   * system
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19749,23 +27648,95 @@ export class GetPublicMediaInfoResponseBodyMediaInfoDynamicMetaData extends $tea
 }
 
 export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 192.0
+   */
   bitrate?: string;
+  /**
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x6134706d
+   */
   codecTag?: string;
+  /**
+   * @example
+   * mp4a
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 16.2
+   */
   duration?: string;
+  /**
+   * @example
+   * 10
+   */
   fps?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @example
+   * 162
+   */
   numFrames?: string;
+  /**
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @example
+   * 44100
+   */
   sampleRate?: string;
+  /**
+   * @example
+   * 0.000000
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/44100
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19819,16 +27790,60 @@ export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoL
 }
 
 export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 192.0
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 16.2
+   */
   duration?: string;
+  /**
+   * @example
+   * example.mp4
+   */
   fileName?: string;
+  /**
+   * @example
+   * 27007
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://example-bucket.cdn.domain.com/example.mp4
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * mp4
+   */
   formatName?: string;
+  /**
+   * @example
+   * 0
+   */
   height?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 0
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19868,15 +27883,55 @@ export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo ex
 }
 
 export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * SubRip Text
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * srt
+   */
   codecName?: string;
+  /**
+   * @example
+   * unicode
+   */
   codecTag?: string;
+  /**
+   * @example
+   * unicode
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 29.97
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 1
+   */
   duration?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @example
+   * 0
+   */
   startTime?: string;
+  /**
+   * @example
+   * 30
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19914,29 +27969,125 @@ export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamIn
 }
 
 export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 24.0
+   */
   avgFPS?: string;
+  /**
+   * @example
+   * 1001.594
+   */
   bitrate?: string;
+  /**
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x0000
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [0][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/48
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 0:1
+   */
   dar?: string;
+  /**
+   * @example
+   * 216.206706
+   */
   duration?: string;
+  /**
+   * @example
+   * 24.0
+   */
   fps?: string;
+  /**
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @example
+   * 540
+   */
   height?: string;
+  /**
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @example
+   * und
+   */
   lang?: string;
+  /**
+   * @example
+   * 30
+   */
   level?: string;
+  /**
+   * @example
+   * 5184
+   */
   nbFrames?: string;
+  /**
+   * @example
+   * 5184
+   */
   numFrames?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @example
+   * 0
+   */
   rotate?: string;
+  /**
+   * @example
+   * 0:1
+   */
   sar?: string;
+  /**
+   * @example
+   * 0.081706
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/12288
+   */
   timebase?: string;
+  /**
+   * @example
+   * 960
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20030,20 +28181,79 @@ export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoList extends $tea.Mo
 }
 
 export class GetPublicMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * general
+   */
   businessType?: string;
+  /**
+   * @example
+   * category
+   */
   category?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   coverURL?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:08Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:15Z
+   */
   deletedTime?: string;
+  /**
+   * @example
+   * description
+   */
   description?: string;
+  /**
+   * @remarks
+   * MediaId
+   * 
+   * @example
+   * icepublic-****14e501538aeef0a3140176f6****
+   */
   mediaId?: string;
   mediaTags?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * oss
+   */
   source?: string;
+  /**
+   * @example
+   * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
+   */
   spriteImages?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * title
+   */
   title?: string;
+  /**
+   * @example
+   * {"key":"value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20092,8 +28302,20 @@ export class GetPublicMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.
 
 export class GetPublicMediaInfoResponseBodyMediaInfo extends $tea.Model {
   dynamicMetaData?: GetPublicMediaInfoResponseBodyMediaInfoDynamicMetaData;
+  /**
+   * @remarks
+   * FileInfos
+   */
   fileInfoList?: GetPublicMediaInfoResponseBodyMediaInfoFileInfoList[];
+  /**
+   * @remarks
+   * BasicInfo
+   */
   mediaBasicInfo?: GetPublicMediaInfoResponseBodyMediaInfoMediaBasicInfo;
+  /**
+   * @example
+   * icepublic-****14e501538aeef0a3140176f6****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20119,7 +28341,21 @@ export class GetPublicMediaInfoResponseBodyMediaInfo extends $tea.Model {
 }
 
 export class GetSmartHandleJobResponseBodyJobResult extends $tea.Model {
+  /**
+   * @remarks
+   * 智能分析结果
+   * 
+   * @example
+   * 拆条或智能标签信息
+   */
   aiResult?: string;
+  /**
+   * @remarks
+   * 媒资Id
+   * 
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   mediaId?: string;
   usage?: string;
   static names(): { [key: string]: string } {
@@ -20144,6 +28380,10 @@ export class GetSmartHandleJobResponseBodyJobResult extends $tea.Model {
 }
 
 export class GetSmartHandleJobResponseBodySmartJobInfoInputConfig extends $tea.Model {
+  /**
+   * @example
+   * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 或 ******11-DB8D-4A9A-875B-275798******
+   */
   inputFile?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20163,7 +28403,21 @@ export class GetSmartHandleJobResponseBodySmartJobInfoInputConfig extends $tea.M
 }
 
 export class GetSmartHandleJobResponseBodySmartJobInfoOutputConfig extends $tea.Model {
+  /**
+   * @remarks
+   * OSS Bucket
+   * 
+   * @example
+   * test-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * OSS Object
+   * 
+   * @example
+   * test-object
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20185,13 +28439,40 @@ export class GetSmartHandleJobResponseBodySmartJobInfoOutputConfig extends $tea.
 }
 
 export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 测试描述
+   */
   description?: string;
   inputConfig?: GetSmartHandleJobResponseBodySmartJobInfoInputConfig;
+  /**
+   * @example
+   * ASR
+   */
   jobType?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   modifiedTime?: string;
   outputConfig?: GetSmartHandleJobResponseBodySmartJobInfoOutputConfig;
+  /**
+   * @example
+   * 测试标题
+   */
   title?: string;
+  /**
+   * @remarks
+   * userid。
+   * 
+   * @example
+   * 1974526429******
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20225,8 +28506,29 @@ export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
 }
 
 export class GetSnapshotJobResponseBodySnapshotJobInputOssFile extends $tea.Model {
+  /**
+   * @remarks
+   * OSS Bucket
+   * 
+   * @example
+   * test-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * OSS Location
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * OSS Object
+   * 
+   * @example
+   * object.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20250,8 +28552,16 @@ export class GetSnapshotJobResponseBodySnapshotJobInputOssFile extends $tea.Mode
 }
 
 export class GetSnapshotJobResponseBodySnapshotJobInput extends $tea.Model {
+  /**
+   * @example
+   * oss://test-bucket/object.mp4
+   */
   media?: string;
   ossFile?: GetSnapshotJobResponseBodySnapshotJobInputOssFile;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20275,8 +28585,29 @@ export class GetSnapshotJobResponseBodySnapshotJobInput extends $tea.Model {
 }
 
 export class GetSnapshotJobResponseBodySnapshotJobOutputOssFile extends $tea.Model {
+  /**
+   * @remarks
+   * OSS Bucket
+   * 
+   * @example
+   * test-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * OSS Location
+   * 
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @remarks
+   * OSS Object
+   * 
+   * @example
+   * output-{Count}.jpg
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20300,8 +28631,16 @@ export class GetSnapshotJobResponseBodySnapshotJobOutputOssFile extends $tea.Mod
 }
 
 export class GetSnapshotJobResponseBodySnapshotJobOutput extends $tea.Model {
+  /**
+   * @example
+   * http://test-bucket.oss-cn-shanghai.aliyuncs.com/output-{Count}.jpg
+   */
   media?: string;
   ossFile?: GetSnapshotJobResponseBodySnapshotJobOutputOssFile;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20325,24 +28664,88 @@ export class GetSnapshotJobResponseBodySnapshotJobOutput extends $tea.Model {
 }
 
 export class GetSnapshotJobResponseBodySnapshotJob extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   async?: boolean;
+  /**
+   * @example
+   * ResourceNotFound
+   */
   code?: string;
+  /**
+   * @example
+   * 8
+   */
   count?: number;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-07-12T16:30:54Z
+   */
   finishTime?: string;
   input?: GetSnapshotJobResponseBodySnapshotJobInput;
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   jobId?: string;
+  /**
+   * @example
+   * The specified resource for "Pipeline" could not be found.
+   */
   message?: string;
+  /**
+   * @example
+   * 2022-07-12T16:30:54Z
+   */
   modifiedTime?: string;
   name?: string;
   output?: GetSnapshotJobResponseBodySnapshotJobOutput;
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * {"Type":"Normal","FrameType":"normal","Time":0,"Count":10}
+   */
   templateConfig?: string;
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
   templateId?: string;
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * Sprite
+   */
   type?: string;
+  /**
+   * @example
+   * {"test parameter": "test value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20398,14 +28801,50 @@ export class GetSnapshotJobResponseBodySnapshotJob extends $tea.Model {
 }
 
 export class GetStorageListResponseBodyStorageInfoList extends $tea.Model {
+  /**
+   * @example
+   * app-****
+   */
   appId?: string;
+  /**
+   * @example
+   * 2024-06-06T01:55:07Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * true
+   */
   defaultStorage?: boolean;
+  /**
+   * @example
+   * false
+   */
   editingTempFileStorage?: boolean;
+  /**
+   * @example
+   * 2024-06-06T03:07:07Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * your-path/
+   */
   path?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * your-bucket
+   */
   storageLocation?: string;
+  /**
+   * @example
+   * vod_oss_bucket
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20441,13 +28880,45 @@ export class GetStorageListResponseBodyStorageInfoList extends $tea.Model {
 }
 
 export class GetSystemTemplateResponseBodySystemTemplate extends $tea.Model {
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * 1
+   */
   subtype?: number;
+  /**
+   * @example
+   * Normal
+   */
   subtypeName?: string;
+  /**
+   * @example
+   * {"Container":{"Format":"m3u8"},"TransConfig":{"TransMode":"onepass"},"Video":{"Codec":"H.264","Maxrate":8000,"Preset":"medium","PixFmt":"yuv420p","Width":2048,"Bitrate":3500},"Audio":{"Codec":"aac","Bitrate":160,"Samplerate":44100,"Channels":2}}
+   */
   templateConfig?: string;
+  /**
+   * @example
+   * S00000001-100060
+   */
   templateId?: string;
+  /**
+   * @example
+   * M3U8-2K
+   */
   templateName?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
+  /**
+   * @example
+   * TranscodeTemplate
+   */
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20481,19 +28952,75 @@ export class GetSystemTemplateResponseBodySystemTemplate extends $tea.Model {
 }
 
 export class GetTemplateResponseBodyTemplate extends $tea.Model {
+  /**
+   * @example
+   * {"Media1":"mediaId","Text1":"text"}
+   */
   clipsParam?: string;
+  /**
+   * @example
+   * 参考Timeline模板配置详解
+   */
   config?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
+   */
   coverURL?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
   createSource?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
   modifiedSource?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 视频添加水印模板
+   */
   name?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   previewMedia?: string;
+  /**
+   * @example
+   * Normal
+   */
   previewMediaStatus?: string;
+  /**
+   * @example
+   * {"video":["******c04f1d4a06996144cc1a******"],"audio":["******c04f1d4a06996144cc1a******"],"image":["******c04f1d4a06996144cc1a******"]}
+   */
   relatedMediaids?: string;
+  /**
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
+  /**
+   * @example
+   * Timeline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20541,8 +29068,16 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
 export class GetTemplateParamsResponseBodyParamList extends $tea.Model {
   content?: string;
   coverUrl?: string;
+  /**
+   * @example
+   * video1
+   */
   key?: string;
   mediaUrl?: string;
+  /**
+   * @example
+   * Image
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20570,7 +29105,15 @@ export class GetTemplateParamsResponseBodyParamList extends $tea.Model {
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobInputGroup extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20592,8 +29135,16 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobInputGroup extends $te
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
   outputUrl?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20617,9 +29168,31 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput exte
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigCombineConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   audioIndex?: string;
+  /**
+   * @example
+   * 20.0
+   */
   duration?: number;
+  /**
+   * @example
+   * 0.0
+   */
   start?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   videoIndex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20645,9 +29218,25 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigEncryption extends $tea.Model {
+  /**
+   * @example
+   * MTYi00NDU0LTg5O****
+   */
   cipherText?: string;
+  /**
+   * @example
+   * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
+   */
   decryptKeyUri?: string;
+  /**
+   * @example
+   * PrivateEncryption
+   */
   encryptType?: string;
+  /**
+   * @example
+   * KMS
+   */
   keyServiceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20673,7 +29262,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20695,7 +29292,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
+  /**
+   * @example
+   * ToEND
+   */
   duration?: string;
+  /**
+   * @example
+   * 00:00:05
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20717,12 +29322,32 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   dx?: string;
+  /**
+   * @example
+   * 10
+   */
   dy?: string;
   file?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsFile;
+  /**
+   * @example
+   * 32
+   */
   height?: string;
+  /**
+   * @example
+   * TopLeft
+   */
   referPos?: string;
   timeline?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline;
+  /**
+   * @example
+   * 32
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20755,6 +29380,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarks extends $tea.Model {
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20776,7 +29405,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20798,8 +29435,16 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * UTF-8
+   */
   charEnc?: string;
   file?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParamsFile;
+  /**
+   * @example
+   * vtt
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20824,6 +29469,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitles extends $tea.Model {
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20845,15 +29494,55 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   adaptive?: string;
+  /**
+   * @example
+   * #006400
+   */
   borderColor?: string;
+  /**
+   * @example
+   * 0
+   */
   borderWidth?: number;
+  /**
+   * @example
+   * 测试水印
+   */
   content?: string;
+  /**
+   * @example
+   * 1.0
+   */
   fontAlpha?: string;
+  /**
+   * @example
+   * #006400
+   */
   fontColor?: string;
+  /**
+   * @example
+   * SimSun
+   */
   fontName?: string;
+  /**
+   * @example
+   * 16
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 10
+   */
   left?: string;
+  /**
+   * @example
+   * 10
+   */
   top?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20892,6 +29581,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarks extends $tea.Model {
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarksOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20913,9 +29606,25 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
+  /**
+   * @example
+   * -6
+   */
   integratedLoudnessTarget?: string;
+  /**
+   * @example
+   * 8
+   */
   loudnessRangeTarget?: string;
+  /**
+   * @example
+   * auto
+   */
   method?: string;
+  /**
+   * @example
+   * -1
+   */
   truePeak?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20941,11 +29650,35 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
+  /**
+   * @example
+   * 128
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC
+   */
   codec?: string;
+  /**
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * 44100
+   */
   samplerate?: string;
   volume?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
@@ -20978,6 +29711,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
+  /**
+   * @example
+   * mp4
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20997,7 +29734,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   duration?: string;
+  /**
+   * @example
+   * 2,3
+   */
   forceSegTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21078,23 +29823,95 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
+  /**
+   * @example
+   * 6000
+   */
   abrMax?: string;
+  /**
+   * @example
+   * 3000
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @example
+   * 23
+   */
   crf?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   crop?: string;
+  /**
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @example
+   * 250
+   */
   gop?: string;
+  /**
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @example
+   * false
+   */
   longShortMode?: string;
+  /**
+   * @example
+   * 9000
+   */
   maxrate?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @example
+   * Main
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * progressive
+   */
   scanMode?: string;
+  /**
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21180,6 +29997,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscode extends $tea.Model {
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21257,7 +30078,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroup extends $t
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21280,7 +30109,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobScheduleConfig extends
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputGroup extends $tea.Model {
   inputUrl?: string;
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21304,20 +30141,80 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputG
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaAudioStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 0.f
+   */
   bitrate?: string;
+  /**
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x000f
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [15][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * cn
+   */
   lang?: string;
+  /**
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @example
+   * 44100
+   */
   sampleRate?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21365,17 +30262,65 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFil
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 888.563
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 403.039999
+   */
   duration?: string;
+  /**
+   * @example
+   * file.m3u8
+   */
   fileName?: string;
+  /**
+   * @example
+   * 31737
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * hls,applehttp
+   */
   formatName?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 486c2890096871edba6f81848c016303
+   */
   mediaId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21417,28 +30362,120 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFil
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaVideoStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 25.0
+   */
   avgFps?: string;
+  /**
+   * @example
+   * 888.563
+   */
   bitRate?: string;
+  /**
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x001b
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [27][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/50
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @example
+   * cn
+   */
   lang?: string;
+  /**
+   * @example
+   * 31
+   */
   level?: string;
+  /**
+   * @example
+   * 10040
+   */
   numFrames?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @example
+   * 0
+   */
   rotate?: string;
+  /**
+   * @example
+   * 478:477
+   */
   sar?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timeBase?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21527,8 +30564,16 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFil
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
   outputUrl?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21552,9 +30597,31 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigCombineConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   audioIndex?: string;
+  /**
+   * @example
+   * 20.0
+   */
   duration?: number;
+  /**
+   * @example
+   * 0.0
+   */
   start?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   videoIndex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21580,9 +30647,25 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigEncryption extends $tea.Model {
+  /**
+   * @example
+   * MTYi00NDU0LTg5O****
+   */
   cipherText?: string;
+  /**
+   * @example
+   * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
+   */
   decryptKeyUri?: string;
+  /**
+   * @example
+   * PrivateEncryption
+   */
   encryptType?: string;
+  /**
+   * @example
+   * KMS
+   */
   keyServiceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21608,7 +30691,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21630,7 +30721,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
+  /**
+   * @example
+   * ToEND
+   */
   duration?: string;
+  /**
+   * @example
+   * 00:00:05
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21652,12 +30751,32 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   dx?: string;
+  /**
+   * @example
+   * 10
+   */
   dy?: string;
   file?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsFile;
+  /**
+   * @example
+   * 32
+   */
   height?: string;
+  /**
+   * @example
+   * TopLeft
+   */
   referPos?: string;
   timeline?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsTimeline;
+  /**
+   * @example
+   * 32
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21690,6 +30809,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarks extends $tea.Model {
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21711,7 +30834,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21733,8 +30864,16 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * UTF-8
+   */
   charEnc?: string;
   file?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParamsFile;
+  /**
+   * @example
+   * vtt
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21759,6 +30898,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitles extends $tea.Model {
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21780,15 +30923,55 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   adaptive?: string;
+  /**
+   * @example
+   * #006400
+   */
   borderColor?: string;
+  /**
+   * @example
+   * 0
+   */
   borderWidth?: number;
+  /**
+   * @example
+   * 测试水印
+   */
   content?: string;
+  /**
+   * @example
+   * 1.0
+   */
   fontAlpha?: string;
+  /**
+   * @example
+   * #006400
+   */
   fontColor?: string;
+  /**
+   * @example
+   * SimSun
+   */
   fontName?: string;
+  /**
+   * @example
+   * 16
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 10
+   */
   left?: string;
+  /**
+   * @example
+   * 10
+   */
   top?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21827,6 +31010,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarks extends $tea.Model {
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarksOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21848,9 +31035,25 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
+  /**
+   * @example
+   * -6
+   */
   integratedLoudnessTarget?: string;
+  /**
+   * @example
+   * 8
+   */
   loudnessRangeTarget?: string;
+  /**
+   * @example
+   * auto
+   */
   method?: string;
+  /**
+   * @example
+   * -1
+   */
   truePeak?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21876,11 +31079,35 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
+  /**
+   * @example
+   * 128
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC
+   */
   codec?: string;
+  /**
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * 44100
+   */
   samplerate?: string;
   volume?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
@@ -21913,6 +31140,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
+  /**
+   * @example
+   * mp4
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21932,7 +31163,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   duration?: string;
+  /**
+   * @example
+   * 2,3
+   */
   forceSegTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22013,23 +31252,95 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
+  /**
+   * @example
+   * 6000
+   */
   abrMax?: string;
+  /**
+   * @example
+   * 3000
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @example
+   * 23
+   */
   crf?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   crop?: string;
+  /**
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @example
+   * 250
+   */
   gop?: string;
+  /**
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @example
+   * false
+   */
   longShortMode?: string;
+  /**
+   * @example
+   * 9000
+   */
   maxrate?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @example
+   * Main
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * progressive
+   */
   scanMode?: string;
+  /**
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22118,6 +31429,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscode extends $tea.Model {
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22176,7 +31491,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22198,21 +31521,65 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListSchedu
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList extends $tea.Model {
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   finishTime?: string;
   inputGroup?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputGroup[];
+  /**
+   * @example
+   * 7d6a7e0d4db2457a8d45ff5d43e1bf0a
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0
+   */
   jobIndex?: number;
+  /**
+   * @example
+   * transcode-job
+   */
   name?: string;
   outFileMeta?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMeta;
   output?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput;
+  /**
+   * @example
+   * 8b2198504dd340b7b3c9842a74fc9baa
+   */
   parentJobId?: string;
   processConfig?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfig;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   scheduleConfig?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListScheduleConfig;
+  /**
+   * @example
+   * Init
+   */
   status?: string;
+  /**
+   * @example
+   * {}
+   */
   submitResultJson?: { [key: string]: any };
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22262,20 +31629,64 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList exten
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJob extends $tea.Model {
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   finishTime?: string;
   inputGroup?: GetTranscodeJobResponseBodyTranscodeParentJobInputGroup[];
+  /**
+   * @example
+   * 1
+   */
   jobCount?: number;
+  /**
+   * @example
+   * transcode-job
+   */
   name?: string;
   outputGroup?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroup[];
+  /**
+   * @example
+   * 8b2198504dd340b7b3c9842a74fc9baa
+   */
   parentJobId?: string;
+  /**
+   * @example
+   * 0
+   */
   percent?: number;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   scheduleConfig?: GetTranscodeJobResponseBodyTranscodeParentJobScheduleConfig;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   submitTime?: string;
   transcodeJobList?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList[];
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22323,15 +31734,55 @@ export class GetTranscodeJobResponseBodyTranscodeParentJob extends $tea.Model {
 }
 
 export class GetUrlUploadInfosResponseBodyURLUploadInfoList extends $tea.Model {
+  /**
+   * @example
+   * 2021-11-26 21:47:37
+   */
   completeTime?: string;
+  /**
+   * @example
+   * 2021-11-07T10:03:37Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * 200
+   */
   errorCode?: string;
+  /**
+   * @example
+   * Success
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * 64610
+   */
   fileSize?: string;
+  /**
+   * @example
+   * 3829500c0fef429fa4ec1680b122d***
+   */
   jobId?: string;
+  /**
+   * @example
+   * 5014ca70f08171ecbf940764a0fd6***
+   */
   mediaId?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * http://****.mp4
+   */
   uploadURL?: string;
+  /**
+   * @example
+   * {"MessageCallback":"{"CallbackURL":"http://example.aliyundoc.com"}", "Extend":"{"localId":"***", "test":"www"}"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22369,18 +31820,58 @@ export class GetUrlUploadInfosResponseBodyURLUploadInfoList extends $tea.Model {
 }
 
 export class GetVideoListResponseBodyMediaList extends $tea.Model {
+  /**
+   * @example
+   * app-1000000
+   */
   appId?: string;
+  /**
+   * @example
+   * 3679
+   */
   cateId?: number;
   cateName?: string;
+  /**
+   * @example
+   * http://example.aliyundoc.com/snapshot/****.jpg?auth_key=1498476426-0-0-f00b9455c49a423ce69cf4e27333****
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * 2017-11-14T09:15:50Z
+   */
   creationTime?: string;
   description?: string;
+  /**
+   * @example
+   * 135.6
+   */
   duration?: number;
+  /**
+   * @example
+   * 1c6ce34007d571ed94667630a6bc****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * 2017-11-14T09:16:50Z
+   */
   modificationTime?: string;
+  /**
+   * @example
+   * 10897890
+   */
   size?: number;
   snapshots?: string[];
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * out-****.oss-cn-shanghai.aliyuncs.com
+   */
   storageLocation?: string;
   tags?: string;
   title?: string;
@@ -22430,11 +31921,31 @@ export class GetVideoListResponseBodyMediaList extends $tea.Model {
 }
 
 export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $tea.Model {
+  /**
+   * @example
+   * 2022-11-27T10:02:12Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-11-29T02:06:19Z
+   */
   modifiedTime?: string;
   name?: string;
+  /**
+   * @example
+   * Active
+   */
   status?: string;
+  /**
+   * @example
+   * Common
+   */
   type?: string;
+  /**
+   * @example
+   * ******63dca94c609de02ac0d1******
+   */
   workflowId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22465,11 +31976,38 @@ export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $tea.Model 
 
 export class GetWorkflowTaskResponseBodyWorkflowTask extends $tea.Model {
   activityResults?: string;
+  /**
+   * @example
+   * 2023-01-04T02:05:17Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2023-01-04T02:06:19Z
+   */
   finishTime?: string;
+  /**
+   * @example
+   * Succeed
+   */
   status?: string;
+  /**
+   * @example
+   * ******4215e042b3966ca5441e******
+   */
   taskId?: string;
+  /**
+   * @example
+   * {
+   *       "Type": "Media",
+   *       "Media": "******30706071edbfe290b488******"
+   * }
+   */
   taskInput?: string;
+  /**
+   * @example
+   * {"NotifyAddress":"http://xx.xx.xxx"}
+   */
   userData?: string;
   workflow?: GetWorkflowTaskResponseBodyWorkflowTaskWorkflow;
   static names(): { [key: string]: string } {
@@ -22505,7 +32043,15 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $tea.Model {
 
 export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $tea.Model {
   optionChineseName?: string;
+  /**
+   * @example
+   * Angry
+   */
   optionEnglishName?: string;
+  /**
+   * @example
+   * Angry
+   */
   optionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22529,7 +32075,15 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $tea.
 }
 
 export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $tea.Model {
+  /**
+   * @example
+   * sticker-gif
+   */
   mediaTagId?: string;
+  /**
+   * @example
+   * Gif
+   */
   mediaTagNameChinese?: string;
   mediaTagNameEnglish?: string;
   options?: ListAllPublicMediaTagsResponseBodyMediaTagListOptions[];
@@ -22558,15 +32112,47 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $tea.Model {
 
 export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends $tea.Model {
   avatarDescription?: string;
+  /**
+   * @example
+   * Avatar-XXX
+   */
   avatarId?: string;
   avatarName?: string;
+  /**
+   * @example
+   * 2DAvatar
+   */
   avatarType?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:40Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:40Z
+   */
   firstTrainingTime?: string;
+  /**
+   * @example
+   * *****aded114489ea02e0addf93*****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 2020-12-23T13:33:40Z
+   */
   lastTrainingTime?: string;
   message?: string;
+  /**
+   * @example
+   * *****aded114489ea02e0addf93*****
+   */
   portrait?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22607,6 +32193,10 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
 
 export class ListAvatarTrainingJobsResponseBodyData extends $tea.Model {
   avatarTrainingJobList?: ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList[];
+  /**
+   * @example
+   * 3
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22629,10 +32219,26 @@ export class ListAvatarTrainingJobsResponseBodyData extends $tea.Model {
 
 export class ListAvatarsResponseBodyDataAvatarList extends $tea.Model {
   avatarDescription?: string;
+  /**
+   * @example
+   * Avatar-XXX
+   */
   avatarId?: string;
   avatarName?: string;
+  /**
+   * @example
+   * 2DAvatar
+   */
   avatarType?: string;
+  /**
+   * @example
+   * ****571c704445f9a0ee011406c2****
+   */
   portrait?: string;
+  /**
+   * @example
+   * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
+   */
   thumbnail?: string;
   transparent?: boolean;
   static names(): { [key: string]: string } {
@@ -22666,6 +32272,10 @@ export class ListAvatarsResponseBodyDataAvatarList extends $tea.Model {
 
 export class ListAvatarsResponseBodyData extends $tea.Model {
   avatarList?: ListAvatarsResponseBodyDataAvatarList[];
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22687,15 +32297,64 @@ export class ListAvatarsResponseBodyData extends $tea.Model {
 }
 
 export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends $tea.Model {
+  /**
+   * @example
+   * 2023-06-09T06:38:09Z
+   */
   completeTime?: string;
+  /**
+   * @example
+   * 2023-06-09T06:36:48Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * {
+   *   "MediaConfig": {
+   *       "Volume": 0
+   *   },
+   *   "SpeechConfig": {
+   *       "Volume": 1
+   *   },
+   *  "BackgroundMusicConfig": {
+   *       "Volume": 0.3
+   *   }
+   * }
+   */
   editingConfig?: string;
   extend?: string;
   inputConfig?: string;
+  /**
+   * @example
+   * ******7ecbee4c6d9b8474498e******
+   */
   jobId?: string;
+  /**
+   * @example
+   * Script
+   */
   jobType?: string;
+  /**
+   * @example
+   * 2023-06-09T06:37:58Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * {
+   *   "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
+   *   "Count": 20,
+   *   "MaxDuration": 15,
+   *   "Width": 1080,
+   *   "Height": 1920,
+   *   "Video": {"Crf": 27}
+   * }
+   */
   outputConfig?: string;
+  /**
+   * @example
+   * Finished
+   */
   status?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -22736,16 +32395,60 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
 }
 
 export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * true
+   */
   isDefault?: boolean;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * 2
+   */
   subtype?: number;
+  /**
+   * @example
+   * AudioTranscode
+   */
   subtypeName?: string;
+  /**
+   * @example
+   * {"Container":{"Format":"mp3"},"Audio":{"Codec":"mp3","Bitrate":"64","Samplerate":"22050","Channels":"2"}}
+   */
   templateConfig?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
+  /**
+   * @example
+   * test-template
+   */
   templateName?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
+  /**
+   * @example
+   * TranscodeTemplate
+   */
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22786,14 +32489,38 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Mode
 
 export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList extends $tea.Model {
   createTime?: string;
+  /**
+   * @example
+   * female
+   */
   gender?: string;
+  /**
+   * @example
+   * 2022-06-27T02:42:28Z
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2245ab99a7fd4116a4fd3f499b7a56c5
+   */
   jobId?: string;
   message?: string;
+  /**
+   * @example
+   * story
+   */
   scenario?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   type?: string;
   voiceDesc?: string;
+  /**
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -22835,6 +32562,10 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
 
 export class ListCustomizedVoiceJobsResponseBodyData extends $tea.Model {
   customizedVoiceJobList?: ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList[];
+  /**
+   * @example
+   * 271
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22856,11 +32587,27 @@ export class ListCustomizedVoiceJobsResponseBodyData extends $tea.Model {
 }
 
 export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $tea.Model {
+  /**
+   * @example
+   * ****4d5e829d498aaf966b119348****
+   */
   demoAudioMediaId?: string;
+  /**
+   * @example
+   * male
+   */
   gender?: string;
+  /**
+   * @example
+   * story
+   */
   scenario?: string;
   type?: string;
   voiceDesc?: string;
+  /**
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -22894,6 +32641,10 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $te
 
 export class ListCustomizedVoicesResponseBodyData extends $tea.Model {
   customizedVoiceList?: ListCustomizedVoicesResponseBodyDataCustomizedVoiceList[];
+  /**
+   * @example
+   * 41
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22915,10 +32666,26 @@ export class ListCustomizedVoicesResponseBodyData extends $tea.Model {
 }
 
 export class ListDNADBResponseBodyDBList extends $tea.Model {
+  /**
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   DBId?: string;
   description?: string;
-  model?: number;
+  /**
+   * @example
+   * Video
+   */
+  model?: string;
+  /**
+   * @example
+   * example-name
+   */
   name?: string;
+  /**
+   * @example
+   * active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22934,7 +32701,7 @@ export class ListDNADBResponseBodyDBList extends $tea.Model {
     return {
       DBId: 'string',
       description: 'string',
-      model: 'number',
+      model: 'string',
       name: 'string',
       status: 'string',
     };
@@ -22946,8 +32713,20 @@ export class ListDNADBResponseBodyDBList extends $tea.Model {
 }
 
 export class ListDNAFilesResponseBodyFileListInputFile extends $tea.Model {
+  /**
+   * @example
+   * example-bucket
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-beijing
+   */
   location?: string;
+  /**
+   * @example
+   * example-****.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22972,6 +32751,10 @@ export class ListDNAFilesResponseBodyFileListInputFile extends $tea.Model {
 
 export class ListDNAFilesResponseBodyFileList extends $tea.Model {
   inputFile?: ListDNAFilesResponseBodyFileListInputFile;
+  /**
+   * @example
+   * ae0fd49c0840e14daf0d66a75b83****
+   */
   primaryKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22993,7 +32776,15 @@ export class ListDNAFilesResponseBodyFileList extends $tea.Model {
 }
 
 export class ListDynamicImageJobsResponseBodyJobsInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/object
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23015,7 +32806,15 @@ export class ListDynamicImageJobsResponseBodyJobsInput extends $tea.Model {
 }
 
 export class ListDynamicImageJobsResponseBodyJobsOutput extends $tea.Model {
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   media?: string;
+  /**
+   * @example
+   * Media
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23037,17 +32836,57 @@ export class ListDynamicImageJobsResponseBodyJobsOutput extends $tea.Model {
 }
 
 export class ListDynamicImageJobsResponseBodyJobs extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-07-12T16:30:54Z
+   */
   finishTime?: string;
   input?: ListDynamicImageJobsResponseBodyJobsInput;
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 2022-07-12T16:30:54Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * SampleJob
+   */
   name?: string;
   output?: ListDynamicImageJobsResponseBodyJobsOutput;
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
   templateId?: string;
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23089,18 +32928,66 @@ export class ListDynamicImageJobsResponseBodyJobs extends $tea.Model {
 }
 
 export class ListLiveRecordFilesResponseBodyFiles extends $tea.Model {
+  /**
+   * @example
+   * 2016-05-27T09:40:56Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 100.0
+   */
   duration?: number;
+  /**
+   * @example
+   * 2015-12-01T07:36:10Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * m3u8
+   */
   format?: string;
+  /**
+   * @example
+   * 640
+   */
   height?: number;
+  /**
+   * @example
+   * c4d7f0a4-b506-43f9-8de3-07732c3f****
+   */
   jobId?: string;
+  /**
+   * @example
+   * LiveRecordJob***
+   */
   jobName?: string;
+  /**
+   * @example
+   * c4d7f0a4-b506-43f9-8de3-07732c3f****
+   */
   recordId?: string;
+  /**
+   * @example
+   * { "Type": "oss", "Endpoint":"oss-cn-shanghai.aliyuncs.com", "Bucket": "test-bucket" }
+   */
   recordOutput?: string;
   recordUrl?: string;
+  /**
+   * @example
+   * 2015-12-01T07:36:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * LiveStream***
+   */
   streamUrl?: string;
+  /**
+   * @example
+   * 480
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23144,8 +33031,20 @@ export class ListLiveRecordFilesResponseBodyFiles extends $tea.Model {
 }
 
 export class ListLiveRecordJobsResponseBodyLiveRecordJobsRecordOutput extends $tea.Model {
+  /**
+   * @example
+   * imsbucket1
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-hangzhou.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @example
+   * oss
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23169,7 +33068,15 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobsRecordOutput extends $t
 }
 
 export class ListLiveRecordJobsResponseBodyLiveRecordJobsStreamInput extends $tea.Model {
+  /**
+   * @example
+   * rtmp
+   */
   type?: string;
+  /**
+   * @example
+   * rtmp://example-live.com/live/stream1
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23191,14 +33098,53 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobsStreamInput extends $te
 }
 
 export class ListLiveRecordJobsResponseBodyLiveRecordJobs extends $tea.Model {
+  /**
+   * @remarks
+   * 代表创建时间的资源属性字段
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-07-20T03:26:36Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   */
   name?: string;
+  /**
+   * @remarks
+   * 回调地址
+   * 
+   * @example
+   * https://example.com/imsnotify
+   */
   notifyUrl?: string;
   recordOutput?: ListLiveRecordJobsResponseBodyLiveRecordJobsRecordOutput;
+  /**
+   * @example
+   * paused
+   */
   status?: string;
   streamInput?: ListLiveRecordJobsResponseBodyLiveRecordJobsStreamInput;
+  /**
+   * @remarks
+   * 录制模板ID
+   * 
+   * @example
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   */
   templateId?: string;
+  /**
+   * @example
+   * test template
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23234,10 +33180,42 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobs extends $tea.Model {
 }
 
 export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatList extends $tea.Model {
+  /**
+   * @example
+   * 21600
+   */
   cycleDuration?: number;
+  /**
+   * @remarks
+   * 格式
+   * 
+   * @example
+   * m3u8
+   */
   format?: string;
+  /**
+   * @remarks
+   * Oss对象名，不包含后缀
+   * 
+   * @example
+   * record/{JobId}/{Sequence}_{EscapedStartTime}_{EscapedEndTime}
+   */
   ossObjectPrefix?: string;
+  /**
+   * @remarks
+   * 切片时长
+   * 
+   * @example
+   * 30
+   */
   sliceDuration?: number;
+  /**
+   * @remarks
+   * 切片Oss对象名，不包含后缀
+   * 
+   * @example
+   * record/{JobId}/{UnixTimestamp}_{Sequence}
+   */
   sliceOssObjectPrefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23265,11 +33243,54 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatLi
 }
 
 export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $tea.Model {
+  /**
+   * @remarks
+   * 代表创建时间的资源属性字段
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-07-20T02:48:58Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * 最后修改时间
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-07-20T03:26:36Z
+   */
   lastModified?: string;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * @example
+   * test template
+   */
   name?: string;
+  /**
+   * @remarks
+   * 录制格式
+   */
   recordFormatList?: ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatList[];
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * 代表资源名称的资源属性字段
+   * 
+   * @example
+   * custom
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23299,10 +33320,33 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $tea.
 }
 
 export class ListLiveSnapshotFilesResponseBodyFileList extends $tea.Model {
+  /**
+   * @example
+   * 2022-02-02T22:22:22Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1619503516000
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * true
+   */
   isOverlay?: boolean;
+  /**
+   * @remarks
+   * OSS bucket。
+   * 
+   * @example
+   * testbucket
+   */
   ossBucket?: string;
+  /**
+   * @example
+   * oss-cn-shanghai.aliyuncs.com
+   */
   ossEndpoint?: string;
   ossObject?: string;
   static names(): { [key: string]: string } {
@@ -23333,8 +33377,20 @@ export class ListLiveSnapshotFilesResponseBodyFileList extends $tea.Model {
 }
 
 export class ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput extends $tea.Model {
+  /**
+   * @example
+   * testbucket
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-shanghai.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @example
+   * oss
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23358,13 +33414,33 @@ export class ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput extends $tea.
 }
 
 export class ListLiveSnapshotJobsResponseBodyJobList extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-20T02:48:58Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   jobId?: string;
   jobName?: string;
   snapshotOutput?: ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput;
+  /**
+   * @example
+   * started
+   */
   status?: string;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287666****
+   */
   templateId?: string;
   templateName?: string;
+  /**
+   * @example
+   * 5
+   */
   timeInterval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23398,10 +33474,26 @@ export class ListLiveSnapshotJobsResponseBodyJobList extends $tea.Model {
 }
 
 export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-20T02:48:58Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   templateId?: string;
   templateName?: string;
+  /**
+   * @example
+   * 10
+   */
   timeInterval?: number;
+  /**
+   * @example
+   * custom
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23429,7 +33521,15 @@ export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $tea.Mode
 }
 
 export class ListLiveTranscodeJobsResponseBodyJobListOutputStreamStreamInfos extends $tea.Model {
+  /**
+   * @example
+   * rtmp://mydomain/app/mytranscode1
+   */
   outputUrl?: string;
+  /**
+   * @example
+   * rtmp
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23470,7 +33570,15 @@ export class ListLiveTranscodeJobsResponseBodyJobListOutputStream extends $tea.M
 }
 
 export class ListLiveTranscodeJobsResponseBodyJobListStreamInput extends $tea.Model {
+  /**
+   * @example
+   * rtmp://mydomain/app/stream1
+   */
   inputUrl?: string;
+  /**
+   * @example
+   * rtmp
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23492,15 +33600,43 @@ export class ListLiveTranscodeJobsResponseBodyJobListStreamInput extends $tea.Mo
 }
 
 export class ListLiveTranscodeJobsResponseBodyJobList extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-20T02:48:58Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287782****
+   */
   jobId?: string;
+  /**
+   * @example
+   * mytask
+   */
   name?: string;
   outputStream?: ListLiveTranscodeJobsResponseBodyJobListOutputStream;
+  /**
+   * @example
+   * 0
+   */
   startMode?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   streamInput?: ListLiveTranscodeJobsResponseBodyJobListStreamInput;
+  /**
+   * @example
+   * ****a046-263c-3560-978a-fb287666****
+   */
   templateId?: string;
   templateName?: string;
+  /**
+   * @example
+   * normal
+   */
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23538,10 +33674,30 @@ export class ListLiveTranscodeJobsResponseBodyJobList extends $tea.Model {
 }
 
 export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateConfigAudioParams extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC
+   */
   codec?: string;
+  /**
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @example
+   * 44100
+   */
   samplerate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23569,12 +33725,40 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
 }
 
 export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateConfigVideoParams extends $tea.Model {
+  /**
+   * @example
+   * 2500
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 264
+   */
   codec?: string;
+  /**
+   * @example
+   * 30
+   */
   fps?: string;
+  /**
+   * @example
+   * 1000
+   */
   gop?: string;
+  /**
+   * @example
+   * 1280
+   */
   height?: string;
+  /**
+   * @example
+   * 3
+   */
   profile?: string;
+  /**
+   * @example
+   * 720
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23628,11 +33812,31 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
 }
 
 export class ListLiveTranscodeTemplatesResponseBodyTemplateContentList extends $tea.Model {
+  /**
+   * @example
+   * system
+   */
   category?: string;
+  /**
+   * @example
+   * 2022-07-20T03:26:36Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * my_template
+   */
   name?: string;
   templateConfig?: ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateConfig;
+  /**
+   * @example
+   * 9b1571b513cb44f7a1ba6ae561ff46f7
+   */
   templateId?: string;
+  /**
+   * @example
+   * normal
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23662,18 +33866,70 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentList extends $
 }
 
 export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 1912.13
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2021-01-08T16:52:04Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 60.00000
+   */
   duration?: string;
+  /**
+   * @example
+   * example.mp4
+   */
   fileName?: string;
+  /**
+   * @example
+   * 14340962
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * mov,mp4,m4a,3gp,3g2,mj2
+   */
   formatName?: string;
+  /**
+   * @example
+   * 720
+   */
   height?: string;
+  /**
+   * @example
+   * 2021-01-08T16:52:07Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23736,27 +33992,103 @@ export class ListMediaBasicInfosResponseBodyMediaInfosFileInfoList extends $tea.
 }
 
 export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * ICE
+   */
   biz?: string;
+  /**
+   * @example
+   * opening
+   */
   businessType?: string;
+  /**
+   * @example
+   * 3049
+   */
   cateId?: number;
   category?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   coverURL?: string;
+  /**
+   * @example
+   * 2021-01-08T16:52:04Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2021-01-08T16:52:07Z
+   */
   deletedTime?: string;
   description?: string;
+  /**
+   * @example
+   * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+   */
   inputURL?: string;
+  /**
+   * @example
+   * ****019b82e24b37a1c2958dec38****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * tags,tags2
+   */
   mediaTags?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 2021-01-08T16:52:07Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 123-123
+   */
   referenceId?: string;
+  /**
+   * @example
+   * [{"bucket":"example-bucket","count":"3","iceJobId":"******f48f0e4154976b2b8c45******","location":"oss-cn-beijing","snapshotRegular":"example.jpg","templateId":"******e6a6440b29eb60bd7c******"}]
+   */
   snapshots?: string;
+  /**
+   * @example
+   * oss
+   */
   source?: string;
+  /**
+   * @example
+   * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
+   */
   spriteImages?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
   title?: string;
+  /**
+   * @example
+   * Init
+   */
   transcodeStatus?: string;
+  /**
+   * @example
+   * general
+   */
   uploadSource?: string;
+  /**
+   * @example
+   * userData
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23818,8 +34150,20 @@ export class ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $te
 }
 
 export class ListMediaBasicInfosResponseBodyMediaInfos extends $tea.Model {
+  /**
+   * @remarks
+   * FileInfos
+   */
   fileInfoList?: ListMediaBasicInfosResponseBodyMediaInfosFileInfoList[];
+  /**
+   * @remarks
+   * BasicInfo
+   */
   mediaBasicInfo?: ListMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo;
+  /**
+   * @example
+   * ****019b82e24b37a1c2958dec38****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23843,7 +34187,15 @@ export class ListMediaBasicInfosResponseBodyMediaInfos extends $tea.Model {
 }
 
 export class ListMediaInfoJobsResponseBodyJobsInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23865,20 +34217,80 @@ export class ListMediaInfoJobsResponseBodyJobsInput extends $tea.Model {
 }
 
 export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyAudioStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 0.f
+   */
   bitrate?: string;
+  /**
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x000f
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [15][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * cn
+   */
   lang?: string;
+  /**
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @example
+   * 44100
+   */
   sampleRate?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23926,17 +34338,65 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyAudioStreamInfoLi
 }
 
 export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 888.563
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 403.039999
+   */
   duration?: string;
+  /**
+   * @example
+   * file.m3u8
+   */
   fileName?: string;
+  /**
+   * @example
+   * 31737
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * hls,applehttp
+   */
   formatName?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 4765337007f571edbfdf81848c016303
+   */
   mediaId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23978,28 +34438,120 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyFileBasicInfo ext
 }
 
 export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyVideoStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 25.0
+   */
   avgFps?: string;
+  /**
+   * @example
+   * 888.563
+   */
   bitRate?: string;
+  /**
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x001b
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [27][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/50
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @example
+   * cn
+   */
   lang?: string;
+  /**
+   * @example
+   * 31
+   */
   level?: string;
+  /**
+   * @example
+   * 10040
+   */
   numFrames?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @example
+   * 0
+   */
   rotate?: string;
+  /**
+   * @example
+   * 478:477
+   */
   sar?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timeBase?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24088,7 +34640,15 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoProperty extends $tea.Mod
 }
 
 export class ListMediaInfoJobsResponseBodyJobsScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24110,18 +34670,54 @@ export class ListMediaInfoJobsResponseBodyJobsScheduleConfig extends $tea.Model 
 }
 
 export class ListMediaInfoJobsResponseBodyJobs extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   async?: boolean;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   finishTime?: string;
   input?: ListMediaInfoJobsResponseBodyJobsInput;
+  /**
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   jobId?: string;
   mediaInfoProperty?: ListMediaInfoJobsResponseBodyJobsMediaInfoProperty;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
+  /**
+   * @example
+   * 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
+   */
   requestId?: string;
   scheduleConfig?: ListMediaInfoJobsResponseBodyJobsScheduleConfig;
+  /**
+   * @example
+   * Init
+   */
   status?: string;
   submitResultJson?: { [key: string]: any };
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24166,17 +34762,61 @@ export class ListMediaInfoJobsResponseBodyJobs extends $tea.Model {
 
 export class ListMediaProducingJobsResponseBodyMediaProducingJobList extends $tea.Model {
   clipsParam?: string;
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 2022-03-21T16:40:30Z
+   */
   completeTime?: string;
+  /**
+   * @example
+   * 2022-03-21T16:40:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 15.5
+   */
   duration?: number;
+  /**
+   * @example
+   * ******8750b54e3c976a47da6f******
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0ce4ea70f52471edab61f7e7d6786302
+   */
   mediaId?: string;
+  /**
+   * @example
+   * http://your-bucket.oss-cn-shanghai.aliyuncs.com/your-video.mp4
+   */
   mediaURL?: string;
   message?: string;
+  /**
+   * @example
+   * 2022-03-21T16:41:00Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * ******faa3b542f5a6135217e3******
+   */
   projectId?: string;
+  /**
+   * @example
+   * Sucess
+   */
   status?: string;
+  /**
+   * @example
+   * cb786a39c5d44cecb23d8c864facffc1
+   */
   templateId?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -24223,7 +34863,15 @@ export class ListMediaProducingJobsResponseBodyMediaProducingJobList extends $te
 }
 
 export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputsInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24264,7 +34912,15 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputs extends 
 }
 
 export class ListPackageJobsResponseBodyPackageJobListPackageJobsOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24286,20 +34942,72 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsOutput extends 
 }
 
 export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter
+   */
   code?: string;
+  /**
+   * @example
+   * 2022-07-07T14:00:32Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-07-07T15:00:32Z
+   */
   finishTime?: string;
   inputs?: ListPackageJobsResponseBodyPackageJobListPackageJobsInputs[];
+  /**
+   * @example
+   * 7b38a5d86f1e47838927b6e7ccb11cbe
+   */
   jobId?: string;
+  /**
+   * @example
+   * Resource content bad.
+   */
   message?: string;
+  /**
+   * @example
+   * 2022-07-07T15:00:32Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
   output?: ListPackageJobsResponseBodyPackageJobListPackageJobsOutput;
+  /**
+   * @example
+   * 5b40833e4c3e4d4e95a866abb9a42510
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * 2022-07-07T14:00:32Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * {"param": "value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24347,6 +35055,10 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $tea.M
 }
 
 export class ListPackageJobsResponseBodyPackageJobList extends $tea.Model {
+  /**
+   * @example
+   * 019daf5780f74831b0e1a767c9f1c178
+   */
   nextPageToken?: string;
   packageJobs?: ListPackageJobsResponseBodyPackageJobListPackageJobs[];
   static names(): { [key: string]: string } {
@@ -24369,12 +35081,40 @@ export class ListPackageJobsResponseBodyPackageJobList extends $tea.Model {
 }
 
 export class ListPipelinesResponseBodyPipelineList extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * test-pipeline
+   */
   name?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
+  /**
+   * @example
+   * Standard
+   */
   speed?: string;
+  /**
+   * @example
+   * Active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24406,16 +35146,60 @@ export class ListPipelinesResponseBodyPipelineList extends $tea.Model {
 }
 
 export class ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 270112.12
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 10.040000
+   */
   duration?: string;
+  /**
+   * @example
+   * example.mp4
+   */
   fileName?: string;
+  /**
+   * @example
+   * 338990717
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * mov,mp4,m4a,3gp,3g2,mj2
+   */
   formatName?: string;
+  /**
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24474,22 +35258,89 @@ export class ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList extends
 }
 
 export class ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * general
+   */
   businessType?: string;
+  /**
+   * @example
+   * video
+   */
   category?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   coverURL?: string;
+  /**
+   * @example
+   * 2021-01-08T16:52:04Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2021-01-08T16:52:04Z
+   */
   deletedTime?: string;
+  /**
+   * @example
+   * description
+   */
   description?: string;
+  /**
+   * @example
+   * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+   */
   inputURL?: string;
+  /**
+   * @remarks
+   * MediaId
+   * 
+   * @example
+   * ****019b82e24b37a1c2958dec38****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * sticker-daily
+   */
   mediaTags?: string;
+  /**
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 2021-01-08T16:52:04Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * null
+   */
   snapshots?: string;
+  /**
+   * @example
+   * oss
+   */
   source?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
   title?: string;
+  /**
+   * @example
+   * Init
+   */
   transcodeStatus?: string;
+  /**
+   * @example
+   * userData
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24541,8 +35392,20 @@ export class ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo exten
 }
 
 export class ListPublicMediaBasicInfosResponseBodyMediaInfos extends $tea.Model {
+  /**
+   * @remarks
+   * FileInfos
+   */
   fileInfoList?: ListPublicMediaBasicInfosResponseBodyMediaInfosFileInfoList[];
+  /**
+   * @remarks
+   * BasicInfo
+   */
   mediaBasicInfo?: ListPublicMediaBasicInfosResponseBodyMediaInfosMediaBasicInfo;
+  /**
+   * @example
+   * ****019b82e24b37a1c2958dec38****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24566,7 +35429,15 @@ export class ListPublicMediaBasicInfosResponseBodyMediaInfos extends $tea.Model 
 }
 
 export class ListSmartJobsResponseBodySmartJobListInputConfig extends $tea.Model {
+  /**
+   * @example
+   * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+   */
   inputFile?: string;
+  /**
+   * @example
+   * 测试关键词
+   */
   keyword?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24588,7 +35459,21 @@ export class ListSmartJobsResponseBodySmartJobListInputConfig extends $tea.Model
 }
 
 export class ListSmartJobsResponseBodySmartJobListOutputConfig extends $tea.Model {
+  /**
+   * @remarks
+   * OSS Bucket
+   * 
+   * @example
+   * test-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * OSS Object
+   * 
+   * @example
+   * test-object
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24610,17 +35495,57 @@ export class ListSmartJobsResponseBodySmartJobListOutputConfig extends $tea.Mode
 }
 
 export class ListSmartJobsResponseBodySmartJobList extends $tea.Model {
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 测试描述
+   */
   description?: string;
+  /**
+   * @example
+   * {"AudioConfig":{},"InputConfig":""}
+   */
   editingConfig?: string;
   inputConfig?: ListSmartJobsResponseBodySmartJobListInputConfig;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * Finished
+   */
   jobState?: string;
+  /**
+   * @example
+   * ASR
+   */
   jobType?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   modifiedTime?: string;
   outputConfig?: ListSmartJobsResponseBodySmartJobListOutputConfig;
+  /**
+   * @example
+   * 测试标题
+   */
   title?: string;
+  /**
+   * @example
+   * {"user":"data"}
+   */
   userData?: string;
+  /**
+   * @example
+   * 1084506228******
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24662,12 +35587,24 @@ export class ListSmartJobsResponseBodySmartJobList extends $tea.Model {
 }
 
 export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends $tea.Model {
+  /**
+   * @example
+   * yunqiao
+   */
   avatarId?: string;
   avatarName?: string;
   bitrate?: number;
+  /**
+   * @example
+   * http://ice-pub-media.myalicdn.com/smart/avatarModel/coverDemo/yunqiao.mp4
+   */
   coverUrl?: string;
   height?: number;
   outputMask?: boolean;
+  /**
+   * @example
+   * http://ice-pub-media.myalicdn.com/smart/avatarModel/videoDemo/yunqiao.mp4
+   */
   videoUrl?: string;
   width?: number;
   static names(): { [key: string]: string } {
@@ -24706,8 +35643,20 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $tea.M
   name?: string;
   remark?: string;
   tag?: string;
+  /**
+   * @example
+   * zhitian
+   */
   voice?: string;
+  /**
+   * @example
+   * Female
+   */
   voiceType?: string;
+  /**
+   * @example
+   * https://***.com/zhiqing.mp3
+   */
   voiceUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24761,7 +35710,15 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroups extends $tea.Model {
 }
 
 export class ListSnapshotJobsResponseBodyJobsInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/object.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24783,7 +35740,15 @@ export class ListSnapshotJobsResponseBodyJobsInput extends $tea.Model {
 }
 
 export class ListSnapshotJobsResponseBodyJobsOutput extends $tea.Model {
+  /**
+   * @example
+   * http://test-bucket.oss-cn-shanghai.aliyuncs.com/output-{Count}.jpg
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24805,20 +35770,72 @@ export class ListSnapshotJobsResponseBodyJobsOutput extends $tea.Model {
 }
 
 export class ListSnapshotJobsResponseBodyJobs extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   async?: boolean;
+  /**
+   * @example
+   * 10
+   */
   count?: number;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-07-12T16:30:54Z
+   */
   finishTime?: string;
   input?: ListSnapshotJobsResponseBodyJobsInput;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 2022-07-12T16:30:54Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * SampleJob
+   */
   name?: string;
   output?: ListSnapshotJobsResponseBodyJobsOutput;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * 2022-07-12T16:17:54Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * Sprite
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24866,13 +35883,45 @@ export class ListSnapshotJobsResponseBodyJobs extends $tea.Model {
 }
 
 export class ListSystemTemplatesResponseBodySystemTemplateList extends $tea.Model {
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * 1
+   */
   subtype?: number;
+  /**
+   * @example
+   * Remux
+   */
   subtypeName?: string;
+  /**
+   * @example
+   * {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
+   */
   templateConfig?: string;
+  /**
+   * @example
+   * S00000001-000000
+   */
   templateId?: string;
+  /**
+   * @example
+   * FLV-COPY
+   */
   templateName?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
+  /**
+   * @example
+   * TranscodeTemplate
+   */
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24906,18 +35955,73 @@ export class ListSystemTemplatesResponseBodySystemTemplateList extends $tea.Mode
 }
 
 export class ListTemplatesResponseBodyTemplates extends $tea.Model {
+  /**
+   * @remarks
+   * ClipsParam
+   * 
+   * @example
+   * {"Media1":"mediaId","Text1":"text"}
+   */
   clipsParam?: string;
+  /**
+   * @example
+   * 参考Timeline模板配置详解
+   */
   config?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
+   */
   coverURL?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
   createSource?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
   modifiedSource?: string;
+  /**
+   * @example
+   * 2020-12-26T04:11:10Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 视频添加水印模板
+   */
   name?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   previewMedia?: string;
+  /**
+   * @example
+   * Normal
+   */
   previewMediaStatus?: string;
+  /**
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
   templateId?: string;
+  /**
+   * @example
+   * Timeline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24962,7 +36066,15 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
 
 export class ListTranscodeJobsResponseBodyJobsInputGroup extends $tea.Model {
   inputUrl?: string;
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24986,8 +36098,16 @@ export class ListTranscodeJobsResponseBodyJobsInputGroup extends $tea.Model {
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
   outputUrl?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25011,9 +36131,31 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupOutput extends $tea.Mod
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigCombineConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   audioIndex?: string;
+  /**
+   * @example
+   * 20.0
+   */
   duration?: number;
+  /**
+   * @example
+   * 0.0
+   */
   start?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   videoIndex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25039,8 +36181,20 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigCombineCon
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigEncryption extends $tea.Model {
+  /**
+   * @example
+   * MTYi00NDU0LTg5O****
+   */
   cipherText?: string;
+  /**
+   * @example
+   * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
+   */
   decryptKeyUri?: string;
+  /**
+   * @example
+   * PrivateEncryption
+   */
   encryptType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25064,7 +36218,15 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigEncryption
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25086,7 +36248,15 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWater
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
+  /**
+   * @example
+   * ToEND
+   */
   duration?: string;
+  /**
+   * @example
+   * 00:00:05
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25108,12 +36278,32 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWater
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   dx?: string;
+  /**
+   * @example
+   * 10
+   */
   dy?: string;
   file?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParamsFile;
+  /**
+   * @example
+   * 32
+   */
   height?: string;
+  /**
+   * @example
+   * TopLeft
+   */
   referPos?: string;
   timeline?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline;
+  /**
+   * @example
+   * 32
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25146,6 +36336,10 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWater
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarks extends $tea.Model {
   overwriteParams?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25167,7 +36361,15 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWater
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25189,8 +36391,16 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesO
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * UTF-8
+   */
   charEnc?: string;
   file?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesOverwriteParamsFile;
+  /**
+   * @example
+   * vtt
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25215,6 +36425,10 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesO
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitles extends $tea.Model {
   overwriteParams?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25236,15 +36450,55 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitles 
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   adaptive?: string;
+  /**
+   * @example
+   * #006400
+   */
   borderColor?: string;
+  /**
+   * @example
+   * 0
+   */
   borderWidth?: number;
+  /**
+   * @example
+   * 测试水印
+   */
   content?: string;
+  /**
+   * @example
+   * 1.0
+   */
   fontAlpha?: string;
+  /**
+   * @example
+   * #006400
+   */
   fontColor?: string;
+  /**
+   * @example
+   * SimSun
+   */
   fontName?: string;
+  /**
+   * @example
+   * 16
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 10
+   */
   left?: string;
+  /**
+   * @example
+   * 10
+   */
   top?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25283,6 +36537,10 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWaterm
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWatermarks extends $tea.Model {
   overwriteParams?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWatermarksOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25304,9 +36562,25 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWaterm
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
+  /**
+   * @example
+   * -6
+   */
   integratedLoudnessTarget?: string;
+  /**
+   * @example
+   * 8
+   */
   loudnessRangeTarget?: string;
+  /**
+   * @example
+   * auto
+   */
   method?: string;
+  /**
+   * @example
+   * -1
+   */
   truePeak?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25332,11 +36606,35 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
+  /**
+   * @example
+   * 128
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC
+   */
   codec?: string;
+  /**
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * 44100
+   */
   samplerate?: string;
   volume?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
@@ -25369,6 +36667,10 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
+  /**
+   * @example
+   * mp4
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25388,7 +36690,15 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   duration?: string;
+  /**
+   * @example
+   * 2,3
+   */
   forceSegTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25429,23 +36739,95 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
+  /**
+   * @example
+   * 6000
+   */
   abrMax?: string;
+  /**
+   * @example
+   * 3000
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @example
+   * 23
+   */
   crf?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   crop?: string;
+  /**
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @example
+   * 250
+   */
   gop?: string;
+  /**
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @example
+   * false
+   */
   longShortMode?: string;
+  /**
+   * @example
+   * 9000
+   */
   maxrate?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @example
+   * Main
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * progressive
+   */
   scanMode?: string;
+  /**
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25531,6 +36913,10 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscode extends $tea.Model {
   overwriteParams?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25611,7 +36997,15 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroup extends $tea.Model {
 }
 
 export class ListTranscodeJobsResponseBodyJobsScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25633,19 +37027,63 @@ export class ListTranscodeJobsResponseBodyJobsScheduleConfig extends $tea.Model 
 }
 
 export class ListTranscodeJobsResponseBodyJobs extends $tea.Model {
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   finishTime?: string;
   inputGroup?: ListTranscodeJobsResponseBodyJobsInputGroup[];
+  /**
+   * @example
+   * 1
+   */
   jobCount?: number;
+  /**
+   * @example
+   * transcode-job
+   */
   name?: string;
   outputGroup?: ListTranscodeJobsResponseBodyJobsOutputGroup[];
+  /**
+   * @example
+   * 8b2198504dd340b7b3c9842a74fc9baa
+   */
   parentJobId?: string;
+  /**
+   * @example
+   * 0
+   */
   percent?: number;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   scheduleConfig?: ListTranscodeJobsResponseBodyJobsScheduleConfig;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25691,7 +37129,15 @@ export class ListTranscodeJobsResponseBodyJobs extends $tea.Model {
 }
 
 export class QueryDNAJobListResponseBodyJobListInput extends $tea.Model {
+  /**
+   * @example
+   * 1b1b9cd148034739af413150fded****
+   */
   media?: string;
+  /**
+   * @example
+   * Media
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25713,17 +37159,61 @@ export class QueryDNAJobListResponseBodyJobListInput extends $tea.Model {
 }
 
 export class QueryDNAJobListResponseBodyJobList extends $tea.Model {
+  /**
+   * @example
+   * "InvalidParameter.ResourceNotFound"
+   */
   code?: string;
+  /**
+   * @example
+   * {"SaveType": "save","MediaType"":"video"}
+   */
   config?: string;
+  /**
+   * @example
+   * 2022-12-28T03:21:37Z
+   */
   creationTime?: string;
+  /**
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
   DBId?: string;
+  /**
+   * @example
+   * http://test_bucket.oss-cn-shanghai.aliyuncs.com/fingerprint/video/search_result/5/5.txt
+   */
   DNAResult?: string;
+  /**
+   * @example
+   * 2022-12-28T03:21:44Z
+   */
   finishTime?: string;
+  /**
+   * @example
+   * 88c6ca184c0e47098a5b665e2a12****
+   */
   id?: string;
   input?: QueryDNAJobListResponseBodyJobListInput;
+  /**
+   * @example
+   * "The resource operated \\"a887d0b***d805ef6f7f6786302\\" cannot be found"
+   */
   message?: string;
+  /**
+   * @example
+   * 3ca84a39a9024f19853b21be9cf9****
+   */
   primaryKey?: string;
+  /**
+   * @example
+   * Queuing
+   */
   status?: string;
+  /**
+   * @example
+   * testdna
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25765,7 +37255,15 @@ export class QueryDNAJobListResponseBodyJobList extends $tea.Model {
 }
 
 export class QueryIProductionJobResponseBodyInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/object
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25787,7 +37285,15 @@ export class QueryIProductionJobResponseBodyInput extends $tea.Model {
 }
 
 export class QueryIProductionJobResponseBodyOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/object
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25809,7 +37315,15 @@ export class QueryIProductionJobResponseBodyOutput extends $tea.Model {
 }
 
 export class QueryIProductionJobResponseBodyScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * a54fdc9c9aab413caef0d1150f565e86
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25831,9 +37345,25 @@ export class QueryIProductionJobResponseBodyScheduleConfig extends $tea.Model {
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCensorResult extends $tea.Model {
+  /**
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @example
+   * 99.91
+   */
   rate?: string;
+  /**
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25859,9 +37389,25 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCen
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResultResultsResult extends $tea.Model {
+  /**
+   * @example
+   * Normal
+   */
   label?: string;
+  /**
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @example
+   * Antispam
+   */
   scene?: string;
+  /**
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25906,8 +37452,20 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImage
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResult extends $tea.Model {
+  /**
+   * @example
+   * bucket-out-test-****
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @example
+   * test/ai/censor/v2/vme-****.jpg
+   */
   object?: string;
   results?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResultResults;
   static names(): { [key: string]: string } {
@@ -25953,9 +37511,25 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImage
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensorResult extends $tea.Model {
+  /**
+   * @example
+   * terrorism
+   */
   label?: string;
+  /**
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @example
+   * review
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25981,8 +37555,20 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensor
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput extends $tea.Model {
+  /**
+   * @example
+   * bucket-test-in-****
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @example
+   * test/ai/censor/test-****.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26006,9 +37592,25 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput exte
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCensorResult extends $tea.Model {
+  /**
+   * @example
+   * meaningless
+   */
   label?: string;
+  /**
+   * @example
+   * 99.91
+   */
   rate?: string;
+  /**
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @example
+   * block
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26034,9 +37636,25 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCenso
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultCensorResultsCensorResult extends $tea.Model {
+  /**
+   * @example
+   * meaningless
+   */
   label?: string;
+  /**
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @example
+   * terrorism
+   */
   scene?: string;
+  /**
+   * @example
+   * review
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26081,9 +37699,25 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimelineCensorResultsCensorResult extends $tea.Model {
+  /**
+   * @example
+   * flood
+   */
   label?: string;
+  /**
+   * @example
+   * 99.99
+   */
   rate?: string;
+  /**
+   * @example
+   * porn
+   */
   scene?: string;
+  /**
+   * @example
+   * block
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26129,7 +37763,15 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimeline extends $tea.Model {
   censorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimelineCensorResults;
+  /**
+   * @example
+   * output{Count}.jpg
+   */
   object?: string;
+  /**
+   * @example
+   * 00:02:59.999
+   */
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26173,6 +37815,10 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResult extends $tea.Model {
   censorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultCensorResults;
+  /**
+   * @example
+   * ea04afcca7cd4e80b9ece8fbb251****
+   */
   nextPageToken?: string;
   videoTimelines?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelines;
   static names(): { [key: string]: string } {
@@ -26197,8 +37843,20 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfigOutputFile extends $tea.Model {
+  /**
+   * @example
+   * test-bucket-****
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @example
+   * output{Count}.jpg
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26222,8 +37880,16 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfig extends $tea.Model {
+  /**
+   * @example
+   * common
+   */
   bizType?: string;
   outputFile?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfigOutputFile;
+  /**
+   * @example
+   * true
+   */
   videoCensor?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26248,18 +37914,54 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $tea.Model {
   barrageCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCensorResult;
+  /**
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   code?: string;
   coverImageCensorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResults;
+  /**
+   * @example
+   * 2018-09-13T16:32:24Z
+   */
   creationTime?: string;
   descCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensorResult;
+  /**
+   * @example
+   * 2018-09-13T16:38:24Z
+   */
   finishTime?: string;
   input?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput;
+  /**
+   * @example
+   * f8f166eea7a44e9bb0a4aecf9543****
+   */
   jobId?: string;
+  /**
+   * @example
+   * The resource operated cannot be found
+   */
   message?: string;
+  /**
+   * @example
+   * c5b30b7c0d0e4a0abde1d5f9e751****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @example
+   * block
+   */
   suggestion?: string;
   titleCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCensorResult;
+  /**
+   * @example
+   * example userdata ****
+   */
   userData?: string;
   vensorCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResult;
   videoCensorConfig?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfig;
@@ -26311,9 +38013,25 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobBarrageCensorResult extends $tea.Model {
+  /**
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @example
+   * 99.91
+   */
   rate?: string;
+  /**
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26339,9 +38057,25 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResultsCoverImageCensorResultResultsResult extends $tea.Model {
+  /**
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @example
+   * live
+   */
   scene?: string;
+  /**
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26386,8 +38120,20 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResultsCoverImageCensorResult extends $tea.Model {
+  /**
+   * @example
+   * example-Bucket-****
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @example
+   * test/ai/censor/v2/vme-****.jpg
+   */
   object?: string;
   results?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResultsCoverImageCensorResultResults;
   static names(): { [key: string]: string } {
@@ -26433,9 +38179,25 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobDescCensorResult extends $tea.Model {
+  /**
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26461,8 +38223,20 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobInput extends $tea.Model {
+  /**
+   * @example
+   * bucket-test-in-****
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @example
+   * test/ai/censor/test-****.mp4
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26486,9 +38260,25 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobTitleCensorResult extends $tea.Model {
+  /**
+   * @example
+   * meaningless
+   */
   label?: string;
+  /**
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @example
+   * antispam
+   */
   scene?: string;
+  /**
+   * @example
+   * block
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26514,9 +38304,25 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultCensorResultsCensorResult extends $tea.Model {
+  /**
+   * @example
+   * meaningless
+   */
   label?: string;
+  /**
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @example
+   * ad
+   */
   scene?: string;
+  /**
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26561,9 +38367,25 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelinesVideoTimelineCensorResultsCensorResult extends $tea.Model {
+  /**
+   * @example
+   * normal
+   */
   label?: string;
+  /**
+   * @example
+   * 100
+   */
   rate?: string;
+  /**
+   * @example
+   * porn
+   */
   scene?: string;
+  /**
+   * @example
+   * block
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26609,7 +38431,15 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelinesVideoTimeline extends $tea.Model {
   censorResults?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelinesVideoTimelineCensorResults;
+  /**
+   * @example
+   * output{Count}.jpg
+   */
   object?: string;
+  /**
+   * @example
+   * 00:02:59.999
+   */
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26653,6 +38483,10 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResult extends $tea.Model {
   censorResults?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultCensorResults;
+  /**
+   * @example
+   * ea04afcca7cd4e80b9ece8fbb251
+   */
   nextPageToken?: string;
   videoTimelines?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelines;
   static names(): { [key: string]: string } {
@@ -26677,8 +38511,20 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfigOutputFile extends $tea.Model {
+  /**
+   * @example
+   * test-bucket-****
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-shanghai
+   */
   location?: string;
+  /**
+   * @example
+   * output{Count}.jpg
+   */
   object?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26702,8 +38548,16 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfig extends $tea.Model {
+  /**
+   * @example
+   * common
+   */
   bizType?: string;
   outputFile?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfigOutputFile;
+  /**
+   * @example
+   * true
+   */
   videoCensor?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26728,18 +38582,54 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob extends $tea.Model {
   barrageCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobBarrageCensorResult;
+  /**
+   * @example
+   * InvalidParameter.ResourceNotFound
+   */
   code?: string;
   coverImageCensorResults?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResults;
+  /**
+   * @example
+   * 2021-11-04T07:25:48Z
+   */
   creationTime?: string;
   descCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobDescCensorResult;
+  /**
+   * @example
+   * 2021-11-04T07:25:50Z
+   */
   finishTime?: string;
   input?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobInput;
+  /**
+   * @example
+   * f8f166eea7a44e9bb0a4aecf9543
+   */
   jobId?: string;
+  /**
+   * @example
+   * The resource operated cannot be found
+   */
   message?: string;
+  /**
+   * @example
+   * c5b30b7c0d0e4a0abde1d5f9e751****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @example
+   * pass
+   */
   suggestion?: string;
   titleCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobTitleCensorResult;
+  /**
+   * @example
+   * example userdata ****
+   */
   userData?: string;
   vensorCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResult;
   videoCensorConfig?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfig;
@@ -26829,9 +38719,25 @@ export class QueryMediaCensorJobListResponseBodyNonExistIds extends $tea.Model {
 }
 
 export class QueryMediaIndexJobResponseBodyIndexJobInfoList extends $tea.Model {
+  /**
+   * @example
+   * 2023-11-21 11:33:51
+   */
   gmtFinish?: string;
+  /**
+   * @example
+   * 2023-11-21 11:33:50
+   */
   gmtSubmit?: string;
+  /**
+   * @example
+   * mm
+   */
   indexType?: string;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26857,7 +38763,15 @@ export class QueryMediaIndexJobResponseBodyIndexJobInfoList extends $tea.Model {
 }
 
 export class QuerySmarttagJobResponseBodyResultsResult extends $tea.Model {
+  /**
+   * @example
+   * {"title":"example-title-****"}
+   */
   data?: string;
+  /**
+   * @example
+   * Meta
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26898,22 +38812,90 @@ export class QuerySmarttagJobResponseBodyResults extends $tea.Model {
 }
 
 export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
+  /**
+   * @example
+   * { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
+   */
   businessConfig?: string;
+  /**
+   * @example
+   * Reserving
+   */
   businessStatus?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example-cover.jpg
+   */
   coverURL?: string;
+  /**
+   * @example
+   * OpenAPI
+   */
   createSource?: string;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * sample description
+   */
   description?: string;
+  /**
+   * @example
+   * 30.100000
+   */
   duration?: number;
+  /**
+   * @example
+   * InvalidParameter
+   */
   errorCode?: string;
+  /**
+   * @example
+   * "EventTime":"2021-08-12T10:04:15Z","ErrorCode":"InvalidParameter","ErrorMessage":"The specified parameter \\"LiveStreamConfig\\" is not valid. specified parameter example is not valid.
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
   modifiedSource?: string;
+  /**
+   * @example
+   * 2017-01-11T12:00:00Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * ****fddd7748b58bf1d47e95****
+   */
   projectId?: string;
+  /**
+   * @example
+   * EditingProject
+   */
   projectType?: string;
+  /**
+   * @example
+   * PRODUCE_FAILED
+   */
   status?: string;
+  /**
+   * @example
+   * Timeline
+   */
   templateType?: string;
+  /**
+   * @example
+   * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
+   */
   timeline?: string;
+  /**
+   * @example
+   * title
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26965,8 +38947,29 @@ export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
 }
 
 export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfoOccurrencesTracks extends $tea.Model {
+  /**
+   * @remarks
+   * The coordinates of the bounding box.
+   * 
+   * @example
+   * 468.0;67.0;615.0;267.0
+   */
   position?: string;
+  /**
+   * @remarks
+   * The size of the bounding box.
+   * 
+   * @example
+   * 50.2
+   */
   size?: number;
+  /**
+   * @remarks
+   * The timestamp of the track.
+   * 
+   * @example
+   * 1.4
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26990,15 +38993,76 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfoOccurrencesTra
 }
 
 export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfoOccurrences extends $tea.Model {
+  /**
+   * @remarks
+   * The text content.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The fine-grained ID of the entity.
+   * 
+   * @example
+   * 10310250338
+   */
   finegrainId?: string;
+  /**
+   * @remarks
+   * The fine-grained name of the entity.
+   */
   finegrainName?: string;
+  /**
+   * @remarks
+   * The start time of the clip.
+   * 
+   * @example
+   * 1.4
+   */
   from?: number;
+  /**
+   * @remarks
+   * The optimal face image encoded in Base64.
+   * 
+   * @example
+   * 99C64F6287
+   */
   image?: string;
+  /**
+   * @remarks
+   * The score.
+   * 
+   * @example
+   * 0.75287705
+   */
   score?: number;
+  /**
+   * @remarks
+   * The sequence ID of the vector table.
+   * 
+   * @example
+   * 85010D1
+   */
   tableBatchSeqId?: string;
+  /**
+   * @remarks
+   * The end time of the clip.
+   * 
+   * @example
+   * 2.5
+   */
   to?: number;
+  /**
+   * @remarks
+   * The track sequence.
+   */
   tracks?: SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfoOccurrencesTracks[];
+  /**
+   * @remarks
+   * The ID of the clip.
+   * 
+   * @example
+   * 5FE19530C7A422197535FE74F5DB2B9F
+   */
   clipId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27036,12 +39100,49 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfoOccurrences ex
 }
 
 export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The category.
+   */
   category?: string;
+  /**
+   * @remarks
+   * The face ID.
+   * 
+   * @example
+   * 5FE19530C7A422197535FE74F5DB2B9F
+   */
   faceId?: string;
+  /**
+   * @remarks
+   * The ID of the entity.
+   * 
+   * @example
+   * 10310250338
+   */
   labelId?: string;
+  /**
+   * @remarks
+   * The name of the entity.
+   */
   labelName?: string;
+  /**
+   * @remarks
+   * The type of the tag.
+   */
   labelType?: string;
+  /**
+   * @remarks
+   * The clips.
+   */
   occurrences?: SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfoOccurrences[];
+  /**
+   * @remarks
+   * The source.
+   * 
+   * @example
+   * vision
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27073,10 +39174,42 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfo extends $tea.
 }
 
 export class SearchMediaResponseBodyMediaInfoListAiDataAsrInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the clip.
+   * 
+   * @example
+   * 5FE19530C7A422197535FE74F5DB2B9F
+   */
   clipId?: string;
+  /**
+   * @remarks
+   * The text content.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The start time of the clip.
+   * 
+   * @example
+   * 1.4
+   */
   from?: number;
+  /**
+   * @remarks
+   * The timestamp of the clip.
+   * 
+   * @example
+   * 1.4
+   */
   timestamp?: number;
+  /**
+   * @remarks
+   * The end time of the clip.
+   * 
+   * @example
+   * 2.5
+   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27104,10 +39237,42 @@ export class SearchMediaResponseBodyMediaInfoListAiDataAsrInfo extends $tea.Mode
 }
 
 export class SearchMediaResponseBodyMediaInfoListAiDataOcrInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the clip.
+   * 
+   * @example
+   * 5FE19530C7A422197535FE74F5DB2B9F
+   */
   clipId?: string;
+  /**
+   * @remarks
+   * The text content.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The start time of the clip.
+   * 
+   * @example
+   * 1.4
+   */
   from?: number;
+  /**
+   * @remarks
+   * The timestamp of the clip.
+   * 
+   * @example
+   * 1.4
+   */
   timestamp?: number;
+  /**
+   * @remarks
+   * The end time of the clip.
+   * 
+   * @example
+   * 2.5
+   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27135,8 +39300,20 @@ export class SearchMediaResponseBodyMediaInfoListAiDataOcrInfo extends $tea.Mode
 }
 
 export class SearchMediaResponseBodyMediaInfoListAiData extends $tea.Model {
+  /**
+   * @remarks
+   * The tags of the intelligent AI job.
+   */
   aiLabelInfo?: SearchMediaResponseBodyMediaInfoListAiDataAiLabelInfo[];
+  /**
+   * @remarks
+   * The information about audio files.
+   */
   asrInfo?: SearchMediaResponseBodyMediaInfoListAiDataAsrInfo[];
+  /**
+   * @remarks
+   * The subtitles.
+   */
   ocrInfo?: SearchMediaResponseBodyMediaInfoListAiDataOcrInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -27160,10 +39337,45 @@ export class SearchMediaResponseBodyMediaInfoListAiData extends $tea.Model {
 }
 
 export class SearchMediaResponseBodyMediaInfoListAiRoughData extends $tea.Model {
+  /**
+   * @remarks
+   * The category of the AI job.
+   * 
+   * @example
+   * TV series
+   */
   aiCategory?: string;
+  /**
+   * @remarks
+   * The ID of the AI job.
+   * 
+   * @example
+   * cd35b0b0025f71edbfcb472190a9xxxx
+   */
   aiJobId?: string;
+  /**
+   * @remarks
+   * The results of the AI job.
+   * 
+   * @example
+   * http://xxxx.json
+   */
   result?: string;
+  /**
+   * @remarks
+   * The save type.
+   * 
+   * @example
+   * TEXT
+   */
   saveType?: string;
+  /**
+   * @remarks
+   * The data status.
+   * 
+   * @example
+   * SaveSuccess
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27191,18 +39403,109 @@ export class SearchMediaResponseBodyMediaInfoListAiRoughData extends $tea.Model 
 }
 
 export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The bitrate of the file.
+   * 
+   * @example
+   * 1912.13
+   */
   bitrate?: string;
+  /**
+   * @remarks
+   * The time when the file was created.
+   * 
+   * @example
+   * 2022-05-30T02:02:17Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The duration of the file.
+   * 
+   * @example
+   * 60.00000
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The name of the file.
+   * 
+   * @example
+   * 164265080291300080527050.wav
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * The size of the file in bytes.
+   * 
+   * @example
+   * 324784
+   */
   fileSize?: string;
+  /**
+   * @remarks
+   * The status of the file.
+   * 
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @remarks
+   * The type of the file.
+   * 
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the file.
+   * 
+   * @example
+   * https://outin-d3f4681ddfd911ec99a600163e1403e7.oss-cn-shanghai.aliyuncs.com/sv/23d5cdd1-18180984899/23d5cdd1-18180984899.mp4
+   */
   fileUrl?: string;
+  /**
+   * @remarks
+   * The encapsulation format of the file.
+   * 
+   * @example
+   * mov,mp4,m4a,3gp,3g2,mj2
+   */
   formatName?: string;
+  /**
+   * @remarks
+   * The height of the file.
+   * 
+   * @example
+   * 480
+   */
   height?: string;
+  /**
+   * @remarks
+   * The time when the file was last modified.
+   * 
+   * @example
+   * 2021-12-10T12:19Z
+   */
   modifiedTime?: string;
+  /**
+   * @remarks
+   * The region in which the file is stored.
+   * 
+   * @example
+   * cn-beijing
+   */
   region?: string;
+  /**
+   * @remarks
+   * The width of the file.
+   * 
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27246,6 +39549,10 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
 }
 
 export class SearchMediaResponseBodyMediaInfoListFileInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The basic information about the file, such as the duration and size.
+   */
   fileBasicInfo?: SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
     return {
@@ -27265,28 +39572,180 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoList extends $tea.Model
 }
 
 export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The business to which the media asset belongs.
+   * 
+   * @example
+   * IMS
+   */
   biz?: string;
+  /**
+   * @remarks
+   * The business type of the media asset.
+   * 
+   * @example
+   * opening
+   */
   businessType?: string;
+  /**
+   * @remarks
+   * The ID of the category.
+   * 
+   * @example
+   * 44
+   */
   cateId?: number;
+  /**
+   * @remarks
+   * The name of the category.
+   */
   cateName?: string;
+  /**
+   * @remarks
+   * The category of the media asset.
+   * 
+   * @example
+   * image
+   */
   category?: string;
+  /**
+   * @remarks
+   * The thumbnail URL of the media asset.
+   * 
+   * @example
+   * https://dtlive-bj.oss-cn-beijing.aliyuncs.com/cover/e694372e-4f5b-4821-ae09-efd064f27b63_large_cover_url.jpg
+   */
   coverURL?: string;
+  /**
+   * @remarks
+   * The time when the media asset was created.
+   * 
+   * @example
+   * 2020-12-01T19:48Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The time when the media asset was deleted.
+   * 
+   * @example
+   * 2020-12-01T19:48Z
+   */
   deletedTime?: string;
+  /**
+   * @remarks
+   * The description of the media asset.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The address of the media asset that is waiting to be registered.
+   * 
+   * @example
+   * oss://clipres/longvideo/material/voice/prod/20220418/07d7c799f6054dc3bbef250854cf84981650248140427
+   */
   inputURL?: string;
+  /**
+   * @remarks
+   * The ID of the media asset.
+   * 
+   * @example
+   * 132bd600fc3c71ec99476732a78f6402
+   */
   mediaId?: string;
+  /**
+   * @remarks
+   * The tags of the media asset.
+   * 
+   * @example
+   * tags,tags2
+   */
   mediaTags?: string;
+  /**
+   * @remarks
+   * The type of the media asset.
+   * 
+   * @example
+   * video
+   */
   mediaType?: string;
+  /**
+   * @remarks
+   * The time when the media asset was modified.
+   * 
+   * @example
+   * 2020-12-01T19:48Z
+   */
   modifiedTime?: string;
+  /**
+   * @remarks
+   * The custom ID of the media asset. The ID is a string that contains 6 to 64 characters. Only letters, digits, hyphens (-), and underscores (_) are supported. Each custom ID is unique.
+   * 
+   * @example
+   * 123-123
+   */
   referenceId?: string;
+  /**
+   * @remarks
+   * The snapshots of the media asset.
+   * 
+   * @example
+   * [{"bucket":"example-bucket","count":"3","iceJobId":"******f48f0e4154976b2b8c45******","location":"oss-cn-beijing","snapshotRegular":"example.jpg","templateId":"******e6a6440b29eb60bd7c******"}]
+   */
   snapshots?: string;
+  /**
+   * @remarks
+   * The source of the media asset.
+   * 
+   * @example
+   * oss
+   */
   source?: string;
+  /**
+   * @remarks
+   * The image sprite of the media asset
+   * 
+   * @example
+   * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
+   */
   spriteImages?: string;
+  /**
+   * @remarks
+   * The state of the resource.
+   * 
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @remarks
+   * The title of the media asset.
+   */
   title?: string;
+  /**
+   * @remarks
+   * The transcoding status of the media asset.
+   * 
+   * @example
+   * Init
+   */
   transcodeStatus?: string;
+  /**
+   * @remarks
+   * The upload source of the media asset.
+   * 
+   * @example
+   * general
+   */
   uploadSource?: string;
+  /**
+   * @remarks
+   * The user data.
+   * 
+   * @example
+   * userData
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27350,10 +39809,33 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $tea.Mod
 }
 
 export class SearchMediaResponseBodyMediaInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the intelligent AI job.
+   */
   aiData?: SearchMediaResponseBodyMediaInfoListAiData;
+  /**
+   * @remarks
+   * The description of the AI job.
+   */
   aiRoughData?: SearchMediaResponseBodyMediaInfoListAiRoughData;
+  /**
+   * @remarks
+   * The information about the files.
+   */
   fileInfoList?: SearchMediaResponseBodyMediaInfoListFileInfoList[];
+  /**
+   * @remarks
+   * The basic information about the media asset.
+   */
   mediaBasicInfo?: SearchMediaResponseBodyMediaInfoListMediaBasicInfo;
+  /**
+   * @remarks
+   * The ID of the media asset.
+   * 
+   * @example
+   * 3b187b3620c8490886cfc2a9578c3ce6
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27381,8 +39863,20 @@ export class SearchMediaResponseBodyMediaInfoList extends $tea.Model {
 }
 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrencesTracks extends $tea.Model {
+  /**
+   * @example
+   * 468.0;67.0;615.0;267.0
+   */
   position?: string;
+  /**
+   * @example
+   * 50
+   */
   size?: number;
+  /**
+   * @example
+   * 1.4
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27406,14 +39900,42 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
 }
 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrences extends $tea.Model {
+  /**
+   * @example
+   * 158730355E4B82257D8AA1583A58****
+   */
   clipId?: string;
   content?: string;
+  /**
+   * @example
+   * 103102503**
+   */
   finegrainId?: string;
   finegrainName?: string;
+  /**
+   * @example
+   * 1.4
+   */
   from?: number;
+  /**
+   * @example
+   * https://service-****-public.oss-cn-hangzhou.aliyuncs.com/1563457****438522/service-image/f788974f-9595-43b2-a478-7c7a1afb****.jpg
+   */
   image?: string;
+  /**
+   * @example
+   * 0.75287705
+   */
   score?: number;
+  /**
+   * @example
+   * 85010D1**
+   */
   tableBatchSeqId?: string;
+  /**
+   * @example
+   * 2.5
+   */
   to?: number;
   tracks?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrencesTracks[];
   static names(): { [key: string]: string } {
@@ -27453,11 +39975,23 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrenc
 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends $tea.Model {
   category?: string;
+  /**
+   * @example
+   * 5FE19530C7A422197535FE74F5DB****
+   */
   faceId?: string;
+  /**
+   * @example
+   * 103102503**
+   */
   labelId?: string;
   labelName?: string;
   labelType?: string;
   occurrences?: SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfoOccurrences[];
+  /**
+   * @example
+   * vision
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27489,10 +40023,26 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAiLabelInfo extends 
 }
 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $tea.Model {
+  /**
+   * @example
+   * 5FE19530C7A422197535FE74F5DB****
+   */
   clipId?: string;
   content?: string;
+  /**
+   * @example
+   * 1.4
+   */
   from?: number;
+  /**
+   * @example
+   * 1.4
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 2.5
+   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27520,10 +40070,26 @@ export class SearchMediaByAILabelResponseBodyMediaListAiDataAsrInfo extends $tea
 }
 
 export class SearchMediaByAILabelResponseBodyMediaListAiDataOcrInfo extends $tea.Model {
+  /**
+   * @example
+   * 5FE19530C7A422197535FE74F5DB****
+   */
   clipId?: string;
   content?: string;
+  /**
+   * @example
+   * 1.4
+   */
   from?: number;
+  /**
+   * @example
+   * 1.4
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 2.5
+   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27577,16 +40143,52 @@ export class SearchMediaByAILabelResponseBodyMediaListAiData extends $tea.Model 
 
 export class SearchMediaByAILabelResponseBodyMediaList extends $tea.Model {
   aiData?: SearchMediaByAILabelResponseBodyMediaListAiData;
+  /**
+   * @example
+   * app-1000000
+   */
   appId?: string;
+  /**
+   * @example
+   * http://example.aliyundoc.com/snapshot/****.jpg?auth_key=1498476426-0-0-f00b9455c49a423ce69cf4e27333****
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * 2017-11-14T09:15:50Z
+   */
   creationTime?: string;
   description?: string;
+  /**
+   * @example
+   * 12.2
+   */
   duration?: number;
+  /**
+   * @example
+   * 1c6ce34007d571ed94667630a6bc****
+   */
   mediaId?: string;
+  /**
+   * @example
+   * 2017-11-14T09:15:50Z
+   */
   modificationTime?: string;
+  /**
+   * @example
+   * 10897890
+   */
   size?: number;
   snapshots?: string[];
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * out-****.oss-cn-shanghai.aliyuncs.com
+   */
   storageLocation?: string;
   tags?: string;
   title?: string;
@@ -27634,6 +40236,10 @@ export class SearchMediaByAILabelResponseBodyMediaList extends $tea.Model {
 }
 
 export class SearchMediaByFaceResponseBodyMediaInfoList extends $tea.Model {
+  /**
+   * @example
+   * 3b187b3620c8490886cfc2a9578c****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27653,8 +40259,20 @@ export class SearchMediaByFaceResponseBodyMediaInfoList extends $tea.Model {
 }
 
 export class SearchMediaByHybridResponseBodyMediaListClipInfo extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   from?: number;
+  /**
+   * @example
+   * 0.99
+   */
   score?: number;
+  /**
+   * @example
+   * 4
+   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27679,6 +40297,10 @@ export class SearchMediaByHybridResponseBodyMediaListClipInfo extends $tea.Model
 
 export class SearchMediaByHybridResponseBodyMediaList extends $tea.Model {
   clipInfo?: SearchMediaByHybridResponseBodyMediaListClipInfo[];
+  /**
+   * @example
+   * a18936e0e28771edb59ae6f6f47a****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27700,8 +40322,20 @@ export class SearchMediaByHybridResponseBodyMediaList extends $tea.Model {
 }
 
 export class SearchMediaByMultimodalResponseBodyMediaListClipInfo extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   from?: number;
+  /**
+   * @example
+   * 1.2
+   */
   score?: number;
+  /**
+   * @example
+   * 4
+   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27726,6 +40360,10 @@ export class SearchMediaByMultimodalResponseBodyMediaListClipInfo extends $tea.M
 
 export class SearchMediaByMultimodalResponseBodyMediaList extends $tea.Model {
   clipInfo?: SearchMediaByMultimodalResponseBodyMediaListClipInfo[];
+  /**
+   * @example
+   * a18936e0e28771edb59ae6f6f47a****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27747,9 +40385,25 @@ export class SearchMediaByMultimodalResponseBodyMediaList extends $tea.Model {
 }
 
 export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackDataBoxPosition extends $tea.Model {
+  /**
+   * @example
+   * 168
+   */
   h?: number;
+  /**
+   * @example
+   * 128
+   */
   w?: number;
+  /**
+   * @example
+   * 517
+   */
   x?: number;
+  /**
+   * @example
+   * 409
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27776,6 +40430,10 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrack
 
 export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackData extends $tea.Model {
   boxPosition?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackDataBoxPosition;
+  /**
+   * @example
+   * 62.03302
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27797,7 +40455,15 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrack
 }
 
 export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos extends $tea.Model {
+  /**
+   * @example
+   * 69.06635
+   */
   endTime?: number;
+  /**
+   * @example
+   * 61.066353
+   */
   startTime?: number;
   trackData?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackData[];
   static names(): { [key: string]: string } {
@@ -27822,10 +40488,22 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos exte
 }
 
 export class SearchMediaClipByFaceResponseBodyMediaClipList extends $tea.Model {
+  /**
+   * @example
+   * celebrity
+   */
   category?: string;
+  /**
+   * @example
+   * 1031025****
+   */
   entityId?: string;
   labelName?: string;
   occurrencesInfos?: SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos[];
+  /**
+   * @example
+   * 0.99041677
+   */
   score?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27853,7 +40531,15 @@ export class SearchMediaClipByFaceResponseBodyMediaClipList extends $tea.Model {
 }
 
 export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoDynamicMetaData extends $tea.Model {
+  /**
+   * @example
+   * "{\\"AuditionUrl\\": \\"http://xxx\\", \\"AuditionCount\\": 3...}"
+   */
   data?: string;
+  /**
+   * @example
+   * system
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27875,20 +40561,79 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoDynamicMe
 }
 
 export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * general
+   */
   businessType?: string;
+  /**
+   * @example
+   * category
+   */
   category?: string;
+  /**
+   * @example
+   * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>
+   */
   coverURL?: string;
+  /**
+   * @example
+   * 2020-12-26T06:04:49Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2020-12-29T06:04:49Z
+   */
   deletedTime?: string;
+  /**
+   * @example
+   * description
+   */
   description?: string;
+  /**
+   * @remarks
+   * MediaId
+   * 
+   * @example
+   * icepublic-****87b921bb4a55908a72a0537e****
+   */
   mediaId?: string;
   mediaTags?: string;
+  /**
+   * @example
+   * audio
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 2020-12-26T06:04:50Z
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * oss
+   */
   source?: string;
+  /**
+   * @example
+   * [{"bucket":"example-bucket","count":"32","iceJobId":"******83ec44d58b2069def2e******","location":"oss-cn-shanghai","snapshotRegular":"example/example-{Count}.jpg","spriteRegular":"example/example-{TileCount}.jpg","templateId":"******e438b14ff39293eaec25******","tileCount":"1"}]
+   */
   spriteImages?: string;
+  /**
+   * @example
+   * Normal
+   */
   status?: string;
+  /**
+   * @example
+   * title
+   */
   title?: string;
+  /**
+   * @example
+   * userDataTest
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27937,7 +40682,15 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasi
 
 export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo extends $tea.Model {
   dynamicMetaData?: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoDynamicMetaData;
+  /**
+   * @remarks
+   * BasicInfo
+   */
   mediaBasicInfo?: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasicInfo;
+  /**
+   * @example
+   * icepublic-****87b921bb4a55908a72a0537e****
+   */
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27961,9 +40714,21 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo extends 
 }
 
 export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   authorized?: boolean;
+  /**
+   * @example
+   * true
+   */
   favorite?: boolean;
   mediaInfo?: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo;
+  /**
+   * @example
+   * 100
+   */
   remainingAuthTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27989,6 +40754,10 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $tea.Mode
 }
 
 export class SubmitAvatarTrainingJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ****29faef8144638ba42eb8e037****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28008,7 +40777,15 @@ export class SubmitAvatarTrainingJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ****d718e2ff4f018ccf419a7b71****
+   */
   jobId?: string;
+  /**
+   * @example
+   * xiaozhuan
+   */
   voiceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28030,7 +40807,21 @@ export class SubmitCustomizedVoiceJobResponseBodyData extends $tea.Model {
 }
 
 export class SubmitDNAJobRequestInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1b1b9cd148034739af413150fded****
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Media
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28052,7 +40843,21 @@ export class SubmitDNAJobRequestInput extends $tea.Model {
 }
 
 export class SubmitDynamicImageJobRequestInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/object.mp4
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28074,7 +40879,21 @@ export class SubmitDynamicImageJobRequestInput extends $tea.Model {
 }
 
 export class SubmitDynamicImageJobRequestOutput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Media
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28096,7 +40915,15 @@ export class SubmitDynamicImageJobRequestOutput extends $tea.Model {
 }
 
 export class SubmitDynamicImageJobRequestScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28143,12 +40970,36 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan e
 }
 
 export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * gif
+   */
   format?: string;
+  /**
+   * @example
+   * 15
+   */
   fps?: number;
+  /**
+   * @example
+   * 720
+   */
   height?: number;
+  /**
+   * @example
+   * false
+   */
   longShortMode?: boolean;
+  /**
+   * @example
+   * progressive
+   */
   scanMode?: string;
   timeSpan?: SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan;
+  /**
+   * @example
+   * 1024
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28181,6 +41032,13 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $
 
 export class SubmitDynamicImageJobRequestTemplateConfig extends $tea.Model {
   overwriteParams?: SubmitDynamicImageJobRequestTemplateConfigOverwriteParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28202,7 +41060,21 @@ export class SubmitDynamicImageJobRequestTemplateConfig extends $tea.Model {
 }
 
 export class SubmitIProductionJobRequestInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/object
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28224,7 +41096,21 @@ export class SubmitIProductionJobRequestInput extends $tea.Model {
 }
 
 export class SubmitIProductionJobRequestOutput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/object
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28246,7 +41132,15 @@ export class SubmitIProductionJobRequestOutput extends $tea.Model {
 }
 
 export class SubmitIProductionJobRequestScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * 5246b8d12a62433ab77845074039c3dc
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28268,8 +41162,23 @@ export class SubmitIProductionJobRequestScheduleConfig extends $tea.Model {
 }
 
 export class SubmitLiveRecordJobRequestRecordOutput extends $tea.Model {
+  /**
+   * @example
+   * imsbucket1
+   */
   bucket?: string;
+  /**
+   * @example
+   * oss-cn-hangzhou.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28293,7 +41202,18 @@ export class SubmitLiveRecordJobRequestRecordOutput extends $tea.Model {
 }
 
 export class SubmitLiveRecordJobRequestStreamInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp
+   */
   type?: string;
+  /**
+   * @example
+   * rtmp://example.com/live/stream1
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28315,8 +41235,29 @@ export class SubmitLiveRecordJobRequestStreamInput extends $tea.Model {
 }
 
 export class SubmitLiveSnapshotJobRequestSnapshotOutput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testbucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss-cn-shanghai.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28340,7 +41281,21 @@ export class SubmitLiveSnapshotJobRequestSnapshotOutput extends $tea.Model {
 }
 
 export class SubmitLiveSnapshotJobRequestStreamInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp
+   */
   type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp://www.aliyun.com/stream
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28362,7 +41317,21 @@ export class SubmitLiveSnapshotJobRequestStreamInput extends $tea.Model {
 }
 
 export class SubmitLiveTranscodeJobRequestStreamInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp://mydomain/app/stream1
+   */
   inputUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28384,7 +41353,15 @@ export class SubmitLiveTranscodeJobRequestStreamInput extends $tea.Model {
 }
 
 export class SubmitLiveTranscodeJobRequestTimedConfig extends $tea.Model {
+  /**
+   * @example
+   * 2022-07-20T08:20:32Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2022-02-21T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28406,7 +41383,18 @@ export class SubmitLiveTranscodeJobRequestTimedConfig extends $tea.Model {
 }
 
 export class SubmitLiveTranscodeJobRequestTranscodeOutput extends $tea.Model {
+  /**
+   * @example
+   * mydomain
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LiveCenter
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28428,7 +41416,15 @@ export class SubmitLiveTranscodeJobRequestTranscodeOutput extends $tea.Model {
 }
 
 export class SubmitMediaCensorJobRequestInput extends $tea.Model {
+  /**
+   * @example
+   * 1b1b9cd148034739af413150fded****
+   */
   media?: string;
+  /**
+   * @example
+   * Media
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28450,7 +41446,15 @@ export class SubmitMediaCensorJobRequestInput extends $tea.Model {
 }
 
 export class SubmitMediaCensorJobRequestScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * 5246b8d12a62433ab77845074039****
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 6
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28472,7 +41476,21 @@ export class SubmitMediaCensorJobRequestScheduleConfig extends $tea.Model {
 }
 
 export class SubmitMediaInfoJobRequestInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28494,7 +41512,15 @@ export class SubmitMediaInfoJobRequestInput extends $tea.Model {
 }
 
 export class SubmitMediaInfoJobRequestScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28516,7 +41542,15 @@ export class SubmitMediaInfoJobRequestScheduleConfig extends $tea.Model {
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28538,20 +41572,80 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model 
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 0.f
+   */
   bitrate?: string;
+  /**
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x000f
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [15][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * us
+   */
   lang?: string;
+  /**
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @example
+   * 44100
+   */
   sampleRate?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28599,17 +41693,65 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 888.563
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 403.039999
+   */
   duration?: string;
+  /**
+   * @example
+   * file.m3u8
+   */
   fileName?: string;
+  /**
+   * @example
+   * 31737
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * hls,applehttp
+   */
   formatName?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 2b36bd19c13f4145b094c0cad80dbce5
+   */
   mediaId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28651,28 +41793,120 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasi
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 25.0
+   */
   avgFps?: string;
+  /**
+   * @example
+   * 888.563
+   */
   bitRate?: string;
+  /**
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x001b
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [27][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/50
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @example
+   * 31
+   */
   level?: string;
+  /**
+   * @example
+   * 10040
+   */
   numFrames?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @example
+   * 0
+   */
   rotate?: string;
+  /**
+   * @example
+   * 478:477
+   */
   sar?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timeBase?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28761,7 +41995,15 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty extends
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28783,18 +42025,58 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $t
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   async?: boolean;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   finishTime?: string;
   input?: SubmitMediaInfoJobResponseBodyMediaInfoJobInput;
+  /**
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   jobId?: string;
   mediaInfoProperty?: SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
+  /**
+   * @example
+   * 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
+   */
   requestId?: string;
   scheduleConfig?: SubmitMediaInfoJobResponseBodyMediaInfoJobScheduleConfig;
+  /**
+   * @example
+   * Init
+   */
   status?: string;
+  /**
+   * @example
+   * {}
+   */
   submitResultJson?: { [key: string]: any };
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28838,7 +42120,21 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
 }
 
 export class SubmitPackageJobRequestInputsInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28860,6 +42156,10 @@ export class SubmitPackageJobRequestInputsInput extends $tea.Model {
 }
 
 export class SubmitPackageJobRequestInputs extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: SubmitPackageJobRequestInputsInput;
   static names(): { [key: string]: string } {
     return {
@@ -28879,7 +42179,21 @@ export class SubmitPackageJobRequestInputs extends $tea.Model {
 }
 
 export class SubmitPackageJobRequestOutput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28901,7 +42215,15 @@ export class SubmitPackageJobRequestOutput extends $tea.Model {
 }
 
 export class SubmitPackageJobRequestScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28923,7 +42245,15 @@ export class SubmitPackageJobRequestScheduleConfig extends $tea.Model {
 }
 
 export class SubmitSmarttagJobRequestInput extends $tea.Model {
+  /**
+   * @example
+   * c5c62d8f0361337cab312dce8e77dc6d
+   */
   media?: string;
+  /**
+   * @example
+   * Media
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28945,7 +42275,15 @@ export class SubmitSmarttagJobRequestInput extends $tea.Model {
 }
 
 export class SubmitSmarttagJobRequestScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * acdbfe4323bcfdae
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 4
+   */
   priority?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28967,7 +42305,21 @@ export class SubmitSmarttagJobRequestScheduleConfig extends $tea.Model {
 }
 
 export class SubmitSnapshotJobRequestInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/object.mp4
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Media
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28989,7 +42341,21 @@ export class SubmitSnapshotJobRequestInput extends $tea.Model {
 }
 
 export class SubmitSnapshotJobRequestOutput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/output-{Count}.jpg
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29011,6 +42377,10 @@ export class SubmitSnapshotJobRequestOutput extends $tea.Model {
 }
 
 export class SubmitSnapshotJobRequestScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   pipelineId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29030,12 +42400,40 @@ export class SubmitSnapshotJobRequestScheduleConfig extends $tea.Model {
 }
 
 export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshotConfig extends $tea.Model {
+  /**
+   * @example
+   * 480
+   */
   cellHeight?: number;
+  /**
+   * @example
+   * 720
+   */
   cellWidth?: number;
+  /**
+   * @example
+   * #000000
+   */
   color?: string;
+  /**
+   * @example
+   * 20
+   */
   columns?: number;
+  /**
+   * @example
+   * 20
+   */
   lines?: number;
+  /**
+   * @example
+   * 20
+   */
   margin?: number;
+  /**
+   * @example
+   * 20
+   */
   padding?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29067,16 +42465,56 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshot
 }
 
 export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
   blackLevel?: number;
+  /**
+   * @example
+   * 5
+   */
   count?: number;
+  /**
+   * @example
+   * intra
+   */
   frameType?: string;
+  /**
+   * @example
+   * 480
+   */
   height?: number;
+  /**
+   * @example
+   * 10
+   */
   interval?: number;
+  /**
+   * @example
+   * true
+   */
   isSptFrag?: boolean;
+  /**
+   * @example
+   * 70
+   */
   pixelBlackThreshold?: number;
   spriteSnapshotConfig?: SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshotConfig;
+  /**
+   * @example
+   * 1000
+   */
   time?: number;
+  /**
+   * @example
+   * Sprite
+   */
   type?: string;
+  /**
+   * @example
+   * 720
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29117,6 +42555,13 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $tea.
 
 export class SubmitSnapshotJobRequestTemplateConfig extends $tea.Model {
   overwriteParams?: SubmitSnapshotJobRequestTemplateConfigOverwriteParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ****96e8864746a0b6f3****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29138,6 +42583,10 @@ export class SubmitSnapshotJobRequestTemplateConfig extends $tea.Model {
 }
 
 export class SubmitStandardCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ****d718e2ff4f018ccf419a7b71****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29157,7 +42606,21 @@ export class SubmitStandardCustomizedVoiceJobResponseBodyData extends $tea.Model
 }
 
 export class SubmitSyncMediaInfoJobRequestInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29179,7 +42642,15 @@ export class SubmitSyncMediaInfoJobRequestInput extends $tea.Model {
 }
 
 export class SubmitSyncMediaInfoJobRequestScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29201,7 +42672,15 @@ export class SubmitSyncMediaInfoJobRequestScheduleConfig extends $tea.Model {
 }
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29223,20 +42702,80 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Mo
 }
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 0.f
+   */
   bitrate?: string;
+  /**
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x000f
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [15][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * us
+   */
   lang?: string;
+  /**
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @example
+   * 44100
+   */
   sampleRate?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29284,17 +42823,65 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudi
 }
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 888.563
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 403.039999
+   */
   duration?: string;
+  /**
+   * @example
+   * file.m3u8
+   */
   fileName?: string;
+  /**
+   * @example
+   * 31737
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * hls,applehttp
+   */
   formatName?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 999e68259c924f52a6be603cbb3f91cc
+   */
   mediaId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29336,28 +42923,120 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFile
 }
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 25.0
+   */
   avgFps?: string;
+  /**
+   * @example
+   * 888.563
+   */
   bitRate?: string;
+  /**
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x001b
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [27][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/50
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @example
+   * 31
+   */
   level?: string;
+  /**
+   * @example
+   * 10040
+   */
   numFrames?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @example
+   * 0
+   */
   rotate?: string;
+  /**
+   * @example
+   * 478:477
+   */
   sar?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timeBase?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29446,7 +43125,15 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty ext
 }
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29468,18 +43155,58 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extend
 }
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   async?: boolean;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   finishTime?: string;
   input?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJobInput;
+  /**
+   * @example
+   * ab4802364a2e49208c99efab82dfa8e8
+   */
   jobId?: string;
   mediaInfoProperty?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty;
+  /**
+   * @example
+   * job-name
+   */
   name?: string;
+  /**
+   * @example
+   * 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
+   */
   requestId?: string;
   scheduleConfig?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJobScheduleConfig;
+  /**
+   * @example
+   * Init
+   */
   status?: string;
+  /**
+   * @example
+   * {}
+   */
   submitResultJson?: { [key: string]: any };
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29523,8 +43250,26 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
 }
 
 export class SubmitTranscodeJobRequestInputGroup extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   inputUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29548,8 +43293,26 @@ export class SubmitTranscodeJobRequestInputGroup extends $tea.Model {
 }
 
 export class SubmitTranscodeJobRequestOutputGroupOutput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * oss://bucket/path/to/{MediaId}/{JobId}.mp4
+   */
   outputUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29573,9 +43336,31 @@ export class SubmitTranscodeJobRequestOutputGroupOutput extends $tea.Model {
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigCombineConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   audioIndex?: string;
+  /**
+   * @example
+   * 20.0
+   */
   duration?: number;
+  /**
+   * @example
+   * 0.0
+   */
   start?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   videoIndex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29601,9 +43386,25 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigCombineConfigs ext
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigEncryption extends $tea.Model {
+  /**
+   * @example
+   * MTYi00NDU0LTg5O****
+   */
   cipherText?: string;
+  /**
+   * @example
+   * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
+   */
   decryptKeyUri?: string;
+  /**
+   * @example
+   * PrivateEncryption
+   */
   encryptType?: string;
+  /**
+   * @example
+   * KMS
+   */
   keyServiceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29629,7 +43430,15 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigEncryption extends
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29651,7 +43460,15 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOve
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
+  /**
+   * @example
+   * ToEND
+   */
   duration?: string;
+  /**
+   * @example
+   * 00:00:05
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29673,12 +43490,32 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOve
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   dx?: string;
+  /**
+   * @example
+   * 10
+   */
   dy?: string;
   file?: SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParamsFile;
+  /**
+   * @example
+   * 32
+   */
   height?: string;
+  /**
+   * @example
+   * TopLeft
+   */
   referPos?: string;
   timeline?: SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline;
+  /**
+   * @example
+   * 32
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29711,6 +43548,13 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOve
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarks extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29732,7 +43576,15 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarks ex
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29754,8 +43606,16 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwrite
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * UTF-8
+   */
   charEnc?: string;
   file?: SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwriteParamsFile;
+  /**
+   * @example
+   * vtt
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29780,6 +43640,13 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwrite
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitles extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwriteParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29801,15 +43668,55 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitles extends 
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   adaptive?: string;
+  /**
+   * @example
+   * #006400
+   */
   borderColor?: string;
+  /**
+   * @example
+   * 0
+   */
   borderWidth?: number;
+  /**
+   * @example
+   * 测试水印
+   */
   content?: string;
+  /**
+   * @example
+   * 1.0
+   */
   fontAlpha?: string;
+  /**
+   * @example
+   * #006400
+   */
   fontColor?: string;
+  /**
+   * @example
+   * SimSun
+   */
   fontName?: string;
+  /**
+   * @example
+   * 16
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 10
+   */
   left?: string;
+  /**
+   * @example
+   * 10
+   */
   top?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29848,6 +43755,13 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarksOver
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarks extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarksOverwriteParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29869,9 +43783,25 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarks ext
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
+  /**
+   * @example
+   * -6
+   */
   integratedLoudnessTarget?: string;
+  /**
+   * @example
+   * 8
+   */
   loudnessRangeTarget?: string;
+  /**
+   * @example
+   * auto
+   */
   method?: string;
+  /**
+   * @example
+   * -1
+   */
   truePeak?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29897,11 +43827,35 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
+  /**
+   * @example
+   * 128
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC
+   */
   codec?: string;
+  /**
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * 44100
+   */
   samplerate?: string;
   volume?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
@@ -29934,6 +43888,10 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
+  /**
+   * @example
+   * mp4
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29953,7 +43911,15 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   duration?: string;
+  /**
+   * @example
+   * 2,3
+   */
   forceSegTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30034,23 +44000,95 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
+  /**
+   * @example
+   * 6000
+   */
   abrMax?: string;
+  /**
+   * @example
+   * 3000
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @example
+   * 23
+   */
   crf?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   crop?: string;
+  /**
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @example
+   * 250
+   */
   gop?: string;
+  /**
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @example
+   * false
+   */
   longShortMode?: string;
+  /**
+   * @example
+   * 9000
+   */
   maxrate?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @example
+   * Main
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * progressive
+   */
   scanMode?: string;
+  /**
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30136,6 +44174,13 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscode extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30162,6 +44207,10 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfig extends $tea.Mode
   imageWatermarks?: SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarks[];
   subtitles?: SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitles[];
   textWatermarks?: SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarks[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   transcode?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscode;
   static names(): { [key: string]: string } {
     return {
@@ -30191,7 +44240,15 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfig extends $tea.Mode
 }
 
 export class SubmitTranscodeJobRequestOutputGroup extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   output?: SubmitTranscodeJobRequestOutputGroupOutput;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   processConfig?: SubmitTranscodeJobRequestOutputGroupProcessConfig;
   static names(): { [key: string]: string } {
     return {
@@ -30213,7 +44270,15 @@ export class SubmitTranscodeJobRequestOutputGroup extends $tea.Model {
 }
 
 export class SubmitTranscodeJobRequestScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30235,7 +44300,15 @@ export class SubmitTranscodeJobRequestScheduleConfig extends $tea.Model {
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobInputGroup extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30257,7 +44330,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobInputGroup extends 
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30279,9 +44360,31 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput e
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigCombineConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   audioIndex?: string;
+  /**
+   * @example
+   * 20.0
+   */
   duration?: number;
+  /**
+   * @example
+   * 0.0
+   */
   start?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   videoIndex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30307,9 +44410,25 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigEncryption extends $tea.Model {
+  /**
+   * @example
+   * MTYi00NDU0LTg5O****
+   */
   cipherText?: string;
+  /**
+   * @example
+   * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
+   */
   decryptKeyUri?: string;
+  /**
+   * @example
+   * PrivateEncryption
+   */
   encryptType?: string;
+  /**
+   * @example
+   * KMS
+   */
   keyServiceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30335,7 +44454,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30357,7 +44484,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
+  /**
+   * @example
+   * ToEND
+   */
   duration?: string;
+  /**
+   * @example
+   * 00:00:05
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30379,12 +44514,32 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   dx?: string;
+  /**
+   * @example
+   * 10
+   */
   dy?: string;
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsFile;
+  /**
+   * @example
+   * 32
+   */
   height?: string;
+  /**
+   * @example
+   * TopLeft
+   */
   referPos?: string;
   timeline?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline;
+  /**
+   * @example
+   * 32
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30417,6 +44572,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarks extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30438,7 +44597,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30460,8 +44627,16 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * UTF-8
+   */
   charEnc?: string;
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParamsFile;
+  /**
+   * @example
+   * vtt
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30486,6 +44661,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitles extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30507,15 +44686,55 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   adaptive?: string;
+  /**
+   * @example
+   * #006400
+   */
   borderColor?: string;
+  /**
+   * @example
+   * 0
+   */
   borderWidth?: number;
+  /**
+   * @example
+   * 测试水印
+   */
   content?: string;
+  /**
+   * @example
+   * 1.0
+   */
   fontAlpha?: string;
+  /**
+   * @example
+   * #006400
+   */
   fontColor?: string;
+  /**
+   * @example
+   * SimSun
+   */
   fontName?: string;
+  /**
+   * @example
+   * 16
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 10
+   */
   left?: string;
+  /**
+   * @example
+   * 10
+   */
   top?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30554,6 +44773,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarks extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarksOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30575,9 +44798,25 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
+  /**
+   * @example
+   * -6
+   */
   integratedLoudnessTarget?: string;
+  /**
+   * @example
+   * 8
+   */
   loudnessRangeTarget?: string;
+  /**
+   * @example
+   * auto
+   */
   method?: string;
+  /**
+   * @example
+   * -1
+   */
   truePeak?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30603,11 +44842,35 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
+  /**
+   * @example
+   * 128
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC
+   */
   codec?: string;
+  /**
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * 44100
+   */
   samplerate?: string;
   volume?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
@@ -30640,6 +44903,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
+  /**
+   * @example
+   * mp4
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30659,7 +44926,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   duration?: string;
+  /**
+   * @example
+   * 2,3
+   */
   forceSegTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30740,23 +45015,95 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
+  /**
+   * @example
+   * 6000
+   */
   abrMax?: string;
+  /**
+   * @example
+   * 3000
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @example
+   * 23
+   */
   crf?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   crop?: string;
+  /**
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @example
+   * 250
+   */
   gop?: string;
+  /**
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @example
+   * false
+   */
   longShortMode?: string;
+  /**
+   * @example
+   * 9000
+   */
   maxrate?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @example
+   * Main
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * progressive
+   */
   scanMode?: string;
+  /**
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30842,6 +45189,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscode extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30919,7 +45270,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroup extends
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30941,8 +45300,20 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobScheduleConfig exte
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputGroup extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   inputUrl?: string;
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30966,20 +45337,80 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInp
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaAudioStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 0.f
+   */
   bitrate?: string;
+  /**
+   * @example
+   * stereo
+   */
   channelLayout?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC (Advanced Audio Coding)
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * aac
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x000f
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [15][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/44100
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: string;
+  /**
+   * @example
+   * cn
+   */
   lang?: string;
+  /**
+   * @example
+   * fltp
+   */
   sampleFmt?: string;
+  /**
+   * @example
+   * 44100
+   */
   sampleRate?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timebase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31027,17 +45458,65 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaFileBasicInfo extends $tea.Model {
+  /**
+   * @example
+   * 888.563
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 403.039999
+   */
   duration?: string;
+  /**
+   * @example
+   * file.m3u8
+   */
   fileName?: string;
+  /**
+   * @example
+   * 31737
+   */
   fileSize?: string;
+  /**
+   * @example
+   * Normal
+   */
   fileStatus?: string;
+  /**
+   * @example
+   * source_file
+   */
   fileType?: string;
+  /**
+   * @example
+   * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * hls,applehttp
+   */
   formatName?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 73e07de0f77171eca3fc7035d0b26402
+   */
   mediaId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31079,28 +45558,120 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaVideoStreamInfoList extends $tea.Model {
+  /**
+   * @example
+   * 25.0
+   */
   avgFps?: string;
+  /**
+   * @example
+   * 888.563
+   */
   bitRate?: string;
+  /**
+   * @example
+   * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+   */
   codecLongName?: string;
+  /**
+   * @example
+   * h264
+   */
   codecName?: string;
+  /**
+   * @example
+   * 0x001b
+   */
   codecTag?: string;
+  /**
+   * @example
+   * [27][0][0][0]
+   */
   codecTagString?: string;
+  /**
+   * @example
+   * 1/50
+   */
   codecTimeBase?: string;
+  /**
+   * @example
+   * 16:9
+   */
   dar?: string;
+  /**
+   * @example
+   * 403.039989
+   */
   duration?: string;
+  /**
+   * @example
+   * 25.0
+   */
   fps?: string;
+  /**
+   * @example
+   * 2
+   */
   hasBFrames?: string;
+  /**
+   * @example
+   * 478
+   */
   height?: string;
+  /**
+   * @example
+   * 0
+   */
   index?: string;
+  /**
+   * @example
+   * cn
+   */
   lang?: string;
+  /**
+   * @example
+   * 31
+   */
   level?: string;
+  /**
+   * @example
+   * 10040
+   */
   numFrames?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * High
+   */
   profile?: string;
+  /**
+   * @example
+   * 0
+   */
   rotate?: string;
+  /**
+   * @example
+   * 478:477
+   */
   sar?: string;
+  /**
+   * @example
+   * 1.473556
+   */
   startTime?: string;
+  /**
+   * @example
+   * 1/90000
+   */
   timeBase?: string;
+  /**
+   * @example
+   * 848
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31189,8 +45760,20 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * oss://bucket/path/to/{MediaId}/{JobId}.mp4
+   */
   outputUrl?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31214,9 +45797,31 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigCombineConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   audioIndex?: string;
+  /**
+   * @example
+   * 20.0
+   */
   duration?: number;
+  /**
+   * @example
+   * 0.0
+   */
   start?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0 或 exclude
+   */
   videoIndex?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31242,9 +45847,25 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigEncryption extends $tea.Model {
+  /**
+   * @example
+   * MTYi00NDU0LTg5O****
+   */
   cipherText?: string;
+  /**
+   * @example
+   * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
+   */
   decryptKeyUri?: string;
+  /**
+   * @example
+   * PrivateEncryption
+   */
   encryptType?: string;
+  /**
+   * @example
+   * KMS
+   */
   keyServiceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31270,7 +45891,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31292,7 +45921,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
+  /**
+   * @example
+   * ToEND
+   */
   duration?: string;
+  /**
+   * @example
+   * 00:00:05
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31314,12 +45951,32 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   dx?: string;
+  /**
+   * @example
+   * 10
+   */
   dy?: string;
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsFile;
+  /**
+   * @example
+   * 32
+   */
   height?: string;
+  /**
+   * @example
+   * TopLeft
+   */
   referPos?: string;
   timeline?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsTimeline;
+  /**
+   * @example
+   * 32
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31352,6 +46009,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarks extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31373,7 +46034,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   media?: string;
+  /**
+   * @example
+   * OSS
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31395,8 +46064,16 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * UTF-8
+   */
   charEnc?: string;
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParamsFile;
+  /**
+   * @example
+   * vtt
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31421,6 +46098,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitles extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31442,15 +46123,55 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   adaptive?: string;
+  /**
+   * @example
+   * #006400
+   */
   borderColor?: string;
+  /**
+   * @example
+   * 0
+   */
   borderWidth?: number;
+  /**
+   * @example
+   * 测试水印
+   */
   content?: string;
+  /**
+   * @example
+   * 1.0
+   */
   fontAlpha?: string;
+  /**
+   * @example
+   * #006400
+   */
   fontColor?: string;
+  /**
+   * @example
+   * SimSun
+   */
   fontName?: string;
+  /**
+   * @example
+   * 16
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 10
+   */
   left?: string;
+  /**
+   * @example
+   * 10
+   */
   top?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31489,6 +46210,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarks extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarksOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31510,9 +46235,25 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
+  /**
+   * @example
+   * -6
+   */
   integratedLoudnessTarget?: string;
+  /**
+   * @example
+   * 8
+   */
   loudnessRangeTarget?: string;
+  /**
+   * @example
+   * auto
+   */
   method?: string;
+  /**
+   * @example
+   * -1
+   */
   truePeak?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31538,11 +46279,35 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
+  /**
+   * @example
+   * 128
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC
+   */
   codec?: string;
+  /**
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * 44100
+   */
   samplerate?: string;
   volume?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
@@ -31575,6 +46340,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
+  /**
+   * @example
+   * mp4
+   */
   format?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31594,7 +46363,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   duration?: string;
+  /**
+   * @example
+   * 2,3
+   */
   forceSegTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31675,23 +46452,95 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
+  /**
+   * @example
+   * 6000
+   */
   abrMax?: string;
+  /**
+   * @example
+   * 3000
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 6000
+   */
   bufsize?: string;
+  /**
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @example
+   * 23
+   */
   crf?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   crop?: string;
+  /**
+   * @example
+   * 25
+   */
   fps?: string;
+  /**
+   * @example
+   * 250
+   */
   gop?: string;
+  /**
+   * @example
+   * 1080
+   */
   height?: string;
+  /**
+   * @example
+   * false
+   */
   longShortMode?: string;
+  /**
+   * @example
+   * 9000
+   */
   maxrate?: string;
+  /**
+   * @example
+   * 1280:800:0:140
+   */
   pad?: string;
+  /**
+   * @example
+   * yuv420p
+   */
   pixFmt?: string;
+  /**
+   * @example
+   * medium
+   */
   preset?: string;
+  /**
+   * @example
+   * Main
+   */
   profile?: string;
+  /**
+   * @example
+   * false
+   */
   remove?: string;
+  /**
+   * @example
+   * progressive
+   */
   scanMode?: string;
+  /**
+   * @example
+   * 1920
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31777,6 +46626,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscode extends $tea.Model {
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParams;
+  /**
+   * @example
+   * 9547c6ad97cb4f2aaa29683ebd18d410
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31832,7 +46685,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListScheduleConfig extends $tea.Model {
+  /**
+   * @example
+   * e37ebee5d98b4781897f6086e89f9c56
+   */
   pipelineId?: string;
+  /**
+   * @example
+   * 5
+   */
   priority?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31854,21 +46715,65 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListSch
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList extends $tea.Model {
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   finishTime?: string;
   inputGroup?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputGroup[];
+  /**
+   * @example
+   * 7d6a7e0d4db2457a8d45ff5d43e1bf0a
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0
+   */
   jobIndex?: number;
+  /**
+   * @example
+   * transcode-job
+   */
   name?: string;
   outFileMeta?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMeta;
   output?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput;
+  /**
+   * @example
+   * 8b2198504dd340b7b3c9842a74fc9baa
+   */
   parentJobId?: string;
   processConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfig;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   scheduleConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListScheduleConfig;
+  /**
+   * @example
+   * Init
+   */
   status?: string;
+  /**
+   * @example
+   * {}
+   */
   submitResultJson?: { [key: string]: any };
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   submitTime?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31918,20 +46823,64 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $tea.Model {
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   finishTime?: string;
   inputGroup?: SubmitTranscodeJobResponseBodyTranscodeParentJobInputGroup[];
+  /**
+   * @example
+   * 1
+   */
   jobCount?: number;
+  /**
+   * @example
+   * transcode-job
+   */
   name?: string;
   outputGroup?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroup[];
+  /**
+   * @example
+   * 8b2198504dd340b7b3c9842a74fc9baa
+   */
   parentJobId?: string;
+  /**
+   * @example
+   * 0
+   */
   percent?: number;
+  /**
+   * @example
+   * 31E30781-9495-5E2D-A84D-759B0A01E262
+   */
   requestId?: string;
   scheduleConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobScheduleConfig;
+  /**
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @example
+   * 2022-01-12T08:49:41Z
+   */
   submitTime?: string;
   transcodeJobList?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList[];
+  /**
+   * @example
+   * API
+   */
   triggerSource?: string;
+  /**
+   * @example
+   * user-data
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31998,6 +46947,10 @@ export class SubmitVideoTranslationJobResponseBodyData extends $tea.Model {
 }
 
 export class UpdateAvatarTrainingJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ****d718e2ff4f018ccf419a7b71****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32017,10 +46970,44 @@ export class UpdateAvatarTrainingJobResponseBodyData extends $tea.Model {
 }
 
 export class UpdateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
+  /**
+   * @example
+   * 3600
+   */
   cycleDuration?: number;
+  /**
+   * @remarks
+   * 格式
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * m3u8
+   */
   format?: string;
+  /**
+   * @remarks
+   * Oss对象名，不包含后缀
+   * 
+   * @example
+   * record/{JobId}/{Sequence}_{EscapedStartTime}_{EscapedEndTime}
+   */
   ossObjectPrefix?: string;
+  /**
+   * @remarks
+   * 切片时长
+   * 
+   * @example
+   * 30
+   */
   sliceDuration?: number;
+  /**
+   * @remarks
+   * 切片Oss对象名，不包含后缀
+   * 
+   * @example
+   * record/{JobId}/{UnixTimestamp}_{Sequence}
+   */
   sliceOssObjectPrefix?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32048,7 +47035,21 @@ export class UpdateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
 }
 
 export class UpdateLiveTranscodeJobRequestStreamInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp://mydomain/app/stream1
+   */
   inputUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32070,7 +47071,15 @@ export class UpdateLiveTranscodeJobRequestStreamInput extends $tea.Model {
 }
 
 export class UpdateLiveTranscodeJobRequestTimedConfig extends $tea.Model {
+  /**
+   * @example
+   * 2022-08-05T06:08:31Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2022-06-19T02:16:41Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32092,7 +47101,21 @@ export class UpdateLiveTranscodeJobRequestTimedConfig extends $tea.Model {
 }
 
 export class UpdateLiveTranscodeJobRequestTranscodeOutput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mydomain
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LiveCenter
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32114,10 +47137,30 @@ export class UpdateLiveTranscodeJobRequestTranscodeOutput extends $tea.Model {
 }
 
 export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   bitrate?: string;
+  /**
+   * @example
+   * 2
+   */
   channels?: string;
+  /**
+   * @example
+   * AAC
+   */
   codec?: string;
+  /**
+   * @example
+   * aac_low
+   */
   profile?: string;
+  /**
+   * @example
+   * 44100
+   */
   samplerate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32145,12 +47188,40 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
 }
 
 export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends $tea.Model {
+  /**
+   * @example
+   * 2500
+   */
   bitrate?: string;
+  /**
+   * @example
+   * H.264
+   */
   codec?: string;
+  /**
+   * @example
+   * 30
+   */
   fps?: string;
+  /**
+   * @example
+   * 1000
+   */
   gop?: string;
+  /**
+   * @example
+   * 720
+   */
   height?: string;
+  /**
+   * @example
+   * 2
+   */
   profile?: string;
+  /**
+   * @example
+   * 1280
+   */
   width?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32204,8 +47275,20 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfig extends $tea.Model
 }
 
 export class UploadMediaByURLResponseBodyUploadJobs extends $tea.Model {
+  /**
+   * @example
+   * 20ce1e05dba64576b96e9683879f0***
+   */
   jobId?: string;
+  /**
+   * @example
+   * f476988629f54a7b8a4ba90d1a6c7***
+   */
   mediaId?: string;
+  /**
+   * @example
+   * http://example****.mp4
+   */
   sourceURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32311,11 +47394,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建媒资分类
-   *
-   * @param request AddCategoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddCategoryResponse
+   * 创建媒资分类
+   * 
+   * @param request - AddCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddCategoryResponse
    */
   async addCategoryWithOptions(request: AddCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddCategoryResponse> {
     Util.validateModel(request);
@@ -32350,10 +47433,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建媒资分类
-   *
-   * @param request AddCategoryRequest
-   * @return AddCategoryResponse
+   * 创建媒资分类
+   * 
+   * @param request - AddCategoryRequest
+   * @returns AddCategoryResponse
    */
   async addCategory(request: AddCategoryRequest): Promise<AddCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32361,11 +47444,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 剪辑工程增加素材
-   *
-   * @param request AddEditingProjectMaterialsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddEditingProjectMaterialsResponse
+   * 剪辑工程增加素材
+   * 
+   * @param request - AddEditingProjectMaterialsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddEditingProjectMaterialsResponse
    */
   async addEditingProjectMaterialsWithOptions(request: AddEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<AddEditingProjectMaterialsResponse> {
     Util.validateModel(request);
@@ -32396,10 +47479,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 剪辑工程增加素材
-   *
-   * @param request AddEditingProjectMaterialsRequest
-   * @return AddEditingProjectMaterialsResponse
+   * 剪辑工程增加素材
+   * 
+   * @param request - AddEditingProjectMaterialsRequest
+   * @returns AddEditingProjectMaterialsResponse
    */
   async addEditingProjectMaterials(request: AddEditingProjectMaterialsRequest): Promise<AddEditingProjectMaterialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32407,11 +47490,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 收藏公共媒资
-   *
-   * @param request AddFavoritePublicMediaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddFavoritePublicMediaResponse
+   * 收藏公共媒资
+   * 
+   * @param request - AddFavoritePublicMediaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFavoritePublicMediaResponse
    */
   async addFavoritePublicMediaWithOptions(request: AddFavoritePublicMediaRequest, runtime: $Util.RuntimeOptions): Promise<AddFavoritePublicMediaResponse> {
     Util.validateModel(request);
@@ -32438,10 +47521,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 收藏公共媒资
-   *
-   * @param request AddFavoritePublicMediaRequest
-   * @return AddFavoritePublicMediaResponse
+   * 收藏公共媒资
+   * 
+   * @param request - AddFavoritePublicMediaRequest
+   * @returns AddFavoritePublicMediaResponse
    */
   async addFavoritePublicMedia(request: AddFavoritePublicMediaRequest): Promise<AddFavoritePublicMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32449,11 +47532,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为媒资增加标注信息
-   *
-   * @param request AddMediaMarksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddMediaMarksResponse
+   * 为媒资增加标注信息
+   * 
+   * @param request - AddMediaMarksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddMediaMarksResponse
    */
   async addMediaMarksWithOptions(request: AddMediaMarksRequest, runtime: $Util.RuntimeOptions): Promise<AddMediaMarksResponse> {
     Util.validateModel(request);
@@ -32484,10 +47567,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为媒资增加标注信息
-   *
-   * @param request AddMediaMarksRequest
-   * @return AddMediaMarksResponse
+   * 为媒资增加标注信息
+   * 
+   * @param request - AddMediaMarksRequest
+   * @returns AddMediaMarksResponse
    */
   async addMediaMarks(request: AddMediaMarksRequest): Promise<AddMediaMarksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32495,11 +47578,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary AddTemplate
-   *
-   * @param request AddTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddTemplateResponse
+   * AddTemplate
+   * 
+   * @param request - AddTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddTemplateResponse
    */
   async addTemplateWithOptions(request: AddTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddTemplateResponse> {
     Util.validateModel(request);
@@ -32556,10 +47639,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary AddTemplate
-   *
-   * @param request AddTemplateRequest
-   * @return AddTemplateResponse
+   * AddTemplate
+   * 
+   * @param request - AddTemplateRequest
+   * @returns AddTemplateResponse
    */
   async addTemplate(request: AddTemplateRequest): Promise<AddTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32567,11 +47650,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新搜索索引
-   *
-   * @param request AlterSearchIndexRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AlterSearchIndexResponse
+   * 更新搜索索引
+   * 
+   * @param request - AlterSearchIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AlterSearchIndexResponse
    */
   async alterSearchIndexWithOptions(request: AlterSearchIndexRequest, runtime: $Util.RuntimeOptions): Promise<AlterSearchIndexResponse> {
     Util.validateModel(request);
@@ -32610,10 +47693,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新搜索索引
-   *
-   * @param request AlterSearchIndexRequest
-   * @return AlterSearchIndexResponse
+   * 更新搜索索引
+   * 
+   * @param request - AlterSearchIndexRequest
+   * @returns AlterSearchIndexResponse
    */
   async alterSearchIndex(request: AlterSearchIndexRequest): Promise<AlterSearchIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32621,11 +47704,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取媒资信息
-   *
-   * @param request BatchGetMediaInfosRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchGetMediaInfosResponse
+   * 批量获取媒资信息
+   * 
+   * @param request - BatchGetMediaInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetMediaInfosResponse
    */
   async batchGetMediaInfosWithOptions(request: BatchGetMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetMediaInfosResponse> {
     Util.validateModel(request);
@@ -32656,10 +47739,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取媒资信息
-   *
-   * @param request BatchGetMediaInfosRequest
-   * @return BatchGetMediaInfosResponse
+   * 批量获取媒资信息
+   * 
+   * @param request - BatchGetMediaInfosRequest
+   * @returns BatchGetMediaInfosResponse
    */
   async batchGetMediaInfos(request: BatchGetMediaInfosRequest): Promise<BatchGetMediaInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32667,11 +47750,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消DNA作业
-   *
-   * @param request CancelDNAJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelDNAJobResponse
+   * 取消DNA作业
+   * 
+   * @param request - CancelDNAJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelDNAJobResponse
    */
   async cancelDNAJobWithOptions(request: CancelDNAJobRequest, runtime: $Util.RuntimeOptions): Promise<CancelDNAJobResponse> {
     Util.validateModel(request);
@@ -32714,10 +47797,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消DNA作业
-   *
-   * @param request CancelDNAJobRequest
-   * @return CancelDNAJobResponse
+   * 取消DNA作业
+   * 
+   * @param request - CancelDNAJobRequest
+   * @returns CancelDNAJobResponse
    */
   async cancelDNAJob(request: CancelDNAJobRequest): Promise<CancelDNAJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32725,11 +47808,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消收藏公共媒资
-   *
-   * @param request CancelFavoritePublicMediaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelFavoritePublicMediaResponse
+   * 取消收藏公共媒资
+   * 
+   * @param request - CancelFavoritePublicMediaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelFavoritePublicMediaResponse
    */
   async cancelFavoritePublicMediaWithOptions(request: CancelFavoritePublicMediaRequest, runtime: $Util.RuntimeOptions): Promise<CancelFavoritePublicMediaResponse> {
     Util.validateModel(request);
@@ -32756,10 +47839,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消收藏公共媒资
-   *
-   * @param request CancelFavoritePublicMediaRequest
-   * @return CancelFavoritePublicMediaResponse
+   * 取消收藏公共媒资
+   * 
+   * @param request - CancelFavoritePublicMediaRequest
+   * @returns CancelFavoritePublicMediaResponse
    */
   async cancelFavoritePublicMedia(request: CancelFavoritePublicMediaRequest): Promise<CancelFavoritePublicMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32767,11 +47850,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交人工审核
-   *
-   * @param request CreateAuditRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAuditResponse
+   * 提交人工审核
+   * 
+   * @param request - CreateAuditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAuditResponse
    */
   async createAuditWithOptions(request: CreateAuditRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuditResponse> {
     Util.validateModel(request);
@@ -32798,10 +47881,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交人工审核
-   *
-   * @param request CreateAuditRequest
-   * @return CreateAuditResponse
+   * 提交人工审核
+   * 
+   * @param request - CreateAuditRequest
+   * @returns CreateAuditResponse
    */
   async createAudit(request: CreateAuditRequest): Promise<CreateAuditResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32809,11 +47892,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数字人训练任务
-   *
-   * @param request CreateAvatarTrainingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAvatarTrainingJobResponse
+   * 创建数字人训练任务
+   * 
+   * @param request - CreateAvatarTrainingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAvatarTrainingJobResponse
    */
   async createAvatarTrainingJobWithOptions(request: CreateAvatarTrainingJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateAvatarTrainingJobResponse> {
     Util.validateModel(request);
@@ -32864,10 +47947,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数字人训练任务
-   *
-   * @param request CreateAvatarTrainingJobRequest
-   * @return CreateAvatarTrainingJobResponse
+   * 创建数字人训练任务
+   * 
+   * @param request - CreateAvatarTrainingJobRequest
+   * @returns CreateAvatarTrainingJobResponse
    */
   async createAvatarTrainingJob(request: CreateAvatarTrainingJobRequest): Promise<CreateAvatarTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32875,11 +47958,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建媒体处理自定义模板
-   *
-   * @param request CreateCustomTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCustomTemplateResponse
+   * 创建媒体处理自定义模板
+   * 
+   * @param request - CreateCustomTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomTemplateResponse
    */
   async createCustomTemplateWithOptions(request: CreateCustomTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomTemplateResponse> {
     Util.validateModel(request);
@@ -32918,10 +48001,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建媒体处理自定义模板
-   *
-   * @param request CreateCustomTemplateRequest
-   * @return CreateCustomTemplateResponse
+   * 创建媒体处理自定义模板
+   * 
+   * @param request - CreateCustomTemplateRequest
+   * @returns CreateCustomTemplateResponse
    */
   async createCustomTemplate(request: CreateCustomTemplateRequest): Promise<CreateCustomTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32929,11 +48012,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建人声克隆任务
-   *
-   * @param request CreateCustomizedVoiceJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCustomizedVoiceJobResponse
+   * 创建人声克隆任务
+   * 
+   * @param request - CreateCustomizedVoiceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomizedVoiceJobResponse
    */
   async createCustomizedVoiceJobWithOptions(request: CreateCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomizedVoiceJobResponse> {
     Util.validateModel(request);
@@ -32976,10 +48059,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建人声克隆任务
-   *
-   * @param request CreateCustomizedVoiceJobRequest
-   * @return CreateCustomizedVoiceJobResponse
+   * 创建人声克隆任务
+   * 
+   * @param request - CreateCustomizedVoiceJobRequest
+   * @returns CreateCustomizedVoiceJobResponse
    */
   async createCustomizedVoiceJob(request: CreateCustomizedVoiceJobRequest): Promise<CreateCustomizedVoiceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32987,11 +48070,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建指纹库
-   *
-   * @param request CreateDNADBRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDNADBResponse
+   * 创建指纹库
+   * 
+   * @param request - CreateDNADBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDNADBResponse
    */
   async createDNADBWithOptions(request: CreateDNADBRequest, runtime: $Util.RuntimeOptions): Promise<CreateDNADBResponse> {
     Util.validateModel(request);
@@ -33042,10 +48125,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建指纹库
-   *
-   * @param request CreateDNADBRequest
-   * @return CreateDNADBResponse
+   * 创建指纹库
+   * 
+   * @param request - CreateDNADBRequest
+   * @returns CreateDNADBResponse
    */
   async createDNADB(request: CreateDNADBRequest): Promise<CreateDNADBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33053,11 +48136,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建云剪辑工程
-   *
-   * @param request CreateEditingProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateEditingProjectResponse
+   * 创建云剪辑工程
+   * 
+   * @param request - CreateEditingProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEditingProjectResponse
    */
   async createEditingProjectWithOptions(request: CreateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateEditingProjectResponse> {
     Util.validateModel(request);
@@ -33122,10 +48205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建云剪辑工程
-   *
-   * @param request CreateEditingProjectRequest
-   * @return CreateEditingProjectResponse
+   * 创建云剪辑工程
+   * 
+   * @param request - CreateEditingProjectRequest
+   * @returns CreateEditingProjectResponse
    */
   async createEditingProject(request: CreateEditingProjectRequest): Promise<CreateEditingProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33133,11 +48216,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建直播录制模板
-   *
-   * @param tmpReq CreateLiveRecordTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLiveRecordTemplateResponse
+   * 创建直播录制模板
+   * 
+   * @param tmpReq - CreateLiveRecordTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLiveRecordTemplateResponse
    */
   async createLiveRecordTemplateWithOptions(tmpReq: CreateLiveRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateLiveRecordTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -33174,10 +48257,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建直播录制模板
-   *
-   * @param request CreateLiveRecordTemplateRequest
-   * @return CreateLiveRecordTemplateResponse
+   * 创建直播录制模板
+   * 
+   * @param request - CreateLiveRecordTemplateRequest
+   * @returns CreateLiveRecordTemplateResponse
    */
   async createLiveRecordTemplate(request: CreateLiveRecordTemplateRequest): Promise<CreateLiveRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33185,11 +48268,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建直播截图模板
-   *
-   * @param request CreateLiveSnapshotTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLiveSnapshotTemplateResponse
+   * 创建直播截图模板
+   * 
+   * @param request - CreateLiveSnapshotTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLiveSnapshotTemplateResponse
    */
   async createLiveSnapshotTemplateWithOptions(request: CreateLiveSnapshotTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateLiveSnapshotTemplateResponse> {
     Util.validateModel(request);
@@ -33228,10 +48311,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建直播截图模板
-   *
-   * @param request CreateLiveSnapshotTemplateRequest
-   * @return CreateLiveSnapshotTemplateResponse
+   * 创建直播截图模板
+   * 
+   * @param request - CreateLiveSnapshotTemplateRequest
+   * @returns CreateLiveSnapshotTemplateResponse
    */
   async createLiveSnapshotTemplate(request: CreateLiveSnapshotTemplateRequest): Promise<CreateLiveSnapshotTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33239,11 +48322,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建转码模版
-   *
-   * @param tmpReq CreateLiveTranscodeTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLiveTranscodeTemplateResponse
+   * 创建转码模版
+   * 
+   * @param tmpReq - CreateLiveTranscodeTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLiveTranscodeTemplateResponse
    */
   async createLiveTranscodeTemplateWithOptions(tmpReq: CreateLiveTranscodeTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateLiveTranscodeTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -33284,10 +48367,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建转码模版
-   *
-   * @param request CreateLiveTranscodeTemplateRequest
-   * @return CreateLiveTranscodeTemplateResponse
+   * 创建转码模版
+   * 
+   * @param request - CreateLiveTranscodeTemplateRequest
+   * @returns CreateLiveTranscodeTemplateResponse
    */
   async createLiveTranscodeTemplate(request: CreateLiveTranscodeTemplateRequest): Promise<CreateLiveTranscodeTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33295,11 +48378,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加用户管道配置
-   *
-   * @param request CreatePipelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePipelineResponse
+   * 添加用户管道配置
+   * 
+   * @param request - CreatePipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePipelineResponse
    */
   async createPipelineWithOptions(request: CreatePipelineRequest, runtime: $Util.RuntimeOptions): Promise<CreatePipelineResponse> {
     Util.validateModel(request);
@@ -33334,10 +48417,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加用户管道配置
-   *
-   * @param request CreatePipelineRequest
-   * @return CreatePipelineResponse
+   * 添加用户管道配置
+   * 
+   * @param request - CreatePipelineRequest
+   * @returns CreatePipelineResponse
    */
   async createPipeline(request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33345,11 +48428,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建搜索索引
-   *
-   * @param request CreateSearchIndexRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSearchIndexResponse
+   * 创建搜索索引
+   * 
+   * @param request - CreateSearchIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSearchIndexResponse
    */
   async createSearchIndexWithOptions(request: CreateSearchIndexRequest, runtime: $Util.RuntimeOptions): Promise<CreateSearchIndexResponse> {
     Util.validateModel(request);
@@ -33388,10 +48471,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建搜索索引
-   *
-   * @param request CreateSearchIndexRequest
-   * @return CreateSearchIndexResponse
+   * 创建搜索索引
+   * 
+   * @param request - CreateSearchIndexRequest
+   * @returns CreateSearchIndexResponse
    */
   async createSearchIndex(request: CreateSearchIndexRequest): Promise<CreateSearchIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33399,11 +48482,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建库
-   *
-   * @param request CreateSearchLibRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSearchLibResponse
+   * 创建库
+   * 
+   * @param request - CreateSearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSearchLibResponse
    */
   async createSearchLibWithOptions(request: CreateSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<CreateSearchLibResponse> {
     Util.validateModel(request);
@@ -33430,10 +48513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建库
-   *
-   * @param request CreateSearchLibRequest
-   * @return CreateSearchLibResponse
+   * 创建库
+   * 
+   * @param request - CreateSearchLibRequest
+   * @returns CreateSearchLibResponse
    */
   async createSearchLib(request: CreateSearchLibRequest): Promise<CreateSearchLibResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33441,11 +48524,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 本地媒资上传
-   *
-   * @param request CreateUploadMediaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateUploadMediaResponse
+   * 本地媒资上传
+   * 
+   * @param request - CreateUploadMediaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUploadMediaResponse
    */
   async createUploadMediaWithOptions(request: CreateUploadMediaRequest, runtime: $Util.RuntimeOptions): Promise<CreateUploadMediaResponse> {
     Util.validateModel(request);
@@ -33496,10 +48579,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 本地媒资上传
-   *
-   * @param request CreateUploadMediaRequest
-   * @return CreateUploadMediaResponse
+   * 本地媒资上传
+   * 
+   * @param request - CreateUploadMediaRequest
+   * @returns CreateUploadMediaResponse
    */
   async createUploadMedia(request: CreateUploadMediaRequest): Promise<CreateUploadMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33507,11 +48590,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 本地上传媒体流
-   *
-   * @param request CreateUploadStreamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateUploadStreamResponse
+   * 本地上传媒体流
+   * 
+   * @param request - CreateUploadStreamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUploadStreamResponse
    */
   async createUploadStreamWithOptions(request: CreateUploadStreamRequest, runtime: $Util.RuntimeOptions): Promise<CreateUploadStreamResponse> {
     Util.validateModel(request);
@@ -33554,10 +48637,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 本地上传媒体流
-   *
-   * @param request CreateUploadStreamRequest
-   * @return CreateUploadStreamResponse
+   * 本地上传媒体流
+   * 
+   * @param request - CreateUploadStreamRequest
+   * @returns CreateUploadStreamResponse
    */
   async createUploadStream(request: CreateUploadStreamRequest): Promise<CreateUploadStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33565,11 +48648,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 解密KMS密钥DataKey
-   *
-   * @param request DecryptKMSDataKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DecryptKMSDataKeyResponse
+   * 解密KMS密钥DataKey
+   * 
+   * @param request - DecryptKMSDataKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DecryptKMSDataKeyResponse
    */
   async decryptKMSDataKeyWithOptions(request: DecryptKMSDataKeyRequest, runtime: $Util.RuntimeOptions): Promise<DecryptKMSDataKeyResponse> {
     Util.validateModel(request);
@@ -33596,10 +48679,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 解密KMS密钥DataKey
-   *
-   * @param request DecryptKMSDataKeyRequest
-   * @return DecryptKMSDataKeyResponse
+   * 解密KMS密钥DataKey
+   * 
+   * @param request - DecryptKMSDataKeyRequest
+   * @returns DecryptKMSDataKeyResponse
    */
   async decryptKMSDataKey(request: DecryptKMSDataKeyRequest): Promise<DecryptKMSDataKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33607,11 +48690,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新数字人训练任务信息
-   *
-   * @param request DeleteAvatarTrainingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAvatarTrainingJobResponse
+   * 更新数字人训练任务信息
+   * 
+   * @param request - DeleteAvatarTrainingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAvatarTrainingJobResponse
    */
   async deleteAvatarTrainingJobWithOptions(request: DeleteAvatarTrainingJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAvatarTrainingJobResponse> {
     Util.validateModel(request);
@@ -33638,10 +48721,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新数字人训练任务信息
-   *
-   * @param request DeleteAvatarTrainingJobRequest
-   * @return DeleteAvatarTrainingJobResponse
+   * 更新数字人训练任务信息
+   * 
+   * @param request - DeleteAvatarTrainingJobRequest
+   * @returns DeleteAvatarTrainingJobResponse
    */
   async deleteAvatarTrainingJob(request: DeleteAvatarTrainingJobRequest): Promise<DeleteAvatarTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33649,11 +48732,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒资分类
-   *
-   * @param request DeleteCategoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCategoryResponse
+   * 删除媒资分类
+   * 
+   * @param request - DeleteCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCategoryResponse
    */
   async deleteCategoryWithOptions(request: DeleteCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCategoryResponse> {
     Util.validateModel(request);
@@ -33680,10 +48763,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒资分类
-   *
-   * @param request DeleteCategoryRequest
-   * @return DeleteCategoryResponse
+   * 删除媒资分类
+   * 
+   * @param request - DeleteCategoryRequest
+   * @returns DeleteCategoryResponse
    */
   async deleteCategory(request: DeleteCategoryRequest): Promise<DeleteCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33691,11 +48774,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒体处理自定义模板
-   *
-   * @param request DeleteCustomTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCustomTemplateResponse
+   * 删除媒体处理自定义模板
+   * 
+   * @param request - DeleteCustomTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomTemplateResponse
    */
   async deleteCustomTemplateWithOptions(request: DeleteCustomTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomTemplateResponse> {
     Util.validateModel(request);
@@ -33722,10 +48805,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒体处理自定义模板
-   *
-   * @param request DeleteCustomTemplateRequest
-   * @return DeleteCustomTemplateResponse
+   * 删除媒体处理自定义模板
+   * 
+   * @param request - DeleteCustomTemplateRequest
+   * @returns DeleteCustomTemplateResponse
    */
   async deleteCustomTemplate(request: DeleteCustomTemplateRequest): Promise<DeleteCustomTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33733,11 +48816,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除用户的专属人声任务
-   *
-   * @param request DeleteCustomizedVoiceJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCustomizedVoiceJobResponse
+   * 删除用户的专属人声任务
+   * 
+   * @param request - DeleteCustomizedVoiceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomizedVoiceJobResponse
    */
   async deleteCustomizedVoiceJobWithOptions(request: DeleteCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomizedVoiceJobResponse> {
     Util.validateModel(request);
@@ -33764,10 +48847,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除用户的专属人声任务
-   *
-   * @param request DeleteCustomizedVoiceJobRequest
-   * @return DeleteCustomizedVoiceJobResponse
+   * 删除用户的专属人声任务
+   * 
+   * @param request - DeleteCustomizedVoiceJobRequest
+   * @returns DeleteCustomizedVoiceJobResponse
    */
   async deleteCustomizedVoiceJob(request: DeleteCustomizedVoiceJobRequest): Promise<DeleteCustomizedVoiceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33775,11 +48858,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除DNA库
-   *
-   * @param request DeleteDNADBRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDNADBResponse
+   * 删除DNA库
+   * 
+   * @param request - DeleteDNADBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDNADBResponse
    */
   async deleteDNADBWithOptions(request: DeleteDNADBRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDNADBResponse> {
     Util.validateModel(request);
@@ -33822,10 +48905,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除DNA库
-   *
-   * @param request DeleteDNADBRequest
-   * @return DeleteDNADBResponse
+   * 删除DNA库
+   * 
+   * @param request - DeleteDNADBRequest
+   * @returns DeleteDNADBResponse
    */
   async deleteDNADB(request: DeleteDNADBRequest): Promise<DeleteDNADBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33833,11 +48916,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除DNA文件
-   *
-   * @param request DeleteDNAFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDNAFilesResponse
+   * 删除DNA文件
+   * 
+   * @param request - DeleteDNAFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDNAFilesResponse
    */
   async deleteDNAFilesWithOptions(request: DeleteDNAFilesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDNAFilesResponse> {
     Util.validateModel(request);
@@ -33884,10 +48967,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除DNA文件
-   *
-   * @param request DeleteDNAFilesRequest
-   * @return DeleteDNAFilesResponse
+   * 删除DNA文件
+   * 
+   * @param request - DeleteDNAFilesRequest
+   * @returns DeleteDNAFilesResponse
    */
   async deleteDNAFiles(request: DeleteDNAFilesRequest): Promise<DeleteDNAFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33895,11 +48978,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除剪辑工程关联素材
-   *
-   * @param request DeleteEditingProjectMaterialsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteEditingProjectMaterialsResponse
+   * 删除剪辑工程关联素材
+   * 
+   * @param request - DeleteEditingProjectMaterialsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEditingProjectMaterialsResponse
    */
   async deleteEditingProjectMaterialsWithOptions(request: DeleteEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEditingProjectMaterialsResponse> {
     Util.validateModel(request);
@@ -33934,10 +49017,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除剪辑工程关联素材
-   *
-   * @param request DeleteEditingProjectMaterialsRequest
-   * @return DeleteEditingProjectMaterialsResponse
+   * 删除剪辑工程关联素材
+   * 
+   * @param request - DeleteEditingProjectMaterialsRequest
+   * @returns DeleteEditingProjectMaterialsResponse
    */
   async deleteEditingProjectMaterials(request: DeleteEditingProjectMaterialsRequest): Promise<DeleteEditingProjectMaterialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33945,11 +49028,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除云剪辑工程
-   *
-   * @param request DeleteEditingProjectsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteEditingProjectsResponse
+   * 删除云剪辑工程
+   * 
+   * @param request - DeleteEditingProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEditingProjectsResponse
    */
   async deleteEditingProjectsWithOptions(request: DeleteEditingProjectsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEditingProjectsResponse> {
     Util.validateModel(request);
@@ -33976,10 +49059,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除云剪辑工程
-   *
-   * @param request DeleteEditingProjectsRequest
-   * @return DeleteEditingProjectsResponse
+   * 删除云剪辑工程
+   * 
+   * @param request - DeleteEditingProjectsRequest
+   * @returns DeleteEditingProjectsResponse
    */
   async deleteEditingProjects(request: DeleteEditingProjectsRequest): Promise<DeleteEditingProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33987,11 +49070,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实时媒体服务-删除录制文件
-   *
-   * @param request DeleteLiveRecordFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLiveRecordFilesResponse
+   * 实时媒体服务-删除录制文件
+   * 
+   * @param request - DeleteLiveRecordFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLiveRecordFilesResponse
    */
   async deleteLiveRecordFilesWithOptions(request: DeleteLiveRecordFilesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveRecordFilesResponse> {
     Util.validateModel(request);
@@ -34022,10 +49105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实时媒体服务-删除录制文件
-   *
-   * @param request DeleteLiveRecordFilesRequest
-   * @return DeleteLiveRecordFilesResponse
+   * 实时媒体服务-删除录制文件
+   * 
+   * @param request - DeleteLiveRecordFilesRequest
+   * @returns DeleteLiveRecordFilesResponse
    */
   async deleteLiveRecordFiles(request: DeleteLiveRecordFilesRequest): Promise<DeleteLiveRecordFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34033,11 +49116,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除直播录制模板
-   *
-   * @param request DeleteLiveRecordTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLiveRecordTemplateResponse
+   * 删除直播录制模板
+   * 
+   * @param request - DeleteLiveRecordTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLiveRecordTemplateResponse
    */
   async deleteLiveRecordTemplateWithOptions(request: DeleteLiveRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveRecordTemplateResponse> {
     Util.validateModel(request);
@@ -34064,10 +49147,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除直播录制模板
-   *
-   * @param request DeleteLiveRecordTemplateRequest
-   * @return DeleteLiveRecordTemplateResponse
+   * 删除直播录制模板
+   * 
+   * @param request - DeleteLiveRecordTemplateRequest
+   * @returns DeleteLiveRecordTemplateResponse
    */
   async deleteLiveRecordTemplate(request: DeleteLiveRecordTemplateRequest): Promise<DeleteLiveRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34075,11 +49158,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量删除直播截图文件
-   *
-   * @param tmpReq DeleteLiveSnapshotFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLiveSnapshotFilesResponse
+   * 批量删除直播截图文件
+   * 
+   * @param tmpReq - DeleteLiveSnapshotFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLiveSnapshotFilesResponse
    */
   async deleteLiveSnapshotFilesWithOptions(tmpReq: DeleteLiveSnapshotFilesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveSnapshotFilesResponse> {
     Util.validateModel(tmpReq);
@@ -34120,10 +49203,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量删除直播截图文件
-   *
-   * @param request DeleteLiveSnapshotFilesRequest
-   * @return DeleteLiveSnapshotFilesResponse
+   * 批量删除直播截图文件
+   * 
+   * @param request - DeleteLiveSnapshotFilesRequest
+   * @returns DeleteLiveSnapshotFilesResponse
    */
   async deleteLiveSnapshotFiles(request: DeleteLiveSnapshotFilesRequest): Promise<DeleteLiveSnapshotFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34131,11 +49214,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除直播截图模板
-   *
-   * @param request DeleteLiveSnapshotTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLiveSnapshotTemplateResponse
+   * 删除直播截图模板
+   * 
+   * @param request - DeleteLiveSnapshotTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLiveSnapshotTemplateResponse
    */
   async deleteLiveSnapshotTemplateWithOptions(request: DeleteLiveSnapshotTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveSnapshotTemplateResponse> {
     Util.validateModel(request);
@@ -34162,10 +49245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除直播截图模板
-   *
-   * @param request DeleteLiveSnapshotTemplateRequest
-   * @return DeleteLiveSnapshotTemplateResponse
+   * 删除直播截图模板
+   * 
+   * @param request - DeleteLiveSnapshotTemplateRequest
+   * @returns DeleteLiveSnapshotTemplateResponse
    */
   async deleteLiveSnapshotTemplate(request: DeleteLiveSnapshotTemplateRequest): Promise<DeleteLiveSnapshotTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34173,11 +49256,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定转码任务
-   *
-   * @param request DeleteLiveTranscodeJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLiveTranscodeJobResponse
+   * 删除指定转码任务
+   * 
+   * @param request - DeleteLiveTranscodeJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLiveTranscodeJobResponse
    */
   async deleteLiveTranscodeJobWithOptions(request: DeleteLiveTranscodeJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveTranscodeJobResponse> {
     Util.validateModel(request);
@@ -34204,10 +49287,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定转码任务
-   *
-   * @param request DeleteLiveTranscodeJobRequest
-   * @return DeleteLiveTranscodeJobResponse
+   * 删除指定转码任务
+   * 
+   * @param request - DeleteLiveTranscodeJobRequest
+   * @returns DeleteLiveTranscodeJobResponse
    */
   async deleteLiveTranscodeJob(request: DeleteLiveTranscodeJobRequest): Promise<DeleteLiveTranscodeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34215,11 +49298,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定转码模版
-   *
-   * @param request DeleteLiveTranscodeTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLiveTranscodeTemplateResponse
+   * 删除指定转码模版
+   * 
+   * @param request - DeleteLiveTranscodeTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLiveTranscodeTemplateResponse
    */
   async deleteLiveTranscodeTemplateWithOptions(request: DeleteLiveTranscodeTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLiveTranscodeTemplateResponse> {
     Util.validateModel(request);
@@ -34246,10 +49329,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除指定转码模版
-   *
-   * @param request DeleteLiveTranscodeTemplateRequest
-   * @return DeleteLiveTranscodeTemplateResponse
+   * 删除指定转码模版
+   * 
+   * @param request - DeleteLiveTranscodeTemplateRequest
+   * @returns DeleteLiveTranscodeTemplateResponse
    */
   async deleteLiveTranscodeTemplate(request: DeleteLiveTranscodeTemplateRequest): Promise<DeleteLiveTranscodeTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34257,11 +49340,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒资从搜索
-   *
-   * @param request DeleteMediaFromSearchLibRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMediaFromSearchLibResponse
+   * 删除媒资从搜索
+   * 
+   * @param request - DeleteMediaFromSearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaFromSearchLibResponse
    */
   async deleteMediaFromSearchLibWithOptions(request: DeleteMediaFromSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaFromSearchLibResponse> {
     Util.validateModel(request);
@@ -34296,10 +49379,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒资从搜索
-   *
-   * @param request DeleteMediaFromSearchLibRequest
-   * @return DeleteMediaFromSearchLibResponse
+   * 删除媒资从搜索
+   * 
+   * @param request - DeleteMediaFromSearchLibRequest
+   * @returns DeleteMediaFromSearchLibResponse
    */
   async deleteMediaFromSearchLib(request: DeleteMediaFromSearchLibRequest): Promise<DeleteMediaFromSearchLibResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34307,11 +49390,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒资信息
-   *
-   * @param request DeleteMediaInfosRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMediaInfosResponse
+   * 删除媒资信息
+   * 
+   * @param request - DeleteMediaInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaInfosResponse
    */
   async deleteMediaInfosWithOptions(request: DeleteMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaInfosResponse> {
     Util.validateModel(request);
@@ -34346,10 +49429,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒资信息
-   *
-   * @param request DeleteMediaInfosRequest
-   * @return DeleteMediaInfosResponse
+   * 删除媒资信息
+   * 
+   * @param request - DeleteMediaInfosRequest
+   * @returns DeleteMediaInfosResponse
    */
   async deleteMediaInfos(request: DeleteMediaInfosRequest): Promise<DeleteMediaInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34357,11 +49440,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒资标注信息
-   *
-   * @param request DeleteMediaMarksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMediaMarksResponse
+   * 删除媒资标注信息
+   * 
+   * @param request - DeleteMediaMarksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaMarksResponse
    */
   async deleteMediaMarksWithOptions(request: DeleteMediaMarksRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaMarksResponse> {
     Util.validateModel(request);
@@ -34392,10 +49475,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒资标注信息
-   *
-   * @param request DeleteMediaMarksRequest
-   * @return DeleteMediaMarksResponse
+   * 删除媒资标注信息
+   * 
+   * @param request - DeleteMediaMarksRequest
+   * @returns DeleteMediaMarksResponse
    */
   async deleteMediaMarks(request: DeleteMediaMarksRequest): Promise<DeleteMediaMarksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34403,11 +49486,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除管道配置
-   *
-   * @param request DeletePipelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePipelineResponse
+   * 删除管道配置
+   * 
+   * @param request - DeletePipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePipelineResponse
    */
   async deletePipelineWithOptions(request: DeletePipelineRequest, runtime: $Util.RuntimeOptions): Promise<DeletePipelineResponse> {
     Util.validateModel(request);
@@ -34434,10 +49517,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除管道配置
-   *
-   * @param request DeletePipelineRequest
-   * @return DeletePipelineResponse
+   * 删除管道配置
+   * 
+   * @param request - DeletePipelineRequest
+   * @returns DeletePipelineResponse
    */
   async deletePipeline(request: DeletePipelineRequest): Promise<DeletePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34445,11 +49528,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除播放信息
-   *
-   * @param request DeletePlayInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePlayInfoResponse
+   * 删除播放信息
+   * 
+   * @param request - DeletePlayInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePlayInfoResponse
    */
   async deletePlayInfoWithOptions(request: DeletePlayInfoRequest, runtime: $Util.RuntimeOptions): Promise<DeletePlayInfoResponse> {
     Util.validateModel(request);
@@ -34484,10 +49567,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除播放信息
-   *
-   * @param request DeletePlayInfoRequest
-   * @return DeletePlayInfoResponse
+   * 删除播放信息
+   * 
+   * @param request - DeletePlayInfoRequest
+   * @returns DeletePlayInfoResponse
    */
   async deletePlayInfo(request: DeletePlayInfoRequest): Promise<DeletePlayInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34495,11 +49578,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DeleteSmartJob
-   *
-   * @param request DeleteSmartJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSmartJobResponse
+   * DeleteSmartJob
+   * 
+   * @param request - DeleteSmartJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSmartJobResponse
    */
   async deleteSmartJobWithOptions(request: DeleteSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmartJobResponse> {
     Util.validateModel(request);
@@ -34526,10 +49609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DeleteSmartJob
-   *
-   * @param request DeleteSmartJobRequest
-   * @return DeleteSmartJobResponse
+   * DeleteSmartJob
+   * 
+   * @param request - DeleteSmartJobRequest
+   * @returns DeleteSmartJobResponse
    */
   async deleteSmartJob(request: DeleteSmartJobRequest): Promise<DeleteSmartJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34537,11 +49620,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DeleteTemplate
-   *
-   * @param request DeleteTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTemplateResponse
+   * DeleteTemplate
+   * 
+   * @param request - DeleteTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTemplateResponse
    */
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
@@ -34564,10 +49647,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DeleteTemplate
-   *
-   * @param request DeleteTemplateRequest
-   * @return DeleteTemplateResponse
+   * DeleteTemplate
+   * 
+   * @param request - DeleteTemplateRequest
+   * @returns DeleteTemplateResponse
    */
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34575,9 +49658,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMeterImsEditUsageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMeterImsEditUsageResponse
+   * @param request - DescribeMeterImsEditUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMeterImsEditUsageResponse
    */
   async describeMeterImsEditUsageWithOptions(request: DescribeMeterImsEditUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsEditUsageResponse> {
     Util.validateModel(request);
@@ -34616,8 +49699,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMeterImsEditUsageRequest
-   * @return DescribeMeterImsEditUsageResponse
+   * @param request - DescribeMeterImsEditUsageRequest
+   * @returns DescribeMeterImsEditUsageResponse
    */
   async describeMeterImsEditUsage(request: DescribeMeterImsEditUsageRequest): Promise<DescribeMeterImsEditUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34625,9 +49708,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMeterImsMediaConvertUHDUsageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMeterImsMediaConvertUHDUsageResponse
+   * @param request - DescribeMeterImsMediaConvertUHDUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMeterImsMediaConvertUHDUsageResponse
    */
   async describeMeterImsMediaConvertUHDUsageWithOptions(request: DescribeMeterImsMediaConvertUHDUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsMediaConvertUHDUsageResponse> {
     Util.validateModel(request);
@@ -34666,8 +49749,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMeterImsMediaConvertUHDUsageRequest
-   * @return DescribeMeterImsMediaConvertUHDUsageResponse
+   * @param request - DescribeMeterImsMediaConvertUHDUsageRequest
+   * @returns DescribeMeterImsMediaConvertUHDUsageResponse
    */
   async describeMeterImsMediaConvertUHDUsage(request: DescribeMeterImsMediaConvertUHDUsageRequest): Promise<DescribeMeterImsMediaConvertUHDUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34675,11 +49758,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 智能媒体服务点播转码用量
-   *
-   * @param request DescribeMeterImsMediaConvertUsageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMeterImsMediaConvertUsageResponse
+   * 智能媒体服务点播转码用量
+   * 
+   * @param request - DescribeMeterImsMediaConvertUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMeterImsMediaConvertUsageResponse
    */
   async describeMeterImsMediaConvertUsageWithOptions(request: DescribeMeterImsMediaConvertUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsMediaConvertUsageResponse> {
     Util.validateModel(request);
@@ -34718,10 +49801,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 智能媒体服务点播转码用量
-   *
-   * @param request DescribeMeterImsMediaConvertUsageRequest
-   * @return DescribeMeterImsMediaConvertUsageResponse
+   * 智能媒体服务点播转码用量
+   * 
+   * @param request - DescribeMeterImsMediaConvertUsageRequest
+   * @returns DescribeMeterImsMediaConvertUsageResponse
    */
   async describeMeterImsMediaConvertUsage(request: DescribeMeterImsMediaConvertUsageRequest): Promise<DescribeMeterImsMediaConvertUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34729,9 +49812,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMeterImsMpsAiUsageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMeterImsMpsAiUsageResponse
+   * @param request - DescribeMeterImsMpsAiUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMeterImsMpsAiUsageResponse
    */
   async describeMeterImsMpsAiUsageWithOptions(request: DescribeMeterImsMpsAiUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsMpsAiUsageResponse> {
     Util.validateModel(request);
@@ -34770,8 +49853,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMeterImsMpsAiUsageRequest
-   * @return DescribeMeterImsMpsAiUsageResponse
+   * @param request - DescribeMeterImsMpsAiUsageRequest
+   * @returns DescribeMeterImsMpsAiUsageResponse
    */
   async describeMeterImsMpsAiUsage(request: DescribeMeterImsMpsAiUsageRequest): Promise<DescribeMeterImsMpsAiUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34779,9 +49862,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMeterImsSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMeterImsSummaryResponse
+   * @param request - DescribeMeterImsSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMeterImsSummaryResponse
    */
   async describeMeterImsSummaryWithOptions(request: DescribeMeterImsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMeterImsSummaryResponse> {
     Util.validateModel(request);
@@ -34816,8 +49899,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMeterImsSummaryRequest
-   * @return DescribeMeterImsSummaryResponse
+   * @param request - DescribeMeterImsSummaryRequest
+   * @returns DescribeMeterImsSummaryResponse
    */
   async describeMeterImsSummary(request: DescribeMeterImsSummaryRequest): Promise<DescribeMeterImsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34825,9 +49908,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribePlayListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePlayListResponse
+   * @param request - DescribePlayListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePlayListResponse
    */
   async describePlayListWithOptions(request: DescribePlayListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePlayListResponse> {
     Util.validateModel(request);
@@ -34886,8 +49969,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribePlayListRequest
-   * @return DescribePlayListResponse
+   * @param request - DescribePlayListRequest
+   * @returns DescribePlayListResponse
    */
   async describePlayList(request: DescribePlayListRequest): Promise<DescribePlayListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34895,11 +49978,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 本接口用来检测用户的朗读是否有明显的发音错误、嘈杂的环境等
-   *
-   * @param request DetectAudioForCustomizedVoiceJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectAudioForCustomizedVoiceJobResponse
+   * 本接口用来检测用户的朗读是否有明显的发音错误、嘈杂的环境等
+   * 
+   * @param request - DetectAudioForCustomizedVoiceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectAudioForCustomizedVoiceJobResponse
    */
   async detectAudioForCustomizedVoiceJobWithOptions(request: DetectAudioForCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<DetectAudioForCustomizedVoiceJobResponse> {
     Util.validateModel(request);
@@ -34934,10 +50017,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 本接口用来检测用户的朗读是否有明显的发音错误、嘈杂的环境等
-   *
-   * @param request DetectAudioForCustomizedVoiceJobRequest
-   * @return DetectAudioForCustomizedVoiceJobResponse
+   * 本接口用来检测用户的朗读是否有明显的发音错误、嘈杂的环境等
+   * 
+   * @param request - DetectAudioForCustomizedVoiceJobRequest
+   * @returns DetectAudioForCustomizedVoiceJobResponse
    */
   async detectAudioForCustomizedVoiceJob(request: DetectAudioForCustomizedVoiceJobRequest): Promise<DetectAudioForCustomizedVoiceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34945,11 +50028,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除搜索索引
-   *
-   * @param request DropSearchIndexRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DropSearchIndexResponse
+   * 删除搜索索引
+   * 
+   * @param request - DropSearchIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DropSearchIndexResponse
    */
   async dropSearchIndexWithOptions(request: DropSearchIndexRequest, runtime: $Util.RuntimeOptions): Promise<DropSearchIndexResponse> {
     Util.validateModel(request);
@@ -34980,10 +50063,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除搜索索引
-   *
-   * @param request DropSearchIndexRequest
-   * @return DropSearchIndexResponse
+   * 删除搜索索引
+   * 
+   * @param request - DropSearchIndexRequest
+   * @returns DropSearchIndexResponse
    */
   async dropSearchIndex(request: DropSearchIndexRequest): Promise<DropSearchIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34991,11 +50074,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除库
-   *
-   * @param request DropSearchLibRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DropSearchLibResponse
+   * 删除库
+   * 
+   * @param request - DropSearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DropSearchLibResponse
    */
   async dropSearchLibWithOptions(request: DropSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<DropSearchLibResponse> {
     Util.validateModel(request);
@@ -35022,10 +50105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除库
-   *
-   * @param request DropSearchLibRequest
-   * @return DropSearchLibResponse
+   * 删除库
+   * 
+   * @param request - DropSearchLibRequest
+   * @returns DropSearchLibResponse
    */
   async dropSearchLib(request: DropSearchLibRequest): Promise<DropSearchLibResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35033,11 +50116,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成KMS密钥DataKey
-   *
-   * @param request GenerateKMSDataKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateKMSDataKeyResponse
+   * 生成KMS密钥DataKey
+   * 
+   * @param request - GenerateKMSDataKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateKMSDataKeyResponse
    */
   async generateKMSDataKeyWithOptions(runtime: $Util.RuntimeOptions): Promise<GenerateKMSDataKeyResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -35056,9 +50139,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 生成KMS密钥DataKey
-   *
-   * @return GenerateKMSDataKeyResponse
+   * 生成KMS密钥DataKey
+   * @returns GenerateKMSDataKeyResponse
    */
   async generateKMSDataKey(): Promise<GenerateKMSDataKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35066,11 +50148,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个数字人
-   *
-   * @param request GetAvatarRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAvatarResponse
+   * 查询单个数字人
+   * 
+   * @param request - GetAvatarRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAvatarResponse
    */
   async getAvatarWithOptions(request: GetAvatarRequest, runtime: $Util.RuntimeOptions): Promise<GetAvatarResponse> {
     Util.validateModel(request);
@@ -35097,10 +50179,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个数字人
-   *
-   * @param request GetAvatarRequest
-   * @return GetAvatarResponse
+   * 查询单个数字人
+   * 
+   * @param request - GetAvatarRequest
+   * @returns GetAvatarResponse
    */
   async getAvatar(request: GetAvatarRequest): Promise<GetAvatarResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35108,11 +50190,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个数字人训练任务
-   *
-   * @param request GetAvatarTrainingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAvatarTrainingJobResponse
+   * 查询单个数字人训练任务
+   * 
+   * @param request - GetAvatarTrainingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAvatarTrainingJobResponse
    */
   async getAvatarTrainingJobWithOptions(request: GetAvatarTrainingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetAvatarTrainingJobResponse> {
     Util.validateModel(request);
@@ -35139,10 +50221,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个数字人训练任务
-   *
-   * @param request GetAvatarTrainingJobRequest
-   * @return GetAvatarTrainingJobResponse
+   * 查询单个数字人训练任务
+   * 
+   * @param request - GetAvatarTrainingJobRequest
+   * @returns GetAvatarTrainingJobResponse
    */
   async getAvatarTrainingJob(request: GetAvatarTrainingJobRequest): Promise<GetAvatarTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35150,37 +50232,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 一键成片-批量获取剪辑任务
-   *
-   * @param request GetBatchMediaProducingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetBatchMediaProducingJobResponse
+   * 一键成片-批量获取剪辑任务
+   * 
+   * @param request - GetBatchMediaProducingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBatchMediaProducingJobResponse
    */
   async getBatchMediaProducingJobWithOptions(request: GetBatchMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchMediaProducingJobResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.jobId)) {
       query["JobId"] = request.jobId;
-    }
-
-    if (!Util.isUnset(request.signature)) {
-      query["Signature"] = request.signature;
-    }
-
-    if (!Util.isUnset(request.signatureMehtod)) {
-      query["SignatureMehtod"] = request.signatureMehtod;
-    }
-
-    if (!Util.isUnset(request.signatureNonce)) {
-      query["SignatureNonce"] = request.signatureNonce;
-    }
-
-    if (!Util.isUnset(request.signatureType)) {
-      query["SignatureType"] = request.signatureType;
-    }
-
-    if (!Util.isUnset(request.signatureVersion)) {
-      query["SignatureVersion"] = request.signatureVersion;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -35201,10 +50263,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 一键成片-批量获取剪辑任务
-   *
-   * @param request GetBatchMediaProducingJobRequest
-   * @return GetBatchMediaProducingJobResponse
+   * 一键成片-批量获取剪辑任务
+   * 
+   * @param request - GetBatchMediaProducingJobRequest
+   * @returns GetBatchMediaProducingJobResponse
    */
   async getBatchMediaProducingJob(request: GetBatchMediaProducingJobRequest): Promise<GetBatchMediaProducingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35212,11 +50274,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询媒资分类
-   *
-   * @param request GetCategoriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCategoriesResponse
+   * 查询媒资分类
+   * 
+   * @param request - GetCategoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCategoriesResponse
    */
   async getCategoriesWithOptions(request: GetCategoriesRequest, runtime: $Util.RuntimeOptions): Promise<GetCategoriesResponse> {
     Util.validateModel(request);
@@ -35259,10 +50321,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询媒资分类
-   *
-   * @param request GetCategoriesRequest
-   * @return GetCategoriesResponse
+   * 查询媒资分类
+   * 
+   * @param request - GetCategoriesRequest
+   * @returns GetCategoriesResponse
    */
   async getCategories(request: GetCategoriesRequest): Promise<GetCategoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35270,11 +50332,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取内容分析搜索配置
-   *
-   * @param request GetContentAnalyzeConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetContentAnalyzeConfigResponse
+   * 获取内容分析搜索配置
+   * 
+   * @param request - GetContentAnalyzeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContentAnalyzeConfigResponse
    */
   async getContentAnalyzeConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetContentAnalyzeConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -35293,9 +50355,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取内容分析搜索配置
-   *
-   * @return GetContentAnalyzeConfigResponse
+   * 获取内容分析搜索配置
+   * @returns GetContentAnalyzeConfigResponse
    */
   async getContentAnalyzeConfig(): Promise<GetContentAnalyzeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35303,11 +50364,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个媒体处理自定义模板
-   *
-   * @param request GetCustomTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCustomTemplateResponse
+   * 获取单个媒体处理自定义模板
+   * 
+   * @param request - GetCustomTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomTemplateResponse
    */
   async getCustomTemplateWithOptions(request: GetCustomTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomTemplateResponse> {
     Util.validateModel(request);
@@ -35342,10 +50403,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个媒体处理自定义模板
-   *
-   * @param request GetCustomTemplateRequest
-   * @return GetCustomTemplateResponse
+   * 获取单个媒体处理自定义模板
+   * 
+   * @param request - GetCustomTemplateRequest
+   * @returns GetCustomTemplateResponse
    */
   async getCustomTemplate(request: GetCustomTemplateRequest): Promise<GetCustomTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35353,11 +50414,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户的专属人声
-   *
-   * @param request GetCustomizedVoiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCustomizedVoiceResponse
+   * 获取用户的专属人声
+   * 
+   * @param request - GetCustomizedVoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomizedVoiceResponse
    */
   async getCustomizedVoiceWithOptions(request: GetCustomizedVoiceRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomizedVoiceResponse> {
     Util.validateModel(request);
@@ -35384,10 +50445,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户的专属人声
-   *
-   * @param request GetCustomizedVoiceRequest
-   * @return GetCustomizedVoiceResponse
+   * 获取用户的专属人声
+   * 
+   * @param request - GetCustomizedVoiceRequest
+   * @returns GetCustomizedVoiceResponse
    */
   async getCustomizedVoice(request: GetCustomizedVoiceRequest): Promise<GetCustomizedVoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35395,11 +50456,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个人声克隆训练任务
-   *
-   * @param request GetCustomizedVoiceJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCustomizedVoiceJobResponse
+   * 查询单个人声克隆训练任务
+   * 
+   * @param request - GetCustomizedVoiceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomizedVoiceJobResponse
    */
   async getCustomizedVoiceJobWithOptions(request: GetCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomizedVoiceJobResponse> {
     Util.validateModel(request);
@@ -35426,10 +50487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个人声克隆训练任务
-   *
-   * @param request GetCustomizedVoiceJobRequest
-   * @return GetCustomizedVoiceJobResponse
+   * 查询单个人声克隆训练任务
+   * 
+   * @param request - GetCustomizedVoiceJobRequest
+   * @returns GetCustomizedVoiceJobResponse
    */
   async getCustomizedVoiceJob(request: GetCustomizedVoiceJobRequest): Promise<GetCustomizedVoiceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35437,11 +50498,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户默认存储地址
-   *
-   * @param request GetDefaultStorageLocationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDefaultStorageLocationResponse
+   * 获取用户默认存储地址
+   * 
+   * @param request - GetDefaultStorageLocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDefaultStorageLocationResponse
    */
   async getDefaultStorageLocationWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultStorageLocationResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -35460,9 +50521,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户默认存储地址
-   *
-   * @return GetDefaultStorageLocationResponse
+   * 获取用户默认存储地址
+   * @returns GetDefaultStorageLocationResponse
    */
   async getDefaultStorageLocation(): Promise<GetDefaultStorageLocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35470,11 +50530,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过本接口来获取需要给用户朗读的文本及示例音频
-   *
-   * @param request GetDemonstrationForCustomizedVoiceJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDemonstrationForCustomizedVoiceJobResponse
+   * 通过本接口来获取需要给用户朗读的文本及示例音频
+   * 
+   * @param request - GetDemonstrationForCustomizedVoiceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDemonstrationForCustomizedVoiceJobResponse
    */
   async getDemonstrationForCustomizedVoiceJobWithOptions(request: GetDemonstrationForCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDemonstrationForCustomizedVoiceJobResponse> {
     Util.validateModel(request);
@@ -35501,10 +50561,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过本接口来获取需要给用户朗读的文本及示例音频
-   *
-   * @param request GetDemonstrationForCustomizedVoiceJobRequest
-   * @return GetDemonstrationForCustomizedVoiceJobResponse
+   * 通过本接口来获取需要给用户朗读的文本及示例音频
+   * 
+   * @param request - GetDemonstrationForCustomizedVoiceJobRequest
+   * @returns GetDemonstrationForCustomizedVoiceJobResponse
    */
   async getDemonstrationForCustomizedVoiceJob(request: GetDemonstrationForCustomizedVoiceJobRequest): Promise<GetDemonstrationForCustomizedVoiceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35512,11 +50572,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询动图任务详情接口
-   *
-   * @param request GetDynamicImageJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDynamicImageJobResponse
+   * 查询动图任务详情接口
+   * 
+   * @param request - GetDynamicImageJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDynamicImageJobResponse
    */
   async getDynamicImageJobWithOptions(request: GetDynamicImageJobRequest, runtime: $Util.RuntimeOptions): Promise<GetDynamicImageJobResponse> {
     Util.validateModel(request);
@@ -35543,10 +50603,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询动图任务详情接口
-   *
-   * @param request GetDynamicImageJobRequest
-   * @return GetDynamicImageJobResponse
+   * 查询动图任务详情接口
+   * 
+   * @param request - GetDynamicImageJobRequest
+   * @returns GetDynamicImageJobResponse
    */
   async getDynamicImageJob(request: GetDynamicImageJobRequest): Promise<GetDynamicImageJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35554,11 +50614,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个云剪辑工程
-   *
-   * @param request GetEditingProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetEditingProjectResponse
+   * 获取单个云剪辑工程
+   * 
+   * @param request - GetEditingProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEditingProjectResponse
    */
   async getEditingProjectWithOptions(request: GetEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectResponse> {
     Util.validateModel(request);
@@ -35589,10 +50649,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个云剪辑工程
-   *
-   * @param request GetEditingProjectRequest
-   * @return GetEditingProjectResponse
+   * 获取单个云剪辑工程
+   * 
+   * @param request - GetEditingProjectRequest
+   * @returns GetEditingProjectResponse
    */
   async getEditingProject(request: GetEditingProjectRequest): Promise<GetEditingProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35600,11 +50660,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取剪辑工程关联素材
-   *
-   * @param request GetEditingProjectMaterialsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetEditingProjectMaterialsResponse
+   * 获取剪辑工程关联素材
+   * 
+   * @param request - GetEditingProjectMaterialsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEditingProjectMaterialsResponse
    */
   async getEditingProjectMaterialsWithOptions(request: GetEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectMaterialsResponse> {
     Util.validateModel(request);
@@ -35631,10 +50691,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取剪辑工程关联素材
-   *
-   * @param request GetEditingProjectMaterialsRequest
-   * @return GetEditingProjectMaterialsResponse
+   * 获取剪辑工程关联素材
+   * 
+   * @param request - GetEditingProjectMaterialsRequest
+   * @returns GetEditingProjectMaterialsResponse
    */
   async getEditingProjectMaterials(request: GetEditingProjectMaterialsRequest): Promise<GetEditingProjectMaterialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35642,11 +50702,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取事件回调地址
-   *
-   * @param request GetEventCallbackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetEventCallbackResponse
+   * 获取事件回调地址
+   * 
+   * @param request - GetEventCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEventCallbackResponse
    */
   async getEventCallbackWithOptions(runtime: $Util.RuntimeOptions): Promise<GetEventCallbackResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -35665,9 +50725,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取事件回调地址
-   *
-   * @return GetEventCallbackResponse
+   * 获取事件回调地址
+   * @returns GetEventCallbackResponse
    */
   async getEventCallback(): Promise<GetEventCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35675,11 +50734,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取直播剪辑m3u8索引文件
-   *
-   * @param request GetLiveEditingIndexFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLiveEditingIndexFileResponse
+   * 获取直播剪辑m3u8索引文件
+   * 
+   * @param request - GetLiveEditingIndexFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLiveEditingIndexFileResponse
    */
   async getLiveEditingIndexFileWithOptions(request: GetLiveEditingIndexFileRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingIndexFileResponse> {
     Util.validateModel(request);
@@ -35718,10 +50777,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取直播剪辑m3u8索引文件
-   *
-   * @param request GetLiveEditingIndexFileRequest
-   * @return GetLiveEditingIndexFileResponse
+   * 获取直播剪辑m3u8索引文件
+   * 
+   * @param request - GetLiveEditingIndexFileRequest
+   * @returns GetLiveEditingIndexFileResponse
    */
   async getLiveEditingIndexFile(request: GetLiveEditingIndexFileRequest): Promise<GetLiveEditingIndexFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35729,11 +50788,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取直播剪辑任务
-   *
-   * @param request GetLiveEditingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLiveEditingJobResponse
+   * 获取直播剪辑任务
+   * 
+   * @param request - GetLiveEditingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLiveEditingJobResponse
    */
   async getLiveEditingJobWithOptions(request: GetLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingJobResponse> {
     Util.validateModel(request);
@@ -35760,10 +50819,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取直播剪辑任务
-   *
-   * @param request GetLiveEditingJobRequest
-   * @return GetLiveEditingJobResponse
+   * 获取直播剪辑任务
+   * 
+   * @param request - GetLiveEditingJobRequest
+   * @returns GetLiveEditingJobResponse
    */
   async getLiveEditingJob(request: GetLiveEditingJobRequest): Promise<GetLiveEditingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35771,11 +50830,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询录制任务明细
-   *
-   * @param request GetLiveRecordJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLiveRecordJobResponse
+   * 查询录制任务明细
+   * 
+   * @param request - GetLiveRecordJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLiveRecordJobResponse
    */
   async getLiveRecordJobWithOptions(request: GetLiveRecordJobRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRecordJobResponse> {
     Util.validateModel(request);
@@ -35798,10 +50857,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询录制任务明细
-   *
-   * @param request GetLiveRecordJobRequest
-   * @return GetLiveRecordJobResponse
+   * 查询录制任务明细
+   * 
+   * @param request - GetLiveRecordJobRequest
+   * @returns GetLiveRecordJobResponse
    */
   async getLiveRecordJob(request: GetLiveRecordJobRequest): Promise<GetLiveRecordJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35809,11 +50868,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播录制模板详情
-   *
-   * @param request GetLiveRecordTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLiveRecordTemplateResponse
+   * 查询直播录制模板详情
+   * 
+   * @param request - GetLiveRecordTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLiveRecordTemplateResponse
    */
   async getLiveRecordTemplateWithOptions(request: GetLiveRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveRecordTemplateResponse> {
     Util.validateModel(request);
@@ -35836,10 +50895,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播录制模板详情
-   *
-   * @param request GetLiveRecordTemplateRequest
-   * @return GetLiveRecordTemplateResponse
+   * 查询直播录制模板详情
+   * 
+   * @param request - GetLiveRecordTemplateRequest
+   * @returns GetLiveRecordTemplateResponse
    */
   async getLiveRecordTemplate(request: GetLiveRecordTemplateRequest): Promise<GetLiveRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35847,11 +50906,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播截图任务
-   *
-   * @param request GetLiveSnapshotJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLiveSnapshotJobResponse
+   * 查询直播截图任务
+   * 
+   * @param request - GetLiveSnapshotJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLiveSnapshotJobResponse
    */
   async getLiveSnapshotJobWithOptions(request: GetLiveSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveSnapshotJobResponse> {
     Util.validateModel(request);
@@ -35874,10 +50933,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播截图任务
-   *
-   * @param request GetLiveSnapshotJobRequest
-   * @return GetLiveSnapshotJobResponse
+   * 查询直播截图任务
+   * 
+   * @param request - GetLiveSnapshotJobRequest
+   * @returns GetLiveSnapshotJobResponse
    */
   async getLiveSnapshotJob(request: GetLiveSnapshotJobRequest): Promise<GetLiveSnapshotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35885,11 +50944,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播截图模板
-   *
-   * @param request GetLiveSnapshotTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLiveSnapshotTemplateResponse
+   * 查询直播截图模板
+   * 
+   * @param request - GetLiveSnapshotTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLiveSnapshotTemplateResponse
    */
   async getLiveSnapshotTemplateWithOptions(request: GetLiveSnapshotTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveSnapshotTemplateResponse> {
     Util.validateModel(request);
@@ -35912,10 +50971,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播截图模板
-   *
-   * @param request GetLiveSnapshotTemplateRequest
-   * @return GetLiveSnapshotTemplateResponse
+   * 查询直播截图模板
+   * 
+   * @param request - GetLiveSnapshotTemplateRequest
+   * @returns GetLiveSnapshotTemplateResponse
    */
   async getLiveSnapshotTemplate(request: GetLiveSnapshotTemplateRequest): Promise<GetLiveSnapshotTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35923,11 +50982,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询转码任务详情
-   *
-   * @param request GetLiveTranscodeJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLiveTranscodeJobResponse
+   * 查询转码任务详情
+   * 
+   * @param request - GetLiveTranscodeJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLiveTranscodeJobResponse
    */
   async getLiveTranscodeJobWithOptions(request: GetLiveTranscodeJobRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveTranscodeJobResponse> {
     Util.validateModel(request);
@@ -35954,10 +51013,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询转码任务详情
-   *
-   * @param request GetLiveTranscodeJobRequest
-   * @return GetLiveTranscodeJobResponse
+   * 查询转码任务详情
+   * 
+   * @param request - GetLiveTranscodeJobRequest
+   * @returns GetLiveTranscodeJobResponse
    */
   async getLiveTranscodeJob(request: GetLiveTranscodeJobRequest): Promise<GetLiveTranscodeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35965,11 +51024,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询转码模版详情
-   *
-   * @param request GetLiveTranscodeTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLiveTranscodeTemplateResponse
+   * 查询转码模版详情
+   * 
+   * @param request - GetLiveTranscodeTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLiveTranscodeTemplateResponse
    */
   async getLiveTranscodeTemplateWithOptions(request: GetLiveTranscodeTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveTranscodeTemplateResponse> {
     Util.validateModel(request);
@@ -35996,10 +51055,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询转码模版详情
-   *
-   * @param request GetLiveTranscodeTemplateRequest
-   * @return GetLiveTranscodeTemplateResponse
+   * 查询转码模版详情
+   * 
+   * @param request - GetLiveTranscodeTemplateRequest
+   * @returns GetLiveTranscodeTemplateResponse
    */
   async getLiveTranscodeTemplate(request: GetLiveTranscodeTemplateRequest): Promise<GetLiveTranscodeTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36007,11 +51066,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒资内容信息
-   *
-   * @param request GetMediaInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMediaInfoResponse
+   * 获取媒资内容信息
+   * 
+   * @param request - GetMediaInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaInfoResponse
    */
   async getMediaInfoWithOptions(request: GetMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaInfoResponse> {
     Util.validateModel(request);
@@ -36050,10 +51109,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒资内容信息
-   *
-   * @param request GetMediaInfoRequest
-   * @return GetMediaInfoResponse
+   * 获取媒资内容信息
+   * 
+   * @param request - GetMediaInfoRequest
+   * @returns GetMediaInfoResponse
    */
   async getMediaInfo(request: GetMediaInfoRequest): Promise<GetMediaInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36061,9 +51120,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetMediaInfoJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMediaInfoJobResponse
+   * @param request - GetMediaInfoJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaInfoJobResponse
    */
   async getMediaInfoJobWithOptions(request: GetMediaInfoJobRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaInfoJobResponse> {
     Util.validateModel(request);
@@ -36090,8 +51149,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetMediaInfoJobRequest
-   * @return GetMediaInfoJobResponse
+   * @param request - GetMediaInfoJobRequest
+   * @returns GetMediaInfoJobResponse
    */
   async getMediaInfoJob(request: GetMediaInfoJobRequest): Promise<GetMediaInfoJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36099,11 +51158,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒资标注信息
-   *
-   * @param request GetMediaMarksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMediaMarksResponse
+   * 获取媒资标注信息
+   * 
+   * @param request - GetMediaMarksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaMarksResponse
    */
   async getMediaMarksWithOptions(request: GetMediaMarksRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaMarksResponse> {
     Util.validateModel(request);
@@ -36134,10 +51193,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒资标注信息
-   *
-   * @param request GetMediaMarksRequest
-   * @return GetMediaMarksResponse
+   * 获取媒资标注信息
+   * 
+   * @param request - GetMediaMarksRequest
+   * @returns GetMediaMarksResponse
    */
   async getMediaMarks(request: GetMediaMarksRequest): Promise<GetMediaMarksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36145,11 +51204,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetMediaProducingJob
-   *
-   * @param request GetMediaProducingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMediaProducingJobResponse
+   * GetMediaProducingJob
+   * 
+   * @param request - GetMediaProducingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaProducingJobResponse
    */
   async getMediaProducingJobWithOptions(request: GetMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaProducingJobResponse> {
     Util.validateModel(request);
@@ -36172,10 +51231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetMediaProducingJob
-   *
-   * @param request GetMediaProducingJobRequest
-   * @return GetMediaProducingJobResponse
+   * GetMediaProducingJob
+   * 
+   * @param request - GetMediaProducingJobRequest
+   * @returns GetMediaProducingJobResponse
    */
   async getMediaProducingJob(request: GetMediaProducingJobRequest): Promise<GetMediaProducingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36183,11 +51242,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个打包任务信息
-   *
-   * @param request GetPackageJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPackageJobResponse
+   * 获取单个打包任务信息
+   * 
+   * @param request - GetPackageJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPackageJobResponse
    */
   async getPackageJobWithOptions(request: GetPackageJobRequest, runtime: $Util.RuntimeOptions): Promise<GetPackageJobResponse> {
     Util.validateModel(request);
@@ -36214,10 +51273,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个打包任务信息
-   *
-   * @param request GetPackageJobRequest
-   * @return GetPackageJobResponse
+   * 获取单个打包任务信息
+   * 
+   * @param request - GetPackageJobRequest
+   * @returns GetPackageJobResponse
    */
   async getPackageJob(request: GetPackageJobRequest): Promise<GetPackageJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36225,11 +51284,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个管道配置
-   *
-   * @param request GetPipelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPipelineResponse
+   * 获取单个管道配置
+   * 
+   * @param request - GetPipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPipelineResponse
    */
   async getPipelineWithOptions(request: GetPipelineRequest, runtime: $Util.RuntimeOptions): Promise<GetPipelineResponse> {
     Util.validateModel(request);
@@ -36256,10 +51315,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个管道配置
-   *
-   * @param request GetPipelineRequest
-   * @return GetPipelineResponse
+   * 获取单个管道配置
+   * 
+   * @param request - GetPipelineRequest
+   * @returns GetPipelineResponse
    */
   async getPipeline(request: GetPipelineRequest): Promise<GetPipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36267,11 +51326,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取播放信息
-   *
-   * @param request GetPlayInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPlayInfoResponse
+   * 获取播放信息
+   * 
+   * @param request - GetPlayInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPlayInfoResponse
    */
   async getPlayInfoWithOptions(request: GetPlayInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetPlayInfoResponse> {
     Util.validateModel(request);
@@ -36302,10 +51361,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取播放信息
-   *
-   * @param request GetPlayInfoRequest
-   * @return GetPlayInfoResponse
+   * 获取播放信息
+   * 
+   * @param request - GetPlayInfoRequest
+   * @returns GetPlayInfoResponse
    */
   async getPlayInfo(request: GetPlayInfoRequest): Promise<GetPlayInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36313,11 +51372,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共媒资内容信息
-   *
-   * @param request GetPublicMediaInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPublicMediaInfoResponse
+   * 获取公共媒资内容信息
+   * 
+   * @param request - GetPublicMediaInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPublicMediaInfoResponse
    */
   async getPublicMediaInfoWithOptions(request: GetPublicMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicMediaInfoResponse> {
     Util.validateModel(request);
@@ -36344,10 +51403,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共媒资内容信息
-   *
-   * @param request GetPublicMediaInfoRequest
-   * @return GetPublicMediaInfoResponse
+   * 获取公共媒资内容信息
+   * 
+   * @param request - GetPublicMediaInfoRequest
+   * @returns GetPublicMediaInfoResponse
    */
   async getPublicMediaInfo(request: GetPublicMediaInfoRequest): Promise<GetPublicMediaInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36355,11 +51414,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetSmartHandleJob
-   *
-   * @param request GetSmartHandleJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSmartHandleJobResponse
+   * GetSmartHandleJob
+   * 
+   * @param request - GetSmartHandleJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSmartHandleJobResponse
    */
   async getSmartHandleJobWithOptions(request: GetSmartHandleJobRequest, runtime: $Util.RuntimeOptions): Promise<GetSmartHandleJobResponse> {
     Util.validateModel(request);
@@ -36386,10 +51445,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetSmartHandleJob
-   *
-   * @param request GetSmartHandleJobRequest
-   * @return GetSmartHandleJobResponse
+   * GetSmartHandleJob
+   * 
+   * @param request - GetSmartHandleJobRequest
+   * @returns GetSmartHandleJobResponse
    */
   async getSmartHandleJob(request: GetSmartHandleJobRequest): Promise<GetSmartHandleJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36397,11 +51456,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个截图任务
-   *
-   * @param request GetSnapshotJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSnapshotJobResponse
+   * 查询单个截图任务
+   * 
+   * @param request - GetSnapshotJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSnapshotJobResponse
    */
   async getSnapshotJobWithOptions(request: GetSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<GetSnapshotJobResponse> {
     Util.validateModel(request);
@@ -36428,10 +51487,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询单个截图任务
-   *
-   * @param request GetSnapshotJobRequest
-   * @return GetSnapshotJobResponse
+   * 查询单个截图任务
+   * 
+   * @param request - GetSnapshotJobRequest
+   * @returns GetSnapshotJobResponse
    */
   async getSnapshotJob(request: GetSnapshotJobRequest): Promise<GetSnapshotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36439,11 +51498,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取截图文件URL
-   *
-   * @param request GetSnapshotUrlsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSnapshotUrlsResponse
+   * 获取截图文件URL
+   * 
+   * @param request - GetSnapshotUrlsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSnapshotUrlsResponse
    */
   async getSnapshotUrlsWithOptions(request: GetSnapshotUrlsRequest, runtime: $Util.RuntimeOptions): Promise<GetSnapshotUrlsResponse> {
     Util.validateModel(request);
@@ -36486,10 +51545,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取截图文件URL
-   *
-   * @param request GetSnapshotUrlsRequest
-   * @return GetSnapshotUrlsResponse
+   * 获取截图文件URL
+   * 
+   * @param request - GetSnapshotUrlsRequest
+   * @returns GetSnapshotUrlsResponse
    */
   async getSnapshotUrls(request: GetSnapshotUrlsRequest): Promise<GetSnapshotUrlsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36497,11 +51556,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取存储地址列表
-   *
-   * @param request GetStorageListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetStorageListResponse
+   * 获取存储地址列表
+   * 
+   * @param request - GetStorageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStorageListResponse
    */
   async getStorageListWithOptions(request: GetStorageListRequest, runtime: $Util.RuntimeOptions): Promise<GetStorageListResponse> {
     Util.validateModel(request);
@@ -36536,10 +51595,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取存储地址列表
-   *
-   * @param request GetStorageListRequest
-   * @return GetStorageListResponse
+   * 获取存储地址列表
+   * 
+   * @param request - GetStorageListRequest
+   * @returns GetStorageListResponse
    */
   async getStorageList(request: GetStorageListRequest): Promise<GetStorageListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36547,11 +51606,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个媒体处理系统模板
-   *
-   * @param request GetSystemTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSystemTemplateResponse
+   * 获取单个媒体处理系统模板
+   * 
+   * @param request - GetSystemTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSystemTemplateResponse
    */
   async getSystemTemplateWithOptions(request: GetSystemTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetSystemTemplateResponse> {
     Util.validateModel(request);
@@ -36578,10 +51637,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取单个媒体处理系统模板
-   *
-   * @param request GetSystemTemplateRequest
-   * @return GetSystemTemplateResponse
+   * 获取单个媒体处理系统模板
+   * 
+   * @param request - GetSystemTemplateRequest
+   * @returns GetSystemTemplateResponse
    */
   async getSystemTemplate(request: GetSystemTemplateRequest): Promise<GetSystemTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36589,11 +51648,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetTemplate
-   *
-   * @param request GetTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTemplateResponse
+   * GetTemplate
+   * 
+   * @param request - GetTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTemplateResponse
    */
   async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
@@ -36624,10 +51683,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetTemplate
-   *
-   * @param request GetTemplateRequest
-   * @return GetTemplateResponse
+   * GetTemplate
+   * 
+   * @param request - GetTemplateRequest
+   * @returns GetTemplateResponse
    */
   async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36635,11 +51694,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模板关联素材信息
-   *
-   * @param request GetTemplateMaterialsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTemplateMaterialsResponse
+   * 获取模板关联素材信息
+   * 
+   * @param request - GetTemplateMaterialsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTemplateMaterialsResponse
    */
   async getTemplateMaterialsWithOptions(request: GetTemplateMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateMaterialsResponse> {
     Util.validateModel(request);
@@ -36670,10 +51729,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模板关联素材信息
-   *
-   * @param request GetTemplateMaterialsRequest
-   * @return GetTemplateMaterialsResponse
+   * 获取模板关联素材信息
+   * 
+   * @param request - GetTemplateMaterialsRequest
+   * @returns GetTemplateMaterialsResponse
    */
   async getTemplateMaterials(request: GetTemplateMaterialsRequest): Promise<GetTemplateMaterialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36681,11 +51740,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模板参数信息
-   *
-   * @param request GetTemplateParamsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTemplateParamsResponse
+   * 获取模板参数信息
+   * 
+   * @param request - GetTemplateParamsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTemplateParamsResponse
    */
   async getTemplateParamsWithOptions(request: GetTemplateParamsRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateParamsResponse> {
     Util.validateModel(request);
@@ -36708,10 +51767,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取模板参数信息
-   *
-   * @param request GetTemplateParamsRequest
-   * @return GetTemplateParamsResponse
+   * 获取模板参数信息
+   * 
+   * @param request - GetTemplateParamsRequest
+   * @returns GetTemplateParamsResponse
    */
   async getTemplateParams(request: GetTemplateParamsRequest): Promise<GetTemplateParamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36719,9 +51778,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTranscodeJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTranscodeJobResponse
+   * @param request - GetTranscodeJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTranscodeJobResponse
    */
   async getTranscodeJobWithOptions(request: GetTranscodeJobRequest, runtime: $Util.RuntimeOptions): Promise<GetTranscodeJobResponse> {
     Util.validateModel(request);
@@ -36748,8 +51807,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTranscodeJobRequest
-   * @return GetTranscodeJobResponse
+   * @param request - GetTranscodeJobRequest
+   * @returns GetTranscodeJobResponse
    */
   async getTranscodeJob(request: GetTranscodeJobRequest): Promise<GetTranscodeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36757,11 +51816,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取URL上传信息
-   *
-   * @param request GetUrlUploadInfosRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUrlUploadInfosResponse
+   * 获取URL上传信息
+   * 
+   * @param request - GetUrlUploadInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUrlUploadInfosResponse
    */
   async getUrlUploadInfosWithOptions(request: GetUrlUploadInfosRequest, runtime: $Util.RuntimeOptions): Promise<GetUrlUploadInfosResponse> {
     Util.validateModel(request);
@@ -36792,10 +51851,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取URL上传信息
-   *
-   * @param request GetUrlUploadInfosRequest
-   * @return GetUrlUploadInfosResponse
+   * 获取URL上传信息
+   * 
+   * @param request - GetUrlUploadInfosRequest
+   * @returns GetUrlUploadInfosResponse
    */
   async getUrlUploadInfos(request: GetUrlUploadInfosRequest): Promise<GetUrlUploadInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36803,11 +51862,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒资新增列表
-   *
-   * @param request GetVideoListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetVideoListResponse
+   * 获取媒资新增列表
+   * 
+   * @param request - GetVideoListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoListResponse
    */
   async getVideoListWithOptions(request: GetVideoListRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoListResponse> {
     Util.validateModel(request);
@@ -36858,10 +51917,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒资新增列表
-   *
-   * @param request GetVideoListRequest
-   * @return GetVideoListResponse
+   * 获取媒资新增列表
+   * 
+   * @param request - GetVideoListRequest
+   * @returns GetVideoListResponse
    */
   async getVideoList(request: GetVideoListRequest): Promise<GetVideoListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36869,11 +51928,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作流任务
-   *
-   * @param request GetWorkflowTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetWorkflowTaskResponse
+   * 获取工作流任务
+   * 
+   * @param request - GetWorkflowTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkflowTaskResponse
    */
   async getWorkflowTaskWithOptions(request: GetWorkflowTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkflowTaskResponse> {
     Util.validateModel(request);
@@ -36900,10 +51959,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取工作流任务
-   *
-   * @param request GetWorkflowTaskRequest
-   * @return GetWorkflowTaskResponse
+   * 获取工作流任务
+   * 
+   * @param request - GetWorkflowTaskRequest
+   * @returns GetWorkflowTaskResponse
    */
   async getWorkflowTask(request: GetWorkflowTaskRequest): Promise<GetWorkflowTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36911,11 +51970,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 插入媒资到搜索
-   *
-   * @param request InsertMediaToSearchLibRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InsertMediaToSearchLibResponse
+   * 插入媒资到搜索
+   * 
+   * @param request - InsertMediaToSearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InsertMediaToSearchLibResponse
    */
   async insertMediaToSearchLibWithOptions(request: InsertMediaToSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<InsertMediaToSearchLibResponse> {
     Util.validateModel(request);
@@ -36958,10 +52017,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 插入媒资到搜索
-   *
-   * @param request InsertMediaToSearchLibRequest
-   * @return InsertMediaToSearchLibResponse
+   * 插入媒资到搜索
+   * 
+   * @param request - InsertMediaToSearchLibRequest
+   * @returns InsertMediaToSearchLibResponse
    */
   async insertMediaToSearchLib(request: InsertMediaToSearchLibRequest): Promise<InsertMediaToSearchLibResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36969,11 +52028,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出公共素材库所有标签
-   *
-   * @param request ListAllPublicMediaTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAllPublicMediaTagsResponse
+   * 列出公共素材库所有标签
+   * 
+   * @param request - ListAllPublicMediaTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAllPublicMediaTagsResponse
    */
   async listAllPublicMediaTagsWithOptions(request: ListAllPublicMediaTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAllPublicMediaTagsResponse> {
     Util.validateModel(request);
@@ -37004,10 +52063,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出公共素材库所有标签
-   *
-   * @param request ListAllPublicMediaTagsRequest
-   * @return ListAllPublicMediaTagsResponse
+   * 列出公共素材库所有标签
+   * 
+   * @param request - ListAllPublicMediaTagsRequest
+   * @returns ListAllPublicMediaTagsResponse
    */
   async listAllPublicMediaTags(request: ListAllPublicMediaTagsRequest): Promise<ListAllPublicMediaTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37015,11 +52074,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数字人训练任务列表，列出当前用户的所有数字人训练任务
-   *
-   * @param request ListAvatarTrainingJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAvatarTrainingJobsResponse
+   * 查询数字人训练任务列表，列出当前用户的所有数字人训练任务
+   * 
+   * @param request - ListAvatarTrainingJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAvatarTrainingJobsResponse
    */
   async listAvatarTrainingJobsWithOptions(request: ListAvatarTrainingJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListAvatarTrainingJobsResponse> {
     Util.validateModel(request);
@@ -37054,10 +52113,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数字人训练任务列表，列出当前用户的所有数字人训练任务
-   *
-   * @param request ListAvatarTrainingJobsRequest
-   * @return ListAvatarTrainingJobsResponse
+   * 查询数字人训练任务列表，列出当前用户的所有数字人训练任务
+   * 
+   * @param request - ListAvatarTrainingJobsRequest
+   * @returns ListAvatarTrainingJobsResponse
    */
   async listAvatarTrainingJobs(request: ListAvatarTrainingJobsRequest): Promise<ListAvatarTrainingJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37065,11 +52124,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数字人列表，列出当前用户的所有数字人
-   *
-   * @param request ListAvatarsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAvatarsResponse
+   * 查询数字人列表，列出当前用户的所有数字人
+   * 
+   * @param request - ListAvatarsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAvatarsResponse
    */
   async listAvatarsWithOptions(request: ListAvatarsRequest, runtime: $Util.RuntimeOptions): Promise<ListAvatarsResponse> {
     Util.validateModel(request);
@@ -37104,10 +52163,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询数字人列表，列出当前用户的所有数字人
-   *
-   * @param request ListAvatarsRequest
-   * @return ListAvatarsResponse
+   * 查询数字人列表，列出当前用户的所有数字人
+   * 
+   * @param request - ListAvatarsRequest
+   * @returns ListAvatarsResponse
    */
   async listAvatars(request: ListAvatarsRequest): Promise<ListAvatarsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37115,11 +52174,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一键成片任务列表
-   *
-   * @param request ListBatchMediaProducingJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListBatchMediaProducingJobsResponse
+   * 获取一键成片任务列表
+   * 
+   * @param request - ListBatchMediaProducingJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBatchMediaProducingJobsResponse
    */
   async listBatchMediaProducingJobsWithOptions(request: ListBatchMediaProducingJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListBatchMediaProducingJobsResponse> {
     Util.validateModel(request);
@@ -37174,10 +52233,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取一键成片任务列表
-   *
-   * @param request ListBatchMediaProducingJobsRequest
-   * @return ListBatchMediaProducingJobsResponse
+   * 获取一键成片任务列表
+   * 
+   * @param request - ListBatchMediaProducingJobsRequest
+   * @returns ListBatchMediaProducingJobsResponse
    */
   async listBatchMediaProducingJobs(request: ListBatchMediaProducingJobsRequest): Promise<ListBatchMediaProducingJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37185,11 +52244,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒体处理自定义模板列表
-   *
-   * @param request ListCustomTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCustomTemplatesResponse
+   * 获取媒体处理自定义模板列表
+   * 
+   * @param request - ListCustomTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomTemplatesResponse
    */
   async listCustomTemplatesWithOptions(request: ListCustomTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomTemplatesResponse> {
     Util.validateModel(request);
@@ -37240,10 +52299,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒体处理自定义模板列表
-   *
-   * @param request ListCustomTemplatesRequest
-   * @return ListCustomTemplatesResponse
+   * 获取媒体处理自定义模板列表
+   * 
+   * @param request - ListCustomTemplatesRequest
+   * @returns ListCustomTemplatesResponse
    */
   async listCustomTemplates(request: ListCustomTemplatesRequest): Promise<ListCustomTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37251,11 +52310,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询人声克隆训练任务列表，列出当前用户的所有人声克隆训练任务
-   *
-   * @param request ListCustomizedVoiceJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCustomizedVoiceJobsResponse
+   * 查询人声克隆训练任务列表，列出当前用户的所有人声克隆训练任务
+   * 
+   * @param request - ListCustomizedVoiceJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomizedVoiceJobsResponse
    */
   async listCustomizedVoiceJobsWithOptions(request: ListCustomizedVoiceJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomizedVoiceJobsResponse> {
     Util.validateModel(request);
@@ -37290,10 +52349,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询人声克隆训练任务列表，列出当前用户的所有人声克隆训练任务
-   *
-   * @param request ListCustomizedVoiceJobsRequest
-   * @return ListCustomizedVoiceJobsResponse
+   * 查询人声克隆训练任务列表，列出当前用户的所有人声克隆训练任务
+   * 
+   * @param request - ListCustomizedVoiceJobsRequest
+   * @returns ListCustomizedVoiceJobsResponse
    */
   async listCustomizedVoiceJobs(request: ListCustomizedVoiceJobsRequest): Promise<ListCustomizedVoiceJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37301,11 +52360,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户的专属人声列表
-   *
-   * @param request ListCustomizedVoicesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCustomizedVoicesResponse
+   * 获取用户的专属人声列表
+   * 
+   * @param request - ListCustomizedVoicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomizedVoicesResponse
    */
   async listCustomizedVoicesWithOptions(request: ListCustomizedVoicesRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomizedVoicesResponse> {
     Util.validateModel(request);
@@ -37340,10 +52399,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户的专属人声列表
-   *
-   * @param request ListCustomizedVoicesRequest
-   * @return ListCustomizedVoicesResponse
+   * 获取用户的专属人声列表
+   * 
+   * @param request - ListCustomizedVoicesRequest
+   * @returns ListCustomizedVoicesResponse
    */
   async listCustomizedVoices(request: ListCustomizedVoicesRequest): Promise<ListCustomizedVoicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37351,11 +52410,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询DNA库
-   *
-   * @param request ListDNADBRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDNADBResponse
+   * 查询DNA库
+   * 
+   * @param request - ListDNADBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDNADBResponse
    */
   async listDNADBWithOptions(request: ListDNADBRequest, runtime: $Util.RuntimeOptions): Promise<ListDNADBResponse> {
     Util.validateModel(request);
@@ -37398,10 +52457,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询DNA库
-   *
-   * @param request ListDNADBRequest
-   * @return ListDNADBResponse
+   * 查询DNA库
+   * 
+   * @param request - ListDNADBRequest
+   * @returns ListDNADBResponse
    */
   async listDNADB(request: ListDNADBRequest): Promise<ListDNADBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37409,11 +52468,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询DNA文件
-   *
-   * @param request ListDNAFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDNAFilesResponse
+   * 查询DNA文件
+   * 
+   * @param request - ListDNAFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDNAFilesResponse
    */
   async listDNAFilesWithOptions(request: ListDNAFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListDNAFilesResponse> {
     Util.validateModel(request);
@@ -37464,10 +52523,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询DNA文件
-   *
-   * @param request ListDNAFilesRequest
-   * @return ListDNAFilesResponse
+   * 查询DNA文件
+   * 
+   * @param request - ListDNAFilesRequest
+   * @returns ListDNAFilesResponse
    */
   async listDNAFiles(request: ListDNAFilesRequest): Promise<ListDNAFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37475,11 +52534,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询截图任务列表接口
-   *
-   * @param request ListDynamicImageJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDynamicImageJobsResponse
+   * 查询截图任务列表接口
+   * 
+   * @param request - ListDynamicImageJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDynamicImageJobsResponse
    */
   async listDynamicImageJobsWithOptions(request: ListDynamicImageJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListDynamicImageJobsResponse> {
     Util.validateModel(request);
@@ -37530,10 +52589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询截图任务列表接口
-   *
-   * @param request ListDynamicImageJobsRequest
-   * @return ListDynamicImageJobsResponse
+   * 查询截图任务列表接口
+   * 
+   * @param request - ListDynamicImageJobsRequest
+   * @returns ListDynamicImageJobsResponse
    */
   async listDynamicImageJobs(request: ListDynamicImageJobsRequest): Promise<ListDynamicImageJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37541,11 +52600,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询录制文件
-   *
-   * @param request ListLiveRecordFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLiveRecordFilesResponse
+   * 查询录制文件
+   * 
+   * @param request - ListLiveRecordFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLiveRecordFilesResponse
    */
   async listLiveRecordFilesWithOptions(request: ListLiveRecordFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveRecordFilesResponse> {
     Util.validateModel(request);
@@ -37568,10 +52627,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询录制文件
-   *
-   * @param request ListLiveRecordFilesRequest
-   * @return ListLiveRecordFilesResponse
+   * 查询录制文件
+   * 
+   * @param request - ListLiveRecordFilesRequest
+   * @returns ListLiveRecordFilesResponse
    */
   async listLiveRecordFiles(request: ListLiveRecordFilesRequest): Promise<ListLiveRecordFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37579,11 +52638,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询录制任务
-   *
-   * @param request ListLiveRecordJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLiveRecordJobsResponse
+   * 查询录制任务
+   * 
+   * @param request - ListLiveRecordJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLiveRecordJobsResponse
    */
   async listLiveRecordJobsWithOptions(request: ListLiveRecordJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveRecordJobsResponse> {
     Util.validateModel(request);
@@ -37606,10 +52665,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询录制任务
-   *
-   * @param request ListLiveRecordJobsRequest
-   * @return ListLiveRecordJobsResponse
+   * 查询录制任务
+   * 
+   * @param request - ListLiveRecordJobsRequest
+   * @returns ListLiveRecordJobsResponse
    */
   async listLiveRecordJobs(request: ListLiveRecordJobsRequest): Promise<ListLiveRecordJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37617,11 +52676,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播录制模板
-   *
-   * @param request ListLiveRecordTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLiveRecordTemplatesResponse
+   * 查询直播录制模板
+   * 
+   * @param request - ListLiveRecordTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLiveRecordTemplatesResponse
    */
   async listLiveRecordTemplatesWithOptions(request: ListLiveRecordTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveRecordTemplatesResponse> {
     Util.validateModel(request);
@@ -37644,10 +52703,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播录制模板
-   *
-   * @param request ListLiveRecordTemplatesRequest
-   * @return ListLiveRecordTemplatesResponse
+   * 查询直播录制模板
+   * 
+   * @param request - ListLiveRecordTemplatesRequest
+   * @returns ListLiveRecordTemplatesResponse
    */
   async listLiveRecordTemplates(request: ListLiveRecordTemplatesRequest): Promise<ListLiveRecordTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37655,11 +52714,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播截图文件列表
-   *
-   * @param request ListLiveSnapshotFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLiveSnapshotFilesResponse
+   * 查询直播截图文件列表
+   * 
+   * @param request - ListLiveSnapshotFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLiveSnapshotFilesResponse
    */
   async listLiveSnapshotFilesWithOptions(request: ListLiveSnapshotFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveSnapshotFilesResponse> {
     Util.validateModel(request);
@@ -37682,10 +52741,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播截图文件列表
-   *
-   * @param request ListLiveSnapshotFilesRequest
-   * @return ListLiveSnapshotFilesResponse
+   * 查询直播截图文件列表
+   * 
+   * @param request - ListLiveSnapshotFilesRequest
+   * @returns ListLiveSnapshotFilesResponse
    */
   async listLiveSnapshotFiles(request: ListLiveSnapshotFilesRequest): Promise<ListLiveSnapshotFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37693,11 +52752,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播截图任务列表
-   *
-   * @param request ListLiveSnapshotJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLiveSnapshotJobsResponse
+   * 查询直播截图任务列表
+   * 
+   * @param request - ListLiveSnapshotJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLiveSnapshotJobsResponse
    */
   async listLiveSnapshotJobsWithOptions(request: ListLiveSnapshotJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveSnapshotJobsResponse> {
     Util.validateModel(request);
@@ -37720,10 +52779,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播截图任务列表
-   *
-   * @param request ListLiveSnapshotJobsRequest
-   * @return ListLiveSnapshotJobsResponse
+   * 查询直播截图任务列表
+   * 
+   * @param request - ListLiveSnapshotJobsRequest
+   * @returns ListLiveSnapshotJobsResponse
    */
   async listLiveSnapshotJobs(request: ListLiveSnapshotJobsRequest): Promise<ListLiveSnapshotJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37731,11 +52790,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播截图模板列表
-   *
-   * @param request ListLiveSnapshotTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLiveSnapshotTemplatesResponse
+   * 查询直播截图模板列表
+   * 
+   * @param request - ListLiveSnapshotTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLiveSnapshotTemplatesResponse
    */
   async listLiveSnapshotTemplatesWithOptions(request: ListLiveSnapshotTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveSnapshotTemplatesResponse> {
     Util.validateModel(request);
@@ -37758,10 +52817,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询直播截图模板列表
-   *
-   * @param request ListLiveSnapshotTemplatesRequest
-   * @return ListLiveSnapshotTemplatesResponse
+   * 查询直播截图模板列表
+   * 
+   * @param request - ListLiveSnapshotTemplatesRequest
+   * @returns ListLiveSnapshotTemplatesResponse
    */
   async listLiveSnapshotTemplates(request: ListLiveSnapshotTemplatesRequest): Promise<ListLiveSnapshotTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37769,11 +52828,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询转码任务列表
-   *
-   * @param request ListLiveTranscodeJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLiveTranscodeJobsResponse
+   * 查询转码任务列表
+   * 
+   * @param request - ListLiveTranscodeJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLiveTranscodeJobsResponse
    */
   async listLiveTranscodeJobsWithOptions(request: ListLiveTranscodeJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveTranscodeJobsResponse> {
     Util.validateModel(request);
@@ -37824,10 +52883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询转码任务列表
-   *
-   * @param request ListLiveTranscodeJobsRequest
-   * @return ListLiveTranscodeJobsResponse
+   * 查询转码任务列表
+   * 
+   * @param request - ListLiveTranscodeJobsRequest
+   * @returns ListLiveTranscodeJobsResponse
    */
   async listLiveTranscodeJobs(request: ListLiveTranscodeJobsRequest): Promise<ListLiveTranscodeJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37835,11 +52894,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询转码模版列表
-   *
-   * @param request ListLiveTranscodeTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLiveTranscodeTemplatesResponse
+   * 查询转码模版列表
+   * 
+   * @param request - ListLiveTranscodeTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLiveTranscodeTemplatesResponse
    */
   async listLiveTranscodeTemplatesWithOptions(request: ListLiveTranscodeTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListLiveTranscodeTemplatesResponse> {
     Util.validateModel(request);
@@ -37890,10 +52949,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询转码模版列表
-   *
-   * @param request ListLiveTranscodeTemplatesRequest
-   * @return ListLiveTranscodeTemplatesResponse
+   * 查询转码模版列表
+   * 
+   * @param request - ListLiveTranscodeTemplatesRequest
+   * @returns ListLiveTranscodeTemplatesResponse
    */
   async listLiveTranscodeTemplates(request: ListLiveTranscodeTemplatesRequest): Promise<ListLiveTranscodeTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37901,11 +52960,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出符合条件的媒资基础信息
-   *
-   * @param request ListMediaBasicInfosRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMediaBasicInfosResponse
+   * 列出符合条件的媒资基础信息
+   * 
+   * @param request - ListMediaBasicInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaBasicInfosResponse
    */
   async listMediaBasicInfosWithOptions(request: ListMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaBasicInfosResponse> {
     Util.validateModel(request);
@@ -37972,10 +53031,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出符合条件的媒资基础信息
-   *
-   * @param request ListMediaBasicInfosRequest
-   * @return ListMediaBasicInfosResponse
+   * 列出符合条件的媒资基础信息
+   * 
+   * @param request - ListMediaBasicInfosRequest
+   * @returns ListMediaBasicInfosResponse
    */
   async listMediaBasicInfos(request: ListMediaBasicInfosRequest): Promise<ListMediaBasicInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37983,9 +53042,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListMediaInfoJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMediaInfoJobsResponse
+   * @param request - ListMediaInfoJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaInfoJobsResponse
    */
   async listMediaInfoJobsWithOptions(request: ListMediaInfoJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaInfoJobsResponse> {
     Util.validateModel(request);
@@ -38036,8 +53095,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListMediaInfoJobsRequest
-   * @return ListMediaInfoJobsResponse
+   * @param request - ListMediaInfoJobsRequest
+   * @returns ListMediaInfoJobsResponse
    */
   async listMediaInfoJobs(request: ListMediaInfoJobsRequest): Promise<ListMediaInfoJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38045,11 +53104,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒资的标注信息
-   *
-   * @param request ListMediaMarksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMediaMarksResponse
+   * 获取媒资的标注信息
+   * 
+   * @param request - ListMediaMarksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaMarksResponse
    */
   async listMediaMarksWithOptions(request: ListMediaMarksRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaMarksResponse> {
     Util.validateModel(request);
@@ -38080,10 +53139,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒资的标注信息
-   *
-   * @param request ListMediaMarksRequest
-   * @return ListMediaMarksResponse
+   * 获取媒资的标注信息
+   * 
+   * @param request - ListMediaMarksRequest
+   * @returns ListMediaMarksResponse
    */
   async listMediaMarks(request: ListMediaMarksRequest): Promise<ListMediaMarksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38091,11 +53150,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出合成任务列表
-   *
-   * @param request ListMediaProducingJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMediaProducingJobsResponse
+   * 列出合成任务列表
+   * 
+   * @param request - ListMediaProducingJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaProducingJobsResponse
    */
   async listMediaProducingJobsWithOptions(request: ListMediaProducingJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaProducingJobsResponse> {
     Util.validateModel(request);
@@ -38154,10 +53213,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出合成任务列表
-   *
-   * @param request ListMediaProducingJobsRequest
-   * @return ListMediaProducingJobsResponse
+   * 列出合成任务列表
+   * 
+   * @param request - ListMediaProducingJobsRequest
+   * @returns ListMediaProducingJobsResponse
    */
   async listMediaProducingJobs(request: ListMediaProducingJobsRequest): Promise<ListMediaProducingJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38165,11 +53224,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取打包任务列表
-   *
-   * @param request ListPackageJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPackageJobsResponse
+   * 获取打包任务列表
+   * 
+   * @param request - ListPackageJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPackageJobsResponse
    */
   async listPackageJobsWithOptions(request: ListPackageJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListPackageJobsResponse> {
     Util.validateModel(request);
@@ -38220,10 +53279,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取打包任务列表
-   *
-   * @param request ListPackageJobsRequest
-   * @return ListPackageJobsResponse
+   * 获取打包任务列表
+   * 
+   * @param request - ListPackageJobsRequest
+   * @returns ListPackageJobsResponse
    */
   async listPackageJobs(request: ListPackageJobsRequest): Promise<ListPackageJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38231,11 +53290,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取管道配置列表
-   *
-   * @param request ListPipelinesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPipelinesResponse
+   * 获取管道配置列表
+   * 
+   * @param request - ListPipelinesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPipelinesResponse
    */
   async listPipelinesWithOptions(request: ListPipelinesRequest, runtime: $Util.RuntimeOptions): Promise<ListPipelinesResponse> {
     Util.validateModel(request);
@@ -38262,10 +53321,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取管道配置列表
-   *
-   * @param request ListPipelinesRequest
-   * @return ListPipelinesResponse
+   * 获取管道配置列表
+   * 
+   * @param request - ListPipelinesRequest
+   * @returns ListPipelinesResponse
    */
   async listPipelines(request: ListPipelinesRequest): Promise<ListPipelinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38273,11 +53332,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出公共素材库素材的基础信息
-   *
-   * @param request ListPublicMediaBasicInfosRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPublicMediaBasicInfosResponse
+   * 列出公共素材库素材的基础信息
+   * 
+   * @param request - ListPublicMediaBasicInfosRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublicMediaBasicInfosResponse
    */
   async listPublicMediaBasicInfosWithOptions(request: ListPublicMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicMediaBasicInfosResponse> {
     Util.validateModel(request);
@@ -38328,10 +53387,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出公共素材库素材的基础信息
-   *
-   * @param request ListPublicMediaBasicInfosRequest
-   * @return ListPublicMediaBasicInfosResponse
+   * 列出公共素材库素材的基础信息
+   * 
+   * @param request - ListPublicMediaBasicInfosRequest
+   * @returns ListPublicMediaBasicInfosResponse
    */
   async listPublicMediaBasicInfos(request: ListPublicMediaBasicInfosRequest): Promise<ListPublicMediaBasicInfosResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38339,11 +53398,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListSmartJobs
-   *
-   * @param request ListSmartJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSmartJobsResponse
+   * ListSmartJobs
+   * 
+   * @param request - ListSmartJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSmartJobsResponse
    */
   async listSmartJobsWithOptions(request: ListSmartJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListSmartJobsResponse> {
     Util.validateModel(request);
@@ -38366,10 +53425,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListSmartJobs
-   *
-   * @param request ListSmartJobsRequest
-   * @return ListSmartJobsResponse
+   * ListSmartJobs
+   * 
+   * @param request - ListSmartJobsRequest
+   * @returns ListSmartJobsResponse
    */
   async listSmartJobs(request: ListSmartJobsRequest): Promise<ListSmartJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38377,11 +53436,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出虚拟人官方模特配置
-   *
-   * @param request ListSmartSysAvatarModelsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSmartSysAvatarModelsResponse
+   * 列出虚拟人官方模特配置
+   * 
+   * @param request - ListSmartSysAvatarModelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSmartSysAvatarModelsResponse
    */
   async listSmartSysAvatarModelsWithOptions(request: ListSmartSysAvatarModelsRequest, runtime: $Util.RuntimeOptions): Promise<ListSmartSysAvatarModelsResponse> {
     Util.validateModel(request);
@@ -38416,10 +53475,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出虚拟人官方模特配置
-   *
-   * @param request ListSmartSysAvatarModelsRequest
-   * @return ListSmartSysAvatarModelsResponse
+   * 列出虚拟人官方模特配置
+   * 
+   * @param request - ListSmartSysAvatarModelsRequest
+   * @returns ListSmartSysAvatarModelsResponse
    */
   async listSmartSysAvatarModels(request: ListSmartSysAvatarModelsRequest): Promise<ListSmartSysAvatarModelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38427,11 +53486,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出智能语音发音人信息
-   *
-   * @param request ListSmartVoiceGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSmartVoiceGroupsResponse
+   * 列出智能语音发音人信息
+   * 
+   * @param request - ListSmartVoiceGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSmartVoiceGroupsResponse
    */
   async listSmartVoiceGroupsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListSmartVoiceGroupsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -38450,9 +53509,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出智能语音发音人信息
-   *
-   * @return ListSmartVoiceGroupsResponse
+   * 列出智能语音发音人信息
+   * @returns ListSmartVoiceGroupsResponse
    */
   async listSmartVoiceGroups(): Promise<ListSmartVoiceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38460,11 +53518,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询截图任务列表接口
-   *
-   * @param request ListSnapshotJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSnapshotJobsResponse
+   * 查询截图任务列表接口
+   * 
+   * @param request - ListSnapshotJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSnapshotJobsResponse
    */
   async listSnapshotJobsWithOptions(request: ListSnapshotJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotJobsResponse> {
     Util.validateModel(request);
@@ -38515,10 +53573,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询截图任务列表接口
-   *
-   * @param request ListSnapshotJobsRequest
-   * @return ListSnapshotJobsResponse
+   * 查询截图任务列表接口
+   * 
+   * @param request - ListSnapshotJobsRequest
+   * @returns ListSnapshotJobsResponse
    */
   async listSnapshotJobs(request: ListSnapshotJobsRequest): Promise<ListSnapshotJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38526,11 +53584,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒体处理系统模板列表
-   *
-   * @param request ListSystemTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSystemTemplatesResponse
+   * 获取媒体处理系统模板列表
+   * 
+   * @param request - ListSystemTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSystemTemplatesResponse
    */
   async listSystemTemplatesWithOptions(request: ListSystemTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListSystemTemplatesResponse> {
     Util.validateModel(request);
@@ -38581,10 +53639,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒体处理系统模板列表
-   *
-   * @param request ListSystemTemplatesRequest
-   * @return ListSystemTemplatesResponse
+   * 获取媒体处理系统模板列表
+   * 
+   * @param request - ListSystemTemplatesRequest
+   * @returns ListSystemTemplatesResponse
    */
   async listSystemTemplates(request: ListSystemTemplatesRequest): Promise<ListSystemTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38592,11 +53650,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListTemplates
-   *
-   * @param request ListTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTemplatesResponse
+   * ListTemplates
+   * 
+   * @param request - ListTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTemplatesResponse
    */
   async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(request);
@@ -38647,10 +53705,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListTemplates
-   *
-   * @param request ListTemplatesRequest
-   * @return ListTemplatesResponse
+   * ListTemplates
+   * 
+   * @param request - ListTemplatesRequest
+   * @returns ListTemplatesResponse
    */
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38658,9 +53716,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTranscodeJobsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTranscodeJobsResponse
+   * @param request - ListTranscodeJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTranscodeJobsResponse
    */
   async listTranscodeJobsWithOptions(request: ListTranscodeJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListTranscodeJobsResponse> {
     Util.validateModel(request);
@@ -38711,8 +53769,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTranscodeJobsRequest
-   * @return ListTranscodeJobsResponse
+   * @param request - ListTranscodeJobsRequest
+   * @returns ListTranscodeJobsResponse
    */
   async listTranscodeJobs(request: ListTranscodeJobsRequest): Promise<ListTranscodeJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38720,11 +53778,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询DNA作业
-   *
-   * @param request QueryDNAJobListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryDNAJobListResponse
+   * 查询DNA作业
+   * 
+   * @param request - QueryDNAJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDNAJobListResponse
    */
   async queryDNAJobListWithOptions(request: QueryDNAJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryDNAJobListResponse> {
     Util.validateModel(request);
@@ -38767,10 +53825,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询DNA作业
-   *
-   * @param request QueryDNAJobListRequest
-   * @return QueryDNAJobListResponse
+   * 查询DNA作业
+   * 
+   * @param request - QueryDNAJobListRequest
+   * @returns QueryDNAJobListResponse
    */
   async queryDNAJobList(request: QueryDNAJobListRequest): Promise<QueryDNAJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38778,11 +53836,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询智能生产作业
-   *
-   * @param request QueryIProductionJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryIProductionJobResponse
+   * 查询智能生产作业
+   * 
+   * @param request - QueryIProductionJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryIProductionJobResponse
    */
   async queryIProductionJobWithOptions(request: QueryIProductionJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryIProductionJobResponse> {
     Util.validateModel(request);
@@ -38813,10 +53871,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询智能生产作业
-   *
-   * @param request QueryIProductionJobRequest
-   * @return QueryIProductionJobResponse
+   * 查询智能生产作业
+   * 
+   * @param request - QueryIProductionJobRequest
+   * @returns QueryIProductionJobResponse
    */
   async queryIProductionJob(request: QueryIProductionJobRequest): Promise<QueryIProductionJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38824,9 +53882,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryMediaCensorJobDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMediaCensorJobDetailResponse
+   * @param request - QueryMediaCensorJobDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMediaCensorJobDetailResponse
    */
   async queryMediaCensorJobDetailWithOptions(request: QueryMediaCensorJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaCensorJobDetailResponse> {
     Util.validateModel(request);
@@ -38877,8 +53935,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryMediaCensorJobDetailRequest
-   * @return QueryMediaCensorJobDetailResponse
+   * @param request - QueryMediaCensorJobDetailRequest
+   * @returns QueryMediaCensorJobDetailResponse
    */
   async queryMediaCensorJobDetail(request: QueryMediaCensorJobDetailRequest): Promise<QueryMediaCensorJobDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38886,9 +53944,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryMediaCensorJobListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMediaCensorJobListResponse
+   * @param request - QueryMediaCensorJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMediaCensorJobListResponse
    */
   async queryMediaCensorJobListWithOptions(request: QueryMediaCensorJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaCensorJobListResponse> {
     Util.validateModel(request);
@@ -38955,8 +54013,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryMediaCensorJobListRequest
-   * @return QueryMediaCensorJobListResponse
+   * @param request - QueryMediaCensorJobListRequest
+   * @returns QueryMediaCensorJobListResponse
    */
   async queryMediaCensorJobList(request: QueryMediaCensorJobListRequest): Promise<QueryMediaCensorJobListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38964,11 +54022,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询索引任务
-   *
-   * @param request QueryMediaIndexJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMediaIndexJobResponse
+   * 查询索引任务
+   * 
+   * @param request - QueryMediaIndexJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMediaIndexJobResponse
    */
   async queryMediaIndexJobWithOptions(request: QueryMediaIndexJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryMediaIndexJobResponse> {
     Util.validateModel(request);
@@ -38999,10 +54057,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询索引任务
-   *
-   * @param request QueryMediaIndexJobRequest
-   * @return QueryMediaIndexJobResponse
+   * 查询索引任务
+   * 
+   * @param request - QueryMediaIndexJobRequest
+   * @returns QueryMediaIndexJobResponse
    */
   async queryMediaIndexJob(request: QueryMediaIndexJobRequest): Promise<QueryMediaIndexJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39010,11 +54068,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询搜索索引
-   *
-   * @param request QuerySearchIndexRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySearchIndexResponse
+   * 查询搜索索引
+   * 
+   * @param request - QuerySearchIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySearchIndexResponse
    */
   async querySearchIndexWithOptions(request: QuerySearchIndexRequest, runtime: $Util.RuntimeOptions): Promise<QuerySearchIndexResponse> {
     Util.validateModel(request);
@@ -39045,10 +54103,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询搜索索引
-   *
-   * @param request QuerySearchIndexRequest
-   * @return QuerySearchIndexResponse
+   * 查询搜索索引
+   * 
+   * @param request - QuerySearchIndexRequest
+   * @returns QuerySearchIndexResponse
    */
   async querySearchIndex(request: QuerySearchIndexRequest): Promise<QuerySearchIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39056,11 +54114,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询库
-   *
-   * @param request QuerySearchLibRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySearchLibResponse
+   * 查询库
+   * 
+   * @param request - QuerySearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySearchLibResponse
    */
   async querySearchLibWithOptions(request: QuerySearchLibRequest, runtime: $Util.RuntimeOptions): Promise<QuerySearchLibResponse> {
     Util.validateModel(request);
@@ -39087,10 +54145,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询库
-   *
-   * @param request QuerySearchLibRequest
-   * @return QuerySearchLibResponse
+   * 查询库
+   * 
+   * @param request - QuerySearchLibRequest
+   * @returns QuerySearchLibResponse
    */
   async querySearchLib(request: QuerySearchLibRequest): Promise<QuerySearchLibResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39098,9 +54156,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QuerySmarttagJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySmarttagJobResponse
+   * @param request - QuerySmarttagJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySmarttagJobResponse
    */
   async querySmarttagJobWithOptions(request: QuerySmarttagJobRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmarttagJobResponse> {
     Util.validateModel(request);
@@ -39131,8 +54189,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QuerySmarttagJobRequest
-   * @return QuerySmarttagJobResponse
+   * @param request - QuerySmarttagJobRequest
+   * @returns QuerySmarttagJobResponse
    */
   async querySmarttagJob(request: QuerySmarttagJobRequest): Promise<QuerySmarttagJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39140,11 +54198,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 刷新媒资上传凭证
-   *
-   * @param request RefreshUploadMediaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RefreshUploadMediaResponse
+   * 刷新媒资上传凭证
+   * 
+   * @param request - RefreshUploadMediaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshUploadMediaResponse
    */
   async refreshUploadMediaWithOptions(request: RefreshUploadMediaRequest, runtime: $Util.RuntimeOptions): Promise<RefreshUploadMediaResponse> {
     Util.validateModel(request);
@@ -39171,10 +54229,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 刷新媒资上传凭证
-   *
-   * @param request RefreshUploadMediaRequest
-   * @return RefreshUploadMediaResponse
+   * 刷新媒资上传凭证
+   * 
+   * @param request - RefreshUploadMediaRequest
+   * @returns RefreshUploadMediaResponse
    */
   async refreshUploadMedia(request: RefreshUploadMediaRequest): Promise<RefreshUploadMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39182,11 +54240,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 注册内容库资源
-   *
-   * @param request RegisterMediaInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RegisterMediaInfoResponse
+   * 注册内容库资源
+   * 
+   * @param request - RegisterMediaInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterMediaInfoResponse
    */
   async registerMediaInfoWithOptions(request: RegisterMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<RegisterMediaInfoResponse> {
     Util.validateModel(request);
@@ -39269,10 +54327,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 注册内容库资源
-   *
-   * @param request RegisterMediaInfoRequest
-   * @return RegisterMediaInfoResponse
+   * 注册内容库资源
+   * 
+   * @param request - RegisterMediaInfoRequest
+   * @returns RegisterMediaInfoResponse
    */
   async registerMediaInfo(request: RegisterMediaInfoRequest): Promise<RegisterMediaInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39280,11 +54338,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 注册媒体流
-   *
-   * @param request RegisterMediaStreamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RegisterMediaStreamResponse
+   * 注册媒体流
+   * 
+   * @param request - RegisterMediaStreamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterMediaStreamResponse
    */
   async registerMediaStreamWithOptions(request: RegisterMediaStreamRequest, runtime: $Util.RuntimeOptions): Promise<RegisterMediaStreamResponse> {
     Util.validateModel(request);
@@ -39319,10 +54377,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 注册媒体流
-   *
-   * @param request RegisterMediaStreamRequest
-   * @return RegisterMediaStreamResponse
+   * 注册媒体流
+   * 
+   * @param request - RegisterMediaStreamRequest
+   * @returns RegisterMediaStreamResponse
    */
   async registerMediaStream(request: RegisterMediaStreamRequest): Promise<RegisterMediaStreamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39330,11 +54388,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SearchEditingProject
-   *
-   * @param request SearchEditingProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchEditingProjectResponse
+   * SearchEditingProject
+   * 
+   * @param request - SearchEditingProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchEditingProjectResponse
    */
   async searchEditingProjectWithOptions(request: SearchEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<SearchEditingProjectResponse> {
     Util.validateModel(request);
@@ -39393,10 +54451,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SearchEditingProject
-   *
-   * @param request SearchEditingProjectRequest
-   * @return SearchEditingProjectResponse
+   * SearchEditingProject
+   * 
+   * @param request - SearchEditingProjectRequest
+   * @returns SearchEditingProjectResponse
    */
   async searchEditingProject(request: SearchEditingProjectRequest): Promise<SearchEditingProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39404,11 +54462,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 媒资搜索
-   *
-   * @param request SearchMediaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchMediaResponse
+   * Queries information about media assets based on the request parameters.
+   * 
+   * @remarks
+   * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+   * 
+   * @param request - SearchMediaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMediaResponse
    */
   async searchMediaWithOptions(request: SearchMediaRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaResponse> {
     Util.validateModel(request);
@@ -39459,10 +54520,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 媒资搜索
-   *
-   * @param request SearchMediaRequest
-   * @return SearchMediaResponse
+   * Queries information about media assets based on the request parameters.
+   * 
+   * @remarks
+   * If you have questions about how to use the media asset search feature in Intelligent Media Services (IMS), contact technical support in the DingTalk group (ID 30415005038).
+   * 
+   * @param request - SearchMediaRequest
+   * @returns SearchMediaResponse
    */
   async searchMedia(request: SearchMediaRequest): Promise<SearchMediaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39470,11 +54534,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 智能标签搜索
-   *
-   * @param request SearchMediaByAILabelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchMediaByAILabelResponse
+   * 智能标签搜索
+   * 
+   * @param request - SearchMediaByAILabelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMediaByAILabelResponse
    */
   async searchMediaByAILabelWithOptions(request: SearchMediaByAILabelRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaByAILabelResponse> {
     Util.validateModel(request);
@@ -39533,10 +54597,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 智能标签搜索
-   *
-   * @param request SearchMediaByAILabelRequest
-   * @return SearchMediaByAILabelResponse
+   * 智能标签搜索
+   * 
+   * @param request - SearchMediaByAILabelRequest
+   * @returns SearchMediaByAILabelResponse
    */
   async searchMediaByAILabel(request: SearchMediaByAILabelRequest): Promise<SearchMediaByAILabelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39544,11 +54608,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 人脸搜粗搜接口，输入一张人脸图片，搜索该人物所在媒资的相关信息
-   *
-   * @param request SearchMediaByFaceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchMediaByFaceResponse
+   * 人脸搜粗搜接口，输入一张人脸图片，搜索该人物所在媒资的相关信息
+   * 
+   * @param request - SearchMediaByFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMediaByFaceResponse
    */
   async searchMediaByFaceWithOptions(request: SearchMediaByFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaByFaceResponse> {
     Util.validateModel(request);
@@ -39599,10 +54663,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 人脸搜粗搜接口，输入一张人脸图片，搜索该人物所在媒资的相关信息
-   *
-   * @param request SearchMediaByFaceRequest
-   * @return SearchMediaByFaceResponse
+   * 人脸搜粗搜接口，输入一张人脸图片，搜索该人物所在媒资的相关信息
+   * 
+   * @param request - SearchMediaByFaceRequest
+   * @returns SearchMediaByFaceResponse
    */
   async searchMediaByFace(request: SearchMediaByFaceRequest): Promise<SearchMediaByFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39610,11 +54674,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 混合搜索
-   *
-   * @param request SearchMediaByHybridRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchMediaByHybridResponse
+   * 混合搜索
+   * 
+   * @param request - SearchMediaByHybridRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMediaByHybridResponse
    */
   async searchMediaByHybridWithOptions(request: SearchMediaByHybridRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaByHybridResponse> {
     Util.validateModel(request);
@@ -39661,10 +54725,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 混合搜索
-   *
-   * @param request SearchMediaByHybridRequest
-   * @return SearchMediaByHybridResponse
+   * 混合搜索
+   * 
+   * @param request - SearchMediaByHybridRequest
+   * @returns SearchMediaByHybridResponse
    */
   async searchMediaByHybrid(request: SearchMediaByHybridRequest): Promise<SearchMediaByHybridResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39672,11 +54736,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 多模态搜索
-   *
-   * @param request SearchMediaByMultimodalRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchMediaByMultimodalResponse
+   * 多模态搜索
+   * 
+   * @param request - SearchMediaByMultimodalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMediaByMultimodalResponse
    */
   async searchMediaByMultimodalWithOptions(request: SearchMediaByMultimodalRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaByMultimodalResponse> {
     Util.validateModel(request);
@@ -39719,10 +54783,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 多模态搜索
-   *
-   * @param request SearchMediaByMultimodalRequest
-   * @return SearchMediaByMultimodalResponse
+   * 多模态搜索
+   * 
+   * @param request - SearchMediaByMultimodalRequest
+   * @returns SearchMediaByMultimodalResponse
    */
   async searchMediaByMultimodal(request: SearchMediaByMultimodalRequest): Promise<SearchMediaByMultimodalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39730,11 +54794,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 人脸搜精搜接口，基于粗搜结果返回该人物所在媒资的相关人物片段信息
-   *
-   * @param request SearchMediaClipByFaceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchMediaClipByFaceResponse
+   * 人脸搜精搜接口，基于粗搜结果返回该人物所在媒资的相关人物片段信息
+   * 
+   * @param request - SearchMediaClipByFaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMediaClipByFaceResponse
    */
   async searchMediaClipByFaceWithOptions(request: SearchMediaClipByFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchMediaClipByFaceResponse> {
     Util.validateModel(request);
@@ -39781,10 +54845,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 人脸搜精搜接口，基于粗搜结果返回该人物所在媒资的相关人物片段信息
-   *
-   * @param request SearchMediaClipByFaceRequest
-   * @return SearchMediaClipByFaceResponse
+   * 人脸搜精搜接口，基于粗搜结果返回该人物所在媒资的相关人物片段信息
+   * 
+   * @param request - SearchMediaClipByFaceRequest
+   * @returns SearchMediaClipByFaceResponse
    */
   async searchMediaClipByFace(request: SearchMediaClipByFaceRequest): Promise<SearchMediaClipByFaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39792,11 +54856,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 搜索公共媒资信息
-   *
-   * @param request SearchPublicMediaInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchPublicMediaInfoResponse
+   * 搜索公共媒资信息
+   * 
+   * @param request - SearchPublicMediaInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchPublicMediaInfoResponse
    */
   async searchPublicMediaInfoWithOptions(request: SearchPublicMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<SearchPublicMediaInfoResponse> {
     Util.validateModel(request);
@@ -39851,10 +54915,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 搜索公共媒资信息
-   *
-   * @param request SearchPublicMediaInfoRequest
-   * @return SearchPublicMediaInfoResponse
+   * 搜索公共媒资信息
+   * 
+   * @param request - SearchPublicMediaInfoRequest
+   * @returns SearchPublicMediaInfoResponse
    */
   async searchPublicMediaInfo(request: SearchPublicMediaInfoRequest): Promise<SearchPublicMediaInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39862,11 +54926,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发送实时截图任务指令
-   *
-   * @param request SendLiveSnapshotJobCommandRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendLiveSnapshotJobCommandResponse
+   * 发送实时截图任务指令
+   * 
+   * @param request - SendLiveSnapshotJobCommandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendLiveSnapshotJobCommandResponse
    */
   async sendLiveSnapshotJobCommandWithOptions(request: SendLiveSnapshotJobCommandRequest, runtime: $Util.RuntimeOptions): Promise<SendLiveSnapshotJobCommandResponse> {
     Util.validateModel(request);
@@ -39897,10 +54961,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发送实时截图任务指令
-   *
-   * @param request SendLiveSnapshotJobCommandRequest
-   * @return SendLiveSnapshotJobCommandResponse
+   * 发送实时截图任务指令
+   * 
+   * @param request - SendLiveSnapshotJobCommandRequest
+   * @returns SendLiveSnapshotJobCommandResponse
    */
   async sendLiveSnapshotJobCommand(request: SendLiveSnapshotJobCommandRequest): Promise<SendLiveSnapshotJobCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39908,11 +54972,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 给指定转码任务发实时命令
-   *
-   * @param request SendLiveTranscodeJobCommandRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendLiveTranscodeJobCommandResponse
+   * 给指定转码任务发实时命令
+   * 
+   * @param request - SendLiveTranscodeJobCommandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendLiveTranscodeJobCommandResponse
    */
   async sendLiveTranscodeJobCommandWithOptions(request: SendLiveTranscodeJobCommandRequest, runtime: $Util.RuntimeOptions): Promise<SendLiveTranscodeJobCommandResponse> {
     Util.validateModel(request);
@@ -39943,10 +55007,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 给指定转码任务发实时命令
-   *
-   * @param request SendLiveTranscodeJobCommandRequest
-   * @return SendLiveTranscodeJobCommandResponse
+   * 给指定转码任务发实时命令
+   * 
+   * @param request - SendLiveTranscodeJobCommandRequest
+   * @returns SendLiveTranscodeJobCommandResponse
    */
   async sendLiveTranscodeJobCommand(request: SendLiveTranscodeJobCommandRequest): Promise<SendLiveTranscodeJobCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39954,11 +55018,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置内容分析搜索配置
-   *
-   * @param request SetContentAnalyzeConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetContentAnalyzeConfigResponse
+   * 设置内容分析搜索配置
+   * 
+   * @param request - SetContentAnalyzeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetContentAnalyzeConfigResponse
    */
   async setContentAnalyzeConfigWithOptions(request: SetContentAnalyzeConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetContentAnalyzeConfigResponse> {
     Util.validateModel(request);
@@ -39993,10 +55057,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置内容分析搜索配置
-   *
-   * @param request SetContentAnalyzeConfigRequest
-   * @return SetContentAnalyzeConfigResponse
+   * 设置内容分析搜索配置
+   * 
+   * @param request - SetContentAnalyzeConfigRequest
+   * @returns SetContentAnalyzeConfigResponse
    */
   async setContentAnalyzeConfig(request: SetContentAnalyzeConfigRequest): Promise<SetContentAnalyzeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40004,11 +55068,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置默认媒体处理模板
-   *
-   * @param request SetDefaultCustomTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetDefaultCustomTemplateResponse
+   * 设置默认媒体处理模板
+   * 
+   * @param request - SetDefaultCustomTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetDefaultCustomTemplateResponse
    */
   async setDefaultCustomTemplateWithOptions(request: SetDefaultCustomTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultCustomTemplateResponse> {
     Util.validateModel(request);
@@ -40035,10 +55099,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置默认媒体处理模板
-   *
-   * @param request SetDefaultCustomTemplateRequest
-   * @return SetDefaultCustomTemplateResponse
+   * 设置默认媒体处理模板
+   * 
+   * @param request - SetDefaultCustomTemplateRequest
+   * @returns SetDefaultCustomTemplateResponse
    */
   async setDefaultCustomTemplate(request: SetDefaultCustomTemplateRequest): Promise<SetDefaultCustomTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40046,11 +55110,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置默认存储路径
-   *
-   * @param request SetDefaultStorageLocationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetDefaultStorageLocationResponse
+   * 设置默认存储路径
+   * 
+   * @param request - SetDefaultStorageLocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetDefaultStorageLocationResponse
    */
   async setDefaultStorageLocationWithOptions(request: SetDefaultStorageLocationRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultStorageLocationResponse> {
     Util.validateModel(request);
@@ -40085,10 +55149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 设置默认存储路径
-   *
-   * @param request SetDefaultStorageLocationRequest
-   * @return SetDefaultStorageLocationResponse
+   * 设置默认存储路径
+   * 
+   * @param request - SetDefaultStorageLocationRequest
+   * @returns SetDefaultStorageLocationResponse
    */
   async setDefaultStorageLocation(request: SetDefaultStorageLocationRequest): Promise<SetDefaultStorageLocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40096,11 +55160,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置事件回调地址
-   *
-   * @param request SetEventCallbackRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetEventCallbackResponse
+   * 配置事件回调地址
+   * 
+   * @param request - SetEventCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetEventCallbackResponse
    */
   async setEventCallbackWithOptions(request: SetEventCallbackRequest, runtime: $Util.RuntimeOptions): Promise<SetEventCallbackResponse> {
     Util.validateModel(request);
@@ -40147,10 +55211,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置事件回调地址
-   *
-   * @param request SetEventCallbackRequest
-   * @return SetEventCallbackResponse
+   * 配置事件回调地址
+   * 
+   * @param request - SetEventCallbackRequest
+   * @returns SetEventCallbackResponse
    */
   async setEventCallback(request: SetEventCallbackRequest): Promise<SetEventCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40158,11 +55222,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动工作流
-   *
-   * @param request StartWorkflowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartWorkflowResponse
+   * 启动工作流
+   * 
+   * @param request - StartWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartWorkflowResponse
    */
   async startWorkflowWithOptions(request: StartWorkflowRequest, runtime: $Util.RuntimeOptions): Promise<StartWorkflowResponse> {
     Util.validateModel(request);
@@ -40197,10 +55261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动工作流
-   *
-   * @param request StartWorkflowRequest
-   * @return StartWorkflowResponse
+   * 启动工作流
+   * 
+   * @param request - StartWorkflowRequest
+   * @returns StartWorkflowResponse
    */
   async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40208,11 +55272,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SubmitASRJob
-   *
-   * @param request SubmitASRJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitASRJobResponse
+   * SubmitASRJob
+   * 
+   * @param request - SubmitASRJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitASRJobResponse
    */
   async submitASRJobWithOptions(request: SubmitASRJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitASRJobResponse> {
     Util.validateModel(request);
@@ -40259,10 +55323,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SubmitASRJob
-   *
-   * @param request SubmitASRJobRequest
-   * @return SubmitASRJobResponse
+   * SubmitASRJob
+   * 
+   * @param request - SubmitASRJobRequest
+   * @returns SubmitASRJobResponse
    */
   async submitASRJob(request: SubmitASRJobRequest): Promise<SubmitASRJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40270,11 +55334,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SubmitAudioProduceJob
-   *
-   * @param request SubmitAudioProduceJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitAudioProduceJobResponse
+   * SubmitAudioProduceJob
+   * 
+   * @param request - SubmitAudioProduceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAudioProduceJobResponse
    */
   async submitAudioProduceJobWithOptions(request: SubmitAudioProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAudioProduceJobResponse> {
     Util.validateModel(request);
@@ -40325,10 +55389,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SubmitAudioProduceJob
-   *
-   * @param request SubmitAudioProduceJobRequest
-   * @return SubmitAudioProduceJobResponse
+   * SubmitAudioProduceJob
+   * 
+   * @param request - SubmitAudioProduceJobRequest
+   * @returns SubmitAudioProduceJobResponse
    */
   async submitAudioProduceJob(request: SubmitAudioProduceJobRequest): Promise<SubmitAudioProduceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40336,11 +55400,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交数字人训练任务
-   *
-   * @param request SubmitAvatarTrainingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitAvatarTrainingJobResponse
+   * 提交数字人训练任务
+   * 
+   * @param request - SubmitAvatarTrainingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAvatarTrainingJobResponse
    */
   async submitAvatarTrainingJobWithOptions(request: SubmitAvatarTrainingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAvatarTrainingJobResponse> {
     Util.validateModel(request);
@@ -40367,10 +55431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交数字人训练任务
-   *
-   * @param request SubmitAvatarTrainingJobRequest
-   * @return SubmitAvatarTrainingJobResponse
+   * 提交数字人训练任务
+   * 
+   * @param request - SubmitAvatarTrainingJobRequest
+   * @returns SubmitAvatarTrainingJobResponse
    */
   async submitAvatarTrainingJob(request: SubmitAvatarTrainingJobRequest): Promise<SubmitAvatarTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40378,11 +55442,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交虚拟人视频合成任务
-   *
-   * @param request SubmitAvatarVideoJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitAvatarVideoJobResponse
+   * 提交虚拟人视频合成任务
+   * 
+   * @param request - SubmitAvatarVideoJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAvatarVideoJobResponse
    */
   async submitAvatarVideoJobWithOptions(request: SubmitAvatarVideoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAvatarVideoJobResponse> {
     Util.validateModel(request);
@@ -40429,10 +55493,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交虚拟人视频合成任务
-   *
-   * @param request SubmitAvatarVideoJobRequest
-   * @return SubmitAvatarVideoJobResponse
+   * 提交虚拟人视频合成任务
+   * 
+   * @param request - SubmitAvatarVideoJobRequest
+   * @returns SubmitAvatarVideoJobResponse
    */
   async submitAvatarVideoJob(request: SubmitAvatarVideoJobRequest): Promise<SubmitAvatarVideoJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40440,11 +55504,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SubmitBatchMediaProducingJob
-   *
-   * @param request SubmitBatchMediaProducingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitBatchMediaProducingJobResponse
+   * SubmitBatchMediaProducingJob
+   * 
+   * @param request - SubmitBatchMediaProducingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitBatchMediaProducingJobResponse
    */
   async submitBatchMediaProducingJobWithOptions(request: SubmitBatchMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitBatchMediaProducingJobResponse> {
     Util.validateModel(request);
@@ -40489,10 +55553,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SubmitBatchMediaProducingJob
-   *
-   * @param request SubmitBatchMediaProducingJobRequest
-   * @return SubmitBatchMediaProducingJobResponse
+   * SubmitBatchMediaProducingJob
+   * 
+   * @param request - SubmitBatchMediaProducingJobRequest
+   * @returns SubmitBatchMediaProducingJobResponse
    */
   async submitBatchMediaProducingJob(request: SubmitBatchMediaProducingJobRequest): Promise<SubmitBatchMediaProducingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40500,11 +55564,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交人声克隆训练任务
-   *
-   * @param request SubmitCustomizedVoiceJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitCustomizedVoiceJobResponse
+   * 提交人声克隆训练任务
+   * 
+   * @param request - SubmitCustomizedVoiceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCustomizedVoiceJobResponse
    */
   async submitCustomizedVoiceJobWithOptions(request: SubmitCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCustomizedVoiceJobResponse> {
     Util.validateModel(request);
@@ -40535,10 +55599,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交人声克隆训练任务
-   *
-   * @param request SubmitCustomizedVoiceJobRequest
-   * @return SubmitCustomizedVoiceJobResponse
+   * 提交人声克隆训练任务
+   * 
+   * @param request - SubmitCustomizedVoiceJobRequest
+   * @returns SubmitCustomizedVoiceJobResponse
    */
   async submitCustomizedVoiceJob(request: SubmitCustomizedVoiceJobRequest): Promise<SubmitCustomizedVoiceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40546,11 +55610,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交DNA作业
-   *
-   * @param tmpReq SubmitDNAJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitDNAJobResponse
+   * 提交DNA作业
+   * 
+   * @param tmpReq - SubmitDNAJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDNAJobResponse
    */
   async submitDNAJobWithOptions(tmpReq: SubmitDNAJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDNAJobResponse> {
     Util.validateModel(tmpReq);
@@ -40623,10 +55687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交DNA作业
-   *
-   * @param request SubmitDNAJobRequest
-   * @return SubmitDNAJobResponse
+   * 提交DNA作业
+   * 
+   * @param request - SubmitDNAJobRequest
+   * @returns SubmitDNAJobResponse
    */
   async submitDNAJob(request: SubmitDNAJobRequest): Promise<SubmitDNAJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40634,11 +55698,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交动态图表任务
-   *
-   * @param request SubmitDynamicChartJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitDynamicChartJobResponse
+   * 提交动态图表任务
+   * 
+   * @param request - SubmitDynamicChartJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDynamicChartJobResponse
    */
   async submitDynamicChartJobWithOptions(request: SubmitDynamicChartJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDynamicChartJobResponse> {
     Util.validateModel(request);
@@ -40713,10 +55777,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交动态图表任务
-   *
-   * @param request SubmitDynamicChartJobRequest
-   * @return SubmitDynamicChartJobResponse
+   * 提交动态图表任务
+   * 
+   * @param request - SubmitDynamicChartJobRequest
+   * @returns SubmitDynamicChartJobResponse
    */
   async submitDynamicChartJob(request: SubmitDynamicChartJobRequest): Promise<SubmitDynamicChartJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40724,11 +55788,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交异步动图任务接口
-   *
-   * @param tmpReq SubmitDynamicImageJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitDynamicImageJobResponse
+   * 提交异步动图任务接口
+   * 
+   * @param tmpReq - SubmitDynamicImageJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitDynamicImageJobResponse
    */
   async submitDynamicImageJobWithOptions(tmpReq: SubmitDynamicImageJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDynamicImageJobResponse> {
     Util.validateModel(tmpReq);
@@ -40793,10 +55857,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交异步动图任务接口
-   *
-   * @param request SubmitDynamicImageJobRequest
-   * @return SubmitDynamicImageJobResponse
+   * 提交异步动图任务接口
+   * 
+   * @param request - SubmitDynamicImageJobRequest
+   * @returns SubmitDynamicImageJobResponse
    */
   async submitDynamicImageJob(request: SubmitDynamicImageJobRequest): Promise<SubmitDynamicImageJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40804,11 +55868,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交智能生产作业
-   *
-   * @param tmpReq SubmitIProductionJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitIProductionJobResponse
+   * 提交智能生产作业
+   * 
+   * @param tmpReq - SubmitIProductionJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitIProductionJobResponse
    */
   async submitIProductionJobWithOptions(tmpReq: SubmitIProductionJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIProductionJobResponse> {
     Util.validateModel(tmpReq);
@@ -40877,10 +55941,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交智能生产作业
-   *
-   * @param request SubmitIProductionJobRequest
-   * @return SubmitIProductionJobResponse
+   * 提交智能生产作业
+   * 
+   * @param request - SubmitIProductionJobRequest
+   * @returns SubmitIProductionJobResponse
    */
   async submitIProductionJob(request: SubmitIProductionJobRequest): Promise<SubmitIProductionJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40888,11 +55952,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交直播剪辑任务
-   *
-   * @param request SubmitLiveEditingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitLiveEditingJobResponse
+   * 提交直播剪辑任务
+   * 
+   * @param request - SubmitLiveEditingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitLiveEditingJobResponse
    */
   async submitLiveEditingJobWithOptions(request: SubmitLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitLiveEditingJobResponse> {
     Util.validateModel(request);
@@ -40943,10 +56007,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交直播剪辑任务
-   *
-   * @param request SubmitLiveEditingJobRequest
-   * @return SubmitLiveEditingJobResponse
+   * 提交直播剪辑任务
+   * 
+   * @param request - SubmitLiveEditingJobRequest
+   * @returns SubmitLiveEditingJobResponse
    */
   async submitLiveEditingJob(request: SubmitLiveEditingJobRequest): Promise<SubmitLiveEditingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40954,11 +56018,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交录制任务
-   *
-   * @param tmpReq SubmitLiveRecordJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitLiveRecordJobResponse
+   * 提交录制任务
+   * 
+   * @param tmpReq - SubmitLiveRecordJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitLiveRecordJobResponse
    */
   async submitLiveRecordJobWithOptions(tmpReq: SubmitLiveRecordJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitLiveRecordJobResponse> {
     Util.validateModel(tmpReq);
@@ -41011,10 +56075,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交录制任务
-   *
-   * @param request SubmitLiveRecordJobRequest
-   * @return SubmitLiveRecordJobResponse
+   * 提交录制任务
+   * 
+   * @param request - SubmitLiveRecordJobRequest
+   * @returns SubmitLiveRecordJobResponse
    */
   async submitLiveRecordJob(request: SubmitLiveRecordJobRequest): Promise<SubmitLiveRecordJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41022,11 +56086,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建直播截图任务
-   *
-   * @param tmpReq SubmitLiveSnapshotJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitLiveSnapshotJobResponse
+   * 创建直播截图任务
+   * 
+   * @param tmpReq - SubmitLiveSnapshotJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitLiveSnapshotJobResponse
    */
   async submitLiveSnapshotJobWithOptions(tmpReq: SubmitLiveSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitLiveSnapshotJobResponse> {
     Util.validateModel(tmpReq);
@@ -41079,10 +56143,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建直播截图任务
-   *
-   * @param request SubmitLiveSnapshotJobRequest
-   * @return SubmitLiveSnapshotJobResponse
+   * 创建直播截图任务
+   * 
+   * @param request - SubmitLiveSnapshotJobRequest
+   * @returns SubmitLiveSnapshotJobResponse
    */
   async submitLiveSnapshotJob(request: SubmitLiveSnapshotJobRequest): Promise<SubmitLiveSnapshotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41090,11 +56154,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交转码任务
-   *
-   * @param tmpReq SubmitLiveTranscodeJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitLiveTranscodeJobResponse
+   * 提交转码任务
+   * 
+   * @param tmpReq - SubmitLiveTranscodeJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitLiveTranscodeJobResponse
    */
   async submitLiveTranscodeJobWithOptions(tmpReq: SubmitLiveTranscodeJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitLiveTranscodeJobResponse> {
     Util.validateModel(tmpReq);
@@ -41155,10 +56219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交转码任务
-   *
-   * @param request SubmitLiveTranscodeJobRequest
-   * @return SubmitLiveTranscodeJobResponse
+   * 提交转码任务
+   * 
+   * @param request - SubmitLiveTranscodeJobRequest
+   * @returns SubmitLiveTranscodeJobResponse
    */
   async submitLiveTranscodeJob(request: SubmitLiveTranscodeJobRequest): Promise<SubmitLiveTranscodeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41166,9 +56230,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq SubmitMediaCensorJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitMediaCensorJobResponse
+   * @param tmpReq - SubmitMediaCensorJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitMediaCensorJobResponse
    */
   async submitMediaCensorJobWithOptions(tmpReq: SubmitMediaCensorJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaCensorJobResponse> {
     Util.validateModel(tmpReq);
@@ -41241,8 +56305,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SubmitMediaCensorJobRequest
-   * @return SubmitMediaCensorJobResponse
+   * @param request - SubmitMediaCensorJobRequest
+   * @returns SubmitMediaCensorJobResponse
    */
   async submitMediaCensorJob(request: SubmitMediaCensorJobRequest): Promise<SubmitMediaCensorJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41250,9 +56314,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq SubmitMediaInfoJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitMediaInfoJobResponse
+   * @param tmpReq - SubmitMediaInfoJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitMediaInfoJobResponse
    */
   async submitMediaInfoJobWithOptions(tmpReq: SubmitMediaInfoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaInfoJobResponse> {
     Util.validateModel(tmpReq);
@@ -41301,8 +56365,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SubmitMediaInfoJobRequest
-   * @return SubmitMediaInfoJobResponse
+   * @param request - SubmitMediaInfoJobRequest
+   * @returns SubmitMediaInfoJobResponse
    */
   async submitMediaInfoJob(request: SubmitMediaInfoJobRequest): Promise<SubmitMediaInfoJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41310,11 +56374,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SubmitMediaProducingJob
-   *
-   * @param request SubmitMediaProducingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitMediaProducingJobResponse
+   * SubmitMediaProducingJob
+   * 
+   * @param request - SubmitMediaProducingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitMediaProducingJobResponse
    */
   async submitMediaProducingJobWithOptions(request: SubmitMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaProducingJobResponse> {
     Util.validateModel(request);
@@ -41387,10 +56451,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SubmitMediaProducingJob
-   *
-   * @param request SubmitMediaProducingJobRequest
-   * @return SubmitMediaProducingJobResponse
+   * SubmitMediaProducingJob
+   * 
+   * @param request - SubmitMediaProducingJobRequest
+   * @returns SubmitMediaProducingJobResponse
    */
   async submitMediaProducingJob(request: SubmitMediaProducingJobRequest): Promise<SubmitMediaProducingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41398,11 +56462,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交打包任务
-   *
-   * @param tmpReq SubmitPackageJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitPackageJobResponse
+   * 提交打包任务
+   * 
+   * @param tmpReq - SubmitPackageJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitPackageJobResponse
    */
   async submitPackageJobWithOptions(tmpReq: SubmitPackageJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitPackageJobResponse> {
     Util.validateModel(tmpReq);
@@ -41459,10 +56523,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交打包任务
-   *
-   * @param request SubmitPackageJobRequest
-   * @return SubmitPackageJobResponse
+   * 提交打包任务
+   * 
+   * @param request - SubmitPackageJobRequest
+   * @returns SubmitPackageJobResponse
    */
   async submitPackageJob(request: SubmitPackageJobRequest): Promise<SubmitPackageJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41470,9 +56534,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq SubmitSmarttagJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitSmarttagJobResponse
+   * @param tmpReq - SubmitSmarttagJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSmarttagJobResponse
    */
   async submitSmarttagJobWithOptions(tmpReq: SubmitSmarttagJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSmarttagJobResponse> {
     Util.validateModel(tmpReq);
@@ -41545,8 +56609,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SubmitSmarttagJobRequest
-   * @return SubmitSmarttagJobResponse
+   * @param request - SubmitSmarttagJobRequest
+   * @returns SubmitSmarttagJobResponse
    */
   async submitSmarttagJob(request: SubmitSmarttagJobRequest): Promise<SubmitSmarttagJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41554,11 +56618,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交异步截图任务
-   *
-   * @param tmpReq SubmitSnapshotJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitSnapshotJobResponse
+   * 提交异步截图任务
+   * 
+   * @param tmpReq - SubmitSnapshotJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSnapshotJobResponse
    */
   async submitSnapshotJobWithOptions(tmpReq: SubmitSnapshotJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSnapshotJobResponse> {
     Util.validateModel(tmpReq);
@@ -41623,10 +56687,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交异步截图任务
-   *
-   * @param request SubmitSnapshotJobRequest
-   * @return SubmitSnapshotJobResponse
+   * 提交异步截图任务
+   * 
+   * @param request - SubmitSnapshotJobRequest
+   * @returns SubmitSnapshotJobResponse
    */
   async submitSnapshotJob(request: SubmitSnapshotJobRequest): Promise<SubmitSnapshotJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41634,11 +56698,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交标准版人声克隆训练任务
-   *
-   * @param request SubmitStandardCustomizedVoiceJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitStandardCustomizedVoiceJobResponse
+   * 提交标准版人声克隆训练任务
+   * 
+   * @param request - SubmitStandardCustomizedVoiceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitStandardCustomizedVoiceJobResponse
    */
   async submitStandardCustomizedVoiceJobWithOptions(request: SubmitStandardCustomizedVoiceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitStandardCustomizedVoiceJobResponse> {
     Util.validateModel(request);
@@ -41681,10 +56745,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交标准版人声克隆训练任务
-   *
-   * @param request SubmitStandardCustomizedVoiceJobRequest
-   * @return SubmitStandardCustomizedVoiceJobResponse
+   * 提交标准版人声克隆训练任务
+   * 
+   * @param request - SubmitStandardCustomizedVoiceJobRequest
+   * @returns SubmitStandardCustomizedVoiceJobResponse
    */
   async submitStandardCustomizedVoiceJob(request: SubmitStandardCustomizedVoiceJobRequest): Promise<SubmitStandardCustomizedVoiceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41692,9 +56756,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq SubmitSyncMediaInfoJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitSyncMediaInfoJobResponse
+   * @param tmpReq - SubmitSyncMediaInfoJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSyncMediaInfoJobResponse
    */
   async submitSyncMediaInfoJobWithOptions(tmpReq: SubmitSyncMediaInfoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSyncMediaInfoJobResponse> {
     Util.validateModel(tmpReq);
@@ -41743,8 +56807,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SubmitSyncMediaInfoJobRequest
-   * @return SubmitSyncMediaInfoJobResponse
+   * @param request - SubmitSyncMediaInfoJobRequest
+   * @returns SubmitSyncMediaInfoJobResponse
    */
   async submitSyncMediaInfoJob(request: SubmitSyncMediaInfoJobRequest): Promise<SubmitSyncMediaInfoJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41752,11 +56816,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交文本生成任务
-   *
-   * @param request SubmitTextGenerateJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitTextGenerateJobResponse
+   * 提交文本生成任务
+   * 
+   * @param request - SubmitTextGenerateJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTextGenerateJobResponse
    */
   async submitTextGenerateJobWithOptions(request: SubmitTextGenerateJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTextGenerateJobResponse> {
     Util.validateModel(request);
@@ -41799,10 +56863,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交文本生成任务
-   *
-   * @param request SubmitTextGenerateJobRequest
-   * @return SubmitTextGenerateJobResponse
+   * 提交文本生成任务
+   * 
+   * @param request - SubmitTextGenerateJobRequest
+   * @returns SubmitTextGenerateJobResponse
    */
   async submitTextGenerateJob(request: SubmitTextGenerateJobRequest): Promise<SubmitTextGenerateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41810,9 +56874,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq SubmitTranscodeJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitTranscodeJobResponse
+   * @param tmpReq - SubmitTranscodeJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTranscodeJobResponse
    */
   async submitTranscodeJobWithOptions(tmpReq: SubmitTranscodeJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTranscodeJobResponse> {
     Util.validateModel(tmpReq);
@@ -41873,8 +56937,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SubmitTranscodeJobRequest
-   * @return SubmitTranscodeJobResponse
+   * @param request - SubmitTranscodeJobRequest
+   * @returns SubmitTranscodeJobResponse
    */
   async submitTranscodeJob(request: SubmitTranscodeJobRequest): Promise<SubmitTranscodeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41882,11 +56946,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交视频翻译任务
-   *
-   * @param request SubmitVideoTranslationJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitVideoTranslationJobResponse
+   * 提交视频翻译任务
+   * 
+   * @param request - SubmitVideoTranslationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoTranslationJobResponse
    */
   async submitVideoTranslationJobWithOptions(request: SubmitVideoTranslationJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitVideoTranslationJobResponse> {
     Util.validateModel(request);
@@ -41937,10 +57001,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交视频翻译任务
-   *
-   * @param request SubmitVideoTranslationJobRequest
-   * @return SubmitVideoTranslationJobResponse
+   * 提交视频翻译任务
+   * 
+   * @param request - SubmitVideoTranslationJobRequest
+   * @returns SubmitVideoTranslationJobResponse
    */
   async submitVideoTranslationJob(request: SubmitVideoTranslationJobRequest): Promise<SubmitVideoTranslationJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41948,11 +57012,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新数字人训练任务信息
-   *
-   * @param request UpdateAvatarTrainingJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAvatarTrainingJobResponse
+   * 更新数字人训练任务信息
+   * 
+   * @param request - UpdateAvatarTrainingJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAvatarTrainingJobResponse
    */
   async updateAvatarTrainingJobWithOptions(request: UpdateAvatarTrainingJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAvatarTrainingJobResponse> {
     Util.validateModel(request);
@@ -42003,10 +57067,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新数字人训练任务信息
-   *
-   * @param request UpdateAvatarTrainingJobRequest
-   * @return UpdateAvatarTrainingJobResponse
+   * 更新数字人训练任务信息
+   * 
+   * @param request - UpdateAvatarTrainingJobRequest
+   * @returns UpdateAvatarTrainingJobResponse
    */
   async updateAvatarTrainingJob(request: UpdateAvatarTrainingJobRequest): Promise<UpdateAvatarTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42014,11 +57078,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新媒资分类
-   *
-   * @param request UpdateCategoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCategoryResponse
+   * 更新媒资分类
+   * 
+   * @param request - UpdateCategoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCategoryResponse
    */
   async updateCategoryWithOptions(request: UpdateCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCategoryResponse> {
     Util.validateModel(request);
@@ -42049,10 +57113,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新媒资分类
-   *
-   * @param request UpdateCategoryRequest
-   * @return UpdateCategoryResponse
+   * 更新媒资分类
+   * 
+   * @param request - UpdateCategoryRequest
+   * @returns UpdateCategoryResponse
    */
   async updateCategory(request: UpdateCategoryRequest): Promise<UpdateCategoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42060,11 +57124,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新媒体处理自定义模板
-   *
-   * @param request UpdateCustomTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCustomTemplateResponse
+   * 更新媒体处理自定义模板
+   * 
+   * @param request - UpdateCustomTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomTemplateResponse
    */
   async updateCustomTemplateWithOptions(request: UpdateCustomTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomTemplateResponse> {
     Util.validateModel(request);
@@ -42099,10 +57163,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新媒体处理自定义模板
-   *
-   * @param request UpdateCustomTemplateRequest
-   * @return UpdateCustomTemplateResponse
+   * 更新媒体处理自定义模板
+   * 
+   * @param request - UpdateCustomTemplateRequest
+   * @returns UpdateCustomTemplateResponse
    */
   async updateCustomTemplate(request: UpdateCustomTemplateRequest): Promise<UpdateCustomTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42110,11 +57174,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新用户的专属人声
-   *
-   * @param request UpdateCustomizedVoiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCustomizedVoiceResponse
+   * 更新用户的专属人声
+   * 
+   * @param request - UpdateCustomizedVoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomizedVoiceResponse
    */
   async updateCustomizedVoiceWithOptions(request: UpdateCustomizedVoiceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomizedVoiceResponse> {
     Util.validateModel(request);
@@ -42145,10 +57209,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新用户的专属人声
-   *
-   * @param request UpdateCustomizedVoiceRequest
-   * @return UpdateCustomizedVoiceResponse
+   * 更新用户的专属人声
+   * 
+   * @param request - UpdateCustomizedVoiceRequest
+   * @returns UpdateCustomizedVoiceResponse
    */
   async updateCustomizedVoice(request: UpdateCustomizedVoiceRequest): Promise<UpdateCustomizedVoiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42156,11 +57220,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改云剪辑工程
-   *
-   * @param request UpdateEditingProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateEditingProjectResponse
+   * 修改云剪辑工程
+   * 
+   * @param request - UpdateEditingProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEditingProjectResponse
    */
   async updateEditingProjectWithOptions(request: UpdateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEditingProjectResponse> {
     Util.validateModel(request);
@@ -42217,10 +57281,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改云剪辑工程
-   *
-   * @param request UpdateEditingProjectRequest
-   * @return UpdateEditingProjectResponse
+   * 修改云剪辑工程
+   * 
+   * @param request - UpdateEditingProjectRequest
+   * @returns UpdateEditingProjectResponse
    */
   async updateEditingProject(request: UpdateEditingProjectRequest): Promise<UpdateEditingProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42228,11 +57292,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改直播录制模板
-   *
-   * @param tmpReq UpdateLiveRecordTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLiveRecordTemplateResponse
+   * 修改直播录制模板
+   * 
+   * @param tmpReq - UpdateLiveRecordTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLiveRecordTemplateResponse
    */
   async updateLiveRecordTemplateWithOptions(tmpReq: UpdateLiveRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveRecordTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -42273,10 +57337,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改直播录制模板
-   *
-   * @param request UpdateLiveRecordTemplateRequest
-   * @return UpdateLiveRecordTemplateResponse
+   * 修改直播录制模板
+   * 
+   * @param request - UpdateLiveRecordTemplateRequest
+   * @returns UpdateLiveRecordTemplateResponse
    */
   async updateLiveRecordTemplate(request: UpdateLiveRecordTemplateRequest): Promise<UpdateLiveRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42284,11 +57348,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新直播截图模板
-   *
-   * @param request UpdateLiveSnapshotTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLiveSnapshotTemplateResponse
+   * 更新直播截图模板
+   * 
+   * @param request - UpdateLiveSnapshotTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLiveSnapshotTemplateResponse
    */
   async updateLiveSnapshotTemplateWithOptions(request: UpdateLiveSnapshotTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveSnapshotTemplateResponse> {
     Util.validateModel(request);
@@ -42331,10 +57395,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新直播截图模板
-   *
-   * @param request UpdateLiveSnapshotTemplateRequest
-   * @return UpdateLiveSnapshotTemplateResponse
+   * 更新直播截图模板
+   * 
+   * @param request - UpdateLiveSnapshotTemplateRequest
+   * @returns UpdateLiveSnapshotTemplateResponse
    */
   async updateLiveSnapshotTemplate(request: UpdateLiveSnapshotTemplateRequest): Promise<UpdateLiveSnapshotTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42342,11 +57406,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新转码任务配置
-   *
-   * @param tmpReq UpdateLiveTranscodeJobRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLiveTranscodeJobResponse
+   * 更新转码任务配置
+   * 
+   * @param tmpReq - UpdateLiveTranscodeJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLiveTranscodeJobResponse
    */
   async updateLiveTranscodeJobWithOptions(tmpReq: UpdateLiveTranscodeJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveTranscodeJobResponse> {
     Util.validateModel(tmpReq);
@@ -42403,10 +57467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新转码任务配置
-   *
-   * @param request UpdateLiveTranscodeJobRequest
-   * @return UpdateLiveTranscodeJobResponse
+   * 更新转码任务配置
+   * 
+   * @param request - UpdateLiveTranscodeJobRequest
+   * @returns UpdateLiveTranscodeJobResponse
    */
   async updateLiveTranscodeJob(request: UpdateLiveTranscodeJobRequest): Promise<UpdateLiveTranscodeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42414,11 +57478,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新转码模版
-   *
-   * @param tmpReq UpdateLiveTranscodeTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLiveTranscodeTemplateResponse
+   * 更新转码模版
+   * 
+   * @param tmpReq - UpdateLiveTranscodeTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLiveTranscodeTemplateResponse
    */
   async updateLiveTranscodeTemplateWithOptions(tmpReq: UpdateLiveTranscodeTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLiveTranscodeTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -42459,10 +57523,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新转码模版
-   *
-   * @param request UpdateLiveTranscodeTemplateRequest
-   * @return UpdateLiveTranscodeTemplateResponse
+   * 更新转码模版
+   * 
+   * @param request - UpdateLiveTranscodeTemplateRequest
+   * @returns UpdateLiveTranscodeTemplateResponse
    */
   async updateLiveTranscodeTemplate(request: UpdateLiveTranscodeTemplateRequest): Promise<UpdateLiveTranscodeTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42470,11 +57534,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary UpdateMediaInfo
-   *
-   * @param request UpdateMediaInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMediaInfoResponse
+   * UpdateMediaInfo
+   * 
+   * @param request - UpdateMediaInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaInfoResponse
    */
   async updateMediaInfoWithOptions(request: UpdateMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaInfoResponse> {
     Util.validateModel(request);
@@ -42545,10 +57609,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary UpdateMediaInfo
-   *
-   * @param request UpdateMediaInfoRequest
-   * @return UpdateMediaInfoResponse
+   * UpdateMediaInfo
+   * 
+   * @param request - UpdateMediaInfoRequest
+   * @returns UpdateMediaInfoResponse
    */
   async updateMediaInfo(request: UpdateMediaInfoRequest): Promise<UpdateMediaInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42556,11 +57620,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为媒资修改标注信息
-   *
-   * @param request UpdateMediaMarksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMediaMarksResponse
+   * 为媒资修改标注信息
+   * 
+   * @param request - UpdateMediaMarksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaMarksResponse
    */
   async updateMediaMarksWithOptions(request: UpdateMediaMarksRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaMarksResponse> {
     Util.validateModel(request);
@@ -42591,10 +57655,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为媒资修改标注信息
-   *
-   * @param request UpdateMediaMarksRequest
-   * @return UpdateMediaMarksResponse
+   * 为媒资修改标注信息
+   * 
+   * @param request - UpdateMediaMarksRequest
+   * @returns UpdateMediaMarksResponse
    */
   async updateMediaMarks(request: UpdateMediaMarksRequest): Promise<UpdateMediaMarksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42602,11 +57666,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新媒资到搜索
-   *
-   * @param request UpdateMediaToSearchLibRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMediaToSearchLibResponse
+   * 更新媒资到搜索
+   * 
+   * @param request - UpdateMediaToSearchLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaToSearchLibResponse
    */
   async updateMediaToSearchLibWithOptions(request: UpdateMediaToSearchLibRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaToSearchLibResponse> {
     Util.validateModel(request);
@@ -42641,10 +57705,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新媒资到搜索
-   *
-   * @param request UpdateMediaToSearchLibRequest
-   * @return UpdateMediaToSearchLibResponse
+   * 更新媒资到搜索
+   * 
+   * @param request - UpdateMediaToSearchLibRequest
+   * @returns UpdateMediaToSearchLibResponse
    */
   async updateMediaToSearchLib(request: UpdateMediaToSearchLibRequest): Promise<UpdateMediaToSearchLibResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42652,11 +57716,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新管道配置
-   *
-   * @param request UpdatePipelineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePipelineResponse
+   * 更新管道配置
+   * 
+   * @param request - UpdatePipelineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePipelineResponse
    */
   async updatePipelineWithOptions(request: UpdatePipelineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineResponse> {
     Util.validateModel(request);
@@ -42695,10 +57759,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新管道配置
-   *
-   * @param request UpdatePipelineRequest
-   * @return UpdatePipelineResponse
+   * 更新管道配置
+   * 
+   * @param request - UpdatePipelineRequest
+   * @returns UpdatePipelineResponse
    */
   async updatePipeline(request: UpdatePipelineRequest): Promise<UpdatePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42706,11 +57770,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary UpdateTemplate
-   *
-   * @param request UpdateTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTemplateResponse
+   * UpdateTemplate
+   * 
+   * @param request - UpdateTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTemplateResponse
    */
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
@@ -42767,10 +57831,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary UpdateTemplate
-   *
-   * @param request UpdateTemplateRequest
-   * @return UpdateTemplateResponse
+   * UpdateTemplate
+   * 
+   * @param request - UpdateTemplateRequest
+   * @returns UpdateTemplateResponse
    */
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42778,11 +57842,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary URL拉取上传
-   *
-   * @param request UploadMediaByURLRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UploadMediaByURLResponse
+   * URL拉取上传
+   * 
+   * @param request - UploadMediaByURLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadMediaByURLResponse
    */
   async uploadMediaByURLWithOptions(request: UploadMediaByURLRequest, runtime: $Util.RuntimeOptions): Promise<UploadMediaByURLResponse> {
     Util.validateModel(request);
@@ -42833,10 +57897,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary URL拉取上传
-   *
-   * @param request UploadMediaByURLRequest
-   * @return UploadMediaByURLResponse
+   * URL拉取上传
+   * 
+   * @param request - UploadMediaByURLRequest
+   * @returns UploadMediaByURLResponse
    */
   async uploadMediaByURL(request: UploadMediaByURLRequest): Promise<UploadMediaByURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42844,11 +57908,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary URL拉取上传媒体流
-   *
-   * @param request UploadStreamByURLRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UploadStreamByURLResponse
+   * URL拉取上传媒体流
+   * 
+   * @param request - UploadStreamByURLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadStreamByURLResponse
    */
   async uploadStreamByURLWithOptions(request: UploadStreamByURLRequest, runtime: $Util.RuntimeOptions): Promise<UploadStreamByURLResponse> {
     Util.validateModel(request);
@@ -42895,10 +57959,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary URL拉取上传媒体流
-   *
-   * @param request UploadStreamByURLRequest
-   * @return UploadStreamByURLResponse
+   * URL拉取上传媒体流
+   * 
+   * @param request - UploadStreamByURLRequest
+   * @returns UploadStreamByURLResponse
    */
   async uploadStreamByURL(request: UploadStreamByURLRequest): Promise<UploadStreamByURLResponse> {
     let runtime = new $Util.RuntimeOptions({ });
