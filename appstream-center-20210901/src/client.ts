@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,6 +8,10 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AccessPageGetAclRequest extends $tea.Model {
+  /**
+   * @example
+   * a-075nu7bcqim2wvxli
+   */
   accessPageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,10 +31,29 @@ export class AccessPageGetAclRequest extends $tea.Model {
 }
 
 export class AccessPageGetAclResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: AccessPageGetAclResponseBodyData[];
+  /**
+   * @example
+   * The parameter ProductType is invalid.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,10 +106,39 @@ export class AccessPageGetAclResponse extends $tea.Model {
 }
 
 export class AccessPageSetAclRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FREE_ACCESS
+   */
   accessMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a-062wec3cwmayw****
+   */
   accessPageId?: string;
+  /**
+   * @example
+   * notepad_test
+   */
   accessPageName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   effectTime?: number;
+  /**
+   * @example
+   * Day
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,9 +166,25 @@ export class AccessPageSetAclRequest extends $tea.Model {
 }
 
 export class AccessPageSetAclResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * InternalError
+   */
   message?: string;
+  /**
+   * @example
+   * E25FC620-6B6F-12D2-A992-AD8727DC****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -168,10 +235,47 @@ export class AccessPageSetAclResponse extends $tea.Model {
 }
 
 export class ApproveOtaTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Fota
+   */
   otaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-08-04T14:36:00+08:00
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ota-be7jzm29wrrz5****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -199,8 +303,20 @@ export class ApproveOtaTaskRequest extends $tea.Model {
 }
 
 export class ApproveOtaTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OtaTask.Running
+   */
   code?: string;
+  /**
+   * @example
+   * The task is running and cannot be sumitted.
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -253,9 +369,34 @@ export class AskSessionPackagePriceRequest extends $tea.Model {
   maxSessions?: number;
   period?: number;
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @example
+   * 0
+   */
   sessionPackageType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * appstreaming.general.entry
+   */
   sessionSpec?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Windows
+   */
   sessionType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -290,6 +431,10 @@ export class AskSessionPackagePriceRequest extends $tea.Model {
 
 export class AskSessionPackagePriceResponseBody extends $tea.Model {
   data?: AskSessionPackagePriceResponseBodyData[];
+  /**
+   * @example
+   * 2C64D9E5-DFCD-10A5-A911-xxxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -336,8 +481,29 @@ export class AskSessionPackagePriceResponse extends $tea.Model {
 }
 
 export class AskSessionPackageRenewPriceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Month
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tp-***********
+   */
   sessionPackageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -362,6 +528,10 @@ export class AskSessionPackageRenewPriceRequest extends $tea.Model {
 
 export class AskSessionPackageRenewPriceResponseBody extends $tea.Model {
   data?: AskSessionPackageRenewPriceResponseBodyData[];
+  /**
+   * @example
+   * 50158E8B-992E-1286-B174-**********
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -408,8 +578,22 @@ export class AskSessionPackageRenewPriceResponse extends $tea.Model {
 }
 
 export class AuthorizeInstanceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
   authorizeUserIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   unAuthorizeUserIds?: string[];
   static names(): { [key: string]: string } {
@@ -436,6 +620,10 @@ export class AuthorizeInstanceGroupRequest extends $tea.Model {
 }
 
 export class AuthorizeInstanceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -485,11 +673,40 @@ export class BuySessionPackageRequest extends $tea.Model {
   maxSessions?: number;
   period?: number;
   periodUnit?: string;
+  /**
+   * @example
+   * p-xxxxxxxxxxxxx
+   */
   projectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
   sessionPackageName?: string;
+  /**
+   * @example
+   * 0
+   */
   sessionPackageType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * appstreaming.general.entry
+   */
   sessionSpec?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Windows
+   */
   sessionType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -529,10 +746,30 @@ export class BuySessionPackageRequest extends $tea.Model {
 }
 
 export class BuySessionPackageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * There is a missing parameter.
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5Fxxxxxxxx
+   */
   requestId?: string;
+  /**
+   * @example
+   * tp-xxxxxxxxxx
+   */
   sessionPackageId?: number;
+  /**
+   * @example
+   * false
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -585,7 +822,21 @@ export class BuySessionPackageResponse extends $tea.Model {
 }
 
 export class CancelOtaTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-53fvrq1oanz6c****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ota-be7jzm29wrrz5****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -607,8 +858,20 @@ export class CancelOtaTaskRequest extends $tea.Model {
 }
 
 export class CancelOtaTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OtaTask.Running
+   */
   code?: string;
+  /**
+   * @example
+   * The task is running and cannot be sumitted.
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -657,11 +920,34 @@ export class CancelOtaTaskResponse extends $tea.Model {
 }
 
 export class CreateAccessPageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accessPageName?: string;
+  /**
+   * @example
+   * c-e-06gdesdaxez****
+   */
   cloudEnvId?: string;
+  /**
+   * @example
+   * 7
+   */
   effectTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * p-065zdecaer07h****
+   */
   projectId?: string;
   projectName?: string;
+  /**
+   * @example
+   * Day
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -691,10 +977,26 @@ export class CreateAccessPageRequest extends $tea.Model {
 }
 
 export class CreateAccessPageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * a-06xnr5lyp77e7****
+   */
   data?: string;
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -747,22 +1049,95 @@ export class CreateAccessPageResponse extends $tea.Model {
 }
 
 export class CreateAppInstanceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * img-8z4nztpaqvay4****
+   */
   appCenterImageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   appInstanceGroupName?: string;
+  /**
+   * @example
+   * false
+   */
   autoPay?: boolean;
+  /**
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Node
+   */
   chargeResourceMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
   network?: CreateAppInstanceGroupRequestNetwork;
   nodePool?: CreateAppInstanceGroupRequestNodePool;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   periodUnit?: string;
+  /**
+   * @example
+   * cag-b2ron*******
+   */
   preOpenAppId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
+  /**
+   * @example
+   * 17440009****
+   */
   promotionId?: string;
   runtimePolicy?: CreateAppInstanceGroupRequestRuntimePolicy;
   securityPolicy?: CreateAppInstanceGroupRequestSecurityPolicy;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15
+   */
   sessionTimeout?: number;
   storagePolicy?: CreateAppInstanceGroupRequestStoragePolicy;
   userDefinePolicy?: CreateAppInstanceGroupRequestUserDefinePolicy;
@@ -829,22 +1204,95 @@ export class CreateAppInstanceGroupRequest extends $tea.Model {
 }
 
 export class CreateAppInstanceGroupShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * img-8z4nztpaqvay4****
+   */
   appCenterImageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   appInstanceGroupName?: string;
+  /**
+   * @example
+   * false
+   */
   autoPay?: boolean;
+  /**
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Node
+   */
   chargeResourceMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
   networkShrink?: string;
   nodePoolShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   periodUnit?: string;
+  /**
+   * @example
+   * cag-b2ron*******
+   */
   preOpenAppId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
+  /**
+   * @example
+   * 17440009****
+   */
   promotionId?: string;
   runtimePolicyShrink?: string;
   securityPolicyShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15
+   */
   sessionTimeout?: number;
   storagePolicyShrink?: string;
   userDefinePolicyShrink?: string;
@@ -958,8 +1406,29 @@ export class CreateAppInstanceGroupResponse extends $tea.Model {
 }
 
 export class CreateImageFromAppInstanceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_name
+   */
   appCenterImageName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -983,7 +1452,15 @@ export class CreateImageFromAppInstanceGroupRequest extends $tea.Model {
 }
 
 export class CreateImageFromAppInstanceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * img-bp13mu****
+   */
   imageId?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1030,18 +1507,66 @@ export class CreateImageFromAppInstanceGroupResponse extends $tea.Model {
 }
 
 export class CreateProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   clipboard?: number;
+  /**
+   * @example
+   * c-xxxxxxx
+   */
   cloudEnvId?: string;
+  /**
+   * @example
+   * c-06vcpamarryyq****
+   */
   contentId?: string;
+  /**
+   * @example
+   * xxx
+   */
   description?: string;
+  /**
+   * @example
+   * 0
+   */
   fileTransfer?: number;
+  /**
+   * @example
+   * 30
+   */
   frameRate?: number;
+  /**
+   * @example
+   * 15
+   */
   keepAliveDuration?: number;
+  /**
+   * @example
+   * notepad++xxxxx
+   */
   projectName?: string;
+  /**
+   * @example
+   * 4096
+   */
   sessionResolutionHeight?: number;
+  /**
+   * @example
+   * 4096
+   */
   sessionResolutionWidth?: number;
   sessionSpec?: string;
+  /**
+   * @example
+   * mix
+   */
   streamingMode?: string;
+  /**
+   * @example
+   * true
+   */
   terminalResolutionAdaptation?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1085,12 +1610,40 @@ export class CreateProjectRequest extends $tea.Model {
 }
 
 export class CreateProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * p-xxxxxxxxxxx
+   */
   data?: string;
+  /**
+   * @example
+   * There is a missing parameter.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 50158E8B-992E-1286-B174-XXXXXXXXXXXX
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1147,6 +1700,10 @@ export class CreateProjectResponse extends $tea.Model {
 }
 
 export class DeleteAccessPageRequest extends $tea.Model {
+  /**
+   * @example
+   * a-075nu7bcqim2wvxli
+   */
   accessPageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1166,9 +1723,24 @@ export class DeleteAccessPageRequest extends $tea.Model {
 }
 
 export class DeleteAccessPageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1219,7 +1791,21 @@ export class DeleteAccessPageResponse extends $tea.Model {
 }
 
 export class DeleteAppInstanceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1241,6 +1827,10 @@ export class DeleteAppInstanceGroupRequest extends $tea.Model {
 }
 
 export class DeleteAppInstanceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1285,8 +1875,29 @@ export class DeleteAppInstanceGroupResponse extends $tea.Model {
 }
 
 export class DeleteAppInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * **if can be null:**
+   * false
+   */
   appInstanceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1311,6 +1922,10 @@ export class DeleteAppInstancesRequest extends $tea.Model {
 
 export class DeleteAppInstancesResponseBody extends $tea.Model {
   deleteAppInstanceModels?: DeleteAppInstancesResponseBodyDeleteAppInstanceModels[];
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1357,6 +1972,10 @@ export class DeleteAppInstancesResponse extends $tea.Model {
 }
 
 export class DeleteProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * p-065z4tu9ak07h****
+   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1376,10 +1995,30 @@ export class DeleteProjectRequest extends $tea.Model {
 }
 
 export class DeleteProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * None
+   */
   data?: boolean;
+  /**
+   * @example
+   * The parameter PoolId is invalid.
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1432,8 +2071,26 @@ export class DeleteProjectResponse extends $tea.Model {
 }
 
 export class GetAccessPageSessionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a-062wec3cwmayw****
+   */
   accessPageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 8141B1A674D48ACB8E5D2D6CE53FDB2F3CF8710A5F8F78578D5254BC6F******
+   */
   accessPageToken?: string;
+  /**
+   * @example
+   * Banca******
+   */
   externalUserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1457,10 +2114,25 @@ export class GetAccessPageSessionRequest extends $tea.Model {
 }
 
 export class GetAccessPageSessionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetAccessPageSessionResponseBodyData;
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1513,7 +2185,21 @@ export class GetAccessPageSessionResponse extends $tea.Model {
 }
 
 export class GetAppInstanceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1535,7 +2221,15 @@ export class GetAppInstanceGroupRequest extends $tea.Model {
 }
 
 export class GetAppInstanceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * AppInstanceGroupModels
+   */
   appInstanceGroupModels?: GetAppInstanceGroupResponseBodyAppInstanceGroupModels;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1582,15 +2276,53 @@ export class GetAppInstanceGroupResponse extends $tea.Model {
 }
 
 export class GetConnectionTicketRequest extends $tea.Model {
+  /**
+   * @example
+   * ca-e4s0puhmwi7v****
+   */
   appId?: string;
   appInstanceGroupIdList?: string[];
+  /**
+   * @example
+   * ai-1rznfnrvsa99d****
+   */
   appInstanceId?: string;
   appInstancePersistentId?: string;
+  /**
+   * @example
+   * /q /n
+   */
   appStartParam?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   appVersion?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * alice
+   */
   endUserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
+  /**
+   * @example
+   * 28778acb-a469-4bc0-8e0f****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1628,15 +2360,47 @@ export class GetConnectionTicketRequest extends $tea.Model {
 }
 
 export class GetConnectionTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * aig-53fvrq1oan****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * ai-7ybdeiyoeh5e****
+   */
   appInstanceId?: string;
   appInstancePersistentId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @example
+   * Windows
+   */
   osType?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * f3d1b31c-605e-4d04-a896****
+   */
   taskId?: string;
+  /**
+   * @example
+   * Running
+   */
   taskStatus?: string;
   tenantId?: number;
+  /**
+   * @example
+   * DQpbRGVza3RvcF0NCkZvcmNlVGxzVHlwZT0xDQpHV1Rva2VuUGFydDE9MDAva09ROW1FUTU3dU****
+   */
   ticket?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1699,7 +2463,21 @@ export class GetConnectionTicketResponse extends $tea.Model {
 }
 
 export class GetDebugAppInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1722,10 +2500,30 @@ export class GetDebugAppInstanceRequest extends $tea.Model {
 
 export class GetDebugAppInstanceResponseBody extends $tea.Model {
   appId?: string;
+  /**
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * ai-7ybdeiyoeh5e****
+   */
   appInstanceId?: string;
+  /**
+   * @example
+   * 1.1
+   */
   appVersion?: string;
+  /**
+   * @example
+   * e4e169bea1cc48e8afac53**********
+   */
   authCode?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -1783,6 +2581,13 @@ export class GetDebugAppInstanceResponse extends $tea.Model {
 }
 
 export class GetOtaTaskByTaskIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ota-be7jzm29wrrz5****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1802,11 +2607,34 @@ export class GetOtaTaskByTaskIdRequest extends $tea.Model {
 }
 
 export class GetOtaTaskByTaskIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OtaTask.Running
+   */
   code?: string;
+  /**
+   * @example
+   * The task is running and cannot be sumitted.
+   */
   message?: string;
+  /**
+   * @example
+   * 0.0.1-R-20220708.110604
+   */
   otaVersion?: string;
   releaseNote?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-08-04T14:36:00+08:00
+   */
   taskStartTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1861,6 +2689,10 @@ export class GetOtaTaskByTaskIdResponse extends $tea.Model {
 }
 
 export class GetProjectPoliciesRequest extends $tea.Model {
+  /**
+   * @example
+   * p-xxxxxxxxxxxxxxx
+   */
   projectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1880,10 +2712,26 @@ export class GetProjectPoliciesRequest extends $tea.Model {
 }
 
 export class GetProjectPoliciesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetProjectPoliciesResponseBodyData;
+  /**
+   * @example
+   * The parameter ProductType is invalid.
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1936,13 +2784,60 @@ export class GetProjectPoliciesResponse extends $tea.Model {
 }
 
 export class GetResourcePriceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   amount?: number;
+  /**
+   * @example
+   * appstreaming.general
+   */
   appInstanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @example
+   * appstreaming.vgpu.4c8g.2g
+   */
   nodeInstanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1976,10 +2871,22 @@ export class GetResourcePriceRequest extends $tea.Model {
 }
 
 export class GetResourcePriceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter.ProductType
+   */
   code?: string;
+  /**
+   * @example
+   * The parameter ProductType is invalid.
+   */
   message?: string;
   priceList?: GetResourcePriceResponseBodyPriceList[];
   priceModel?: GetResourcePriceResponseBodyPriceModel;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2032,9 +2939,37 @@ export class GetResourcePriceResponse extends $tea.Model {
 }
 
 export class GetResourceRenewPriceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Week
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2061,6 +2996,10 @@ export class GetResourceRenewPriceRequest extends $tea.Model {
 
 export class GetResourceRenewPriceResponseBody extends $tea.Model {
   data?: GetResourceRenewPriceResponseBodyData;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2107,11 +3046,31 @@ export class GetResourceRenewPriceResponse extends $tea.Model {
 }
 
 export class ListAccessPagesRequest extends $tea.Model {
+  /**
+   * @example
+   * a-062wec3cwmayw****
+   */
   accessPageId?: string;
   accessPageName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * p-065zdecaer07h****
+   */
   projectId?: string;
+  /**
+   * @example
+   * ASC
+   */
   sortType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2141,13 +3100,41 @@ export class ListAccessPagesRequest extends $tea.Model {
 }
 
 export class ListAccessPagesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 22
+   */
   count?: string;
   data?: ListAccessPagesResponseBodyData[];
+  /**
+   * @example
+   * InternalError
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: string;
+  /**
+   * @example
+   * AF8361BD-5ECB-139A-B019-2E0350CC****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2206,14 +3193,47 @@ export class ListAccessPagesResponse extends $tea.Model {
 }
 
 export class ListAppInstanceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * img-8z4nztpaqvay4****
+   */
   appCenterImageId?: string;
+  /**
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
   bizRegionId?: string;
+  /**
+   * @example
+   * appstreaming.vgpu.4c8g.2g
+   */
   nodeInstanceType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   * 
+   * @deprecated
+   */
   regionId?: string;
   status?: string[];
   static names(): { [key: string]: string } {
@@ -2253,9 +3273,25 @@ export class ListAppInstanceGroupRequest extends $tea.Model {
 
 export class ListAppInstanceGroupResponseBody extends $tea.Model {
   appInstanceGroupModels?: ListAppInstanceGroupResponseBodyAppInstanceGroupModels[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 15
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2308,12 +3344,43 @@ export class ListAppInstanceGroupResponse extends $tea.Model {
 }
 
 export class ListAppInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-4p5f8tj16yb8b****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * ai-azn3kmwruh1vl****
+   */
   appInstanceId?: string;
+  /**
+   * **if can be null:**
+   * false
+   */
   appInstanceIdList?: string[];
+  /**
+   * @example
+   * true
+   */
   includeDeleted?: boolean;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * **if can be null:**
+   * false
+   */
   status?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2346,9 +3413,25 @@ export class ListAppInstancesRequest extends $tea.Model {
 
 export class ListAppInstancesResponseBody extends $tea.Model {
   appInstanceModels?: ListAppInstancesResponseBodyAppInstanceModels[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 18
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2401,12 +3484,58 @@ export class ListAppInstancesResponse extends $tea.Model {
 }
 
 export class ListNodeInstanceTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 资源所属的地域ID。关于支持的地域详情，请参见[使用限制](https://help.aliyun.com/document_detail/426036.html)。
+   * 
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * 语言类型。
+   * 
+   * @example
+   * zh-CN
+   */
   language?: string;
+  /**
+   * @example
+   * appstreaming.vgpu.4c8g.2g
+   */
   nodeInstanceType?: string;
+  /**
+   * @remarks
+   * 支持的操作系统类型。
+   * 
+   * @example
+   * Windows
+   */
   osType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2439,9 +3568,21 @@ export class ListNodeInstanceTypeRequest extends $tea.Model {
 
 export class ListNodeInstanceTypeResponseBody extends $tea.Model {
   nodeInstanceTypeModels?: ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   requestId?: string;
+  /**
+   * @example
+   * 6
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2494,9 +3635,37 @@ export class ListNodeInstanceTypeResponse extends $tea.Model {
 }
 
 export class ListOtaTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-53fvrq1oanz6c****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Fota
+   */
   otaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2522,10 +3691,26 @@ export class ListOtaTaskRequest extends $tea.Model {
 }
 
 export class ListOtaTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   taskList?: ListOtaTaskResponseBodyTaskList[];
+  /**
+   * @example
+   * 6
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2578,10 +3763,30 @@ export class ListOtaTaskResponse extends $tea.Model {
 }
 
 export class ListProjectsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * p-065z4tu9ak07h****
+   */
   projectId?: string;
+  /**
+   * @example
+   * notepad++***
+   */
   projectName?: string;
+  /**
+   * @example
+   * ASC
+   */
   sortType?: string;
   stateList?: number[];
   static names(): { [key: string]: string } {
@@ -2612,13 +3817,41 @@ export class ListProjectsRequest extends $tea.Model {
 }
 
 export class ListProjectsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: ListProjectsResponseBodyData[];
+  /**
+   * @example
+   * There is a missing parameter.
+   */
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
+  /**
+   * @example
+   * 6
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2743,11 +3976,31 @@ export class ListRegionsResponse extends $tea.Model {
 }
 
 export class ListSessionPackagesRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * p-xxxxxxxxxxxx
+   */
   projectId?: string;
+  /**
+   * @example
+   * tp-xxxxxxxx
+   */
   sessionPackageId?: string;
   sessionPackageName?: string;
+  /**
+   * @example
+   * ASC
+   */
   sortType?: string;
   stateList?: number[];
   static names(): { [key: string]: string } {
@@ -2781,9 +4034,25 @@ export class ListSessionPackagesRequest extends $tea.Model {
 
 export class ListSessionPackagesResponseBody extends $tea.Model {
   data?: ListSessionPackagesResponseBodyData[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5Fxxxxxxxx
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2836,6 +4105,10 @@ export class ListSessionPackagesResponse extends $tea.Model {
 }
 
 export class ListTenantConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   tenantConfigModel?: ListTenantConfigResponseBodyTenantConfigModel;
   static names(): { [key: string]: string } {
@@ -2883,7 +4156,21 @@ export class ListTenantConfigResponse extends $tea.Model {
 }
 
 export class LogOffAllSessionsInAppInstanceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2905,8 +4192,20 @@ export class LogOffAllSessionsInAppInstanceGroupRequest extends $tea.Model {
 }
 
 export class LogOffAllSessionsInAppInstanceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter.ProductType
+   */
   code?: string;
+  /**
+   * @example
+   * The parameter ProductType is invalid.
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2955,8 +4254,23 @@ export class LogOffAllSessionsInAppInstanceGroupResponse extends $tea.Model {
 }
 
 export class MigrateSessionPackageRequest extends $tea.Model {
+  /**
+   * @example
+   * p-xxxxxx123x4312367
+   */
   destProjectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tp-xxxxxxxxxxxxxxxxx
+   */
   sessionPackageId?: string;
+  /**
+   * @example
+   * p-xxxxxx123x4312345
+   */
   sourceProjectId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2980,9 +4294,21 @@ export class MigrateSessionPackageRequest extends $tea.Model {
 }
 
 export class MigrateSessionPackageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NO_DATA
+   */
   code?: string;
   message?: string;
+  /**
+   * @example
+   * E25FC620-6B6F-12D2-A992-AD8727DC****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3033,14 +4359,32 @@ export class MigrateSessionPackageResponse extends $tea.Model {
 }
 
 export class ModifyAppInstanceGroupAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
   network?: ModifyAppInstanceGroupAttributeRequestNetwork;
   nodePool?: ModifyAppInstanceGroupAttributeRequestNodePool;
   preOpenAppId?: string;
   preOpenMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   securityPolicy?: ModifyAppInstanceGroupAttributeRequestSecurityPolicy;
+  /**
+   * @example
+   * 15
+   */
   sessionTimeout?: number;
   storagePolicy?: ModifyAppInstanceGroupAttributeRequestStoragePolicy;
   static names(): { [key: string]: string } {
@@ -3079,14 +4423,32 @@ export class ModifyAppInstanceGroupAttributeRequest extends $tea.Model {
 }
 
 export class ModifyAppInstanceGroupAttributeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
   networkShrink?: string;
   nodePoolShrink?: string;
   preOpenAppId?: string;
   preOpenMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   securityPolicyShrink?: string;
+  /**
+   * @example
+   * 15
+   */
   sessionTimeout?: number;
   storagePolicyShrink?: string;
   static names(): { [key: string]: string } {
@@ -3125,8 +4487,20 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $tea.Model {
 }
 
 export class ModifyAppInstanceGroupAttributeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter.ProductType
+   */
   code?: string;
+  /**
+   * @example
+   * The parameter ProductType is invalid.
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3175,7 +4549,21 @@ export class ModifyAppInstanceGroupAttributeResponse extends $tea.Model {
 }
 
 export class ModifyAppPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pg-ee2znjktwgxu2****
+   */
   appPolicyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   videoPolicy?: ModifyAppPolicyRequestVideoPolicy;
   static names(): { [key: string]: string } {
@@ -3200,7 +4588,21 @@ export class ModifyAppPolicyRequest extends $tea.Model {
 }
 
 export class ModifyAppPolicyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pg-ee2znjktwgxu2****
+   */
   appPolicyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   videoPolicyShrink?: string;
   static names(): { [key: string]: string } {
@@ -3225,6 +4627,10 @@ export class ModifyAppPolicyShrinkRequest extends $tea.Model {
 }
 
 export class ModifyAppPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3269,10 +4675,29 @@ export class ModifyAppPolicyResponse extends $tea.Model {
 }
 
 export class ModifyNodePoolAttributeRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @example
+   * 2
+   */
   nodeCapacity?: number;
   nodePoolStrategy?: ModifyNodePoolAttributeRequestNodePoolStrategy;
+  /**
+   * @example
+   * rg-ew7va2g1wl3vm****
+   */
   poolId?: string;
+  /**
+   * @remarks
+   * 产品类型。
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3300,10 +4725,29 @@ export class ModifyNodePoolAttributeRequest extends $tea.Model {
 }
 
 export class ModifyNodePoolAttributeShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @example
+   * 2
+   */
   nodeCapacity?: number;
   nodePoolStrategyShrink?: string;
+  /**
+   * @example
+   * rg-ew7va2g1wl3vm****
+   */
   poolId?: string;
+  /**
+   * @remarks
+   * 产品类型。
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3331,8 +4775,20 @@ export class ModifyNodePoolAttributeShrinkRequest extends $tea.Model {
 }
 
 export class ModifyNodePoolAttributeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter.PoolId
+   */
   code?: string;
+  /**
+   * @example
+   * The parameter PoolId is invalid.
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3381,14 +4837,50 @@ export class ModifyNodePoolAttributeResponse extends $tea.Model {
 }
 
 export class ModifyProjectPolicyRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   clipboard?: number;
+  /**
+   * @example
+   * 0
+   */
   fileTransfer?: number;
+  /**
+   * @example
+   * 30
+   */
   frameRate?: number;
+  /**
+   * @example
+   * 15
+   */
   keepAliveDuration?: number;
+  /**
+   * @example
+   * p-065z4tu9ak07h****
+   */
   projectId?: string;
+  /**
+   * @example
+   * 4096
+   */
   sessionResolutionHeight?: number;
+  /**
+   * @example
+   * 4096
+   */
   sessionResolutionWidth?: number;
+  /**
+   * @example
+   * video
+   */
   streamingMode?: string;
+  /**
+   * @example
+   * true
+   */
   terminalResolutionAdaptation?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3424,10 +4916,30 @@ export class ModifyProjectPolicyRequest extends $tea.Model {
 }
 
 export class ModifyProjectPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * None
+   */
   data?: string;
+  /**
+   * @example
+   * There is a missing parameter.
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3480,6 +4992,10 @@ export class ModifyProjectPolicyResponse extends $tea.Model {
 }
 
 export class ModifyTenantConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   appInstanceGroupExpireRemind?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3499,6 +5015,10 @@ export class ModifyTenantConfigRequest extends $tea.Model {
 }
 
 export class ModifyTenantConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3543,9 +5063,31 @@ export class ModifyTenantConfigResponse extends $tea.Model {
 }
 
 export class PageListAppInstanceGroupUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3571,6 +5113,10 @@ export class PageListAppInstanceGroupUserRequest extends $tea.Model {
 }
 
 export class PageListAppInstanceGroupUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   users?: string[];
   static names(): { [key: string]: string } {
@@ -3618,6 +5164,10 @@ export class PageListAppInstanceGroupUserResponse extends $tea.Model {
 }
 
 export class RefreshAccessUrlRequest extends $tea.Model {
+  /**
+   * @example
+   * a-062wec3cwmayw****
+   */
   accessPageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3637,10 +5187,29 @@ export class RefreshAccessUrlRequest extends $tea.Model {
 }
 
 export class RefreshAccessUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * https://wuying.aliyun.com/native-solution/cloud-flow/view?id=a-075nu7b9ynrpugvbm&token=67C7557D25540A9130B1ED81E806D4772A7DE693E6F377E3594179772B******
+   */
   accessUrl?: string;
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3693,11 +5262,44 @@ export class RefreshAccessUrlResponse extends $tea.Model {
 }
 
 export class RenewAppInstanceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * false
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
+  /**
+   * @example
+   * 17440009****
+   */
   promotionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3727,9 +5329,25 @@ export class RenewAppInstanceGroupRequest extends $tea.Model {
 }
 
 export class RenewAppInstanceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter.ProductType
+   */
   code?: string;
+  /**
+   * @example
+   * The parameter ProductType is invalid.
+   */
   message?: string;
+  /**
+   * @example
+   * 123456****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3780,8 +5398,29 @@ export class RenewAppInstanceGroupResponse extends $tea.Model {
 }
 
 export class RenewSessionPackageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Month
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tp-****
+   */
   sessionPackageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3805,10 +5444,30 @@ export class RenewSessionPackageRequest extends $tea.Model {
 }
 
 export class RenewSessionPackageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * There is a missing parameter.
+   */
   message?: string;
+  /**
+   * @example
+   * 50158E8B-992E-1286-B174-**********
+   */
   requestId?: string;
+  /**
+   * @example
+   * 22983172******
+   */
   sessionPackageId?: number;
+  /**
+   * @example
+   * success
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3861,10 +5520,35 @@ export class RenewSessionPackageResponse extends $tea.Model {
 }
 
 export class UnbindRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * ai-d297eyf83g5ni****
+   */
   appInstanceId?: string;
   appInstancePersistentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * alice
+   */
   endUserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3892,6 +5576,10 @@ export class UnbindRequest extends $tea.Model {
 }
 
 export class UnbindResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3936,7 +5624,15 @@ export class UnbindResponse extends $tea.Model {
 }
 
 export class UpdateAccessPageStateRequest extends $tea.Model {
+  /**
+   * @example
+   * a-06xnr5lyp77e7****
+   */
   accessPageId?: string;
+  /**
+   * @example
+   * 1
+   */
   accessPageState?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3958,9 +5654,25 @@ export class UpdateAccessPageStateRequest extends $tea.Model {
 }
 
 export class UpdateAccessPageStateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * InternalError
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4011,9 +5723,37 @@ export class UpdateAccessPageStateResponse extends $tea.Model {
 }
 
 export class UpdateAppInstanceGroupImageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * img-8z4nztpaqvay4****
+   */
   appCenterImageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CloudApp
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4039,8 +5779,20 @@ export class UpdateAppInstanceGroupImageRequest extends $tea.Model {
 }
 
 export class UpdateAppInstanceGroupImageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InvalidParameter.ProductType
+   */
   code?: string;
+  /**
+   * @example
+   * The parameter ProductType is invalid.
+   */
   message?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4089,10 +5841,30 @@ export class UpdateAppInstanceGroupImageResponse extends $tea.Model {
 }
 
 export class AccessPageGetAclResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * FREE_ACCESS
+   */
   accessMode?: string;
+  /**
+   * @example
+   * https://wuying.aliyun.com/native-solution/cloud-flow/view?id=a-075nu7bcqim2wvxli&token=8141B1A674D48ACB8E5D2D6CE53FDB2F3CF8710A5F8F78578D5254BC6F******
+   */
   accessUrl?: string;
+  /**
+   * @example
+   * 2023-02-08T03:52Z
+   */
   effectTime?: number;
+  /**
+   * @example
+   * hour
+   */
   unit?: string;
+  /**
+   * @example
+   * 2023-12-05 14:28:20
+   */
   urlExpireTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4120,9 +5892,25 @@ export class AccessPageGetAclResponseBodyData extends $tea.Model {
 }
 
 export class AskSessionPackagePriceResponseBodyDataPrice extends $tea.Model {
+  /**
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @example
+   * 0.0
+   */
   discountPrice?: number;
+  /**
+   * @example
+   * 2000.0
+   */
   originalPrice?: number;
+  /**
+   * @example
+   * 2000.0
+   */
   tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4167,9 +5955,25 @@ export class AskSessionPackagePriceResponseBodyData extends $tea.Model {
 }
 
 export class AskSessionPackageRenewPriceResponseBodyDataPrice extends $tea.Model {
+  /**
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @example
+   * 0.0
+   */
   discountPrice?: number;
+  /**
+   * @example
+   * 2000.0
+   */
   originalPrice?: number;
+  /**
+   * @example
+   * 2000.0
+   */
   tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4236,7 +6040,15 @@ export class CreateAppInstanceGroupRequestNetworkDomainRules extends $tea.Model 
 }
 
 export class CreateAppInstanceGroupRequestNetworkRoutes extends $tea.Model {
+  /**
+   * @example
+   * 139.196.XX.XX/32
+   */
   destination?: string;
+  /**
+   * @example
+   * Shared
+   */
   mode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4259,8 +6071,16 @@ export class CreateAppInstanceGroupRequestNetworkRoutes extends $tea.Model {
 
 export class CreateAppInstanceGroupRequestNetwork extends $tea.Model {
   domainRules?: CreateAppInstanceGroupRequestNetworkDomainRules[];
+  /**
+   * @example
+   * 60
+   */
   ipExpireMinutes?: number;
   routes?: CreateAppInstanceGroupRequestNetworkRoutes[];
+  /**
+   * @example
+   * Shared
+   */
   strategyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4286,8 +6106,20 @@ export class CreateAppInstanceGroupRequestNetwork extends $tea.Model {
 }
 
 export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedulesTimerPeriods extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   amount?: number;
+  /**
+   * @example
+   * 15:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 12:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4311,6 +6143,10 @@ export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedulesTimerPeriod
 }
 
 export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedules extends $tea.Model {
+  /**
+   * @example
+   * weekly
+   */
   recurrenceType?: string;
   recurrenceValues?: number[];
   timerPeriods?: CreateAppInstanceGroupRequestNodePoolRecurrenceSchedulesTimerPeriods[];
@@ -4336,17 +6172,57 @@ export class CreateAppInstanceGroupRequestNodePoolRecurrenceSchedules extends $t
 }
 
 export class CreateAppInstanceGroupRequestNodePool extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxScalingAmount?: number;
+  /**
+   * @example
+   * 1
+   */
   nodeAmount?: number;
+  /**
+   * @example
+   * 2
+   */
   nodeCapacity?: number;
   nodeInstanceType?: string;
   recurrenceSchedules?: CreateAppInstanceGroupRequestNodePoolRecurrenceSchedules[];
+  /**
+   * @example
+   * 5
+   */
   scalingDownAfterIdleMinutes?: number;
+  /**
+   * @example
+   * 2
+   */
   scalingStep?: number;
+  /**
+   * @example
+   * 85
+   */
   scalingUsageThreshold?: string;
+  /**
+   * @example
+   * 2022-09-08
+   */
   strategyDisableDate?: string;
+  /**
+   * @example
+   * 2022-08-01
+   */
   strategyEnableDate?: string;
+  /**
+   * @example
+   * NODE_FIXED
+   */
   strategyType?: string;
+  /**
+   * @example
+   * false
+   */
   warmUp?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4389,6 +6265,13 @@ export class CreateAppInstanceGroupRequestNodePool extends $tea.Model {
 
 export class CreateAppInstanceGroupRequestRuntimePolicy extends $tea.Model {
   debugMode?: string;
+  /**
+   * @remarks
+   * 会话类型。
+   * 
+   * @example
+   * NORMAL
+   */
   sessionType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4410,7 +6293,15 @@ export class CreateAppInstanceGroupRequestRuntimePolicy extends $tea.Model {
 }
 
 export class CreateAppInstanceGroupRequestSecurityPolicy extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   resetAfterUnbind?: boolean;
+  /**
+   * @example
+   * false
+   */
   skipUserAuthCheck?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4470,6 +6361,10 @@ export class CreateAppInstanceGroupRequestUserDefinePolicy extends $tea.Model {
 }
 
 export class CreateAppInstanceGroupRequestUserInfo extends $tea.Model {
+  /**
+   * @example
+   * Simple
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4523,8 +6418,20 @@ export class CreateAppInstanceGroupRequestVideoPolicy extends $tea.Model {
 }
 
 export class CreateAppInstanceGroupResponseBodyAppInstanceGroupModel extends $tea.Model {
+  /**
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * rg-ew7va2g1wl3vm****
+   */
   nodePoolId?: string;
+  /**
+   * @example
+   * 12345****
+   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4548,9 +6455,25 @@ export class CreateAppInstanceGroupResponseBodyAppInstanceGroupModel extends $te
 }
 
 export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $tea.Model {
+  /**
+   * @example
+   * ai-gbuea*****
+   */
   appInstanceId?: string;
+  /**
+   * @example
+   * InvalidParameter.ProductType
+   */
   code?: string;
+  /**
+   * @example
+   * The parameter ProductType is invalid.
+   */
   message?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4576,7 +6499,18 @@ export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $tea.
 }
 
 export class GetAccessPageSessionResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * DQpbRGVza3RvcF0NCkZvcmNlVGxzVHlwZT0xDQpHV1Rva2VuUGFydDE9MDBzQU5DTGVsZ0RqMnAyMGpZdUNkRDMrNTlLekpzUTRXNElPWVdjWGIwZ2QrUkNyais0ZGM3WUJGM1NBdVFJWWl2ejhaWDlvakh1cDJ4c0Vpc3lrQ1I4RVEzeDhIYXdCb2pRRDJReklaQTZIbU52VjdrRlNlWkxQTXV3Y0hNTEZTTkxKaDNOY1BtU0tVYTNqWVVUMFUyKzNqWDBRMXdLM29ZQnJaOFVoL2RWY0xpem5tWEhHTmE0THVGRCtrajloSWlFT0w3b2w4OHY1cjBPelpHZnh4aXlVbk1yQURnRHhoK1F6K3UvdXYxaFYyQ3UwVlduTHJ3cDNRM3hYWWtORW81N00xYWZ4cTJBdWplVmx3aGVxOHd4dDl2Y3NGVGMxNFpPL2hudWdoeGJkaz0NCkdXVG9rZW5QYXJ0Mj0NCkFzcEF1dGhUb2tlbj0wME5LTnlLZXE3UGpzNzNzeURrdEs2NUlaenpYb05WNWxnY3BjVTJMd2NKUEoyMk53WmlrSGNaaDdNVGk2azlLazNyeHFCd2FHZTlmc2NUbFljUDJ0MEVldXRha2paUklMM0x3a0RsT1BZZTZxYmtsay9STHFrajg4dWg0ZFZNTHE2QkF0WVRSeW9ZTC9WUHhaVWxyZEZOQT09DQpBZXNLZXlWZXJzaW9uPTE3MDEyMzk1ODc4NzcNCkdhdGV3YXlEb21haW5BZGRyZXNzPWd3LWFwcC1jbi1oYW5nemhvdS1pLWFwcC10ZXN0MC13aW4ud3V5aW5nLmFsaXl1bmNzLmNvbQ0KR2F0ZXdheUFkZHJlc3M9NDcuOTkuMjIzLjE0OQ0KR2F0ZXdheVBvcnQ9NTkxMg0KR2F0ZXdheVdzc1BvcnQ9ODAwOA0KU3RyZWFtVHlwZT0wDQpSdGNHd1Rva2VuPVAwMFJkc013dVdQVkt4MGtRYUNkSlY3MUc2OC9iaWFhSEJwVn******
+   */
   connectTicket?: string;
+  /**
+   * @remarks
+   * flow ID
+   * 
+   * @example
+   * e4fa0b4c18c5437a8b1746e7c228172e
+   */
   flowId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4599,6 +6533,10 @@ export class GetAccessPageSessionResponseBodyData extends $tea.Model {
 
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $tea.Model {
   appIcon?: string;
+  /**
+   * @example
+   * ca-i87mycyn419nu****
+   */
   appId?: string;
   appName?: string;
   appVersion?: string;
@@ -4629,8 +6567,20 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $
 }
 
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
   amount?: number;
+  /**
+   * @example
+   * 11:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 09:30
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4654,6 +6604,10 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurr
 }
 
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules extends $tea.Model {
+  /**
+   * @example
+   * Weekly
+   */
   recurrenceType?: string;
   recurrenceValues?: number[];
   timerPeriods?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods[];
@@ -4679,23 +6633,87 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurr
 }
 
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   amount?: number;
+  /**
+   * @example
+   * 8
+   */
   maxScalingAmount?: number;
+  /**
+   * @example
+   * 1
+   */
   nodeAmount?: number;
+  /**
+   * @example
+   * 2
+   */
   nodeCapacity?: number;
+  /**
+   * @example
+   * appstreaming.vgpu.4c8g.2g
+   */
   nodeInstanceType?: string;
+  /**
+   * @example
+   * rg-g6922kced36hx****
+   */
   nodePoolId?: string;
   nodeTypeName?: string;
+  /**
+   * @example
+   * 1
+   */
   nodeUsed?: number;
   recurrenceSchedules?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules[];
+  /**
+   * @example
+   * 5
+   */
   scalingDownAfterIdleMinutes?: number;
+  /**
+   * @example
+   * 8
+   */
   scalingNodeAmount?: number;
+  /**
+   * @example
+   * 4
+   */
   scalingNodeUsed?: number;
+  /**
+   * @example
+   * 2
+   */
   scalingStep?: number;
+  /**
+   * @example
+   * 85
+   */
   scalingUsageThreshold?: string;
+  /**
+   * @example
+   * 2022-09-08
+   */
   strategyDisableDate?: string;
+  /**
+   * @example
+   * 2022-08-01
+   */
   strategyEnableDate?: string;
+  /**
+   * @example
+   * NODE_FIXED
+   */
   strategyType?: string;
+  /**
+   * @example
+   * false
+   */
   warmUp?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4749,8 +6767,20 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exten
 }
 
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extends $tea.Model {
+  /**
+   * @example
+   * 0.0.1-D-20220630.11****
+   */
   newOtaVersion?: string;
+  /**
+   * @example
+   * 0.0.1-D-20220615.11****
+   */
   otaVersion?: string;
+  /**
+   * @example
+   * ota-e49929gv8acz5****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4775,35 +6805,139 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extend
 
 export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.Model {
   amount?: number;
+  /**
+   * @example
+   * img-8z4nztpaqvay4****
+   */
   appCenterImageId?: string;
+  /**
+   * @example
+   * OfficeApps
+   */
   appCenterImageName?: string;
+  /**
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
+  /**
+   * @example
+   * __dynamic__
+   */
   appInstanceType?: string;
+  /**
+   * @example
+   * test001
+   */
   appInstanceTypeName?: string;
+  /**
+   * @example
+   * pg-g3k5wa2ms2****
+   */
   appPolicyId?: string;
   apps?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps[];
+  /**
+   * @example
+   * Node
+   */
   chargeResourceMode?: string;
+  /**
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @example
+   * 2022-04-27T16:00:00.000+00:00
+   */
   expiredTime?: string;
+  /**
+   * @example
+   * 2022-04-26T15:06:16.000+00:00
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 10
+   */
   maxAmount?: number;
+  /**
+   * @example
+   * 1
+   */
   minAmount?: number;
   nodePool?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool[];
+  /**
+   * @example
+   * Windows
+   */
   osType?: string;
   otaInfo?: GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo;
+  /**
+   * @example
+   * CloudApp
+   */
   productType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 20
+   */
   reserveAmountRatio?: string;
+  /**
+   * @example
+   * 5
+   */
   reserveMaxAmount?: number;
+  /**
+   * @example
+   * 1
+   */
   reserveMinAmount?: number;
+  /**
+   * @example
+   * AVAILABLE
+   */
   resourceStatus?: string;
+  /**
+   * @example
+   * 5
+   */
   scalingDownAfterIdleMinutes?: number;
+  /**
+   * @example
+   * 10
+   */
   scalingStep?: number;
+  /**
+   * @example
+   * 85
+   */
   scalingUsageThreshold?: string;
+  /**
+   * @example
+   * 15
+   */
   sessionTimeout?: string;
+  /**
+   * @example
+   * false
+   */
   skipUserAuthCheck?: boolean;
+  /**
+   * @example
+   * spec-8o18t8uc31qib0****
+   */
   specId?: string;
+  /**
+   * @example
+   * PUBLISHED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4883,17 +7017,61 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.
 }
 
 export class GetProjectPoliciesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   clipboard?: number;
+  /**
+   * @example
+   * 0
+   */
   fileTransfer?: number;
+  /**
+   * @example
+   * 30
+   */
   frameRate?: string;
+  /**
+   * @example
+   * 15
+   */
   keepAliveDuration?: number;
+  /**
+   * @example
+   * 1000
+   */
   maxHours?: number;
+  /**
+   * @example
+   * 60
+   */
   maxSessions?: number;
+  /**
+   * @example
+   * p-xxxxxxxxxxx
+   */
   projectId?: string;
+  /**
+   * @example
+   * 1080
+   */
   sessionResolutionHeight?: number;
+  /**
+   * @example
+   * 1920
+   */
   sessionResolutionWidth?: number;
   sessionSpec?: string;
+  /**
+   * @example
+   * mix
+   */
   streamingMode?: string;
+  /**
+   * @example
+   * true
+   */
   terminalResolutionAdaptation?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4935,10 +7113,22 @@ export class GetProjectPoliciesResponseBodyData extends $tea.Model {
 }
 
 export class GetResourcePriceResponseBodyPriceListPricePromotions extends $tea.Model {
+  /**
+   * @example
+   * coupon****
+   */
   optionCode?: string;
   promotionDesc?: string;
+  /**
+   * @example
+   * 1847709****
+   */
   promotionId?: string;
   promotionName?: string;
+  /**
+   * @example
+   * true
+   */
   selected?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4966,10 +7156,26 @@ export class GetResourcePriceResponseBodyPriceListPricePromotions extends $tea.M
 }
 
 export class GetResourcePriceResponseBodyPriceListPrice extends $tea.Model {
+  /**
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @example
+   * 999.0
+   */
   discountPrice?: string;
+  /**
+   * @example
+   * 6700
+   */
   originalPrice?: string;
   promotions?: GetResourcePriceResponseBodyPriceListPricePromotions[];
+  /**
+   * @example
+   * 5278.0
+   */
   tradePrice?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4998,6 +7204,10 @@ export class GetResourcePriceResponseBodyPriceListPrice extends $tea.Model {
 
 export class GetResourcePriceResponseBodyPriceListRules extends $tea.Model {
   description?: string;
+  /**
+   * @example
+   * 260904273633****
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5020,6 +7230,10 @@ export class GetResourcePriceResponseBodyPriceListRules extends $tea.Model {
 
 export class GetResourcePriceResponseBodyPriceList extends $tea.Model {
   price?: GetResourcePriceResponseBodyPriceListPrice;
+  /**
+   * @example
+   * Standby
+   */
   priceType?: string;
   rules?: GetResourcePriceResponseBodyPriceListRules[];
   static names(): { [key: string]: string } {
@@ -5044,10 +7258,22 @@ export class GetResourcePriceResponseBodyPriceList extends $tea.Model {
 }
 
 export class GetResourcePriceResponseBodyPriceModelPricePromotions extends $tea.Model {
+  /**
+   * @example
+   * coupon****
+   */
   optionCode?: string;
   promotionDesc?: string;
+  /**
+   * @example
+   * 17440009****
+   */
   promotionId?: string;
   promotionName?: string;
+  /**
+   * @example
+   * true
+   */
   selected?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5075,10 +7301,26 @@ export class GetResourcePriceResponseBodyPriceModelPricePromotions extends $tea.
 }
 
 export class GetResourcePriceResponseBodyPriceModelPrice extends $tea.Model {
+  /**
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @example
+   * 1.00
+   */
   discountPrice?: string;
+  /**
+   * @example
+   * 11.00
+   */
   originalPrice?: string;
   promotions?: GetResourcePriceResponseBodyPriceModelPricePromotions[];
+  /**
+   * @example
+   * 10.00
+   */
   tradePrice?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5107,6 +7349,10 @@ export class GetResourcePriceResponseBodyPriceModelPrice extends $tea.Model {
 
 export class GetResourcePriceResponseBodyPriceModelRules extends $tea.Model {
   description?: string;
+  /**
+   * @example
+   * 102002100393****
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5150,10 +7396,22 @@ export class GetResourcePriceResponseBodyPriceModel extends $tea.Model {
 }
 
 export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $tea.Model {
+  /**
+   * @example
+   * coupon****
+   */
   optionCode?: string;
   promotionDesc?: string;
+  /**
+   * @example
+   * 139965*****
+   */
   promotionId?: string;
   promotionName?: string;
+  /**
+   * @example
+   * true
+   */
   selected?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5181,10 +7439,26 @@ export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $tea.M
 }
 
 export class GetResourceRenewPriceResponseBodyDataPrice extends $tea.Model {
+  /**
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @example
+   * 1
+   */
   discountPrice?: string;
+  /**
+   * @example
+   * 11
+   */
   originalPrice?: string;
   promotions?: GetResourceRenewPriceResponseBodyDataPricePromotions[];
+  /**
+   * @example
+   * 10
+   */
   tradePrice?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5213,6 +7487,10 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $tea.Model {
 
 export class GetResourceRenewPriceResponseBodyDataRules extends $tea.Model {
   description?: string;
+  /**
+   * @example
+   * 20002****
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5257,17 +7535,61 @@ export class GetResourceRenewPriceResponseBodyData extends $tea.Model {
 
 export class ListAccessPagesResponseBodyData extends $tea.Model {
   accessMode?: string;
+  /**
+   * @example
+   * a-062wec3cwmayw****
+   */
   accessPageId?: string;
+  /**
+   * @example
+   * notepad_test
+   */
   accessPageName?: string;
+  /**
+   * @example
+   * 1
+   */
   accessPageState?: string;
+  /**
+   * @example
+   * id=a-062wec3cwmayw****&token=9E9A62937B0E41F4AEFE5EC9B238156CCDFB682954003AEE940A05FB2568****
+   */
   accessUrl?: string;
+  /**
+   * @example
+   * c-05to6wm3w5d53****
+   */
   contentId?: string;
   contentName?: string;
+  /**
+   * @example
+   * 168
+   */
   effectTime?: number;
+  /**
+   * @example
+   * 2023-11-16T08:48:15.000+00:00
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * p-062wec3cwmayu****
+   */
   projectId?: string;
+  /**
+   * @example
+   * notepad_demo
+   */
   projectName?: string;
+  /**
+   * @example
+   * Hour
+   */
   unit?: string;
+  /**
+   * @example
+   * 2023-11-23T08:48:15.000+00:00
+   */
   urlExpireTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5311,10 +7633,35 @@ export class ListAccessPagesResponseBodyData extends $tea.Model {
 }
 
 export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends $tea.Model {
+  /**
+   * @remarks
+   * 应用图标。
+   * 
+   * @example
+   * https://app-center-icon-****.png
+   */
   appIcon?: string;
+  /**
+   * @example
+   * ca-i87mycyn419nu****
+   */
   appId?: string;
   appName?: string;
+  /**
+   * @remarks
+   * 应用版本。
+   * 
+   * @example
+   * 1.0.0
+   */
   appVersion?: string;
+  /**
+   * @remarks
+   * 应用版本名称。
+   * 
+   * @example
+   * 初始版本
+   */
   appVersionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5342,8 +7689,20 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsApps extends 
 }
 
 export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
   amount?: number;
+  /**
+   * @example
+   * 11:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 09:30
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5367,6 +7726,10 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecur
 }
 
 export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules extends $tea.Model {
+  /**
+   * @example
+   * Weekly
+   */
   recurrenceType?: string;
   recurrenceValues?: number[];
   timerPeriods?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedulesTimerPeriods[];
@@ -5392,23 +7755,87 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecur
 }
 
 export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   amount?: number;
+  /**
+   * @example
+   * 8
+   */
   maxScalingAmount?: number;
+  /**
+   * @example
+   * 1
+   */
   nodeAmount?: number;
+  /**
+   * @example
+   * 2
+   */
   nodeCapacity?: number;
+  /**
+   * @example
+   * appstreaming.vgpu.4c8g.2g
+   */
   nodeInstanceType?: string;
+  /**
+   * @example
+   * rg-g6922kced36hx****
+   */
   nodePoolId?: string;
   nodeTypeName?: string;
+  /**
+   * @example
+   * 1
+   */
   nodeUsed?: number;
   recurrenceSchedules?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePoolRecurrenceSchedules[];
+  /**
+   * @example
+   * 5
+   */
   scalingDownAfterIdleMinutes?: number;
+  /**
+   * @example
+   * 8
+   */
   scalingNodeAmount?: number;
+  /**
+   * @example
+   * 4
+   */
   scalingNodeUsed?: number;
+  /**
+   * @example
+   * 2
+   */
   scalingStep?: number;
+  /**
+   * @example
+   * 85
+   */
   scalingUsageThreshold?: string;
+  /**
+   * @example
+   * 2022-09-08
+   */
   strategyDisableDate?: string;
+  /**
+   * @example
+   * 2022-08-01
+   */
   strategyEnableDate?: string;
+  /**
+   * @example
+   * NODE_FIXED
+   */
   strategyType?: string;
+  /**
+   * @example
+   * false
+   */
   warmUp?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5462,8 +7889,20 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool exte
 }
 
 export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo extends $tea.Model {
+  /**
+   * @example
+   * 0.0.1-D-20220630.11****
+   */
   newOtaVersion?: string;
+  /**
+   * @example
+   * 0.0.1-D-20220615.11****
+   */
   otaVersion?: string;
+  /**
+   * @example
+   * ota-e49929gv8acz5****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5487,34 +7926,140 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo exten
 }
 
 export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   amount?: number;
+  /**
+   * @example
+   * img-8z4nztpaqvay4****
+   */
   appCenterImageId?: string;
+  /**
+   * @example
+   * aig-9ciijz60n4xsv****
+   */
   appInstanceGroupId?: string;
   appInstanceGroupName?: string;
+  /**
+   * @example
+   * __dynamic__
+   */
   appInstanceType?: string;
+  /**
+   * @remarks
+   * 策略ID。
+   * 
+   * @example
+   * pg-g3k5wa2ms2****
+   */
   appPolicyId?: string;
   apps?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsApps[];
+  /**
+   * @remarks
+   * 售卖模式。
+   * 
+   * @example
+   * Node
+   */
   chargeResourceMode?: string;
+  /**
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @example
+   * 2022-04-27T16:00:00.000+00:00
+   */
   expiredTime?: string;
+  /**
+   * @example
+   * 2022-04-26T15:06:16.000+00:00
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 10
+   */
   maxAmount?: number;
+  /**
+   * @example
+   * 1
+   */
   minAmount?: number;
   nodePool?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool[];
+  /**
+   * @example
+   * Windows
+   */
   osType?: string;
   otaInfo?: ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo;
+  /**
+   * @example
+   * CloudApp
+   */
   productType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 20
+   */
   reserveAmountRatio?: string;
+  /**
+   * @example
+   * 5
+   */
   reserveMaxAmount?: number;
+  /**
+   * @example
+   * 1
+   */
   reserveMinAmount?: number;
+  /**
+   * @example
+   * AVAILABLE
+   */
   resourceStatus?: string;
+  /**
+   * @example
+   * 5
+   */
   scalingDownAfterIdleMinutes?: number;
+  /**
+   * @example
+   * 10
+   */
   scalingStep?: number;
+  /**
+   * @example
+   * 85
+   */
   scalingUsageThreshold?: string;
+  /**
+   * @example
+   * 15
+   */
   sessionTimeout?: string;
+  /**
+   * @example
+   * false
+   */
   skipUserAuthCheck?: boolean;
+  /**
+   * @example
+   * spec-8o18t8uc31qib0****
+   */
   specId?: string;
+  /**
+   * @example
+   * PUBLISHED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5590,7 +8135,15 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $tea
 }
 
 export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $tea.Model {
+  /**
+   * @example
+   * app.test
+   */
   endUserId?: string;
+  /**
+   * @example
+   * 2000
+   */
   usageDuration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5612,13 +8165,41 @@ export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $tea.
 }
 
 export class ListAppInstancesResponseBodyAppInstanceModels extends $tea.Model {
+  /**
+   * @example
+   * aig-dk8p95irqfst9****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * ai-8dl7dzchklmka****
+   */
   appInstanceId?: string;
   bindInfo?: ListAppInstancesResponseBodyAppInstanceModelsBindInfo;
+  /**
+   * @example
+   * 2023-03-07T20:29:19.000+08:00
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2023-03-07T20:29:19.000+08:00
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 10.13.13.211
+   */
   mainEthPublicIp?: string;
+  /**
+   * @example
+   * connect
+   */
   sessionStatus?: string;
+  /**
+   * @example
+   * BOUND
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5652,13 +8233,60 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $tea.Model {
 }
 
 export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   cpu?: string;
+  /**
+   * @example
+   * 2
+   */
   gpu?: string;
+  /**
+   * @remarks
+   * 显卡内存大小，单位为MB。
+   * 
+   * @example
+   * 8192
+   */
   gpuMemory?: number;
+  /**
+   * @remarks
+   * 最大并发会话数，即单个资源可同时连接的会话数。如果同时连接的会话数过多，可能导致应用的使用体验下降。取值范围因资源规格不同而不同。各资源规格对应的取值范围分别是：
+   * 
+   * - appstreaming.general.4c8g：1\\~2；
+   * - appstreaming.general.8c16g：1\\~4；
+   * - appstreaming.vgpu.8c16g.4g：1\\~4；
+   * - appstreaming.vgpu.8c31g.16g：1\\~4；
+   * - appstreaming.vgpu.14c93g.12g：1\\~6；
+   * 
+   * @example
+   * 4
+   */
   maxCapacity?: number;
+  /**
+   * @example
+   * 8192
+   */
   memory?: number;
+  /**
+   * @example
+   * appstreaming.vgpu.4c8g.2g
+   */
   nodeInstanceType?: string;
+  /**
+   * @example
+   * appstreaming.vgpu
+   */
   nodeInstanceTypeFamily?: string;
+  /**
+   * @remarks
+   * 资源规格名称。
+   * 
+   * @example
+   * 无影-通用型_4核8G
+   */
   nodeTypeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5692,9 +8320,28 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $tea
 }
 
 export class ListOtaTaskResponseBodyTaskList extends $tea.Model {
+  /**
+   * @example
+   * 0.0.1-R-20220708.110604
+   */
   otaVersion?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   taskDisplayStatus?: string;
+  /**
+   * @example
+   * ota-be7jzm29wrrz5****
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-08-04T14:36:00+08:00
+   */
   taskStartTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5721,17 +8368,61 @@ export class ListOtaTaskResponseBodyTaskList extends $tea.Model {
 
 export class ListProjectsResponseBodyData extends $tea.Model {
   accessPageId?: number[];
+  /**
+   * @example
+   * 3174301
+   */
   availableHours?: number;
+  /**
+   * @example
+   * c-06vcpamarryyq****
+   */
   contentId?: string;
+  /**
+   * @example
+   * notepad++***
+   */
   contentName?: string;
+  /**
+   * @example
+   * 1701141509000
+   */
   createTime?: string;
+  /**
+   * @example
+   * xxx
+   */
   description?: string;
   inUseSessions?: number;
+  /**
+   * @example
+   * 1000
+   */
   maxHours?: number;
+  /**
+   * @example
+   * 100
+   */
   maxSessions?: number;
+  /**
+   * @example
+   * p-065z4tu9ak07h****
+   */
   projectId?: string;
+  /**
+   * @example
+   * notepad++***
+   */
   projectName?: string;
+  /**
+   * @example
+   * 0
+   */
   projectState?: string;
+  /**
+   * @example
+   * appstreaming.general.basic
+   */
   sessionSpec?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5794,13 +8485,45 @@ export class ListRegionsResponseBodyRegionModels extends $tea.Model {
 }
 
 export class ListSessionPackagesResponseBodyDataInstanceObject extends $tea.Model {
+  /**
+   * @example
+   * 2024-05-28T16:00:00Z
+   */
   expiredTime?: string;
+  /**
+   * @example
+   * tp-xxxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * appstreaming.general.entry
+   */
   instanceType?: string;
+  /**
+   * @example
+   * p-xxxxxxxxxx
+   */
   resourceId?: string;
+  /**
+   * @example
+   * AppSessionPackage
+   */
   resourceType?: string;
+  /**
+   * @example
+   * 2023-11-28T04:14:07Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 3600000
+   */
   totalTime?: number;
+  /**
+   * @example
+   * 1021
+   */
   usedTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5834,23 +8557,79 @@ export class ListSessionPackagesResponseBodyDataInstanceObject extends $tea.Mode
 }
 
 export class ListSessionPackagesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 500
+   */
   availableHours?: number;
   chargeType?: string;
+  /**
+   * @example
+   * 0
+   */
   deleteStatus?: number;
+  /**
+   * @example
+   * 1701170196000
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 1701170203000
+   */
   gmtModifiedTime?: string;
   instanceObject?: ListSessionPackagesResponseBodyDataInstanceObject;
+  /**
+   * @example
+   * 1000
+   */
   maxHours?: number;
+  /**
+   * @example
+   * 100
+   */
   maxSessions?: number;
+  /**
+   * @example
+   * p-xxxxxxxxxxxx
+   */
   projectId?: string;
   projectName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @example
+   * tp-xxxxxxxxx
+   */
   sessionPackageId?: string;
   sessionPackageName?: string;
+  /**
+   * @example
+   * 0
+   */
   sessionPackageTypeId?: string;
+  /**
+   * @example
+   * appstreaming.general.entry
+   */
   sessionSpec?: string;
+  /**
+   * @example
+   * 60
+   */
   sessionUsageRate?: number;
+  /**
+   * @example
+   * 4
+   */
   state?: number;
+  /**
+   * @example
+   * 156xxxxxxxxxx
+   */
   userIdentification?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5904,6 +8683,10 @@ export class ListSessionPackagesResponseBodyData extends $tea.Model {
 }
 
 export class ListTenantConfigResponseBodyTenantConfigModel extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   appInstanceGroupExpireRemind?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5964,7 +8747,15 @@ export class ModifyAppInstanceGroupAttributeRequestNetwork extends $tea.Model {
 }
 
 export class ModifyAppInstanceGroupAttributeRequestNodePool extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   nodeCapacity?: number;
+  /**
+   * @example
+   * rg-ew7va2g1wl3vm****
+   */
   nodePoolId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5986,7 +8777,15 @@ export class ModifyAppInstanceGroupAttributeRequestNodePool extends $tea.Model {
 }
 
 export class ModifyAppInstanceGroupAttributeRequestSecurityPolicy extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   resetAfterUnbind?: boolean;
+  /**
+   * @example
+   * false
+   */
   skipUserAuthCheck?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6027,12 +8826,36 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $tea.Mo
 }
 
 export class ModifyAppPolicyRequestVideoPolicy extends $tea.Model {
+  /**
+   * @example
+   * 60
+   */
   frameRate?: number;
+  /**
+   * @example
+   * 1080
+   */
   sessionResolutionHeight?: number;
+  /**
+   * @example
+   * 1920
+   */
   sessionResolutionWidth?: number;
+  /**
+   * @example
+   * video
+   */
   streamingMode?: string;
+  /**
+   * @example
+   * false
+   */
   terminalResolutionAdaptive?: boolean;
   visualQualityStrategy?: string;
+  /**
+   * @example
+   * true
+   */
   webrtc?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6064,8 +8887,29 @@ export class ModifyAppPolicyRequestVideoPolicy extends $tea.Model {
 }
 
 export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods extends $tea.Model {
+  /**
+   * @remarks
+   * 资源数量。
+   * 
+   * @example
+   * 2
+   */
   amount?: number;
+  /**
+   * @remarks
+   * 结束时间。格式为HH:mm。
+   * 
+   * @example
+   * 15:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * 开始时间。格式为HH:mm。
+   * 
+   * @example
+   * 12:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6089,8 +8933,29 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTi
 }
 
 export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules extends $tea.Model {
+  /**
+   * @remarks
+   * 策略执行周期的类型。必须同时指定`RecurrenceType`和`RecurrenceValues`。
+   * 
+   * @example
+   * weekly
+   */
   recurrenceType?: string;
+  /**
+   * @remarks
+   * 策略执行周期的数值列表。
+   */
   recurrenceValues?: number[];
+  /**
+   * @remarks
+   * 策略执行周期的时间段列表。时间段设置要求：
+   * 
+   * - 最多可添加3个时间段。
+   * - 时间段之间不重叠。
+   * - 时间段之间的间隔大于或等于5分钟。
+   * - 单个时间段的时长大于或等于15分钟。
+   * - 所有时间段累计不跨天。
+   */
   timerPeriods?: ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods[];
   static names(): { [key: string]: string } {
     return {
@@ -6114,15 +8979,67 @@ export class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules e
 }
 
 export class ModifyNodePoolAttributeRequestNodePoolStrategy extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxScalingAmount?: number;
+  /**
+   * @remarks
+   * 购买资源的数量。取值范围：1~100。
+   * 
+   * > 
+   * - 若为包年包月资源，则该参数不可修改。
+   * - 若为按量付费资源，则当弹性模式（`StrategyType`）为固定数量（`NODE_FIXED`）或自动扩缩容（`NODE_SCALING_BY_USAGE`）时该参数可修改。
+   * 
+   * @example
+   * 1
+   */
   nodeAmount?: number;
+  /**
+   * @remarks
+   * 策略执行周期列表。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+   */
   recurrenceSchedules?: ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules[];
+  /**
+   * @example
+   * 5
+   */
   scalingDownAfterIdleMinutes?: number;
+  /**
+   * @example
+   * 2
+   */
   scalingStep?: number;
+  /**
+   * @example
+   * 85
+   */
   scalingUsageThreshold?: string;
+  /**
+   * @remarks
+   * 策略失效日期。格式为：yyyy-MM-dd。失效日期与生效日期的间隔必须介于7天到1年之间（含7天和1年）。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+   * 
+   * @example
+   * 2023-01-19
+   */
   strategyDisableDate?: string;
+  /**
+   * @remarks
+   * 策略生效日期。格式为：yyyy-MM-dd。该日期必须大于或等于当前日期。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+   * 
+   * @example
+   * 2023-01-05
+   */
   strategyEnableDate?: string;
   strategyType?: string;
+  /**
+   * @remarks
+   * 是否开启资源预热策略。`StrategyType`（弹性模式）设为`NODE_SCALING_BY_SCHEDULE`（定时扩缩容）时，该字段必填。
+   * 
+   * @example
+   * false
+   */
   warmUp?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6184,11 +9101,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取访问管理页配置
-   *
-   * @param request AccessPageGetAclRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AccessPageGetAclResponse
+   * 获取访问管理页配置
+   * 
+   * @param request - AccessPageGetAclRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AccessPageGetAclResponse
    */
   async accessPageGetAclWithOptions(request: AccessPageGetAclRequest, runtime: $Util.RuntimeOptions): Promise<AccessPageGetAclResponse> {
     Util.validateModel(request);
@@ -6215,10 +9132,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取访问管理页配置
-   *
-   * @param request AccessPageGetAclRequest
-   * @return AccessPageGetAclResponse
+   * 获取访问管理页配置
+   * 
+   * @param request - AccessPageGetAclRequest
+   * @returns AccessPageGetAclResponse
    */
   async accessPageGetAcl(request: AccessPageGetAclRequest): Promise<AccessPageGetAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6226,11 +9143,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新访问管理
-   *
-   * @param request AccessPageSetAclRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AccessPageSetAclResponse
+   * 更新访问管理
+   * 
+   * @param request - AccessPageSetAclRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AccessPageSetAclResponse
    */
   async accessPageSetAclWithOptions(request: AccessPageSetAclRequest, runtime: $Util.RuntimeOptions): Promise<AccessPageSetAclResponse> {
     Util.validateModel(request);
@@ -6273,10 +9190,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新访问管理
-   *
-   * @param request AccessPageSetAclRequest
-   * @return AccessPageSetAclResponse
+   * 更新访问管理
+   * 
+   * @param request - AccessPageSetAclRequest
+   * @returns AccessPageSetAclResponse
    */
   async accessPageSetAcl(request: AccessPageSetAclRequest): Promise<AccessPageSetAclResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6284,11 +9201,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 同意Ota升级
-   *
-   * @param request ApproveOtaTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ApproveOtaTaskResponse
+   * 同意Ota升级
+   * 
+   * @param request - ApproveOtaTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApproveOtaTaskResponse
    */
   async approveOtaTaskWithOptions(request: ApproveOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<ApproveOtaTaskResponse> {
     Util.validateModel(request);
@@ -6331,10 +9248,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 同意Ota升级
-   *
-   * @param request ApproveOtaTaskRequest
-   * @return ApproveOtaTaskResponse
+   * 同意Ota升级
+   * 
+   * @param request - ApproveOtaTaskRequest
+   * @returns ApproveOtaTaskResponse
    */
   async approveOtaTask(request: ApproveOtaTaskRequest): Promise<ApproveOtaTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6342,11 +9259,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话包收费查询
-   *
-   * @param request AskSessionPackagePriceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AskSessionPackagePriceResponse
+   * 会话包收费查询
+   * 
+   * @param request - AskSessionPackagePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AskSessionPackagePriceResponse
    */
   async askSessionPackagePriceWithOptions(request: AskSessionPackagePriceRequest, runtime: $Util.RuntimeOptions): Promise<AskSessionPackagePriceResponse> {
     Util.validateModel(request);
@@ -6401,10 +9318,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话包收费查询
-   *
-   * @param request AskSessionPackagePriceRequest
-   * @return AskSessionPackagePriceResponse
+   * 会话包收费查询
+   * 
+   * @param request - AskSessionPackagePriceRequest
+   * @returns AskSessionPackagePriceResponse
    */
   async askSessionPackagePrice(request: AskSessionPackagePriceRequest): Promise<AskSessionPackagePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6412,11 +9329,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话包续费询价
-   *
-   * @param request AskSessionPackageRenewPriceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AskSessionPackageRenewPriceResponse
+   * 会话包续费询价
+   * 
+   * @param request - AskSessionPackageRenewPriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AskSessionPackageRenewPriceResponse
    */
   async askSessionPackageRenewPriceWithOptions(request: AskSessionPackageRenewPriceRequest, runtime: $Util.RuntimeOptions): Promise<AskSessionPackageRenewPriceResponse> {
     Util.validateModel(request);
@@ -6451,10 +9368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话包续费询价
-   *
-   * @param request AskSessionPackageRenewPriceRequest
-   * @return AskSessionPackageRenewPriceResponse
+   * 会话包续费询价
+   * 
+   * @param request - AskSessionPackageRenewPriceRequest
+   * @returns AskSessionPackageRenewPriceResponse
    */
   async askSessionPackageRenewPrice(request: AskSessionPackageRenewPriceRequest): Promise<AskSessionPackageRenewPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6462,11 +9379,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 授权用户
-   *
-   * @param request AuthorizeInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AuthorizeInstanceGroupResponse
+   * 授权用户
+   * 
+   * @param request - AuthorizeInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeInstanceGroupResponse
    */
   async authorizeInstanceGroupWithOptions(request: AuthorizeInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeInstanceGroupResponse> {
     Util.validateModel(request);
@@ -6505,10 +9422,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 授权用户
-   *
-   * @param request AuthorizeInstanceGroupRequest
-   * @return AuthorizeInstanceGroupResponse
+   * 授权用户
+   * 
+   * @param request - AuthorizeInstanceGroupRequest
+   * @returns AuthorizeInstanceGroupResponse
    */
   async authorizeInstanceGroup(request: AuthorizeInstanceGroupRequest): Promise<AuthorizeInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6516,11 +9433,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置会话包
-   *
-   * @param request BuySessionPackageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BuySessionPackageResponse
+   * 配置会话包
+   * 
+   * @param request - BuySessionPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BuySessionPackageResponse
    */
   async buySessionPackageWithOptions(request: BuySessionPackageRequest, runtime: $Util.RuntimeOptions): Promise<BuySessionPackageResponse> {
     Util.validateModel(request);
@@ -6587,10 +9504,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置会话包
-   *
-   * @param request BuySessionPackageRequest
-   * @return BuySessionPackageResponse
+   * 配置会话包
+   * 
+   * @param request - BuySessionPackageRequest
+   * @returns BuySessionPackageResponse
    */
   async buySessionPackage(request: BuySessionPackageRequest): Promise<BuySessionPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6598,11 +9515,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消Ota升级
-   *
-   * @param request CancelOtaTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelOtaTaskResponse
+   * 取消Ota升级
+   * 
+   * @param request - CancelOtaTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelOtaTaskResponse
    */
   async cancelOtaTaskWithOptions(request: CancelOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelOtaTaskResponse> {
     Util.validateModel(request);
@@ -6633,10 +9550,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消Ota升级
-   *
-   * @param request CancelOtaTaskRequest
-   * @return CancelOtaTaskResponse
+   * 取消Ota升级
+   * 
+   * @param request - CancelOtaTaskRequest
+   * @returns CancelOtaTaskResponse
    */
   async cancelOtaTask(request: CancelOtaTaskRequest): Promise<CancelOtaTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6644,11 +9561,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建访问页面 
-   *
-   * @param request CreateAccessPageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAccessPageResponse
+   * 创建访问页面
+   * 
+   * @param request - CreateAccessPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAccessPageResponse
    */
   async createAccessPageWithOptions(request: CreateAccessPageRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessPageResponse> {
     Util.validateModel(request);
@@ -6695,10 +9612,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建访问页面 
-   *
-   * @param request CreateAccessPageRequest
-   * @return CreateAccessPageResponse
+   * 创建访问页面
+   * 
+   * @param request - CreateAccessPageRequest
+   * @returns CreateAccessPageResponse
    */
   async createAccessPage(request: CreateAccessPageRequest): Promise<CreateAccessPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6706,11 +9623,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建云应用交付组
-   *
-   * @param tmpReq CreateAppInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAppInstanceGroupResponse
+   * 创建云应用交付组
+   * 
+   * @param tmpReq - CreateAppInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppInstanceGroupResponse
    */
   async createAppInstanceGroupWithOptions(tmpReq: CreateAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppInstanceGroupResponse> {
     Util.validateModel(tmpReq);
@@ -6857,10 +9774,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建云应用交付组
-   *
-   * @param request CreateAppInstanceGroupRequest
-   * @return CreateAppInstanceGroupResponse
+   * 创建云应用交付组
+   * 
+   * @param request - CreateAppInstanceGroupRequest
+   * @returns CreateAppInstanceGroupResponse
    */
   async createAppInstanceGroup(request: CreateAppInstanceGroupRequest): Promise<CreateAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6868,11 +9785,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CreateImageFromAppInstanceGroup
-   *
-   * @param request CreateImageFromAppInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateImageFromAppInstanceGroupResponse
+   * CreateImageFromAppInstanceGroup
+   * 
+   * @param request - CreateImageFromAppInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageFromAppInstanceGroupResponse
    */
   async createImageFromAppInstanceGroupWithOptions(request: CreateImageFromAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageFromAppInstanceGroupResponse> {
     Util.validateModel(request);
@@ -6907,10 +9824,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CreateImageFromAppInstanceGroup
-   *
-   * @param request CreateImageFromAppInstanceGroupRequest
-   * @return CreateImageFromAppInstanceGroupResponse
+   * CreateImageFromAppInstanceGroup
+   * 
+   * @param request - CreateImageFromAppInstanceGroupRequest
+   * @returns CreateImageFromAppInstanceGroupResponse
    */
   async createImageFromAppInstanceGroup(request: CreateImageFromAppInstanceGroupRequest): Promise<CreateImageFromAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6918,11 +9835,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建项目
-   *
-   * @param request CreateProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateProjectResponse
+   * 创建项目
+   * 
+   * @param request - CreateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectResponse
    */
   async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
@@ -6997,10 +9914,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建项目
-   *
-   * @param request CreateProjectRequest
-   * @return CreateProjectResponse
+   * 创建项目
+   * 
+   * @param request - CreateProjectRequest
+   * @returns CreateProjectResponse
    */
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7008,11 +9925,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除访问页面
-   *
-   * @param request DeleteAccessPageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAccessPageResponse
+   * 删除访问页面
+   * 
+   * @param request - DeleteAccessPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAccessPageResponse
    */
   async deleteAccessPageWithOptions(request: DeleteAccessPageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessPageResponse> {
     Util.validateModel(request);
@@ -7039,10 +9956,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除访问页面
-   *
-   * @param request DeleteAccessPageRequest
-   * @return DeleteAccessPageResponse
+   * 删除访问页面
+   * 
+   * @param request - DeleteAccessPageRequest
+   * @returns DeleteAccessPageResponse
    */
   async deleteAccessPage(request: DeleteAccessPageRequest): Promise<DeleteAccessPageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7050,11 +9967,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实例组释放接口
-   *
-   * @param request DeleteAppInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAppInstanceGroupResponse
+   * 实例组释放接口
+   * 
+   * @param request - DeleteAppInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppInstanceGroupResponse
    */
   async deleteAppInstanceGroupWithOptions(request: DeleteAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppInstanceGroupResponse> {
     Util.validateModel(request);
@@ -7085,10 +10002,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实例组释放接口
-   *
-   * @param request DeleteAppInstanceGroupRequest
-   * @return DeleteAppInstanceGroupResponse
+   * 实例组释放接口
+   * 
+   * @param request - DeleteAppInstanceGroupRequest
+   * @returns DeleteAppInstanceGroupResponse
    */
   async deleteAppInstanceGroup(request: DeleteAppInstanceGroupRequest): Promise<DeleteAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7096,11 +10013,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除实例
-   *
-   * @param request DeleteAppInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAppInstancesResponse
+   * 删除实例
+   * 
+   * @param request - DeleteAppInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppInstancesResponse
    */
   async deleteAppInstancesWithOptions(request: DeleteAppInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppInstancesResponse> {
     Util.validateModel(request);
@@ -7135,10 +10052,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除实例
-   *
-   * @param request DeleteAppInstancesRequest
-   * @return DeleteAppInstancesResponse
+   * 删除实例
+   * 
+   * @param request - DeleteAppInstancesRequest
+   * @returns DeleteAppInstancesResponse
    */
   async deleteAppInstances(request: DeleteAppInstancesRequest): Promise<DeleteAppInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7146,11 +10063,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除项目
-   *
-   * @param request DeleteProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteProjectResponse
+   * 删除项目
+   * 
+   * @param request - DeleteProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectResponse
    */
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
@@ -7177,10 +10094,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除项目
-   *
-   * @param request DeleteProjectRequest
-   * @return DeleteProjectResponse
+   * 删除项目
+   * 
+   * @param request - DeleteProjectRequest
+   * @returns DeleteProjectResponse
    */
   async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7188,11 +10105,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 访客进入访问页面的匿名api
-   *
-   * @param request GetAccessPageSessionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAccessPageSessionResponse
+   * 访客进入访问页面的匿名api
+   * 
+   * @param request - GetAccessPageSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessPageSessionResponse
    */
   async getAccessPageSessionWithOptions(request: GetAccessPageSessionRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessPageSessionResponse> {
     Util.validateModel(request);
@@ -7227,10 +10144,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 访客进入访问页面的匿名api
-   *
-   * @param request GetAccessPageSessionRequest
-   * @return GetAccessPageSessionResponse
+   * 访客进入访问页面的匿名api
+   * 
+   * @param request - GetAccessPageSessionRequest
+   * @returns GetAccessPageSessionResponse
    */
   async getAccessPageSession(request: GetAccessPageSessionRequest): Promise<GetAccessPageSessionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7238,11 +10155,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取交付组详情
-   *
-   * @param request GetAppInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAppInstanceGroupResponse
+   * 获取交付组详情
+   * 
+   * @param request - GetAppInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppInstanceGroupResponse
    */
   async getAppInstanceGroupWithOptions(request: GetAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetAppInstanceGroupResponse> {
     Util.validateModel(request);
@@ -7273,10 +10190,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取交付组详情
-   *
-   * @param request GetAppInstanceGroupRequest
-   * @return GetAppInstanceGroupResponse
+   * 获取交付组详情
+   * 
+   * @param request - GetAppInstanceGroupRequest
+   * @returns GetAppInstanceGroupResponse
    */
   async getAppInstanceGroup(request: GetAppInstanceGroupRequest): Promise<GetAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7284,11 +10201,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取连接ticket，Open API
-   *
-   * @param request GetConnectionTicketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetConnectionTicketResponse
+   * 获取连接ticket，Open API
+   * 
+   * @param request - GetConnectionTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConnectionTicketResponse
    */
   async getConnectionTicketWithOptions(request: GetConnectionTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionTicketResponse> {
     Util.validateModel(request);
@@ -7351,10 +10268,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取连接ticket，Open API
-   *
-   * @param request GetConnectionTicketRequest
-   * @return GetConnectionTicketResponse
+   * 获取连接ticket，Open API
+   * 
+   * @param request - GetConnectionTicketRequest
+   * @returns GetConnectionTicketResponse
    */
   async getConnectionTicket(request: GetConnectionTicketRequest): Promise<GetConnectionTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7362,11 +10279,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetDebugAppInstance
-   *
-   * @param request GetDebugAppInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDebugAppInstanceResponse
+   * GetDebugAppInstance
+   * 
+   * @param request - GetDebugAppInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDebugAppInstanceResponse
    */
   async getDebugAppInstanceWithOptions(request: GetDebugAppInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetDebugAppInstanceResponse> {
     Util.validateModel(request);
@@ -7397,10 +10314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetDebugAppInstance
-   *
-   * @param request GetDebugAppInstanceRequest
-   * @return GetDebugAppInstanceResponse
+   * GetDebugAppInstance
+   * 
+   * @param request - GetDebugAppInstanceRequest
+   * @returns GetDebugAppInstanceResponse
    */
   async getDebugAppInstance(request: GetDebugAppInstanceRequest): Promise<GetDebugAppInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7408,11 +10325,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取ota任务明细
-   *
-   * @param request GetOtaTaskByTaskIdRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetOtaTaskByTaskIdResponse
+   * 获取ota任务明细
+   * 
+   * @param request - GetOtaTaskByTaskIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOtaTaskByTaskIdResponse
    */
   async getOtaTaskByTaskIdWithOptions(request: GetOtaTaskByTaskIdRequest, runtime: $Util.RuntimeOptions): Promise<GetOtaTaskByTaskIdResponse> {
     Util.validateModel(request);
@@ -7439,10 +10356,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取ota任务明细
-   *
-   * @param request GetOtaTaskByTaskIdRequest
-   * @return GetOtaTaskByTaskIdResponse
+   * 获取ota任务明细
+   * 
+   * @param request - GetOtaTaskByTaskIdRequest
+   * @returns GetOtaTaskByTaskIdResponse
    */
   async getOtaTaskByTaskId(request: GetOtaTaskByTaskIdRequest): Promise<GetOtaTaskByTaskIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7450,11 +10367,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取策略配置
-   *
-   * @param request GetProjectPoliciesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetProjectPoliciesResponse
+   * 获取策略配置
+   * 
+   * @param request - GetProjectPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectPoliciesResponse
    */
   async getProjectPoliciesWithOptions(request: GetProjectPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectPoliciesResponse> {
     Util.validateModel(request);
@@ -7481,10 +10398,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取策略配置
-   *
-   * @param request GetProjectPoliciesRequest
-   * @return GetProjectPoliciesResponse
+   * 获取策略配置
+   * 
+   * @param request - GetProjectPoliciesRequest
+   * @returns GetProjectPoliciesResponse
    */
   async getProjectPolicies(request: GetProjectPoliciesRequest): Promise<GetProjectPoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7492,11 +10409,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 云应用资源询价接口
-   *
-   * @param request GetResourcePriceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourcePriceResponse
+   * 云应用资源询价接口
+   * 
+   * @param request - GetResourcePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourcePriceResponse
    */
   async getResourcePriceWithOptions(request: GetResourcePriceRequest, runtime: $Util.RuntimeOptions): Promise<GetResourcePriceResponse> {
     Util.validateModel(request);
@@ -7551,10 +10468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 云应用资源询价接口
-   *
-   * @param request GetResourcePriceRequest
-   * @return GetResourcePriceResponse
+   * 云应用资源询价接口
+   * 
+   * @param request - GetResourcePriceRequest
+   * @returns GetResourcePriceResponse
    */
   async getResourcePrice(request: GetResourcePriceRequest): Promise<GetResourcePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7562,11 +10479,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 云应用资源询价接口
-   *
-   * @param request GetResourceRenewPriceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourceRenewPriceResponse
+   * 云应用资源询价接口
+   * 
+   * @param request - GetResourceRenewPriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceRenewPriceResponse
    */
   async getResourceRenewPriceWithOptions(request: GetResourceRenewPriceRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceRenewPriceResponse> {
     Util.validateModel(request);
@@ -7605,10 +10522,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 云应用资源询价接口
-   *
-   * @param request GetResourceRenewPriceRequest
-   * @return GetResourceRenewPriceResponse
+   * 云应用资源询价接口
+   * 
+   * @param request - GetResourceRenewPriceRequest
+   * @returns GetResourceRenewPriceResponse
    */
   async getResourceRenewPrice(request: GetResourceRenewPriceRequest): Promise<GetResourceRenewPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7616,11 +10533,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 访问页面分页查询
-   *
-   * @param request ListAccessPagesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAccessPagesResponse
+   * 访问页面分页查询
+   * 
+   * @param request - ListAccessPagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAccessPagesResponse
    */
   async listAccessPagesWithOptions(request: ListAccessPagesRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessPagesResponse> {
     Util.validateModel(request);
@@ -7667,10 +10584,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 访问页面分页查询
-   *
-   * @param request ListAccessPagesRequest
-   * @return ListAccessPagesResponse
+   * 访问页面分页查询
+   * 
+   * @param request - ListAccessPagesRequest
+   * @returns ListAccessPagesResponse
    */
   async listAccessPages(request: ListAccessPagesRequest): Promise<ListAccessPagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7678,11 +10595,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列表展示云应用交付组
-   *
-   * @param request ListAppInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAppInstanceGroupResponse
+   * 列表展示云应用交付组
+   * 
+   * @param request - ListAppInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppInstanceGroupResponse
    */
   async listAppInstanceGroupWithOptions(request: ListAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListAppInstanceGroupResponse> {
     Util.validateModel(request);
@@ -7747,10 +10664,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列表展示云应用交付组
-   *
-   * @param request ListAppInstanceGroupRequest
-   * @return ListAppInstanceGroupResponse
+   * 列表展示云应用交付组
+   * 
+   * @param request - ListAppInstanceGroupRequest
+   * @returns ListAppInstanceGroupResponse
    */
   async listAppInstanceGroup(request: ListAppInstanceGroupRequest): Promise<ListAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7758,11 +10675,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询交付组内实例列表
-   *
-   * @param request ListAppInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAppInstancesResponse
+   * 查询交付组内实例列表
+   * 
+   * @param request - ListAppInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppInstancesResponse
    */
   async listAppInstancesWithOptions(request: ListAppInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListAppInstancesResponse> {
     Util.validateModel(request);
@@ -7815,10 +10732,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询交付组内实例列表
-   *
-   * @param request ListAppInstancesRequest
-   * @return ListAppInstancesResponse
+   * 查询交付组内实例列表
+   * 
+   * @param request - ListAppInstancesRequest
+   * @returns ListAppInstancesResponse
    */
   async listAppInstances(request: ListAppInstancesRequest): Promise<ListAppInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7826,11 +10743,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取资源规格
-   *
-   * @param request ListNodeInstanceTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListNodeInstanceTypeResponse
+   * 获取资源规格
+   * 
+   * @param request - ListNodeInstanceTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodeInstanceTypeResponse
    */
   async listNodeInstanceTypeWithOptions(request: ListNodeInstanceTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeInstanceTypeResponse> {
     Util.validateModel(request);
@@ -7881,10 +10798,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取资源规格
-   *
-   * @param request ListNodeInstanceTypeRequest
-   * @return ListNodeInstanceTypeResponse
+   * 获取资源规格
+   * 
+   * @param request - ListNodeInstanceTypeRequest
+   * @returns ListNodeInstanceTypeResponse
    */
   async listNodeInstanceType(request: ListNodeInstanceTypeRequest): Promise<ListNodeInstanceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7892,11 +10809,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 升级历史记录
-   *
-   * @param request ListOtaTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListOtaTaskResponse
+   * 升级历史记录
+   * 
+   * @param request - ListOtaTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOtaTaskResponse
    */
   async listOtaTaskWithOptions(request: ListOtaTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListOtaTaskResponse> {
     Util.validateModel(request);
@@ -7935,10 +10852,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 升级历史记录
-   *
-   * @param request ListOtaTaskRequest
-   * @return ListOtaTaskResponse
+   * 升级历史记录
+   * 
+   * @param request - ListOtaTaskRequest
+   * @returns ListOtaTaskResponse
    */
   async listOtaTask(request: ListOtaTaskRequest): Promise<ListOtaTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7946,11 +10863,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目列表
-   *
-   * @param request ListProjectsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProjectsResponse
+   * 获取项目列表
+   * 
+   * @param request - ListProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsResponse
    */
   async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
@@ -7997,10 +10914,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目列表
-   *
-   * @param request ListProjectsRequest
-   * @return ListProjectsResponse
+   * 获取项目列表
+   * 
+   * @param request - ListProjectsRequest
+   * @returns ListProjectsResponse
    */
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8008,11 +10925,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 云应用支持的地域列表
-   *
-   * @param request ListRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRegionsResponse
+   * 云应用支持的地域列表
+   * 
+   * @param request - ListRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRegionsResponse
    */
   async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
     Util.validateModel(request);
@@ -8039,10 +10956,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 云应用支持的地域列表
-   *
-   * @param request ListRegionsRequest
-   * @return ListRegionsResponse
+   * 云应用支持的地域列表
+   * 
+   * @param request - ListRegionsRequest
+   * @returns ListRegionsResponse
    */
   async listRegions(request: ListRegionsRequest): Promise<ListRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8050,11 +10967,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 项目的会话包列表
-   *
-   * @param request ListSessionPackagesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSessionPackagesResponse
+   * 项目的会话包列表
+   * 
+   * @param request - ListSessionPackagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSessionPackagesResponse
    */
   async listSessionPackagesWithOptions(request: ListSessionPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListSessionPackagesResponse> {
     Util.validateModel(request);
@@ -8105,10 +11022,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 项目的会话包列表
-   *
-   * @param request ListSessionPackagesRequest
-   * @return ListSessionPackagesResponse
+   * 项目的会话包列表
+   * 
+   * @param request - ListSessionPackagesRequest
+   * @returns ListSessionPackagesResponse
    */
   async listSessionPackages(request: ListSessionPackagesRequest): Promise<ListSessionPackagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8116,9 +11033,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTenantConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTenantConfigResponse
+   * @param request - ListTenantConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTenantConfigResponse
    */
   async listTenantConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<ListTenantConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -8137,7 +11054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return ListTenantConfigResponse
+   * @returns ListTenantConfigResponse
    */
   async listTenantConfig(): Promise<ListTenantConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8145,11 +11062,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 注销交付下所有会话
-   *
-   * @param request LogOffAllSessionsInAppInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LogOffAllSessionsInAppInstanceGroupResponse
+   * 注销交付下所有会话
+   * 
+   * @param request - LogOffAllSessionsInAppInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LogOffAllSessionsInAppInstanceGroupResponse
    */
   async logOffAllSessionsInAppInstanceGroupWithOptions(request: LogOffAllSessionsInAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<LogOffAllSessionsInAppInstanceGroupResponse> {
     Util.validateModel(request);
@@ -8180,10 +11097,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 注销交付下所有会话
-   *
-   * @param request LogOffAllSessionsInAppInstanceGroupRequest
-   * @return LogOffAllSessionsInAppInstanceGroupResponse
+   * 注销交付下所有会话
+   * 
+   * @param request - LogOffAllSessionsInAppInstanceGroupRequest
+   * @returns LogOffAllSessionsInAppInstanceGroupResponse
    */
   async logOffAllSessionsInAppInstanceGroup(request: LogOffAllSessionsInAppInstanceGroupRequest): Promise<LogOffAllSessionsInAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8191,11 +11108,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话包 迁移/分配
-   *
-   * @param request MigrateSessionPackageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MigrateSessionPackageResponse
+   * 会话包 迁移/分配
+   * 
+   * @param request - MigrateSessionPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MigrateSessionPackageResponse
    */
   async migrateSessionPackageWithOptions(request: MigrateSessionPackageRequest, runtime: $Util.RuntimeOptions): Promise<MigrateSessionPackageResponse> {
     Util.validateModel(request);
@@ -8230,10 +11147,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话包 迁移/分配
-   *
-   * @param request MigrateSessionPackageRequest
-   * @return MigrateSessionPackageResponse
+   * 会话包 迁移/分配
+   * 
+   * @param request - MigrateSessionPackageRequest
+   * @returns MigrateSessionPackageResponse
    */
   async migrateSessionPackage(request: MigrateSessionPackageRequest): Promise<MigrateSessionPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8241,11 +11158,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改云应用交付组
-   *
-   * @param tmpReq ModifyAppInstanceGroupAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAppInstanceGroupAttributeResponse
+   * 修改云应用交付组
+   * 
+   * @param tmpReq - ModifyAppInstanceGroupAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppInstanceGroupAttributeResponse
    */
   async modifyAppInstanceGroupAttributeWithOptions(tmpReq: ModifyAppInstanceGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppInstanceGroupAttributeResponse> {
     Util.validateModel(tmpReq);
@@ -8328,10 +11245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改云应用交付组
-   *
-   * @param request ModifyAppInstanceGroupAttributeRequest
-   * @return ModifyAppInstanceGroupAttributeResponse
+   * 修改云应用交付组
+   * 
+   * @param request - ModifyAppInstanceGroupAttributeRequest
+   * @returns ModifyAppInstanceGroupAttributeResponse
    */
   async modifyAppInstanceGroupAttribute(request: ModifyAppInstanceGroupAttributeRequest): Promise<ModifyAppInstanceGroupAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8339,11 +11256,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改策略信息
-   *
-   * @param tmpReq ModifyAppPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAppPolicyResponse
+   * 修改策略信息
+   * 
+   * @param tmpReq - ModifyAppPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppPolicyResponse
    */
   async modifyAppPolicyWithOptions(tmpReq: ModifyAppPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppPolicyResponse> {
     Util.validateModel(tmpReq);
@@ -8384,10 +11301,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改策略信息
-   *
-   * @param request ModifyAppPolicyRequest
-   * @return ModifyAppPolicyResponse
+   * 修改策略信息
+   * 
+   * @param request - ModifyAppPolicyRequest
+   * @returns ModifyAppPolicyResponse
    */
   async modifyAppPolicy(request: ModifyAppPolicyRequest): Promise<ModifyAppPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8395,9 +11312,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq ModifyNodePoolAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyNodePoolAttributeResponse
+   * @param tmpReq - ModifyNodePoolAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyNodePoolAttributeResponse
    */
   async modifyNodePoolAttributeWithOptions(tmpReq: ModifyNodePoolAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNodePoolAttributeResponse> {
     Util.validateModel(tmpReq);
@@ -8446,8 +11363,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyNodePoolAttributeRequest
-   * @return ModifyNodePoolAttributeResponse
+   * @param request - ModifyNodePoolAttributeRequest
+   * @returns ModifyNodePoolAttributeResponse
    */
   async modifyNodePoolAttribute(request: ModifyNodePoolAttributeRequest): Promise<ModifyNodePoolAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8455,11 +11372,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改项目策略
-   *
-   * @param request ModifyProjectPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyProjectPolicyResponse
+   * 修改项目策略
+   * 
+   * @param request - ModifyProjectPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyProjectPolicyResponse
    */
   async modifyProjectPolicyWithOptions(request: ModifyProjectPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProjectPolicyResponse> {
     Util.validateModel(request);
@@ -8518,10 +11435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改项目策略
-   *
-   * @param request ModifyProjectPolicyRequest
-   * @return ModifyProjectPolicyResponse
+   * 修改项目策略
+   * 
+   * @param request - ModifyProjectPolicyRequest
+   * @returns ModifyProjectPolicyResponse
    */
   async modifyProjectPolicy(request: ModifyProjectPolicyRequest): Promise<ModifyProjectPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8529,9 +11446,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyTenantConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTenantConfigResponse
+   * @param request - ModifyTenantConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTenantConfigResponse
    */
   async modifyTenantConfigWithOptions(request: ModifyTenantConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTenantConfigResponse> {
     Util.validateModel(request);
@@ -8558,8 +11475,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyTenantConfigRequest
-   * @return ModifyTenantConfigResponse
+   * @param request - ModifyTenantConfigRequest
+   * @returns ModifyTenantConfigResponse
    */
   async modifyTenantConfig(request: ModifyTenantConfigRequest): Promise<ModifyTenantConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8567,11 +11484,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取授权用户列表
-   *
-   * @param request PageListAppInstanceGroupUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PageListAppInstanceGroupUserResponse
+   * 获取授权用户列表
+   * 
+   * @param request - PageListAppInstanceGroupUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PageListAppInstanceGroupUserResponse
    */
   async pageListAppInstanceGroupUserWithOptions(request: PageListAppInstanceGroupUserRequest, runtime: $Util.RuntimeOptions): Promise<PageListAppInstanceGroupUserResponse> {
     Util.validateModel(request);
@@ -8610,10 +11527,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取授权用户列表
-   *
-   * @param request PageListAppInstanceGroupUserRequest
-   * @return PageListAppInstanceGroupUserResponse
+   * 获取授权用户列表
+   * 
+   * @param request - PageListAppInstanceGroupUserRequest
+   * @returns PageListAppInstanceGroupUserResponse
    */
   async pageListAppInstanceGroupUser(request: PageListAppInstanceGroupUserRequest): Promise<PageListAppInstanceGroupUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8621,11 +11538,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 刷新访问url
-   *
-   * @param request RefreshAccessUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RefreshAccessUrlResponse
+   * 刷新访问url
+   * 
+   * @param request - RefreshAccessUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshAccessUrlResponse
    */
   async refreshAccessUrlWithOptions(request: RefreshAccessUrlRequest, runtime: $Util.RuntimeOptions): Promise<RefreshAccessUrlResponse> {
     Util.validateModel(request);
@@ -8652,10 +11569,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 刷新访问url
-   *
-   * @param request RefreshAccessUrlRequest
-   * @return RefreshAccessUrlResponse
+   * 刷新访问url
+   * 
+   * @param request - RefreshAccessUrlRequest
+   * @returns RefreshAccessUrlResponse
    */
   async refreshAccessUrl(request: RefreshAccessUrlRequest): Promise<RefreshAccessUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8663,11 +11580,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 资源续费接口
-   *
-   * @param request RenewAppInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RenewAppInstanceGroupResponse
+   * 资源续费接口
+   * 
+   * @param request - RenewAppInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewAppInstanceGroupResponse
    */
   async renewAppInstanceGroupWithOptions(request: RenewAppInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<RenewAppInstanceGroupResponse> {
     Util.validateModel(request);
@@ -8714,10 +11631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 资源续费接口
-   *
-   * @param request RenewAppInstanceGroupRequest
-   * @return RenewAppInstanceGroupResponse
+   * 资源续费接口
+   * 
+   * @param request - RenewAppInstanceGroupRequest
+   * @returns RenewAppInstanceGroupResponse
    */
   async renewAppInstanceGroup(request: RenewAppInstanceGroupRequest): Promise<RenewAppInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8725,11 +11642,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话包续费
-   *
-   * @param request RenewSessionPackageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RenewSessionPackageResponse
+   * 会话包续费
+   * 
+   * @param request - RenewSessionPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewSessionPackageResponse
    */
   async renewSessionPackageWithOptions(request: RenewSessionPackageRequest, runtime: $Util.RuntimeOptions): Promise<RenewSessionPackageResponse> {
     Util.validateModel(request);
@@ -8764,10 +11681,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 会话包续费
-   *
-   * @param request RenewSessionPackageRequest
-   * @return RenewSessionPackageResponse
+   * 会话包续费
+   * 
+   * @param request - RenewSessionPackageRequest
+   * @returns RenewSessionPackageResponse
    */
   async renewSessionPackage(request: RenewSessionPackageRequest): Promise<RenewSessionPackageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8775,11 +11692,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 解除用户绑定
-   *
-   * @param request UnbindRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnbindResponse
+   * 解除用户绑定
+   * 
+   * @param request - UnbindRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindResponse
    */
   async unbindWithOptions(request: UnbindRequest, runtime: $Util.RuntimeOptions): Promise<UnbindResponse> {
     Util.validateModel(request);
@@ -8822,10 +11739,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 解除用户绑定
-   *
-   * @param request UnbindRequest
-   * @return UnbindResponse
+   * 解除用户绑定
+   * 
+   * @param request - UnbindRequest
+   * @returns UnbindResponse
    */
   async unbind(request: UnbindRequest): Promise<UnbindResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8833,11 +11750,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新访问页面状态
-   *
-   * @param request UpdateAccessPageStateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAccessPageStateResponse
+   * 更新访问页面状态
+   * 
+   * @param request - UpdateAccessPageStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAccessPageStateResponse
    */
   async updateAccessPageStateWithOptions(request: UpdateAccessPageStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccessPageStateResponse> {
     Util.validateModel(request);
@@ -8868,10 +11785,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新访问页面状态
-   *
-   * @param request UpdateAccessPageStateRequest
-   * @return UpdateAccessPageStateResponse
+   * 更新访问页面状态
+   * 
+   * @param request - UpdateAccessPageStateRequest
+   * @returns UpdateAccessPageStateResponse
    */
   async updateAccessPageState(request: UpdateAccessPageStateRequest): Promise<UpdateAccessPageStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -8879,11 +11796,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新镜像
-   *
-   * @param request UpdateAppInstanceGroupImageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAppInstanceGroupImageResponse
+   * 更新镜像
+   * 
+   * @param request - UpdateAppInstanceGroupImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAppInstanceGroupImageResponse
    */
   async updateAppInstanceGroupImageWithOptions(request: UpdateAppInstanceGroupImageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppInstanceGroupImageResponse> {
     Util.validateModel(request);
@@ -8922,10 +11839,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新镜像
-   *
-   * @param request UpdateAppInstanceGroupImageRequest
-   * @return UpdateAppInstanceGroupImageResponse
+   * 更新镜像
+   * 
+   * @param request - UpdateAppInstanceGroupImageRequest
+   * @returns UpdateAppInstanceGroupImageResponse
    */
   async updateAppInstanceGroupImage(request: UpdateAppInstanceGroupImageRequest): Promise<UpdateAppInstanceGroupImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
