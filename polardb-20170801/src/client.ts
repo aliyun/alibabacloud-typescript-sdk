@@ -14790,6 +14790,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
   engine?: string;
   expireTime?: string;
   expired?: string;
+  hotStandbyCluster?: string;
   lockMode?: string;
   memorySize?: string;
   payType?: string;
@@ -14826,6 +14827,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       engine: 'Engine',
       expireTime: 'ExpireTime',
       expired: 'Expired',
+      hotStandbyCluster: 'HotStandbyCluster',
       lockMode: 'LockMode',
       memorySize: 'MemorySize',
       payType: 'PayType',
@@ -14865,6 +14867,7 @@ export class DescribeDBClustersResponseBodyItemsDBCluster extends $tea.Model {
       engine: 'string',
       expireTime: 'string',
       expired: 'string',
+      hotStandbyCluster: 'string',
       lockMode: 'string',
       memorySize: 'string',
       payType: 'string',
