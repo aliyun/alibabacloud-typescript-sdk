@@ -11,15 +11,21 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AddChatappPhoneNumberRequest extends $tea.Model {
   cc?: string;
   custSpaceId?: string;
+  ownerId?: number;
   phoneNumber?: string;
   preValidateId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   verifiedName?: string;
   static names(): { [key: string]: string } {
     return {
       cc: 'Cc',
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
       preValidateId: 'PreValidateId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       verifiedName: 'VerifiedName',
     };
   }
@@ -28,8 +34,11 @@ export class AddChatappPhoneNumberRequest extends $tea.Model {
     return {
       cc: 'string',
       custSpaceId: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
       preValidateId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       verifiedName: 'string',
     };
   }
@@ -44,12 +53,14 @@ export class AddChatappPhoneNumberResponseBody extends $tea.Model {
   code?: string;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -59,6 +70,7 @@ export class AddChatappPhoneNumberResponseBody extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -377,15 +389,24 @@ export class BeeBotChatResponse extends $tea.Model {
 }
 
 export class ChatappBindWabaRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   wabaId?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       wabaId: 'WabaId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       wabaId: 'string',
     };
   }
@@ -401,6 +422,7 @@ export class ChatappBindWabaResponseBody extends $tea.Model {
   data?: ChatappBindWabaResponseBodyData;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
@@ -408,6 +430,7 @@ export class ChatappBindWabaResponseBody extends $tea.Model {
       data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -418,6 +441,7 @@ export class ChatappBindWabaResponseBody extends $tea.Model {
       data: ChatappBindWabaResponseBodyData,
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -759,18 +783,27 @@ export class ChatappPhoneNumberDeregisterResponse extends $tea.Model {
 
 export class ChatappPhoneNumberRegisterRequest extends $tea.Model {
   custSpaceId?: string;
+  ownerId?: number;
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       custSpaceId: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -784,12 +817,14 @@ export class ChatappPhoneNumberRegisterResponseBody extends $tea.Model {
   code?: string;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -799,6 +834,7 @@ export class ChatappPhoneNumberRegisterResponseBody extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -834,15 +870,24 @@ export class ChatappPhoneNumberRegisterResponse extends $tea.Model {
 
 export class ChatappSyncPhoneNumberRequest extends $tea.Model {
   custSpaceId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       custSpaceId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -857,6 +902,7 @@ export class ChatappSyncPhoneNumberResponseBody extends $tea.Model {
   message?: string;
   phoneNumbers?: ChatappSyncPhoneNumberResponseBodyPhoneNumbers[];
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
@@ -864,6 +910,7 @@ export class ChatappSyncPhoneNumberResponseBody extends $tea.Model {
       message: 'Message',
       phoneNumbers: 'PhoneNumbers',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -874,6 +921,7 @@ export class ChatappSyncPhoneNumberResponseBody extends $tea.Model {
       message: 'string',
       phoneNumbers: { 'type': 'array', 'itemType': ChatappSyncPhoneNumberResponseBodyPhoneNumbers },
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -909,12 +957,18 @@ export class ChatappSyncPhoneNumberResponse extends $tea.Model {
 
 export class ChatappVerifyAndRegisterRequest extends $tea.Model {
   custSpaceId?: string;
+  ownerId?: number;
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   verifyCode?: string;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       verifyCode: 'VerifyCode',
     };
   }
@@ -922,7 +976,10 @@ export class ChatappVerifyAndRegisterRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       custSpaceId: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       verifyCode: 'string',
     };
   }
@@ -937,12 +994,14 @@ export class ChatappVerifyAndRegisterResponseBody extends $tea.Model {
   code?: string;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -952,6 +1011,7 @@ export class ChatappVerifyAndRegisterResponseBody extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -1409,6 +1469,9 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
   custWabaId?: string;
   isvCode?: string;
   language?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   templateCode?: string;
   templateName?: string;
   templateType?: string;
@@ -1418,6 +1481,9 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
       custWabaId: 'CustWabaId',
       isvCode: 'IsvCode',
       language: 'Language',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       templateCode: 'TemplateCode',
       templateName: 'TemplateName',
       templateType: 'TemplateType',
@@ -1430,6 +1496,9 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
       custWabaId: 'string',
       isvCode: 'string',
       language: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       templateCode: 'string',
       templateName: 'string',
       templateType: 'string',
@@ -1446,12 +1515,14 @@ export class DeleteChatappTemplateResponseBody extends $tea.Model {
   code?: string;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -1461,6 +1532,7 @@ export class DeleteChatappTemplateResponseBody extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2146,13 +2218,19 @@ export class GetChatappVerifyCodeRequest extends $tea.Model {
   custSpaceId?: string;
   locale?: string;
   method?: string;
+  ownerId?: number;
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
       locale: 'Locale',
       method: 'Method',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -2161,7 +2239,10 @@ export class GetChatappVerifyCodeRequest extends $tea.Model {
       custSpaceId: 'string',
       locale: 'string',
       method: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -2175,12 +2256,14 @@ export class GetChatappVerifyCodeResponseBody extends $tea.Model {
   code?: string;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -2190,6 +2273,7 @@ export class GetChatappVerifyCodeResponseBody extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -2225,18 +2309,27 @@ export class GetChatappVerifyCodeResponse extends $tea.Model {
 
 export class GetCommerceSettingRequest extends $tea.Model {
   custSpaceId?: string;
+  ownerId?: number;
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       custSpaceId: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -2246,25 +2339,31 @@ export class GetCommerceSettingRequest extends $tea.Model {
 }
 
 export class GetCommerceSettingResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   data?: GetCommerceSettingResponseBodyData;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       data: GetCommerceSettingResponseBodyData,
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -3902,8 +4001,11 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   custSpaceId?: string;
   description?: string;
   email?: string;
+  ownerId?: number;
   phoneNumber?: string;
   profilePictureUrl?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   vertical?: string;
   websites?: string[];
   static names(): { [key: string]: string } {
@@ -3913,8 +4015,11 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
       custSpaceId: 'CustSpaceId',
       description: 'Description',
       email: 'Email',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
       profilePictureUrl: 'ProfilePictureUrl',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       vertical: 'Vertical',
       websites: 'Websites',
     };
@@ -3927,8 +4032,11 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
       custSpaceId: 'string',
       description: 'string',
       email: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
       profilePictureUrl: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       vertical: 'string',
       websites: { 'type': 'array', 'itemType': 'string' },
     };
@@ -3945,8 +4053,11 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
   custSpaceId?: string;
   description?: string;
   email?: string;
+  ownerId?: number;
   phoneNumber?: string;
   profilePictureUrl?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   vertical?: string;
   websitesShrink?: string;
   static names(): { [key: string]: string } {
@@ -3956,8 +4067,11 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
       custSpaceId: 'CustSpaceId',
       description: 'Description',
       email: 'Email',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
       profilePictureUrl: 'ProfilePictureUrl',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       vertical: 'Vertical',
       websitesShrink: 'Websites',
     };
@@ -3970,8 +4084,11 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
       custSpaceId: 'string',
       description: 'string',
       email: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
       profilePictureUrl: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       vertical: 'string',
       websitesShrink: 'string',
     };
@@ -3987,12 +4104,14 @@ export class ModifyPhoneBusinessProfileResponseBody extends $tea.Model {
   code?: string;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -4002,6 +4121,7 @@ export class ModifyPhoneBusinessProfileResponseBody extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -4280,18 +4400,27 @@ export class QueryChatappPhoneNumbersResponse extends $tea.Model {
 
 export class QueryPhoneBusinessProfileRequest extends $tea.Model {
   custSpaceId?: string;
+  ownerId?: number;
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       custSpaceId: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -4306,6 +4435,7 @@ export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
   data?: QueryPhoneBusinessProfileResponseBodyData;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
@@ -4313,6 +4443,7 @@ export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
       data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -4323,6 +4454,7 @@ export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
       data: QueryPhoneBusinessProfileResponseBodyData,
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -4358,10 +4490,16 @@ export class QueryPhoneBusinessProfileResponse extends $tea.Model {
 
 export class QueryWabaBusinessInfoRequest extends $tea.Model {
   custSpaceId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   wabaId?: string;
   static names(): { [key: string]: string } {
     return {
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       wabaId: 'WabaId',
     };
   }
@@ -4369,6 +4507,9 @@ export class QueryWabaBusinessInfoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       custSpaceId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       wabaId: 'string',
     };
   }
@@ -4384,6 +4525,7 @@ export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
   data?: QueryWabaBusinessInfoResponseBodyData;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       accessDeniedDetail: 'AccessDeniedDetail',
@@ -4391,6 +4533,7 @@ export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
       data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
@@ -4401,6 +4544,7 @@ export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
       data: QueryWabaBusinessInfoResponseBodyData,
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -5040,13 +5184,19 @@ export class UpdateCommerceSettingRequest extends $tea.Model {
   cartEnable?: boolean;
   catalogVisible?: boolean;
   custSpaceId?: string;
+  ownerId?: number;
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       cartEnable: 'CartEnable',
       catalogVisible: 'CatalogVisible',
       custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
       phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -5055,7 +5205,10 @@ export class UpdateCommerceSettingRequest extends $tea.Model {
       cartEnable: 'boolean',
       catalogVisible: 'boolean',
       custSpaceId: 'string',
+      ownerId: 'number',
       phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -5065,22 +5218,28 @@ export class UpdateCommerceSettingRequest extends $tea.Model {
 }
 
 export class UpdateCommerceSettingResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
   code?: string;
   message?: string;
   requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
       message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -6848,6 +7007,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
   auditStatus?: string;
   category?: string;
   language?: string;
+  lastUpdateTime?: number;
   reason?: string;
   templateCode?: string;
   templateName?: string;
@@ -6857,6 +7017,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
       auditStatus: 'AuditStatus',
       category: 'Category',
       language: 'Language',
+      lastUpdateTime: 'LastUpdateTime',
       reason: 'Reason',
       templateCode: 'TemplateCode',
       templateName: 'TemplateName',
@@ -6869,6 +7030,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
       auditStatus: 'string',
       category: 'string',
       language: 'string',
+      lastUpdateTime: 'number',
       reason: 'string',
       templateCode: 'string',
       templateName: 'string',
@@ -7796,29 +7958,41 @@ export default class Client extends OpenApi {
    */
   async addChatappPhoneNumberWithOptions(request: AddChatappPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<AddChatappPhoneNumberResponse> {
     Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!Util.isUnset(request.cc)) {
-      body["Cc"] = request.cc;
+      query["Cc"] = request.cc;
     }
 
     if (!Util.isUnset(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
     }
 
     if (!Util.isUnset(request.preValidateId)) {
-      body["PreValidateId"] = request.preValidateId;
+      query["PreValidateId"] = request.preValidateId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!Util.isUnset(request.verifiedName)) {
-      body["VerifiedName"] = request.verifiedName;
+      query["VerifiedName"] = request.verifiedName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "AddChatappPhoneNumber",
@@ -8030,13 +8204,25 @@ export default class Client extends OpenApi {
    */
   async chatappBindWabaWithOptions(request: ChatappBindWabaRequest, runtime: $Util.RuntimeOptions): Promise<ChatappBindWabaResponse> {
     Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     if (!Util.isUnset(request.wabaId)) {
-      body["WabaId"] = request.wabaId;
+      query["WabaId"] = request.wabaId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "ChatappBindWaba",
@@ -8276,17 +8462,29 @@ export default class Client extends OpenApi {
    */
   async chatappPhoneNumberRegisterWithOptions(request: ChatappPhoneNumberRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappPhoneNumberRegisterResponse> {
     Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!Util.isUnset(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "ChatappPhoneNumberRegister",
@@ -8331,6 +8529,18 @@ export default class Client extends OpenApi {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8372,21 +8582,33 @@ export default class Client extends OpenApi {
    */
   async chatappVerifyAndRegisterWithOptions(request: ChatappVerifyAndRegisterRequest, runtime: $Util.RuntimeOptions): Promise<ChatappVerifyAndRegisterResponse> {
     Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!Util.isUnset(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!Util.isUnset(request.verifyCode)) {
-      body["VerifyCode"] = request.verifyCode;
+      query["VerifyCode"] = request.verifyCode;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "ChatappVerifyAndRegister",
@@ -8710,6 +8932,18 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.language)) {
       query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!Util.isUnset(request.templateCode)) {
@@ -9220,25 +9454,37 @@ export default class Client extends OpenApi {
    */
   async getChatappVerifyCodeWithOptions(request: GetChatappVerifyCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetChatappVerifyCodeResponse> {
     Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
+    let query = { };
     if (!Util.isUnset(request.custSpaceId)) {
-      body["CustSpaceId"] = request.custSpaceId;
+      query["CustSpaceId"] = request.custSpaceId;
     }
 
     if (!Util.isUnset(request.locale)) {
-      body["Locale"] = request.locale;
+      query["Locale"] = request.locale;
     }
 
     if (!Util.isUnset(request.method)) {
-      body["Method"] = request.method;
+      query["Method"] = request.method;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
     }
 
     if (!Util.isUnset(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetChatappVerifyCode",
@@ -9283,8 +9529,20 @@ export default class Client extends OpenApi {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!Util.isUnset(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10385,12 +10643,24 @@ export default class Client extends OpenApi {
       query["Email"] = request.email;
     }
 
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!Util.isUnset(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
     }
 
     if (!Util.isUnset(request.profilePictureUrl)) {
       query["ProfilePictureUrl"] = request.profilePictureUrl;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!Util.isUnset(request.vertical)) {
@@ -10613,8 +10883,20 @@ export default class Client extends OpenApi {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!Util.isUnset(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10661,6 +10943,18 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.custSpaceId)) {
       query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!Util.isUnset(request.wabaId)) {
@@ -11133,8 +11427,20 @@ export default class Client extends OpenApi {
       query["CustSpaceId"] = request.custSpaceId;
     }
 
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     if (!Util.isUnset(request.phoneNumber)) {
       query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
