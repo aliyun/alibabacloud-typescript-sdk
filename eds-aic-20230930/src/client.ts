@@ -327,6 +327,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
   autoRenew?: boolean;
   bizRegionId?: string;
   chargeType?: string;
+  gpuAcceleration?: boolean;
   imageId?: string;
   instanceGroupName?: string;
   instanceGroupSpec?: string;
@@ -343,6 +344,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
       autoRenew: 'AutoRenew',
       bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
+      gpuAcceleration: 'GpuAcceleration',
       imageId: 'ImageId',
       instanceGroupName: 'InstanceGroupName',
       instanceGroupSpec: 'InstanceGroupSpec',
@@ -362,6 +364,7 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
       autoRenew: 'boolean',
       bizRegionId: 'string',
       chargeType: 'string',
+      gpuAcceleration: 'boolean',
       imageId: 'string',
       instanceGroupName: 'string',
       instanceGroupSpec: 'string',
@@ -3698,10 +3701,12 @@ export class UpgradeAndroidInstanceGroupRequest extends $tea.Model {
 }
 
 export class UpgradeAndroidInstanceGroupResponseBody extends $tea.Model {
+  instanceIds?: string;
   orderId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceIds: 'InstanceIds',
       orderId: 'OrderId',
       requestId: 'RequestId',
     };
@@ -3709,6 +3714,7 @@ export class UpgradeAndroidInstanceGroupResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      instanceIds: 'string',
       orderId: 'string',
       requestId: 'string',
     };
@@ -3891,6 +3897,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   officeSiteId?: string;
   policyGroupId?: string;
   regionId?: string;
+  renderingType?: string;
   resolutionHeight?: number;
   resolutionWidth?: number;
   saleMode?: string;
@@ -3919,6 +3926,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       officeSiteId: 'OfficeSiteId',
       policyGroupId: 'PolicyGroupId',
       regionId: 'RegionId',
+      renderingType: 'RenderingType',
       resolutionHeight: 'ResolutionHeight',
       resolutionWidth: 'ResolutionWidth',
       saleMode: 'SaleMode',
@@ -3950,6 +3958,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
       officeSiteId: 'string',
       policyGroupId: 'string',
       regionId: 'string',
+      renderingType: 'string',
       resolutionHeight: 'number',
       resolutionWidth: 'number',
       saleMode: 'string',
@@ -3980,6 +3989,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
   persistentAppInstanceId?: string;
   rate?: number;
   regionId?: string;
+  renderingType?: string;
   static names(): { [key: string]: string } {
     return {
       androidInstanceGroupId: 'AndroidInstanceGroupId',
@@ -3998,6 +4008,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
       persistentAppInstanceId: 'PersistentAppInstanceId',
       rate: 'Rate',
       regionId: 'RegionId',
+      renderingType: 'RenderingType',
     };
   }
 
@@ -4019,6 +4030,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
       persistentAppInstanceId: 'string',
       rate: 'number',
       regionId: 'string',
+      renderingType: 'string',
     };
   }
 
@@ -4148,6 +4160,8 @@ export class DescribeImageListResponseBodyData extends $tea.Model {
   imageRegionList?: string[];
   imageType?: string;
   language?: string;
+  releaseTime?: string;
+  renderingType?: string;
   status?: string;
   systemType?: string;
   static names(): { [key: string]: string } {
@@ -4162,6 +4176,8 @@ export class DescribeImageListResponseBodyData extends $tea.Model {
       imageRegionList: 'ImageRegionList',
       imageType: 'ImageType',
       language: 'Language',
+      releaseTime: 'ReleaseTime',
+      renderingType: 'RenderingType',
       status: 'Status',
       systemType: 'SystemType',
     };
@@ -4179,6 +4195,8 @@ export class DescribeImageListResponseBodyData extends $tea.Model {
       imageRegionList: { 'type': 'array', 'itemType': 'string' },
       imageType: 'string',
       language: 'string',
+      releaseTime: 'string',
+      renderingType: 'string',
       status: 'string',
       systemType: 'string',
     };
@@ -4759,6 +4777,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.gpuAcceleration)) {
+      query["GpuAcceleration"] = request.gpuAcceleration;
     }
 
     if (!Util.isUnset(request.imageId)) {
