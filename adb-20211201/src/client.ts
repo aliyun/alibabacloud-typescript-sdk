@@ -6176,6 +6176,7 @@ export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
   ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -6183,6 +6184,7 @@ export class DescribeRegionsRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -6193,6 +6195,7 @@ export class DescribeRegionsRequest extends $tea.Model {
       acceptLanguage: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -19269,6 +19272,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -22706,6 +22713,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Releases the public endpoint of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   *
    * @param request ReleaseClusterPublicConnectionRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return ReleaseClusterPublicConnectionResponse
@@ -22739,6 +22750,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Releases the public endpoint of an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   *
+   * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+   *
    * @param request ReleaseClusterPublicConnectionRequest
    * @return ReleaseClusterPublicConnectionResponse
    */
