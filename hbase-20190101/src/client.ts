@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,8 +8,26 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddUserHdfsInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp16o0pd5****582s
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"dfs.nameservices":"hdfs_test","dfs.ha.namenodes":"nn1,nn2","dfs.namenode.http-address.hdfs_test.nn1":"TEST-xxx1.com:50070","dfs.namenode.http-address.hdfs_test.nn2":"TEST-xxx2.com:50070","dfs.namenode.rpc-address.hdfs_test.nn1":"TEST-xxx1.com:8020","dfs.namenode.rpc-address.hdfs_test.nn2":"TEST-xxx2.com:8020"}
+   */
   extInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,6 +51,10 @@ export class AddUserHdfsInfoRequest extends $tea.Model {
 }
 
 export class AddUserHdfsInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FB0B7918-198C-46A8-AB9B-FE15403B1F0A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,7 +99,18 @@ export class AddUserHdfsInfoResponse extends $tea.Model {
 }
 
 export class AllocatePublicNetworkAddressRequest extends $tea.Model {
+  /**
+   * @example
+   * 83b2b5e117a5b8bce0fae88d90576a84_6452320_82718582
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn******
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -144,6 +176,13 @@ export class AllocatePublicNetworkAddressResponse extends $tea.Model {
 }
 
 export class CancelActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11111,22222
+   */
   ids?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -178,7 +217,15 @@ export class CancelActiveOperationTasksRequest extends $tea.Model {
 }
 
 export class CancelActiveOperationTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 11111,22222
+   */
   ids?: string;
+  /**
+   * @example
+   * AE4F6C34-065F-45AA-F5BN-4B8D816F6305
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -225,7 +272,21 @@ export class CancelActiveOperationTasksResponse extends $tea.Model {
 }
 
 export class CheckComponentsVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * HBASE,HADOOP
+   */
   components?: string;
   static names(): { [key: string]: string } {
     return {
@@ -248,6 +309,10 @@ export class CheckComponentsVersionRequest extends $tea.Model {
 
 export class CheckComponentsVersionResponseBody extends $tea.Model {
   components?: CheckComponentsVersionResponseBodyComponents;
+  /**
+   * @example
+   * E3537EB4-1100-41CA-A147-C74CCC8BB12C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -294,6 +359,13 @@ export class CheckComponentsVersionResponse extends $tea.Model {
 }
 
 export class CloseBackupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -313,6 +385,10 @@ export class CloseBackupRequest extends $tea.Model {
 }
 
 export class CloseBackupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F1A11940-0C34-4385-864F-A01E29B55F6A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -357,9 +433,28 @@ export class CloseBackupResponse extends $tea.Model {
 }
 
 export class ConvertInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp16o0pd52e3y****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 7
+   */
   duration?: number;
+  /**
+   * @example
+   * Prepaid
+   */
   payType?: string;
+  /**
+   * @example
+   * month
+   */
   pricingCycle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -385,7 +480,15 @@ export class ConvertInstanceRequest extends $tea.Model {
 }
 
 export class ConvertInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 54124548879
+   */
   orderId?: number;
+  /**
+   * @example
+   * 50373857-C47B-4B64-9332-D0B5280B59EA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -432,8 +535,29 @@ export class ConvertInstanceResponse extends $tea.Model {
 }
 
 export class CreateAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test01
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * **********
+   */
   accountPassword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -457,6 +581,10 @@ export class CreateAccountRequest extends $tea.Model {
 }
 
 export class CreateAccountResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 50373857-C47B-4B64-9332-D0B5280B59EA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -501,6 +629,13 @@ export class CreateAccountResponse extends $tea.Model {
 }
 
 export class CreateBackupPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-wz94lbcqc****4x93
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -520,6 +655,10 @@ export class CreateBackupPlanRequest extends $tea.Model {
 }
 
 export class CreateBackupPlanResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 50373857-C47B-4B64-9332-D0B5280B59EA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -564,26 +703,131 @@ export class CreateBackupPlanResponse extends $tea.Model {
 }
 
 export class CreateClusterRequest extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   autoRenewPeriod?: number;
+  /**
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @example
+   * hbase_test
+   */
   clusterName?: string;
+  /**
+   * @example
+   * 1024
+   */
   coldStorageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase.sn1.medium
+   */
   coreInstanceType?: string;
+  /**
+   * @example
+   * 400
+   */
   diskSize?: number;
+  /**
+   * @example
+   * cloud_ssd
+   */
   diskType?: string;
+  /**
+   * @example
+   * 0d2470df-da7b-4786-b981-9a164dae****
+   */
   encryptionKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase
+   */
   engine?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2.0
+   */
   engineVersion?: string;
+  /**
+   * @example
+   * hbase.sn1.medium
+   */
   masterInstanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   nodeCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Prepaid
+   */
   payType?: string;
+  /**
+   * @example
+   * 6
+   */
   period?: number;
+  /**
+   * @example
+   * month
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-j4d53glb3****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 116.62.XX.XX/24
+   */
   securityIPList?: string;
+  /**
+   * @example
+   * vsw-bp191otqj1ssyl****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp120k6ixs4eog****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -643,8 +887,20 @@ export class CreateClusterRequest extends $tea.Model {
 }
 
 export class CreateClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * hb-bp1hy2sjf8gd****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 23232069786****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 3E19E345-101D-4014-946C-A205
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -693,10 +949,35 @@ export class CreateClusterResponse extends $tea.Model {
 }
 
 export class CreateGlobalResourceRequest extends $tea.Model {
+  /**
+   * @example
+   * xxxxx-xxxxx-xxxxx
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn****
+   */
   clusterId?: string;
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PubPhoenixSLBQueryServerVip
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * GLOBAL_VIP
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -724,6 +1005,10 @@ export class CreateGlobalResourceRequest extends $tea.Model {
 }
 
 export class CreateGlobalResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1AB9ABDF-7E1E-44AD-8610-70A005115DD1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -768,8 +1053,26 @@ export class CreateGlobalResourceResponse extends $tea.Model {
 }
 
 export class CreateHBaseSlbServerRequest extends $tea.Model {
+  /**
+   * @example
+   * xxxxx-xxxxx-xxxxx
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * thrift
+   */
   slbServer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -793,6 +1096,10 @@ export class CreateHBaseSlbServerRequest extends $tea.Model {
 }
 
 export class CreateHBaseSlbServerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 61FC5B21-87B0-41BC-9686-9DA395EB40B6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -837,10 +1144,42 @@ export class CreateHBaseSlbServerResponse extends $tea.Model {
 }
 
 export class CreateHbaseHaSlbRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bds-t4n3496whj23****
+   */
   bdsId?: string;
+  /**
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ha-v21tmnxjwh2yu****
+   */
   haId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * thrift
+   */
   haTypes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Active
+   */
   hbaseType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -868,6 +1207,10 @@ export class CreateHbaseHaSlbRequest extends $tea.Model {
 }
 
 export class CreateHbaseHaSlbResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C9D568D9-A59C-4AF2-8FBB-F086A841D58E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -912,34 +1255,216 @@ export class CreateHbaseHaSlbResponse extends $tea.Model {
 }
 
 export class CreateMultiZoneClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-hangxzhouxb*****
+   */
   arbiterVSwitchId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
   arbiterZoneId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2.0
+   */
   archVersion?: string;
+  /**
+   * @example
+   * 0
+   */
   autoRenewPeriod?: number;
+  /**
+   * @example
+   * dfh3sf5gslfksfk****
+   */
   clientToken?: string;
+  /**
+   * @example
+   * hbaseue_test
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 400
+   */
   coreDiskSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cloud_ssd
+   */
   coreDiskType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase.sn1.medium
+   */
   coreInstanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   coreNodeCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbaseue
+   */
   engine?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 400
+   */
   logDiskSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cloud_ssd
+   */
   logDiskType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase.sn1.medium
+   */
   logInstanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   logNodeCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase.sn1.medium
+   */
   masterInstanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-bef-aliyun-com
+   */
   multiZoneCombination?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Postpaid
+   */
   payType?: string;
+  /**
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @example
+   * month
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-hangxzhouxe****
+   */
   primaryVSwitchId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-e
+   */
   primaryZoneId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-gg3f4f5d5g5w****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 127.0.0.1
+   */
   securityIPList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-hangxzhouxf****
+   */
   standbyVSwitchId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-f
+   */
   standbyZoneId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp120k6ixs4eog****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1015,8 +1540,20 @@ export class CreateMultiZoneClusterRequest extends $tea.Model {
 }
 
 export class CreateMultiZoneClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ld-t4nn71xa0yn56****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 23232453****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 7F68E8F5-0377-4CF8-8B1D-FFFD6F5804D5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1065,11 +1602,50 @@ export class CreateMultiZoneClusterResponse extends $tea.Model {
 }
 
 export class CreateRestorePlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   restoreAllTable?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   restoreByCopy?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-11-05T05:49:42Z
+   */
   restoreToDate?: string;
+  /**
+   * @example
+   * test_ns:test_table/test_ns:test_table2
+   */
   tables?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp169l540vc6c****
+   */
   targetClusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1099,6 +1675,10 @@ export class CreateRestorePlanRequest extends $tea.Model {
 }
 
 export class CreateRestorePlanResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A0598673-EB6E-4F6D-9961-E0F2012090C0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1143,23 +1723,104 @@ export class CreateRestorePlanResponse extends $tea.Model {
 }
 
 export class CreateServerlessClusterRequest extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   autoRenewPeriod?: number;
+  /**
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @example
+   * xx
+   */
   clientType?: string;
+  /**
+   * @example
+   * serverless-name
+   */
   clusterName?: string;
+  /**
+   * @example
+   * cloud_ssd
+   */
   diskType?: string;
+  /**
+   * @example
+   * serverlesshbase
+   */
   engine?: string;
+  /**
+   * @example
+   * 2.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Prepaid
+   */
   payType?: string;
+  /**
+   * @example
+   * 6
+   */
   period?: number;
+  /**
+   * @example
+   * month
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-j4d53glb3****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 1000
+   */
   serverlessCapability?: number;
+  /**
+   * @example
+   * serverless.small
+   */
   serverlessSpec?: string;
+  /**
+   * @example
+   * 100
+   */
   serverlessStorage?: number;
+  /**
+   * @example
+   * vsw-bp191ipotqj1ssyl*****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp120k6ixs4eog****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1213,9 +1874,25 @@ export class CreateServerlessClusterRequest extends $tea.Model {
 }
 
 export class CreateServerlessClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * sh-bp1a969y7681****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 23232453233*****
+   */
   orderId?: string;
+  /**
+   * @example
+   * *********
+   */
   passWord?: string;
+  /**
+   * @example
+   * 3E19E345-101D-4014-946C-************
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1266,7 +1943,21 @@ export class CreateServerlessClusterResponse extends $tea.Model {
 }
 
 export class DeleteAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test01
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1288,6 +1979,10 @@ export class DeleteAccountRequest extends $tea.Model {
 }
 
 export class DeleteAccountResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 729CB2A7-3065-53A9-B27C-7033CA4881D9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1332,9 +2027,30 @@ export class DeleteAccountResponse extends $tea.Model {
 }
 
 export class DeleteGlobalResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn******
+   */
   clusterId?: string;
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PubPhoenixSLBQueryServerVip
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * GLOBAL_VIP
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1360,6 +2076,10 @@ export class DeleteGlobalResourceRequest extends $tea.Model {
 }
 
 export class DeleteGlobalResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BD0B0B9A-79E8-4FDD-9C51-93443490B784
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1404,7 +2124,21 @@ export class DeleteGlobalResourceResponse extends $tea.Model {
 }
 
 export class DeleteHBaseHaDBRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bds-bp14112fd7g52s1****
+   */
   bdsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ha-sw2o0l01s4r76****
+   */
   haId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1426,6 +2160,10 @@ export class DeleteHBaseHaDBRequest extends $tea.Model {
 }
 
 export class DeleteHBaseHaDBResponseBody extends $tea.Model {
+  /**
+   * @example
+   * B409CF51-E01F-4551-BE40-123678FA9026
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1470,7 +2208,21 @@ export class DeleteHBaseHaDBResponse extends $tea.Model {
 }
 
 export class DeleteHBaseSlbServerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * thrift
+   */
   slbServer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1492,6 +2244,10 @@ export class DeleteHBaseSlbServerRequest extends $tea.Model {
 }
 
 export class DeleteHBaseSlbServerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7242130A-82CF-49BF-AB32-30DCB819EBA6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1536,8 +2292,29 @@ export class DeleteHBaseSlbServerResponse extends $tea.Model {
 }
 
 export class DeleteHbaseHaSlbRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bds-t4n3496whj23ia4k
+   */
   bdsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ha-v21tmnxjwh2yuy1il
+   */
   haId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * thrift
+   */
   haTypes?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1561,6 +2338,10 @@ export class DeleteHbaseHaSlbRequest extends $tea.Model {
 }
 
 export class DeleteHbaseHaSlbResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C9D568D9-A59C-4AF2-8FBB-F086A841D58E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1605,7 +2386,18 @@ export class DeleteHbaseHaSlbResponse extends $tea.Model {
 }
 
 export class DeleteInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp16o0pd52e3y****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * false
+   */
   immediateDeleteFlag?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1627,6 +2419,10 @@ export class DeleteInstanceRequest extends $tea.Model {
 }
 
 export class DeleteInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 50373857-C47B-4B64-9332-D0B5280B59EA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1671,7 +2467,18 @@ export class DeleteInstanceResponse extends $tea.Model {
 }
 
 export class DeleteMultiZoneClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d-t4nn71xa0yn56****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * false
+   */
   immediateDeleteFlag?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1693,6 +2500,10 @@ export class DeleteMultiZoneClusterRequest extends $tea.Model {
 }
 
 export class DeleteMultiZoneClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 169A3910-A39E-4BC2-AA9F-E7AD8D473527
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1737,8 +2548,29 @@ export class DeleteMultiZoneClusterResponse extends $tea.Model {
 }
 
 export class DeleteServerlessClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sh-bp1pj13wh9****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1762,6 +2594,10 @@ export class DeleteServerlessClusterRequest extends $tea.Model {
 }
 
 export class DeleteServerlessClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 46950E74-59C4-4E3E-9B38-A33B*********
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1806,7 +2642,21 @@ export class DeleteServerlessClusterResponse extends $tea.Model {
 }
 
 export class DeleteUserHdfsInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp16o0pd52e3y****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hdfs_test
+   */
   nameService?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1828,6 +2678,10 @@ export class DeleteUserHdfsInfoRequest extends $tea.Model {
 }
 
 export class DeleteUserHdfsInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 50373857-C47B-4B64-9332-D0B5280B59EA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1872,6 +2726,13 @@ export class DeleteUserHdfsInfoResponse extends $tea.Model {
 }
 
 export class DescribeAccountsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp1uoihlf82e8****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1892,6 +2753,10 @@ export class DescribeAccountsRequest extends $tea.Model {
 
 export class DescribeAccountsResponseBody extends $tea.Model {
   accounts?: DescribeAccountsResponseBodyAccounts;
+  /**
+   * @example
+   * F744E939-D08D-5623-82C8-9D1F9F7685D1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1938,6 +2803,10 @@ export class DescribeAccountsResponse extends $tea.Model {
 }
 
 export class DescribeActiveOperationTaskTypeRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   isHistory?: number;
   ownerAccount?: string;
   ownerId?: number;
@@ -1972,6 +2841,10 @@ export class DescribeActiveOperationTaskTypeRequest extends $tea.Model {
 }
 
 export class DescribeActiveOperationTaskTypeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EC7E27FC-58F8-4722-89CF-D1B6B0971956
+   */
   requestId?: string;
   typeList?: DescribeActiveOperationTaskTypeResponseBodyTypeList[];
   static names(): { [key: string]: string } {
@@ -2019,21 +2892,65 @@ export class DescribeActiveOperationTaskTypeResponse extends $tea.Model {
 }
 
 export class DescribeActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   allowCancel?: number;
+  /**
+   * @example
+   * 1
+   */
   allowChange?: number;
+  /**
+   * @example
+   * S1
+   */
   changeLevel?: string;
+  /**
+   * @example
+   * hbaseue
+   */
   dbType?: string;
+  /**
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   insName?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @example
+   * hbase
+   */
   productId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @example
+   * 5
+   */
   status?: number;
+  /**
+   * @example
+   * rds_apsaradb_upgrade
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2084,9 +3001,25 @@ export class DescribeActiveOperationTasksRequest extends $tea.Model {
 
 export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
   items?: DescribeActiveOperationTasksResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @example
+   * C634E813-42FA-53D2-A7EB-B881C4B264CC
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2139,12 +3072,46 @@ export class DescribeActiveOperationTasksResponse extends $tea.Model {
 }
 
 export class DescribeAvailableResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Prepaid
+   */
   chargeType?: string;
+  /**
+   * @example
+   * hbase.sn1.large
+   */
   coreInstanceType?: string;
+  /**
+   * @example
+   * cloud_ssd
+   */
   diskType?: string;
+  /**
+   * @example
+   * hbaseue
+   */
   engine?: string;
+  /**
+   * @example
+   * 2.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * cn-hangzhou-h
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2177,6 +3144,10 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
 
 export class DescribeAvailableResourceResponseBody extends $tea.Model {
   availableZones?: DescribeAvailableResourceResponseBodyAvailableZones;
+  /**
+   * @example
+   * EA76F208-E334-592A-A0C6-41E15EC87ED0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2223,6 +3194,13 @@ export class DescribeAvailableResourceResponse extends $tea.Model {
 }
 
 export class DescribeBackupPlanConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2242,9 +3220,25 @@ export class DescribeBackupPlanConfigRequest extends $tea.Model {
 }
 
 export class DescribeBackupPlanConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7
+   */
   fullBackupCycle?: number;
+  /**
+   * @example
+   * 3
+   */
   minHFileBackupCount?: number;
+  /**
+   * @example
+   * 2020-11-09T18:00:00Z
+   */
   nextFullBackupDate?: string;
+  /**
+   * @example
+   * 33A23201-6038-4A6A-B76A-61047EA04E6A
+   */
   requestId?: string;
   tables?: DescribeBackupPlanConfigResponseBodyTables;
   static names(): { [key: string]: string } {
@@ -2298,6 +3292,13 @@ export class DescribeBackupPlanConfigResponse extends $tea.Model {
 }
 
 export class DescribeBackupPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn******
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2317,11 +3318,35 @@ export class DescribeBackupPolicyRequest extends $tea.Model {
 }
 
 export class DescribeBackupPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   backupRetentionPeriod?: string;
+  /**
+   * @example
+   * 18:00Z
+   */
   preferredBackupEndTimeUTC?: string;
+  /**
+   * @example
+   * Friday
+   */
   preferredBackupPeriod?: string;
+  /**
+   * @example
+   * 17:00Z
+   */
   preferredBackupStartTimeUTC?: string;
+  /**
+   * @example
+   * 01:00-02:00
+   */
   preferredBackupTime?: string;
+  /**
+   * @example
+   * 94AC38B6-7C6D-45B2-BC03-B8750071A482
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2376,6 +3401,13 @@ export class DescribeBackupPolicyResponse extends $tea.Model {
 }
 
 export class DescribeBackupStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2395,9 +3427,25 @@ export class DescribeBackupStatusRequest extends $tea.Model {
 }
 
 export class DescribeBackupStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * opened
+   */
   backupStatus?: string;
+  /**
+   * @example
+   * bds-m5e54q06ceyhxxxx
+   */
   bdsClusterId?: string;
+  /**
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
+  /**
+   * @example
+   * F7E71430-A825-470A-B40B-DF3F3AAC9BEE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2448,8 +3496,23 @@ export class DescribeBackupStatusResponse extends $tea.Model {
 }
 
 export class DescribeBackupSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp169l540vc6c****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2475,6 +3538,10 @@ export class DescribeBackupSummaryRequest extends $tea.Model {
 export class DescribeBackupSummaryResponseBody extends $tea.Model {
   full?: DescribeBackupSummaryResponseBodyFull;
   incr?: DescribeBackupSummaryResponseBodyIncr;
+  /**
+   * @example
+   * 168793CB-7B31-43E7-ADAB-FE3E8D584D6E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2523,9 +3590,31 @@ export class DescribeBackupSummaryResponse extends $tea.Model {
 }
 
 export class DescribeBackupTablesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020110302xxxx
+   */
   backupRecordId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2552,10 +3641,26 @@ export class DescribeBackupTablesRequest extends $tea.Model {
 
 export class DescribeBackupTablesResponseBody extends $tea.Model {
   backupRecords?: DescribeBackupTablesResponseBodyBackupRecords;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 01262E9C-B0CC-4663-82FA-D50173649F92
+   */
   requestId?: string;
   tables?: DescribeBackupTablesResponseBodyTables;
+  /**
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2610,13 +3715,48 @@ export class DescribeBackupTablesResponse extends $tea.Model {
 }
 
 export class DescribeBackupsRequest extends $tea.Model {
+  /**
+   * @example
+   * job-xxxx
+   */
   backupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 2020-12-23 23:59:59
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2020-12-23T15:59:59Z
+   */
   endTimeUTC?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @example
+   * 2020-12-13 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * 2020-12-12T16:00:00Z
+   */
   startTimeUTC?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2651,10 +3791,30 @@ export class DescribeBackupsRequest extends $tea.Model {
 
 export class DescribeBackupsResponseBody extends $tea.Model {
   backups?: DescribeBackupsResponseBodyBackups;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * A93CE373-0FDE-4CCB-9DBA-6700906825ED
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2709,7 +3869,21 @@ export class DescribeBackupsResponse extends $tea.Model {
 }
 
 export class DescribeClusterConnectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2731,15 +3905,39 @@ export class DescribeClusterConnectionRequest extends $tea.Model {
 }
 
 export class DescribeClusterConnectionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * hbaseue
+   */
   dbType?: string;
+  /**
+   * @example
+   * true
+   */
   isMultimod?: string;
+  /**
+   * @example
+   * VPC
+   */
   netType?: string;
+  /**
+   * @example
+   * 70220050-A465-5DCC-8C0C-C38C6E3DB24D
+   */
   requestId?: string;
   serviceConnAddrs?: DescribeClusterConnectionResponseBodyServiceConnAddrs;
   slbConnAddrs?: DescribeClusterConnectionResponseBodySlbConnAddrs;
   thriftConn?: DescribeClusterConnectionResponseBodyThriftConn;
   uiProxyConnAddrInfo?: DescribeClusterConnectionResponseBodyUiProxyConnAddrInfo;
+  /**
+   * @example
+   * vsw-bp1foll427ze3d4ps****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp15s22y1a7sff5gj****
+   */
   vpcId?: string;
   zkConnAddrs?: DescribeClusterConnectionResponseBodyZkConnAddrs;
   static names(): { [key: string]: string } {
@@ -2805,6 +4003,13 @@ export class DescribeClusterConnectionResponse extends $tea.Model {
 }
 
 export class DescribeColdStorageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp1uoihlf82e8****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2824,13 +4029,45 @@ export class DescribeColdStorageRequest extends $tea.Model {
 }
 
 export class DescribeColdStorageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ld-bp1uoihlf82e8****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 800
+   */
   coldStorageSize?: string;
+  /**
+   * @example
+   * BdsColdStorage
+   */
   coldStorageType?: string;
+  /**
+   * @example
+   * 20.00
+   */
   coldStorageUseAmount?: string;
+  /**
+   * @example
+   * 20.00
+   */
   coldStorageUsePercent?: string;
+  /**
+   * @example
+   * open
+   */
   openStatus?: string;
+  /**
+   * @example
+   * POSTPAY
+   */
   payType?: string;
+  /**
+   * @example
+   * DCB9479E-F05F-4D1C-AFB7-C639B87764B7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2889,6 +4126,13 @@ export class DescribeColdStorageResponse extends $tea.Model {
 }
 
 export class DescribeDBInstanceUsageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp1u0639js2h7****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2908,7 +4152,15 @@ export class DescribeDBInstanceUsageRequest extends $tea.Model {
 }
 
 export class DescribeDBInstanceUsageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A2D841CE-D066-53E8-B9AC-3731DCC85397
+   */
   requestId?: string;
+  /**
+   * @example
+   * {\\"disk_usage_record\\":{\\"disk_used\\":\\"0.9GB\\",\\"disk_total\\":\\"1156.1GB\\",\\"usage_rate\\":\\"1%\\"}}
+   */
   result?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2955,8 +4207,20 @@ export class DescribeDBInstanceUsageResponse extends $tea.Model {
 }
 
 export class DescribeDeletedInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2981,9 +4245,25 @@ export class DescribeDeletedInstancesRequest extends $tea.Model {
 
 export class DescribeDeletedInstancesResponseBody extends $tea.Model {
   instances?: DescribeDeletedInstancesResponseBodyInstances;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 0CAC5702-C862-44C0-AD54-C9CE70F4B246
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3036,6 +4316,13 @@ export class DescribeDeletedInstancesResponse extends $tea.Model {
 }
 
 export class DescribeDiskWarningLineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp1bl7iqzkahmyxxxx
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3055,7 +4342,15 @@ export class DescribeDiskWarningLineRequest extends $tea.Model {
 }
 
 export class DescribeDiskWarningLineResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 08DF8283-D290-4107-931E-7913D6D3480D
+   */
   requestId?: string;
+  /**
+   * @example
+   * 80
+   */
   warningLine?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3102,6 +4397,13 @@ export class DescribeDiskWarningLineResponse extends $tea.Model {
 }
 
 export class DescribeEndpointsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3122,10 +4424,30 @@ export class DescribeEndpointsRequest extends $tea.Model {
 
 export class DescribeEndpointsResponseBody extends $tea.Model {
   connAddrs?: DescribeEndpointsResponseBodyConnAddrs;
+  /**
+   * @example
+   * hbaseue
+   */
   engine?: string;
+  /**
+   * @example
+   * VPC
+   */
   netType?: string;
+  /**
+   * @example
+   * F072593C-5234-5B56-9F63-3C7A3AD85D66
+   */
   requestId?: string;
+  /**
+   * @example
+   * vsw-bp1foll427ze3d4ps****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp15s22y1a7sff5gj****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3180,6 +4502,13 @@ export class DescribeEndpointsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3199,59 +4528,266 @@ export class DescribeInstanceRequest extends $tea.Model {
 }
 
 export class DescribeInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   autoRenewal?: boolean;
+  /**
+   * @example
+   * open
+   */
   backupStatus?: string;
+  /**
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * testhbase
+   */
   clusterName?: string;
+  /**
+   * @example
+   * cluster
+   */
   clusterType?: string;
+  /**
+   * @example
+   * 800
+   */
   coldStorageSize?: number;
+  /**
+   * @example
+   * open
+   */
   coldStorageStatus?: string;
+  /**
+   * @example
+   * true
+   */
   confirmMaintainTime?: string;
+  /**
+   * @example
+   * 4
+   */
   coreDiskCount?: string;
+  /**
+   * @example
+   * 100
+   */
   coreDiskSize?: number;
+  /**
+   * @example
+   * cloud_ssd
+   */
   coreDiskType?: string;
+  /**
+   * @example
+   * hbase.sn2.2xlarge
+   */
   coreInstanceType?: string;
+  /**
+   * @example
+   * 2
+   */
   coreNodeCount?: number;
+  /**
+   * @example
+   * 2021-07-19T11:23:22
+   */
   createdTime?: string;
+  /**
+   * @example
+   * 2021-07-19T03:23:22Z
+   */
   createdTimeUTC?: string;
+  /**
+   * @example
+   * 12
+   */
   duration?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * false
+   */
   enableHbaseProxy?: boolean;
+  /**
+   * @example
+   * 0d2470df-da7b-4786-b981-9a164dae****
+   */
   encryptionKey?: string;
+  /**
+   * @example
+   * NoEncryption
+   */
   encryptionType?: string;
+  /**
+   * @example
+   * hbaseue
+   */
   engine?: string;
+  /**
+   * @example
+   * 2022-02-24T00:00:00
+   */
   expireTime?: string;
+  /**
+   * @example
+   * 2022-02-23T16:00:00Z
+   */
   expireTimeUTC?: string;
+  /**
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * testhbase
+   */
   instanceName?: string;
+  /**
+   * @example
+   * false
+   */
   isDeletionProtection?: boolean;
+  /**
+   * @example
+   * true
+   */
   isHa?: boolean;
+  /**
+   * @example
+   * true
+   */
   isLatestVersion?: boolean;
+  /**
+   * @example
+   * true
+   */
   isMultiModel?: boolean;
+  /**
+   * @example
+   * 2.3.2
+   */
   lproxyMinorVersion?: string;
+  /**
+   * @example
+   * 22:00Z
+   */
   maintainEndTime?: string;
+  /**
+   * @example
+   * 18:00Z
+   */
   maintainStartTime?: string;
+  /**
+   * @example
+   * 2.0
+   */
   majorVersion?: string;
+  /**
+   * @example
+   * 0
+   */
   masterDiskSize?: number;
+  /**
+   * @example
+   * cloud_efficiency
+   */
   masterDiskType?: string;
+  /**
+   * @example
+   * hbase.sn2.large
+   */
   masterInstanceType?: string;
+  /**
+   * @example
+   * 2
+   */
   masterNodeCount?: number;
+  /**
+   * @example
+   * 2.2.9.1
+   */
   minorVersion?: string;
+  /**
+   * @example
+   * 0
+   */
   moduleId?: number;
+  /**
+   * @example
+   * phoenxi:4.0
+   */
   moduleStackVersion?: string;
+  /**
+   * @example
+   * false
+   */
   needUpgrade?: boolean;
   needUpgradeComps?: DescribeInstanceResponseBodyNeedUpgradeComps;
+  /**
+   * @example
+   * VPC
+   */
   networkType?: string;
+  /**
+   * @example
+   * ld-uf699153o1m2l****
+   */
   parentId?: string;
+  /**
+   * @example
+   * Prepaid
+   */
   payType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 3F429923-B6F6-52C5-9C2A-5B8A8C6BBA66
+   */
   requestId?: string;
+  /**
+   * @example
+   * rg-acfmyiu4ekp****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * ACTIVATION
+   */
   status?: string;
   tags?: DescribeInstanceResponseBodyTags;
+  /**
+   * @example
+   * 25.00
+   */
   taskProgress?: string;
   taskStatus?: string;
+  /**
+   * @example
+   * vpc-bp15s22y1a7sff5gj****
+   */
   vpcId?: string;
+  /**
+   * @example
+   * vsw-bp1foll427ze3d4ps****
+   */
   vswitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3402,6 +4938,10 @@ export class DescribeInstanceResponse extends $tea.Model {
 }
 
 export class DescribeInstanceTypeRequest extends $tea.Model {
+  /**
+   * @example
+   * hbase.n2.4xlarge
+   */
   instanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3422,6 +4962,10 @@ export class DescribeInstanceTypeRequest extends $tea.Model {
 
 export class DescribeInstanceTypeResponseBody extends $tea.Model {
   instanceTypeSpecList?: DescribeInstanceTypeResponseBodyInstanceTypeSpecList;
+  /**
+   * @example
+   * DD23BBB4-64C2-42A4-B2E2-7E56C7AA815A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3468,12 +5012,40 @@ export class DescribeInstanceTypeResponse extends $tea.Model {
 }
 
 export class DescribeInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * hb-bp1u0639js2h7****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * test
+   */
   clusterName?: string;
+  /**
+   * @example
+   * hbase
+   */
   dbType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-4f51d54g5****
+   */
   resourceGroupId?: string;
   tag?: DescribeInstancesRequestTag[];
   static names(): { [key: string]: string } {
@@ -3509,9 +5081,25 @@ export class DescribeInstancesRequest extends $tea.Model {
 
 export class DescribeInstancesResponseBody extends $tea.Model {
   instances?: DescribeInstancesResponseBodyInstances;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EBECBF12-2E34-41BE-8DE9-FC3700D4****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 18
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3564,6 +5152,13 @@ export class DescribeInstancesResponse extends $tea.Model {
 }
 
 export class DescribeIpWhitelistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3584,6 +5179,10 @@ export class DescribeIpWhitelistRequest extends $tea.Model {
 
 export class DescribeIpWhitelistResponseBody extends $tea.Model {
   groups?: DescribeIpWhitelistResponseBodyGroups;
+  /**
+   * @example
+   * AFAA617B-3268-5883-982B-DB8EC8CC1F1B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3630,6 +5229,10 @@ export class DescribeIpWhitelistResponse extends $tea.Model {
 }
 
 export class DescribeMultiZoneAvailableRegionsRequest extends $tea.Model {
+  /**
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3650,6 +5253,10 @@ export class DescribeMultiZoneAvailableRegionsRequest extends $tea.Model {
 
 export class DescribeMultiZoneAvailableRegionsResponseBody extends $tea.Model {
   regions?: DescribeMultiZoneAvailableRegionsResponseBodyRegions;
+  /**
+   * @example
+   * F03BB273-45EE-4B6C-A329-A6E6A8D15856
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3696,8 +5303,26 @@ export class DescribeMultiZoneAvailableRegionsResponse extends $tea.Model {
 }
 
 export class DescribeMultiZoneAvailableResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Prepaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * cn-hangzhou-bef-aliyun
+   */
   zoneCombination?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3722,6 +5347,10 @@ export class DescribeMultiZoneAvailableResourceRequest extends $tea.Model {
 
 export class DescribeMultiZoneAvailableResourceResponseBody extends $tea.Model {
   availableZones?: DescribeMultiZoneAvailableResourceResponseBodyAvailableZones;
+  /**
+   * @example
+   * B2EEBBA9-C627-4415-81A0-B77BC54F1D52
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3768,6 +5397,13 @@ export class DescribeMultiZoneAvailableResourceResponse extends $tea.Model {
 }
 
 export class DescribeMultiZoneClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-t4nn71xa0yn****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3787,58 +5423,250 @@ export class DescribeMultiZoneClusterRequest extends $tea.Model {
 }
 
 export class DescribeMultiZoneClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * vsw-t4nax9mp3wk0czn****
+   */
   arbiterVSwitchIds?: string;
+  /**
+   * @example
+   * ap-southeast-1c
+   */
   arbiterZoneId?: string;
+  /**
+   * @example
+   * false
+   */
   autoRenewal?: boolean;
+  /**
+   * @example
+   * ld-t4nn71xa0yn****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * mz_test
+   */
   clusterName?: string;
   coldStorageSize?: number;
+  /**
+   * @example
+   * 4
+   */
   coreDiskCount?: string;
+  /**
+   * @example
+   * 100
+   */
   coreDiskSize?: number;
+  /**
+   * @example
+   * cloud_efficiency
+   */
   coreDiskType?: string;
+  /**
+   * @example
+   * hbase.sn1.large
+   */
   coreInstanceType?: string;
+  /**
+   * @example
+   * 6
+   */
   coreNodeCount?: number;
+  /**
+   * @example
+   * 2020-10-15T18:04:52
+   */
   createdTime?: string;
+  /**
+   * @example
+   * 2020-10-15T10:04:52Z
+   */
   createdTimeUTC?: string;
+  /**
+   * @example
+   * 1
+   */
   duration?: number;
+  /**
+   * @example
+   * 2a****
+   */
   encryptionKey?: string;
+  /**
+   * @example
+   * CloudDisk
+   */
   encryptionType?: string;
+  /**
+   * @example
+   * hbaseue
+   */
   engine?: string;
+  /**
+   * @example
+   * 2020-11-16T08:00:00
+   */
   expireTime?: string;
+  /**
+   * @example
+   * 2020-11-16T00:00:00Z
+   */
   expireTimeUTC?: string;
+  /**
+   * @example
+   * ld-t4nn71xa0yn****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * mz_test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * false
+   */
   isDeletionProtection?: boolean;
+  /**
+   * @example
+   * 4
+   */
   logDiskCount?: string;
+  /**
+   * @example
+   * 100
+   */
   logDiskSize?: number;
+  /**
+   * @example
+   * cloud_efficiency
+   */
   logDiskType?: string;
+  /**
+   * @example
+   * hbase.sn1.large
+   */
   logInstanceType?: string;
+  /**
+   * @example
+   * 4
+   */
   logNodeCount?: number;
+  /**
+   * @example
+   * 06:00:00
+   */
   maintainEndTime?: string;
+  /**
+   * @example
+   * 02:00:00
+   */
   maintainStartTime?: string;
+  /**
+   * @example
+   * 2.0
+   */
   majorVersion?: string;
+  /**
+   * @example
+   * 50
+   */
   masterDiskSize?: number;
+  /**
+   * @example
+   * cloud_efficiency
+   */
   masterDiskType?: string;
+  /**
+   * @example
+   * hbase.sn1.large
+   */
   masterInstanceType?: string;
+  /**
+   * @example
+   * 2
+   */
   masterNodeCount?: number;
+  /**
+   * @example
+   * 0
+   */
   moduleId?: number;
+  /**
+   * @example
+   * 2.0
+   */
   moduleStackVersion?: string;
+  /**
+   * @example
+   * ap-southeast-1-abc-aliyun
+   */
   multiZoneCombination?: string;
   multiZoneInstanceModels?: DescribeMultiZoneClusterResponseBodyMultiZoneInstanceModels;
+  /**
+   * @example
+   * VPC
+   */
   networkType?: string;
+  /**
+   * @example
+   * ld-fls1gf31y5s35****
+   */
   parentId?: string;
+  /**
+   * @example
+   * Prepaid
+   */
   payType?: string;
+  /**
+   * @example
+   * vsw-t4n3s1zd2gtidg****
+   */
   primaryVSwitchIds?: string;
+  /**
+   * @example
+   * ap-southeast-1a
+   */
   primaryZoneId?: string;
+  /**
+   * @example
+   * ap-southeast-1
+   */
   regionId?: string;
+  /**
+   * @example
+   * A02C0E6D-3A47-4FA0-BA7E-60793CE256DA
+   */
   requestId?: string;
+  /**
+   * @example
+   * rg-lk51f5fer315e****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * vsw-t4nvvk7xur3rdi****
+   */
   standbyVSwitchIds?: string;
+  /**
+   * @example
+   * ap-southeast-1b
+   */
   standbyZoneId?: string;
+  /**
+   * @example
+   * ACTIVATION
+   */
   status?: string;
   tags?: DescribeMultiZoneClusterResponseBodyTags;
   taskProgress?: string;
   taskStatus?: string;
+  /**
+   * @example
+   * vpc-t4nx81tmlixcq5****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3987,6 +5815,13 @@ export class DescribeMultiZoneClusterResponse extends $tea.Model {
 }
 
 export class DescribeRecoverableTimeRangeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4006,8 +5841,20 @@ export class DescribeRecoverableTimeRangeRequest extends $tea.Model {
 }
 
 export class DescribeRecoverableTimeRangeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A1A51D18-96DC-465C-9F1B-47180CA22524
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2020-10-26T18:02:03Z
+   */
   timeBegin?: string;
+  /**
+   * @example
+   * 2020-11-05T01:20:31Z
+   */
   timeEnd?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4056,7 +5903,15 @@ export class DescribeRecoverableTimeRangeResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
+  /**
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * hbase
+   */
   engine?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4079,6 +5934,10 @@ export class DescribeRegionsRequest extends $tea.Model {
 
 export class DescribeRegionsResponseBody extends $tea.Model {
   regions?: DescribeRegionsResponseBodyRegions;
+  /**
+   * @example
+   * 14D3924C-4FD8-4EE9-9B34-DA949D104F42
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4125,9 +5984,31 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DescribeRestoreFullDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020110514xxxx
+   */
   restoreRecordId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4153,6 +6034,10 @@ export class DescribeRestoreFullDetailsRequest extends $tea.Model {
 }
 
 export class DescribeRestoreFullDetailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CFE525CF-C691-4140-A981-D004DAA7A840
+   */
   requestId?: string;
   restoreFull?: DescribeRestoreFullDetailsResponseBodyRestoreFull;
   static names(): { [key: string]: string } {
@@ -4200,7 +6085,21 @@ export class DescribeRestoreFullDetailsResponse extends $tea.Model {
 }
 
 export class DescribeRestoreIncrDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eyf188hw481xxxx
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020110514xxxx
+   */
   restoreRecordId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4222,6 +6121,10 @@ export class DescribeRestoreIncrDetailRequest extends $tea.Model {
 }
 
 export class DescribeRestoreIncrDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D0FE2717-E194-465A-B27B-7373F96E580B
+   */
   requestId?: string;
   restoreIncrDetail?: DescribeRestoreIncrDetailResponseBodyRestoreIncrDetail;
   static names(): { [key: string]: string } {
@@ -4269,9 +6172,31 @@ export class DescribeRestoreIncrDetailResponse extends $tea.Model {
 }
 
 export class DescribeRestoreSchemaDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020110514xxxx
+   */
   restoreRecordId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4297,6 +6222,10 @@ export class DescribeRestoreSchemaDetailsRequest extends $tea.Model {
 }
 
 export class DescribeRestoreSchemaDetailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BC682A80-7677-4294-975C-CFEA425381DE
+   */
   requestId?: string;
   restoreSchema?: DescribeRestoreSchemaDetailsResponseBodyRestoreSchema;
   static names(): { [key: string]: string } {
@@ -4344,8 +6273,23 @@ export class DescribeRestoreSchemaDetailsResponse extends $tea.Model {
 }
 
 export class DescribeRestoreSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4369,11 +6313,31 @@ export class DescribeRestoreSummaryRequest extends $tea.Model {
 }
 
 export class DescribeRestoreSummaryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   hasMoreRestoreRecord?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * AE639ED7-F0F3-4A71-911E-CF8EC088816E
+   */
   requestId?: string;
   rescords?: DescribeRestoreSummaryResponseBodyRescords;
+  /**
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4428,7 +6392,21 @@ export class DescribeRestoreSummaryResponse extends $tea.Model {
 }
 
 export class DescribeRestoreTablesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020110514xxxx
+   */
   restoreRecordId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4450,6 +6428,10 @@ export class DescribeRestoreTablesRequest extends $tea.Model {
 }
 
 export class DescribeRestoreTablesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 18D9CC47-D913-48BF-AB6B-4FA9B28FBDB1
+   */
   requestId?: string;
   restoreFull?: DescribeRestoreTablesResponseBodyRestoreFull;
   restoreIncrDetail?: DescribeRestoreTablesResponseBodyRestoreIncrDetail;
@@ -4509,6 +6491,13 @@ export class DescribeRestoreTablesResponse extends $tea.Model {
 }
 
 export class DescribeSecurityGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp161ax8i03c4uq**
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4528,6 +6517,10 @@ export class DescribeSecurityGroupsRequest extends $tea.Model {
 }
 
 export class DescribeSecurityGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 50373857-C47B-4B64-9332-D0B5280B59EA
+   */
   requestId?: string;
   securityGroupIds?: DescribeSecurityGroupsResponseBodySecurityGroupIds;
   static names(): { [key: string]: string } {
@@ -4575,7 +6568,21 @@ export class DescribeSecurityGroupsResponse extends $tea.Model {
 }
 
 export class DescribeServerlessClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp16f1441y6p2****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdh0b7f4k5f****
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4597,31 +6604,131 @@ export class DescribeServerlessClusterRequest extends $tea.Model {
 }
 
 export class DescribeServerlessClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   autoRenew?: string;
+  /**
+   * @example
+   * single
+   */
   clusterType?: string;
+  /**
+   * @example
+   * 2019-10-12T14:40:46
+   */
   createTime?: string;
+  /**
+   * @example
+   * 150
+   */
   cuSize?: string;
+  /**
+   * @example
+   * 200
+   */
   diskSize?: string;
+  /**
+   * @example
+   * 2019-10-12T14:40:46
+   */
   expireTime?: string;
+  /**
+   * @example
+   * false
+   */
   haType?: string;
+  /**
+   * @example
+   * false
+   */
   hasUser?: string;
+  /**
+   * @example
+   * https://sh-wz91452kg946i****-lindorm-serverless-in.lindorm.rds.aliyuncs.com:443
+   */
   innerEndpoint?: string;
+  /**
+   * @example
+   * hb-bp16f1441y6p2****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * true
+   */
   isDeletionProtection?: string;
   lockMode?: string;
+  /**
+   * @example
+   * 2.0.8
+   */
   mainVersion?: string;
+  /**
+   * @example
+   * https://sh-wz91452kg946i****-lindorm-serverless.lindorm.rds.aliyuncs.com:443
+   */
   outerEndpoint?: string;
+  /**
+   * @example
+   * Postpaid
+   */
   payType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 89F81C30-320B-4550-91DB-C37C81D2358F
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   reserverMaxQpsNum?: string;
+  /**
+   * @example
+   * 50
+   */
   reserverMinQpsNum?: string;
+  /**
+   * @example
+   * rg-fjm2d4v7sf****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * ACTIVATION
+   */
   status?: string;
+  /**
+   * @example
+   * NO
+   */
   updateStatus?: string;
+  /**
+   * @example
+   * vsw-bp191ipotqf****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp120k6ixs4eoghz****
+   */
   vpcId?: string;
+  /**
+   * @example
+   * cn-hangzhou-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4716,7 +6823,15 @@ export class DescribeServerlessClusterResponse extends $tea.Model {
 }
 
 export class DescribeSubDomainRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * cn-hangzhou-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4738,7 +6853,15 @@ export class DescribeSubDomainRequest extends $tea.Model {
 }
 
 export class DescribeSubDomainResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F4208C83-B9BC-4A64-A739-8F88E98DA469
+   */
   requestId?: string;
+  /**
+   * @example
+   * cn-hangzhou-h-aliyun
+   */
   subDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4785,9 +6908,31 @@ export class DescribeSubDomainResponse extends $tea.Model {
 }
 
 export class EnableHBaseueBackupRequest extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 800
+   */
   coldStorageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   hbaseueClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   nodeCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4813,8 +6958,20 @@ export class EnableHBaseueBackupRequest extends $tea.Model {
 }
 
 export class EnableHBaseueBackupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * bds-m5e54q06ceyhxxxx
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 1449xxx
+   */
   orderId?: string;
+  /**
+   * @example
+   * 15272D5D-46E8-4400-9CC8-A7E7B589F575
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4863,23 +7020,122 @@ export class EnableHBaseueBackupResponse extends $tea.Model {
 }
 
 export class EnableHBaseueModuleRequest extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   autoRenewPeriod?: number;
+  /**
+   * @example
+   * bds-bp174pm3tsk3****
+   */
   bdsId?: string;
+  /**
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase.sn1.large
+   */
   coreInstanceType?: string;
+  /**
+   * @example
+   * 400
+   */
   diskSize?: number;
+  /**
+   * @example
+   * cloud_ssd
+   */
   diskType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   hbaseueClusterId?: string;
+  /**
+   * @example
+   * hbase.sn1.large
+   */
   masterInstanceType?: string;
+  /**
+   * @example
+   * cluster-name
+   */
   moduleClusterName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * solr
+   */
   moduleTypeName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   nodeCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Prepaid
+   */
   payType?: string;
+  /**
+   * @example
+   * 6
+   */
   period?: number;
+  /**
+   * @example
+   * month
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp120k6ixs4eog*****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp191ipotqj1ssyl*****
+   */
   vswitchId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4933,8 +7189,20 @@ export class EnableHBaseueModuleRequest extends $tea.Model {
 }
 
 export class EnableHBaseueModuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ld-bp150tns0sjxs****-m1-ps
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 21474915573****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 407075EA-47F5-5A2D-888F-C1F90B8F3FCA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4983,33 +7251,199 @@ export class EnableHBaseueModuleResponse extends $tea.Model {
 }
 
 export class EvaluateMultiZoneResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-hangxzhouxb****
+   */
   arbiterVSwitchId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
   arbiterZoneId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2.0
+   */
   archVersion?: string;
+  /**
+   * @example
+   * 0
+   */
   autoRenewPeriod?: number;
+  /**
+   * @example
+   * f4g8t5rd2gr94****
+   */
   clientToken?: string;
+  /**
+   * @example
+   * hbaseue_test
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 400
+   */
   coreDiskSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cloud_ssd
+   */
   coreDiskType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase.sn1.medium
+   */
   coreInstanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   coreNodeCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbaseue
+   */
   engine?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2.0
+   */
   engineVersion?: string;
+  /**
+   * @example
+   * 400
+   */
   logDiskSize?: number;
+  /**
+   * @example
+   * cloud_ssd
+   */
   logDiskType?: string;
+  /**
+   * @example
+   * hbase.sn1.medium
+   */
   logInstanceType?: string;
+  /**
+   * @example
+   * 4
+   */
   logNodeCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase.sn1.medium
+   */
   masterInstanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-bef-aliyun-com
+   */
   multiZoneCombination?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Postpaid
+   */
   payType?: string;
+  /**
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @example
+   * month
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-hangxzhouxe*****
+   */
   primaryVSwitchId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-e
+   */
   primaryZoneId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * 127.0.0.1
+   */
   securityIPList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-hangxzhouxf****
+   */
   standbyVSwitchId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou-f
+   */
   standbyZoneId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp120k6ixs4eog*****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5083,7 +7517,15 @@ export class EvaluateMultiZoneResourceRequest extends $tea.Model {
 }
 
 export class EvaluateMultiZoneResourceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FB703B69-D4D4-4879-B9FE-6A37F67C46FD
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5130,7 +7572,21 @@ export class EvaluateMultiZoneResourceResponse extends $tea.Model {
 }
 
 export class GetMultimodeCmsUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn******
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5152,8 +7608,20 @@ export class GetMultimodeCmsUrlRequest extends $tea.Model {
 }
 
 export class GetMultimodeCmsUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * hb-t4naqsay5gn******
+   */
   clusterId?: string;
+  /**
+   * @example
+   * htpp://***********
+   */
   multimodCmsUrl?: string;
+  /**
+   * @example
+   * 44183B05-852E-4716-B902-52977140190F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5202,10 +7670,45 @@ export class GetMultimodeCmsUrlResponse extends $tea.Model {
 }
 
 export class GrantRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test01
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * READ,WRITE
+   */
   aclActions?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5233,6 +7736,10 @@ export class GrantRequest extends $tea.Model {
 }
 
 export class GrantResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9CBF8DF0-4931-4A54-9B60-4C6E1AB5****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5277,6 +7784,13 @@ export class GrantResponse extends $tea.Model {
 }
 
 export class ListHBaseInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-t4nx81tmlixcq5i****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5297,6 +7811,10 @@ export class ListHBaseInstancesRequest extends $tea.Model {
 
 export class ListHBaseInstancesResponseBody extends $tea.Model {
   instances?: ListHBaseInstancesResponseBodyInstances;
+  /**
+   * @example
+   * 89F81C30-320B-4550-91DB-C37C81D2358F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5343,8 +7861,23 @@ export class ListHBaseInstancesResponse extends $tea.Model {
 }
 
 export class ListInstanceServiceConfigHistoriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn******
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5369,9 +7902,25 @@ export class ListInstanceServiceConfigHistoriesRequest extends $tea.Model {
 
 export class ListInstanceServiceConfigHistoriesResponseBody extends $tea.Model {
   configureHistoryList?: ListInstanceServiceConfigHistoriesResponseBodyConfigureHistoryList;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageRecordCount?: number;
+  /**
+   * @example
+   * 658C1549-2C02-4FD9-9490-EB3B285F9DCA
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5424,8 +7973,23 @@ export class ListInstanceServiceConfigHistoriesResponse extends $tea.Model {
 }
 
 export class ListInstanceServiceConfigurationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5450,9 +8014,25 @@ export class ListInstanceServiceConfigurationsRequest extends $tea.Model {
 
 export class ListInstanceServiceConfigurationsResponseBody extends $tea.Model {
   configureList?: ListInstanceServiceConfigurationsResponseBodyConfigureList;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageRecordCount?: number;
+  /**
+   * @example
+   * 5B381E36-BCA3-4377-8638-B65C236617D5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 42
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5505,8 +8085,23 @@ export class ListInstanceServiceConfigurationsResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * NextToken
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * bds-bp15e022622f****
+   */
   resourceId?: string[];
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
@@ -5533,7 +8128,15 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1d2db86sca4384811e0b5e8707e68****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 74F02441-9A8D-48F6-933F-E317AEB28DBF
+   */
   requestId?: string;
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
@@ -5583,6 +8186,13 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5602,6 +8212,10 @@ export class ListTagsRequest extends $tea.Model {
 }
 
 export class ListTagsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 36D1BE9B-3C4A-425B-947A-69E3D77999C4
+   */
   requestId?: string;
   tags?: ListTagsResponseBodyTags;
   static names(): { [key: string]: string } {
@@ -5649,8 +8263,29 @@ export class ListTagsResponse extends $tea.Model {
 }
 
 export class ModifyAccountPasswordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test01
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * **********
+   */
   newAccountPassword?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5674,6 +8309,10 @@ export class ModifyAccountPasswordRequest extends $tea.Model {
 }
 
 export class ModifyAccountPasswordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AFAA617B-3268-5883-982B-DB8EC8CC1F1B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5718,13 +8357,31 @@ export class ModifyAccountPasswordResponse extends $tea.Model {
 }
 
 export class ModifyActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1111,2222
+   */
   ids?: string;
+  /**
+   * @example
+   * 1
+   */
   immediateStart?: number;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-02-17T18:50:00Z
+   */
   switchTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5758,7 +8415,15 @@ export class ModifyActiveOperationTasksRequest extends $tea.Model {
 }
 
 export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1111,2222
+   */
   ids?: string;
+  /**
+   * @example
+   * 8C9CC46A-9532-4752-B59F-580112C5A45B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5805,10 +8470,45 @@ export class ModifyActiveOperationTasksResponse extends $tea.Model {
 }
 
 export class ModifyBackupPlanConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7
+   */
   fullBackupCycle?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   minHFileBackupCount?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-11-09T18:00:00Z
+   */
   nextFullBackupDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * *
+   */
   tables?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5836,6 +8536,10 @@ export class ModifyBackupPlanConfigRequest extends $tea.Model {
 }
 
 export class ModifyBackupPlanConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 50F4A8C2-076F-4703-9813-2FCD7FBB91C2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5880,10 +8584,39 @@ export class ModifyBackupPlanConfigResponse extends $tea.Model {
 }
 
 export class ModifyBackupPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 18:00Z
+   */
   preferredBackupEndTimeUTC?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Thursday
+   */
   preferredBackupPeriod?: string;
+  /**
+   * @example
+   * 17:00Z
+   */
   preferredBackupStartTimeUTC?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 01:00-02:00
+   */
   preferredBackupTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5911,6 +8644,10 @@ export class ModifyBackupPolicyRequest extends $tea.Model {
 }
 
 export class ModifyBackupPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 17E3AC63-300D-4B69-9108-45EC20E50E85
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5955,7 +8692,21 @@ export class ModifyBackupPolicyResponse extends $tea.Model {
 }
 
 export class ModifyClusterDeletionProtectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-****************
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   protection?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5977,6 +8728,10 @@ export class ModifyClusterDeletionProtectionRequest extends $tea.Model {
 }
 
 export class ModifyClusterDeletionProtectionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 24C80BD8-C710-4138-893A-D2AFED4FC13D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6021,7 +8776,21 @@ export class ModifyClusterDeletionProtectionResponse extends $tea.Model {
 }
 
 export class ModifyDiskWarningLineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-m5eznlga4k5bcxxxx
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 80
+   */
   warningLine?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6043,6 +8812,10 @@ export class ModifyDiskWarningLineRequest extends $tea.Model {
 }
 
 export class ModifyDiskWarningLineResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FC4A930D-3AEE-4C9D-BC70-C0F2EEEAA174
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6087,8 +8860,29 @@ export class ModifyDiskWarningLineResponse extends $tea.Model {
 }
 
 export class ModifyInstanceMaintainTimeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp1b**6jco89****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 06:00Z
+   */
   maintainEndTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 02:00Z
+   */
   maintainStartTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6112,6 +8906,10 @@ export class ModifyInstanceMaintainTimeRequest extends $tea.Model {
 }
 
 export class ModifyInstanceMaintainTimeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C9085433-A56A-4089-B49A-DF5A4E2B7B06
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6156,10 +8954,39 @@ export class ModifyInstanceMaintainTimeResponse extends $tea.Model {
 }
 
 export class ModifyInstanceNameRequest extends $tea.Model {
+  /**
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testhbaseone
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * cn-hangzhou-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6187,6 +9014,10 @@ export class ModifyInstanceNameRequest extends $tea.Model {
 }
 
 export class ModifyInstanceNameResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 959DA199-54E5-569D-AD46-92BED8515E62
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6231,10 +9062,39 @@ export class ModifyInstanceNameResponse extends $tea.Model {
 }
 
 export class ModifyInstanceServiceConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase#hbase-site.xml#hbase.client.keyvalue.maxsize
+   */
   configureName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10485770
+   */
   configureValue?: string;
+  /**
+   * @example
+   * {"key1=value1", "key2=value2"}
+   */
   parameters?: string;
+  /**
+   * @example
+   * false
+   */
   restart?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6262,6 +9122,10 @@ export class ModifyInstanceServiceConfigRequest extends $tea.Model {
 }
 
 export class ModifyInstanceServiceConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F008B7AB-025D-4C20-AE12-047C8F8C3D97
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6306,8 +9170,23 @@ export class ModifyInstanceServiceConfigResponse extends $tea.Model {
 }
 
 export class ModifyInstanceTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp1x940uh********
+   */
   clusterId?: string;
+  /**
+   * @example
+   * hbase.sn1.8xlarge
+   */
   coreInstanceType?: string;
+  /**
+   * @example
+   * hbase.sn1.large
+   */
   masterInstanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6331,7 +9210,15 @@ export class ModifyInstanceTypeRequest extends $tea.Model {
 }
 
 export class ModifyInstanceTypeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 123412341234123
+   */
   orderId?: string;
+  /**
+   * @example
+   * 3E19E345-101D-4014-946C-****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6378,9 +9265,34 @@ export class ModifyInstanceTypeResponse extends $tea.Model {
 }
 
 export class ModifyIpWhitelistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp1uoihlf82e8****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * group_01
+   */
   groupName?: string;
+  /**
+   * @example
+   * 42.120.XX.XX
+   */
   ipList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   ipVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6406,6 +9318,10 @@ export class ModifyIpWhitelistRequest extends $tea.Model {
 }
 
 export class ModifyIpWhitelistResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 101CFA8A-FB88-5014-A10C-3A0DA9AD8B0B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6450,9 +9366,28 @@ export class ModifyIpWhitelistResponse extends $tea.Model {
 }
 
 export class ModifyMultiZoneClusterNodeTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-dj45g7d6rbrd****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * hbase.sn1.large
+   */
   coreInstanceType?: string;
+  /**
+   * @example
+   * hbase.sn1.2xlarge
+   */
   logInstanceType?: string;
+  /**
+   * @example
+   * hbase.sn1.8xlarge
+   */
   masterInstanceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6478,7 +9413,15 @@ export class ModifyMultiZoneClusterNodeTypeRequest extends $tea.Model {
 }
 
 export class ModifyMultiZoneClusterNodeTypeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 12341234123****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 06CF7A6F-A81C-431D-BACD-793F24A67C54
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6525,7 +9468,21 @@ export class ModifyMultiZoneClusterNodeTypeResponse extends $tea.Model {
 }
 
 export class ModifySecurityGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp16f1441y6p2kv**
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sg-t4ng4yyc916o81nu****,sg-x4gg4dyc9d6w********
+   */
   securityGroupIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6547,6 +9504,10 @@ export class ModifySecurityGroupsRequest extends $tea.Model {
 }
 
 export class ModifySecurityGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F4AD2E65-482B-46B6-942E-765989B1C8A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6591,8 +9552,29 @@ export class ModifySecurityGroupsResponse extends $tea.Model {
 }
 
 export class ModifyUIAccountPasswordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test01
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * **********
+   */
   accountPassword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6616,6 +9598,10 @@ export class ModifyUIAccountPasswordRequest extends $tea.Model {
 }
 
 export class ModifyUIAccountPasswordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * BED4ADEB-4EA9-507E-892C-84112D6AC7C1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6660,7 +9646,21 @@ export class ModifyUIAccountPasswordResponse extends $tea.Model {
 }
 
 export class MoveResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp169l540vc6c****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-aekzrk6zzsy****
+   */
   newResourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6682,6 +9682,10 @@ export class MoveResourceGroupRequest extends $tea.Model {
 }
 
 export class MoveResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8CD9BFBC-D575-5FCC-BA7E-956BF0D0****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6726,6 +9730,13 @@ export class MoveResourceGroupResponse extends $tea.Model {
 }
 
 export class OpenBackupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn******
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6745,6 +9756,10 @@ export class OpenBackupRequest extends $tea.Model {
 }
 
 export class OpenBackupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C977DF60-7D06-4E34-A27D-8BC696C5112A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6789,6 +9804,13 @@ export class OpenBackupResponse extends $tea.Model {
 }
 
 export class PurgeInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-m5ek15uzs7613xxxx
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6808,6 +9830,10 @@ export class PurgeInstanceRequest extends $tea.Model {
 }
 
 export class PurgeInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 276F899F-E952-496F-81B8-BD46D86854E3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6852,6 +9878,13 @@ export class PurgeInstanceResponse extends $tea.Model {
 }
 
 export class QueryHBaseHaDBRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bds-t4n3496whj23ia4k
+   */
   bdsId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6872,9 +9905,25 @@ export class QueryHBaseHaDBRequest extends $tea.Model {
 
 export class QueryHBaseHaDBResponseBody extends $tea.Model {
   clusterList?: QueryHBaseHaDBResponseBodyClusterList;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 963355AD-A3B1-4654-AFFC-B5186EB8F889
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6927,8 +9976,26 @@ export class QueryHBaseHaDBResponse extends $tea.Model {
 }
 
 export class QueryXpackRelateDBRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ap-bp1qtz9rcbbt3p6ng
+   */
   clusterId?: string;
+  /**
+   * @example
+   * false
+   */
   hasSingleNode?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase
+   */
   relateDbType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6953,6 +10020,10 @@ export class QueryXpackRelateDBRequest extends $tea.Model {
 
 export class QueryXpackRelateDBResponseBody extends $tea.Model {
   clusterList?: QueryXpackRelateDBResponseBodyClusterList;
+  /**
+   * @example
+   * 288E9010-36DD-499C-B4DA-61E4362DA4CC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6999,26 +10070,134 @@ export class QueryXpackRelateDBResponse extends $tea.Model {
 }
 
 export class RelateDbForHBaseHaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bds-t4nj9v2x85******
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp1w6krp539******
+   */
   haActive?: string;
+  /**
+   * @example
+   * hb-t4naqsay5gn******-master1-001.hbase.singapore.rds.aliyuncs.com,hb-t4naqsay5gn******-master3-001.hbase.singapore.rds.aliyuncs.com,hb-t4naqsay5gn******-master2-001.hbase.singapore.rds.aliyuncs.com:2181:/hbase
+   */
   haActiveClusterKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase
+   */
   haActiveDBType?: string;
+  /**
+   * @example
+   * /hbase
+   */
   haActiveHbaseFsDir?: string;
+  /**
+   * @example
+   * hdfs://hb-t4naqsay5gn******-master1-001.hbase.rds.aliyuncs.com:8020,hb-t4naqsay5gn******-master2-001.hbase.rds.aliyuncs.com:8020
+   */
   haActiveHdfsUri?: string;
+  /**
+   * @example
+   * root
+   */
   haActivePassword?: string;
+  /**
+   * @example
+   * root
+   */
   haActiveUser?: string;
+  /**
+   * @example
+   * HBase2x
+   */
   haActiveVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CLUSTER
+   */
   haMigrateType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp1bl7iqzka******
+   */
   haStandby?: string;
+  /**
+   * @example
+   * hb-bp1w6krp539******-master1-001.hbase.singapore.rds.aliyuncs.com,hb-bp1w6krp539******-master3-001.hbase.singapore.rds.aliyuncs.com,hb-t4naqsay5gn******-master2-001.hbase.singapore.rds.aliyuncs.com:2181:/hbase
+   */
   haStandbyClusterKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase
+   */
   haStandbyDBType?: string;
+  /**
+   * @example
+   * /hbase
+   */
   haStandbyHbaseFsDir?: string;
+  /**
+   * @example
+   * hdfs://hb-bp1w6krp539******-master1-001.hbase.rds.aliyuncs.com:8020,hb-bp1w6krp539******-master2-001.hbase.rds.aliyuncs.com:8020
+   */
   haStandbyHdfsUri?: string;
+  /**
+   * @example
+   * root
+   */
   haStandbyPassword?: string;
+  /**
+   * @example
+   * root
+   */
   haStandbyUser?: string;
+  /**
+   * @example
+   * HBase2x
+   */
   haStandbyVersion?: string;
+  /**
+   * @example
+   * test,test1
+   */
   haTables?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   isActiveStandard?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   isStandbyStandard?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7078,6 +10257,10 @@ export class RelateDbForHBaseHaRequest extends $tea.Model {
 }
 
 export class RelateDbForHBaseHaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * DC654531-0799-4502-AFA5-80EE1C16829A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7122,6 +10305,13 @@ export class RelateDbForHBaseHaResponse extends $tea.Model {
 }
 
 export class ReleasePublicNetworkAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn******
+   */
   clusterId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7141,6 +10331,10 @@ export class ReleasePublicNetworkAddressRequest extends $tea.Model {
 }
 
 export class ReleasePublicNetworkAddressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * B18D4390-A968-4444-B323-4360B8E5DA3E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7185,8 +10379,29 @@ export class ReleasePublicNetworkAddressResponse extends $tea.Model {
 }
 
 export class RenewInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp1u0639js2h7****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   duration?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
   pricingCycle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7210,7 +10425,15 @@ export class RenewInstanceRequest extends $tea.Model {
 }
 
 export class RenewInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 211235614240728
+   */
   orderId?: number;
+  /**
+   * @example
+   * 729CB2A7-3065-53A9-B27C-7033CA4881D9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7257,7 +10480,21 @@ export class RenewInstanceResponse extends $tea.Model {
 }
 
 export class ResizeColdStorageSizeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp169l540vc6c****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 900
+   */
   coldStorageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7279,7 +10516,15 @@ export class ResizeColdStorageSizeRequest extends $tea.Model {
 }
 
 export class ResizeColdStorageSizeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 21711518427****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 5AA6F80E-535C-5611-BD13-3832D96A4D0E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7326,7 +10571,21 @@ export class ResizeColdStorageSizeResponse extends $tea.Model {
 }
 
 export class ResizeDiskSizeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp16o0pd52e3y****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 120
+   */
   nodeDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7348,7 +10607,15 @@ export class ResizeDiskSizeRequest extends $tea.Model {
 }
 
 export class ResizeDiskSizeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3C22622B-8555-42BF-AD8A-1B960743****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 493A762B-E4A6-44E9-B877-CA6D0CAF8B29
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7395,8 +10662,23 @@ export class ResizeDiskSizeResponse extends $tea.Model {
 }
 
 export class ResizeMultiZoneClusterDiskSizeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-f5d6vc2r8d6****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 480
+   */
   coreDiskSize?: number;
+  /**
+   * @example
+   * 440
+   */
   logDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7420,7 +10702,15 @@ export class ResizeMultiZoneClusterDiskSizeRequest extends $tea.Model {
 }
 
 export class ResizeMultiZoneClusterDiskSizeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 123412341****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 568339C4-9F71-43D0-994E-E039CD826E56
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7467,13 +10757,48 @@ export class ResizeMultiZoneClusterDiskSizeResponse extends $tea.Model {
 }
 
 export class ResizeMultiZoneClusterNodeCountRequest extends $tea.Model {
+  /**
+   * @example
+   * vsw-hangxzhouxb*****
+   */
   arbiterVSwitchId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-f5d8d6s4s2a1****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 6
+   */
   coreNodeCount?: number;
+  /**
+   * @example
+   * 8
+   */
   logNodeCount?: number;
+  /**
+   * @example
+   * 6
+   */
   primaryCoreNodeCount?: number;
+  /**
+   * @example
+   * vsw-hangxzhouxe*****
+   */
   primaryVSwitchId?: string;
+  /**
+   * @example
+   * 6
+   */
   standbyCoreNodeCount?: number;
+  /**
+   * @example
+   * vsw-hangxzhouxf****
+   */
   standbyVSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7507,7 +10832,15 @@ export class ResizeMultiZoneClusterNodeCountRequest extends $tea.Model {
 }
 
 export class ResizeMultiZoneClusterNodeCountResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1234123412****
+   */
   orderId?: string;
+  /**
+   * @example
+   * E2B7E9DA-1575-4B9D-A0E4-9468BAC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7554,9 +10887,31 @@ export class ResizeMultiZoneClusterNodeCountResponse extends $tea.Model {
 }
 
 export class ResizeNodeCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp16o0pd52e3y****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   nodeCount?: number;
+  /**
+   * @example
+   * vsw-bp191otqj1ssyl****
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7582,7 +10937,15 @@ export class ResizeNodeCountRequest extends $tea.Model {
 }
 
 export class ResizeNodeCountResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 20470860005****
+   */
   orderId?: string;
+  /**
+   * @example
+   * B288B41F-6681-42A6-8905-47C3C42B19B0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7629,7 +10992,18 @@ export class ResizeNodeCountResponse extends $tea.Model {
 }
 
 export class RestartInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * THRIFT
+   */
   components?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7651,6 +11025,10 @@ export class RestartInstanceRequest extends $tea.Model {
 }
 
 export class RestartInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F744E939-D08D-5623-82C8-9D1F9F7685D1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7695,10 +11073,45 @@ export class RestartInstanceResponse extends $tea.Model {
 }
 
 export class RevokeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test01
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * READ,WRITE
+   */
   aclActions?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7726,6 +11139,10 @@ export class RevokeRequest extends $tea.Model {
 }
 
 export class RevokeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C9085433-A56A-4089-B49A-DF5A4E2B7B06
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7770,9 +11187,37 @@ export class RevokeResponse extends $tea.Model {
 }
 
 export class SwitchHbaseHaSlbRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bds-t4n3496whj23ia4k
+   */
   bdsId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ha-v21tmnxjwh2yuy1il
+   */
   haId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * thrift
+   */
   haTypes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Active
+   */
   hbaseType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7798,6 +11243,10 @@ export class SwitchHbaseHaSlbRequest extends $tea.Model {
 }
 
 export class SwitchHbaseHaSlbResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C9D568D9-A59C-4AF2-8FBB-F086A841D58E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7842,8 +11291,29 @@ export class SwitchHbaseHaSlbResponse extends $tea.Model {
 }
 
 export class SwitchServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-uf6r2hn2zrxxxxxx
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * open
+   */
   operate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * HBaseProxy
+   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7867,6 +11337,10 @@ export class SwitchServiceRequest extends $tea.Model {
 }
 
 export class SwitchServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F1005DE4-D981-559F-9E37-5172DXXXXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7911,8 +11385,26 @@ export class SwitchServiceResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bds-bp15e022622fk0w1
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -7936,6 +11428,10 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2656FA19-6059-40C8-A157-3FFBEAEC2369
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7980,9 +11476,31 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UnTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bds-bp15e022622fk0w1
+   */
   resourceId?: string[];
+  /**
+   * @example
+   * key1
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8008,6 +11526,10 @@ export class UnTagResourcesRequest extends $tea.Model {
 }
 
 export class UnTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9CBF8DF0-4931-4A54-9B60-4C6E1AB59286
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8052,7 +11574,18 @@ export class UnTagResourcesResponse extends $tea.Model {
 }
 
 export class UpgradeMinorVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-t4naqsay5gn****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * HADOOP
+   */
   components?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8074,7 +11607,15 @@ export class UpgradeMinorVersionRequest extends $tea.Model {
 }
 
 export class UpgradeMinorVersionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7B8EC240-BB13-4DBC-B955-F90170E82609
+   */
   requestId?: string;
+  /**
+   * @example
+   * HADOOP
+   */
   upgradingComponents?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8121,11 +11662,41 @@ export class UpgradeMinorVersionResponse extends $tea.Model {
 }
 
 export class UpgradeMultiZoneClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ld-***************
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * LINDORM
+   */
   components?: string;
+  /**
+   * @example
+   * LPROXY
+   */
   restartComponents?: string;
+  /**
+   * @example
+   * serial
+   */
   runMode?: string;
+  /**
+   * @example
+   * ld-t4n40m3171t4******-az-b
+   */
   upgradeInsName?: string;
+  /**
+   * @example
+   * t-apsara-lindorm-2.1.20-20200518175539.alios7.x86_64
+   */
   versions?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8155,7 +11726,15 @@ export class UpgradeMultiZoneClusterRequest extends $tea.Model {
 }
 
 export class UpgradeMultiZoneClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C532A4D4-9451-4460-BB3E-300FEC852D3F
+   */
   requestId?: string;
+  /**
+   * @example
+   * LINDORM
+   */
   upgradingComponents?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8202,8 +11781,29 @@ export class UpgradeMultiZoneClusterResponse extends $tea.Model {
 }
 
 export class XpackRelateDBRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ap-bp1qtz9rcbbt3****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hb-bp16o0pd52e3****
+   */
   dbClusterIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hbase
+   */
   relateDbType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8227,6 +11827,10 @@ export class XpackRelateDBRequest extends $tea.Model {
 }
 
 export class XpackRelateDBResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 50373857-C47B-4B64-9332-D0B5280B59EA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8271,7 +11875,15 @@ export class XpackRelateDBResponse extends $tea.Model {
 }
 
 export class CheckComponentsVersionResponseBodyComponentsComponent extends $tea.Model {
+  /**
+   * @example
+   * HBASE
+   */
   component?: string;
+  /**
+   * @example
+   * true
+   */
   isLatestVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8331,8 +11943,20 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
 }
 
 export class DescribeActiveOperationTaskTypeResponseBodyTypeList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   count?: number;
+  /**
+   * @example
+   * rds_apsaradb_upgrade
+   */
   taskType?: string;
+  /**
+   * @example
+   * rds_apsaradb_upgrade
+   */
   taskTypeInfoEn?: string;
   taskTypeInfoZh?: string;
   static names(): { [key: string]: string } {
@@ -8359,30 +11983,118 @@ export class DescribeActiveOperationTaskTypeResponseBodyTypeList extends $tea.Mo
 }
 
 export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   allowCancel?: string;
+  /**
+   * @example
+   * 1
+   */
   allowChange?: string;
+  /**
+   * @example
+   * all
+   */
   changeLevel?: string;
+  /**
+   * @example
+   * Risk repairment
+   */
   changeLevelEn?: string;
   changeLevelZh?: string;
+  /**
+   * @example
+   * 2022-02-15 23:59:59
+   */
   createdTime?: string;
+  /**
+   * @example
+   * cn-shanghai-et-a
+   */
   currentAVZ?: string;
+  /**
+   * @example
+   * hbaseue
+   */
   dbType?: string;
+  /**
+   * @example
+   * 2.0
+   */
   dbVersion?: string;
+  /**
+   * @example
+   * 2022-02-19 23:59:59
+   */
   deadline?: string;
+  /**
+   * @example
+   * 111111
+   */
   id?: number;
+  /**
+   * @example
+   * Transient instance disconnection
+   */
   impactEn?: string;
   impactZh?: string;
+  /**
+   * @example
+   * --
+   */
   insComment?: string;
+  /**
+   * @example
+   * ld-bp150tns0sjxs****
+   */
   insName?: string;
+  /**
+   * @example
+   * 2022-02-19 14:00:00
+   */
   modifiedTime?: string;
+  /**
+   * @example
+   * 14:00:00
+   */
   prepareInterval?: string;
+  /**
+   * @example
+   * cn-hanghzou
+   */
   region?: string;
+  /**
+   * @example
+   * --
+   */
   resultInfo?: string;
+  /**
+   * @example
+   * 2022-02-19 10:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * 5
+   */
   status?: number;
   subInsNames?: string[];
+  /**
+   * @example
+   * 2022-02-19 14:00:00
+   */
   switchTime?: string;
+  /**
+   * @example
+   * rds_apsaradb_upgrade
+   */
   taskType?: string;
+  /**
+   * @example
+   * rds_apsaradb_upgrade
+   */
   taskTypeEn?: string;
   taskTypeZh?: string;
   static names(): { [key: string]: string } {
@@ -8453,7 +12165,15 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResourcesMasterResourceInstanceTypeDetail extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   cpu?: number;
+  /**
+   * @example
+   * 8
+   */
   mem?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8475,6 +12195,10 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMas
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResourcesMasterResource extends $tea.Model {
+  /**
+   * @example
+   * hbase.sn1.medium
+   */
   instanceType?: string;
   instanceTypeDetail?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResourcesMasterResourceInstanceTypeDetail;
   static names(): { [key: string]: string } {
@@ -8516,8 +12240,20 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMas
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceDBInstanceStorageRange extends $tea.Model {
+  /**
+   * @example
+   * 8000
+   */
   maxSize?: number;
+  /**
+   * @example
+   * 400
+   */
   minSize?: number;
+  /**
+   * @example
+   * 40
+   */
   stepSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8541,7 +12277,15 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceInstanceTypeDetail extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   cpu?: number;
+  /**
+   * @example
+   * 8
+   */
   mem?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8564,8 +12308,16 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResource extends $tea.Model {
   DBInstanceStorageRange?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceDBInstanceStorageRange;
+  /**
+   * @example
+   * hbase.sn1.large
+   */
   instanceType?: string;
   instanceTypeDetail?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceInstanceTypeDetail;
+  /**
+   * @example
+   * 16
+   */
   maxCoreCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8611,6 +12363,10 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageType extends $tea.Model {
   coreResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResources;
+  /**
+   * @example
+   * cloud_ssd
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8651,6 +12407,10 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategories extends $tea.Model {
+  /**
+   * @example
+   * cluster
+   */
   category?: string;
   supportedStorageTypes?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypes;
   static names(): { [key: string]: string } {
@@ -8693,6 +12453,10 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersion extends $tea.Model {
   supportedCategories?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategories;
+  /**
+   * @example
+   * 2.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8733,6 +12497,10 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine extends $tea.Model {
+  /**
+   * @example
+   * hbase
+   */
   engine?: string;
   supportedEngineVersions?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersions;
   static names(): { [key: string]: string } {
@@ -8775,8 +12543,16 @@ export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSup
 
 export class DescribeAvailableResourceResponseBodyAvailableZonesAvailableZone extends $tea.Model {
   masterResources?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResources;
+  /**
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   supportedEngines?: DescribeAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines;
+  /**
+   * @example
+   * cn-shenzhen-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8840,12 +12616,40 @@ export class DescribeBackupPlanConfigResponseBodyTables extends $tea.Model {
 }
 
 export class DescribeBackupSummaryResponseBodyFullRecordsRecord extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-02T18:00:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1.2 kB
+   */
   dataSize?: string;
+  /**
+   * @example
+   * 2020-11-02T18:02:04Z
+   */
   finishTime?: string;
+  /**
+   * @example
+   * 1/1
+   */
   process?: string;
+  /**
+   * @example
+   * 20201103020000
+   */
   recordId?: string;
+  /**
+   * @example
+   * 0.00 MB/s
+   */
   speed?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8896,11 +12700,31 @@ export class DescribeBackupSummaryResponseBodyFullRecords extends $tea.Model {
 }
 
 export class DescribeBackupSummaryResponseBodyFull extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   hasMore?: string;
+  /**
+   * @example
+   * 2020-11-09T18:00:00Z
+   */
   nextFullBackupDate?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   records?: DescribeBackupSummaryResponseBodyFullRecords;
+  /**
+   * @example
+   * 2
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8930,11 +12754,35 @@ export class DescribeBackupSummaryResponseBodyFull extends $tea.Model {
 }
 
 export class DescribeBackupSummaryResponseBodyIncr extends $tea.Model {
+  /**
+   * @example
+   * 266 B
+   */
   backupLogSize?: string;
+  /**
+   * @example
+   * 2020-11-05T01:20:31Z
+   */
   pos?: string;
+  /**
+   * @example
+   * 0
+   */
   queueLogNum?: string;
+  /**
+   * @example
+   * 2
+   */
   runningLogNum?: string;
+  /**
+   * @example
+   * 0.00 MB/s
+   */
   speed?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8964,13 +12812,45 @@ export class DescribeBackupSummaryResponseBodyIncr extends $tea.Model {
 }
 
 export class DescribeBackupTablesResponseBodyBackupRecordsBackupRecord extends $tea.Model {
+  /**
+   * @example
+   * 1.2 kB
+   */
   dataSize?: string;
+  /**
+   * @example
+   * 2020-11-02T18:00:05Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 14/14
+   */
   process?: string;
+  /**
+   * @example
+   * 0.00 MB/s
+   */
   speed?: string;
+  /**
+   * @example
+   * 2020-11-02T18:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   state?: string;
+  /**
+   * @example
+   * default:test1
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9042,17 +12922,65 @@ export class DescribeBackupTablesResponseBodyTables extends $tea.Model {
 }
 
 export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   backupDBNames?: string;
+  /**
+   * @example
+   * 1
+   */
   backupDownloadURL?: string;
+  /**
+   * @example
+   * 2020-12-23 17:25:24
+   */
   backupEndTime?: string;
+  /**
+   * @example
+   * 2020-12-23T09:25:24Z
+   */
   backupEndTimeUTC?: string;
+  /**
+   * @example
+   * 511876087
+   */
   backupId?: number;
+  /**
+   * @example
+   * P
+   */
   backupMethod?: string;
+  /**
+   * @example
+   * 0
+   */
   backupMode?: string;
+  /**
+   * @example
+   * 0.00
+   */
   backupSize?: string;
+  /**
+   * @example
+   * 2020-12-23 17:25:08
+   */
   backupStartTime?: string;
+  /**
+   * @example
+   * 2020-12-23T09:25:08Z
+   */
   backupStartTimeUTC?: string;
+  /**
+   * @example
+   * 0
+   */
   backupStatus?: string;
+  /**
+   * @example
+   * F
+   */
   backupType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9113,8 +13041,20 @@ export class DescribeBackupsResponseBodyBackups extends $tea.Model {
 }
 
 export class DescribeClusterConnectionResponseBodyServiceConnAddrsServiceConnAddrConnAddrInfo extends $tea.Model {
+  /**
+   * @example
+   * hb-****-proxy-phoenix.hbase.rds.aliyuncs.com
+   */
   connAddr?: string;
+  /**
+   * @example
+   * 8765
+   */
   connAddrPort?: string;
+  /**
+   * @example
+   * 2
+   */
   netType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9139,6 +13079,10 @@ export class DescribeClusterConnectionResponseBodyServiceConnAddrsServiceConnAdd
 
 export class DescribeClusterConnectionResponseBodyServiceConnAddrsServiceConnAddr extends $tea.Model {
   connAddrInfo?: DescribeClusterConnectionResponseBodyServiceConnAddrsServiceConnAddrConnAddrInfo;
+  /**
+   * @example
+   * PhoenixConnAddr
+   */
   connType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9179,8 +13123,20 @@ export class DescribeClusterConnectionResponseBodyServiceConnAddrs extends $tea.
 }
 
 export class DescribeClusterConnectionResponseBodySlbConnAddrsSlbConnAddrConnAddrInfo extends $tea.Model {
+  /**
+   * @example
+   * ld-bp150tns0sjxs****-proxy-hbaseue-pub.hbaseue.rds.aliyuncs.com
+   */
   connAddr?: string;
+  /**
+   * @example
+   * 9190
+   */
   connAddrPort?: string;
+  /**
+   * @example
+   * 0
+   */
   netType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9205,6 +13161,10 @@ export class DescribeClusterConnectionResponseBodySlbConnAddrsSlbConnAddrConnAdd
 
 export class DescribeClusterConnectionResponseBodySlbConnAddrsSlbConnAddr extends $tea.Model {
   connAddrInfo?: DescribeClusterConnectionResponseBodySlbConnAddrsSlbConnAddrConnAddrInfo;
+  /**
+   * @example
+   * hbaseue
+   */
   slbType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9245,8 +13205,20 @@ export class DescribeClusterConnectionResponseBodySlbConnAddrs extends $tea.Mode
 }
 
 export class DescribeClusterConnectionResponseBodyThriftConn extends $tea.Model {
+  /**
+   * @example
+   * hb-bp1u0639js2h7****-proxy-thrift.hbase.rds.aliyuncs.com
+   */
   connAddr?: string;
+  /**
+   * @example
+   * 9099
+   */
   connAddrPort?: string;
+  /**
+   * @example
+   * 2
+   */
   netType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9270,8 +13242,20 @@ export class DescribeClusterConnectionResponseBodyThriftConn extends $tea.Model 
 }
 
 export class DescribeClusterConnectionResponseBodyUiProxyConnAddrInfo extends $tea.Model {
+  /**
+   * @example
+   * ld-bp150tns0sjxs****-master1-001.hbaseue.rds.aliyuncs.com
+   */
   connAddr?: string;
+  /**
+   * @example
+   * 443
+   */
   connAddrPort?: string;
+  /**
+   * @example
+   * PUBLIC
+   */
   netType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9295,8 +13279,20 @@ export class DescribeClusterConnectionResponseBodyUiProxyConnAddrInfo extends $t
 }
 
 export class DescribeClusterConnectionResponseBodyZkConnAddrsZkConnAddr extends $tea.Model {
+  /**
+   * @example
+   * ld-bp150tns0sjxs****-master1-001.hbaseue.rds.aliyuncs.com
+   */
   connAddr?: string;
+  /**
+   * @example
+   * 2181
+   */
   connAddrPort?: string;
+  /**
+   * @example
+   * 2
+   */
   netType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9339,17 +13335,65 @@ export class DescribeClusterConnectionResponseBodyZkConnAddrs extends $tea.Model
 }
 
 export class DescribeDeletedInstancesResponseBodyInstancesInstance extends $tea.Model {
+  /**
+   * @example
+   * cluster
+   */
   clusterType?: string;
+  /**
+   * @example
+   * 2020-11-02T07:16:07Z
+   */
   createdTime?: string;
+  /**
+   * @example
+   * 2020-11-02T07:27:24Z
+   */
   deleteTime?: string;
+  /**
+   * @example
+   * hbase
+   */
   engine?: string;
+  /**
+   * @example
+   * hb-bp10q7n2zdw12xxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * e2e-test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * 2.0
+   */
   majorVersion?: string;
+  /**
+   * @example
+   * null
+   */
   moduleStackVersion?: string;
+  /**
+   * @example
+   * null
+   */
   parentId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * DELETED
+   */
   status?: string;
+  /**
+   * @example
+   * cn-hangzhou-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9410,9 +13454,25 @@ export class DescribeDeletedInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class DescribeEndpointsResponseBodyConnAddrsConnAddrInfo extends $tea.Model {
+  /**
+   * @example
+   * ****
+   */
   connAddr?: string;
+  /**
+   * @example
+   * ****
+   */
   connAddrPort?: string;
+  /**
+   * @example
+   * zkConn
+   */
   connType?: string;
+  /**
+   * @example
+   * 2
+   */
   netType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9476,7 +13536,15 @@ export class DescribeInstanceResponseBodyNeedUpgradeComps extends $tea.Model {
 }
 
 export class DescribeInstanceResponseBodyTagsTag extends $tea.Model {
+  /**
+   * @example
+   * test_key
+   */
   key?: string;
+  /**
+   * @example
+   * test_value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9517,8 +13585,20 @@ export class DescribeInstanceResponseBodyTags extends $tea.Model {
 }
 
 export class DescribeInstanceTypeResponseBodyInstanceTypeSpecListInstanceTypeSpec extends $tea.Model {
+  /**
+   * @example
+   * 8
+   */
   cpuSize?: number;
+  /**
+   * @example
+   * hbase.n2.4xlarge
+   */
   instanceType?: string;
+  /**
+   * @example
+   * 16
+   */
   memSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9561,7 +13641,15 @@ export class DescribeInstanceTypeResponseBodyInstanceTypeSpecList extends $tea.M
 }
 
 export class DescribeInstancesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9583,7 +13671,15 @@ export class DescribeInstancesRequestTag extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceTagsTag extends $tea.Model {
+  /**
+   * @example
+   * test-key
+   */
   key?: string;
+  /**
+   * @example
+   * test-value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9624,43 +13720,191 @@ export class DescribeInstancesResponseBodyInstancesInstanceTags extends $tea.Mod
 }
 
 export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   autoRenewal?: boolean;
+  /**
+   * @example
+   * open
+   */
   backupStatus?: string;
+  /**
+   * @example
+   * hb-bp1u0639js2h7****
+   */
   clusterId?: string;
+  /**
+   * @example
+   * test
+   */
   clusterName?: string;
+  /**
+   * @example
+   * cluster
+   */
   clusterType?: string;
+  /**
+   * @example
+   * open
+   */
   coldStorageStatus?: string;
+  /**
+   * @example
+   * 2
+   */
   coreDiskCount?: string;
+  /**
+   * @example
+   * 100
+   */
   coreDiskSize?: number;
+  /**
+   * @example
+   * cloud_efficiency
+   */
   coreDiskType?: string;
+  /**
+   * @example
+   * hbase.sn1.large
+   */
   coreInstanceType?: string;
+  /**
+   * @example
+   * 2
+   */
   coreNodeCount?: number;
+  /**
+   * @example
+   * 2019-09-12T14:40:46
+   */
   createdTime?: string;
+  /**
+   * @example
+   * 2019-09-12T14:40:46Z
+   */
   createdTimeUTC?: string;
+  /**
+   * @example
+   * 12
+   */
   duration?: number;
+  /**
+   * @example
+   * hbase
+   */
   engine?: string;
+  /**
+   * @example
+   * 2019-10-12T14:40:46
+   */
   expireTime?: string;
+  /**
+   * @example
+   * 2019-10-12T14:40:46Z
+   */
   expireTimeUTC?: string;
+  /**
+   * @example
+   * hb-bp1u0639js2h7****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * true
+   */
   isDeletionProtection?: boolean;
+  /**
+   * @example
+   * true
+   */
   isHa?: boolean;
+  /**
+   * @example
+   * 2.0
+   */
   majorVersion?: string;
+  /**
+   * @example
+   * 100
+   */
   masterDiskSize?: number;
+  /**
+   * @example
+   * cloud_efficiency
+   */
   masterDiskType?: string;
+  /**
+   * @example
+   * hbase.sn1.large
+   */
   masterInstanceType?: string;
+  /**
+   * @example
+   * 2
+   */
   masterNodeCount?: number;
+  /**
+   * @example
+   * 0
+   */
   moduleId?: number;
+  /**
+   * @example
+   * 1.0
+   */
   moduleStackVersion?: string;
+  /**
+   * @example
+   * VPC
+   */
   networkType?: string;
+  /**
+   * @example
+   * 2980****2123
+   */
   parentId?: string;
+  /**
+   * @example
+   * Prepaid
+   */
   payType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-4f51d54g5****
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * ACTIVATION
+   */
   status?: string;
   tags?: DescribeInstancesResponseBodyInstancesInstanceTags;
+  /**
+   * @example
+   * vpc-bp120k6ixs4eoghz*****
+   */
   vpcId?: string;
+  /**
+   * @example
+   * vsw-bp191ipotq****dbqf
+   */
   vswitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-f
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9792,8 +14036,16 @@ export class DescribeIpWhitelistResponseBodyGroupsGroupIpList extends $tea.Model
 }
 
 export class DescribeIpWhitelistResponseBodyGroupsGroup extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
   groupName?: string;
   ipList?: DescribeIpWhitelistResponseBodyGroupsGroupIpList;
+  /**
+   * @example
+   * 4
+   */
   ipVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9855,6 +14107,10 @@ export class DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegionAvailable
 }
 
 export class DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegionAvailableCombinesAvailableCombine extends $tea.Model {
+  /**
+   * @example
+   * cn-shenzhen-****-aliyun
+   */
   id?: string;
   zones?: DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegionAvailableCombinesAvailableCombineZones;
   static names(): { [key: string]: string } {
@@ -9898,7 +14154,15 @@ export class DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegionAvailable
 export class DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegion extends $tea.Model {
   availableCombines?: DescribeMultiZoneAvailableRegionsResponseBodyRegionsRegionAvailableCombines;
   localName?: string;
+  /**
+   * @example
+   * hbase.aliyuncs.com
+   */
   regionEndpoint?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9943,7 +14207,15 @@ export class DescribeMultiZoneAvailableRegionsResponseBodyRegions extends $tea.M
 }
 
 export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResourcesMasterResourceInstanceTypeDetail extends $tea.Model {
+  /**
+   * @example
+   * 4
+   */
   cpu?: number;
+  /**
+   * @example
+   * 16
+   */
   mem?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9965,6 +14237,10 @@ export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailab
 }
 
 export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResourcesMasterResource extends $tea.Model {
+  /**
+   * @example
+   * hbase.sn2.large
+   */
   instanceType?: string;
   instanceTypeDetail?: DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResourcesMasterResourceInstanceTypeDetail;
   static names(): { [key: string]: string } {
@@ -10006,8 +14282,20 @@ export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailab
 }
 
 export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceDBInstanceStorageRange extends $tea.Model {
+  /**
+   * @example
+   * 64000
+   */
   maxSize?: number;
+  /**
+   * @example
+   * 400
+   */
   minSize?: number;
+  /**
+   * @example
+   * 40
+   */
   stepSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10031,7 +14319,15 @@ export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailab
 }
 
 export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceInstanceTypeDetail extends $tea.Model {
+  /**
+   * @example
+   * 32
+   */
   cpu?: number;
+  /**
+   * @example
+   * 8
+   */
   mem?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10054,8 +14350,16 @@ export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailab
 
 export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResource extends $tea.Model {
   DBInstanceStorageRange?: DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceDBInstanceStorageRange;
+  /**
+   * @example
+   * hbase.sn2.2xlarge
+   */
   instanceType?: string;
   instanceTypeDetail?: DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResourcesCoreResourceInstanceTypeDetail;
+  /**
+   * @example
+   * 30
+   */
   maxCoreCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10101,6 +14405,10 @@ export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailab
 
 export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageType extends $tea.Model {
   coreResources?: DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypesSupportedStorageTypeCoreResources;
+  /**
+   * @example
+   * cloud_efficiency
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10141,6 +14449,10 @@ export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailab
 }
 
 export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategories extends $tea.Model {
+  /**
+   * @example
+   * cluster
+   */
   category?: string;
   supportedStorageTypes?: DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategoriesSupportedCategoriesSupportedStorageTypes;
   static names(): { [key: string]: string } {
@@ -10183,6 +14495,10 @@ export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailab
 
 export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersion extends $tea.Model {
   supportedCategories?: DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersionsSupportedEngineVersionSupportedCategories;
+  /**
+   * @example
+   * 2.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10223,6 +14539,10 @@ export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailab
 }
 
 export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngine extends $tea.Model {
+  /**
+   * @example
+   * hbaseue
+   */
   engine?: string;
   supportedEngineVersions?: DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEnginesSupportedEngineSupportedEngineVersions;
   static names(): { [key: string]: string } {
@@ -10265,8 +14585,16 @@ export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailab
 
 export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZone extends $tea.Model {
   masterResources?: DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneMasterResources;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   supportedEngines?: DescribeMultiZoneAvailableResourceResponseBodyAvailableZonesAvailableZoneSupportedEngines;
+  /**
+   * @example
+   * cn-hangzhou-bef-aliyun
+   */
   zoneCombination?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10312,13 +14640,33 @@ export class DescribeMultiZoneAvailableResourceResponseBodyAvailableZones extend
 
 export class DescribeMultiZoneClusterResponseBodyMultiZoneInstanceModelsMultiZoneInstanceModel extends $tea.Model {
   hdfsMinorVersion?: string;
+  /**
+   * @example
+   * ld-t4nn71xa0yn****-az-a
+   */
   insName?: string;
   isHdfsLatestVersion?: string;
+  /**
+   * @example
+   * true
+   */
   isLatestVersion?: boolean;
   latestHdfsMinorVersion?: string;
   latestMinorVersion?: string;
+  /**
+   * @example
+   * 2.1.24
+   */
   minorVersion?: string;
+  /**
+   * @example
+   * primary
+   */
   role?: string;
+  /**
+   * @example
+   * ACTIVATION
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10373,7 +14721,15 @@ export class DescribeMultiZoneClusterResponseBodyMultiZoneInstanceModels extends
 }
 
 export class DescribeMultiZoneClusterResponseBodyTagsTag extends $tea.Model {
+  /**
+   * @example
+   * test_key
+   */
   key?: string;
+  /**
+   * @example
+   * test_value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10414,6 +14770,10 @@ export class DescribeMultiZoneClusterResponseBodyTags extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegionsRegionZonesZone extends $tea.Model {
+  /**
+   * @example
+   * cn-hangzhou-b
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10453,7 +14813,15 @@ export class DescribeRegionsResponseBodyRegionsRegionZones extends $tea.Model {
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
   localName?: string;
+  /**
+   * @example
+   * hbase.aliyuncs.com
+   */
   regionEndpoint?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   zones?: DescribeRegionsResponseBodyRegionsRegionZones;
   static names(): { [key: string]: string } {
@@ -10499,13 +14867,45 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DescribeRestoreFullDetailsResponseBodyRestoreFullRestoreFullDetailsRestoreFullDetail extends $tea.Model {
+  /**
+   * @example
+   * 1.2 kB
+   */
   dataSize?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:51Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 14/14
+   */
   process?: string;
+  /**
+   * @example
+   * 0.00 MB/s
+   */
   speed?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:45Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   state?: string;
+  /**
+   * @example
+   * default:test1
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10558,13 +14958,41 @@ export class DescribeRestoreFullDetailsResponseBodyRestoreFullRestoreFullDetails
 }
 
 export class DescribeRestoreFullDetailsResponseBodyRestoreFull extends $tea.Model {
+  /**
+   * @example
+   * 1.2 kB
+   */
   dataSize?: string;
+  /**
+   * @example
+   * 0
+   */
   fail?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   restoreFullDetails?: DescribeRestoreFullDetailsResponseBodyRestoreFullRestoreFullDetails;
+  /**
+   * @example
+   * 0.00 MB/s
+   */
   speed?: string;
+  /**
+   * @example
+   * 1
+   */
   succeed?: number;
+  /**
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10598,12 +15026,40 @@ export class DescribeRestoreFullDetailsResponseBodyRestoreFull extends $tea.Mode
 }
 
 export class DescribeRestoreIncrDetailResponseBodyRestoreIncrDetail extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-05T06:45:44Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 0/0
+   */
   process?: string;
+  /**
+   * @example
+   * 0 ms
+   */
   restoreDelay?: string;
+  /**
+   * @example
+   * 2020-11-02T18:00:00Z
+   */
   restoreStartTs?: string;
+  /**
+   * @example
+   * \\"\\"
+   */
   restoredTs?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:44Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10635,10 +15091,30 @@ export class DescribeRestoreIncrDetailResponseBodyRestoreIncrDetail extends $tea
 }
 
 export class DescribeRestoreSchemaDetailsResponseBodyRestoreSchemaRestoreSchemaDetailsRestoreSchemaDetail extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-05T06:45:18Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:14Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   state?: string;
+  /**
+   * @example
+   * default:test1
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10685,11 +15161,31 @@ export class DescribeRestoreSchemaDetailsResponseBodyRestoreSchemaRestoreSchemaD
 }
 
 export class DescribeRestoreSchemaDetailsResponseBodyRestoreSchema extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   fail?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   restoreSchemaDetails?: DescribeRestoreSchemaDetailsResponseBodyRestoreSchemaRestoreSchemaDetails;
+  /**
+   * @example
+   * 1
+   */
   succeed?: number;
+  /**
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10719,13 +15215,45 @@ export class DescribeRestoreSchemaDetailsResponseBodyRestoreSchema extends $tea.
 }
 
 export class DescribeRestoreSummaryResponseBodyRescordsRescord extends $tea.Model {
+  /**
+   * @example
+   * 1/1
+   */
   bulkLoadProcess?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:14Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:51Z
+   */
   finishTime?: string;
+  /**
+   * @example
+   * 1/1
+   */
   hfileRestoreProcess?: string;
+  /**
+   * @example
+   * 0/0
+   */
   logProcess?: string;
+  /**
+   * @example
+   * 20201105144514
+   */
   recordId?: string;
+  /**
+   * @example
+   * 1/1
+   */
   schemaProcess?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10778,13 +15306,45 @@ export class DescribeRestoreSummaryResponseBodyRescords extends $tea.Model {
 }
 
 export class DescribeRestoreTablesResponseBodyRestoreFullRestoreFullDetailsRestoreFullDetail extends $tea.Model {
+  /**
+   * @example
+   * 1.2 kB
+   */
   dataSize?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:51Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * “”
+   */
   message?: string;
+  /**
+   * @example
+   * 14/14
+   */
   process?: string;
+  /**
+   * @example
+   * 0.00 MB/s
+   */
   speed?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:45Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   state?: string;
+  /**
+   * @example
+   * default:test1
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10837,13 +15397,41 @@ export class DescribeRestoreTablesResponseBodyRestoreFullRestoreFullDetails exte
 }
 
 export class DescribeRestoreTablesResponseBodyRestoreFull extends $tea.Model {
+  /**
+   * @example
+   * 1.2 kB
+   */
   dataSize?: string;
+  /**
+   * @example
+   * 0
+   */
   fail?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   restoreFullDetails?: DescribeRestoreTablesResponseBodyRestoreFullRestoreFullDetails;
+  /**
+   * @example
+   * 0.00 MB/s
+   */
   speed?: string;
+  /**
+   * @example
+   * 1
+   */
   succeed?: number;
+  /**
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10877,12 +15465,40 @@ export class DescribeRestoreTablesResponseBodyRestoreFull extends $tea.Model {
 }
 
 export class DescribeRestoreTablesResponseBodyRestoreIncrDetail extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-05T06:45:44Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 0/0
+   */
   process?: string;
+  /**
+   * @example
+   * 0 ms
+   */
   restoreDelay?: string;
+  /**
+   * @example
+   * 2020-11-02T18:00:00Z
+   */
   restoreStartTs?: string;
+  /**
+   * @example
+   * “”
+   */
   restoredTs?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:44Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10914,10 +15530,30 @@ export class DescribeRestoreTablesResponseBodyRestoreIncrDetail extends $tea.Mod
 }
 
 export class DescribeRestoreTablesResponseBodyRestoreSchemaRestoreSchemaDetailsRestoreSchemaDetail extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-05T06:45:18Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * null
+   */
   message?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:14Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   state?: string;
+  /**
+   * @example
+   * default:test1
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10964,11 +15600,31 @@ export class DescribeRestoreTablesResponseBodyRestoreSchemaRestoreSchemaDetails 
 }
 
 export class DescribeRestoreTablesResponseBodyRestoreSchema extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   fail?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   restoreSchemaDetails?: DescribeRestoreTablesResponseBodyRestoreSchemaRestoreSchemaDetails;
+  /**
+   * @example
+   * 1
+   */
   succeed?: number;
+  /**
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10998,11 +15654,35 @@ export class DescribeRestoreTablesResponseBodyRestoreSchema extends $tea.Model {
 }
 
 export class DescribeRestoreTablesResponseBodyRestoreSummary extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-05T06:45:51Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 20201105144514
+   */
   recordId?: string;
+  /**
+   * @example
+   * 2020-11-04T05:15:00Z
+   */
   restoreToDate?: string;
+  /**
+   * @example
+   * 2020-11-05T06:45:14Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   state?: string;
+  /**
+   * @example
+   * ld-m5e2t34kr54wgxxxx
+   */
   targetCluster?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11070,8 +15750,20 @@ export class DescribeSecurityGroupsResponseBodySecurityGroupIds extends $tea.Mod
 }
 
 export class ListHBaseInstancesResponseBodyInstancesInstance extends $tea.Model {
+  /**
+   * @example
+   * hb-t4naqsay5gn****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * name_test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * false
+   */
   isDefault?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11114,10 +15806,30 @@ export class ListHBaseInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class ListInstanceServiceConfigHistoriesResponseBodyConfigureHistoryListConfig extends $tea.Model {
+  /**
+   * @example
+   * hbase#hbase-site.xml#hbase.client.keyvalue.maxsize
+   */
   configureName?: string;
+  /**
+   * @example
+   * 1608708923000
+   */
   createTime?: string;
+  /**
+   * @example
+   * false
+   */
   effective?: string;
+  /**
+   * @example
+   * 10485770
+   */
   newValue?: string;
+  /**
+   * @example
+   * 10485760
+   */
   oldValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11164,12 +15876,40 @@ export class ListInstanceServiceConfigHistoriesResponseBodyConfigureHistoryList 
 }
 
 export class ListInstanceServiceConfigurationsResponseBodyConfigureListConfig extends $tea.Model {
+  /**
+   * @example
+   * hbase#hbase-site.xml#hbase.client.keyvalue.maxsize
+   */
   configureName?: string;
+  /**
+   * @example
+   * INT
+   */
   configureUnit?: string;
+  /**
+   * @example
+   * 10485760
+   */
   defaultValue?: string;
+  /**
+   * @example
+   * hbase client keyvalue maxsize
+   */
   description?: string;
+  /**
+   * @example
+   * true
+   */
   needRestart?: string;
+  /**
+   * @example
+   * 10485760
+   */
   runningValue?: string;
+  /**
+   * @example
+   * R[10485760,52428800]
+   */
   valueRange?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11220,7 +15960,15 @@ export class ListInstanceServiceConfigurationsResponseBodyConfigureList extends 
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11242,9 +15990,25 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @example
+   * bds-bp15e022622f****
+   */
   resourceId?: string;
+  /**
+   * @example
+   * ALIYUN::MULTIMOD::CLUSTER
+   */
   resourceType?: string;
+  /**
+   * @example
+   * k1
+   */
   tagKey?: string;
+  /**
+   * @example
+   * v2
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11289,7 +16053,15 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ListTagsResponseBodyTagsTag extends $tea.Model {
+  /**
+   * @example
+   * k1
+   */
   tagKey?: string;
+  /**
+   * @example
+   * v2
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11330,8 +16102,20 @@ export class ListTagsResponseBodyTags extends $tea.Model {
 }
 
 export class QueryHBaseHaDBResponseBodyClusterListClusterHaSlbConnListHaSlbConn extends $tea.Model {
+  /**
+   * @example
+   * Standby
+   */
   hbaseType?: string;
+  /**
+   * @example
+   * ha-v21tmnxjwh2yuy1il-phoenix.bds.9b78df04-b.rds.aliyuncs.com:8765
+   */
   slbConnAddr?: string;
+  /**
+   * @example
+   * phoenix
+   */
   slbType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11374,10 +16158,29 @@ export class QueryHBaseHaDBResponseBodyClusterListClusterHaSlbConnList extends $
 }
 
 export class QueryHBaseHaDBResponseBodyClusterListCluster extends $tea.Model {
+  /**
+   * @example
+   * hb-t4nn7dy1u1etbzmzm
+   */
   activeName?: string;
+  /**
+   * @remarks
+   * bdsId
+   * 
+   * @example
+   * bds-t4n3496whj23ia4k
+   */
   bdsName?: string;
+  /**
+   * @example
+   * ha-v21tmnxjwh2yuy1il
+   */
   haName?: string;
   haSlbConnList?: QueryHBaseHaDBResponseBodyClusterListClusterHaSlbConnList;
+  /**
+   * @example
+   * hb-t4n0ye37832tx22vz
+   */
   standbyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11424,12 +16227,40 @@ export class QueryHBaseHaDBResponseBodyClusterList extends $tea.Model {
 }
 
 export class QueryXpackRelateDBResponseBodyClusterListCluster extends $tea.Model {
+  /**
+   * @example
+   * hb-bp16o0pd52e3y582s
+   */
   clusterId?: string;
+  /**
+   * @example
+   * hbase_test
+   */
   clusterName?: string;
+  /**
+   * @example
+   * hbase
+   */
   DBType?: string;
+  /**
+   * @example
+   * 2.0
+   */
   DBVersion?: string;
+  /**
+   * @example
+   * false
+   */
   isRelated?: boolean;
+  /**
+   * @example
+   * ..
+   */
   lockMode?: string;
+  /**
+   * @example
+   * ACTIVATION
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11480,7 +16311,15 @@ export class QueryXpackRelateDBResponseBodyClusterList extends $tea.Model {
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * key1
+   */
   key?: string;
+  /**
+   * @example
+   * value1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11539,9 +16378,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddUserHdfsInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddUserHdfsInfoResponse
+   * @param request - AddUserHdfsInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddUserHdfsInfoResponse
    */
   async addUserHdfsInfoWithOptions(request: AddUserHdfsInfoRequest, runtime: $Util.RuntimeOptions): Promise<AddUserHdfsInfoResponse> {
     Util.validateModel(request);
@@ -11576,8 +16415,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddUserHdfsInfoRequest
-   * @return AddUserHdfsInfoResponse
+   * @param request - AddUserHdfsInfoRequest
+   * @returns AddUserHdfsInfoResponse
    */
   async addUserHdfsInfo(request: AddUserHdfsInfoRequest): Promise<AddUserHdfsInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11585,9 +16424,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AllocatePublicNetworkAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AllocatePublicNetworkAddressResponse
+   * @param request - AllocatePublicNetworkAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AllocatePublicNetworkAddressResponse
    */
   async allocatePublicNetworkAddressWithOptions(request: AllocatePublicNetworkAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocatePublicNetworkAddressResponse> {
     Util.validateModel(request);
@@ -11618,8 +16457,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AllocatePublicNetworkAddressRequest
-   * @return AllocatePublicNetworkAddressResponse
+   * @param request - AllocatePublicNetworkAddressRequest
+   * @returns AllocatePublicNetworkAddressResponse
    */
   async allocatePublicNetworkAddress(request: AllocatePublicNetworkAddressRequest): Promise<AllocatePublicNetworkAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11627,9 +16466,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CancelActiveOperationTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelActiveOperationTasksResponse
+   * @param request - CancelActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelActiveOperationTasksResponse
    */
   async cancelActiveOperationTasksWithOptions(request: CancelActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<CancelActiveOperationTasksResponse> {
     Util.validateModel(request);
@@ -11676,8 +16515,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CancelActiveOperationTasksRequest
-   * @return CancelActiveOperationTasksResponse
+   * @param request - CancelActiveOperationTasksRequest
+   * @returns CancelActiveOperationTasksResponse
    */
   async cancelActiveOperationTasks(request: CancelActiveOperationTasksRequest): Promise<CancelActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11685,9 +16524,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CheckComponentsVersionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckComponentsVersionResponse
+   * @param request - CheckComponentsVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckComponentsVersionResponse
    */
   async checkComponentsVersionWithOptions(request: CheckComponentsVersionRequest, runtime: $Util.RuntimeOptions): Promise<CheckComponentsVersionResponse> {
     Util.validateModel(request);
@@ -11718,8 +16557,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CheckComponentsVersionRequest
-   * @return CheckComponentsVersionResponse
+   * @param request - CheckComponentsVersionRequest
+   * @returns CheckComponentsVersionResponse
    */
   async checkComponentsVersion(request: CheckComponentsVersionRequest): Promise<CheckComponentsVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11727,9 +16566,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CloseBackupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CloseBackupResponse
+   * @param request - CloseBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseBackupResponse
    */
   async closeBackupWithOptions(request: CloseBackupRequest, runtime: $Util.RuntimeOptions): Promise<CloseBackupResponse> {
     Util.validateModel(request);
@@ -11756,8 +16595,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CloseBackupRequest
-   * @return CloseBackupResponse
+   * @param request - CloseBackupRequest
+   * @returns CloseBackupResponse
    */
   async closeBackup(request: CloseBackupRequest): Promise<CloseBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11765,9 +16604,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ConvertInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConvertInstanceResponse
+   * @param request - ConvertInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConvertInstanceResponse
    */
   async convertInstanceWithOptions(request: ConvertInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ConvertInstanceResponse> {
     Util.validateModel(request);
@@ -11806,8 +16645,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ConvertInstanceRequest
-   * @return ConvertInstanceResponse
+   * @param request - ConvertInstanceRequest
+   * @returns ConvertInstanceResponse
    */
   async convertInstance(request: ConvertInstanceRequest): Promise<ConvertInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11815,11 +16654,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建账户
-   *
-   * @param request CreateAccountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAccountResponse
+   * 新建账户
+   * 
+   * @param request - CreateAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAccountResponse
    */
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
@@ -11854,10 +16693,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 新建账户
-   *
-   * @param request CreateAccountRequest
-   * @return CreateAccountResponse
+   * 新建账户
+   * 
+   * @param request - CreateAccountRequest
+   * @returns CreateAccountResponse
    */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11865,9 +16704,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateBackupPlanRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateBackupPlanResponse
+   * @param request - CreateBackupPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBackupPlanResponse
    */
   async createBackupPlanWithOptions(request: CreateBackupPlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupPlanResponse> {
     Util.validateModel(request);
@@ -11894,8 +16733,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateBackupPlanRequest
-   * @return CreateBackupPlanResponse
+   * @param request - CreateBackupPlanRequest
+   * @returns CreateBackupPlanResponse
    */
   async createBackupPlan(request: CreateBackupPlanRequest): Promise<CreateBackupPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11903,9 +16742,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateClusterResponse
+   * @param request - CreateClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateClusterResponse
    */
   async createClusterWithOptions(request: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
@@ -12012,8 +16851,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateClusterRequest
-   * @return CreateClusterResponse
+   * @param request - CreateClusterRequest
+   * @returns CreateClusterResponse
    */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12021,9 +16860,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateGlobalResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateGlobalResourceResponse
+   * @param request - CreateGlobalResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGlobalResourceResponse
    */
   async createGlobalResourceWithOptions(request: CreateGlobalResourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalResourceResponse> {
     Util.validateModel(request);
@@ -12066,8 +16905,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateGlobalResourceRequest
-   * @return CreateGlobalResourceResponse
+   * @param request - CreateGlobalResourceRequest
+   * @returns CreateGlobalResourceResponse
    */
   async createGlobalResource(request: CreateGlobalResourceRequest): Promise<CreateGlobalResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12075,9 +16914,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateHBaseSlbServerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateHBaseSlbServerResponse
+   * @param request - CreateHBaseSlbServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHBaseSlbServerResponse
    */
   async createHBaseSlbServerWithOptions(request: CreateHBaseSlbServerRequest, runtime: $Util.RuntimeOptions): Promise<CreateHBaseSlbServerResponse> {
     Util.validateModel(request);
@@ -12112,8 +16951,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateHBaseSlbServerRequest
-   * @return CreateHBaseSlbServerResponse
+   * @param request - CreateHBaseSlbServerRequest
+   * @returns CreateHBaseSlbServerResponse
    */
   async createHBaseSlbServer(request: CreateHBaseSlbServerRequest): Promise<CreateHBaseSlbServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12121,9 +16960,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateHbaseHaSlbRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateHbaseHaSlbResponse
+   * @param request - CreateHbaseHaSlbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHbaseHaSlbResponse
    */
   async createHbaseHaSlbWithOptions(request: CreateHbaseHaSlbRequest, runtime: $Util.RuntimeOptions): Promise<CreateHbaseHaSlbResponse> {
     Util.validateModel(request);
@@ -12166,8 +17005,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateHbaseHaSlbRequest
-   * @return CreateHbaseHaSlbResponse
+   * @param request - CreateHbaseHaSlbRequest
+   * @returns CreateHbaseHaSlbResponse
    */
   async createHbaseHaSlb(request: CreateHbaseHaSlbRequest): Promise<CreateHbaseHaSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12175,9 +17014,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateMultiZoneClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMultiZoneClusterResponse
+   * @param request - CreateMultiZoneClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMultiZoneClusterResponse
    */
   async createMultiZoneClusterWithOptions(request: CreateMultiZoneClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateMultiZoneClusterResponse> {
     Util.validateModel(request);
@@ -12316,8 +17155,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateMultiZoneClusterRequest
-   * @return CreateMultiZoneClusterResponse
+   * @param request - CreateMultiZoneClusterRequest
+   * @returns CreateMultiZoneClusterResponse
    */
   async createMultiZoneCluster(request: CreateMultiZoneClusterRequest): Promise<CreateMultiZoneClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12325,9 +17164,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateRestorePlanRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateRestorePlanResponse
+   * @param request - CreateRestorePlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRestorePlanResponse
    */
   async createRestorePlanWithOptions(request: CreateRestorePlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateRestorePlanResponse> {
     Util.validateModel(request);
@@ -12374,8 +17213,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateRestorePlanRequest
-   * @return CreateRestorePlanResponse
+   * @param request - CreateRestorePlanRequest
+   * @returns CreateRestorePlanResponse
    */
   async createRestorePlan(request: CreateRestorePlanRequest): Promise<CreateRestorePlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12383,9 +17222,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateServerlessClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateServerlessClusterResponse
+   * @param request - CreateServerlessClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServerlessClusterResponse
    */
   async createServerlessClusterWithOptions(request: CreateServerlessClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateServerlessClusterResponse> {
     Util.validateModel(request);
@@ -12480,8 +17319,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateServerlessClusterRequest
-   * @return CreateServerlessClusterResponse
+   * @param request - CreateServerlessClusterRequest
+   * @returns CreateServerlessClusterResponse
    */
   async createServerlessCluster(request: CreateServerlessClusterRequest): Promise<CreateServerlessClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12489,11 +17328,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除账户
-   *
-   * @param request DeleteAccountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAccountResponse
+   * 删除账户
+   * 
+   * @param request - DeleteAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAccountResponse
    */
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
@@ -12524,10 +17363,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除账户
-   *
-   * @param request DeleteAccountRequest
-   * @return DeleteAccountResponse
+   * 删除账户
+   * 
+   * @param request - DeleteAccountRequest
+   * @returns DeleteAccountResponse
    */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12535,9 +17374,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteGlobalResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGlobalResourceResponse
+   * @param request - DeleteGlobalResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGlobalResourceResponse
    */
   async deleteGlobalResourceWithOptions(request: DeleteGlobalResourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalResourceResponse> {
     Util.validateModel(request);
@@ -12576,8 +17415,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteGlobalResourceRequest
-   * @return DeleteGlobalResourceResponse
+   * @param request - DeleteGlobalResourceRequest
+   * @returns DeleteGlobalResourceResponse
    */
   async deleteGlobalResource(request: DeleteGlobalResourceRequest): Promise<DeleteGlobalResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12585,9 +17424,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteHBaseHaDBRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteHBaseHaDBResponse
+   * @param request - DeleteHBaseHaDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHBaseHaDBResponse
    */
   async deleteHBaseHaDBWithOptions(request: DeleteHBaseHaDBRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHBaseHaDBResponse> {
     Util.validateModel(request);
@@ -12618,8 +17457,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteHBaseHaDBRequest
-   * @return DeleteHBaseHaDBResponse
+   * @param request - DeleteHBaseHaDBRequest
+   * @returns DeleteHBaseHaDBResponse
    */
   async deleteHBaseHaDB(request: DeleteHBaseHaDBRequest): Promise<DeleteHBaseHaDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12627,9 +17466,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteHBaseSlbServerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteHBaseSlbServerResponse
+   * @param request - DeleteHBaseSlbServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHBaseSlbServerResponse
    */
   async deleteHBaseSlbServerWithOptions(request: DeleteHBaseSlbServerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHBaseSlbServerResponse> {
     Util.validateModel(request);
@@ -12660,8 +17499,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteHBaseSlbServerRequest
-   * @return DeleteHBaseSlbServerResponse
+   * @param request - DeleteHBaseSlbServerRequest
+   * @returns DeleteHBaseSlbServerResponse
    */
   async deleteHBaseSlbServer(request: DeleteHBaseSlbServerRequest): Promise<DeleteHBaseSlbServerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12669,9 +17508,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteHbaseHaSlbRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteHbaseHaSlbResponse
+   * @param request - DeleteHbaseHaSlbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHbaseHaSlbResponse
    */
   async deleteHbaseHaSlbWithOptions(request: DeleteHbaseHaSlbRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHbaseHaSlbResponse> {
     Util.validateModel(request);
@@ -12706,8 +17545,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteHbaseHaSlbRequest
-   * @return DeleteHbaseHaSlbResponse
+   * @param request - DeleteHbaseHaSlbRequest
+   * @returns DeleteHbaseHaSlbResponse
    */
   async deleteHbaseHaSlb(request: DeleteHbaseHaSlbRequest): Promise<DeleteHbaseHaSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12715,9 +17554,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInstanceResponse
+   * @param request - DeleteInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
@@ -12748,8 +17587,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteInstanceRequest
-   * @return DeleteInstanceResponse
+   * @param request - DeleteInstanceRequest
+   * @returns DeleteInstanceResponse
    */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12757,9 +17596,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteMultiZoneClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMultiZoneClusterResponse
+   * @param request - DeleteMultiZoneClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMultiZoneClusterResponse
    */
   async deleteMultiZoneClusterWithOptions(request: DeleteMultiZoneClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMultiZoneClusterResponse> {
     Util.validateModel(request);
@@ -12790,8 +17629,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteMultiZoneClusterRequest
-   * @return DeleteMultiZoneClusterResponse
+   * @param request - DeleteMultiZoneClusterRequest
+   * @returns DeleteMultiZoneClusterResponse
    */
   async deleteMultiZoneCluster(request: DeleteMultiZoneClusterRequest): Promise<DeleteMultiZoneClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12799,9 +17638,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteServerlessClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteServerlessClusterResponse
+   * @param request - DeleteServerlessClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServerlessClusterResponse
    */
   async deleteServerlessClusterWithOptions(request: DeleteServerlessClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServerlessClusterResponse> {
     Util.validateModel(request);
@@ -12836,8 +17675,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteServerlessClusterRequest
-   * @return DeleteServerlessClusterResponse
+   * @param request - DeleteServerlessClusterRequest
+   * @returns DeleteServerlessClusterResponse
    */
   async deleteServerlessCluster(request: DeleteServerlessClusterRequest): Promise<DeleteServerlessClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12845,9 +17684,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteUserHdfsInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteUserHdfsInfoResponse
+   * @param request - DeleteUserHdfsInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserHdfsInfoResponse
    */
   async deleteUserHdfsInfoWithOptions(request: DeleteUserHdfsInfoRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserHdfsInfoResponse> {
     Util.validateModel(request);
@@ -12878,8 +17717,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteUserHdfsInfoRequest
-   * @return DeleteUserHdfsInfoResponse
+   * @param request - DeleteUserHdfsInfoRequest
+   * @returns DeleteUserHdfsInfoResponse
    */
   async deleteUserHdfsInfo(request: DeleteUserHdfsInfoRequest): Promise<DeleteUserHdfsInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12887,11 +17726,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询账户列表
-   *
-   * @param request DescribeAccountsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAccountsResponse
+   * 查询账户列表
+   * 
+   * @param request - DescribeAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAccountsResponse
    */
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
@@ -12918,10 +17757,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询账户列表
-   *
-   * @param request DescribeAccountsRequest
-   * @return DescribeAccountsResponse
+   * 查询账户列表
+   * 
+   * @param request - DescribeAccountsRequest
+   * @returns DescribeAccountsResponse
    */
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12929,9 +17768,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeActiveOperationTaskTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeActiveOperationTaskTypeResponse
+   * @param request - DescribeActiveOperationTaskTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationTaskTypeResponse
    */
   async describeActiveOperationTaskTypeWithOptions(request: DescribeActiveOperationTaskTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTaskTypeResponse> {
     Util.validateModel(request);
@@ -12978,8 +17817,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeActiveOperationTaskTypeRequest
-   * @return DescribeActiveOperationTaskTypeResponse
+   * @param request - DescribeActiveOperationTaskTypeRequest
+   * @returns DescribeActiveOperationTaskTypeResponse
    */
   async describeActiveOperationTaskType(request: DescribeActiveOperationTaskTypeRequest): Promise<DescribeActiveOperationTaskTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12987,9 +17826,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeActiveOperationTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeActiveOperationTasksResponse
+   * @param request - DescribeActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationTasksResponse
    */
   async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
     Util.validateModel(request);
@@ -13076,8 +17915,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeActiveOperationTasksRequest
-   * @return DescribeActiveOperationTasksResponse
+   * @param request - DescribeActiveOperationTasksRequest
+   * @returns DescribeActiveOperationTasksResponse
    */
   async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13085,9 +17924,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeAvailableResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAvailableResourceResponse
+   * @param request - DescribeAvailableResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAvailableResourceResponse
    */
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
@@ -13138,8 +17977,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeAvailableResourceRequest
-   * @return DescribeAvailableResourceResponse
+   * @param request - DescribeAvailableResourceRequest
+   * @returns DescribeAvailableResourceResponse
    */
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13147,9 +17986,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupPlanConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupPlanConfigResponse
+   * @param request - DescribeBackupPlanConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupPlanConfigResponse
    */
   async describeBackupPlanConfigWithOptions(request: DescribeBackupPlanConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPlanConfigResponse> {
     Util.validateModel(request);
@@ -13176,8 +18015,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupPlanConfigRequest
-   * @return DescribeBackupPlanConfigResponse
+   * @param request - DescribeBackupPlanConfigRequest
+   * @returns DescribeBackupPlanConfigResponse
    */
   async describeBackupPlanConfig(request: DescribeBackupPlanConfigRequest): Promise<DescribeBackupPlanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13185,9 +18024,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupPolicyResponse
+   * @param request - DescribeBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupPolicyResponse
    */
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
@@ -13214,8 +18053,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupPolicyRequest
-   * @return DescribeBackupPolicyResponse
+   * @param request - DescribeBackupPolicyRequest
+   * @returns DescribeBackupPolicyResponse
    */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13223,9 +18062,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupStatusResponse
+   * @param request - DescribeBackupStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupStatusResponse
    */
   async describeBackupStatusWithOptions(request: DescribeBackupStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupStatusResponse> {
     Util.validateModel(request);
@@ -13252,8 +18091,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupStatusRequest
-   * @return DescribeBackupStatusResponse
+   * @param request - DescribeBackupStatusRequest
+   * @returns DescribeBackupStatusResponse
    */
   async describeBackupStatus(request: DescribeBackupStatusRequest): Promise<DescribeBackupStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13261,9 +18100,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupSummaryResponse
+   * @param request - DescribeBackupSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupSummaryResponse
    */
   async describeBackupSummaryWithOptions(request: DescribeBackupSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSummaryResponse> {
     Util.validateModel(request);
@@ -13298,8 +18137,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupSummaryRequest
-   * @return DescribeBackupSummaryResponse
+   * @param request - DescribeBackupSummaryRequest
+   * @returns DescribeBackupSummaryResponse
    */
   async describeBackupSummary(request: DescribeBackupSummaryRequest): Promise<DescribeBackupSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13307,9 +18146,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupTablesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupTablesResponse
+   * @param request - DescribeBackupTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupTablesResponse
    */
   async describeBackupTablesWithOptions(request: DescribeBackupTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupTablesResponse> {
     Util.validateModel(request);
@@ -13348,8 +18187,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupTablesRequest
-   * @return DescribeBackupTablesResponse
+   * @param request - DescribeBackupTablesRequest
+   * @returns DescribeBackupTablesResponse
    */
   async describeBackupTables(request: DescribeBackupTablesRequest): Promise<DescribeBackupTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13357,9 +18196,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupsResponse
+   * @param request - DescribeBackupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupsResponse
    */
   async describeBackupsWithOptions(request: DescribeBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupsResponse> {
     Util.validateModel(request);
@@ -13414,8 +18253,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupsRequest
-   * @return DescribeBackupsResponse
+   * @param request - DescribeBackupsRequest
+   * @returns DescribeBackupsResponse
    */
   async describeBackups(request: DescribeBackupsRequest): Promise<DescribeBackupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13423,9 +18262,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeClusterConnectionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeClusterConnectionResponse
+   * @param request - DescribeClusterConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterConnectionResponse
    */
   async describeClusterConnectionWithOptions(request: DescribeClusterConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterConnectionResponse> {
     Util.validateModel(request);
@@ -13456,8 +18295,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeClusterConnectionRequest
-   * @return DescribeClusterConnectionResponse
+   * @param request - DescribeClusterConnectionRequest
+   * @returns DescribeClusterConnectionResponse
    */
   async describeClusterConnection(request: DescribeClusterConnectionRequest): Promise<DescribeClusterConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13465,9 +18304,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeColdStorageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeColdStorageResponse
+   * @param request - DescribeColdStorageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeColdStorageResponse
    */
   async describeColdStorageWithOptions(request: DescribeColdStorageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColdStorageResponse> {
     Util.validateModel(request);
@@ -13494,8 +18333,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeColdStorageRequest
-   * @return DescribeColdStorageResponse
+   * @param request - DescribeColdStorageRequest
+   * @returns DescribeColdStorageResponse
    */
   async describeColdStorage(request: DescribeColdStorageRequest): Promise<DescribeColdStorageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13503,9 +18342,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDBInstanceUsageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDBInstanceUsageResponse
+   * @param request - DescribeDBInstanceUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBInstanceUsageResponse
    */
   async describeDBInstanceUsageWithOptions(request: DescribeDBInstanceUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceUsageResponse> {
     Util.validateModel(request);
@@ -13532,8 +18371,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDBInstanceUsageRequest
-   * @return DescribeDBInstanceUsageResponse
+   * @param request - DescribeDBInstanceUsageRequest
+   * @returns DescribeDBInstanceUsageResponse
    */
   async describeDBInstanceUsage(request: DescribeDBInstanceUsageRequest): Promise<DescribeDBInstanceUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13541,9 +18380,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDeletedInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDeletedInstancesResponse
+   * @param request - DescribeDeletedInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDeletedInstancesResponse
    */
   async describeDeletedInstancesWithOptions(request: DescribeDeletedInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeletedInstancesResponse> {
     Util.validateModel(request);
@@ -13578,8 +18417,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDeletedInstancesRequest
-   * @return DescribeDeletedInstancesResponse
+   * @param request - DescribeDeletedInstancesRequest
+   * @returns DescribeDeletedInstancesResponse
    */
   async describeDeletedInstances(request: DescribeDeletedInstancesRequest): Promise<DescribeDeletedInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13587,9 +18426,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDiskWarningLineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDiskWarningLineResponse
+   * @param request - DescribeDiskWarningLineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDiskWarningLineResponse
    */
   async describeDiskWarningLineWithOptions(request: DescribeDiskWarningLineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskWarningLineResponse> {
     Util.validateModel(request);
@@ -13616,8 +18455,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDiskWarningLineRequest
-   * @return DescribeDiskWarningLineResponse
+   * @param request - DescribeDiskWarningLineRequest
+   * @returns DescribeDiskWarningLineResponse
    */
   async describeDiskWarningLine(request: DescribeDiskWarningLineRequest): Promise<DescribeDiskWarningLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13625,9 +18464,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeEndpointsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEndpointsResponse
+   * @param request - DescribeEndpointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEndpointsResponse
    */
   async describeEndpointsWithOptions(request: DescribeEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndpointsResponse> {
     Util.validateModel(request);
@@ -13654,8 +18493,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeEndpointsRequest
-   * @return DescribeEndpointsResponse
+   * @param request - DescribeEndpointsRequest
+   * @returns DescribeEndpointsResponse
    */
   async describeEndpoints(request: DescribeEndpointsRequest): Promise<DescribeEndpointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13663,9 +18502,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceResponse
+   * @param request - DescribeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceResponse
    */
   async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
@@ -13692,8 +18531,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeInstanceRequest
-   * @return DescribeInstanceResponse
+   * @param request - DescribeInstanceRequest
+   * @returns DescribeInstanceResponse
    */
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13701,9 +18540,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeInstanceTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceTypeResponse
+   * @param request - DescribeInstanceTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceTypeResponse
    */
   async describeInstanceTypeWithOptions(request: DescribeInstanceTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTypeResponse> {
     Util.validateModel(request);
@@ -13730,8 +18569,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeInstanceTypeRequest
-   * @return DescribeInstanceTypeResponse
+   * @param request - DescribeInstanceTypeRequest
+   * @returns DescribeInstanceTypeResponse
    */
   async describeInstanceType(request: DescribeInstanceTypeRequest): Promise<DescribeInstanceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13739,9 +18578,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstancesResponse
+   * @param request - DescribeInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesResponse
    */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
@@ -13796,8 +18635,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeInstancesRequest
-   * @return DescribeInstancesResponse
+   * @param request - DescribeInstancesRequest
+   * @returns DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13805,9 +18644,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeIpWhitelistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeIpWhitelistResponse
+   * @param request - DescribeIpWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIpWhitelistResponse
    */
   async describeIpWhitelistWithOptions(request: DescribeIpWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpWhitelistResponse> {
     Util.validateModel(request);
@@ -13834,8 +18673,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeIpWhitelistRequest
-   * @return DescribeIpWhitelistResponse
+   * @param request - DescribeIpWhitelistRequest
+   * @returns DescribeIpWhitelistResponse
    */
   async describeIpWhitelist(request: DescribeIpWhitelistRequest): Promise<DescribeIpWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13843,9 +18682,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMultiZoneAvailableRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMultiZoneAvailableRegionsResponse
+   * @param request - DescribeMultiZoneAvailableRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMultiZoneAvailableRegionsResponse
    */
   async describeMultiZoneAvailableRegionsWithOptions(request: DescribeMultiZoneAvailableRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMultiZoneAvailableRegionsResponse> {
     Util.validateModel(request);
@@ -13872,8 +18711,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMultiZoneAvailableRegionsRequest
-   * @return DescribeMultiZoneAvailableRegionsResponse
+   * @param request - DescribeMultiZoneAvailableRegionsRequest
+   * @returns DescribeMultiZoneAvailableRegionsResponse
    */
   async describeMultiZoneAvailableRegions(request: DescribeMultiZoneAvailableRegionsRequest): Promise<DescribeMultiZoneAvailableRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13881,9 +18720,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMultiZoneAvailableResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMultiZoneAvailableResourceResponse
+   * @param request - DescribeMultiZoneAvailableResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMultiZoneAvailableResourceResponse
    */
   async describeMultiZoneAvailableResourceWithOptions(request: DescribeMultiZoneAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMultiZoneAvailableResourceResponse> {
     Util.validateModel(request);
@@ -13918,8 +18757,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMultiZoneAvailableResourceRequest
-   * @return DescribeMultiZoneAvailableResourceResponse
+   * @param request - DescribeMultiZoneAvailableResourceRequest
+   * @returns DescribeMultiZoneAvailableResourceResponse
    */
   async describeMultiZoneAvailableResource(request: DescribeMultiZoneAvailableResourceRequest): Promise<DescribeMultiZoneAvailableResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13927,9 +18766,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMultiZoneClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMultiZoneClusterResponse
+   * @param request - DescribeMultiZoneClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMultiZoneClusterResponse
    */
   async describeMultiZoneClusterWithOptions(request: DescribeMultiZoneClusterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMultiZoneClusterResponse> {
     Util.validateModel(request);
@@ -13956,8 +18795,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMultiZoneClusterRequest
-   * @return DescribeMultiZoneClusterResponse
+   * @param request - DescribeMultiZoneClusterRequest
+   * @returns DescribeMultiZoneClusterResponse
    */
   async describeMultiZoneCluster(request: DescribeMultiZoneClusterRequest): Promise<DescribeMultiZoneClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13965,9 +18804,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRecoverableTimeRangeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRecoverableTimeRangeResponse
+   * @param request - DescribeRecoverableTimeRangeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecoverableTimeRangeResponse
    */
   async describeRecoverableTimeRangeWithOptions(request: DescribeRecoverableTimeRangeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecoverableTimeRangeResponse> {
     Util.validateModel(request);
@@ -13994,8 +18833,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRecoverableTimeRangeRequest
-   * @return DescribeRecoverableTimeRangeResponse
+   * @param request - DescribeRecoverableTimeRangeRequest
+   * @returns DescribeRecoverableTimeRangeResponse
    */
   async describeRecoverableTimeRange(request: DescribeRecoverableTimeRangeRequest): Promise<DescribeRecoverableTimeRangeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14003,9 +18842,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRegionsResponse
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
    */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
@@ -14036,8 +18875,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRegionsRequest
-   * @return DescribeRegionsResponse
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14045,9 +18884,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRestoreFullDetailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRestoreFullDetailsResponse
+   * @param request - DescribeRestoreFullDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRestoreFullDetailsResponse
    */
   async describeRestoreFullDetailsWithOptions(request: DescribeRestoreFullDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreFullDetailsResponse> {
     Util.validateModel(request);
@@ -14086,8 +18925,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRestoreFullDetailsRequest
-   * @return DescribeRestoreFullDetailsResponse
+   * @param request - DescribeRestoreFullDetailsRequest
+   * @returns DescribeRestoreFullDetailsResponse
    */
   async describeRestoreFullDetails(request: DescribeRestoreFullDetailsRequest): Promise<DescribeRestoreFullDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14095,9 +18934,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRestoreIncrDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRestoreIncrDetailResponse
+   * @param request - DescribeRestoreIncrDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRestoreIncrDetailResponse
    */
   async describeRestoreIncrDetailWithOptions(request: DescribeRestoreIncrDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreIncrDetailResponse> {
     Util.validateModel(request);
@@ -14128,8 +18967,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRestoreIncrDetailRequest
-   * @return DescribeRestoreIncrDetailResponse
+   * @param request - DescribeRestoreIncrDetailRequest
+   * @returns DescribeRestoreIncrDetailResponse
    */
   async describeRestoreIncrDetail(request: DescribeRestoreIncrDetailRequest): Promise<DescribeRestoreIncrDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14137,9 +18976,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRestoreSchemaDetailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRestoreSchemaDetailsResponse
+   * @param request - DescribeRestoreSchemaDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRestoreSchemaDetailsResponse
    */
   async describeRestoreSchemaDetailsWithOptions(request: DescribeRestoreSchemaDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreSchemaDetailsResponse> {
     Util.validateModel(request);
@@ -14178,8 +19017,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRestoreSchemaDetailsRequest
-   * @return DescribeRestoreSchemaDetailsResponse
+   * @param request - DescribeRestoreSchemaDetailsRequest
+   * @returns DescribeRestoreSchemaDetailsResponse
    */
   async describeRestoreSchemaDetails(request: DescribeRestoreSchemaDetailsRequest): Promise<DescribeRestoreSchemaDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14187,9 +19026,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRestoreSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRestoreSummaryResponse
+   * @param request - DescribeRestoreSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRestoreSummaryResponse
    */
   async describeRestoreSummaryWithOptions(request: DescribeRestoreSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreSummaryResponse> {
     Util.validateModel(request);
@@ -14224,8 +19063,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRestoreSummaryRequest
-   * @return DescribeRestoreSummaryResponse
+   * @param request - DescribeRestoreSummaryRequest
+   * @returns DescribeRestoreSummaryResponse
    */
   async describeRestoreSummary(request: DescribeRestoreSummaryRequest): Promise<DescribeRestoreSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14233,9 +19072,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRestoreTablesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRestoreTablesResponse
+   * @param request - DescribeRestoreTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRestoreTablesResponse
    */
   async describeRestoreTablesWithOptions(request: DescribeRestoreTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreTablesResponse> {
     Util.validateModel(request);
@@ -14266,8 +19105,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRestoreTablesRequest
-   * @return DescribeRestoreTablesResponse
+   * @param request - DescribeRestoreTablesRequest
+   * @returns DescribeRestoreTablesResponse
    */
   async describeRestoreTables(request: DescribeRestoreTablesRequest): Promise<DescribeRestoreTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14275,9 +19114,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeSecurityGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSecurityGroupsResponse
+   * @param request - DescribeSecurityGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSecurityGroupsResponse
    */
   async describeSecurityGroupsWithOptions(request: DescribeSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityGroupsResponse> {
     Util.validateModel(request);
@@ -14304,8 +19143,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeSecurityGroupsRequest
-   * @return DescribeSecurityGroupsResponse
+   * @param request - DescribeSecurityGroupsRequest
+   * @returns DescribeSecurityGroupsResponse
    */
   async describeSecurityGroups(request: DescribeSecurityGroupsRequest): Promise<DescribeSecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14313,9 +19152,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeServerlessClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeServerlessClusterResponse
+   * @param request - DescribeServerlessClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServerlessClusterResponse
    */
   async describeServerlessClusterWithOptions(request: DescribeServerlessClusterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServerlessClusterResponse> {
     Util.validateModel(request);
@@ -14346,8 +19185,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeServerlessClusterRequest
-   * @return DescribeServerlessClusterResponse
+   * @param request - DescribeServerlessClusterRequest
+   * @returns DescribeServerlessClusterResponse
    */
   async describeServerlessCluster(request: DescribeServerlessClusterRequest): Promise<DescribeServerlessClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14355,9 +19194,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeSubDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSubDomainResponse
+   * @param request - DescribeSubDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSubDomainResponse
    */
   async describeSubDomainWithOptions(request: DescribeSubDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSubDomainResponse> {
     Util.validateModel(request);
@@ -14388,8 +19227,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeSubDomainRequest
-   * @return DescribeSubDomainResponse
+   * @param request - DescribeSubDomainRequest
+   * @returns DescribeSubDomainResponse
    */
   async describeSubDomain(request: DescribeSubDomainRequest): Promise<DescribeSubDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14397,9 +19236,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EnableHBaseueBackupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableHBaseueBackupResponse
+   * @param request - EnableHBaseueBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableHBaseueBackupResponse
    */
   async enableHBaseueBackupWithOptions(request: EnableHBaseueBackupRequest, runtime: $Util.RuntimeOptions): Promise<EnableHBaseueBackupResponse> {
     Util.validateModel(request);
@@ -14438,8 +19277,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EnableHBaseueBackupRequest
-   * @return EnableHBaseueBackupResponse
+   * @param request - EnableHBaseueBackupRequest
+   * @returns EnableHBaseueBackupResponse
    */
   async enableHBaseueBackup(request: EnableHBaseueBackupRequest): Promise<EnableHBaseueBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14447,9 +19286,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EnableHBaseueModuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableHBaseueModuleResponse
+   * @param request - EnableHBaseueModuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableHBaseueModuleResponse
    */
   async enableHBaseueModuleWithOptions(request: EnableHBaseueModuleRequest, runtime: $Util.RuntimeOptions): Promise<EnableHBaseueModuleResponse> {
     Util.validateModel(request);
@@ -14544,8 +19383,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EnableHBaseueModuleRequest
-   * @return EnableHBaseueModuleResponse
+   * @param request - EnableHBaseueModuleRequest
+   * @returns EnableHBaseueModuleResponse
    */
   async enableHBaseueModule(request: EnableHBaseueModuleRequest): Promise<EnableHBaseueModuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14553,9 +19392,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EvaluateMultiZoneResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EvaluateMultiZoneResourceResponse
+   * @param request - EvaluateMultiZoneResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EvaluateMultiZoneResourceResponse
    */
   async evaluateMultiZoneResourceWithOptions(request: EvaluateMultiZoneResourceRequest, runtime: $Util.RuntimeOptions): Promise<EvaluateMultiZoneResourceResponse> {
     Util.validateModel(request);
@@ -14690,8 +19529,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EvaluateMultiZoneResourceRequest
-   * @return EvaluateMultiZoneResourceResponse
+   * @param request - EvaluateMultiZoneResourceRequest
+   * @returns EvaluateMultiZoneResourceResponse
    */
   async evaluateMultiZoneResource(request: EvaluateMultiZoneResourceRequest): Promise<EvaluateMultiZoneResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14699,9 +19538,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetMultimodeCmsUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMultimodeCmsUrlResponse
+   * @param request - GetMultimodeCmsUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMultimodeCmsUrlResponse
    */
   async getMultimodeCmsUrlWithOptions(request: GetMultimodeCmsUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetMultimodeCmsUrlResponse> {
     Util.validateModel(request);
@@ -14732,8 +19571,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetMultimodeCmsUrlRequest
-   * @return GetMultimodeCmsUrlResponse
+   * @param request - GetMultimodeCmsUrlRequest
+   * @returns GetMultimodeCmsUrlResponse
    */
   async getMultimodeCmsUrl(request: GetMultimodeCmsUrlRequest): Promise<GetMultimodeCmsUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14741,11 +19580,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 授权账户权限
-   *
-   * @param request GrantRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GrantResponse
+   * 授权账户权限
+   * 
+   * @param request - GrantRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GrantResponse
    */
   async grantWithOptions(request: GrantRequest, runtime: $Util.RuntimeOptions): Promise<GrantResponse> {
     Util.validateModel(request);
@@ -14788,10 +19627,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 授权账户权限
-   *
-   * @param request GrantRequest
-   * @return GrantResponse
+   * 授权账户权限
+   * 
+   * @param request - GrantRequest
+   * @returns GrantResponse
    */
   async grant(request: GrantRequest): Promise<GrantResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14799,9 +19638,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListHBaseInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListHBaseInstancesResponse
+   * @param request - ListHBaseInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHBaseInstancesResponse
    */
   async listHBaseInstancesWithOptions(request: ListHBaseInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListHBaseInstancesResponse> {
     Util.validateModel(request);
@@ -14828,8 +19667,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListHBaseInstancesRequest
-   * @return ListHBaseInstancesResponse
+   * @param request - ListHBaseInstancesRequest
+   * @returns ListHBaseInstancesResponse
    */
   async listHBaseInstances(request: ListHBaseInstancesRequest): Promise<ListHBaseInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14837,9 +19676,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInstanceServiceConfigHistoriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstanceServiceConfigHistoriesResponse
+   * @param request - ListInstanceServiceConfigHistoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceServiceConfigHistoriesResponse
    */
   async listInstanceServiceConfigHistoriesWithOptions(request: ListInstanceServiceConfigHistoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceServiceConfigHistoriesResponse> {
     Util.validateModel(request);
@@ -14874,8 +19713,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInstanceServiceConfigHistoriesRequest
-   * @return ListInstanceServiceConfigHistoriesResponse
+   * @param request - ListInstanceServiceConfigHistoriesRequest
+   * @returns ListInstanceServiceConfigHistoriesResponse
    */
   async listInstanceServiceConfigHistories(request: ListInstanceServiceConfigHistoriesRequest): Promise<ListInstanceServiceConfigHistoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14883,9 +19722,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInstanceServiceConfigurationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstanceServiceConfigurationsResponse
+   * @param request - ListInstanceServiceConfigurationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceServiceConfigurationsResponse
    */
   async listInstanceServiceConfigurationsWithOptions(request: ListInstanceServiceConfigurationsRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceServiceConfigurationsResponse> {
     Util.validateModel(request);
@@ -14920,8 +19759,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInstanceServiceConfigurationsRequest
-   * @return ListInstanceServiceConfigurationsResponse
+   * @param request - ListInstanceServiceConfigurationsRequest
+   * @returns ListInstanceServiceConfigurationsResponse
    */
   async listInstanceServiceConfigurations(request: ListInstanceServiceConfigurationsRequest): Promise<ListInstanceServiceConfigurationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14929,9 +19768,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -14970,8 +19809,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14979,9 +19818,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagsResponse
+   * @param request - ListTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagsResponse
    */
   async listTagsWithOptions(request: ListTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
     Util.validateModel(request);
@@ -15008,8 +19847,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTagsRequest
-   * @return ListTagsResponse
+   * @param request - ListTagsRequest
+   * @returns ListTagsResponse
    */
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15017,11 +19856,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更改账户密码
-   *
-   * @param request ModifyAccountPasswordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAccountPasswordResponse
+   * 更改账户密码
+   * 
+   * @param request - ModifyAccountPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAccountPasswordResponse
    */
   async modifyAccountPasswordWithOptions(request: ModifyAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountPasswordResponse> {
     Util.validateModel(request);
@@ -15056,10 +19895,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更改账户密码
-   *
-   * @param request ModifyAccountPasswordRequest
-   * @return ModifyAccountPasswordResponse
+   * 更改账户密码
+   * 
+   * @param request - ModifyAccountPasswordRequest
+   * @returns ModifyAccountPasswordResponse
    */
   async modifyAccountPassword(request: ModifyAccountPasswordRequest): Promise<ModifyAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15067,9 +19906,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyActiveOperationTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyActiveOperationTasksResponse
+   * @param request - ModifyActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyActiveOperationTasksResponse
    */
   async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
     Util.validateModel(request);
@@ -15124,8 +19963,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyActiveOperationTasksRequest
-   * @return ModifyActiveOperationTasksResponse
+   * @param request - ModifyActiveOperationTasksRequest
+   * @returns ModifyActiveOperationTasksResponse
    */
   async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15133,9 +19972,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyBackupPlanConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyBackupPlanConfigResponse
+   * @param request - ModifyBackupPlanConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBackupPlanConfigResponse
    */
   async modifyBackupPlanConfigWithOptions(request: ModifyBackupPlanConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPlanConfigResponse> {
     Util.validateModel(request);
@@ -15178,8 +20017,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyBackupPlanConfigRequest
-   * @return ModifyBackupPlanConfigResponse
+   * @param request - ModifyBackupPlanConfigRequest
+   * @returns ModifyBackupPlanConfigResponse
    */
   async modifyBackupPlanConfig(request: ModifyBackupPlanConfigRequest): Promise<ModifyBackupPlanConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15187,9 +20026,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyBackupPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyBackupPolicyResponse
+   * @param request - ModifyBackupPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBackupPolicyResponse
    */
   async modifyBackupPolicyWithOptions(request: ModifyBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyResponse> {
     Util.validateModel(request);
@@ -15232,8 +20071,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyBackupPolicyRequest
-   * @return ModifyBackupPolicyResponse
+   * @param request - ModifyBackupPolicyRequest
+   * @returns ModifyBackupPolicyResponse
    */
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15241,9 +20080,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyClusterDeletionProtectionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyClusterDeletionProtectionResponse
+   * @param request - ModifyClusterDeletionProtectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyClusterDeletionProtectionResponse
    */
   async modifyClusterDeletionProtectionWithOptions(request: ModifyClusterDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClusterDeletionProtectionResponse> {
     Util.validateModel(request);
@@ -15274,8 +20113,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyClusterDeletionProtectionRequest
-   * @return ModifyClusterDeletionProtectionResponse
+   * @param request - ModifyClusterDeletionProtectionRequest
+   * @returns ModifyClusterDeletionProtectionResponse
    */
   async modifyClusterDeletionProtection(request: ModifyClusterDeletionProtectionRequest): Promise<ModifyClusterDeletionProtectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15283,9 +20122,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyDiskWarningLineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDiskWarningLineResponse
+   * @param request - ModifyDiskWarningLineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDiskWarningLineResponse
    */
   async modifyDiskWarningLineWithOptions(request: ModifyDiskWarningLineRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskWarningLineResponse> {
     Util.validateModel(request);
@@ -15316,8 +20155,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyDiskWarningLineRequest
-   * @return ModifyDiskWarningLineResponse
+   * @param request - ModifyDiskWarningLineRequest
+   * @returns ModifyDiskWarningLineResponse
    */
   async modifyDiskWarningLine(request: ModifyDiskWarningLineRequest): Promise<ModifyDiskWarningLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15325,9 +20164,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyInstanceMaintainTimeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceMaintainTimeResponse
+   * @param request - ModifyInstanceMaintainTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceMaintainTimeResponse
    */
   async modifyInstanceMaintainTimeWithOptions(request: ModifyInstanceMaintainTimeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceMaintainTimeResponse> {
     Util.validateModel(request);
@@ -15362,8 +20201,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyInstanceMaintainTimeRequest
-   * @return ModifyInstanceMaintainTimeResponse
+   * @param request - ModifyInstanceMaintainTimeRequest
+   * @returns ModifyInstanceMaintainTimeResponse
    */
   async modifyInstanceMaintainTime(request: ModifyInstanceMaintainTimeRequest): Promise<ModifyInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15371,9 +20210,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyInstanceNameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceNameResponse
+   * @param request - ModifyInstanceNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceNameResponse
    */
   async modifyInstanceNameWithOptions(request: ModifyInstanceNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceNameResponse> {
     Util.validateModel(request);
@@ -15416,8 +20255,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyInstanceNameRequest
-   * @return ModifyInstanceNameResponse
+   * @param request - ModifyInstanceNameRequest
+   * @returns ModifyInstanceNameResponse
    */
   async modifyInstanceName(request: ModifyInstanceNameRequest): Promise<ModifyInstanceNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15425,9 +20264,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyInstanceServiceConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceServiceConfigResponse
+   * @param request - ModifyInstanceServiceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceServiceConfigResponse
    */
   async modifyInstanceServiceConfigWithOptions(request: ModifyInstanceServiceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceServiceConfigResponse> {
     Util.validateModel(request);
@@ -15470,8 +20309,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyInstanceServiceConfigRequest
-   * @return ModifyInstanceServiceConfigResponse
+   * @param request - ModifyInstanceServiceConfigRequest
+   * @returns ModifyInstanceServiceConfigResponse
    */
   async modifyInstanceServiceConfig(request: ModifyInstanceServiceConfigRequest): Promise<ModifyInstanceServiceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15479,9 +20318,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyInstanceTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceTypeResponse
+   * @param request - ModifyInstanceTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceTypeResponse
    */
   async modifyInstanceTypeWithOptions(request: ModifyInstanceTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceTypeResponse> {
     Util.validateModel(request);
@@ -15516,8 +20355,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyInstanceTypeRequest
-   * @return ModifyInstanceTypeResponse
+   * @param request - ModifyInstanceTypeRequest
+   * @returns ModifyInstanceTypeResponse
    */
   async modifyInstanceType(request: ModifyInstanceTypeRequest): Promise<ModifyInstanceTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15525,9 +20364,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyIpWhitelistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyIpWhitelistResponse
+   * @param request - ModifyIpWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyIpWhitelistResponse
    */
   async modifyIpWhitelistWithOptions(request: ModifyIpWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpWhitelistResponse> {
     Util.validateModel(request);
@@ -15566,8 +20405,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyIpWhitelistRequest
-   * @return ModifyIpWhitelistResponse
+   * @param request - ModifyIpWhitelistRequest
+   * @returns ModifyIpWhitelistResponse
    */
   async modifyIpWhitelist(request: ModifyIpWhitelistRequest): Promise<ModifyIpWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15575,9 +20414,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyMultiZoneClusterNodeTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyMultiZoneClusterNodeTypeResponse
+   * @param request - ModifyMultiZoneClusterNodeTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMultiZoneClusterNodeTypeResponse
    */
   async modifyMultiZoneClusterNodeTypeWithOptions(request: ModifyMultiZoneClusterNodeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMultiZoneClusterNodeTypeResponse> {
     Util.validateModel(request);
@@ -15616,8 +20455,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyMultiZoneClusterNodeTypeRequest
-   * @return ModifyMultiZoneClusterNodeTypeResponse
+   * @param request - ModifyMultiZoneClusterNodeTypeRequest
+   * @returns ModifyMultiZoneClusterNodeTypeResponse
    */
   async modifyMultiZoneClusterNodeType(request: ModifyMultiZoneClusterNodeTypeRequest): Promise<ModifyMultiZoneClusterNodeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15625,9 +20464,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifySecurityGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifySecurityGroupsResponse
+   * @param request - ModifySecurityGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySecurityGroupsResponse
    */
   async modifySecurityGroupsWithOptions(request: ModifySecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityGroupsResponse> {
     Util.validateModel(request);
@@ -15658,8 +20497,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifySecurityGroupsRequest
-   * @return ModifySecurityGroupsResponse
+   * @param request - ModifySecurityGroupsRequest
+   * @returns ModifySecurityGroupsResponse
    */
   async modifySecurityGroups(request: ModifySecurityGroupsRequest): Promise<ModifySecurityGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15667,9 +20506,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyUIAccountPasswordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyUIAccountPasswordResponse
+   * @param request - ModifyUIAccountPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUIAccountPasswordResponse
    */
   async modifyUIAccountPasswordWithOptions(request: ModifyUIAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUIAccountPasswordResponse> {
     Util.validateModel(request);
@@ -15704,8 +20543,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyUIAccountPasswordRequest
-   * @return ModifyUIAccountPasswordResponse
+   * @param request - ModifyUIAccountPasswordRequest
+   * @returns ModifyUIAccountPasswordResponse
    */
   async modifyUIAccountPassword(request: ModifyUIAccountPasswordRequest): Promise<ModifyUIAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15713,9 +20552,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MoveResourceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MoveResourceGroupResponse
+   * @param request - MoveResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveResourceGroupResponse
    */
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
@@ -15746,8 +20585,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MoveResourceGroupRequest
-   * @return MoveResourceGroupResponse
+   * @param request - MoveResourceGroupRequest
+   * @returns MoveResourceGroupResponse
    */
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15755,9 +20594,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request OpenBackupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OpenBackupResponse
+   * @param request - OpenBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenBackupResponse
    */
   async openBackupWithOptions(request: OpenBackupRequest, runtime: $Util.RuntimeOptions): Promise<OpenBackupResponse> {
     Util.validateModel(request);
@@ -15784,8 +20623,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request OpenBackupRequest
-   * @return OpenBackupResponse
+   * @param request - OpenBackupRequest
+   * @returns OpenBackupResponse
    */
   async openBackup(request: OpenBackupRequest): Promise<OpenBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15793,9 +20632,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PurgeInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PurgeInstanceResponse
+   * @param request - PurgeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PurgeInstanceResponse
    */
   async purgeInstanceWithOptions(request: PurgeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<PurgeInstanceResponse> {
     Util.validateModel(request);
@@ -15822,8 +20661,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PurgeInstanceRequest
-   * @return PurgeInstanceResponse
+   * @param request - PurgeInstanceRequest
+   * @returns PurgeInstanceResponse
    */
   async purgeInstance(request: PurgeInstanceRequest): Promise<PurgeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15831,9 +20670,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryHBaseHaDBRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryHBaseHaDBResponse
+   * @param request - QueryHBaseHaDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHBaseHaDBResponse
    */
   async queryHBaseHaDBWithOptions(request: QueryHBaseHaDBRequest, runtime: $Util.RuntimeOptions): Promise<QueryHBaseHaDBResponse> {
     Util.validateModel(request);
@@ -15860,8 +20699,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryHBaseHaDBRequest
-   * @return QueryHBaseHaDBResponse
+   * @param request - QueryHBaseHaDBRequest
+   * @returns QueryHBaseHaDBResponse
    */
   async queryHBaseHaDB(request: QueryHBaseHaDBRequest): Promise<QueryHBaseHaDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15869,9 +20708,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryXpackRelateDBRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryXpackRelateDBResponse
+   * @param request - QueryXpackRelateDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryXpackRelateDBResponse
    */
   async queryXpackRelateDBWithOptions(request: QueryXpackRelateDBRequest, runtime: $Util.RuntimeOptions): Promise<QueryXpackRelateDBResponse> {
     Util.validateModel(request);
@@ -15906,8 +20745,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryXpackRelateDBRequest
-   * @return QueryXpackRelateDBResponse
+   * @param request - QueryXpackRelateDBRequest
+   * @returns QueryXpackRelateDBResponse
    */
   async queryXpackRelateDB(request: QueryXpackRelateDBRequest): Promise<QueryXpackRelateDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15915,9 +20754,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RelateDbForHBaseHaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RelateDbForHBaseHaResponse
+   * @param request - RelateDbForHBaseHaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RelateDbForHBaseHaResponse
    */
   async relateDbForHBaseHaWithOptions(request: RelateDbForHBaseHaRequest, runtime: $Util.RuntimeOptions): Promise<RelateDbForHBaseHaResponse> {
     Util.validateModel(request);
@@ -16024,8 +20863,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RelateDbForHBaseHaRequest
-   * @return RelateDbForHBaseHaResponse
+   * @param request - RelateDbForHBaseHaRequest
+   * @returns RelateDbForHBaseHaResponse
    */
   async relateDbForHBaseHa(request: RelateDbForHBaseHaRequest): Promise<RelateDbForHBaseHaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16033,9 +20872,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReleasePublicNetworkAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleasePublicNetworkAddressResponse
+   * @param request - ReleasePublicNetworkAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleasePublicNetworkAddressResponse
    */
   async releasePublicNetworkAddressWithOptions(request: ReleasePublicNetworkAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleasePublicNetworkAddressResponse> {
     Util.validateModel(request);
@@ -16062,8 +20901,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReleasePublicNetworkAddressRequest
-   * @return ReleasePublicNetworkAddressResponse
+   * @param request - ReleasePublicNetworkAddressRequest
+   * @returns ReleasePublicNetworkAddressResponse
    */
   async releasePublicNetworkAddress(request: ReleasePublicNetworkAddressRequest): Promise<ReleasePublicNetworkAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16071,9 +20910,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RenewInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RenewInstanceResponse
+   * @param request - RenewInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewInstanceResponse
    */
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
@@ -16108,8 +20947,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RenewInstanceRequest
-   * @return RenewInstanceResponse
+   * @param request - RenewInstanceRequest
+   * @returns RenewInstanceResponse
    */
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16117,9 +20956,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResizeColdStorageSizeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResizeColdStorageSizeResponse
+   * @param request - ResizeColdStorageSizeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResizeColdStorageSizeResponse
    */
   async resizeColdStorageSizeWithOptions(request: ResizeColdStorageSizeRequest, runtime: $Util.RuntimeOptions): Promise<ResizeColdStorageSizeResponse> {
     Util.validateModel(request);
@@ -16150,8 +20989,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResizeColdStorageSizeRequest
-   * @return ResizeColdStorageSizeResponse
+   * @param request - ResizeColdStorageSizeRequest
+   * @returns ResizeColdStorageSizeResponse
    */
   async resizeColdStorageSize(request: ResizeColdStorageSizeRequest): Promise<ResizeColdStorageSizeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16159,9 +20998,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResizeDiskSizeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResizeDiskSizeResponse
+   * @param request - ResizeDiskSizeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResizeDiskSizeResponse
    */
   async resizeDiskSizeWithOptions(request: ResizeDiskSizeRequest, runtime: $Util.RuntimeOptions): Promise<ResizeDiskSizeResponse> {
     Util.validateModel(request);
@@ -16192,8 +21031,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResizeDiskSizeRequest
-   * @return ResizeDiskSizeResponse
+   * @param request - ResizeDiskSizeRequest
+   * @returns ResizeDiskSizeResponse
    */
   async resizeDiskSize(request: ResizeDiskSizeRequest): Promise<ResizeDiskSizeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16201,9 +21040,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResizeMultiZoneClusterDiskSizeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResizeMultiZoneClusterDiskSizeResponse
+   * @param request - ResizeMultiZoneClusterDiskSizeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResizeMultiZoneClusterDiskSizeResponse
    */
   async resizeMultiZoneClusterDiskSizeWithOptions(request: ResizeMultiZoneClusterDiskSizeRequest, runtime: $Util.RuntimeOptions): Promise<ResizeMultiZoneClusterDiskSizeResponse> {
     Util.validateModel(request);
@@ -16238,8 +21077,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResizeMultiZoneClusterDiskSizeRequest
-   * @return ResizeMultiZoneClusterDiskSizeResponse
+   * @param request - ResizeMultiZoneClusterDiskSizeRequest
+   * @returns ResizeMultiZoneClusterDiskSizeResponse
    */
   async resizeMultiZoneClusterDiskSize(request: ResizeMultiZoneClusterDiskSizeRequest): Promise<ResizeMultiZoneClusterDiskSizeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16247,9 +21086,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResizeMultiZoneClusterNodeCountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResizeMultiZoneClusterNodeCountResponse
+   * @param request - ResizeMultiZoneClusterNodeCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResizeMultiZoneClusterNodeCountResponse
    */
   async resizeMultiZoneClusterNodeCountWithOptions(request: ResizeMultiZoneClusterNodeCountRequest, runtime: $Util.RuntimeOptions): Promise<ResizeMultiZoneClusterNodeCountResponse> {
     Util.validateModel(request);
@@ -16304,8 +21143,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResizeMultiZoneClusterNodeCountRequest
-   * @return ResizeMultiZoneClusterNodeCountResponse
+   * @param request - ResizeMultiZoneClusterNodeCountRequest
+   * @returns ResizeMultiZoneClusterNodeCountResponse
    */
   async resizeMultiZoneClusterNodeCount(request: ResizeMultiZoneClusterNodeCountRequest): Promise<ResizeMultiZoneClusterNodeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16313,9 +21152,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResizeNodeCountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResizeNodeCountResponse
+   * @param request - ResizeNodeCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResizeNodeCountResponse
    */
   async resizeNodeCountWithOptions(request: ResizeNodeCountRequest, runtime: $Util.RuntimeOptions): Promise<ResizeNodeCountResponse> {
     Util.validateModel(request);
@@ -16354,8 +21193,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResizeNodeCountRequest
-   * @return ResizeNodeCountResponse
+   * @param request - ResizeNodeCountRequest
+   * @returns ResizeNodeCountResponse
    */
   async resizeNodeCount(request: ResizeNodeCountRequest): Promise<ResizeNodeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16363,9 +21202,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RestartInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RestartInstanceResponse
+   * @param request - RestartInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartInstanceResponse
    */
   async restartInstanceWithOptions(request: RestartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
     Util.validateModel(request);
@@ -16396,8 +21235,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RestartInstanceRequest
-   * @return RestartInstanceResponse
+   * @param request - RestartInstanceRequest
+   * @returns RestartInstanceResponse
    */
   async restartInstance(request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16405,11 +21244,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 回收账户权限
-   *
-   * @param request RevokeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RevokeResponse
+   * 回收账户权限
+   * 
+   * @param request - RevokeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeResponse
    */
   async revokeWithOptions(request: RevokeRequest, runtime: $Util.RuntimeOptions): Promise<RevokeResponse> {
     Util.validateModel(request);
@@ -16452,10 +21291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 回收账户权限
-   *
-   * @param request RevokeRequest
-   * @return RevokeResponse
+   * 回收账户权限
+   * 
+   * @param request - RevokeRequest
+   * @returns RevokeResponse
    */
   async revoke(request: RevokeRequest): Promise<RevokeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16463,9 +21302,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SwitchHbaseHaSlbRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SwitchHbaseHaSlbResponse
+   * @param request - SwitchHbaseHaSlbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchHbaseHaSlbResponse
    */
   async switchHbaseHaSlbWithOptions(request: SwitchHbaseHaSlbRequest, runtime: $Util.RuntimeOptions): Promise<SwitchHbaseHaSlbResponse> {
     Util.validateModel(request);
@@ -16504,8 +21343,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SwitchHbaseHaSlbRequest
-   * @return SwitchHbaseHaSlbResponse
+   * @param request - SwitchHbaseHaSlbRequest
+   * @returns SwitchHbaseHaSlbResponse
    */
   async switchHbaseHaSlb(request: SwitchHbaseHaSlbRequest): Promise<SwitchHbaseHaSlbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16513,11 +21352,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开通/关闭 扩展服务
-   *
-   * @param request SwitchServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SwitchServiceResponse
+   * 开通/关闭 扩展服务
+   * 
+   * @param request - SwitchServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchServiceResponse
    */
   async switchServiceWithOptions(request: SwitchServiceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchServiceResponse> {
     Util.validateModel(request);
@@ -16552,10 +21391,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开通/关闭 扩展服务
-   *
-   * @param request SwitchServiceRequest
-   * @return SwitchServiceResponse
+   * 开通/关闭 扩展服务
+   * 
+   * @param request - SwitchServiceRequest
+   * @returns SwitchServiceResponse
    */
   async switchService(request: SwitchServiceRequest): Promise<SwitchServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16563,9 +21402,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -16600,8 +21439,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16609,9 +21448,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnTagResourcesResponse
+   * @param request - UnTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnTagResourcesResponse
    */
   async unTagResourcesWithOptions(request: UnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UnTagResourcesResponse> {
     Util.validateModel(request);
@@ -16650,8 +21489,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnTagResourcesRequest
-   * @return UnTagResourcesResponse
+   * @param request - UnTagResourcesRequest
+   * @returns UnTagResourcesResponse
    */
   async unTagResources(request: UnTagResourcesRequest): Promise<UnTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16659,9 +21498,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpgradeMinorVersionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpgradeMinorVersionResponse
+   * @param request - UpgradeMinorVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeMinorVersionResponse
    */
   async upgradeMinorVersionWithOptions(request: UpgradeMinorVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeMinorVersionResponse> {
     Util.validateModel(request);
@@ -16692,8 +21531,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpgradeMinorVersionRequest
-   * @return UpgradeMinorVersionResponse
+   * @param request - UpgradeMinorVersionRequest
+   * @returns UpgradeMinorVersionResponse
    */
   async upgradeMinorVersion(request: UpgradeMinorVersionRequest): Promise<UpgradeMinorVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16701,9 +21540,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpgradeMultiZoneClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpgradeMultiZoneClusterResponse
+   * @param request - UpgradeMultiZoneClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeMultiZoneClusterResponse
    */
   async upgradeMultiZoneClusterWithOptions(request: UpgradeMultiZoneClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeMultiZoneClusterResponse> {
     Util.validateModel(request);
@@ -16750,8 +21589,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpgradeMultiZoneClusterRequest
-   * @return UpgradeMultiZoneClusterResponse
+   * @param request - UpgradeMultiZoneClusterRequest
+   * @returns UpgradeMultiZoneClusterResponse
    */
   async upgradeMultiZoneCluster(request: UpgradeMultiZoneClusterRequest): Promise<UpgradeMultiZoneClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16759,9 +21598,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request XpackRelateDBRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return XpackRelateDBResponse
+   * @param request - XpackRelateDBRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns XpackRelateDBResponse
    */
   async xpackRelateDBWithOptions(request: XpackRelateDBRequest, runtime: $Util.RuntimeOptions): Promise<XpackRelateDBResponse> {
     Util.validateModel(request);
@@ -16796,8 +21635,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request XpackRelateDBRequest
-   * @return XpackRelateDBResponse
+   * @param request - XpackRelateDBRequest
+   * @returns XpackRelateDBResponse
    */
   async xpackRelateDB(request: XpackRelateDBRequest): Promise<XpackRelateDBResponse> {
     let runtime = new $Util.RuntimeOptions({ });
