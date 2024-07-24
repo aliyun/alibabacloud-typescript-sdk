@@ -5398,6 +5398,50 @@ export class GetClusterAddonInstanceResponse extends $tea.Model {
   }
 }
 
+export class GetClusterAuditProjectResponseBody extends $tea.Model {
+  slsProjectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      slsProjectName: 'sls_project_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      slsProjectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterAuditProjectResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClusterAuditProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClusterAuditProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetClusterCheckResponseBody extends $tea.Model {
   checkId?: string;
   checkItems?: { [key: string]: {[key: string ]: any}[] };
@@ -18708,6 +18752,38 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getClusterAddonInstanceWithOptions(clusterId, instanceName, headers, runtime);
+  }
+
+  /**
+   * @param headers map
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetClusterAuditProjectResponse
+   */
+  async getClusterAuditProjectWithOptions(clusterid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterAuditProjectResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClusterAuditProject",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${OpenApiUtil.getEncodeParam(clusterid)}/audit`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClusterAuditProjectResponse>(await this.callApi(params, req, runtime), new GetClusterAuditProjectResponse({}));
+  }
+
+  /**
+   * @return GetClusterAuditProjectResponse
+   */
+  async getClusterAuditProject(clusterid: string): Promise<GetClusterAuditProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getClusterAuditProjectWithOptions(clusterid, headers, runtime);
   }
 
   /**
