@@ -1259,6 +1259,7 @@ export class AllocateIpv6AddressResponse extends $tea.Model {
 export class AllocateIpv6InternetBandwidthRequest extends $tea.Model {
   bandwidth?: number;
   clientToken?: string;
+  dryRun?: boolean;
   internetChargeType?: string;
   ipv6AddressId?: string;
   ipv6GatewayId?: string;
@@ -1271,6 +1272,7 @@ export class AllocateIpv6InternetBandwidthRequest extends $tea.Model {
     return {
       bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       internetChargeType: 'InternetChargeType',
       ipv6AddressId: 'Ipv6AddressId',
       ipv6GatewayId: 'Ipv6GatewayId',
@@ -1286,6 +1288,7 @@ export class AllocateIpv6InternetBandwidthRequest extends $tea.Model {
     return {
       bandwidth: 'number',
       clientToken: 'string',
+      dryRun: 'boolean',
       internetChargeType: 'string',
       ipv6AddressId: 'string',
       ipv6GatewayId: 'string',
@@ -11583,6 +11586,8 @@ export class DeleteIpv6EgressOnlyRuleResponse extends $tea.Model {
 }
 
 export class DeleteIpv6GatewayRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
   ipv6GatewayId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -11591,6 +11596,8 @@ export class DeleteIpv6GatewayRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       ipv6GatewayId: 'Ipv6GatewayId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -11602,6 +11609,8 @@ export class DeleteIpv6GatewayRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      dryRun: 'boolean',
       ipv6GatewayId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -11661,6 +11670,8 @@ export class DeleteIpv6GatewayResponse extends $tea.Model {
 }
 
 export class DeleteIpv6InternetBandwidthRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
   ipv6AddressId?: string;
   ipv6InternetBandwidthId?: string;
   ownerAccount?: string;
@@ -11670,6 +11681,8 @@ export class DeleteIpv6InternetBandwidthRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       ipv6AddressId: 'Ipv6AddressId',
       ipv6InternetBandwidthId: 'Ipv6InternetBandwidthId',
       ownerAccount: 'OwnerAccount',
@@ -11682,6 +11695,8 @@ export class DeleteIpv6InternetBandwidthRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      dryRun: 'boolean',
       ipv6AddressId: 'string',
       ipv6InternetBandwidthId: 'string',
       ownerAccount: 'string',
@@ -13245,6 +13260,8 @@ export class DeleteVSwitchResponse extends $tea.Model {
 }
 
 export class DeleteVSwitchCidrReservationRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -13253,6 +13270,8 @@ export class DeleteVSwitchCidrReservationRequest extends $tea.Model {
   vSwitchCidrReservationId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -13264,6 +13283,8 @@ export class DeleteVSwitchCidrReservationRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      dryRun: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -13575,6 +13596,7 @@ export class DeleteVirtualBorderRouterResponse extends $tea.Model {
 }
 
 export class DeleteVpcRequest extends $tea.Model {
+  clientToken?: string;
   dryRun?: boolean;
   forceDelete?: boolean;
   ownerAccount?: string;
@@ -13585,6 +13607,7 @@ export class DeleteVpcRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       dryRun: 'DryRun',
       forceDelete: 'ForceDelete',
       ownerAccount: 'OwnerAccount',
@@ -13598,6 +13621,7 @@ export class DeleteVpcRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       dryRun: 'boolean',
       forceDelete: 'boolean',
       ownerAccount: 'string',
@@ -18234,6 +18258,7 @@ export class DescribePhysicalConnectionsResponse extends $tea.Model {
 }
 
 export class DescribePublicIpAddressRequest extends $tea.Model {
+  ipVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
@@ -18243,6 +18268,7 @@ export class DescribePublicIpAddressRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      ipVersion: 'IpVersion',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -18255,6 +18281,7 @@ export class DescribePublicIpAddressRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ipVersion: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -29331,7 +29358,9 @@ export class ModifyIPv6TranslatorEntryResponse extends $tea.Model {
 }
 
 export class ModifyIpv6AddressAttributeRequest extends $tea.Model {
+  clientToken?: string;
   description?: string;
+  dryRun?: boolean;
   ipv6AddressId?: string;
   name?: string;
   ownerAccount?: string;
@@ -29341,7 +29370,9 @@ export class ModifyIpv6AddressAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       description: 'Description',
+      dryRun: 'DryRun',
       ipv6AddressId: 'Ipv6AddressId',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
@@ -29354,7 +29385,9 @@ export class ModifyIpv6AddressAttributeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       description: 'string',
+      dryRun: 'boolean',
       ipv6AddressId: 'string',
       name: 'string',
       ownerAccount: 'string',
@@ -29415,7 +29448,9 @@ export class ModifyIpv6AddressAttributeResponse extends $tea.Model {
 }
 
 export class ModifyIpv6GatewayAttributeRequest extends $tea.Model {
+  clientToken?: string;
   description?: string;
+  dryRun?: boolean;
   ipv6GatewayId?: string;
   name?: string;
   ownerAccount?: string;
@@ -29425,7 +29460,9 @@ export class ModifyIpv6GatewayAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       description: 'Description',
+      dryRun: 'DryRun',
       ipv6GatewayId: 'Ipv6GatewayId',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
@@ -29438,7 +29475,9 @@ export class ModifyIpv6GatewayAttributeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       description: 'string',
+      dryRun: 'boolean',
       ipv6GatewayId: 'string',
       name: 'string',
       ownerAccount: 'string',
@@ -29501,6 +29540,7 @@ export class ModifyIpv6GatewayAttributeResponse extends $tea.Model {
 export class ModifyIpv6InternetBandwidthRequest extends $tea.Model {
   bandwidth?: number;
   clientToken?: string;
+  dryRun?: boolean;
   ipv6AddressId?: string;
   ipv6InternetBandwidthId?: string;
   ownerAccount?: string;
@@ -29512,6 +29552,7 @@ export class ModifyIpv6InternetBandwidthRequest extends $tea.Model {
     return {
       bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       ipv6AddressId: 'Ipv6AddressId',
       ipv6InternetBandwidthId: 'Ipv6InternetBandwidthId',
       ownerAccount: 'OwnerAccount',
@@ -29526,6 +29567,7 @@ export class ModifyIpv6InternetBandwidthRequest extends $tea.Model {
     return {
       bandwidth: 'number',
       clientToken: 'string',
+      dryRun: 'boolean',
       ipv6AddressId: 'string',
       ipv6InternetBandwidthId: 'string',
       ownerAccount: 'string',
@@ -31225,6 +31267,8 @@ export class ModifyVSwitchAttributeResponse extends $tea.Model {
 }
 
 export class ModifyVSwitchCidrReservationAttributeRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   regionId?: string;
@@ -31235,6 +31279,8 @@ export class ModifyVSwitchCidrReservationAttributeRequest extends $tea.Model {
   vSwitchCidrReservationName?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -31248,6 +31294,8 @@ export class ModifyVSwitchCidrReservationAttributeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
+      dryRun: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -52108,6 +52156,14 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.internetChargeType)) {
       query["InternetChargeType"] = request.internetChargeType;
     }
@@ -61903,6 +61959,14 @@ export default class Client extends OpenApi {
   async deleteIpv6GatewayWithOptions(request: DeleteIpv6GatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6GatewayResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.ipv6GatewayId)) {
       query["Ipv6GatewayId"] = request.ipv6GatewayId;
     }
@@ -61977,6 +62041,14 @@ export default class Client extends OpenApi {
   async deleteIpv6InternetBandwidthWithOptions(request: DeleteIpv6InternetBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6InternetBandwidthResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.ipv6AddressId)) {
       query["Ipv6AddressId"] = request.ipv6AddressId;
     }
@@ -63513,6 +63585,14 @@ export default class Client extends OpenApi {
   async deleteVSwitchCidrReservationWithOptions(request: DeleteVSwitchCidrReservationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVSwitchCidrReservationResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -63819,6 +63899,10 @@ export default class Client extends OpenApi {
   async deleteVpcWithOptions(request: DeleteVpcRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
@@ -67649,6 +67733,10 @@ export default class Client extends OpenApi {
   async describePublicIpAddressWithOptions(request: DescribePublicIpAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribePublicIpAddressResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -76264,8 +76352,16 @@ export default class Client extends OpenApi {
   async modifyIpv6AddressAttributeWithOptions(request: ModifyIpv6AddressAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6AddressAttributeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.ipv6AddressId)) {
@@ -76338,8 +76434,16 @@ export default class Client extends OpenApi {
   async modifyIpv6GatewayAttributeWithOptions(request: ModifyIpv6GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6GatewayAttributeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.ipv6GatewayId)) {
@@ -76420,6 +76524,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.ipv6AddressId)) {
@@ -77927,6 +78039,14 @@ export default class Client extends OpenApi {
   async modifyVSwitchCidrReservationAttributeWithOptions(request: ModifyVSwitchCidrReservationAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVSwitchCidrReservationAttributeResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
