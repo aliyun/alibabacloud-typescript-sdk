@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/pds20220301",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -21,8 +21,8 @@
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
     "@alicloud/tea-util": "^1.4.8",
-    "@alicloud/gateway-pds": "^0.0.7",
-    "@alicloud/openapi-client": "^0.4.9",
+    "@alicloud/gateway-pds": "^0.0.8",
+    "@alicloud/openapi-client": "^0.4.10",
     "@alicloud/openapi-util": "^0.3.2"
   },
   "files": [

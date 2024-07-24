@@ -538,28 +538,6 @@ export class AppAccessStrategy extends $tea.Model {
   }
 }
 
-export class ArchiveFilesConfig extends $tea.Model {
-  enable?: boolean;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'enable',
-      version: 'version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'boolean',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ArchiveFilesConfigResponse extends $tea.Model {
   enabled?: boolean;
   version?: string;
@@ -574,80 +552,6 @@ export class ArchiveFilesConfigResponse extends $tea.Model {
     return {
       enabled: 'boolean',
       version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AsyncTask extends $tea.Model {
-  asyncTaskId?: string;
-  category?: string;
-  consumedProcess?: number;
-  createdAt?: string;
-  errorCode?: string;
-  errorMessage?: string;
-  finishedAt?: string;
-  startedAt?: string;
-  state?: string;
-  taskType?: string;
-  totalProcess?: number;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      asyncTaskId: 'async_task_id',
-      category: 'category',
-      consumedProcess: 'consumed_process',
-      createdAt: 'created_at',
-      errorCode: 'error_code',
-      errorMessage: 'error_message',
-      finishedAt: 'finished_at',
-      startedAt: 'started_at',
-      state: 'state',
-      taskType: 'task_type',
-      totalProcess: 'total_process',
-      userId: 'user_id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      asyncTaskId: 'string',
-      category: 'string',
-      consumedProcess: 'number',
-      createdAt: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
-      finishedAt: 'string',
-      startedAt: 'string',
-      state: 'string',
-      taskType: 'string',
-      totalProcess: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AudioPreviewPlayInfo extends $tea.Model {
-  meta?: AudioPreviewPlayInfoMeta;
-  offlineAudioList?: AudioPreviewPlayInfoOfflineAudioList[];
-  static names(): { [key: string]: string } {
-    return {
-      meta: 'meta',
-      offlineAudioList: 'offline_audio_list',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      meta: AudioPreviewPlayInfoMeta,
-      offlineAudioList: { 'type': 'array', 'itemType': AudioPreviewPlayInfoOfflineAudioList },
     };
   }
 
@@ -734,34 +638,6 @@ export class AuditLogDetail extends $tea.Model {
       driveLogDetail: DriveLogDetail,
       fileLogDetail: FileLogDetail,
       userLogDetail: UserLogDetail,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AuthenticationInfo extends $tea.Model {
-  authenticationDisplayName?: string;
-  authenticationType?: string;
-  extra?: string;
-  identity?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authenticationDisplayName: 'authentication_display_name',
-      authenticationType: 'authentication_type',
-      extra: 'extra',
-      identity: 'identity',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authenticationDisplayName: 'string',
-      authenticationType: 'string',
-      extra: 'string',
-      identity: 'string',
     };
   }
 
@@ -1030,46 +906,6 @@ export class BaseGroupResponse extends $tea.Model {
   }
 }
 
-export class BasePunishLogResponse extends $tea.Model {
-  errorCode?: string;
-  errorMessage?: string;
-  punishedAt?: string;
-  punishee?: BasePunishLogResponsePunishee;
-  punishmentDetail?: BasePunishLogResponsePunishmentDetail;
-  punishmentId?: string;
-  punishmentOperation?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'error_code',
-      errorMessage: 'error_message',
-      punishedAt: 'punished_at',
-      punishee: 'punishee',
-      punishmentDetail: 'punishment_detail',
-      punishmentId: 'punishment_id',
-      punishmentOperation: 'punishment_operation',
-      status: 'status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMessage: 'string',
-      punishedAt: 'string',
-      punishee: BasePunishLogResponsePunishee,
-      punishmentDetail: BasePunishLogResponsePunishmentDetail,
-      punishmentId: 'string',
-      punishmentOperation: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class BaseRoleMemberResponse extends $tea.Model {
   assignmentList?: BaseAssignmentResponse[];
   createdAt?: string;
@@ -1102,25 +938,6 @@ export class BaseRoleMemberResponse extends $tea.Model {
       identityName: 'string',
       isAdmin: 'boolean',
       subdomainId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BaseUserPunishRuleResponse extends $tea.Model {
-  results?: BaseUserPunishRuleResponseResults[];
-  static names(): { [key: string]: string } {
-    return {
-      results: 'results',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      results: { 'type': 'array', 'itemType': BaseUserPunishRuleResponseResults },
     };
   }
 
@@ -1209,31 +1026,6 @@ export class BaseUserResponse extends $tea.Model {
       userData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       userId: 'string',
       userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BenefitMeta extends $tea.Model {
-  config?: string;
-  enabled?: boolean;
-  quota?: number;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'config',
-      enabled: 'enabled',
-      quota: 'quota',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      enabled: 'boolean',
-      quota: 'number',
     };
   }
 
@@ -1405,53 +1197,6 @@ export class CommonFileItem extends $tea.Model {
       driveId: 'string',
       fileId: 'string',
       revisionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class Condition extends $tea.Model {
-  intEquals?: number[];
-  intNotEquals?: number[];
-  stringEquals?: string[];
-  stringNotEquals?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      intEquals: 'int_equals',
-      intNotEquals: 'int_not_equals',
-      stringEquals: 'string_equals',
-      stringNotEquals: 'string_not_equals',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      intEquals: { 'type': 'array', 'itemType': 'number' },
-      intNotEquals: { 'type': 'array', 'itemType': 'number' },
-      stringEquals: { 'type': 'array', 'itemType': 'string' },
-      stringNotEquals: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CsiCondition extends $tea.Model {
-  fileDataPunish?: Condition;
-  static names(): { [key: string]: string } {
-    return {
-      fileDataPunish: 'file_data_punish',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileDataPunish: Condition,
     };
   }
 
@@ -1822,6 +1567,31 @@ export class CustomSideLinkConfig extends $tea.Model {
       icon: 'string',
       link: 'string',
       text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataBoxPrivileges extends $tea.Model {
+  featureAttrId?: string;
+  featureId?: string;
+  quota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      featureAttrId: 'feature_attr_id',
+      featureId: 'feature_id',
+      quota: 'quota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureAttrId: 'string',
+      featureId: 'string',
+      quota: 'number',
     };
   }
 
@@ -2668,28 +2438,6 @@ export class Identity extends $tea.Model {
   }
 }
 
-export class IdentityBenefitPkg extends $tea.Model {
-  benefitPkgId?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      benefitPkgId: 'benefit_pkg_id',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      benefitPkgId: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class IdentityToBenefitPkgMapping extends $tea.Model {
   benefitPkgComputationRule?: string;
   benefitPkgId?: string;
@@ -2968,6 +2716,28 @@ export class JWTPayload extends $tea.Model {
   }
 }
 
+export class KnowledgeFileItem extends $tea.Model {
+  driveId?: string;
+  fileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      driveId: 'drive_id',
+      fileId: 'file_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      driveId: 'string',
+      fileId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LinkInfo extends $tea.Model {
   extra?: string;
   identity?: string;
@@ -3222,26 +2992,63 @@ export class PermissionCondition extends $tea.Model {
   }
 }
 
-export class PunishRule extends $tea.Model {
-  actionCode?: string;
-  endsAt?: string;
-  impermanent?: boolean;
-  startsAt?: string;
+export class PersonalRightsInfoResponse extends $tea.Model {
+  expiresTime?: string;
+  historyLatestRights?: PersonalRightsInfoResponse;
+  icon?: string;
+  isExpires?: boolean;
+  name?: string;
+  otherRights?: PersonalRightsInfoResponse;
+  privileges?: DataBoxPrivileges;
+  spuId?: string;
+  title?: string;
   static names(): { [key: string]: string } {
     return {
-      actionCode: 'action_code',
-      endsAt: 'ends_at',
-      impermanent: 'impermanent',
-      startsAt: 'starts_at',
+      expiresTime: 'expires_time',
+      historyLatestRights: 'history_latest_rights',
+      icon: 'icon',
+      isExpires: 'is_expires',
+      name: 'name',
+      otherRights: 'other_rights',
+      privileges: 'privileges',
+      spuId: 'spu_id',
+      title: 'title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      actionCode: 'string',
-      endsAt: 'string',
-      impermanent: 'boolean',
-      startsAt: 'string',
+      expiresTime: 'string',
+      historyLatestRights: PersonalRightsInfoResponse,
+      icon: 'string',
+      isExpires: 'boolean',
+      name: 'string',
+      otherRights: PersonalRightsInfoResponse,
+      privileges: DataBoxPrivileges,
+      spuId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PersonalSpaceInfo extends $tea.Model {
+  totalSize?: number;
+  usedSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalSize: 'total_size',
+      usedSize: 'used_size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalSize: 'number',
+      usedSize: 'number',
     };
   }
 
@@ -3662,46 +3469,6 @@ export class SimpleStreamInfo extends $tea.Model {
   }
 }
 
-export class Store extends $tea.Model {
-  basePath?: string;
-  bucket?: string;
-  endpoint?: string;
-  location?: string;
-  ownership?: string;
-  roleArn?: string;
-  storeId?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      basePath: 'base_path',
-      bucket: 'bucket',
-      endpoint: 'endpoint',
-      location: 'location',
-      ownership: 'ownership',
-      roleArn: 'role_arn',
-      storeId: 'store_id',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      basePath: 'string',
-      bucket: 'string',
-      endpoint: 'string',
-      location: 'string',
-      ownership: 'string',
-      roleArn: 'string',
-      storeId: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class Story extends $tea.Model {
   coverFileId?: string;
   coverFileThumbnailUrl?: string;
@@ -3749,37 +3516,6 @@ export class Story extends $tea.Model {
       storySubType: 'string',
       storyType: 'string',
       updatedAt: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StreamUploadInfo extends $tea.Model {
-  location?: string;
-  partInfoList?: UploadPartInfo[];
-  preRapidUpload?: boolean;
-  rapidUpload?: boolean;
-  uploadId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      location: 'location',
-      partInfoList: 'part_info_list',
-      preRapidUpload: 'pre_rapid_upload',
-      rapidUpload: 'rapid_upload',
-      uploadId: 'upload_id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      location: 'string',
-      partInfoList: { 'type': 'array', 'itemType': UploadPartInfo },
-      preRapidUpload: 'boolean',
-      rapidUpload: 'boolean',
-      uploadId: 'string',
     };
   }
 
@@ -3897,87 +3633,6 @@ export class Token extends $tea.Model {
       tokenType: 'string',
       userId: 'string',
       userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UCDataRefFileInfo extends $tea.Model {
-  driveId?: string;
-  fileId?: string;
-  revisionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      driveId: 'drive_id',
-      fileId: 'file_id',
-      revisionId: 'revision_id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      driveId: 'string',
-      fileId: 'string',
-      revisionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UCObjectInfo extends $tea.Model {
-  bucket?: string;
-  md5?: string;
-  objectKey?: string;
-  region?: string;
-  sha1?: string;
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bucket: 'bucket',
-      md5: 'md5',
-      objectKey: 'object_key',
-      region: 'region',
-      sha1: 'sha1',
-      size: 'size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucket: 'string',
-      md5: 'string',
-      objectKey: 'string',
-      region: 'string',
-      sha1: 'string',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UncompressConfig extends $tea.Model {
-  enable?: boolean;
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'enable',
-      version: 'version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'boolean',
-      version: 'string',
     };
   }
 
@@ -4318,19 +3973,19 @@ export class UserLogDetail extends $tea.Model {
 }
 
 export class UserTag extends $tea.Model {
-  value?: string;
   key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       key: 'key',
+      value: 'value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       key: 'string',
+      value: 'string',
     };
   }
 
@@ -4623,34 +4278,6 @@ export class ViewFile extends $tea.Model {
       updatedAt: 'string',
       uploadId: 'string',
       viewId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class WatermarkConfig extends $tea.Model {
-  displayAccessUserName?: boolean;
-  displayShareLinkCreatorName?: boolean;
-  enableDocPreview?: boolean;
-  enableOnPreview?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      displayAccessUserName: 'display_access_user_name',
-      displayShareLinkCreatorName: 'display_shareLink_creator_name',
-      enableDocPreview: 'enable_doc_preview',
-      enableOnPreview: 'enable_on_preview',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      displayAccessUserName: 'boolean',
-      displayShareLinkCreatorName: 'boolean',
-      enableDocPreview: 'boolean',
-      enableOnPreview: 'boolean',
     };
   }
 
@@ -7401,6 +7028,7 @@ export class GetDownloadUrlRequest extends $tea.Model {
   expireSec?: number;
   fileId?: string;
   fileName?: string;
+  responseContentType?: string;
   shareId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7408,6 +7036,7 @@ export class GetDownloadUrlRequest extends $tea.Model {
       expireSec: 'expire_sec',
       fileId: 'file_id',
       fileName: 'file_name',
+      responseContentType: 'response_content_type',
       shareId: 'share_id',
     };
   }
@@ -7418,6 +7047,7 @@ export class GetDownloadUrlRequest extends $tea.Model {
       expireSec: 'number',
       fileId: 'string',
       fileName: 'string',
+      responseContentType: 'string',
       shareId: 'string',
     };
   }
@@ -11034,6 +10664,7 @@ export class SearchFileRequest extends $tea.Model {
   marker?: string;
   orderBy?: string;
   query?: string;
+  recursive?: boolean;
   returnTotalCount?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11043,6 +10674,7 @@ export class SearchFileRequest extends $tea.Model {
       marker: 'marker',
       orderBy: 'order_by',
       query: 'query',
+      recursive: 'recursive',
       returnTotalCount: 'return_total_count',
     };
   }
@@ -11055,6 +10687,7 @@ export class SearchFileRequest extends $tea.Model {
       marker: 'string',
       orderBy: 'string',
       query: 'string',
+      recursive: 'boolean',
       returnTotalCount: 'boolean',
     };
   }
@@ -12332,168 +11965,6 @@ export class UpdateUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: User,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AudioPreviewPlayInfoMeta extends $tea.Model {
-  duration?: number;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'duration',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AudioPreviewPlayInfoOfflineAudioList extends $tea.Model {
-  status?: string;
-  templateId?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'status',
-      templateId: 'template_id',
-      url: 'url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      templateId: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BasePunishLogResponsePunisheeContentHash extends $tea.Model {
-  hashHexStr?: string;
-  hashName?: string;
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      hashHexStr: 'hash_hex_str',
-      hashName: 'hash_name',
-      size: 'size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hashHexStr: 'string',
-      hashName: 'string',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BasePunishLogResponsePunishee extends $tea.Model {
-  contentHash?: BasePunishLogResponsePunisheeContentHash;
-  driveId?: string;
-  faceGroupId?: string;
-  fileId?: string;
-  revisionId?: string;
-  shareId?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      contentHash: 'content_hash',
-      driveId: 'drive_id',
-      faceGroupId: 'face_group_id',
-      fileId: 'file_id',
-      revisionId: 'revision_id',
-      shareId: 'share_id',
-      userId: 'user_id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      contentHash: BasePunishLogResponsePunisheeContentHash,
-      driveId: 'string',
-      faceGroupId: 'string',
-      fileId: 'string',
-      revisionId: 'string',
-      shareId: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BasePunishLogResponsePunishmentDetail extends $tea.Model {
-  actionCode?: string;
-  investigationStatus?: number;
-  method?: string;
-  punishReason?: string;
-  punishments?: PunishRule[];
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actionCode: 'action_code',
-      investigationStatus: 'investigation_status',
-      method: 'method',
-      punishReason: 'punish_reason',
-      punishments: 'punishments',
-      source: 'source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionCode: 'string',
-      investigationStatus: 'number',
-      method: 'string',
-      punishReason: 'string',
-      punishments: { 'type': 'array', 'itemType': PunishRule },
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BaseUserPunishRuleResponseResults extends $tea.Model {
-  success?: boolean;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      success: 'success',
-      userId: 'user_id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      success: 'boolean',
-      userId: 'string',
     };
   }
 
@@ -15915,6 +15386,10 @@ export default class Client extends OpenApi {
       body["file_name"] = request.fileName;
     }
 
+    if (!Util.isUnset(request.responseContentType)) {
+      body["response_content_type"] = request.responseContentType;
+    }
+
     if (!Util.isUnset(request.shareId)) {
       body["share_id"] = request.shareId;
     }
@@ -18889,6 +18364,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.query)) {
       body["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.recursive)) {
+      body["recursive"] = request.recursive;
     }
 
     if (!Util.isUnset(request.returnTotalCount)) {
