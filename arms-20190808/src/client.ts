@@ -1104,6 +1104,25 @@ export class QueryDataResponse extends $tea.Model {
   }
 }
 
+export class DataBonreeSDKConfigModuleConfigValue extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddAliClusterIdsToPrometheusGlobalViewRequest extends $tea.Model {
   clusterIds?: string;
   globalViewClusterId?: string;
@@ -4815,6 +4834,7 @@ export class CreateRumAppRequest extends $tea.Model {
   appGroup?: string;
   appName?: string;
   description?: string;
+  nickName?: string;
   packageName?: string;
   regionId?: string;
   resourceGroupId?: string;
@@ -4826,6 +4846,7 @@ export class CreateRumAppRequest extends $tea.Model {
       appGroup: 'AppGroup',
       appName: 'AppName',
       description: 'Description',
+      nickName: 'NickName',
       packageName: 'PackageName',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
@@ -4840,6 +4861,7 @@ export class CreateRumAppRequest extends $tea.Model {
       appGroup: 'string',
       appName: 'string',
       description: 'string',
+      nickName: 'string',
       packageName: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
@@ -4854,9 +4876,55 @@ export class CreateRumAppRequest extends $tea.Model {
   }
 }
 
+export class CreateRumAppShrinkRequest extends $tea.Model {
+  appGroup?: string;
+  appName?: string;
+  description?: string;
+  nickName?: string;
+  packageName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  siteType?: string;
+  source?: string;
+  tagShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appGroup: 'AppGroup',
+      appName: 'AppName',
+      description: 'Description',
+      nickName: 'NickName',
+      packageName: 'PackageName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      siteType: 'SiteType',
+      source: 'Source',
+      tagShrink: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appGroup: 'string',
+      appName: 'string',
+      description: 'string',
+      nickName: 'string',
+      packageName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      siteType: 'string',
+      source: 'string',
+      tagShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRumAppResponseBody extends $tea.Model {
   code?: number;
-  data?: string;
+  data?: CreateRumAppResponseBodyData;
   httpStatusCode?: number;
   message?: string;
   requestId?: string;
@@ -4877,7 +4945,7 @@ export class CreateRumAppResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'number',
-      data: 'string',
+      data: CreateRumAppResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       requestId: 'string',
@@ -9345,6 +9413,84 @@ export class DescribeWebhookContactsResponse extends $tea.Model {
   }
 }
 
+export class DoInsightsActionRequest extends $tea.Model {
+  data?: string;
+  module?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      module: 'Module',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      module: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DoInsightsActionResponseBody extends $tea.Model {
+  code?: number;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DoInsightsActionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DoInsightsActionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DoInsightsActionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnableMetricRequest extends $tea.Model {
   clusterId?: string;
   dropMetric?: string;
@@ -11491,6 +11637,40 @@ export class GetRumAppsRequest extends $tea.Model {
   }
 }
 
+export class GetRumAppsShrinkRequest extends $tea.Model {
+  appGroup?: string;
+  appId?: string;
+  appName?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appGroup: 'AppGroup',
+      appId: 'AppId',
+      appName: 'AppName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appGroup: 'string',
+      appId: 'string',
+      appName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRumAppsResponseBody extends $tea.Model {
   appList?: GetRumAppsResponseBodyAppList[];
   code?: number;
@@ -11734,6 +11914,139 @@ export class GetRumExceptionStackResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetRumExceptionStackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumOcuStatisticDataRequest extends $tea.Model {
+  endTime?: number;
+  filter?: GetRumOcuStatisticDataRequestFilter[];
+  group?: string[];
+  page?: number;
+  pageSize?: number;
+  queryType?: string;
+  regionId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      filter: 'Filter',
+      group: 'Group',
+      page: 'Page',
+      pageSize: 'PageSize',
+      queryType: 'QueryType',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      filter: { 'type': 'array', 'itemType': GetRumOcuStatisticDataRequestFilter },
+      group: { 'type': 'array', 'itemType': 'string' },
+      page: 'number',
+      pageSize: 'number',
+      queryType: 'string',
+      regionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumOcuStatisticDataShrinkRequest extends $tea.Model {
+  endTime?: number;
+  filterShrink?: string;
+  groupShrink?: string;
+  page?: number;
+  pageSize?: number;
+  queryType?: string;
+  regionId?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      filterShrink: 'Filter',
+      groupShrink: 'Group',
+      page: 'Page',
+      pageSize: 'PageSize',
+      queryType: 'QueryType',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      filterShrink: 'string',
+      groupShrink: 'string',
+      page: 'number',
+      pageSize: 'number',
+      queryType: 'string',
+      regionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumOcuStatisticDataResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetRumOcuStatisticDataResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetRumOcuStatisticDataResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumOcuStatisticDataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRumOcuStatisticDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetRumOcuStatisticDataResponseBody,
     };
   }
 
@@ -21103,6 +21416,7 @@ export class UpdatePrometheusRemoteWriteResponse extends $tea.Model {
 
 export class UpdateRumAppRequest extends $tea.Model {
   autoRestart?: boolean;
+  bonreeSDKConfigJson?: string;
   description?: string;
   isSubscribe?: boolean;
   nickname?: string;
@@ -21114,6 +21428,7 @@ export class UpdateRumAppRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoRestart: 'AutoRestart',
+      bonreeSDKConfigJson: 'BonreeSDKConfigJson',
       description: 'Description',
       isSubscribe: 'IsSubscribe',
       nickname: 'Nickname',
@@ -21128,6 +21443,7 @@ export class UpdateRumAppRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoRestart: 'boolean',
+      bonreeSDKConfigJson: 'string',
       description: 'string',
       isSubscribe: 'boolean',
       nickname: 'string',
@@ -23235,6 +23551,31 @@ export class CreateRumAppRequestTag extends $tea.Model {
   }
 }
 
+export class CreateRumAppResponseBodyData extends $tea.Model {
+  cdnDomain?: string;
+  endpoint?: string;
+  pid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cdnDomain: 'CdnDomain',
+      endpoint: 'Endpoint',
+      pid: 'Pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cdnDomain: 'string',
+      endpoint: 'string',
+      pid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSyntheticTaskRequestCommonParamAlertList extends $tea.Model {
   isCritical?: number;
   name?: string;
@@ -25068,9 +25409,11 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
   prometheusInstanceName?: string;
   regionId?: string;
   resourceGroupId?: string;
+  securityGroupId?: string;
   tags?: DescribeEnvironmentResponseBodyDataTags[];
   userId?: string;
   vpcId?: string;
+  vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
       bindResourceId: 'BindResourceId',
@@ -25096,9 +25439,11 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       prometheusInstanceName: 'PrometheusInstanceName',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
       tags: 'Tags',
       userId: 'UserId',
       vpcId: 'VpcId',
+      vswitchId: 'VswitchId',
     };
   }
 
@@ -25127,9 +25472,11 @@ export class DescribeEnvironmentResponseBodyData extends $tea.Model {
       prometheusInstanceName: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      securityGroupId: 'string',
       tags: { 'type': 'array', 'itemType': DescribeEnvironmentResponseBodyDataTags },
       userId: 'string',
       vpcId: 'string',
+      vswitchId: 'string',
     };
   }
 
@@ -26817,6 +27164,28 @@ export class GetRetcodeLogstoreResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetRumAppInfoResponseBodyDataBonreeSDKConfig extends $tea.Model {
+  enable?: boolean;
+  moduleConfig?: { [key: string]: DataBonreeSDKConfigModuleConfigValue };
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      moduleConfig: 'moduleConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      moduleConfig: { 'type': 'map', 'keyType': 'string', 'valueType': DataBonreeSDKConfigModuleConfigValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRumAppInfoResponseBodyDataServiceDomainConfigs extends $tea.Model {
   description?: string;
   domain?: string;
@@ -26868,7 +27237,10 @@ export class GetRumAppInfoResponseBodyDataTags extends $tea.Model {
 }
 
 export class GetRumAppInfoResponseBodyData extends $tea.Model {
+  appGroup?: string;
   appType?: string;
+  bonreeSDKConfig?: GetRumAppInfoResponseBodyDataBonreeSDKConfig;
+  cdnDomain?: string;
   createTime?: string;
   description?: string;
   endpoint?: string;
@@ -26887,7 +27259,10 @@ export class GetRumAppInfoResponseBodyData extends $tea.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      appGroup: 'AppGroup',
       appType: 'AppType',
+      bonreeSDKConfig: 'BonreeSDKConfig',
+      cdnDomain: 'CdnDomain',
       createTime: 'CreateTime',
       description: 'Description',
       endpoint: 'Endpoint',
@@ -26909,7 +27284,10 @@ export class GetRumAppInfoResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appGroup: 'string',
       appType: 'string',
+      bonreeSDKConfig: GetRumAppInfoResponseBodyDataBonreeSDKConfig,
+      cdnDomain: 'string',
       createTime: 'string',
       description: 'string',
       endpoint: 'string',
@@ -27124,6 +27502,62 @@ export class GetRumExceptionStackResponseBodyData extends $tea.Model {
     return {
       lines: { 'type': 'array', 'itemType': 'string' },
       threadId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumOcuStatisticDataRequestFilter extends $tea.Model {
+  key?: string;
+  opType?: string;
+  value?: any;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      opType: 'OpType',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      opType: 'string',
+      value: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRumOcuStatisticDataResponseBodyData extends $tea.Model {
+  complete?: boolean;
+  items?: { [key: string]: any }[];
+  page?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      complete: 'Complete',
+      items: 'Items',
+      page: 'Page',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      complete: 'boolean',
+      items: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      page: 'number',
+      pageSize: 'number',
+      total: 'number',
     };
   }
 
@@ -35068,7 +35502,7 @@ export default class Client extends OpenApi {
   /**
    * @deprecated OpenAPI AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
    *
-   * @summary 接入integration
+   * @summary Integrates the dashboard and collection rules of Prometheus Service.
    *
    * @param request AddIntegrationRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -35110,7 +35544,7 @@ export default class Client extends OpenApi {
   /**
    * @deprecated OpenAPI AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
    *
-   * @summary 接入integration
+   * @summary Integrates the dashboard and collection rules of Prometheus Service.
    *
    * @param request AddIntegrationRequest
    * @return AddIntegrationResponse
@@ -35338,7 +35772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a remote write configuration item to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   * @summary Adds a remote write configuration item to a Prometheus instance.
    *
    * @param request AddPrometheusRemoteWriteRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -35379,7 +35813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a remote write configuration item to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   * @summary Adds a remote write configuration item to a Prometheus instance.
    *
    * @param request AddPrometheusRemoteWriteRequest
    * @return AddPrometheusRemoteWriteResponse
@@ -35390,7 +35824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates or updates a recording rule.
+   * @summary Creates or updates a recording rule of Managed Service for Prometheus.
    *
    * @param request AddRecordingRuleRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -35429,7 +35863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates or updates a recording rule.
+   * @summary Creates or updates a recording rule of Managed Service for Prometheus.
    *
    * @param request AddRecordingRuleRequest
    * @return AddRecordingRuleResponse
@@ -35440,7 +35874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Flink集群打标
+   * @summary Associates a Prometheus instance with the ID and name of a Flink workspace.
    *
    * @param request AddTagToFlinkClusterRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -35491,7 +35925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Flink集群打标
+   * @summary Associates a Prometheus instance with the ID and name of a Flink workspace.
    *
    * @param request AddTagToFlinkClusterRequest
    * @return AddTagToFlinkClusterResponse
@@ -35694,7 +36128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 屏蔽告警通知
+   * @summary Blocks alert notifications in a time period.
    *
    * @param request BlockAlarmNotificationRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -35737,7 +36171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 屏蔽告警通知
+   * @summary Blocks alert notifications in a time period.
    *
    * @param request BlockAlarmNotificationRequest
    * @return BlockAlarmNotificationResponse
@@ -35748,7 +36182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改告警等级
+   * @summary Modifies the severity level of an alert.
    *
    * @param request ChangeAlarmSeverityRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -35791,7 +36225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改告警等级
+   * @summary Modifies the severity level of an alert.
    *
    * @param request ChangeAlarmSeverityRequest
    * @return ChangeAlarmSeverityResponse
@@ -35802,7 +36236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the resource group to which a resource belongs.
+   * @summary Moves a resource to a specific resource group.
    *
    * @param request ChangeResourceGroupRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -35845,7 +36279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the resource group to which a resource belongs.
+   * @summary Moves a resource to a specific resource group.
    *
    * @param request ChangeResourceGroupRequest
    * @return ChangeResourceGroupResponse
@@ -35944,7 +36378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 认领告警
+   * @summary Claims an alert. This operation can be used together with escalation policies. When multiple handlers are involved in alert management, each handler can call this operation to claim alerts. After an alert is claimed, the alert enters the Being Processed state.
    *
    * @param request ClaimAlarmRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -35983,7 +36417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 认领告警
+   * @summary Claims an alert. This operation can be used together with escalation policies. When multiple handlers are involved in alert management, each handler can call this operation to claim alerts. After an alert is claimed, the alert enters the Being Processed state.
    *
    * @param request ClaimAlarmRequest
    * @return ClaimAlarmResponse
@@ -35994,7 +36428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 关闭告警
+   * @summary Disables an alert. Make sure that the alert is resolved before you disable the alert. If an alert is not resolved, new alerts can be triggered even after the alert is disabled.
    *
    * @param request CloseAlarmRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -36037,7 +36471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 关闭告警
+   * @summary Disables an alert. Make sure that the alert is resolved before you disable the alert. If an alert is not resolved, new alerts can be triggered even after the alert is disabled.
    *
    * @param request CloseAlarmRequest
    * @return CloseAlarmResponse
@@ -36538,7 +36972,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建工作区
+   * @summary Creates a workspace in Managed Service for Grafana.
+   *
+   * @description Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
+   * > 
+   * *   To create workspaces, you must complete real-name verification.
+   * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
+   * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
    *
    * @param tmpReq CreateGrafanaWorkspaceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -36607,7 +37047,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建工作区
+   * @summary Creates a workspace in Managed Service for Grafana.
+   *
+   * @description Before you call the operation, make sure that you have learned about the billing methods and [pricing](https://www.alibabacloud.com/help/zh/grafana/product-overview/billing-4?spm=a2c4g.11186623.0.0.14c2d253B3SDbt) of Managed Service for Grafana.
+   * > 
+   * *   To create workspaces, you must complete real-name verification.
+   * *   Regular users can create workspaces only in Managed Service for Grafana Developer Edition, Pro Edition, and Advanced Edition. `These editions charge fees.`
+   * *   Internal users can create workspaces only in Managed Service for Grafana Beta Edition and Standard Edition. `These editions do not charge fees.`
    *
    * @param request CreateGrafanaWorkspaceRequest
    * @return CreateGrafanaWorkspaceResponse
@@ -36962,7 +37408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates or modifies an EventBridge integration that is used to push notifications.
+   * @summary Creates or modifies an EventBridge integration.
    *
    * @param request CreateOrUpdateEventBridgeIntegrationRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -37025,7 +37471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates or modifies an EventBridge integration that is used to push notifications.
+   * @summary Creates or modifies an EventBridge integration.
    *
    * @param request CreateOrUpdateEventBridgeIntegrationRequest
    * @return CreateOrUpdateEventBridgeIntegrationResponse
@@ -37634,14 +38080,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建前端监控应用
+   * @summary Create a Real User Monitoring (RUM) application.
    *
-   * @param request CreateRumAppRequest
+   * @param tmpReq CreateRumAppRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return CreateRumAppResponse
    */
-  async createRumAppWithOptions(request: CreateRumAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateRumAppResponse> {
-    Util.validateModel(request);
+  async createRumAppWithOptions(tmpReq: CreateRumAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateRumAppResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateRumAppShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appGroup)) {
       query["AppGroup"] = request.appGroup;
@@ -37653,6 +38105,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.nickName)) {
+      query["NickName"] = request.nickName;
     }
 
     if (!Util.isUnset(request.packageName)) {
@@ -37675,8 +38131,8 @@ export default class Client extends OpenApi {
       query["Source"] = request.source;
     }
 
-    if (!Util.isUnset(request.tag)) {
-      query["Tag"] = request.tag;
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -37697,7 +38153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建前端监控应用
+   * @summary Create a Real User Monitoring (RUM) application.
    *
    * @param request CreateRumAppRequest
    * @return CreateRumAppResponse
@@ -37708,7 +38164,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建前端监控上传oss的URL
+   * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
+   *
+   * @description This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/zh/oss/user-guide/upload-a-file-using-a-file-url).
    *
    * @param request CreateRumUploadFileUrlRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -37767,7 +38225,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建前端监控上传oss的URL
+   * @summary Creates a file upload URL to upload SourceMap files, symbol table files, or dSYM files.
+   *
+   * @description This operation returns a file upload URL. You can use the file upload URL to upload files. For more information, see [Use a URL to upload files](https://help.aliyun.com/zh/oss/user-guide/upload-a-file-using-a-file-url).
    *
    * @param request CreateRumUploadFileUrlRequest
    * @return CreateRumUploadFileUrlResponse
@@ -37906,7 +38366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建云拨测定时任务
+   * @summary Creates a scheduled synthetic test task.
    *
    * @param tmpReq CreateTimingSyntheticTaskRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -38007,7 +38467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建云拨测定时任务
+   * @summary Creates a scheduled synthetic test task.
    *
    * @param request CreateTimingSyntheticTaskRequest
    * @return CreateTimingSyntheticTaskResponse
@@ -38596,7 +39056,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete custom jobs for the environment.
+   * @summary Deletes a custom job for an environment.
    *
    * @param request DeleteEnvCustomJobRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -38635,7 +39095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete custom jobs for the environment.
+   * @summary Deletes a custom job for an environment.
    *
    * @param request DeleteEnvCustomJobRequest
    * @return DeleteEnvCustomJobResponse
@@ -38646,7 +39106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete the environment PodMonitor.
+   * @summary Deletes the PodMonitor of an environment.
    *
    * @param request DeleteEnvPodMonitorRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -38689,7 +39149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete the environment PodMonitor.
+   * @summary Deletes the PodMonitor of an environment.
    *
    * @param request DeleteEnvPodMonitorRequest
    * @return DeleteEnvPodMonitorResponse
@@ -38700,7 +39160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete the environment ServiceMonitor.
+   * @summary Deletes the ServiceMonitor of an environment.
    *
    * @param request DeleteEnvServiceMonitorRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -38743,7 +39203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete the environment ServiceMonitor.
+   * @summary Deletes the ServiceMonitor of an environment.
    *
    * @param request DeleteEnvServiceMonitorRequest
    * @return DeleteEnvServiceMonitorResponse
@@ -38854,7 +39314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an EventBridge integration that is used to push notifications.
+   * @summary Deletes an EventBridge integration.
    *
    * @param request DeleteEventBridgeIntegrationRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -38885,7 +39345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an EventBridge integration that is used to push notifications.
+   * @summary Deletes an EventBridge integration.
    *
    * @param request DeleteEventBridgeIntegrationRequest
    * @return DeleteEventBridgeIntegrationResponse
@@ -38950,6 +39410,8 @@ export default class Client extends OpenApi {
   /**
    * @summary 释放工作区
    *
+   * @description >  You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
+   *
    * @param request DeleteGrafanaWorkspaceRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DeleteGrafanaWorkspaceResponse
@@ -38984,6 +39446,8 @@ export default class Client extends OpenApi {
 
   /**
    * @summary 释放工作区
+   *
+   * @description >  You can delete workspaces only in Managed Service for Prometheus Beta Edition, which is `free of charge`.
    *
    * @param request DeleteGrafanaWorkspaceRequest
    * @return DeleteGrafanaWorkspaceResponse
@@ -39130,9 +39594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Indicates whether the notification policy was deleted successfully. Valid values:
-   * *   `true`: The notification policy was deleted successfully.
-   * *   `false`: The notification policy failed to be deleted.
+   * @summary Deletes a notification policy based on its ID.
    *
    * @param request DeleteNotificationPolicyRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -39163,9 +39625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Indicates whether the notification policy was deleted successfully. Valid values:
-   * *   `true`: The notification policy was deleted successfully.
-   * *   `false`: The notification policy failed to be deleted.
+   * @summary Deletes a notification policy based on its ID.
    *
    * @param request DeleteNotificationPolicyRequest
    * @return DeleteNotificationPolicyResponse
@@ -39376,7 +39836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more remote write configuration items from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   * @summary Deletes remote write configuration items from a Prometheus instance.
    *
    * @param request DeletePrometheusRemoteWriteRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -39415,7 +39875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes one or more remote write configuration items from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   * @summary Deletes remote write configuration items from a Prometheus instance.
    *
    * @param request DeletePrometheusRemoteWriteRequest
    * @return DeletePrometheusRemoteWriteResponse
@@ -39530,7 +39990,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除前端监控在oss中的文件
+   * @summary Deletes a file such as a symbol table or SourceMap.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request DeleteRumUploadFileRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -39577,7 +40039,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除前端监控在oss中的文件
+   * @summary Deletes a file such as a symbol table or SourceMap.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request DeleteRumUploadFileRequest
    * @return DeleteRumUploadFileResponse
@@ -39672,7 +40136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除SourceMap
+   * @summary Delete s SourceMap file that was uploaded to Browser Monitoring.
    *
    * @param tmpReq DeleteSourceMapRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -39717,7 +40181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除SourceMap
+   * @summary Delete s SourceMap file that was uploaded to Browser Monitoring.
    *
    * @param request DeleteSourceMapRequest
    * @return DeleteSourceMapResponse
@@ -40420,7 +40884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of IM chatbots.
+   * @summary Queries instant messaging (IM) chatbots.
    *
    * @param request DescribeIMRobotsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -40463,7 +40927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of IM chatbots.
+   * @summary Queries instant messaging (IM) chatbots.
    *
    * @param request DescribeIMRobotsRequest
    * @return DescribeIMRobotsResponse
@@ -40520,6 +40984,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the license key.
+   *
    * @param request DescribeTraceLicenseKeyRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return DescribeTraceLicenseKeyResponse
@@ -40549,6 +41015,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the license key.
+   *
    * @param request DescribeTraceLicenseKeyRequest
    * @return DescribeTraceLicenseKeyResponse
    */
@@ -40596,7 +41064,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启指标
+   * @summary 执行Insights相关的操作
+   *
+   * @param request DoInsightsActionRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DoInsightsActionResponse
+   */
+  async doInsightsActionWithOptions(request: DoInsightsActionRequest, runtime: $Util.RuntimeOptions): Promise<DoInsightsActionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.module)) {
+      body["Module"] = request.module;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DoInsightsAction",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DoInsightsActionResponse>(await this.callApi(params, req, runtime), new DoInsightsActionResponse({}));
+  }
+
+  /**
+   * @summary 执行Insights相关的操作
+   *
+   * @param request DoInsightsActionRequest
+   * @return DoInsightsActionResponse
+   */
+  async doInsightsAction(request: DoInsightsActionRequest): Promise<DoInsightsActionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.doInsightsActionWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Enables a discarded metric.
    *
    * @param request EnableMetricRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -40635,7 +41149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 开启指标
+   * @summary Enables a discarded metric.
    *
    * @param request EnableMetricRequest
    * @return EnableMetricResponse
@@ -40828,7 +41342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用各个实例的JVM配置信息
+   * @summary Obtain the JVM configuration information of each instance of the application
    *
    * @param request GetAppJVMConfigRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -40855,7 +41369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用各个实例的JVM配置信息
+   * @summary Obtain the JVM configuration information of each instance of the application
    *
    * @param request GetAppJVMConfigRequest
    * @return GetAppJVMConfigResponse
@@ -40866,7 +41380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the authentication token for remote read and write over the Internet.
+   * @summary Obtains an authentication token. When you connect a Container Service for Kubernetes (ACK) cluster to Prometheus Service over the Internet, you must use a token for authentication.
    *
    * @param request GetAuthTokenRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -40901,7 +41415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the authentication token for remote read and write over the Internet.
+   * @summary Obtains an authentication token. When you connect a Container Service for Kubernetes (ACK) cluster to Prometheus Service over the Internet, you must use a token for authentication.
    *
    * @param request GetAuthTokenRequest
    * @return GetAuthTokenResponse
@@ -41010,7 +41524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取商业化状态
+   * @summary Queries whether the current account has activated the commercial edition of a service.
    *
    * @param request GetCommercialStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -41045,7 +41559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取商业化状态
+   * @summary Queries whether the current account has activated the commercial edition of a service.
    *
    * @param request GetCommercialStatusRequest
    * @return GetCommercialStatusResponse
@@ -41110,7 +41624,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定工作区
+   * @summary Queries the information about a Grafana workspace.
+   *
+   * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
    *
    * @param request GetGrafanaWorkspaceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -41149,7 +41665,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取指定工作区
+   * @summary Queries the information about a Grafana workspace.
+   *
+   * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
    *
    * @param request GetGrafanaWorkspaceRequest
    * @return GetGrafanaWorkspaceResponse
@@ -41162,7 +41680,7 @@ export default class Client extends OpenApi {
   /**
    * @deprecated OpenAPI GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
    *
-   * @summary 获取Prometheus中是否已接入某种Integration类型
+   * @summary Queries the integration state of the dashboards and collection rules of Application Real-Time Monitoring Service (ARMS) Prometheus.
    *
    * @param request GetIntegrationStateRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -41204,7 +41722,7 @@ export default class Client extends OpenApi {
   /**
    * @deprecated OpenAPI GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
    *
-   * @summary 获取Prometheus中是否已接入某种Integration类型
+   * @summary Queries the integration state of the dashboards and collection rules of Application Real-Time Monitoring Service (ARMS) Prometheus.
    *
    * @param request GetIntegrationStateRequest
    * @return GetIntegrationStateResponse
@@ -41216,7 +41734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a Prometheus instance of a serverless Kubernetes (ASK) cluster or Elastic Compute Service (ECS) instance.
+   * @summary Queries the installation status of a Prometheus agent in a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) cluster.
    *
    * @param request GetManagedPrometheusStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -41263,7 +41781,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a Prometheus instance of a serverless Kubernetes (ASK) cluster or Elastic Compute Service (ECS) instance.
+   * @summary Queries the installation status of a Prometheus agent in a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) cluster.
    *
    * @param request GetManagedPrometheusStatusRequest
    * @return GetManagedPrometheusStatusResponse
@@ -41746,7 +42264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 传入SLS查询语句，查询出前端监控数据
+   * @summary Queries the Browser Monitoring data based on a query statement of Log Service.
    *
    * @param request GetRetcodeDataByQueryRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -41793,7 +42311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 传入SLS查询语句，查询出前端监控数据
+   * @summary Queries the Browser Monitoring data based on a query statement of Log Service.
    *
    * @param request GetRetcodeDataByQueryRequest
    * @return GetRetcodeDataByQueryResponse
@@ -41892,7 +42410,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取前端监控单个应用信息
+   * @summary Queries the information about a Real User Monitoring (RUM) application.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request GetRumAppInfoRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -41931,7 +42451,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取前端监控单个应用信息
+   * @summary Queries the information about a Real User Monitoring (RUM) application.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request GetRumAppInfoRequest
    * @return GetRumAppInfoResponse
@@ -41942,14 +42464,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取前端监控应用列表信息
+   * @summary Queries a list of Real User Monitoring (RUM) applications.
    *
-   * @param request GetRumAppsRequest
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
+   *
+   * @param tmpReq GetRumAppsRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return GetRumAppsResponse
    */
-  async getRumAppsWithOptions(request: GetRumAppsRequest, runtime: $Util.RuntimeOptions): Promise<GetRumAppsResponse> {
-    Util.validateModel(request);
+  async getRumAppsWithOptions(tmpReq: GetRumAppsRequest, runtime: $Util.RuntimeOptions): Promise<GetRumAppsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetRumAppsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appGroup)) {
       query["AppGroup"] = request.appGroup;
@@ -41971,8 +42501,8 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.tags)) {
-      query["Tags"] = request.tags;
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["Tags"] = request.tagsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -41993,7 +42523,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取前端监控应用列表信息
+   * @summary Queries a list of Real User Monitoring (RUM) applications.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request GetRumAppsRequest
    * @return GetRumAppsResponse
@@ -42136,7 +42668,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取前端监控在oss中文件
+   * @summary 获取RUM OCU统计数据
+   *
+   * @param tmpReq GetRumOcuStatisticDataRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetRumOcuStatisticDataResponse
+   */
+  async getRumOcuStatisticDataWithOptions(tmpReq: GetRumOcuStatisticDataRequest, runtime: $Util.RuntimeOptions): Promise<GetRumOcuStatisticDataResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetRumOcuStatisticDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.group)) {
+      request.groupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.group, "Group", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRumOcuStatisticData",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRumOcuStatisticDataResponse>(await this.callApi(params, req, runtime), new GetRumOcuStatisticDataResponse({}));
+  }
+
+  /**
+   * @summary 获取RUM OCU统计数据
+   *
+   * @param request GetRumOcuStatisticDataRequest
+   * @return GetRumOcuStatisticDataResponse
+   */
+  async getRumOcuStatisticData(request: GetRumOcuStatisticDataRequest): Promise<GetRumOcuStatisticDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRumOcuStatisticDataWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request GetRumUploadFilesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -42175,7 +42757,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取前端监控在oss中文件
+   * @summary Queries Real User Monitoring (RUM)-related files, such as symbol tables and SourceMap.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request GetRumUploadFilesRequest
    * @return GetRumUploadFilesResponse
@@ -42186,7 +42770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取前端监控上传SourceMap的具体信息
+   * @summary Obtains the details of the SourceMap file uploaded in Browser Monitoring.
    *
    * @param request GetSourceMapInfoRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -42237,7 +42821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取前端监控上传SourceMap的具体信息
+   * @summary Obtains the details of the SourceMap file uploaded in Browser Monitoring.
    *
    * @param request GetSourceMapInfoRequest
    * @return GetSourceMapInfoResponse
@@ -42662,7 +43246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取应用监控自定义配置
+   * @summary Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches.
    *
    * @param request GetTraceAppConfigRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -42693,7 +43277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取应用监控自定义配置
+   * @summary Queries all custom settings of an application monitored by Application Monitoring, such as trace sampling settings and agent switches.
    *
    * @param request GetTraceAppConfigRequest
    * @return GetTraceAppConfigResponse
@@ -43032,9 +43616,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a Prometheus instance to monitor a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+   * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
    *
-   * @description If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
+   * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
    *
    * @param request InstallManagedPrometheusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -43101,9 +43685,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a Prometheus instance to monitor a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+   * @summary Installs a Prometheus agent for serverless Kubernetes (ASK) clusters or Elastic Compute Service (ECS) clusters.
    *
-   * @description If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
+   * @description You can call this operation only if the following conditions are met: The resources that you want to monitor are ASK clusters or ECS clusters. No Prometheus agents are installed in the ASK or ECS clusters. Take note that Prometheus agents can be installed only on the cloud service side, not in user clusters.
    *
    * @param request InstallManagedPrometheusRequest
    * @return InstallManagedPrometheusResponse
@@ -43168,7 +43752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query the Addons installed in the environment.
+   * @summary Queries the add-ons installed in an environment.
    *
    * @param request ListAddonReleasesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -43207,7 +43791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query the Addons installed in the environment.
+   * @summary Queries the add-ons installed in an environment.
    *
    * @param request ListAddonReleasesRequest
    * @return ListAddonReleasesResponse
@@ -43920,7 +44504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 环境的feature列表
+   * @summary Queries the features in an environment.
    *
    * @param request ListEnvironmentFeaturesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -43959,7 +44543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 环境的feature列表
+   * @summary Queries the features in an environment.
    *
    * @param request ListEnvironmentFeaturesRequest
    * @return ListEnvironmentFeaturesResponse
@@ -44080,7 +44664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries EventBridge integrations that are used to push notifications.
+   * @summary Queries an EventBridge integration.
    *
    * @param request ListEventBridgeIntegrationsRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -44107,7 +44691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries EventBridge integrations that are used to push notifications.
+   * @summary Queries an EventBridge integration.
    *
    * @param request ListEventBridgeIntegrationsRequest
    * @return ListEventBridgeIntegrationsResponse
@@ -44236,7 +44820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListIntegration
+   * @summary Queries alert integrations.
    *
    * @param request ListIntegrationRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -44263,7 +44847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListIntegration
+   * @summary Queries alert integrations.
    *
    * @param request ListIntegrationRequest
    * @return ListIntegrationResponse
@@ -44274,7 +44858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries notification policies based on specified conditions.
+   * @summary Queries notification policies based on specific conditions.
    *
    * @param request ListNotificationPoliciesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -44329,7 +44913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries notification policies based on specified conditions.
+   * @summary Queries notification policies based on specific conditions.
    *
    * @param request ListNotificationPoliciesRequest
    * @return ListNotificationPoliciesResponse
@@ -44582,7 +45166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all Prometheus instances in a region.
+   * @summary Obtains all Prometheus instances in a region.
    *
    * @param request ListPrometheusInstancesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -44621,7 +45205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all Prometheus instances in a region.
+   * @summary Obtains all Prometheus instances in a region.
    *
    * @param request ListPrometheusInstancesRequest
    * @return ListPrometheusInstancesResponse
@@ -44732,7 +45316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the remote write configuration items of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   * @summary Queries the remote write configuration items of a Prometheus instance.
    *
    * @param request ListPrometheusRemoteWritesRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -44767,7 +45351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the remote write configuration items of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+   * @summary Queries the remote write configuration items of a Prometheus instance.
    *
    * @param request ListPrometheusRemoteWritesRequest
    * @return ListPrometheusRemoteWritesResponse
@@ -45102,7 +45686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the recording rule of a Prometheus instance.
+   * @summary Obtains the recording rule of a cluster monitored by Prometheus Service.
    *
    * @param request ManageGetRecordingRuleRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -45141,7 +45725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the recording rule of a Prometheus instance.
+   * @summary Obtains the recording rule of a cluster monitored by Prometheus Service.
    *
    * @param request ManageGetRecordingRuleRequest
    * @return ManageGetRecordingRuleResponse
@@ -45152,7 +45736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the recording rule of a Prometheus instance.
+   * @summary Edits the recording rule of a cluster monitored by Prometheus Service.
    *
    * @param request ManageRecordingRuleRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -45195,7 +45779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the recording rule of a Prometheus instance.
+   * @summary Edits the recording rule of a cluster monitored by Prometheus Service.
    *
    * @param request ManageRecordingRuleRequest
    * @return ManageRecordingRuleResponse
@@ -45206,7 +45790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Assigns the service-linked role AliyunServiceRoleForARMS to Application Real-Time Monitoring Service (ARMS).
+   * @summary Activates the service-linked role AliyunServiceRoleForARMS for Application Real-Time Monitoring Service (ARMS).
    *
    * @param request OpenArmsDefaultSLRRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -45237,7 +45821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Assigns the service-linked role AliyunServiceRoleForARMS to Application Real-Time Monitoring Service (ARMS).
+   * @summary Activates the service-linked role AliyunServiceRoleForARMS for Application Real-Time Monitoring Service (ARMS).
    *
    * @param request OpenArmsDefaultSLRRequest
    * @return OpenArmsDefaultSLRResponse
@@ -45528,6 +46112,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the amount of data written to Application Monitoring, Managed Service for OpenTelemetry, Managed Service for Prometheus, and Real User Monitoring (RUM).
+   *
    * @param request QueryCommercialUsageRequest
    * @param runtime runtime options for this request RuntimeOptions
    * @return QueryCommercialUsageResponse
@@ -45593,6 +46179,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary Queries the amount of data written to Application Monitoring, Managed Service for OpenTelemetry, Managed Service for Prometheus, and Real User Monitoring (RUM).
+   *
    * @param request QueryCommercialUsageRequest
    * @return QueryCommercialUsageResponse
    */
@@ -46498,7 +47086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries Application Monitoring tasks by page.
+   * @summary Queries application monitoring tasks by page.
    *
    * @param request SearchTraceAppByPageRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -46549,7 +47137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries Application Monitoring tasks by page.
+   * @summary Queries application monitoring tasks by page.
    *
    * @param request SearchTraceAppByPageRequest
    * @return SearchTraceAppByPageResponse
@@ -47830,7 +48418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑工作区
+   * @summary Updates the information about a Grafana workspace.
    *
    * @param request UpdateGrafanaWorkspaceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -47877,7 +48465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑工作区
+   * @summary Updates the information about a Grafana workspace.
    *
    * @param request UpdateGrafanaWorkspaceRequest
    * @return UpdateGrafanaWorkspaceResponse
@@ -47888,7 +48476,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 升级指定工作区版本
+   * @summary Updates the version of a Grafana workspace.
+   *
+   * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
    *
    * @param request UpdateGrafanaWorkspaceVersionRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -47931,7 +48521,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 升级指定工作区版本
+   * @summary Updates the version of a Grafana workspace.
+   *
+   * @description Note: The list returned by this operation includes the workspaces of Developer Edition, Expert Edition, and Advanced Edition. The list does not include the workspaces of Shared Edition.
    *
    * @param request UpdateGrafanaWorkspaceVersionRequest
    * @return UpdateGrafanaWorkspaceVersionResponse
@@ -48036,7 +48628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新删除的metric
+   * @summary Updates the list of discarded metrics.
    *
    * @param request UpdateMetricDropRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -48075,7 +48667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新删除的metric
+   * @summary Updates the list of discarded metrics.
    *
    * @param request UpdateMetricDropRequest
    * @return UpdateMetricDropResponse
@@ -48242,7 +48834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update Prometheus instance config.
+   * @summary Updates the information about a Prometheus instance.
    *
    * @param request UpdatePrometheusInstanceRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -48289,7 +48881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update Prometheus instance config.
+   * @summary Updates the information about a Prometheus instance.
    *
    * @param request UpdatePrometheusInstanceRequest
    * @return UpdatePrometheusInstanceResponse
@@ -48532,7 +49124,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新前端监控应用信息
+   * @summary Updates a Real User Monitoring (RUM) application.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request UpdateRumAppRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -48543,6 +49137,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.autoRestart)) {
       query["AutoRestart"] = request.autoRestart;
+    }
+
+    if (!Util.isUnset(request.bonreeSDKConfigJson)) {
+      query["BonreeSDKConfigJson"] = request.bonreeSDKConfigJson;
     }
 
     if (!Util.isUnset(request.description)) {
@@ -48595,7 +49193,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新前端监控应用信息
+   * @summary Updates a Real User Monitoring (RUM) application.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request UpdateRumAppRequest
    * @return UpdateRumAppResponse
@@ -48606,7 +49206,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新Sourcemap文件状态
+   * @summary Updates the status of a Real User Monitoring (RUM) file. You can call this operation after the RUM file is uploaded.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request UpdateRumFileStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -48661,7 +49263,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新Sourcemap文件状态
+   * @summary Updates the status of a Real User Monitoring (RUM) file. You can call this operation after the RUM file is uploaded.
+   *
+   * @description Real User Monitoring (RUM) is available only in the China (Hangzhou), Singapore, and US (Silicon Valley) regions. Select the correct endpoint.
    *
    * @param request UpdateRumFileStatusRequest
    * @return UpdateRumFileStatusResponse
@@ -48858,7 +49462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update the AddonRelease information.
+   * @summary Updates the release information of an add-on.
    *
    * @param request UpgradeAddonReleaseRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -48909,7 +49513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update the AddonRelease information.
+   * @summary Updates the release information of an add-on.
    *
    * @param request UpgradeAddonReleaseRequest
    * @return UpgradeAddonReleaseResponse
