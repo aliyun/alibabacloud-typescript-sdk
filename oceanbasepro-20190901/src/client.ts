@@ -6206,6 +6206,90 @@ export class DescribeSQLSamplesResponse extends $tea.Model {
   }
 }
 
+export class DescribeSQLTuningAdvicesRequest extends $tea.Model {
+  acceptLanguage?: string;
+  dbName?: string;
+  endTime?: string;
+  instanceId?: string;
+  sqlId?: string;
+  startTime?: string;
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      dbName: 'DbName',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      sqlId: 'SqlId',
+      startTime: 'StartTime',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      dbName: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      sqlId: 'string',
+      startTime: 'string',
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQLTuningAdvicesResponseBody extends $tea.Model {
+  data?: DescribeSQLTuningAdvicesResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSQLTuningAdvicesResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQLTuningAdvicesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSQLTuningAdvicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSQLTuningAdvicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSampleSqlRawTextsRequest extends $tea.Model {
   dbName?: string;
   endTime?: string;
@@ -20689,6 +20773,183 @@ export class DescribeSQLSamplesResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeSQLTuningAdvicesResponseBodyDataColumns extends $tea.Model {
+  columnName?: string;
+  maxValue?: string;
+  minValue?: string;
+  ndv?: number;
+  static names(): { [key: string]: string } {
+    return {
+      columnName: 'ColumnName',
+      maxValue: 'MaxValue',
+      minValue: 'MinValue',
+      ndv: 'Ndv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnName: 'string',
+      maxValue: 'string',
+      minValue: 'string',
+      ndv: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQLTuningAdvicesResponseBodyDataPlan extends $tea.Model {
+  avgApplicationWaitTime?: number;
+  avgBufferGets?: number;
+  avgConcurrencyWaitTime?: number;
+  avgCpuTime?: number;
+  avgDiskReads?: number;
+  avgDiskWrites?: number;
+  avgElapsedTime?: number;
+  avgRowProcessed?: number;
+  avgUserIoWaitTime?: number;
+  collectTimeUs?: number;
+  delayedLargeQueryPercentage?: number;
+  execPs?: number;
+  executions?: number;
+  firstLoadTime?: string;
+  firstLoadTimeUs?: number;
+  hitDiagnosis?: boolean;
+  hitPercentage?: number;
+  largeQueryPercentage?: number;
+  mergedVersion?: number;
+  obDbId?: number;
+  obServerId?: number;
+  outlineData?: string;
+  outlineId?: number;
+  planHash?: string;
+  planId?: number;
+  planSize?: number;
+  planType?: string;
+  schemaVersion?: number;
+  serverSn?: string;
+  tableScan?: boolean;
+  timeoutPercentage?: number;
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avgApplicationWaitTime: 'AvgApplicationWaitTime',
+      avgBufferGets: 'AvgBufferGets',
+      avgConcurrencyWaitTime: 'AvgConcurrencyWaitTime',
+      avgCpuTime: 'AvgCpuTime',
+      avgDiskReads: 'AvgDiskReads',
+      avgDiskWrites: 'AvgDiskWrites',
+      avgElapsedTime: 'AvgElapsedTime',
+      avgRowProcessed: 'AvgRowProcessed',
+      avgUserIoWaitTime: 'AvgUserIoWaitTime',
+      collectTimeUs: 'CollectTimeUs',
+      delayedLargeQueryPercentage: 'DelayedLargeQueryPercentage',
+      execPs: 'ExecPs',
+      executions: 'Executions',
+      firstLoadTime: 'FirstLoadTime',
+      firstLoadTimeUs: 'FirstLoadTimeUs',
+      hitDiagnosis: 'HitDiagnosis',
+      hitPercentage: 'HitPercentage',
+      largeQueryPercentage: 'LargeQueryPercentage',
+      mergedVersion: 'MergedVersion',
+      obDbId: 'ObDbId',
+      obServerId: 'ObServerId',
+      outlineData: 'OutlineData',
+      outlineId: 'OutlineId',
+      planHash: 'PlanHash',
+      planId: 'PlanId',
+      planSize: 'PlanSize',
+      planType: 'PlanType',
+      schemaVersion: 'SchemaVersion',
+      serverSn: 'ServerSn',
+      tableScan: 'TableScan',
+      timeoutPercentage: 'TimeoutPercentage',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avgApplicationWaitTime: 'number',
+      avgBufferGets: 'number',
+      avgConcurrencyWaitTime: 'number',
+      avgCpuTime: 'number',
+      avgDiskReads: 'number',
+      avgDiskWrites: 'number',
+      avgElapsedTime: 'number',
+      avgRowProcessed: 'number',
+      avgUserIoWaitTime: 'number',
+      collectTimeUs: 'number',
+      delayedLargeQueryPercentage: 'number',
+      execPs: 'number',
+      executions: 'number',
+      firstLoadTime: 'string',
+      firstLoadTimeUs: 'number',
+      hitDiagnosis: 'boolean',
+      hitPercentage: 'number',
+      largeQueryPercentage: 'number',
+      mergedVersion: 'number',
+      obDbId: 'number',
+      obServerId: 'number',
+      outlineData: 'string',
+      outlineId: 'number',
+      planHash: 'string',
+      planId: 'number',
+      planSize: 'number',
+      planType: 'string',
+      schemaVersion: 'number',
+      serverSn: 'string',
+      tableScan: 'boolean',
+      timeoutPercentage: 'number',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSQLTuningAdvicesResponseBodyData extends $tea.Model {
+  columnNames?: string;
+  columns?: DescribeSQLTuningAdvicesResponseBodyDataColumns[];
+  dbName?: string;
+  localityType?: string;
+  plan?: DescribeSQLTuningAdvicesResponseBodyDataPlan;
+  table?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      columnNames: 'ColumnNames',
+      columns: 'Columns',
+      dbName: 'DbName',
+      localityType: 'LocalityType',
+      plan: 'Plan',
+      table: 'Table',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columnNames: 'string',
+      columns: { 'type': 'array', 'itemType': DescribeSQLTuningAdvicesResponseBodyDataColumns },
+      dbName: 'string',
+      localityType: 'string',
+      plan: DescribeSQLTuningAdvicesResponseBodyDataPlan,
+      table: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSampleSqlRawTextsResponseBodyData extends $tea.Model {
   sqlText?: string[];
   static names(): { [key: string]: string } {
@@ -25754,7 +26015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 异步关闭集群租户的会话信息；关闭oceanbase云服务和业务之间的会话信息
+   * @summary You can call this operation to close sessions between the ApsaraDB for OceanBase and the application in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeSessionList.
    *
    * @param request BatchKillSessionListRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -25793,7 +26054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 异步关闭集群租户的会话信息；关闭oceanbase云服务和业务之间的会话信息
+   * @summary You can call this operation to close sessions between the ApsaraDB for OceanBase and the application in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeSessionList.
    *
    * @param request BatchKillSessionListRequest
    * @return BatchKillSessionListResponse
@@ -29928,6 +30189,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 获取单个 SQL 的调优建议，包括计划推荐和索引推荐
+   *
+   * @param request DescribeSQLTuningAdvicesRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DescribeSQLTuningAdvicesResponse
+   */
+  async describeSQLTuningAdvicesWithOptions(request: DescribeSQLTuningAdvicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLTuningAdvicesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      body["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      body["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.sqlId)) {
+      body["SqlId"] = request.sqlId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSQLTuningAdvices",
+      version: "2019-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSQLTuningAdvicesResponse>(await this.callApi(params, req, runtime), new DescribeSQLTuningAdvicesResponse({}));
+  }
+
+  /**
+   * @summary 获取单个 SQL 的调优建议，包括计划推荐和索引推荐
+   *
+   * @param request DescribeSQLTuningAdvicesRequest
+   * @return DescribeSQLTuningAdvicesResponse
+   */
+  async describeSQLTuningAdvices(request: DescribeSQLTuningAdvicesRequest): Promise<DescribeSQLTuningAdvicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSQLTuningAdvicesWithOptions(request, runtime);
+  }
+
+  /**
    * @summary 查询采样SQL的原始文本
    *
    * @param request DescribeSampleSqlRawTextsRequest
@@ -30040,7 +30367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询集群租户的会话信息；展示oceanbase云服务和业务之间的会话信息
+   * @summary You can call this operation to query sessions between the ApsaraDB for OceanBase and the application.
    *
    * @param request DescribeSessionListRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -30075,7 +30402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询集群租户的会话信息；展示oceanbase云服务和业务之间的会话信息
+   * @summary You can call this operation to query sessions between the ApsaraDB for OceanBase and the application.
    *
    * @param request DescribeSessionListRequest
    * @return DescribeSessionListResponse
