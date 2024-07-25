@@ -2397,6 +2397,96 @@ export class GetCommerceSettingResponse extends $tea.Model {
   }
 }
 
+export class GetConversationalAutomationRequest extends $tea.Model {
+  custSpaceId?: string;
+  ownerId?: number;
+  phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      ownerId: 'number',
+      phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversationalAutomationResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: GetConversationalAutomationResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: GetConversationalAutomationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversationalAutomationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConversationalAutomationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConversationalAutomationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFlowRequest extends $tea.Model {
   custSpaceId?: string;
   flowId?: string;
@@ -3113,6 +3203,108 @@ export class GetWhatsappConnectionCatalogResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetWhatsappConnectionCatalogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappHealthStatusRequest extends $tea.Model {
+  custSpaceId?: string;
+  language?: string;
+  nodeType?: string;
+  ownerId?: number;
+  phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  templateCode?: string;
+  wabaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      custSpaceId: 'CustSpaceId',
+      language: 'Language',
+      nodeType: 'NodeType',
+      ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      templateCode: 'TemplateCode',
+      wabaId: 'WabaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      custSpaceId: 'string',
+      language: 'string',
+      nodeType: 'string',
+      ownerId: 'number',
+      phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      templateCode: 'string',
+      wabaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappHealthStatusResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: GetWhatsappHealthStatusResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: GetWhatsappHealthStatusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappHealthStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWhatsappHealthStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWhatsappHealthStatusResponseBody,
     };
   }
 
@@ -5273,6 +5465,142 @@ export class UpdateCommerceSettingResponse extends $tea.Model {
   }
 }
 
+export class UpdateConversationalAutomationRequest extends $tea.Model {
+  commands?: UpdateConversationalAutomationRequestCommands[];
+  custSpaceId?: string;
+  enableWelcomeMessage?: boolean;
+  ownerId?: number;
+  phoneNumber?: string;
+  prompts?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commands: 'Commands',
+      custSpaceId: 'CustSpaceId',
+      enableWelcomeMessage: 'EnableWelcomeMessage',
+      ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
+      prompts: 'Prompts',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commands: { 'type': 'array', 'itemType': UpdateConversationalAutomationRequestCommands },
+      custSpaceId: 'string',
+      enableWelcomeMessage: 'boolean',
+      ownerId: 'number',
+      phoneNumber: 'string',
+      prompts: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConversationalAutomationShrinkRequest extends $tea.Model {
+  commandsShrink?: string;
+  custSpaceId?: string;
+  enableWelcomeMessage?: boolean;
+  ownerId?: number;
+  phoneNumber?: string;
+  promptsShrink?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commandsShrink: 'Commands',
+      custSpaceId: 'CustSpaceId',
+      enableWelcomeMessage: 'EnableWelcomeMessage',
+      ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
+      promptsShrink: 'Prompts',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandsShrink: 'string',
+      custSpaceId: 'string',
+      enableWelcomeMessage: 'boolean',
+      ownerId: 'number',
+      phoneNumber: 'string',
+      promptsShrink: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConversationalAutomationResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConversationalAutomationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateConversationalAutomationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateConversationalAutomationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFlowJSONAssetRequest extends $tea.Model {
   custSpaceId?: string;
   filePath?: string;
@@ -6800,6 +7128,56 @@ export class GetCommerceSettingResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetConversationalAutomationResponseBodyDataCommands extends $tea.Model {
+  commandDescription?: string;
+  commandName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandDescription: 'CommandDescription',
+      commandName: 'CommandName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandDescription: 'string',
+      commandName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConversationalAutomationResponseBodyData extends $tea.Model {
+  commands?: GetConversationalAutomationResponseBodyDataCommands[];
+  enableWelcomeMessage?: boolean;
+  phoneNumber?: string;
+  prompts?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      commands: 'Commands',
+      enableWelcomeMessage: 'EnableWelcomeMessage',
+      phoneNumber: 'PhoneNumber',
+      prompts: 'Prompts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commands: { 'type': 'array', 'itemType': GetConversationalAutomationResponseBodyDataCommands },
+      enableWelcomeMessage: 'boolean',
+      phoneNumber: 'string',
+      prompts: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFlowResponseBodyData extends $tea.Model {
   categories?: string[];
   dataApiVersion?: string;
@@ -6973,6 +7351,93 @@ export class GetPreValidatePhoneIdResponseBodyData extends $tea.Model {
     return {
       phoneNumber: 'string',
       phoneNumberId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappHealthStatusResponseBodyDataEntitiesErrors extends $tea.Model {
+  errorCode?: string;
+  errorDescription?: string;
+  possibleSolution?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorDescription: 'ErrorDescription',
+      possibleSolution: 'PossibleSolution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorDescription: 'string',
+      possibleSolution: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappHealthStatusResponseBodyDataEntities extends $tea.Model {
+  businessId?: string;
+  canSendMessage?: string;
+  entityType?: string;
+  errors?: GetWhatsappHealthStatusResponseBodyDataEntitiesErrors[];
+  language?: string;
+  phoneNumber?: string;
+  templateCode?: string;
+  wabaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessId: 'BusinessId',
+      canSendMessage: 'CanSendMessage',
+      entityType: 'EntityType',
+      errors: 'Errors',
+      language: 'Language',
+      phoneNumber: 'PhoneNumber',
+      templateCode: 'TemplateCode',
+      wabaId: 'WabaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessId: 'string',
+      canSendMessage: 'string',
+      entityType: 'string',
+      errors: { 'type': 'array', 'itemType': GetWhatsappHealthStatusResponseBodyDataEntitiesErrors },
+      language: 'string',
+      phoneNumber: 'string',
+      templateCode: 'string',
+      wabaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWhatsappHealthStatusResponseBodyData extends $tea.Model {
+  canSendMessage?: string;
+  entities?: GetWhatsappHealthStatusResponseBodyDataEntities[];
+  static names(): { [key: string]: string } {
+    return {
+      canSendMessage: 'CanSendMessage',
+      entities: 'Entities',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canSendMessage: 'string',
+      entities: { 'type': 'array', 'itemType': GetWhatsappHealthStatusResponseBodyDataEntities },
     };
   }
 
@@ -7863,6 +8328,28 @@ export class SendChatappMessageRequestProductAction extends $tea.Model {
     return {
       sections: { 'type': 'array', 'itemType': SendChatappMessageRequestProductActionSections },
       thumbnailProductRetailerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConversationalAutomationRequestCommands extends $tea.Model {
+  commandDescription?: string;
+  commandName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commandDescription: 'CommandDescription',
+      commandName: 'CommandName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commandDescription: 'string',
+      commandName: 'string',
     };
   }
 
@@ -9576,6 +10063,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 获取号码欢迎消息设置信息
+   *
+   * @param request GetConversationalAutomationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetConversationalAutomationResponse
+   */
+  async getConversationalAutomationWithOptions(request: GetConversationalAutomationRequest, runtime: $Util.RuntimeOptions): Promise<GetConversationalAutomationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetConversationalAutomation",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetConversationalAutomationResponse>(await this.callApi(params, req, runtime), new GetConversationalAutomationResponse({}));
+  }
+
+  /**
+   * @summary 获取号码欢迎消息设置信息
+   *
+   * @param request GetConversationalAutomationRequest
+   * @return GetConversationalAutomationResponse
+   */
+  async getConversationalAutomation(request: GetConversationalAutomationRequest): Promise<GetConversationalAutomationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getConversationalAutomationWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Queries the information about a Flow.
    *
    * @description You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -10041,6 +10586,80 @@ export default class Client extends OpenApi {
   async getWhatsappConnectionCatalog(request: GetWhatsappConnectionCatalogRequest): Promise<GetWhatsappConnectionCatalogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getWhatsappConnectionCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 获取whatsapp节点信息发送消息健康度
+   *
+   * @param request GetWhatsappHealthStatusRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return GetWhatsappHealthStatusResponse
+   */
+  async getWhatsappHealthStatusWithOptions(request: GetWhatsappHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetWhatsappHealthStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.nodeType)) {
+      query["NodeType"] = request.nodeType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.wabaId)) {
+      query["WabaId"] = request.wabaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWhatsappHealthStatus",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWhatsappHealthStatusResponse>(await this.callApi(params, req, runtime), new GetWhatsappHealthStatusResponse({}));
+  }
+
+  /**
+   * @summary 获取whatsapp节点信息发送消息健康度
+   *
+   * @param request GetWhatsappHealthStatusRequest
+   * @return GetWhatsappHealthStatusResponse
+   */
+  async getWhatsappHealthStatus(request: GetWhatsappHealthStatusRequest): Promise<GetWhatsappHealthStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWhatsappHealthStatusWithOptions(request, runtime);
   }
 
   /**
@@ -11471,6 +12090,86 @@ export default class Client extends OpenApi {
   async updateCommerceSetting(request: UpdateCommerceSettingRequest): Promise<UpdateCommerceSettingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCommerceSettingWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 更新号码欢迎消息、命令等属性
+   *
+   * @param tmpReq UpdateConversationalAutomationRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return UpdateConversationalAutomationResponse
+   */
+  async updateConversationalAutomationWithOptions(tmpReq: UpdateConversationalAutomationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConversationalAutomationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateConversationalAutomationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.commands)) {
+      request.commandsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commands, "Commands", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.prompts)) {
+      request.promptsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.prompts, "Prompts", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.commandsShrink)) {
+      query["Commands"] = request.commandsShrink;
+    }
+
+    if (!Util.isUnset(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!Util.isUnset(request.enableWelcomeMessage)) {
+      query["EnableWelcomeMessage"] = request.enableWelcomeMessage;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.promptsShrink)) {
+      query["Prompts"] = request.promptsShrink;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateConversationalAutomation",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateConversationalAutomationResponse>(await this.callApi(params, req, runtime), new UpdateConversationalAutomationResponse({}));
+  }
+
+  /**
+   * @summary 更新号码欢迎消息、命令等属性
+   *
+   * @param request UpdateConversationalAutomationRequest
+   * @return UpdateConversationalAutomationResponse
+   */
+  async updateConversationalAutomation(request: UpdateConversationalAutomationRequest): Promise<UpdateConversationalAutomationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateConversationalAutomationWithOptions(request, runtime);
   }
 
   /**
