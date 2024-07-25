@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -77,14 +76,42 @@ export class AddressForStory extends $tea.Model {
 }
 
 export class AlgorithmDefinition extends $tea.Model {
+  /**
+   * @example
+   * 8fc6e718-8d19-495f-a510-bcee3c598588
+   */
   algorithmDefinitionId?: string;
+  /**
+   * @example
+   * 2023-05-31T10:19:40.572325888+08:00
+   */
   createTime?: string;
   customLabels?: { [key: string]: string }[];
+  /**
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @example
+   * algoName
+   */
   name?: string;
+  /**
+   * @example
+   * user1
+   */
   ownerId?: string;
+  /**
+   * @example
+   * traningtest
+   */
   projectName?: string;
   trainingSpecification?: TrainingSpecification;
+  /**
+   * @example
+   * 2023-05-31T10:19:40.572325888+08:00
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -185,8 +212,29 @@ export class AssumeRoleChain extends $tea.Model {
 }
 
 export class AssumeRoleChainNode extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1023210024677934
+   */
   ownerId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-role
+   */
   role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -516,6 +564,10 @@ export class CroppingSuggestion extends $tea.Model {
 }
 
 export class CustomParams extends $tea.Model {
+  /**
+   * @example
+   * Normalize
+   */
   name?: string;
   properties?: Property[];
   static names(): { [key: string]: string } {
@@ -545,7 +597,15 @@ export class DataIngestion extends $tea.Model {
   input?: Input;
   marker?: string;
   notification?: DataIngestionNotification;
+  /**
+   * @example
+   * IncrementalScanning
+   */
   phase?: string;
+  /**
+   * @example
+   * AliyunIMMBatchTriggerRole
+   */
   serviceRole?: string;
   state?: string;
   statistic?: DataIngestionStatistic;
@@ -698,6 +758,10 @@ export class ElementContent extends $tea.Model {
 }
 
 export class FastFailPolicy extends $tea.Model {
+  /**
+   * @example
+   * abort
+   */
   action?: string;
   static names(): { [key: string]: string } {
     return {
@@ -949,7 +1013,6 @@ export class File extends $tea.Model {
   fileCreateTime?: string;
   fileHash?: string;
   fileModifiedTime?: string;
-  fileStatus?: string;
   filename?: string;
   formatLongName?: string;
   formatName?: string;
@@ -974,6 +1037,7 @@ export class File extends $tea.Model {
   OSSVersionId?: string;
   objectACL?: string;
   objectId?: string;
+  objectStatus?: string;
   objectType?: string;
   orientation?: number;
   ownerId?: string;
@@ -1034,7 +1098,6 @@ export class File extends $tea.Model {
       fileCreateTime: 'FileCreateTime',
       fileHash: 'FileHash',
       fileModifiedTime: 'FileModifiedTime',
-      fileStatus: 'FileStatus',
       filename: 'Filename',
       formatLongName: 'FormatLongName',
       formatName: 'FormatName',
@@ -1059,6 +1122,7 @@ export class File extends $tea.Model {
       OSSVersionId: 'OSSVersionId',
       objectACL: 'ObjectACL',
       objectId: 'ObjectId',
+      objectStatus: 'ObjectStatus',
       objectType: 'ObjectType',
       orientation: 'Orientation',
       ownerId: 'OwnerId',
@@ -1122,7 +1186,6 @@ export class File extends $tea.Model {
       fileCreateTime: 'string',
       fileHash: 'string',
       fileModifiedTime: 'string',
-      fileStatus: 'string',
       filename: 'string',
       formatLongName: 'string',
       formatName: 'string',
@@ -1147,6 +1210,7 @@ export class File extends $tea.Model {
       OSSVersionId: 'string',
       objectACL: 'string',
       objectId: 'string',
+      objectStatus: 'string',
       objectType: 'string',
       orientation: 'number',
       ownerId: 'string',
@@ -1208,11 +1272,35 @@ export class HeadPose extends $tea.Model {
 }
 
 export class Hyperparameters extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   backupInterval?: number;
+  /**
+   * @example
+   * 32
+   */
   batchSize?: number;
+  /**
+   * @example
+   * 4
+   */
   dataLoaderWorkers?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   evaluator?: CustomParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputSize?: number[];
+  /**
+   * @example
+   * 10
+   */
   maxEpoch?: number;
   optimization?: Optimization;
   schedule?: Schedule;
@@ -1390,6 +1478,10 @@ export class InputFile extends $tea.Model {
 }
 
 export class InputOSS extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   bucket?: string;
   matchExpressions?: string[];
   prefix?: string;
@@ -1416,6 +1508,10 @@ export class InputOSS extends $tea.Model {
 
 export class KdtreeOption extends $tea.Model {
   compressionLevel?: number;
+  /**
+   * @example
+   * draco
+   */
   libraryName?: string;
   quantizationBits?: number;
   static names(): { [key: string]: string } {
@@ -1498,6 +1594,10 @@ export class Label extends $tea.Model {
 export class LicensePlate extends $tea.Model {
   boundary?: Boundary;
   confidence?: number;
+  /**
+   * @example
+   * 川A0123
+   */
   content?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1638,8 +1738,20 @@ export class Message extends $tea.Model {
 }
 
 export class MetaData extends $tea.Model {
+  /**
+   * @example
+   * detection
+   */
   identifier?: string;
+  /**
+   * @example
+   * imm
+   */
   provider?: string;
+  /**
+   * @example
+   * v1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1663,7 +1775,15 @@ export class MetaData extends $tea.Model {
 }
 
 export class ModelSpecification extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   metaData?: MetaData;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   spec?: Spec;
   static names(): { [key: string]: string } {
     return {
@@ -1738,9 +1858,25 @@ export class OCRContents extends $tea.Model {
 }
 
 export class OctreeOption extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   doVoxelGridDownDownSampling?: boolean;
+  /**
+   * @example
+   * pcl
+   */
   libraryName?: string;
+  /**
+   * @example
+   * 0.01
+   */
   octreeResolution?: number;
+  /**
+   * @example
+   * 0.01
+   */
   pointResolution?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1766,7 +1902,15 @@ export class OctreeOption extends $tea.Model {
 }
 
 export class Optimization extends $tea.Model {
+  /**
+   * @example
+   * 0.01
+   */
   learningRate?: number;
+  /**
+   * @example
+   * SGD
+   */
   optimizer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1801,28 +1945,6 @@ export class PointInt64 extends $tea.Model {
     return {
       x: 'number',
       y: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PresetReference extends $tea.Model {
-  name?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      type: 'string',
     };
   }
 
@@ -1902,9 +2024,25 @@ export class Project extends $tea.Model {
 }
 
 export class Property extends $tea.Model {
+  /**
+   * @example
+   * float
+   */
   itemsType?: string;
+  /**
+   * @example
+   * channels
+   */
   name?: string;
+  /**
+   * @example
+   * [40, 80, 160, 320]
+   */
   value?: string;
+  /**
+   * @example
+   * array
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1952,11 +2090,35 @@ export class RegionType extends $tea.Model {
 }
 
 export class Resource extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   CPU?: number;
+  /**
+   * @example
+   * ecs.gn5i-c2g1.large
+   */
   ECSInstance?: string;
+  /**
+   * @example
+   * string	NVIDIA_P4
+   */
   GPUModel?: string;
+  /**
+   * @example
+   * 1
+   */
   GPUNum?: number;
+  /**
+   * @example
+   * string	ecs.gn5i-c2g1.large-2vCPU-8GB-1*NVIDIA_P4
+   */
   name?: string;
+  /**
+   * @example
+   * 8
+   */
   RAM?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2030,7 +2192,15 @@ export class Row extends $tea.Model {
 }
 
 export class Runtime extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   hyperparameters?: Hyperparameters;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resource?: Resource;
   static names(): { [key: string]: string } {
     return {
@@ -2074,8 +2244,20 @@ export class SceneElement extends $tea.Model {
 }
 
 export class Schedule extends $tea.Model {
+  /**
+   * @example
+   * 0.97
+   */
   gamma?: number;
+  /**
+   * @example
+   * StepLR
+   */
   LRScheduler?: string;
+  /**
+   * @example
+   * 1
+   */
   stepSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2153,6 +2335,10 @@ export class SimilarImageCluster extends $tea.Model {
 
 export class SimpleQuery extends $tea.Model {
   field?: string;
+  /**
+   * @example
+   * eq / gt / gte / lt / lte / match / prefix / and / or / not
+   */
   operation?: string;
   subQueries?: SimpleQuery[];
   value?: string;
@@ -2181,13 +2367,36 @@ export class SimpleQuery extends $tea.Model {
 
 export class Spec extends $tea.Model {
   backbone?: CustomParams;
+  /**
+   * @example
+   * 10
+   */
   classNum?: number;
   head?: CustomParams;
+  /**
+   * @example
+   * 3
+   */
   inputChannel?: number;
   loss?: CustomParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ClsResNet
+   */
   name?: string;
   neck?: CustomParams;
+  /**
+   * @example
+   * 5
+   */
   numLandmarks?: number;
+  /**
+   * @example
+   * oss://bucket/abc/xxx.json
+   */
   pretrainedPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2523,13 +2732,47 @@ export class TimeRange extends $tea.Model {
 
 export class TrainingSpecification extends $tea.Model {
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   modelSpecification?: ModelSpecification;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   runtime?: Runtime;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://imm-alg-dataset-bj/cifar10/test_index.json
+   */
   sourceURI?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://imm-alg-dataset-bj/model_training_test/
+   */
   targetURI?: string;
   transforms?: CustomParams[];
+  /**
+   * @example
+   * oss://imm-alg-dataset-bj/cifar10/test_index.json
+   */
   validationSourceURI?: string;
+  /**
+   * @example
+   * 0.95
+   */
   validationSplit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2752,7 +2995,15 @@ export class WebofficeUser extends $tea.Model {
 }
 
 export class WebofficeWatermark extends $tea.Model {
+  /**
+   * @example
+   * rgba(192, 192, 192, 0.6)
+   */
   fillStyle?: string;
+  /**
+   * @example
+   * bold 20px Serif
+   */
   font?: string;
   horizontal?: number;
   rotate?: number;
@@ -2790,11 +3041,35 @@ export class WebofficeWatermark extends $tea.Model {
 
 export class AddImageMosaicRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @example
+   * jpg
+   */
   imageFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * 80
+   */
   quality?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sourceURI?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targetURI?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targets?: AddImageMosaicRequestTargets[];
   static names(): { [key: string]: string } {
     return {
@@ -2827,11 +3102,35 @@ export class AddImageMosaicRequest extends $tea.Model {
 
 export class AddImageMosaicShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @example
+   * jpg
+   */
   imageFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * 80
+   */
   quality?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sourceURI?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targetURI?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targetsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2863,6 +3162,10 @@ export class AddImageMosaicShrinkRequest extends $tea.Model {
 }
 
 export class AddImageMosaicResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CA995EFD-083D-4F40-BE8A-BDF75FF*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2907,9 +3210,34 @@ export class AddImageMosaicResponse extends $tea.Model {
 }
 
 export class AddStoryFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   files?: AddStoryFilesRequestFiles[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2935,9 +3263,34 @@ export class AddStoryFilesRequest extends $tea.Model {
 }
 
 export class AddStoryFilesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   filesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2964,6 +3317,10 @@ export class AddStoryFilesShrinkRequest extends $tea.Model {
 
 export class AddStoryFilesResponseBody extends $tea.Model {
   files?: AddStoryFilesResponseBodyFiles[];
+  /**
+   * @example
+   * 6E93D6C9-5AC0-49F9-914D-E02678D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3011,7 +3368,21 @@ export class AddStoryFilesResponse extends $tea.Model {
 
 export class AttachOSSBucketRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * examplebucket
+   */
   OSSBucket?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3035,6 +3406,10 @@ export class AttachOSSBucketRequest extends $tea.Model {
 }
 
 export class AttachOSSBucketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5F74C5C9-5AC0-49F9-914D-E01589D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3079,8 +3454,20 @@ export class AttachOSSBucketResponse extends $tea.Model {
 }
 
 export class BatchDeleteFileMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URIs?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3104,8 +3491,20 @@ export class BatchDeleteFileMetaRequest extends $tea.Model {
 }
 
 export class BatchDeleteFileMetaShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URIsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3129,6 +3528,10 @@ export class BatchDeleteFileMetaShrinkRequest extends $tea.Model {
 }
 
 export class BatchDeleteFileMetaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3A82F6C9-5AC0-38F9-914F-F02623B3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3173,8 +3576,26 @@ export class BatchDeleteFileMetaResponse extends $tea.Model {
 }
 
 export class BatchGetFigureClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   objectIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3198,8 +3619,26 @@ export class BatchGetFigureClusterRequest extends $tea.Model {
 }
 
 export class BatchGetFigureClusterShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   objectIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3224,6 +3663,10 @@ export class BatchGetFigureClusterShrinkRequest extends $tea.Model {
 
 export class BatchGetFigureClusterResponseBody extends $tea.Model {
   figureClusters?: FigureCluster[];
+  /**
+   * @example
+   * CA995EFD-083D-4F40-BE8A-BDF75FFF****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3270,8 +3713,20 @@ export class BatchGetFigureClusterResponse extends $tea.Model {
 }
 
 export class BatchGetFileMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URIs?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3295,8 +3750,20 @@ export class BatchGetFileMetaRequest extends $tea.Model {
 }
 
 export class BatchGetFileMetaShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URIsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3321,6 +3788,10 @@ export class BatchGetFileMetaShrinkRequest extends $tea.Model {
 
 export class BatchGetFileMetaResponseBody extends $tea.Model {
   files?: File[];
+  /**
+   * @example
+   * 7F84C6D9-5AC0-49F9-914D-F02678E3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3367,9 +3838,27 @@ export class BatchGetFileMetaResponse extends $tea.Model {
 }
 
 export class BatchIndexFileMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   files?: InputFile[];
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -3398,9 +3887,27 @@ export class BatchIndexFileMetaRequest extends $tea.Model {
 }
 
 export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   filesShrink?: string;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -3429,7 +3936,15 @@ export class BatchIndexFileMetaShrinkRequest extends $tea.Model {
 }
 
 export class BatchIndexFileMetaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 387-1DAPFFZplUZhuCuhnB6I9H****
+   */
   eventId?: string;
+  /**
+   * @example
+   * 8F93E6D9-5AC0-49F9-914D-E02678A3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3476,8 +3991,26 @@ export class BatchIndexFileMetaResponse extends $tea.Model {
 }
 
 export class BatchUpdateFileMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   files?: InputFile[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3501,8 +4034,26 @@ export class BatchUpdateFileMetaRequest extends $tea.Model {
 }
 
 export class BatchUpdateFileMetaShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   filesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3527,6 +4078,10 @@ export class BatchUpdateFileMetaShrinkRequest extends $tea.Model {
 
 export class BatchUpdateFileMetaResponseBody extends $tea.Model {
   files?: BatchUpdateFileMetaResponseBodyFiles[];
+  /**
+   * @example
+   * F5BF215E-3237-0852-B9C6-F233D44A****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3574,6 +4129,13 @@ export class BatchUpdateFileMetaResponse extends $tea.Model {
 
 export class CompareImageFacesRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   source?: CompareImageFacesRequestSource;
   static names(): { [key: string]: string } {
@@ -3599,6 +4161,13 @@ export class CompareImageFacesRequest extends $tea.Model {
 
 export class CompareImageFacesShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   sourceShrink?: string;
   static names(): { [key: string]: string } {
@@ -3623,7 +4192,15 @@ export class CompareImageFacesShrinkRequest extends $tea.Model {
 }
 
 export class CompareImageFacesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * F73AC982-2B9E-4ECD-AED5-F8331C5******
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0.8848152756690983
+   */
   similarity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3672,9 +4249,28 @@ export class CompareImageFacesResponse extends $tea.Model {
 export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   notification?: Notification;
+  /**
+   * @example
+   * 123456
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * oss://imm-apitest-fxf2/name.zip
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3706,9 +4302,28 @@ export class CreateArchiveFileInspectionTaskRequest extends $tea.Model {
 export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
   notificationShrink?: string;
+  /**
+   * @example
+   * 123456
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * oss://imm-apitest-fxf2/name.zip
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3738,8 +4353,20 @@ export class CreateArchiveFileInspectionTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateArchiveFileInspectionTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
+   */
   eventId?: string;
+  /**
+   * @example
+   * EC564A9A-BA5C-4499-A087-D9B9E76E*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * ArchiveFileInspection-8475218e-d86e-4c66-b3cf-50e74d6c****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3788,11 +4415,37 @@ export class CreateArchiveFileInspectionTaskResponse extends $tea.Model {
 }
 
 export class CreateBatchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   actions?: CreateBatchRequestActions[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: Input;
   notification?: CreateBatchRequestNotification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AliyunIMMDefaultRole
+   */
   serviceRole?: string;
+  /**
+   * @example
+   * {"key": "val"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -3822,11 +4475,37 @@ export class CreateBatchRequest extends $tea.Model {
 }
 
 export class CreateBatchShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   actionsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputShrink?: string;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AliyunIMMDefaultRole
+   */
   serviceRole?: string;
+  /**
+   * @example
+   * {"key": "val"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3856,7 +4535,15 @@ export class CreateBatchShrinkRequest extends $tea.Model {
 }
 
 export class CreateBatchResponseBody extends $tea.Model {
+  /**
+   * @example
+   * batch-4eb9223f-3e88-42d3-a578-3f2852******
+   */
   id?: string;
+  /**
+   * @example
+   * EC564A9A-BA5C-4499-A087-D9B9E76E*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3903,8 +4590,29 @@ export class CreateBatchResponse extends $tea.Model {
 }
 
 export class CreateBindingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3929,6 +4637,10 @@ export class CreateBindingRequest extends $tea.Model {
 
 export class CreateBindingResponseBody extends $tea.Model {
   binding?: Binding;
+  /**
+   * @example
+   * 5F74C5C9-5AC0-49F9-914D-E01589D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3975,17 +4687,61 @@ export class CreateBindingResponse extends $tea.Model {
 }
 
 export class CreateCompressPointCloudTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * octree
+   */
   compressMethod?: string;
   credentialConfig?: CredentialConfig;
   kdtreeOption?: KdtreeOption;
   notification?: Notification;
   octreeOption?: OctreeOption;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   pointCloudFields?: string[];
+  /**
+   * @example
+   * pcd
+   */
   pointCloudFileFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test/src/test.pcd
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"LabelKey": "Value"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test/tgt
+   */
   targetURI?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4027,17 +4783,61 @@ export class CreateCompressPointCloudTaskRequest extends $tea.Model {
 }
 
 export class CreateCompressPointCloudTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * octree
+   */
   compressMethod?: string;
   credentialConfigShrink?: string;
   kdtreeOptionShrink?: string;
   notificationShrink?: string;
   octreeOptionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   pointCloudFieldsShrink?: string;
+  /**
+   * @example
+   * pcd
+   */
   pointCloudFileFormat?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test/src/test.pcd
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"LabelKey": "Value"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test/tgt
+   */
   targetURI?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4079,8 +4879,20 @@ export class CreateCompressPointCloudTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateCompressPointCloudTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0B7-1LR4Wcue1aBhk2xT85MfL*****
+   */
   eventId?: string;
+  /**
+   * @example
+   * CA995EFD-083D-4F40-BE8A-BDF75FFF****
+   */
   requestId?: string;
+  /**
+   * @example
+   * PointCloudCompress-badda57d-a3ab-4e6d-938f-49b77ce****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4129,13 +4941,60 @@ export class CreateCompressPointCloudTaskResponse extends $tea.Model {
 }
 
 export class CreateCustomizedStoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   cover?: CreateCustomizedStoryRequestCover;
+  /**
+   * @example
+   * {"Bucket": "examplebucket"}
+   */
   customLabels?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   files?: CreateCustomizedStoryRequestFiles[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * name1
+   */
   storyName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Solo
+   */
   storySubType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PeopleMemory
+   */
   storyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4169,13 +5028,60 @@ export class CreateCustomizedStoryRequest extends $tea.Model {
 }
 
 export class CreateCustomizedStoryShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   coverShrink?: string;
+  /**
+   * @example
+   * {"Bucket": "examplebucket"}
+   */
   customLabelsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   filesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * name1
+   */
   storyName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Solo
+   */
   storySubType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PeopleMemory
+   */
   storyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4209,7 +5115,15 @@ export class CreateCustomizedStoryShrinkRequest extends $tea.Model {
 }
 
 export class CreateCustomizedStoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 563062c0b085733f34ab****
+   */
   objectId?: string;
+  /**
+   * @example
+   * BC91D091-D49F-0ACD-95D5-F0621045****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4256,14 +5170,53 @@ export class CreateCustomizedStoryResponse extends $tea.Model {
 }
 
 export class CreateDatasetRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   datasetMaxBindCount?: number;
+  /**
+   * @example
+   * 10000000000
+   */
   datasetMaxEntityCount?: number;
+  /**
+   * @example
+   * 100000000
+   */
   datasetMaxFileCount?: number;
+  /**
+   * @example
+   * 100000000000
+   */
   datasetMaxRelationCount?: number;
+  /**
+   * @example
+   * 90000000000000000
+   */
   datasetMaxTotalFileSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @example
+   * immtest
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * Official:AllFunction
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4300,6 +5253,10 @@ export class CreateDatasetRequest extends $tea.Model {
 
 export class CreateDatasetResponseBody extends $tea.Model {
   dataset?: Dataset;
+  /**
+   * @example
+   * 6D74B3A9-5AC0-49F9-914D-E01589D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4346,14 +5303,52 @@ export class CreateDatasetResponse extends $tea.Model {
 }
 
 export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 90
+   */
   imageQuality?: number;
+  /**
+   * @example
+   * FFT
+   */
   model?: string;
   notification?: Notification;
+  /**
+   * @example
+   * oss://imm-test/testcases/watermarktestbefore.jpg
+   */
   originalImageURI?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://target/sampleobject.jpg
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * low
+   */
   strengthLevel?: string;
+  /**
+   * @example
+   * oss://target/targetobject.jpg
+   */
   targetURI?: string;
+  /**
+   * @example
+   * text
+   */
   watermarkType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4389,14 +5384,52 @@ export class CreateDecodeBlindWatermarkTaskRequest extends $tea.Model {
 }
 
 export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 90
+   */
   imageQuality?: number;
+  /**
+   * @example
+   * FFT
+   */
   model?: string;
   notificationShrink?: string;
+  /**
+   * @example
+   * oss://imm-test/testcases/watermarktestbefore.jpg
+   */
   originalImageURI?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://target/sampleobject.jpg
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * low
+   */
   strengthLevel?: string;
+  /**
+   * @example
+   * oss://target/targetobject.jpg
+   */
   targetURI?: string;
+  /**
+   * @example
+   * text
+   */
   watermarkType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4432,8 +5465,20 @@ export class CreateDecodeBlindWatermarkTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateDecodeBlindWatermarkTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 27C-1jyAP5qQI7RoI8lFFwvMrWtl0ft
+   */
   eventId?: string;
+  /**
+   * @example
+   * 4A7A2D0E-D8B8-4DA0-8127-EB32C6600ADE
+   */
   requestId?: string;
+  /**
+   * @example
+   * DecodeBlindWatermark-78ac8f3b-59e0-45a6-9b67-32168c3f22b9
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4482,11 +5527,33 @@ export class CreateDecodeBlindWatermarkTaskResponse extends $tea.Model {
 }
 
 export class CreateFacesSearchingTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @example
+   * 100
+   */
   maxResult?: number;
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   sources?: CreateFacesSearchingTaskRequestSources[];
+  /**
+   * @example
+   * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4516,11 +5583,33 @@ export class CreateFacesSearchingTaskRequest extends $tea.Model {
 }
 
 export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @example
+   * 100
+   */
   maxResult?: number;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   sourcesShrink?: string;
+  /**
+   * @example
+   * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4550,8 +5639,20 @@ export class CreateFacesSearchingTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateFacesSearchingTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0ED-1Bz8z71k5TtsUejT4UJ16****
+   */
   eventId?: string;
+  /**
+   * @example
+   * B1E79399-05F7-06D8-95FE-EBE17BA*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * CreateFacesSearchingTask-00bec802-073a-4b61-ba*****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4600,10 +5701,32 @@ export class CreateFacesSearchingTaskResponse extends $tea.Model {
 }
 
 export class CreateFigureClusteringTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * {"test": "val1"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4631,10 +5754,32 @@ export class CreateFigureClusteringTaskRequest extends $tea.Model {
 }
 
 export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * {"test": "val1"}
+   */
   tagsShrink?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4662,8 +5807,20 @@ export class CreateFigureClusteringTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateFigureClusteringTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0ED-1Bz8z71k5TtsUejT4UJ16****
+   */
   eventId?: string;
+  /**
+   * @example
+   * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+   */
   requestId?: string;
+  /**
+   * @example
+   * formatconvert-00bec802-073a-4b61-ba3b-39bc****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4712,13 +5869,46 @@ export class CreateFigureClusteringTaskResponse extends $tea.Model {
 }
 
 export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @example
+   * Cluster-2ab85905-23ba-4632-b2d8-1c21cfe****
+   */
   from?: string;
   froms?: string[];
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * {"key":"val"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Cluster-4a3a71c1-c092-4788-8826-2f65d17****
+   */
   to?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4752,13 +5942,46 @@ export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
 }
 
 export class CreateFigureClustersMergingTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @example
+   * Cluster-2ab85905-23ba-4632-b2d8-1c21cfe****
+   */
   from?: string;
   fromsShrink?: string;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * {"key":"val"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Cluster-4a3a71c1-c092-4788-8826-2f65d17****
+   */
   to?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4792,8 +6015,20 @@ export class CreateFigureClustersMergingTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateFigureClustersMergingTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0ED-1Bz8z71k5TtsUejT4UJ16E****
+   */
   eventId?: string;
+  /**
+   * @example
+   * CA995EFD-083D-4F40-BE8A-BDF75FF****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 92376fbb-171f-4259-913f-705f7ee0****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4842,13 +6077,39 @@ export class CreateFigureClustersMergingTaskResponse extends $tea.Model {
 }
 
 export class CreateFileCompressionTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * zip
+   */
   compressedFormat?: string;
   credentialConfig?: CredentialConfig;
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object.json
+   */
   sourceManifestURI?: string;
   sources?: CreateFileCompressionTaskRequestSources[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-target-object.zip
+   */
   targetURI?: string;
+  /**
+   * @example
+   * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4882,13 +6143,39 @@ export class CreateFileCompressionTaskRequest extends $tea.Model {
 }
 
 export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * zip
+   */
   compressedFormat?: string;
   credentialConfigShrink?: string;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object.json
+   */
   sourceManifestURI?: string;
   sourcesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-target-object.zip
+   */
   targetURI?: string;
+  /**
+   * @example
+   * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4922,8 +6209,20 @@ export class CreateFileCompressionTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateFileCompressionTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
+   */
   eventId?: string;
+  /**
+   * @example
+   * EC564A9A-BA5C-4499-A087-D9B9E76E*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * FileCompression-3579a380-6f7a-4a9d-b9d2-65996*****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4974,11 +6273,33 @@ export class CreateFileCompressionTaskResponse extends $tea.Model {
 export class CreateFileUncompressionTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   notification?: Notification;
+  /**
+   * @example
+   * 123456
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   selectedFiles?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://imm-apitest-fxf2/name.zip
+   */
   sourceURI?: string;
   targetURI?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5014,11 +6335,33 @@ export class CreateFileUncompressionTaskRequest extends $tea.Model {
 export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
   notificationShrink?: string;
+  /**
+   * @example
+   * 123456
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   selectedFilesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://imm-apitest-fxf2/name.zip
+   */
   sourceURI?: string;
   targetURI?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5052,8 +6395,20 @@ export class CreateFileUncompressionTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateFileUncompressionTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
+   */
   eventId?: string;
+  /**
+   * @example
+   * EC564A9A-BA5C-4499-A087-D9B9E76E*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * FileUncompression-16ab5dd6-af02-480e-9ed7-a8d51b1*****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5103,13 +6458,47 @@ export class CreateFileUncompressionTaskResponse extends $tea.Model {
 
 export class CreateImageModerationTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @example
+   * 2
+   */
   interval?: number;
+  /**
+   * @example
+   * 10
+   */
   maxFrames?: number;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   scenes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"test": "val1"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5146,13 +6535,47 @@ export class CreateImageModerationTaskRequest extends $tea.Model {
 
 export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @example
+   * 2
+   */
   interval?: number;
+  /**
+   * @example
+   * 10
+   */
   maxFrames?: number;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   scenesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"test": "val1"}
+   */
   tagsShrink?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5188,8 +6611,20 @@ export class CreateImageModerationTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateImageModerationTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2E6-1I0FGn0zFnl5AflRfhzClma*****
+   */
   eventId?: string;
+  /**
+   * @example
+   * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+   */
   requestId?: string;
+  /**
+   * @example
+   * ImageModeration-179ef4f8-d583-4f0c-a293-7c0889c*****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5238,19 +6673,66 @@ export class CreateImageModerationTaskResponse extends $tea.Model {
 }
 
 export class CreateImageSplicingTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 192
+   */
   align?: number;
+  /**
+   * @example
+   * red
+   */
   backgroundColor?: string;
   credentialConfig?: CredentialConfig;
+  /**
+   * @example
+   * vertical
+   */
   direction?: string;
+  /**
+   * @example
+   * jpg
+   */
   imageFormat?: string;
+  /**
+   * @example
+   * 2
+   */
   margin?: number;
   notification?: Notification;
+  /**
+   * @example
+   * 2
+   */
   padding?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * 80
+   */
   quality?: number;
+  /**
+   * @example
+   * stretch
+   */
   scaleType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sources?: CreateImageSplicingTaskRequestSources[];
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targetURI?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -5299,19 +6781,66 @@ export class CreateImageSplicingTaskRequest extends $tea.Model {
 }
 
 export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 192
+   */
   align?: number;
+  /**
+   * @example
+   * red
+   */
   backgroundColor?: string;
   credentialConfigShrink?: string;
+  /**
+   * @example
+   * vertical
+   */
   direction?: string;
+  /**
+   * @example
+   * jpg
+   */
   imageFormat?: string;
+  /**
+   * @example
+   * 2
+   */
   margin?: number;
   notificationShrink?: string;
+  /**
+   * @example
+   * 2
+   */
   padding?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * 80
+   */
   quality?: number;
+  /**
+   * @example
+   * stretch
+   */
   scaleType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sourcesShrink?: string;
   tagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targetURI?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -5360,8 +6889,20 @@ export class CreateImageSplicingTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateImageSplicingTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10C-1R6p7Km0H5Ieg38LKXTIvw*****
+   */
   eventId?: string;
+  /**
+   * @example
+   * 94D6F994-E298-037E-8E8B-0090F27*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * ImageSplicing-537cc157-7645-444a-a631-c8db4d02*****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5412,9 +6953,24 @@ export class CreateImageSplicingTaskResponse extends $tea.Model {
 export class CreateImageToPDFTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sources?: CreateImageToPDFTaskRequestSources[];
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targetURI?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -5449,9 +7005,24 @@ export class CreateImageToPDFTaskRequest extends $tea.Model {
 export class CreateImageToPDFTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sourcesShrink?: string;
   tagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targetURI?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -5484,8 +7055,20 @@ export class CreateImageToPDFTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateImageToPDFTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
+   */
   eventId?: string;
+  /**
+   * @example
+   * EC564A9A-BA5C-4499-A087-D9B9E76E*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * ImageToPDF-cbe6ae3e-f8dc-4566-9da7-535d5d*****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5534,10 +7117,26 @@ export class CreateImageToPDFTaskResponse extends $tea.Model {
 }
 
 export class CreateLocationDateClusteringTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   dateOptions?: CreateLocationDateClusteringTaskRequestDateOptions;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   locationOptions?: CreateLocationDateClusteringTaskRequestLocationOptions;
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   tags?: { [key: string]: any };
   userData?: string;
@@ -5571,10 +7170,26 @@ export class CreateLocationDateClusteringTaskRequest extends $tea.Model {
 }
 
 export class CreateLocationDateClusteringTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   dateOptionsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   locationOptionsShrink?: string;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   tagsShrink?: string;
   userData?: string;
@@ -5609,6 +7224,10 @@ export class CreateLocationDateClusteringTaskShrinkRequest extends $tea.Model {
 
 export class CreateLocationDateClusteringTaskResponseBody extends $tea.Model {
   eventId?: string;
+  /**
+   * @example
+   * B121940C-9794-4EE3-8D6E-F8EC525F****
+   */
   requestId?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -5660,11 +7279,38 @@ export class CreateLocationDateClusteringTaskResponse extends $tea.Model {
 export class CreateMediaConvertTaskRequest extends $tea.Model {
   alignmentIndex?: number;
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sources?: CreateMediaConvertTaskRequestSources[];
+  /**
+   * @example
+   * {"test":"val1"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targets?: CreateMediaConvertTaskRequestTargets[];
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5700,11 +7346,38 @@ export class CreateMediaConvertTaskRequest extends $tea.Model {
 export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
   alignmentIndex?: number;
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sourcesShrink?: string;
+  /**
+   * @example
+   * {"test":"val1"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targetsShrink?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5738,8 +7411,20 @@ export class CreateMediaConvertTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateMediaConvertTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0ED-1Bz8z71k5TtsUejT4UJ16Es****
+   */
   eventId?: string;
+  /**
+   * @example
+   * CA995EFD-083D-4F40-BE8A-BDF75FFFE0B6
+   */
   requestId?: string;
+  /**
+   * @example
+   * MediaConvert-adb1ee28-c4c9-42a7-9f54-3b8eadcb****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5789,35 +7474,156 @@ export class CreateMediaConvertTaskResponse extends $tea.Model {
 
 export class CreateOfficeConversionTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @example
+   * -1
+   */
   endPage?: number;
+  /**
+   * @example
+   * false
+   */
   firstPage?: boolean;
+  /**
+   * @example
+   * false
+   */
   fitToHeight?: boolean;
+  /**
+   * @example
+   * false
+   */
   fitToWidth?: boolean;
+  /**
+   * @example
+   * false
+   */
   holdLineFeed?: boolean;
+  /**
+   * @example
+   * 96
+   */
   imageDPI?: number;
+  /**
+   * @example
+   * false
+   */
   longPicture?: boolean;
+  /**
+   * @example
+   * false
+   */
   longText?: boolean;
+  /**
+   * @example
+   * 10
+   */
   maxSheetColumn?: number;
+  /**
+   * @example
+   * 10
+   */
   maxSheetRow?: number;
   notification?: Notification;
+  /**
+   * @example
+   * 1,2-4,7
+   */
   pages?: string;
+  /**
+   * @example
+   * false
+   */
   paperHorizontal?: boolean;
+  /**
+   * @example
+   * A4
+   */
   paperSize?: string;
+  /**
+   * @example
+   * ********
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * 60
+   */
   quality?: number;
+  /**
+   * @example
+   * 100
+   */
   scalePercentage?: number;
+  /**
+   * @example
+   * 1
+   */
   sheetCount?: number;
+  /**
+   * @example
+   * 1
+   */
   sheetIndex?: number;
+  /**
+   * @example
+   * false
+   */
   showComments?: boolean;
+  /**
+   * @example
+   * doc
+   */
   sourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * 1
+   */
   startPage?: number;
+  /**
+   * @example
+   * {"test":"val1"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * png
+   */
   targetType?: string;
+  /**
+   * @example
+   * oss://{bucket}/{tags.custom}/{dirname}/{barename}.{autoext}
+   */
   targetURI?: string;
+  /**
+   * @example
+   * oss://bucket1/
+   */
   targetURIPrefix?: string;
   trimPolicy?: TrimPolicy;
+  /**
+   * @example
+   * {"file_id": "abc"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5898,35 +7704,156 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
 
 export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @example
+   * -1
+   */
   endPage?: number;
+  /**
+   * @example
+   * false
+   */
   firstPage?: boolean;
+  /**
+   * @example
+   * false
+   */
   fitToHeight?: boolean;
+  /**
+   * @example
+   * false
+   */
   fitToWidth?: boolean;
+  /**
+   * @example
+   * false
+   */
   holdLineFeed?: boolean;
+  /**
+   * @example
+   * 96
+   */
   imageDPI?: number;
+  /**
+   * @example
+   * false
+   */
   longPicture?: boolean;
+  /**
+   * @example
+   * false
+   */
   longText?: boolean;
+  /**
+   * @example
+   * 10
+   */
   maxSheetColumn?: number;
+  /**
+   * @example
+   * 10
+   */
   maxSheetRow?: number;
   notificationShrink?: string;
+  /**
+   * @example
+   * 1,2-4,7
+   */
   pages?: string;
+  /**
+   * @example
+   * false
+   */
   paperHorizontal?: boolean;
+  /**
+   * @example
+   * A4
+   */
   paperSize?: string;
+  /**
+   * @example
+   * ********
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * 60
+   */
   quality?: number;
+  /**
+   * @example
+   * 100
+   */
   scalePercentage?: number;
+  /**
+   * @example
+   * 1
+   */
   sheetCount?: number;
+  /**
+   * @example
+   * 1
+   */
   sheetIndex?: number;
+  /**
+   * @example
+   * false
+   */
   showComments?: boolean;
+  /**
+   * @example
+   * doc
+   */
   sourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * 1
+   */
   startPage?: number;
+  /**
+   * @example
+   * {"test":"val1"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * png
+   */
   targetType?: string;
+  /**
+   * @example
+   * oss://{bucket}/{tags.custom}/{dirname}/{barename}.{autoext}
+   */
   targetURI?: string;
+  /**
+   * @example
+   * oss://bucket1/
+   */
   targetURIPrefix?: string;
   trimPolicyShrink?: string;
+  /**
+   * @example
+   * {"file_id": "abc"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6006,8 +7933,20 @@ export class CreateOfficeConversionTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateOfficeConversionTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2C2-1I0EG57VR37J4rQ8oKG6C9*****
+   */
   eventId?: string;
+  /**
+   * @example
+   * FF3B7D81-66AE-47E0-BF69-157DCF18*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * formatconvert-00bec802-073a-4b61-ba3b-39bc2fdd*****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6056,16 +7995,56 @@ export class CreateOfficeConversionTaskResponse extends $tea.Model {
 }
 
 export class CreateProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   datasetMaxBindCount?: number;
+  /**
+   * @example
+   * 10000000000
+   */
   datasetMaxEntityCount?: number;
+  /**
+   * @example
+   * 100000000
+   */
   datasetMaxFileCount?: number;
+  /**
+   * @example
+   * 100000000000
+   */
   datasetMaxRelationCount?: number;
+  /**
+   * @example
+   * 90000000000000000
+   */
   datasetMaxTotalFileSize?: number;
+  /**
+   * @example
+   * immtest
+   */
   description?: string;
+  /**
+   * @example
+   * 1000000000
+   */
   projectMaxDatasetCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * AliyunIMMDefaultRole
+   */
   serviceRole?: string;
   tag?: CreateProjectRequestTag[];
+  /**
+   * @example
+   * Official:AllFunction
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6105,16 +8084,56 @@ export class CreateProjectRequest extends $tea.Model {
 }
 
 export class CreateProjectShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   datasetMaxBindCount?: number;
+  /**
+   * @example
+   * 10000000000
+   */
   datasetMaxEntityCount?: number;
+  /**
+   * @example
+   * 100000000
+   */
   datasetMaxFileCount?: number;
+  /**
+   * @example
+   * 100000000000
+   */
   datasetMaxRelationCount?: number;
+  /**
+   * @example
+   * 90000000000000000
+   */
   datasetMaxTotalFileSize?: number;
+  /**
+   * @example
+   * immtest
+   */
   description?: string;
+  /**
+   * @example
+   * 1000000000
+   */
   projectMaxDatasetCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * AliyunIMMDefaultRole
+   */
   serviceRole?: string;
   tagShrink?: string;
+  /**
+   * @example
+   * Official:AllFunction
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6155,6 +8174,10 @@ export class CreateProjectShrinkRequest extends $tea.Model {
 
 export class CreateProjectResponseBody extends $tea.Model {
   project?: Project;
+  /**
+   * @example
+   * 7F7D235C-76FF-4B65-800C-8238AE3F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6201,8 +8224,16 @@ export class CreateProjectResponse extends $tea.Model {
 }
 
 export class CreateSimilarImageClusteringTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   tags?: { [key: string]: any };
   userData?: string;
@@ -6232,8 +8263,16 @@ export class CreateSimilarImageClusteringTaskRequest extends $tea.Model {
 }
 
 export class CreateSimilarImageClusteringTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   tagsShrink?: string;
   userData?: string;
@@ -6263,8 +8302,20 @@ export class CreateSimilarImageClusteringTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateSimilarImageClusteringTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 3BF-1UhtFyrua71eOkFlqYq23Co****
+   */
   eventId?: string;
+  /**
+   * @example
+   * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+   */
   requestId?: string;
+  /**
+   * @example
+   * SimilarImageClustering-48d0a0f3-8459-47f4-b8af-ff49c64****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6314,21 +8365,94 @@ export class CreateSimilarImageClusteringTaskResponse extends $tea.Model {
 
 export class CreateStoryRequest extends $tea.Model {
   address?: AddressForStory;
+  /**
+   * @example
+   * test
+   */
   customId?: string;
+  /**
+   * @example
+   * {"Bucket": "examplebucket"}
+   */
   customLabels?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @example
+   * 3
+   */
   maxFileCount?: number;
+  /**
+   * @example
+   * 1
+   */
   minFileCount?: number;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notification?: Notification;
+  /**
+   * @example
+   * test-topic
+   */
   notifyTopicName?: string;
+  /**
+   * @example
+   * id1
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * 2021-12-30T16:00:00Z
+   */
   storyEndTime?: string;
+  /**
+   * @example
+   * name1
+   */
   storyName?: string;
+  /**
+   * @example
+   * 2016-12-30T16:00:00Z
+   */
   storyStartTime?: string;
+  /**
+   * @example
+   * Solo
+   */
   storySubType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PeopleMemory
+   */
   storyType?: string;
+  /**
+   * @example
+   * {"key":"val"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @example
+   * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6381,21 +8505,94 @@ export class CreateStoryRequest extends $tea.Model {
 
 export class CreateStoryShrinkRequest extends $tea.Model {
   addressShrink?: string;
+  /**
+   * @example
+   * test
+   */
   customId?: string;
+  /**
+   * @example
+   * {"Bucket": "examplebucket"}
+   */
   customLabelsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @example
+   * 3
+   */
   maxFileCount?: number;
+  /**
+   * @example
+   * 1
+   */
   minFileCount?: number;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notificationShrink?: string;
+  /**
+   * @example
+   * test-topic
+   */
   notifyTopicName?: string;
+  /**
+   * @example
+   * id1
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * 2021-12-30T16:00:00Z
+   */
   storyEndTime?: string;
+  /**
+   * @example
+   * name1
+   */
   storyName?: string;
+  /**
+   * @example
+   * 2016-12-30T16:00:00Z
+   */
   storyStartTime?: string;
+  /**
+   * @example
+   * Solo
+   */
   storySubType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PeopleMemory
+   */
   storyType?: string;
+  /**
+   * @example
+   * {"key":"val"}
+   */
   tagsShrink?: string;
+  /**
+   * @example
+   * {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6447,8 +8644,20 @@ export class CreateStoryShrinkRequest extends $tea.Model {
 }
 
 export class CreateStoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 392-1CqzvESGTEeNZ2OWFbRKIM****
+   */
   eventId?: string;
+  /**
+   * @example
+   * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+   */
   requestId?: string;
+  /**
+   * @example
+   * CreateStory-4ef6ff43-edf3-4612-9cc4-0c7f9e19****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6497,11 +8706,37 @@ export class CreateStoryResponse extends $tea.Model {
 }
 
 export class CreateTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   actions?: CreateTriggerRequestActions[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   input?: Input;
   notification?: CreateTriggerRequestNotification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AliyunIMMDefaultRole
+   */
   serviceRole?: string;
+  /**
+   * @example
+   * {"key":"val"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6531,11 +8766,37 @@ export class CreateTriggerRequest extends $tea.Model {
 }
 
 export class CreateTriggerShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   actionsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   inputShrink?: string;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AliyunIMMDefaultRole
+   */
   serviceRole?: string;
+  /**
+   * @example
+   * {"key":"val"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6566,6 +8827,10 @@ export class CreateTriggerShrinkRequest extends $tea.Model {
 
 export class CreateTriggerResponseBody extends $tea.Model {
   id?: string;
+  /**
+   * @example
+   * EC564A9A-BA5C-4499-A087-D9B9E76E*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6613,10 +8878,36 @@ export class CreateTriggerResponse extends $tea.Model {
 
 export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket1/object
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"test":"val1"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6647,10 +8938,36 @@ export class CreateVideoLabelClassificationTaskRequest extends $tea.Model {
 
 export class CreateVideoLabelClassificationTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket1/object
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"test":"val1"}
+   */
   tagsShrink?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6680,8 +8997,20 @@ export class CreateVideoLabelClassificationTaskShrinkRequest extends $tea.Model 
 }
 
 export class CreateVideoLabelClassificationTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 03F-1Qt1Yn5RZZ0Zh3ZdYlDblv7****
+   */
   eventId?: string;
+  /**
+   * @example
+   * CA995EFD-083D-4F40-BE8A-BDF75FFFE0B6
+   */
   requestId?: string;
+  /**
+   * @example
+   * VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec*****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6731,13 +9060,47 @@ export class CreateVideoLabelClassificationTaskResponse extends $tea.Model {
 
 export class CreateVideoModerationTaskRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @example
+   * 200
+   */
   maxFrames?: number;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   scenes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"test": "val1"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6774,13 +9137,47 @@ export class CreateVideoModerationTaskRequest extends $tea.Model {
 
 export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @example
+   * 200
+   */
   maxFrames?: number;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   scenesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"test": "val1"}
+   */
   tagsShrink?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6816,8 +9213,20 @@ export class CreateVideoModerationTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateVideoModerationTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2E6-1I0FGn0zFnl5AflRfhzClma*****
+   */
   eventId?: string;
+  /**
+   * @example
+   * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+   */
   requestId?: string;
+  /**
+   * @example
+   * VideoModeration-9442a216-4691-4a48-846d-76daccaf*****
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6866,7 +9275,21 @@ export class CreateVideoModerationTaskResponse extends $tea.Model {
 }
 
 export class DeleteBatchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * batch-4eb9223f-3e88-42d3-a578-3f2852******
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6888,6 +9311,10 @@ export class DeleteBatchRequest extends $tea.Model {
 }
 
 export class DeleteBatchResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 91AC8C98-0F36-49D2-8290-742E24******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6932,8 +9359,29 @@ export class DeleteBatchResponse extends $tea.Model {
 }
 
 export class DeleteBindingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6957,6 +9405,10 @@ export class DeleteBindingRequest extends $tea.Model {
 }
 
 export class DeleteBindingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ACDFE467-C817-4B36-951A-6EB5A592****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7001,7 +9453,21 @@ export class DeleteBindingResponse extends $tea.Model {
 }
 
 export class DeleteDatasetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7023,6 +9489,10 @@ export class DeleteDatasetRequest extends $tea.Model {
 }
 
 export class DeleteDatasetResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EC564B8B-BA5C-4499-B196-D9B9E76E****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7067,8 +9537,23 @@ export class DeleteDatasetResponse extends $tea.Model {
 }
 
 export class DeleteFileMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket/exampleobject.txt
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7092,6 +9577,10 @@ export class DeleteFileMetaRequest extends $tea.Model {
 }
 
 export class DeleteFileMetaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7F82D6C9-5AC0-49F9-914D-F02678F3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7136,8 +9625,20 @@ export class DeleteFileMetaResponse extends $tea.Model {
 }
 
 export class DeleteLocationDateClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7161,6 +9662,10 @@ export class DeleteLocationDateClusterRequest extends $tea.Model {
 }
 
 export class DeleteLocationDateClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * B121940C-9794-4EE3-8D6E-F8EC525F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7205,6 +9710,13 @@ export class DeleteLocationDateClusterResponse extends $tea.Model {
 }
 
 export class DeleteProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7224,6 +9736,10 @@ export class DeleteProjectRequest extends $tea.Model {
 }
 
 export class DeleteProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FEDC9B1F-30F2-4C1F-8ED2-B7860187****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7268,8 +9784,29 @@ export class DeleteProjectResponse extends $tea.Model {
 }
 
 export class DeleteStoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * id1
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7293,6 +9830,10 @@ export class DeleteStoryRequest extends $tea.Model {
 }
 
 export class DeleteStoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7337,7 +9878,21 @@ export class DeleteStoryResponse extends $tea.Model {
 }
 
 export class DeleteTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * trigger-9f72636a-0f0c-4baf-ae78-38b27b******
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7359,6 +9914,10 @@ export class DeleteTriggerRequest extends $tea.Model {
 }
 
 export class DeleteTriggerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FEDC9B1F-30F2-4C1F-8ED2-B7860187****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7403,6 +9962,13 @@ export class DeleteTriggerResponse extends $tea.Model {
 }
 
 export class DetachOSSBucketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * examplebucket
+   */
   OSSBucket?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7422,6 +9988,10 @@ export class DetachOSSBucketRequest extends $tea.Model {
 }
 
 export class DetachOSSBucketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5F74C5C9-5AC0-49F9-914D-E01589D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7467,8 +10037,26 @@ export class DetachOSSBucketResponse extends $tea.Model {
 
 export class DetectImageBodiesRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * 0.6
+   * 
+   * **if can be null:**
+   * true
+   */
   sensitivity?: number;
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7495,8 +10083,26 @@ export class DetectImageBodiesRequest extends $tea.Model {
 
 export class DetectImageBodiesShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * 0.6
+   * 
+   * **if can be null:**
+   * true
+   */
   sensitivity?: number;
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7523,6 +10129,10 @@ export class DetectImageBodiesShrinkRequest extends $tea.Model {
 
 export class DetectImageBodiesResponseBody extends $tea.Model {
   bodies?: Body[];
+  /**
+   * @example
+   * 501339F9-4B70-0CE2-AB8C-866C********
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7570,7 +10180,21 @@ export class DetectImageBodiesResponse extends $tea.Model {
 
 export class DetectImageCarsRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7595,7 +10219,21 @@ export class DetectImageCarsRequest extends $tea.Model {
 
 export class DetectImageCarsShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7619,7 +10257,15 @@ export class DetectImageCarsShrinkRequest extends $tea.Model {
 }
 
 export class DetectImageCarsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   cars?: Car[];
+  /**
+   * @example
+   * A8745209-DD0E-027E-8ABA-085E0C******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7667,7 +10313,21 @@ export class DetectImageCarsResponse extends $tea.Model {
 
 export class DetectImageCodesRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucketname/objectname
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7692,7 +10352,21 @@ export class DetectImageCodesRequest extends $tea.Model {
 
 export class DetectImageCodesShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucketname/objectname
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7716,7 +10390,15 @@ export class DetectImageCodesShrinkRequest extends $tea.Model {
 }
 
 export class DetectImageCodesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   codes?: Codes[];
+  /**
+   * @example
+   * 6E93D6C9-5AC0-49F9-914D-E02678D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7763,9 +10445,24 @@ export class DetectImageCodesResponse extends $tea.Model {
 }
 
 export class DetectImageCroppingRequest extends $tea.Model {
+  /**
+   * @example
+   * ["1:1"]
+   */
   aspectRatios?: string;
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * oss://imm-test/testcases/facetest.jpg
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7791,9 +10488,24 @@ export class DetectImageCroppingRequest extends $tea.Model {
 }
 
 export class DetectImageCroppingShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * ["1:1"]
+   */
   aspectRatios?: string;
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * oss://imm-test/testcases/facetest.jpg
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7820,6 +10532,10 @@ export class DetectImageCroppingShrinkRequest extends $tea.Model {
 
 export class DetectImageCroppingResponseBody extends $tea.Model {
   croppings?: CroppingSuggestion[];
+  /**
+   * @example
+   * 91AC8C98-0F36-49D2-8290-742E24D*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7867,6 +10583,13 @@ export class DetectImageCroppingResponse extends $tea.Model {
 
 export class DetectImageFacesRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   sourceURI?: string;
   static names(): { [key: string]: string } {
@@ -7892,6 +10615,13 @@ export class DetectImageFacesRequest extends $tea.Model {
 
 export class DetectImageFacesShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   sourceURI?: string;
   static names(): { [key: string]: string } {
@@ -7917,6 +10647,10 @@ export class DetectImageFacesShrinkRequest extends $tea.Model {
 
 export class DetectImageFacesResponseBody extends $tea.Model {
   faces?: Figure[];
+  /**
+   * @example
+   * 6E93D6C9-5AC0-49F9-914D-E02678D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7964,8 +10698,26 @@ export class DetectImageFacesResponse extends $tea.Model {
 
 export class DetectImageLabelsRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immimagetest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://imm-test/testcases/facetest.jpg
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * 1
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7992,8 +10744,26 @@ export class DetectImageLabelsRequest extends $tea.Model {
 
 export class DetectImageLabelsShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immimagetest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://imm-test/testcases/facetest.jpg
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * 1
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8020,6 +10790,10 @@ export class DetectImageLabelsShrinkRequest extends $tea.Model {
 
 export class DetectImageLabelsResponseBody extends $tea.Model {
   labels?: Label[];
+  /**
+   * @example
+   * 91AC8C98-0F36-49D2-8290-742E24DF1F69
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8067,7 +10841,18 @@ export class DetectImageLabelsResponse extends $tea.Model {
 
 export class DetectImageScoreRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * oss://bucketname/objectname
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8092,7 +10877,18 @@ export class DetectImageScoreRequest extends $tea.Model {
 
 export class DetectImageScoreShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * oss://bucketname/objectname
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8117,6 +10913,10 @@ export class DetectImageScoreShrinkRequest extends $tea.Model {
 
 export class DetectImageScoreResponseBody extends $tea.Model {
   imageScore?: DetectImageScoreResponseBodyImageScore;
+  /**
+   * @example
+   * 6E93D6C9-5AC0-49F9-914D-E02678D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8164,7 +10964,21 @@ export class DetectImageScoreResponse extends $tea.Model {
 
 export class DetectImageTextsRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object.jpg
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8189,7 +11003,21 @@ export class DetectImageTextsRequest extends $tea.Model {
 
 export class DetectImageTextsShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object.jpg
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8215,6 +11043,10 @@ export class DetectImageTextsShrinkRequest extends $tea.Model {
 export class DetectImageTextsResponseBody extends $tea.Model {
   OCRContents?: OCRContents[];
   OCRTexts?: string;
+  /**
+   * @example
+   * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8314,28 +11146,108 @@ export class DetectMediaMetaShrinkRequest extends $tea.Model {
 
 export class DetectMediaMetaResponseBody extends $tea.Model {
   addresses?: Address[];
+  /**
+   * @example
+   * unable
+   */
   album?: string;
+  /**
+   * @example
+   * unable
+   */
   albumArtist?: string;
+  /**
+   * @example
+   * unable
+   */
   artist?: string;
   audioStreams?: AudioStream[];
+  /**
+   * @example
+   * 13164131
+   */
   bitrate?: number;
+  /**
+   * @example
+   * unable
+   */
   composer?: string;
+  /**
+   * @example
+   * 15.263000
+   */
   duration?: number;
+  /**
+   * @example
+   * QuickTime / MOV
+   */
   formatLongName?: string;
+  /**
+   * @example
+   * mov,mp4,m4a,3gp,3g2,mj2
+   */
   formatName?: string;
+  /**
+   * @example
+   * eng
+   */
   language?: string;
+  /**
+   * @example
+   * +120.029003,+30.283095
+   */
   latLong?: string;
+  /**
+   * @example
+   * unable
+   */
   performer?: string;
+  /**
+   * @example
+   * 2022-04-24T02:39:57Z
+   */
   produceTime?: string;
+  /**
+   * @example
+   * 2
+   */
   programCount?: number;
+  /**
+   * @example
+   * 2213B1A9-EB3D-4666-84E0-24980BC*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 25115517
+   */
   size?: number;
+  /**
+   * @example
+   * 0.000000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 2
+   */
   streamCount?: number;
   subtitles?: SubtitleStream[];
+  /**
+   * @example
+   * test
+   */
   title?: string;
+  /**
+   * @example
+   * 1920
+   */
   videoHeight?: number;
   videoStreams?: VideoStream[];
+  /**
+   * @example
+   * 1080
+   */
   videoWidth?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8426,7 +11338,21 @@ export class DetectMediaMetaResponse extends $tea.Model {
 }
 
 export class DetectTextAnomalyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * content
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8448,7 +11374,15 @@ export class DetectTextAnomalyRequest extends $tea.Model {
 }
 
 export class DetectTextAnomalyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 91AC8C98-0F36-49D2-8290-742E24DF*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * pass
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8496,10 +11430,39 @@ export class DetectTextAnomalyResponse extends $tea.Model {
 
 export class EncodeBlindWatermarkRequest extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * 90
+   */
   imageQuality?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object.jpg
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * low
+   */
   strengthLevel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/target-object.jpg
+   */
   targetURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8529,6 +11492,10 @@ export class EncodeBlindWatermarkRequest extends $tea.Model {
 }
 
 export class EncodeBlindWatermarkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8E0DD64B-28C6-4653-8FF7-93E4C234BCF0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8574,8 +11541,22 @@ export class EncodeBlindWatermarkResponse extends $tea.Model {
 
 export class ExtractDocumentTextRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   sourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8602,8 +11583,22 @@ export class ExtractDocumentTextRequest extends $tea.Model {
 
 export class ExtractDocumentTextShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   sourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8630,6 +11625,10 @@ export class ExtractDocumentTextShrinkRequest extends $tea.Model {
 
 export class ExtractDocumentTextResponseBody extends $tea.Model {
   documentText?: string;
+  /**
+   * @example
+   * 94D6F994-E298-037E-8E8B-0090F27*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8676,12 +11675,46 @@ export class ExtractDocumentTextResponse extends $tea.Model {
 }
 
 export class FuzzyQueryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @example
+   * 1
+   */
   maxResults?: number;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * asc,desc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   query?: string;
+  /**
+   * @example
+   * Size,Filename
+   */
   sort?: string;
   withFields?: string[];
   static names(): { [key: string]: string } {
@@ -8716,12 +11749,46 @@ export class FuzzyQueryRequest extends $tea.Model {
 }
 
 export class FuzzyQueryShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @example
+   * 1
+   */
   maxResults?: number;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * asc,desc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   query?: string;
+  /**
+   * @example
+   * Size,Filename
+   */
   sort?: string;
   withFieldsShrink?: string;
   static names(): { [key: string]: string } {
@@ -8757,7 +11824,18 @@ export class FuzzyQueryShrinkRequest extends $tea.Model {
 
 export class FuzzyQueryResponseBody extends $tea.Model {
   files?: File[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+   */
   requestId?: string;
   totalHits?: number;
   static names(): { [key: string]: string } {
@@ -8810,15 +11888,49 @@ export class FuzzyQueryResponse extends $tea.Model {
 
 export class GenerateVideoPlaylistRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @example
+   * oss://bucket/object/master.m3u8
+   */
   masterURI?: string;
   notification?: Notification;
   overwritePolicy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * 0
+   */
   sourceDuration?: number;
+  /**
+   * @example
+   * 0
+   */
   sourceStartTime?: number;
   sourceSubtitles?: GenerateVideoPlaylistRequestSourceSubtitles[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://imm-test/testcases/video.mp4
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"key1": "value1", "key2": "value2"}
+   */
   tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targets?: GenerateVideoPlaylistRequestTargets[];
   userData?: string;
   static names(): { [key: string]: string } {
@@ -8862,15 +11974,49 @@ export class GenerateVideoPlaylistRequest extends $tea.Model {
 
 export class GenerateVideoPlaylistShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @example
+   * oss://bucket/object/master.m3u8
+   */
   masterURI?: string;
   notificationShrink?: string;
   overwritePolicy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * 0
+   */
   sourceDuration?: number;
+  /**
+   * @example
+   * 0
+   */
   sourceStartTime?: number;
   sourceSubtitlesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://imm-test/testcases/video.mp4
+   */
   sourceURI?: string;
+  /**
+   * @example
+   * {"key1": "value1", "key2": "value2"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   targetsShrink?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -8913,12 +12059,32 @@ export class GenerateVideoPlaylistShrinkRequest extends $tea.Model {
 }
 
 export class GenerateVideoPlaylistResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 转码文件列表。
+   */
   audioPlaylist?: GenerateVideoPlaylistResponseBodyAudioPlaylist[];
   duration?: number;
   masterURI?: string;
+  /**
+   * @example
+   * CA995EFD-083D-4F40-BE8A-BDF75FFF*****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * 转码文件列表。
+   */
   subtitlePlaylist?: GenerateVideoPlaylistResponseBodySubtitlePlaylist[];
+  /**
+   * @example
+   * 92376fbb-171f-4259-913f-705f7ee0****
+   */
   token?: string;
+  /**
+   * @remarks
+   * 转码文件列表。
+   */
   videoPlaylist?: GenerateVideoPlaylistResponseBodyVideoPlaylist[];
   static names(): { [key: string]: string } {
     return {
@@ -8975,20 +12141,74 @@ export class GenerateVideoPlaylistResponse extends $tea.Model {
 }
 
 export class GenerateWebofficeTokenRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   cachePreview?: boolean;
   credentialConfig?: CredentialConfig;
+  /**
+   * @example
+   * false
+   */
   externalUploaded?: boolean;
+  /**
+   * @example
+   * test.pptx
+   */
   filename?: string;
+  /**
+   * @example
+   * false
+   */
   hidecmb?: boolean;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notification?: Notification;
+  /**
+   * @example
+   * topic1
+   */
   notifyTopicName?: string;
+  /**
+   * @example
+   * 123456
+   */
   password?: string;
   permission?: WebofficePermission;
+  /**
+   * @example
+   * 5
+   */
   previewPages?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * *
+   */
   referer?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://imm-test/test.pptx
+   */
   sourceURI?: string;
   user?: WebofficeUser;
+  /**
+   * @example
+   * {"file_id": "abc"}
+   */
   userData?: string;
   watermark?: WebofficeWatermark;
   static names(): { [key: string]: string } {
@@ -9039,20 +12259,74 @@ export class GenerateWebofficeTokenRequest extends $tea.Model {
 }
 
 export class GenerateWebofficeTokenShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   cachePreview?: boolean;
   credentialConfigShrink?: string;
+  /**
+   * @example
+   * false
+   */
   externalUploaded?: boolean;
+  /**
+   * @example
+   * test.pptx
+   */
   filename?: string;
+  /**
+   * @example
+   * false
+   */
   hidecmb?: boolean;
+  /**
+   * @remarks
+   * 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+   */
   notificationShrink?: string;
+  /**
+   * @example
+   * topic1
+   */
   notifyTopicName?: string;
+  /**
+   * @example
+   * 123456
+   */
   password?: string;
   permissionShrink?: string;
+  /**
+   * @example
+   * 5
+   */
   previewPages?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * *
+   */
   referer?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://imm-test/test.pptx
+   */
   sourceURI?: string;
   userShrink?: string;
+  /**
+   * @example
+   * {"file_id": "abc"}
+   */
   userData?: string;
   watermarkShrink?: string;
   static names(): { [key: string]: string } {
@@ -9103,11 +12377,35 @@ export class GenerateWebofficeTokenShrinkRequest extends $tea.Model {
 }
 
 export class GenerateWebofficeTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2d73dd5d87524c5e8a194c3eb5********
+   */
   accessToken?: string;
+  /**
+   * @example
+   * 2021-08-30T13:13:11.347146982Z
+   */
   accessTokenExpiredTime?: string;
+  /**
+   * @example
+   * e374995ec532432bb678074d36********
+   */
   refreshToken?: string;
+  /**
+   * @example
+   * 2021-08-31T12:43:11.347146982Z
+   */
   refreshTokenExpiredTime?: string;
+  /**
+   * @example
+   * 1759315A-CB33-0A75-A72B-62D7********
+   */
   requestId?: string;
+  /**
+   * @example
+   * https://office-hl.imm.aliyuncs.com/office/s/dd221b2cdb44fb66e9070d1d70a8b9bbb6d6fff7?_w_tokentype=1
+   */
   webofficeURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9162,7 +12460,21 @@ export class GenerateWebofficeTokenResponse extends $tea.Model {
 }
 
 export class GetBatchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * batch-4eb9223f-3e88-42d3-a578-3f2852******
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9185,6 +12497,10 @@ export class GetBatchRequest extends $tea.Model {
 
 export class GetBatchResponseBody extends $tea.Model {
   batch?: DataIngestion;
+  /**
+   * @example
+   * 6E93D6C9-5AC0-49F9-914D-E02678D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9231,8 +12547,29 @@ export class GetBatchResponse extends $tea.Model {
 }
 
 export class GetBindingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://examplebucket
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9257,6 +12594,10 @@ export class GetBindingRequest extends $tea.Model {
 
 export class GetBindingResponseBody extends $tea.Model {
   binding?: Binding;
+  /**
+   * @example
+   * AEFCD467-C928-4A36-951A-6EB5A592****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9303,10 +12644,30 @@ export class GetBindingResponse extends $tea.Model {
 }
 
 export class GetDRMLicenseRequest extends $tea.Model {
+  /**
+   * @example
+   * AESzB8SQgpACioSEJ3yqiFwruAOUgIvlCx*****
+   */
   keyId?: string;
+  /**
+   * @example
+   * http://1111111111.mns.cn-hangzhou.aliyuncs.com
+   */
   notifyEndpoint?: string;
+  /**
+   * @example
+   * topic1
+   */
   notifyTopicName?: string;
+  /**
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * widevine
+   */
   protectionSystem?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9334,9 +12695,25 @@ export class GetDRMLicenseRequest extends $tea.Model {
 }
 
 export class GetDRMLicenseResponseBody extends $tea.Model {
+  /**
+   * @example
+   * IEEE1284DeviceID
+   */
   deviceInfo?: string;
+  /**
+   * @example
+   * AESzB8SQgpACioSEJ3yqiFwruAOUgIvlCx*****
+   */
   license?: string;
+  /**
+   * @example
+   * 896ABAD1-C452-4BED-B5E0-302955F*****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 200
+   */
   states?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9387,8 +12764,26 @@ export class GetDRMLicenseResponse extends $tea.Model {
 }
 
 export class GetDatasetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * true
+   */
   withStatistics?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9413,6 +12808,10 @@ export class GetDatasetRequest extends $tea.Model {
 
 export class GetDatasetResponseBody extends $tea.Model {
   dataset?: Dataset;
+  /**
+   * @example
+   * 6D74B3A9-5AC0-49F9-914D-E01589D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9459,8 +12858,29 @@ export class GetDatasetResponse extends $tea.Model {
 }
 
 export class GetDecodeBlindWatermarkResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DecodeBlindWatermark-c09b0943-ed79-4983-8dbe-7a882574****
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DecodeBlindWatermark
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9484,17 +12904,61 @@ export class GetDecodeBlindWatermarkResultRequest extends $tea.Model {
 }
 
 export class GetDecodeBlindWatermarkResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ResourceNotFound
+   */
   code?: string;
   content?: string;
+  /**
+   * @example
+   * 2024-03-03T09:45:56.87Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2C2-1I0EG57VR37J4rQ8oKG6C9*****
+   */
   eventId?: string;
+  /**
+   * @example
+   * The specified resource project is not found.
+   */
   message?: string;
+  /**
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * 93126E40-0296-4129-95E3-AFAC709372E5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2024-03-03T09:44:31.029Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Succeeded
+   */
   status?: string;
+  /**
+   * @example
+   * DecodeBlindWatermark-c09b0943-ed79-4983-8dbe-7a882574****
+   */
   taskId?: string;
+  /**
+   * @example
+   * DecodeBlindWatermark
+   */
   taskType?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9561,8 +13025,29 @@ export class GetDecodeBlindWatermarkResultResponse extends $tea.Model {
 }
 
 export class GetFigureClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dataset001
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Cluster-1f2e1a2c-d5ee-4bc5-84f6-fef94ea****
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9587,6 +13072,10 @@ export class GetFigureClusterRequest extends $tea.Model {
 
 export class GetFigureClusterResponseBody extends $tea.Model {
   figureCluster?: FigureCluster;
+  /**
+   * @example
+   * 5F74C5C9-5AC0-49F9-914D-E01589D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9633,8 +13122,20 @@ export class GetFigureClusterResponse extends $tea.Model {
 }
 
 export class GetFileMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9659,6 +13160,10 @@ export class GetFileMetaRequest extends $tea.Model {
 
 export class GetFileMetaResponseBody extends $tea.Model {
   files?: File[];
+  /**
+   * @example
+   * 7F84C6D9-5AC0-49F9-914D-F02678E3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9705,8 +13210,29 @@ export class GetFileMetaResponse extends $tea.Model {
 }
 
 export class GetImageModerationResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ImageModeration-ff207203-3f93-4645-a041-7b8f0f******
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ImageModeration
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9730,17 +13256,63 @@ export class GetImageModerationResultRequest extends $tea.Model {
 }
 
 export class GetImageModerationResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ResourceNotFound
+   */
   code?: string;
+  /**
+   * @example
+   * 2023-04-03T09:44:32Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 1B6-1XBMX3BixLMILvXVGtlkr******
+   */
   eventId?: string;
+  /**
+   * @example
+   * The specified resource TaskId is not found.
+   */
   message?: string;
   moderationResult?: GetImageModerationResultResponseBodyModerationResult;
+  /**
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * E6A120B1-BEB3-0F63-A7C2-0783B6******
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2023-04-03T09:44:31.029Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Succeeded
+   */
   status?: string;
+  /**
+   * @example
+   * ImageModeration-ff207203-3f93-4645-a041-7b8f0f******
+   */
   taskId?: string;
+  /**
+   * @example
+   * ImageModeration
+   */
   taskType?: string;
+  /**
+   * @example
+   * {
+   *       "fileId": "123"
+   * }
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9807,6 +13379,13 @@ export class GetImageModerationResultResponse extends $tea.Model {
 }
 
 export class GetOSSBucketAttachmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * examplebucket
+   */
   OSSBucket?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9828,7 +13407,15 @@ export class GetOSSBucketAttachmentRequest extends $tea.Model {
 export class GetOSSBucketAttachmentResponseBody extends $tea.Model {
   createTime?: string;
   description?: string;
+  /**
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * 5F74C5C9-5AC0-49F9-914D-E01589D3****
+   */
   requestId?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -9882,7 +13469,18 @@ export class GetOSSBucketAttachmentResponse extends $tea.Model {
 }
 
 export class GetProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * true
+   */
   withStatistics?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9905,6 +13503,10 @@ export class GetProjectRequest extends $tea.Model {
 
 export class GetProjectResponseBody extends $tea.Model {
   project?: Project;
+  /**
+   * @example
+   * 5A022F78-B9A8-4ACC-BB6B-B3597553
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9951,8 +13553,29 @@ export class GetProjectResponse extends $tea.Model {
 }
 
 export class GetStoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * id1
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9976,6 +13599,10 @@ export class GetStoryRequest extends $tea.Model {
 }
 
 export class GetStoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
+   */
   requestId?: string;
   story?: Story;
   static names(): { [key: string]: string } {
@@ -10023,9 +13650,30 @@ export class GetStoryResponse extends $tea.Model {
 }
 
 export class GetTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   requestDefinition?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c2b277b9-0d30-4882-ad6d-ad661382****
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * VideoLabelClassification
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10051,19 +13699,67 @@ export class GetTaskRequest extends $tea.Model {
 }
 
 export class GetTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ResourceNotFound
+   */
   code?: string;
+  /**
+   * @example
+   * 2021-12-24T03:01:49.480109219Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2F6-1Bz99Xi93EnRpNEyLudILJm****
+   */
   eventId?: string;
+  /**
+   * @example
+   * The specified resource project is not found.
+   */
   message?: string;
   progress?: number;
+  /**
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2021-12-24T03:01:41.662060377Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * {"test": "val1"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @example
+   * c2b277b9-0d30-4882-ad6d-ad661382****
+   */
   taskId?: string;
   taskRequestDefinition?: string;
+  /**
+   * @example
+   * VideoLabelClassification
+   */
   taskType?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10134,7 +13830,21 @@ export class GetTaskResponse extends $tea.Model {
 }
 
 export class GetTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * trigger-9f72636a-0f0c-4baf-ae78-38b27b******
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10156,6 +13866,10 @@ export class GetTriggerRequest extends $tea.Model {
 }
 
 export class GetTriggerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4A7A2D0E-D8B8-4DA0-8127-EB32C6******
+   */
   requestId?: string;
   trigger?: DataIngestion;
   static names(): { [key: string]: string } {
@@ -10203,8 +13917,29 @@ export class GetTriggerResponse extends $tea.Model {
 }
 
 export class GetVideoLabelClassificationResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec****
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * VideoLabelClassification
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10228,17 +13963,61 @@ export class GetVideoLabelClassificationResultRequest extends $tea.Model {
 }
 
 export class GetVideoLabelClassificationResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ResourceNotFound
+   */
   code?: string;
+  /**
+   * @example
+   * 2021-12-24T03:00:42.134971294Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2F6-1Bz99Xi93EnRpNEyLudILJm****
+   */
   eventId?: string;
   labels?: Label[];
+  /**
+   * @example
+   * The specified resource project is not found.
+   */
   message?: string;
+  /**
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * 7F84C6D9-5AC0-49F9-914D-F02678E3****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2021-12-24T03:00:38.892462383Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Succeeded
+   */
   status?: string;
+  /**
+   * @example
+   * VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec****
+   */
   taskId?: string;
+  /**
+   * @example
+   * VideoLabelClassification
+   */
   taskType?: string;
+  /**
+   * @example
+   * {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10305,8 +14084,29 @@ export class GetVideoLabelClassificationResultResponse extends $tea.Model {
 }
 
 export class GetVideoModerationResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * VideoModeration-d0f0df1d-531d-4ab4-b353-e7f475******
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * VideoModeration
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10330,16 +14130,56 @@ export class GetVideoModerationResultRequest extends $tea.Model {
 }
 
 export class GetVideoModerationResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ResourceNotFound
+   */
   code?: string;
+  /**
+   * @example
+   * 2023-04-03T10:20:56.87Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 05C-1XBQvsG2Tn5kBx2dUWo43******
+   */
   eventId?: string;
+  /**
+   * @example
+   * The specified resource TaskId is not found.
+   */
   message?: string;
   moderationResult?: GetVideoModerationResultResponseBodyModerationResult;
+  /**
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * VideoModeration-d0f0df1d-531d-4ab4-b353-e7f475******
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2023-04-03T10:20:41.432Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * Succeeded
+   */
   status?: string;
+  /**
+   * @example
+   * VideoModeration-d0f0df1d-531d-4ab4-b353-e7f4750******
+   */
   taskId?: string;
+  /**
+   * @example
+   * VideoModeration
+   */
   taskType?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -10407,9 +14247,27 @@ export class GetVideoModerationResultResponse extends $tea.Model {
 }
 
 export class IndexFileMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   file?: InputFile;
   notification?: Notification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -10438,9 +14296,27 @@ export class IndexFileMetaRequest extends $tea.Model {
 }
 
 export class IndexFileMetaShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fileShrink?: string;
   notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -10469,7 +14345,15 @@ export class IndexFileMetaShrinkRequest extends $tea.Model {
 }
 
 export class IndexFileMetaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 30F-1D8FxFzDXKJH9YQdve4CjR****
+   */
   eventId?: string;
+  /**
+   * @example
+   * 6E93D6C9-5AC0-49F9-914D-E02678D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10516,12 +14400,43 @@ export class IndexFileMetaResponse extends $tea.Model {
 }
 
 export class ListBatchesRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * 2020-11-11T06:51:17.5Z
+   */
   sort?: string;
+  /**
+   * @example
+   * Succeed
+   */
   state?: string;
+  /**
+   * @example
+   * test=val1
+   */
   tagSelector?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10554,7 +14469,15 @@ export class ListBatchesRequest extends $tea.Model {
 
 export class ListBatchesResponseBody extends $tea.Model {
   batches?: DataIngestion[];
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * FEDC9B1F-30F2-4C1F-8ED2-B7860187****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10603,9 +14526,31 @@ export class ListBatchesResponse extends $tea.Model {
 }
 
 export class ListBindingsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @example
+   * 1
+   */
   maxResults?: number;
+  /**
+   * @example
+   * immtest:dataset001:examplebucket01
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10632,7 +14577,15 @@ export class ListBindingsRequest extends $tea.Model {
 
 export class ListBindingsResponseBody extends $tea.Model {
   bindings?: Binding[];
+  /**
+   * @example
+   * immtest:dataset001:examplebucket01
+   */
   nextToken?: string;
+  /**
+   * @example
+   * EFDFD356-C928-4A36-951A-6EB5A592****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10681,9 +14634,28 @@ export class ListBindingsResponse extends $tea.Model {
 }
 
 export class ListDatasetsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 12345678:immtest:dataset002
+   */
   nextToken?: string;
+  /**
+   * @example
+   * dataset
+   */
   prefix?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10710,7 +14682,15 @@ export class ListDatasetsRequest extends $tea.Model {
 
 export class ListDatasetsResponseBody extends $tea.Model {
   datasets?: Dataset[];
+  /**
+   * @example
+   * 12345678:immtest:dataset002
+   */
   nextToken?: string;
+  /**
+   * @example
+   * FEEDE356-C928-4A36-951A-6EB5A592****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10761,6 +14741,10 @@ export class ListDatasetsResponse extends $tea.Model {
 export class ListProjectsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
+  /**
+   * @example
+   * immtest
+   */
   prefix?: string;
   tag?: ListProjectsRequestTag[];
   static names(): { [key: string]: string } {
@@ -10789,6 +14773,10 @@ export class ListProjectsRequest extends $tea.Model {
 export class ListProjectsShrinkRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
+  /**
+   * @example
+   * immtest
+   */
   prefix?: string;
   tagShrink?: string;
   static names(): { [key: string]: string } {
@@ -10817,6 +14805,10 @@ export class ListProjectsShrinkRequest extends $tea.Model {
 export class ListProjectsResponseBody extends $tea.Model {
   nextToken?: string;
   projects?: Project[];
+  /**
+   * @example
+   * 4A7A2D0E-D8B8-4DA0-8127-EB32C660
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10865,6 +14857,13 @@ export class ListProjectsResponse extends $tea.Model {
 }
 
 export class ListRegionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10885,6 +14884,10 @@ export class ListRegionsRequest extends $tea.Model {
 
 export class ListRegionsResponseBody extends $tea.Model {
   regions?: RegionType[];
+  /**
+   * @example
+   * 7F7D235C-76FF-4B65-800C-8238AE3F****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10932,14 +14935,46 @@ export class ListRegionsResponse extends $tea.Model {
 
 export class ListTasksRequest extends $tea.Model {
   endTimeRange?: TimeRange;
+  /**
+   * @example
+   * 1
+   */
   maxResults?: number;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * True
+   */
   requestDefinition?: boolean;
+  /**
+   * @example
+   * TaskId
+   */
   sort?: string;
   startTimeRange?: TimeRange;
+  /**
+   * @example
+   * Succeeded
+   */
   status?: string;
+  /**
+   * @example
+   * test=val1
+   */
   tagSelector?: string;
   taskTypes?: string[];
   static names(): { [key: string]: string } {
@@ -10981,14 +15016,46 @@ export class ListTasksRequest extends $tea.Model {
 
 export class ListTasksShrinkRequest extends $tea.Model {
   endTimeRangeShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   maxResults?: number;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * True
+   */
   requestDefinition?: boolean;
+  /**
+   * @example
+   * TaskId
+   */
   sort?: string;
   startTimeRangeShrink?: string;
+  /**
+   * @example
+   * Succeeded
+   */
   status?: string;
+  /**
+   * @example
+   * test=val1
+   */
   tagSelector?: string;
   taskTypesShrink?: string;
   static names(): { [key: string]: string } {
@@ -11029,9 +15096,25 @@ export class ListTasksShrinkRequest extends $tea.Model {
 }
 
 export class ListTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   maxResults?: string;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * 9847E7D0-A9A3-0053-84C6-BA16FFFA726E
+   */
   requestId?: string;
   tasks?: TaskInfo[];
   static names(): { [key: string]: string } {
@@ -11085,12 +15168,43 @@ export class ListTasksResponse extends $tea.Model {
 }
 
 export class ListTriggersRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * 2020-11-11T06:51:17.5Z
+   */
   sort?: string;
+  /**
+   * @example
+   * Succeeded
+   */
   state?: string;
+  /**
+   * @example
+   * test=val1
+   */
   tagSelector?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11122,7 +15236,15 @@ export class ListTriggersRequest extends $tea.Model {
 }
 
 export class ListTriggersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * F480BFAF-E778-5079-93AD-1E4631******
+   */
   requestId?: string;
   triggers?: DataIngestion[];
   static names(): { [key: string]: string } {
@@ -11174,13 +15296,43 @@ export class ListTriggersResponse extends $tea.Model {
 export class QueryFigureClustersRequest extends $tea.Model {
   createTimeRange?: TimeRange;
   customLabels?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
   maxResults?: number;
+  /**
+   * @example
+   * 10
+   */
   nextToken?: string;
+  /**
+   * @example
+   * asc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * ImageCount
+   */
   sort?: string;
   updateTimeRange?: TimeRange;
+  /**
+   * @example
+   * false
+   */
   withTotalCount?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11220,13 +15372,43 @@ export class QueryFigureClustersRequest extends $tea.Model {
 export class QueryFigureClustersShrinkRequest extends $tea.Model {
   createTimeRangeShrink?: string;
   customLabels?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
   maxResults?: number;
+  /**
+   * @example
+   * 10
+   */
   nextToken?: string;
+  /**
+   * @example
+   * asc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * ImageCount
+   */
   sort?: string;
   updateTimeRangeShrink?: string;
+  /**
+   * @example
+   * false
+   */
   withTotalCount?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11265,8 +15447,20 @@ export class QueryFigureClustersShrinkRequest extends $tea.Model {
 
 export class QueryFigureClustersResponseBody extends $tea.Model {
   figureClusters?: FigureCluster[];
+  /**
+   * @example
+   * 10
+   */
   nextToken?: string;
+  /**
+   * @example
+   * CA995EFD-083D-4F40-BE8A-BDF75FFF****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11319,16 +15513,40 @@ export class QueryFigureClustersResponse extends $tea.Model {
 export class QueryLocationDateClustersRequest extends $tea.Model {
   address?: Address;
   createTimeRange?: TimeRange;
+  /**
+   * @example
+   * key=value
+   */
   customLabels?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
   locationDateClusterEndTimeRange?: TimeRange;
   locationDateClusterLevels?: string[];
   locationDateClusterStartTimeRange?: TimeRange;
   maxResults?: number;
+  /**
+   * @example
+   * MzQNjmY2MzYxNhNjk2ZNjEu****
+   */
   nextToken?: string;
   objectId?: string;
+  /**
+   * @example
+   * asc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * LocationDateClusterStartTime
+   */
   sort?: string;
   title?: string;
   updateTimeRange?: TimeRange;
@@ -11380,16 +15598,40 @@ export class QueryLocationDateClustersRequest extends $tea.Model {
 export class QueryLocationDateClustersShrinkRequest extends $tea.Model {
   addressShrink?: string;
   createTimeRangeShrink?: string;
+  /**
+   * @example
+   * key=value
+   */
   customLabels?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
   locationDateClusterEndTimeRangeShrink?: string;
   locationDateClusterLevelsShrink?: string;
   locationDateClusterStartTimeRangeShrink?: string;
   maxResults?: number;
+  /**
+   * @example
+   * MzQNjmY2MzYxNhNjk2ZNjEu****
+   */
   nextToken?: string;
   objectId?: string;
+  /**
+   * @example
+   * asc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * LocationDateClusterStartTime
+   */
   sort?: string;
   title?: string;
   updateTimeRangeShrink?: string;
@@ -11440,7 +15682,15 @@ export class QueryLocationDateClustersShrinkRequest extends $tea.Model {
 
 export class QueryLocationDateClustersResponseBody extends $tea.Model {
   locationDateClusters?: LocationDateCluster[];
+  /**
+   * @example
+   * MzQNjmY2MzYxNhNjk2ZNjEu****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 7055FCF7-4D7B-098E-BD4D-DD2932B0****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11489,12 +15739,40 @@ export class QueryLocationDateClustersResponse extends $tea.Model {
 }
 
 export class QuerySimilarImageClustersRequest extends $tea.Model {
+  /**
+   * @example
+   * {"key": "val"}
+   */
   customLabels?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * CAESEgoQCg4KClVwZGF0ZVRpbWUQARgBIs8ECgkAAJLUwUCAQ****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * asc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * UpdateTime
+   */
   sort?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11526,7 +15804,15 @@ export class QuerySimilarImageClustersRequest extends $tea.Model {
 }
 
 export class QuerySimilarImageClustersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CAESEgoQCg4KClVwZGF0ZVRpbWUQARgBIs8ECgkAAJLUwUCAQ****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * CA995EFD-083D-4F40-BE8A-BDF75FFF****
+   */
   requestId?: string;
   similarImageClusters?: SimilarImageCluster[];
   static names(): { [key: string]: string } {
@@ -11578,19 +15864,69 @@ export class QuerySimilarImageClustersResponse extends $tea.Model {
 export class QueryStoriesRequest extends $tea.Model {
   createTimeRange?: TimeRange;
   customLabels?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
   figureClusterIds?: string[];
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * id1
+   */
   objectId?: string;
+  /**
+   * @example
+   * asc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * CreateTime
+   */
   sort?: string;
   storyEndTimeRange?: TimeRange;
+  /**
+   * @example
+   * name1
+   */
   storyName?: string;
   storyStartTimeRange?: TimeRange;
+  /**
+   * @example
+   * SeasonHighlights
+   */
   storySubType?: string;
+  /**
+   * @example
+   * TimeMemory
+   */
   storyType?: string;
+  /**
+   * @example
+   * true
+   */
   withEmptyStories?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11642,19 +15978,69 @@ export class QueryStoriesRequest extends $tea.Model {
 export class QueryStoriesShrinkRequest extends $tea.Model {
   createTimeRangeShrink?: string;
   customLabels?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
   figureClusterIdsShrink?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * id1
+   */
   objectId?: string;
+  /**
+   * @example
+   * asc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * CreateTime
+   */
   sort?: string;
   storyEndTimeRangeShrink?: string;
+  /**
+   * @example
+   * name1
+   */
   storyName?: string;
   storyStartTimeRangeShrink?: string;
+  /**
+   * @example
+   * SeasonHighlights
+   */
   storySubType?: string;
+  /**
+   * @example
+   * TimeMemory
+   */
   storyType?: string;
+  /**
+   * @example
+   * true
+   */
   withEmptyStories?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11704,7 +16090,15 @@ export class QueryStoriesShrinkRequest extends $tea.Model {
 }
 
 export class QueryStoriesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3Qx****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
+   */
   requestId?: string;
   stories?: Story[];
   static names(): { [key: string]: string } {
@@ -11754,9 +16148,30 @@ export class QueryStoriesResponse extends $tea.Model {
 }
 
 export class RefreshWebofficeTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 99d1b8b478b641c1b3372f5bd6********
+   */
   accessToken?: string;
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a730ae0d7c6a487d87c661d199********
+   */
   refreshToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11782,9 +16197,30 @@ export class RefreshWebofficeTokenRequest extends $tea.Model {
 }
 
 export class RefreshWebofficeTokenShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 99d1b8b478b641c1b3372f5bd6********
+   */
   accessToken?: string;
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a730ae0d7c6a487d87c661d199********
+   */
   refreshToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11810,10 +16246,30 @@ export class RefreshWebofficeTokenShrinkRequest extends $tea.Model {
 }
 
 export class RefreshWebofficeTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4996466c690a4902846ce00f96********
+   */
   accessToken?: string;
+  /**
+   * @example
+   * 2021-08-31T13:07:28.950065359Z
+   */
   accessTokenExpiredTime?: string;
+  /**
+   * @example
+   * 72a52ab3702a4123ab5594671a********
+   */
   refreshToken?: string;
+  /**
+   * @example
+   * 2021-09-01T12:37:28.950065359Z
+   */
   refreshTokenExpiredTime?: string;
+  /**
+   * @example
+   * 501339F9-4B70-0CE2-AB8C-866C********
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11866,9 +16322,34 @@ export class RefreshWebofficeTokenResponse extends $tea.Model {
 }
 
 export class RemoveStoryFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testdataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   files?: RemoveStoryFilesRequestFiles[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11894,9 +16375,34 @@ export class RemoveStoryFilesRequest extends $tea.Model {
 }
 
 export class RemoveStoryFilesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testdataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   filesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11922,6 +16428,10 @@ export class RemoveStoryFilesShrinkRequest extends $tea.Model {
 }
 
 export class RemoveStoryFilesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6E93D6C9-5AC0-49F9-914D-E02678D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11966,7 +16476,21 @@ export class RemoveStoryFilesResponse extends $tea.Model {
 }
 
 export class ResumeBatchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * batch-4eb9223f-3e88-42d3-a578-3f2852******
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11988,6 +16512,10 @@ export class ResumeBatchRequest extends $tea.Model {
 }
 
 export class ResumeBatchResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D2C628B8-35DF-473C-8A41-757F30******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12032,7 +16560,21 @@ export class ResumeBatchResponse extends $tea.Model {
 }
 
 export class ResumeTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * trigger-9f72636a-0f0c-4baf-ae78-38b27b******
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12054,6 +16596,10 @@ export class ResumeTriggerRequest extends $tea.Model {
 }
 
 export class ResumeTriggerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FEDC9B1F-30F2-4C1F-8ED2-B7860187****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12099,8 +16645,26 @@ export class ResumeTriggerResponse extends $tea.Model {
 
 export class SearchImageFigureClusterRequest extends $tea.Model {
   credentialConfig?: CredentialConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12127,8 +16691,26 @@ export class SearchImageFigureClusterRequest extends $tea.Model {
 
 export class SearchImageFigureClusterShrinkRequest extends $tea.Model {
   credentialConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   sourceURI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12155,6 +16737,10 @@ export class SearchImageFigureClusterShrinkRequest extends $tea.Model {
 
 export class SearchImageFigureClusterResponseBody extends $tea.Model {
   clusters?: SearchImageFigureClusterResponseBodyClusters[];
+  /**
+   * @example
+   * C2734912-E6D5-052C-AC67-6A9FD02*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12201,11 +16787,37 @@ export class SearchImageFigureClusterResponse extends $tea.Model {
 }
 
 export class SemanticQueryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immDatatest
+   */
   datasetName?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
   mediaTypes?: string[];
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   query?: string;
   withFields?: string[];
   static names(): { [key: string]: string } {
@@ -12238,11 +16850,37 @@ export class SemanticQueryRequest extends $tea.Model {
 }
 
 export class SemanticQueryShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immDatatest
+   */
   datasetName?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
   mediaTypesShrink?: string;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   query?: string;
   withFieldsShrink?: string;
   static names(): { [key: string]: string } {
@@ -12276,6 +16914,10 @@ export class SemanticQueryShrinkRequest extends $tea.Model {
 
 export class SemanticQueryResponseBody extends $tea.Model {
   files?: File[];
+  /**
+   * @example
+   * 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12323,14 +16965,44 @@ export class SemanticQueryResponse extends $tea.Model {
 
 export class SimpleQueryRequest extends $tea.Model {
   aggregations?: SimpleQueryRequestAggregations[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
   maxResults?: number;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * asc,desc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   query?: SimpleQuery;
+  /**
+   * @example
+   * Size,Filename
+   */
   sort?: string;
   withFields?: string[];
+  /**
+   * **if can be null:**
+   * true
+   */
   withoutTotalHits?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12369,14 +17041,44 @@ export class SimpleQueryRequest extends $tea.Model {
 
 export class SimpleQueryShrinkRequest extends $tea.Model {
   aggregationsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-dataset
+   */
   datasetName?: string;
   maxResults?: number;
+  /**
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * asc,desc
+   */
   order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   queryShrink?: string;
+  /**
+   * @example
+   * Size,Filename
+   */
   sort?: string;
   withFieldsShrink?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
   withoutTotalHits?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12416,7 +17118,18 @@ export class SimpleQueryShrinkRequest extends $tea.Model {
 export class SimpleQueryResponseBody extends $tea.Model {
   aggregations?: SimpleQueryResponseBodyAggregations[];
   files?: File[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
+   */
   requestId?: string;
   totalHits?: number;
   static names(): { [key: string]: string } {
@@ -12470,7 +17183,21 @@ export class SimpleQueryResponse extends $tea.Model {
 }
 
 export class SuspendBatchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * batch-4eb9223f-3e88-42d3-a578-3f2852******
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12492,6 +17219,10 @@ export class SuspendBatchRequest extends $tea.Model {
 }
 
 export class SuspendBatchResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EC564A9A-BA5C-4499-A087-D9B9E76E*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12536,7 +17267,21 @@ export class SuspendBatchResponse extends $tea.Model {
 }
 
 export class SuspendTriggerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * trigger-9f72636a-0f0c-4baf-ae78-38b27b******
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12558,6 +17303,10 @@ export class SuspendTriggerRequest extends $tea.Model {
 }
 
 export class SuspendTriggerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0BC1F0C9-8E99-46C6-B502-10DED******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12603,9 +17352,27 @@ export class SuspendTriggerResponse extends $tea.Model {
 
 export class UpdateBatchRequest extends $tea.Model {
   actions?: UpdateBatchRequestActions[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * batch-4eb9223f-3e88-42d3-a578-3f2852******
+   */
   id?: string;
   input?: Input;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * {"key":"val"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -12634,9 +17401,27 @@ export class UpdateBatchRequest extends $tea.Model {
 
 export class UpdateBatchShrinkRequest extends $tea.Model {
   actionsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * batch-4eb9223f-3e88-42d3-a578-3f2852******
+   */
   id?: string;
   inputShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * {"key":"val"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12664,6 +17449,10 @@ export class UpdateBatchShrinkRequest extends $tea.Model {
 }
 
 export class UpdateBatchResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CB4D73A3-BAF4-4A9D-A631-15F219AF****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12708,14 +17497,50 @@ export class UpdateBatchResponse extends $tea.Model {
 }
 
 export class UpdateDatasetRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   datasetMaxBindCount?: number;
+  /**
+   * @example
+   * 10000000000
+   */
   datasetMaxEntityCount?: number;
+  /**
+   * @example
+   * 100000000
+   */
   datasetMaxFileCount?: number;
+  /**
+   * @example
+   * 100000000000
+   */
   datasetMaxRelationCount?: number;
+  /**
+   * @example
+   * 90000000000000000
+   */
   datasetMaxTotalFileSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @example
+   * immtest
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * Official:AllFunction
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12752,6 +17577,10 @@ export class UpdateDatasetRequest extends $tea.Model {
 
 export class UpdateDatasetResponseBody extends $tea.Model {
   dataset?: Dataset;
+  /**
+   * @example
+   * 45234D4A-A3E3-4B23-AACA-8D897514****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12798,8 +17627,20 @@ export class UpdateDatasetResponse extends $tea.Model {
 }
 
 export class UpdateFigureClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   figureCluster?: FigureClusterForReq;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12823,8 +17664,20 @@ export class UpdateFigureClusterRequest extends $tea.Model {
 }
 
 export class UpdateFigureClusterShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   figureClusterShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12848,6 +17701,10 @@ export class UpdateFigureClusterShrinkRequest extends $tea.Model {
 }
 
 export class UpdateFigureClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5F74C5C9-5AC0-49F9-914D-E01589D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12892,8 +17749,20 @@ export class UpdateFigureClusterResponse extends $tea.Model {
 }
 
 export class UpdateFileMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   file?: InputFile;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12917,8 +17786,20 @@ export class UpdateFileMetaRequest extends $tea.Model {
 }
 
 export class UpdateFileMetaShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fileShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12942,6 +17823,10 @@ export class UpdateFileMetaShrinkRequest extends $tea.Model {
 }
 
 export class UpdateFileMetaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6D53E6C9-5AC0-48F9-825F-D02678E3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12988,8 +17873,20 @@ export class UpdateFileMetaResponse extends $tea.Model {
 export class UpdateLocationDateClusterRequest extends $tea.Model {
   customId?: string;
   customLabels?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -13022,8 +17919,20 @@ export class UpdateLocationDateClusterRequest extends $tea.Model {
 export class UpdateLocationDateClusterShrinkRequest extends $tea.Model {
   customId?: string;
   customLabelsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -13054,6 +17963,10 @@ export class UpdateLocationDateClusterShrinkRequest extends $tea.Model {
 }
 
 export class UpdateLocationDateClusterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 52B017A8-FEF5-0A61-BAEE-234A8AD8****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13098,16 +18011,56 @@ export class UpdateLocationDateClusterResponse extends $tea.Model {
 }
 
 export class UpdateProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   datasetMaxBindCount?: number;
+  /**
+   * @example
+   * 10000000000
+   */
   datasetMaxEntityCount?: number;
+  /**
+   * @example
+   * 100000000
+   */
   datasetMaxFileCount?: number;
+  /**
+   * @example
+   * 100000000000
+   */
   datasetMaxRelationCount?: number;
+  /**
+   * @example
+   * 90000000000000000
+   */
   datasetMaxTotalFileSize?: number;
+  /**
+   * @example
+   * immtest
+   */
   description?: string;
+  /**
+   * @example
+   * 1000000000
+   */
   projectMaxDatasetCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * AliyunIMMDefaultRole
+   */
   serviceRole?: string;
   tag?: UpdateProjectRequestTag[];
+  /**
+   * @example
+   * AliyunIMMDefaultRole
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13147,16 +18100,56 @@ export class UpdateProjectRequest extends $tea.Model {
 }
 
 export class UpdateProjectShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   datasetMaxBindCount?: number;
+  /**
+   * @example
+   * 10000000000
+   */
   datasetMaxEntityCount?: number;
+  /**
+   * @example
+   * 100000000
+   */
   datasetMaxFileCount?: number;
+  /**
+   * @example
+   * 100000000000
+   */
   datasetMaxRelationCount?: number;
+  /**
+   * @example
+   * 90000000000000000
+   */
   datasetMaxTotalFileSize?: number;
+  /**
+   * @example
+   * immtest
+   */
   description?: string;
+  /**
+   * @example
+   * 1000000000
+   */
   projectMaxDatasetCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @example
+   * AliyunIMMDefaultRole
+   */
   serviceRole?: string;
   tagShrink?: string;
+  /**
+   * @example
+   * AliyunIMMDefaultRole
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13197,6 +18190,10 @@ export class UpdateProjectShrinkRequest extends $tea.Model {
 
 export class UpdateProjectResponseBody extends $tea.Model {
   project?: Project;
+  /**
+   * @example
+   * D33C3574-4093-448E-86E7-15BE2BD3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13244,11 +18241,44 @@ export class UpdateProjectResponse extends $tea.Model {
 
 export class UpdateStoryRequest extends $tea.Model {
   cover?: UpdateStoryRequestCover;
+  /**
+   * @example
+   * test
+   */
   customId?: string;
+  /**
+   * @example
+   * {"key": "value"}
+   */
   customLabels?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testdata
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * newstory
+   */
   storyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13281,11 +18311,44 @@ export class UpdateStoryRequest extends $tea.Model {
 
 export class UpdateStoryShrinkRequest extends $tea.Model {
   coverShrink?: string;
+  /**
+   * @example
+   * test
+   */
   customId?: string;
+  /**
+   * @example
+   * {"key": "value"}
+   */
   customLabelsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testdata
+   */
   datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * immtest
+   */
   projectName?: string;
+  /**
+   * @example
+   * newstory
+   */
   storyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13317,6 +18380,10 @@ export class UpdateStoryShrinkRequest extends $tea.Model {
 }
 
 export class UpdateStoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6E93D6C9-5AC0-49F9-914D-E02678D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13362,9 +18429,27 @@ export class UpdateStoryResponse extends $tea.Model {
 
 export class UpdateTriggerRequest extends $tea.Model {
   actions?: UpdateTriggerRequestActions[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * trigger-9f72636a-0f0c-4baf-ae78-38b27b******
+   */
   id?: string;
   input?: Input;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * {"test": "val1"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -13393,9 +18478,27 @@ export class UpdateTriggerRequest extends $tea.Model {
 
 export class UpdateTriggerShrinkRequest extends $tea.Model {
   actionsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * trigger-9f72636a-0f0c-4baf-ae78-38b27b******
+   */
   id?: string;
   inputShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-project
+   */
   projectName?: string;
+  /**
+   * @example
+   * {"test": "val1"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13423,6 +18526,10 @@ export class UpdateTriggerShrinkRequest extends $tea.Model {
 }
 
 export class UpdateTriggerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5A022F78-B9A8-4ACC-BB6B-B35975******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13752,6 +18859,10 @@ export class TargetAudioTranscodeAudio extends $tea.Model {
 }
 
 export class TargetImageAnimations extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   format?: string;
   frameRate?: number;
   height?: number;
@@ -13759,6 +18870,10 @@ export class TargetImageAnimations extends $tea.Model {
   number?: number;
   scaleType?: string;
   startTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URI?: string;
   width?: number;
   static names(): { [key: string]: string } {
@@ -13795,12 +18910,20 @@ export class TargetImageAnimations extends $tea.Model {
 }
 
 export class TargetImageSnapshots extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   format?: string;
   height?: number;
   interval?: number;
   number?: number;
   scaleType?: string;
   startTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URI?: string;
   width?: number;
   static names(): { [key: string]: string } {
@@ -13835,6 +18958,10 @@ export class TargetImageSnapshots extends $tea.Model {
 }
 
 export class TargetImageSprites extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   format?: string;
   interval?: number;
   margin?: number;
@@ -13846,6 +18973,10 @@ export class TargetImageSprites extends $tea.Model {
   startTime?: number;
   tileHeight?: number;
   tileWidth?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14099,10 +19230,42 @@ export class TargetVideoTranscodeVideo extends $tea.Model {
 }
 
 export class AddImageMosaicRequestTargetsBoundary extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 200
+   */
   height?: number;
+  /**
+   * @example
+   * topleft
+   */
   referPos?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 200
+   */
   width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14130,11 +19293,38 @@ export class AddImageMosaicRequestTargetsBoundary extends $tea.Model {
 }
 
 export class AddImageMosaicRequestTargets extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   blurRadius?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   boundary?: AddImageMosaicRequestTargetsBoundary;
+  /**
+   * @example
+   * #FFFFFF
+   */
   color?: string;
+  /**
+   * @example
+   * 5
+   */
   mosaicRadius?: number;
+  /**
+   * @example
+   * 5
+   */
   sigma?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * square
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14164,6 +19354,10 @@ export class AddImageMosaicRequestTargets extends $tea.Model {
 }
 
 export class AddStoryFilesRequestFiles extends $tea.Model {
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14183,8 +19377,20 @@ export class AddStoryFilesRequestFiles extends $tea.Model {
 }
 
 export class AddStoryFilesResponseBodyFiles extends $tea.Model {
+  /**
+   * @example
+   * ResourceNotFound
+   */
   errorCode?: string;
+  /**
+   * @example
+   * The specified resource %s is not found.
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14208,6 +19414,10 @@ export class AddStoryFilesResponseBodyFiles extends $tea.Model {
 }
 
 export class BatchUpdateFileMetaResponseBodyFiles extends $tea.Model {
+  /**
+   * @example
+   * *error.OpError : InvalidArgument | Index KV count exceeded, should be no more than 100.
+   */
   message?: string;
   success?: boolean;
   URI?: string;
@@ -14233,7 +19443,15 @@ export class BatchUpdateFileMetaResponseBodyFiles extends $tea.Model {
 }
 
 export class CompareImageFacesRequestSource extends $tea.Model {
+  /**
+   * @example
+   * oss://test-bucket/test-object1
+   */
   URI1?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object2
+   */
   URI2?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14256,6 +19474,13 @@ export class CompareImageFacesRequestSource extends $tea.Model {
 
 export class CreateBatchRequestActions extends $tea.Model {
   fastFailPolicy?: FastFailPolicy;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * doc/convert
+   */
   name?: string;
   parameters?: string[];
   static names(): { [key: string]: string } {
@@ -14299,6 +19524,13 @@ export class CreateBatchRequestNotification extends $tea.Model {
 }
 
 export class CreateCustomizedStoryRequestCover extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket1/cover
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14318,6 +19550,13 @@ export class CreateCustomizedStoryRequestCover extends $tea.Model {
 }
 
 export class CreateCustomizedStoryRequestFiles extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"URI":"oss://bucket1/file1"}]
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14337,6 +19576,10 @@ export class CreateCustomizedStoryRequestFiles extends $tea.Model {
 }
 
 export class CreateFacesSearchingTaskRequestSources extends $tea.Model {
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14356,8 +19599,16 @@ export class CreateFacesSearchingTaskRequestSources extends $tea.Model {
 }
 
 export class CreateFileCompressionTaskRequestSources extends $tea.Model {
+  /**
+   * @example
+   * /new-dir/
+   */
   alias?: string;
   mode?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14381,7 +19632,15 @@ export class CreateFileCompressionTaskRequestSources extends $tea.Model {
 }
 
 export class CreateImageSplicingTaskRequestSources extends $tea.Model {
+  /**
+   * @example
+   * 90
+   */
   rotate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14403,7 +19662,15 @@ export class CreateImageSplicingTaskRequestSources extends $tea.Model {
 }
 
 export class CreateImageToPDFTaskRequestSources extends $tea.Model {
+  /**
+   * @example
+   * 90
+   */
   rotate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14425,8 +19692,26 @@ export class CreateImageToPDFTaskRequestSources extends $tea.Model {
 }
 
 export class CreateLocationDateClusteringTaskRequestDateOptions extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   gapDays?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   maxDays?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   minDays?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14450,6 +19735,10 @@ export class CreateLocationDateClusteringTaskRequestDateOptions extends $tea.Mod
 }
 
 export class CreateLocationDateClusteringTaskRequestLocationOptions extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   locationDateClusterLevels?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -14469,8 +19758,20 @@ export class CreateLocationDateClusteringTaskRequestLocationOptions extends $tea
 }
 
 export class CreateMediaConvertTaskRequestSourcesSubtitles extends $tea.Model {
+  /**
+   * @example
+   * eng
+   */
   language?: string;
+  /**
+   * @example
+   * 10.5
+   */
   timeOffset?: number;
+  /**
+   * @example
+   * oss://test-bucket/subtitles
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14494,9 +19795,21 @@ export class CreateMediaConvertTaskRequestSourcesSubtitles extends $tea.Model {
 }
 
 export class CreateMediaConvertTaskRequestSources extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   duration?: number;
+  /**
+   * @example
+   * 0
+   */
   startTime?: number;
   subtitles?: CreateMediaConvertTaskRequestSourcesSubtitles[];
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14522,8 +19835,20 @@ export class CreateMediaConvertTaskRequestSources extends $tea.Model {
 }
 
 export class CreateMediaConvertTaskRequestTargetsSegment extends $tea.Model {
+  /**
+   * @example
+   * 30
+   */
   duration?: number;
+  /**
+   * @example
+   * hls
+   */
   format?: string;
+  /**
+   * @example
+   * 5
+   */
   startNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14548,12 +19873,24 @@ export class CreateMediaConvertTaskRequestTargetsSegment extends $tea.Model {
 
 export class CreateMediaConvertTaskRequestTargets extends $tea.Model {
   audio?: TargetAudio;
+  /**
+   * @example
+   * mp4
+   */
   container?: string;
   image?: TargetImage;
   segment?: CreateMediaConvertTaskRequestTargetsSegment;
+  /**
+   * @example
+   * 1.0
+   */
   speed?: number;
   stripMetadata?: boolean;
   subtitle?: TargetSubtitle;
+  /**
+   * @example
+   * oss://test-bucket/targets
+   */
   URI?: string;
   video?: TargetVideo;
   static names(): { [key: string]: string } {
@@ -14613,6 +19950,13 @@ export class CreateProjectRequestTag extends $tea.Model {
 
 export class CreateTriggerRequestActions extends $tea.Model {
   fastFailPolicy?: FastFailPolicy;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * doc/convert
+   */
   name?: string;
   parameters?: string[];
   static names(): { [key: string]: string } {
@@ -14656,6 +20000,10 @@ export class CreateTriggerRequestNotification extends $tea.Model {
 }
 
 export class DetectImageScoreResponseBodyImageScore extends $tea.Model {
+  /**
+   * @example
+   * 0.6
+   */
   overallQualityScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14675,7 +20023,15 @@ export class DetectImageScoreResponseBodyImageScore extends $tea.Model {
 }
 
 export class GenerateVideoPlaylistRequestSourceSubtitles extends $tea.Model {
+  /**
+   * @example
+   * eng
+   */
   language?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14698,12 +20054,28 @@ export class GenerateVideoPlaylistRequestSourceSubtitles extends $tea.Model {
 
 export class GenerateVideoPlaylistRequestTargets extends $tea.Model {
   audio?: TargetAudio;
+  /**
+   * @example
+   * 5
+   */
   duration?: number;
   initialSegments?: number[];
+  /**
+   * @example
+   * 30.0
+   */
   initialTranscode?: number;
   subtitle?: TargetSubtitle;
   tags?: { [key: string]: string };
+  /**
+   * @example
+   * 3
+   */
   transcodeAhead?: number;
+  /**
+   * @example
+   * oss://imm-test/testcases/video
+   */
   URI?: string;
   video?: TargetVideo;
   static names(): { [key: string]: string } {
@@ -14741,7 +20113,21 @@ export class GenerateVideoPlaylistRequestTargets extends $tea.Model {
 
 export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $tea.Model {
   channels?: number;
+  /**
+   * @remarks
+   * 转码生成的Token。用于LiveTranscoding访问的参数。
+   * 
+   * @example
+   * affe0c6042f09722fec95a21b8b******
+   */
   token?: string;
+  /**
+   * @remarks
+   * 输出m3u8的OSS地址。地址规则为 Target.URI + ".m3u8“， 其中Target.URI为输入参数中视频转码输出地址前缀。
+   * 
+   * @example
+   * oss://imm-test/testcases/video.m3u8
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14765,9 +20151,37 @@ export class GenerateVideoPlaylistResponseBodyAudioPlaylist extends $tea.Model {
 }
 
 export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $tea.Model {
+  /**
+   * @remarks
+   * 字幕流编号，从0开始。
+   * 
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @remarks
+   * 视频源中字幕流的语言。
+   * 
+   * @example
+   * en
+   */
   language?: string;
+  /**
+   * @remarks
+   * 转码生成的Token。用于LiveTranscoding访问的参数。
+   * 
+   * @example
+   * affe0c6042f09722fec95a21b8b******
+   */
   token?: string;
+  /**
+   * @remarks
+   * 输出m3u8的OSS地址。地址规则为 Target.URI + “_” + Index + ".m3u8“， 其中Target.URI为输入参数中视频转码输出地址前缀。
+   * 
+   * @example
+   * oss://imm-test/testcases/vide_0.m3u8
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14795,7 +20209,21 @@ export class GenerateVideoPlaylistResponseBodySubtitlePlaylist extends $tea.Mode
 export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $tea.Model {
   frameRate?: string;
   resolution?: string;
+  /**
+   * @remarks
+   * 转码生成的Token。用于LiveTranscoding访问的参数。
+   * 
+   * @example
+   * affe0c6042f09722fec95a21b8b******
+   */
   token?: string;
+  /**
+   * @remarks
+   * 输出m3u8的OSS地址。地址规则为 Target.URI + ".m3u8“， 其中Target.URI为输入参数中视频转码输出地址前缀。
+   * 
+   * @example
+   * oss://imm-test/testcases/video.m3u8
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14821,8 +20249,22 @@ export class GenerateVideoPlaylistResponseBodyVideoPlaylist extends $tea.Model {
 }
 
 export class GetImageModerationResultResponseBodyModerationResultFramesBlockFrames extends $tea.Model {
+  /**
+   * @example
+   * {
+   *       "test": "val"
+   * }
+   */
   label?: string;
+  /**
+   * @example
+   * 2
+   */
   offset?: number;
+  /**
+   * @example
+   * 30
+   */
   rate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14847,6 +20289,10 @@ export class GetImageModerationResultResponseBodyModerationResultFramesBlockFram
 
 export class GetImageModerationResultResponseBodyModerationResultFrames extends $tea.Model {
   blockFrames?: GetImageModerationResultResponseBodyModerationResultFramesBlockFrames[];
+  /**
+   * @example
+   * 30
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14870,7 +20316,15 @@ export class GetImageModerationResultResponseBodyModerationResultFrames extends 
 export class GetImageModerationResultResponseBodyModerationResult extends $tea.Model {
   categories?: string[];
   frames?: GetImageModerationResultResponseBodyModerationResultFrames;
+  /**
+   * @example
+   * block
+   */
   suggestion?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14896,8 +20350,20 @@ export class GetImageModerationResultResponseBodyModerationResult extends $tea.M
 }
 
 export class GetVideoModerationResultResponseBodyModerationResultFramesBlockFrames extends $tea.Model {
+  /**
+   * @example
+   * {"teat":"val"}
+   */
   label?: string;
+  /**
+   * @example
+   * 1
+   */
   offset?: number;
+  /**
+   * @example
+   * 10
+   */
   rate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14922,6 +20388,10 @@ export class GetVideoModerationResultResponseBodyModerationResultFramesBlockFram
 
 export class GetVideoModerationResultResponseBodyModerationResultFrames extends $tea.Model {
   blockFrames?: GetVideoModerationResultResponseBodyModerationResultFramesBlockFrames[];
+  /**
+   * @example
+   * 12
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14945,7 +20415,15 @@ export class GetVideoModerationResultResponseBodyModerationResultFrames extends 
 export class GetVideoModerationResultResponseBodyModerationResult extends $tea.Model {
   categories?: string[];
   frames?: GetVideoModerationResultResponseBodyModerationResultFrames;
+  /**
+   * @example
+   * block
+   */
   suggestion?: string;
+  /**
+   * @example
+   * oss://test-bucket/test-object
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14993,6 +20471,10 @@ export class ListProjectsRequestTag extends $tea.Model {
 }
 
 export class RemoveStoryFilesRequestFiles extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket1/object
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15013,7 +20495,15 @@ export class RemoveStoryFilesRequestFiles extends $tea.Model {
 
 export class SearchImageFigureClusterResponseBodyClusters extends $tea.Model {
   boundary?: Boundary;
+  /**
+   * @example
+   * Cluster-ca730577-06b1-42c7-a25b-8f2c7******
+   */
   clusterId?: string;
+  /**
+   * @example
+   * 0.87413794
+   */
   similarity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15037,7 +20527,15 @@ export class SearchImageFigureClusterResponseBodyClusters extends $tea.Model {
 }
 
 export class SimpleQueryRequestAggregations extends $tea.Model {
+  /**
+   * @example
+   * Size
+   */
   field?: string;
+  /**
+   * @example
+   * sum
+   */
   operation?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15059,7 +20557,15 @@ export class SimpleQueryRequestAggregations extends $tea.Model {
 }
 
 export class SimpleQueryResponseBodyAggregationsGroups extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
   count?: number;
+  /**
+   * @example
+   * 100
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15081,9 +20587,21 @@ export class SimpleQueryResponseBodyAggregationsGroups extends $tea.Model {
 }
 
 export class SimpleQueryResponseBodyAggregations extends $tea.Model {
+  /**
+   * @example
+   * Size
+   */
   field?: string;
   groups?: SimpleQueryResponseBodyAggregationsGroups[];
+  /**
+   * @example
+   * sum
+   */
   operation?: string;
+  /**
+   * @example
+   * 200
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15109,6 +20627,10 @@ export class SimpleQueryResponseBodyAggregations extends $tea.Model {
 }
 
 export class UpdateBatchRequestActions extends $tea.Model {
+  /**
+   * @example
+   * doc/convert
+   */
   name?: string;
   parameters?: string[];
   static names(): { [key: string]: string } {
@@ -15153,6 +20675,10 @@ export class UpdateProjectRequestTag extends $tea.Model {
 }
 
 export class UpdateStoryRequestCover extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket1/object
+   */
   URI?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15172,6 +20698,10 @@ export class UpdateStoryRequestCover extends $tea.Model {
 }
 
 export class UpdateTriggerRequestActions extends $tea.Model {
+  /**
+   * @example
+   * doc/convert
+   */
   name?: string;
   parameters?: string[];
   static names(): { [key: string]: string } {
@@ -15220,11 +20750,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片打马赛克算子
-   *
-   * @param tmpReq AddImageMosaicRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddImageMosaicResponse
+   * 图片打马赛克算子
+   * 
+   * @param tmpReq - AddImageMosaicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddImageMosaicResponse
    */
   async addImageMosaicWithOptions(tmpReq: AddImageMosaicRequest, runtime: $Util.RuntimeOptions): Promise<AddImageMosaicResponse> {
     Util.validateModel(tmpReq);
@@ -15285,10 +20815,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片打马赛克算子
-   *
-   * @param request AddImageMosaicRequest
-   * @return AddImageMosaicResponse
+   * 图片打马赛克算子
+   * 
+   * @param request - AddImageMosaicRequest
+   * @returns AddImageMosaicResponse
    */
   async addImageMosaic(request: AddImageMosaicRequest): Promise<AddImageMosaicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15296,11 +20826,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为故事新增文件
-   *
-   * @param tmpReq AddStoryFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddStoryFilesResponse
+   * 为故事新增文件
+   * 
+   * @param tmpReq - AddStoryFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddStoryFilesResponse
    */
   async addStoryFilesWithOptions(tmpReq: AddStoryFilesRequest, runtime: $Util.RuntimeOptions): Promise<AddStoryFilesResponse> {
     Util.validateModel(tmpReq);
@@ -15345,10 +20875,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为故事新增文件
-   *
-   * @param request AddStoryFilesRequest
-   * @return AddStoryFilesResponse
+   * 为故事新增文件
+   * 
+   * @param request - AddStoryFilesRequest
+   * @returns AddStoryFilesResponse
    */
   async addStoryFiles(request: AddStoryFilesRequest): Promise<AddStoryFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15356,11 +20886,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 绑定ossbucket
-   *
-   * @param request AttachOSSBucketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AttachOSSBucketResponse
+   * 绑定ossbucket
+   * 
+   * @param request - AttachOSSBucketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachOSSBucketResponse
    */
   async attachOSSBucketWithOptions(request: AttachOSSBucketRequest, runtime: $Util.RuntimeOptions): Promise<AttachOSSBucketResponse> {
     Util.validateModel(request);
@@ -15395,10 +20925,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 绑定ossbucket
-   *
-   * @param request AttachOSSBucketRequest
-   * @return AttachOSSBucketResponse
+   * 绑定ossbucket
+   * 
+   * @param request - AttachOSSBucketRequest
+   * @returns AttachOSSBucketResponse
    */
   async attachOSSBucket(request: AttachOSSBucketRequest): Promise<AttachOSSBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15406,11 +20936,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量删除文件元信息
-   *
-   * @param tmpReq BatchDeleteFileMetaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchDeleteFileMetaResponse
+   * 批量删除文件元信息
+   * 
+   * @param tmpReq - BatchDeleteFileMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDeleteFileMetaResponse
    */
   async batchDeleteFileMetaWithOptions(tmpReq: BatchDeleteFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteFileMetaResponse> {
     Util.validateModel(tmpReq);
@@ -15451,10 +20981,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量删除文件元信息
-   *
-   * @param request BatchDeleteFileMetaRequest
-   * @return BatchDeleteFileMetaResponse
+   * 批量删除文件元信息
+   * 
+   * @param request - BatchDeleteFileMetaRequest
+   * @returns BatchDeleteFileMetaResponse
    */
   async batchDeleteFileMeta(request: BatchDeleteFileMetaRequest): Promise<BatchDeleteFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15462,11 +20992,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取分组信息
-   *
-   * @param tmpReq BatchGetFigureClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchGetFigureClusterResponse
+   * 批量获取分组信息
+   * 
+   * @param tmpReq - BatchGetFigureClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetFigureClusterResponse
    */
   async batchGetFigureClusterWithOptions(tmpReq: BatchGetFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetFigureClusterResponse> {
     Util.validateModel(tmpReq);
@@ -15507,10 +21037,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取分组信息
-   *
-   * @param request BatchGetFigureClusterRequest
-   * @return BatchGetFigureClusterResponse
+   * 批量获取分组信息
+   * 
+   * @param request - BatchGetFigureClusterRequest
+   * @returns BatchGetFigureClusterResponse
    */
   async batchGetFigureCluster(request: BatchGetFigureClusterRequest): Promise<BatchGetFigureClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15518,11 +21048,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取文件元信息
-   *
-   * @param tmpReq BatchGetFileMetaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchGetFileMetaResponse
+   * 批量获取文件元信息
+   * 
+   * @param tmpReq - BatchGetFileMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetFileMetaResponse
    */
   async batchGetFileMetaWithOptions(tmpReq: BatchGetFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetFileMetaResponse> {
     Util.validateModel(tmpReq);
@@ -15563,10 +21093,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量获取文件元信息
-   *
-   * @param request BatchGetFileMetaRequest
-   * @return BatchGetFileMetaResponse
+   * 批量获取文件元信息
+   * 
+   * @param request - BatchGetFileMetaRequest
+   * @returns BatchGetFileMetaResponse
    */
   async batchGetFileMeta(request: BatchGetFileMetaRequest): Promise<BatchGetFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15574,11 +21104,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量索引文件元信息
-   *
-   * @param tmpReq BatchIndexFileMetaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchIndexFileMetaResponse
+   * 批量索引文件元信息
+   * 
+   * @param tmpReq - BatchIndexFileMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchIndexFileMetaResponse
    */
   async batchIndexFileMetaWithOptions(tmpReq: BatchIndexFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchIndexFileMetaResponse> {
     Util.validateModel(tmpReq);
@@ -15631,10 +21161,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量索引文件元信息
-   *
-   * @param request BatchIndexFileMetaRequest
-   * @return BatchIndexFileMetaResponse
+   * 批量索引文件元信息
+   * 
+   * @param request - BatchIndexFileMetaRequest
+   * @returns BatchIndexFileMetaResponse
    */
   async batchIndexFileMeta(request: BatchIndexFileMetaRequest): Promise<BatchIndexFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15642,11 +21172,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量更新文件元信息
-   *
-   * @param tmpReq BatchUpdateFileMetaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchUpdateFileMetaResponse
+   * 批量更新文件元信息
+   * 
+   * @param tmpReq - BatchUpdateFileMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchUpdateFileMetaResponse
    */
   async batchUpdateFileMetaWithOptions(tmpReq: BatchUpdateFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateFileMetaResponse> {
     Util.validateModel(tmpReq);
@@ -15687,10 +21217,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量更新文件元信息
-   *
-   * @param request BatchUpdateFileMetaRequest
-   * @return BatchUpdateFileMetaResponse
+   * 批量更新文件元信息
+   * 
+   * @param request - BatchUpdateFileMetaRequest
+   * @returns BatchUpdateFileMetaResponse
    */
   async batchUpdateFileMeta(request: BatchUpdateFileMetaRequest): Promise<BatchUpdateFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15698,11 +21228,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 以脸搜分组
-   *
-   * @param tmpReq CompareImageFacesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CompareImageFacesResponse
+   * 以脸搜分组
+   * 
+   * @param tmpReq - CompareImageFacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CompareImageFacesResponse
    */
   async compareImageFacesWithOptions(tmpReq: CompareImageFacesRequest, runtime: $Util.RuntimeOptions): Promise<CompareImageFacesResponse> {
     Util.validateModel(tmpReq);
@@ -15747,10 +21277,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 以脸搜分组
-   *
-   * @param request CompareImageFacesRequest
-   * @return CompareImageFacesResponse
+   * 以脸搜分组
+   * 
+   * @param request - CompareImageFacesRequest
+   * @returns CompareImageFacesResponse
    */
   async compareImageFaces(request: CompareImageFacesRequest): Promise<CompareImageFacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15758,11 +21288,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建查看压缩包内文件列表任务
-   *
-   * @param tmpReq CreateArchiveFileInspectionTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateArchiveFileInspectionTaskResponse
+   * 创建查看压缩包内文件列表任务
+   * 
+   * @param tmpReq - CreateArchiveFileInspectionTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateArchiveFileInspectionTaskResponse
    */
   async createArchiveFileInspectionTaskWithOptions(tmpReq: CreateArchiveFileInspectionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateArchiveFileInspectionTaskResponse> {
     Util.validateModel(tmpReq);
@@ -15819,10 +21349,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建查看压缩包内文件列表任务
-   *
-   * @param request CreateArchiveFileInspectionTaskRequest
-   * @return CreateArchiveFileInspectionTaskResponse
+   * 创建查看压缩包内文件列表任务
+   * 
+   * @param request - CreateArchiveFileInspectionTaskRequest
+   * @returns CreateArchiveFileInspectionTaskResponse
    */
   async createArchiveFileInspectionTask(request: CreateArchiveFileInspectionTaskRequest): Promise<CreateArchiveFileInspectionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15830,11 +21360,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数据接入
-   *
-   * @param tmpReq CreateBatchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateBatchResponse
+   * 创建数据接入
+   * 
+   * @param tmpReq - CreateBatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBatchResponse
    */
   async createBatchWithOptions(tmpReq: CreateBatchRequest, runtime: $Util.RuntimeOptions): Promise<CreateBatchResponse> {
     Util.validateModel(tmpReq);
@@ -15899,10 +21429,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数据接入
-   *
-   * @param request CreateBatchRequest
-   * @return CreateBatchResponse
+   * 创建数据接入
+   * 
+   * @param request - CreateBatchRequest
+   * @returns CreateBatchResponse
    */
   async createBatch(request: CreateBatchRequest): Promise<CreateBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15910,11 +21440,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建绑定
-   *
-   * @param request CreateBindingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateBindingResponse
+   * 创建绑定
+   * 
+   * @param request - CreateBindingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBindingResponse
    */
   async createBindingWithOptions(request: CreateBindingRequest, runtime: $Util.RuntimeOptions): Promise<CreateBindingResponse> {
     Util.validateModel(request);
@@ -15949,10 +21479,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建绑定
-   *
-   * @param request CreateBindingRequest
-   * @return CreateBindingResponse
+   * 创建绑定
+   * 
+   * @param request - CreateBindingRequest
+   * @returns CreateBindingResponse
    */
   async createBinding(request: CreateBindingRequest): Promise<CreateBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15960,11 +21490,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建点云压缩任务
-   *
-   * @param tmpReq CreateCompressPointCloudTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCompressPointCloudTaskResponse
+   * 创建点云压缩任务
+   * 
+   * @param tmpReq - CreateCompressPointCloudTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCompressPointCloudTaskResponse
    */
   async createCompressPointCloudTaskWithOptions(tmpReq: CreateCompressPointCloudTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCompressPointCloudTaskResponse> {
     Util.validateModel(tmpReq);
@@ -16061,10 +21591,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建点云压缩任务
-   *
-   * @param request CreateCompressPointCloudTaskRequest
-   * @return CreateCompressPointCloudTaskResponse
+   * 创建点云压缩任务
+   * 
+   * @param request - CreateCompressPointCloudTaskRequest
+   * @returns CreateCompressPointCloudTaskResponse
    */
   async createCompressPointCloudTask(request: CreateCompressPointCloudTaskRequest): Promise<CreateCompressPointCloudTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16072,11 +21602,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义故事
-   *
-   * @param tmpReq CreateCustomizedStoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCustomizedStoryResponse
+   * 创建自定义故事
+   * 
+   * @param tmpReq - CreateCustomizedStoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomizedStoryResponse
    */
   async createCustomizedStoryWithOptions(tmpReq: CreateCustomizedStoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomizedStoryResponse> {
     Util.validateModel(tmpReq);
@@ -16145,10 +21675,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义故事
-   *
-   * @param request CreateCustomizedStoryRequest
-   * @return CreateCustomizedStoryResponse
+   * 创建自定义故事
+   * 
+   * @param request - CreateCustomizedStoryRequest
+   * @returns CreateCustomizedStoryResponse
    */
   async createCustomizedStory(request: CreateCustomizedStoryRequest): Promise<CreateCustomizedStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16156,11 +21686,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数据集
-   *
-   * @param request CreateDatasetRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDatasetResponse
+   * 创建数据集
+   * 
+   * @param request - CreateDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasetResponse
    */
   async createDatasetWithOptions(request: CreateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetResponse> {
     Util.validateModel(request);
@@ -16219,10 +21749,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数据集
-   *
-   * @param request CreateDatasetRequest
-   * @return CreateDatasetResponse
+   * 创建数据集
+   * 
+   * @param request - CreateDatasetRequest
+   * @returns CreateDatasetResponse
    */
   async createDataset(request: CreateDatasetRequest): Promise<CreateDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16230,11 +21760,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提取盲水印
-   *
-   * @param tmpReq CreateDecodeBlindWatermarkTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDecodeBlindWatermarkTaskResponse
+   * 提取盲水印
+   * 
+   * @param tmpReq - CreateDecodeBlindWatermarkTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDecodeBlindWatermarkTaskResponse
    */
   async createDecodeBlindWatermarkTaskWithOptions(tmpReq: CreateDecodeBlindWatermarkTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDecodeBlindWatermarkTaskResponse> {
     Util.validateModel(tmpReq);
@@ -16299,10 +21829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提取盲水印
-   *
-   * @param request CreateDecodeBlindWatermarkTaskRequest
-   * @return CreateDecodeBlindWatermarkTaskResponse
+   * 提取盲水印
+   * 
+   * @param request - CreateDecodeBlindWatermarkTaskRequest
+   * @returns CreateDecodeBlindWatermarkTaskResponse
    */
   async createDecodeBlindWatermarkTask(request: CreateDecodeBlindWatermarkTaskRequest): Promise<CreateDecodeBlindWatermarkTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16310,11 +21840,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 以脸搜图
-   *
-   * @param tmpReq CreateFacesSearchingTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFacesSearchingTaskResponse
+   * 以脸搜图
+   * 
+   * @param tmpReq - CreateFacesSearchingTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFacesSearchingTaskResponse
    */
   async createFacesSearchingTaskWithOptions(tmpReq: CreateFacesSearchingTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFacesSearchingTaskResponse> {
     Util.validateModel(tmpReq);
@@ -16371,10 +21901,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 以脸搜图
-   *
-   * @param request CreateFacesSearchingTaskRequest
-   * @return CreateFacesSearchingTaskResponse
+   * 以脸搜图
+   * 
+   * @param request - CreateFacesSearchingTaskRequest
+   * @returns CreateFacesSearchingTaskResponse
    */
   async createFacesSearchingTask(request: CreateFacesSearchingTaskRequest): Promise<CreateFacesSearchingTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16382,11 +21912,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 聚类
-   *
-   * @param tmpReq CreateFigureClusteringTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFigureClusteringTaskResponse
+   * 聚类
+   * 
+   * @param tmpReq - CreateFigureClusteringTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFigureClusteringTaskResponse
    */
   async createFigureClusteringTaskWithOptions(tmpReq: CreateFigureClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFigureClusteringTaskResponse> {
     Util.validateModel(tmpReq);
@@ -16439,10 +21969,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 聚类
-   *
-   * @param request CreateFigureClusteringTaskRequest
-   * @return CreateFigureClusteringTaskResponse
+   * 聚类
+   * 
+   * @param request - CreateFigureClusteringTaskRequest
+   * @returns CreateFigureClusteringTaskResponse
    */
   async createFigureClusteringTask(request: CreateFigureClusteringTaskRequest): Promise<CreateFigureClusteringTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16450,11 +21980,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 合并聚类
-   *
-   * @param tmpReq CreateFigureClustersMergingTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFigureClustersMergingTaskResponse
+   * 合并聚类
+   * 
+   * @param tmpReq - CreateFigureClustersMergingTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFigureClustersMergingTaskResponse
    */
   async createFigureClustersMergingTaskWithOptions(tmpReq: CreateFigureClustersMergingTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFigureClustersMergingTaskResponse> {
     Util.validateModel(tmpReq);
@@ -16523,10 +22053,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 合并聚类
-   *
-   * @param request CreateFigureClustersMergingTaskRequest
-   * @return CreateFigureClustersMergingTaskResponse
+   * 合并聚类
+   * 
+   * @param request - CreateFigureClustersMergingTaskRequest
+   * @returns CreateFigureClustersMergingTaskResponse
    */
   async createFigureClustersMergingTask(request: CreateFigureClustersMergingTaskRequest): Promise<CreateFigureClustersMergingTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16534,11 +22064,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 压缩/打包下载API
-   *
-   * @param tmpReq CreateFileCompressionTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFileCompressionTaskResponse
+   * 压缩/打包下载API
+   * 
+   * @param tmpReq - CreateFileCompressionTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFileCompressionTaskResponse
    */
   async createFileCompressionTaskWithOptions(tmpReq: CreateFileCompressionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileCompressionTaskResponse> {
     Util.validateModel(tmpReq);
@@ -16607,10 +22137,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 压缩/打包下载API
-   *
-   * @param request CreateFileCompressionTaskRequest
-   * @return CreateFileCompressionTaskResponse
+   * 压缩/打包下载API
+   * 
+   * @param request - CreateFileCompressionTaskRequest
+   * @returns CreateFileCompressionTaskResponse
    */
   async createFileCompressionTask(request: CreateFileCompressionTaskRequest): Promise<CreateFileCompressionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16618,11 +22148,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 在线解压API
-   *
-   * @param tmpReq CreateFileUncompressionTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFileUncompressionTaskResponse
+   * 在线解压API
+   * 
+   * @param tmpReq - CreateFileUncompressionTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFileUncompressionTaskResponse
    */
   async createFileUncompressionTaskWithOptions(tmpReq: CreateFileUncompressionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileUncompressionTaskResponse> {
     Util.validateModel(tmpReq);
@@ -16691,10 +22221,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 在线解压API
-   *
-   * @param request CreateFileUncompressionTaskRequest
-   * @return CreateFileUncompressionTaskResponse
+   * 在线解压API
+   * 
+   * @param request - CreateFileUncompressionTaskRequest
+   * @returns CreateFileUncompressionTaskResponse
    */
   async createFileUncompressionTask(request: CreateFileUncompressionTaskRequest): Promise<CreateFileUncompressionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16702,11 +22232,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建图片检测
-   *
-   * @param tmpReq CreateImageModerationTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateImageModerationTaskResponse
+   * 创建图片检测
+   * 
+   * @param tmpReq - CreateImageModerationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageModerationTaskResponse
    */
   async createImageModerationTaskWithOptions(tmpReq: CreateImageModerationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageModerationTaskResponse> {
     Util.validateModel(tmpReq);
@@ -16783,10 +22313,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建图片检测
-   *
-   * @param request CreateImageModerationTaskRequest
-   * @return CreateImageModerationTaskResponse
+   * 创建图片检测
+   * 
+   * @param request - CreateImageModerationTaskRequest
+   * @returns CreateImageModerationTaskResponse
    */
   async createImageModerationTask(request: CreateImageModerationTaskRequest): Promise<CreateImageModerationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16794,11 +22324,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片拼接
-   *
-   * @param tmpReq CreateImageSplicingTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateImageSplicingTaskResponse
+   * 图片拼接
+   * 
+   * @param tmpReq - CreateImageSplicingTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageSplicingTaskResponse
    */
   async createImageSplicingTaskWithOptions(tmpReq: CreateImageSplicingTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageSplicingTaskResponse> {
     Util.validateModel(tmpReq);
@@ -16899,10 +22429,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片拼接
-   *
-   * @param request CreateImageSplicingTaskRequest
-   * @return CreateImageSplicingTaskResponse
+   * 图片拼接
+   * 
+   * @param request - CreateImageSplicingTaskRequest
+   * @returns CreateImageSplicingTaskResponse
    */
   async createImageSplicingTask(request: CreateImageSplicingTaskRequest): Promise<CreateImageSplicingTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16910,11 +22440,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片转PDF
-   *
-   * @param tmpReq CreateImageToPDFTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateImageToPDFTaskResponse
+   * 图片转PDF
+   * 
+   * @param tmpReq - CreateImageToPDFTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageToPDFTaskResponse
    */
   async createImageToPDFTaskWithOptions(tmpReq: CreateImageToPDFTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageToPDFTaskResponse> {
     Util.validateModel(tmpReq);
@@ -16983,10 +22513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 图片转PDF
-   *
-   * @param request CreateImageToPDFTaskRequest
-   * @return CreateImageToPDFTaskResponse
+   * 图片转PDF
+   * 
+   * @param request - CreateImageToPDFTaskRequest
+   * @returns CreateImageToPDFTaskResponse
    */
   async createImageToPDFTask(request: CreateImageToPDFTaskRequest): Promise<CreateImageToPDFTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16994,11 +22524,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建时空聚类任务
-   *
-   * @param tmpReq CreateLocationDateClusteringTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateLocationDateClusteringTaskResponse
+   * 创建时空聚类任务
+   * 
+   * @param tmpReq - CreateLocationDateClusteringTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLocationDateClusteringTaskResponse
    */
   async createLocationDateClusteringTaskWithOptions(tmpReq: CreateLocationDateClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateLocationDateClusteringTaskResponse> {
     Util.validateModel(tmpReq);
@@ -17067,10 +22597,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建时空聚类任务
-   *
-   * @param request CreateLocationDateClusteringTaskRequest
-   * @return CreateLocationDateClusteringTaskResponse
+   * 创建时空聚类任务
+   * 
+   * @param request - CreateLocationDateClusteringTaskRequest
+   * @returns CreateLocationDateClusteringTaskResponse
    */
   async createLocationDateClusteringTask(request: CreateLocationDateClusteringTaskRequest): Promise<CreateLocationDateClusteringTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17078,11 +22608,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建转码服务
-   *
-   * @param tmpReq CreateMediaConvertTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMediaConvertTaskResponse
+   * 创建转码服务
+   * 
+   * @param tmpReq - CreateMediaConvertTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMediaConvertTaskResponse
    */
   async createMediaConvertTaskWithOptions(tmpReq: CreateMediaConvertTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateMediaConvertTaskResponse> {
     Util.validateModel(tmpReq);
@@ -17159,10 +22689,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建转码服务
-   *
-   * @param request CreateMediaConvertTaskRequest
-   * @return CreateMediaConvertTaskResponse
+   * 创建转码服务
+   * 
+   * @param request - CreateMediaConvertTaskRequest
+   * @returns CreateMediaConvertTaskResponse
    */
   async createMediaConvertTask(request: CreateMediaConvertTaskRequest): Promise<CreateMediaConvertTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17170,11 +22700,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建文档转换任务
-   *
-   * @param tmpReq CreateOfficeConversionTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateOfficeConversionTaskResponse
+   * 创建文档转换任务
+   * 
+   * @param tmpReq - CreateOfficeConversionTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOfficeConversionTaskResponse
    */
   async createOfficeConversionTaskWithOptions(tmpReq: CreateOfficeConversionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOfficeConversionTaskResponse> {
     Util.validateModel(tmpReq);
@@ -17339,10 +22869,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建文档转换任务
-   *
-   * @param request CreateOfficeConversionTaskRequest
-   * @return CreateOfficeConversionTaskResponse
+   * 创建文档转换任务
+   * 
+   * @param request - CreateOfficeConversionTaskRequest
+   * @returns CreateOfficeConversionTaskResponse
    */
   async createOfficeConversionTask(request: CreateOfficeConversionTaskRequest): Promise<CreateOfficeConversionTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17350,11 +22880,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建项目
-   *
-   * @param tmpReq CreateProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateProjectResponse
+   * 创建项目
+   * 
+   * @param tmpReq - CreateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectResponse
    */
   async createProjectWithOptions(tmpReq: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(tmpReq);
@@ -17427,10 +22957,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建项目
-   *
-   * @param request CreateProjectRequest
-   * @return CreateProjectResponse
+   * 创建项目
+   * 
+   * @param request - CreateProjectRequest
+   * @returns CreateProjectResponse
    */
   async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17438,11 +22968,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建相似图片聚类任务
-   *
-   * @param tmpReq CreateSimilarImageClusteringTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSimilarImageClusteringTaskResponse
+   * 创建相似图片聚类任务
+   * 
+   * @param tmpReq - CreateSimilarImageClusteringTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSimilarImageClusteringTaskResponse
    */
   async createSimilarImageClusteringTaskWithOptions(tmpReq: CreateSimilarImageClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateSimilarImageClusteringTaskResponse> {
     Util.validateModel(tmpReq);
@@ -17495,10 +23025,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建相似图片聚类任务
-   *
-   * @param request CreateSimilarImageClusteringTaskRequest
-   * @return CreateSimilarImageClusteringTaskResponse
+   * 创建相似图片聚类任务
+   * 
+   * @param request - CreateSimilarImageClusteringTaskRequest
+   * @returns CreateSimilarImageClusteringTaskResponse
    */
   async createSimilarImageClusteringTask(request: CreateSimilarImageClusteringTaskRequest): Promise<CreateSimilarImageClusteringTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17506,11 +23036,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一个 Story
-   *
-   * @param tmpReq CreateStoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateStoryResponse
+   * 创建一个 Story
+   * 
+   * @param tmpReq - CreateStoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStoryResponse
    */
   async createStoryWithOptions(tmpReq: CreateStoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateStoryResponse> {
     Util.validateModel(tmpReq);
@@ -17621,10 +23151,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建一个 Story
-   *
-   * @param request CreateStoryRequest
-   * @return CreateStoryResponse
+   * 创建一个 Story
+   * 
+   * @param request - CreateStoryRequest
+   * @returns CreateStoryResponse
    */
   async createStory(request: CreateStoryRequest): Promise<CreateStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17632,11 +23162,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数据接入
-   *
-   * @param tmpReq CreateTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTriggerResponse
+   * 创建数据接入
+   * 
+   * @param tmpReq - CreateTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTriggerResponse
    */
   async createTriggerWithOptions(tmpReq: CreateTriggerRequest, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
     Util.validateModel(tmpReq);
@@ -17701,10 +23231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建数据接入
-   *
-   * @param request CreateTriggerRequest
-   * @return CreateTriggerResponse
+   * 创建数据接入
+   * 
+   * @param request - CreateTriggerRequest
+   * @returns CreateTriggerResponse
    */
   async createTrigger(request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17712,11 +23242,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测视频中的内容
-   *
-   * @param tmpReq CreateVideoLabelClassificationTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateVideoLabelClassificationTaskResponse
+   * 检测视频中的内容
+   * 
+   * @param tmpReq - CreateVideoLabelClassificationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVideoLabelClassificationTaskResponse
    */
   async createVideoLabelClassificationTaskWithOptions(tmpReq: CreateVideoLabelClassificationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVideoLabelClassificationTaskResponse> {
     Util.validateModel(tmpReq);
@@ -17777,10 +23307,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测视频中的内容
-   *
-   * @param request CreateVideoLabelClassificationTaskRequest
-   * @return CreateVideoLabelClassificationTaskResponse
+   * 检测视频中的内容
+   * 
+   * @param request - CreateVideoLabelClassificationTaskRequest
+   * @returns CreateVideoLabelClassificationTaskResponse
    */
   async createVideoLabelClassificationTask(request: CreateVideoLabelClassificationTaskRequest): Promise<CreateVideoLabelClassificationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17788,11 +23318,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建视频检测
-   *
-   * @param tmpReq CreateVideoModerationTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateVideoModerationTaskResponse
+   * 创建视频检测
+   * 
+   * @param tmpReq - CreateVideoModerationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVideoModerationTaskResponse
    */
   async createVideoModerationTaskWithOptions(tmpReq: CreateVideoModerationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateVideoModerationTaskResponse> {
     Util.validateModel(tmpReq);
@@ -17869,10 +23399,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建视频检测
-   *
-   * @param request CreateVideoModerationTaskRequest
-   * @return CreateVideoModerationTaskResponse
+   * 创建视频检测
+   * 
+   * @param request - CreateVideoModerationTaskRequest
+   * @returns CreateVideoModerationTaskResponse
    */
   async createVideoModerationTask(request: CreateVideoModerationTaskRequest): Promise<CreateVideoModerationTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17880,11 +23410,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除数据接入实例
-   *
-   * @param request DeleteBatchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteBatchResponse
+   * 删除数据接入实例
+   * 
+   * @param request - DeleteBatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBatchResponse
    */
   async deleteBatchWithOptions(request: DeleteBatchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBatchResponse> {
     Util.validateModel(request);
@@ -17915,10 +23445,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除数据接入实例
-   *
-   * @param request DeleteBatchRequest
-   * @return DeleteBatchResponse
+   * 删除数据接入实例
+   * 
+   * @param request - DeleteBatchRequest
+   * @returns DeleteBatchResponse
    */
   async deleteBatch(request: DeleteBatchRequest): Promise<DeleteBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17926,11 +23456,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除绑定
-   *
-   * @param request DeleteBindingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteBindingResponse
+   * 删除绑定
+   * 
+   * @param request - DeleteBindingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBindingResponse
    */
   async deleteBindingWithOptions(request: DeleteBindingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBindingResponse> {
     Util.validateModel(request);
@@ -17965,10 +23495,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除绑定
-   *
-   * @param request DeleteBindingRequest
-   * @return DeleteBindingResponse
+   * 删除绑定
+   * 
+   * @param request - DeleteBindingRequest
+   * @returns DeleteBindingResponse
    */
   async deleteBinding(request: DeleteBindingRequest): Promise<DeleteBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17976,11 +23506,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒体集
-   *
-   * @param request DeleteDatasetRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDatasetResponse
+   * 删除媒体集
+   * 
+   * @param request - DeleteDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasetResponse
    */
   async deleteDatasetWithOptions(request: DeleteDatasetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetResponse> {
     Util.validateModel(request);
@@ -18011,10 +23541,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除媒体集
-   *
-   * @param request DeleteDatasetRequest
-   * @return DeleteDatasetResponse
+   * 删除媒体集
+   * 
+   * @param request - DeleteDatasetRequest
+   * @returns DeleteDatasetResponse
    */
   async deleteDataset(request: DeleteDatasetRequest): Promise<DeleteDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18022,11 +23552,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除文件元信息
-   *
-   * @param request DeleteFileMetaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFileMetaResponse
+   * 删除文件元信息
+   * 
+   * @param request - DeleteFileMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFileMetaResponse
    */
   async deleteFileMetaWithOptions(request: DeleteFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileMetaResponse> {
     Util.validateModel(request);
@@ -18061,10 +23591,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除文件元信息
-   *
-   * @param request DeleteFileMetaRequest
-   * @return DeleteFileMetaResponse
+   * 删除文件元信息
+   * 
+   * @param request - DeleteFileMetaRequest
+   * @returns DeleteFileMetaResponse
    */
   async deleteFileMeta(request: DeleteFileMetaRequest): Promise<DeleteFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18072,11 +23602,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除时空聚类
-   *
-   * @param request DeleteLocationDateClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteLocationDateClusterResponse
+   * 删除时空聚类
+   * 
+   * @param request - DeleteLocationDateClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLocationDateClusterResponse
    */
   async deleteLocationDateClusterWithOptions(request: DeleteLocationDateClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLocationDateClusterResponse> {
     Util.validateModel(request);
@@ -18113,10 +23643,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除时空聚类
-   *
-   * @param request DeleteLocationDateClusterRequest
-   * @return DeleteLocationDateClusterResponse
+   * 删除时空聚类
+   * 
+   * @param request - DeleteLocationDateClusterRequest
+   * @returns DeleteLocationDateClusterResponse
    */
   async deleteLocationDateCluster(request: DeleteLocationDateClusterRequest): Promise<DeleteLocationDateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18124,11 +23654,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除项目
-   *
-   * @param request DeleteProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteProjectResponse
+   * 删除项目
+   * 
+   * @param request - DeleteProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectResponse
    */
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
@@ -18155,10 +23685,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除项目
-   *
-   * @param request DeleteProjectRequest
-   * @return DeleteProjectResponse
+   * 删除项目
+   * 
+   * @param request - DeleteProjectRequest
+   * @returns DeleteProjectResponse
    */
   async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18166,11 +23696,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除一个 Story
-   *
-   * @param request DeleteStoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteStoryResponse
+   * 删除一个 Story
+   * 
+   * @param request - DeleteStoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStoryResponse
    */
   async deleteStoryWithOptions(request: DeleteStoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStoryResponse> {
     Util.validateModel(request);
@@ -18205,10 +23735,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除一个 Story
-   *
-   * @param request DeleteStoryRequest
-   * @return DeleteStoryResponse
+   * 删除一个 Story
+   * 
+   * @param request - DeleteStoryRequest
+   * @returns DeleteStoryResponse
    */
   async deleteStory(request: DeleteStoryRequest): Promise<DeleteStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18216,11 +23746,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除数据接入实例
-   *
-   * @param request DeleteTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTriggerResponse
+   * 删除数据接入实例
+   * 
+   * @param request - DeleteTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTriggerResponse
    */
   async deleteTriggerWithOptions(request: DeleteTriggerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
     Util.validateModel(request);
@@ -18251,10 +23781,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除数据接入实例
-   *
-   * @param request DeleteTriggerRequest
-   * @return DeleteTriggerResponse
+   * 删除数据接入实例
+   * 
+   * @param request - DeleteTriggerRequest
+   * @returns DeleteTriggerResponse
    */
   async deleteTrigger(request: DeleteTriggerRequest): Promise<DeleteTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18262,11 +23792,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 解绑ossbucket
-   *
-   * @param request DetachOSSBucketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetachOSSBucketResponse
+   * 解绑ossbucket
+   * 
+   * @param request - DetachOSSBucketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachOSSBucketResponse
    */
   async detachOSSBucketWithOptions(request: DetachOSSBucketRequest, runtime: $Util.RuntimeOptions): Promise<DetachOSSBucketResponse> {
     Util.validateModel(request);
@@ -18293,10 +23823,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 解绑ossbucket
-   *
-   * @param request DetachOSSBucketRequest
-   * @return DetachOSSBucketResponse
+   * 解绑ossbucket
+   * 
+   * @param request - DetachOSSBucketRequest
+   * @returns DetachOSSBucketResponse
    */
   async detachOSSBucket(request: DetachOSSBucketRequest): Promise<DetachOSSBucketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18304,11 +23834,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 人体检测算子
-   *
-   * @param tmpReq DetectImageBodiesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectImageBodiesResponse
+   * 人体检测算子
+   * 
+   * @param tmpReq - DetectImageBodiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectImageBodiesResponse
    */
   async detectImageBodiesWithOptions(tmpReq: DetectImageBodiesRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageBodiesResponse> {
     Util.validateModel(tmpReq);
@@ -18353,10 +23883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 人体检测算子
-   *
-   * @param request DetectImageBodiesRequest
-   * @return DetectImageBodiesResponse
+   * 人体检测算子
+   * 
+   * @param request - DetectImageBodiesRequest
+   * @returns DetectImageBodiesResponse
    */
   async detectImageBodies(request: DetectImageBodiesRequest): Promise<DetectImageBodiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18364,11 +23894,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测图片中车辆信息
-   *
-   * @param tmpReq DetectImageCarsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectImageCarsResponse
+   * 检测图片中车辆信息
+   * 
+   * @param tmpReq - DetectImageCarsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectImageCarsResponse
    */
   async detectImageCarsWithOptions(tmpReq: DetectImageCarsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageCarsResponse> {
     Util.validateModel(tmpReq);
@@ -18409,10 +23939,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测图片中车辆信息
-   *
-   * @param request DetectImageCarsRequest
-   * @return DetectImageCarsResponse
+   * 检测图片中车辆信息
+   * 
+   * @param request - DetectImageCarsRequest
+   * @returns DetectImageCarsResponse
    */
   async detectImageCars(request: DetectImageCarsRequest): Promise<DetectImageCarsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18420,11 +23950,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片二维码检测
-   *
-   * @param tmpReq DetectImageCodesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectImageCodesResponse
+   * 获取图片二维码检测
+   * 
+   * @param tmpReq - DetectImageCodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectImageCodesResponse
    */
   async detectImageCodesWithOptions(tmpReq: DetectImageCodesRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageCodesResponse> {
     Util.validateModel(tmpReq);
@@ -18465,10 +23995,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片二维码检测
-   *
-   * @param request DetectImageCodesRequest
-   * @return DetectImageCodesResponse
+   * 获取图片二维码检测
+   * 
+   * @param request - DetectImageCodesRequest
+   * @returns DetectImageCodesResponse
    */
   async detectImageCodes(request: DetectImageCodesRequest): Promise<DetectImageCodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18476,11 +24006,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片裁剪信息
-   *
-   * @param tmpReq DetectImageCroppingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectImageCroppingResponse
+   * 获取图片裁剪信息
+   * 
+   * @param tmpReq - DetectImageCroppingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectImageCroppingResponse
    */
   async detectImageCroppingWithOptions(tmpReq: DetectImageCroppingRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageCroppingResponse> {
     Util.validateModel(tmpReq);
@@ -18525,10 +24055,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片裁剪信息
-   *
-   * @param request DetectImageCroppingRequest
-   * @return DetectImageCroppingResponse
+   * 获取图片裁剪信息
+   * 
+   * @param request - DetectImageCroppingRequest
+   * @returns DetectImageCroppingResponse
    */
   async detectImageCropping(request: DetectImageCroppingRequest): Promise<DetectImageCroppingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18536,11 +24066,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片人脸信息
-   *
-   * @param tmpReq DetectImageFacesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectImageFacesResponse
+   * 获取图片人脸信息
+   * 
+   * @param tmpReq - DetectImageFacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectImageFacesResponse
    */
   async detectImageFacesWithOptions(tmpReq: DetectImageFacesRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageFacesResponse> {
     Util.validateModel(tmpReq);
@@ -18581,10 +24111,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片人脸信息
-   *
-   * @param request DetectImageFacesRequest
-   * @return DetectImageFacesResponse
+   * 获取图片人脸信息
+   * 
+   * @param request - DetectImageFacesRequest
+   * @returns DetectImageFacesResponse
    */
   async detectImageFaces(request: DetectImageFacesRequest): Promise<DetectImageFacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18592,11 +24122,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测图像中的内容
-   *
-   * @param tmpReq DetectImageLabelsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectImageLabelsResponse
+   * 检测图像中的内容
+   * 
+   * @param tmpReq - DetectImageLabelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectImageLabelsResponse
    */
   async detectImageLabelsWithOptions(tmpReq: DetectImageLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageLabelsResponse> {
     Util.validateModel(tmpReq);
@@ -18641,10 +24171,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测图像中的内容
-   *
-   * @param request DetectImageLabelsRequest
-   * @return DetectImageLabelsResponse
+   * 检测图像中的内容
+   * 
+   * @param request - DetectImageLabelsRequest
+   * @returns DetectImageLabelsResponse
    */
   async detectImageLabels(request: DetectImageLabelsRequest): Promise<DetectImageLabelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18652,11 +24182,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片打分
-   *
-   * @param tmpReq DetectImageScoreRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectImageScoreResponse
+   * 获取图片打分
+   * 
+   * @param tmpReq - DetectImageScoreRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectImageScoreResponse
    */
   async detectImageScoreWithOptions(tmpReq: DetectImageScoreRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageScoreResponse> {
     Util.validateModel(tmpReq);
@@ -18697,10 +24227,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片打分
-   *
-   * @param request DetectImageScoreRequest
-   * @return DetectImageScoreResponse
+   * 获取图片打分
+   * 
+   * @param request - DetectImageScoreRequest
+   * @returns DetectImageScoreResponse
    */
   async detectImageScore(request: DetectImageScoreRequest): Promise<DetectImageScoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18708,11 +24238,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 进行图片光学字符检测
-   *
-   * @param tmpReq DetectImageTextsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectImageTextsResponse
+   * 进行图片光学字符检测
+   * 
+   * @param tmpReq - DetectImageTextsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectImageTextsResponse
    */
   async detectImageTextsWithOptions(tmpReq: DetectImageTextsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageTextsResponse> {
     Util.validateModel(tmpReq);
@@ -18753,10 +24283,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 进行图片光学字符检测
-   *
-   * @param request DetectImageTextsRequest
-   * @return DetectImageTextsResponse
+   * 进行图片光学字符检测
+   * 
+   * @param request - DetectImageTextsRequest
+   * @returns DetectImageTextsResponse
    */
   async detectImageTexts(request: DetectImageTextsRequest): Promise<DetectImageTextsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18764,11 +24294,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒体文件信息
-   *
-   * @param tmpReq DetectMediaMetaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectMediaMetaResponse
+   * 获取媒体文件信息
+   * 
+   * @param tmpReq - DetectMediaMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectMediaMetaResponse
    */
   async detectMediaMetaWithOptions(tmpReq: DetectMediaMetaRequest, runtime: $Util.RuntimeOptions): Promise<DetectMediaMetaResponse> {
     Util.validateModel(tmpReq);
@@ -18809,10 +24339,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒体文件信息
-   *
-   * @param request DetectMediaMetaRequest
-   * @return DetectMediaMetaResponse
+   * 获取媒体文件信息
+   * 
+   * @param request - DetectMediaMetaRequest
+   * @returns DetectMediaMetaResponse
    */
   async detectMediaMeta(request: DetectMediaMetaRequest): Promise<DetectMediaMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18820,11 +24350,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测文本
-   *
-   * @param request DetectTextAnomalyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetectTextAnomalyResponse
+   * 检测文本
+   * 
+   * @param request - DetectTextAnomalyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectTextAnomalyResponse
    */
   async detectTextAnomalyWithOptions(request: DetectTextAnomalyRequest, runtime: $Util.RuntimeOptions): Promise<DetectTextAnomalyResponse> {
     Util.validateModel(request);
@@ -18855,10 +24385,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检测文本
-   *
-   * @param request DetectTextAnomalyRequest
-   * @return DetectTextAnomalyResponse
+   * 检测文本
+   * 
+   * @param request - DetectTextAnomalyRequest
+   * @returns DetectTextAnomalyResponse
    */
   async detectTextAnomaly(request: DetectTextAnomalyRequest): Promise<DetectTextAnomalyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18866,11 +24396,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 嵌入图片盲水印算子
-   *
-   * @param request EncodeBlindWatermarkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EncodeBlindWatermarkResponse
+   * 嵌入图片盲水印算子
+   * 
+   * @param request - EncodeBlindWatermarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EncodeBlindWatermarkResponse
    */
   async encodeBlindWatermarkWithOptions(request: EncodeBlindWatermarkRequest, runtime: $Util.RuntimeOptions): Promise<EncodeBlindWatermarkResponse> {
     Util.validateModel(request);
@@ -18917,10 +24447,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 嵌入图片盲水印算子
-   *
-   * @param request EncodeBlindWatermarkRequest
-   * @return EncodeBlindWatermarkResponse
+   * 嵌入图片盲水印算子
+   * 
+   * @param request - EncodeBlindWatermarkRequest
+   * @returns EncodeBlindWatermarkResponse
    */
   async encodeBlindWatermark(request: EncodeBlindWatermarkRequest): Promise<EncodeBlindWatermarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18928,11 +24458,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提取文档中的文本
-   *
-   * @param tmpReq ExtractDocumentTextRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExtractDocumentTextResponse
+   * 提取文档中的文本
+   * 
+   * @param tmpReq - ExtractDocumentTextRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExtractDocumentTextResponse
    */
   async extractDocumentTextWithOptions(tmpReq: ExtractDocumentTextRequest, runtime: $Util.RuntimeOptions): Promise<ExtractDocumentTextResponse> {
     Util.validateModel(tmpReq);
@@ -18977,10 +24507,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提取文档中的文本
-   *
-   * @param request ExtractDocumentTextRequest
-   * @return ExtractDocumentTextResponse
+   * 提取文档中的文本
+   * 
+   * @param request - ExtractDocumentTextRequest
+   * @returns ExtractDocumentTextResponse
    */
   async extractDocumentText(request: ExtractDocumentTextRequest): Promise<ExtractDocumentTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18988,11 +24518,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 对 Dataset 内的元数据进行模糊搜索。
-   *
-   * @param tmpReq FuzzyQueryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FuzzyQueryResponse
+   * 对 Dataset 内的元数据进行模糊搜索。
+   * 
+   * @param tmpReq - FuzzyQueryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FuzzyQueryResponse
    */
   async fuzzyQueryWithOptions(tmpReq: FuzzyQueryRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyQueryResponse> {
     Util.validateModel(tmpReq);
@@ -19053,10 +24583,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 对 Dataset 内的元数据进行模糊搜索。
-   *
-   * @param request FuzzyQueryRequest
-   * @return FuzzyQueryResponse
+   * 对 Dataset 内的元数据进行模糊搜索。
+   * 
+   * @param request - FuzzyQueryRequest
+   * @returns FuzzyQueryResponse
    */
   async fuzzyQuery(request: FuzzyQueryRequest): Promise<FuzzyQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19064,11 +24594,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实时转码任务
-   *
-   * @param tmpReq GenerateVideoPlaylistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateVideoPlaylistResponse
+   * 创建实时转码任务
+   * 
+   * @param tmpReq - GenerateVideoPlaylistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateVideoPlaylistResponse
    */
   async generateVideoPlaylistWithOptions(tmpReq: GenerateVideoPlaylistRequest, runtime: $Util.RuntimeOptions): Promise<GenerateVideoPlaylistResponse> {
     Util.validateModel(tmpReq);
@@ -19161,10 +24691,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实时转码任务
-   *
-   * @param request GenerateVideoPlaylistRequest
-   * @return GenerateVideoPlaylistResponse
+   * 创建实时转码任务
+   * 
+   * @param request - GenerateVideoPlaylistRequest
+   * @returns GenerateVideoPlaylistResponse
    */
   async generateVideoPlaylist(request: GenerateVideoPlaylistRequest): Promise<GenerateVideoPlaylistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19172,11 +24702,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文档预览编辑凭证
-   *
-   * @param tmpReq GenerateWebofficeTokenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateWebofficeTokenResponse
+   * 获取文档预览编辑凭证
+   * 
+   * @param tmpReq - GenerateWebofficeTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateWebofficeTokenResponse
    */
   async generateWebofficeTokenWithOptions(tmpReq: GenerateWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenerateWebofficeTokenResponse> {
     Util.validateModel(tmpReq);
@@ -19285,10 +24815,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文档预览编辑凭证
-   *
-   * @param request GenerateWebofficeTokenRequest
-   * @return GenerateWebofficeTokenResponse
+   * 获取文档预览编辑凭证
+   * 
+   * @param request - GenerateWebofficeTokenRequest
+   * @returns GenerateWebofficeTokenResponse
    */
   async generateWebofficeToken(request: GenerateWebofficeTokenRequest): Promise<GenerateWebofficeTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19296,11 +24826,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据接入实例
-   *
-   * @param request GetBatchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetBatchResponse
+   * 获取数据接入实例
+   * 
+   * @param request - GetBatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBatchResponse
    */
   async getBatchWithOptions(request: GetBatchRequest, runtime: $Util.RuntimeOptions): Promise<GetBatchResponse> {
     Util.validateModel(request);
@@ -19331,10 +24861,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据接入实例
-   *
-   * @param request GetBatchRequest
-   * @return GetBatchResponse
+   * 获取数据接入实例
+   * 
+   * @param request - GetBatchRequest
+   * @returns GetBatchResponse
    */
   async getBatch(request: GetBatchRequest): Promise<GetBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19342,11 +24872,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取绑定
-   *
-   * @param request GetBindingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetBindingResponse
+   * 获取绑定
+   * 
+   * @param request - GetBindingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetBindingResponse
    */
   async getBindingWithOptions(request: GetBindingRequest, runtime: $Util.RuntimeOptions): Promise<GetBindingResponse> {
     Util.validateModel(request);
@@ -19381,10 +24911,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取绑定
-   *
-   * @param request GetBindingRequest
-   * @return GetBindingResponse
+   * 获取绑定
+   * 
+   * @param request - GetBindingRequest
+   * @returns GetBindingResponse
    */
   async getBinding(request: GetBindingRequest): Promise<GetBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19392,13 +24922,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * drmlicense获取
+   * 
    * @deprecated OpenAPI GetDRMLicense is deprecated
-   *
-   * @summary drmlicense获取
-   *
-   * @param request GetDRMLicenseRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDRMLicenseResponse
+   * 
+   * @param request - GetDRMLicenseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDRMLicenseResponse
    */
   // Deprecated
   async getDRMLicenseWithOptions(request: GetDRMLicenseRequest, runtime: $Util.RuntimeOptions): Promise<GetDRMLicenseResponse> {
@@ -19442,12 +24972,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * drmlicense获取
+   * 
    * @deprecated OpenAPI GetDRMLicense is deprecated
-   *
-   * @summary drmlicense获取
-   *
-   * @param request GetDRMLicenseRequest
-   * @return GetDRMLicenseResponse
+   * 
+   * @param request - GetDRMLicenseRequest
+   * @returns GetDRMLicenseResponse
    */
   // Deprecated
   async getDRMLicense(request: GetDRMLicenseRequest): Promise<GetDRMLicenseResponse> {
@@ -19456,11 +24986,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒体集信息
-   *
-   * @param request GetDatasetRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDatasetResponse
+   * 获取媒体集信息
+   * 
+   * @param request - GetDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasetResponse
    */
   async getDatasetWithOptions(request: GetDatasetRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
     Util.validateModel(request);
@@ -19495,10 +25025,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取媒体集信息
-   *
-   * @param request GetDatasetRequest
-   * @return GetDatasetResponse
+   * 获取媒体集信息
+   * 
+   * @param request - GetDatasetRequest
+   * @returns GetDatasetResponse
    */
   async getDataset(request: GetDatasetRequest): Promise<GetDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19506,11 +25036,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取提取水印的结果
-   *
-   * @param request GetDecodeBlindWatermarkResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDecodeBlindWatermarkResultResponse
+   * 获取提取水印的结果
+   * 
+   * @param request - GetDecodeBlindWatermarkResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDecodeBlindWatermarkResultResponse
    */
   async getDecodeBlindWatermarkResultWithOptions(request: GetDecodeBlindWatermarkResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDecodeBlindWatermarkResultResponse> {
     Util.validateModel(request);
@@ -19545,10 +25075,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取提取水印的结果
-   *
-   * @param request GetDecodeBlindWatermarkResultRequest
-   * @return GetDecodeBlindWatermarkResultResponse
+   * 获取提取水印的结果
+   * 
+   * @param request - GetDecodeBlindWatermarkResultRequest
+   * @returns GetDecodeBlindWatermarkResultResponse
    */
   async getDecodeBlindWatermarkResult(request: GetDecodeBlindWatermarkResultRequest): Promise<GetDecodeBlindWatermarkResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19556,11 +25086,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取聚类
-   *
-   * @param request GetFigureClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFigureClusterResponse
+   * 获取聚类
+   * 
+   * @param request - GetFigureClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFigureClusterResponse
    */
   async getFigureClusterWithOptions(request: GetFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetFigureClusterResponse> {
     Util.validateModel(request);
@@ -19595,10 +25125,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取聚类
-   *
-   * @param request GetFigureClusterRequest
-   * @return GetFigureClusterResponse
+   * 获取聚类
+   * 
+   * @param request - GetFigureClusterRequest
+   * @returns GetFigureClusterResponse
    */
   async getFigureCluster(request: GetFigureClusterRequest): Promise<GetFigureClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19606,11 +25136,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文件元信息
-   *
-   * @param request GetFileMetaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFileMetaResponse
+   * 获取文件元信息
+   * 
+   * @param request - GetFileMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileMetaResponse
    */
   async getFileMetaWithOptions(request: GetFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetFileMetaResponse> {
     Util.validateModel(request);
@@ -19645,10 +25175,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文件元信息
-   *
-   * @param request GetFileMetaRequest
-   * @return GetFileMetaResponse
+   * 获取文件元信息
+   * 
+   * @param request - GetFileMetaRequest
+   * @returns GetFileMetaResponse
    */
   async getFileMeta(request: GetFileMetaRequest): Promise<GetFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19656,11 +25186,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片审核任务结果
-   *
-   * @param request GetImageModerationResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetImageModerationResultResponse
+   * 获取图片审核任务结果
+   * 
+   * @param request - GetImageModerationResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageModerationResultResponse
    */
   async getImageModerationResultWithOptions(request: GetImageModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetImageModerationResultResponse> {
     Util.validateModel(request);
@@ -19695,10 +25225,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取图片审核任务结果
-   *
-   * @param request GetImageModerationResultRequest
-   * @return GetImageModerationResultResponse
+   * 获取图片审核任务结果
+   * 
+   * @param request - GetImageModerationResultRequest
+   * @returns GetImageModerationResultResponse
    */
   async getImageModerationResult(request: GetImageModerationResultRequest): Promise<GetImageModerationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19706,11 +25236,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取绑定的ossbucket
-   *
-   * @param request GetOSSBucketAttachmentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetOSSBucketAttachmentResponse
+   * 获取绑定的ossbucket
+   * 
+   * @param request - GetOSSBucketAttachmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOSSBucketAttachmentResponse
    */
   async getOSSBucketAttachmentWithOptions(request: GetOSSBucketAttachmentRequest, runtime: $Util.RuntimeOptions): Promise<GetOSSBucketAttachmentResponse> {
     Util.validateModel(request);
@@ -19737,10 +25267,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取绑定的ossbucket
-   *
-   * @param request GetOSSBucketAttachmentRequest
-   * @return GetOSSBucketAttachmentResponse
+   * 获取绑定的ossbucket
+   * 
+   * @param request - GetOSSBucketAttachmentRequest
+   * @returns GetOSSBucketAttachmentResponse
    */
   async getOSSBucketAttachment(request: GetOSSBucketAttachmentRequest): Promise<GetOSSBucketAttachmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19748,11 +25278,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目信息
-   *
-   * @param request GetProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetProjectResponse
+   * 获取项目信息
+   * 
+   * @param request - GetProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectResponse
    */
   async getProjectWithOptions(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
     Util.validateModel(request);
@@ -19783,10 +25313,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目信息
-   *
-   * @param request GetProjectRequest
-   * @return GetProjectResponse
+   * 获取项目信息
+   * 
+   * @param request - GetProjectRequest
+   * @returns GetProjectResponse
    */
   async getProject(request: GetProjectRequest): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19794,11 +25324,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 返回一个 Story 的详细信息
-   *
-   * @param request GetStoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetStoryResponse
+   * 返回一个 Story 的详细信息
+   * 
+   * @param request - GetStoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStoryResponse
    */
   async getStoryWithOptions(request: GetStoryRequest, runtime: $Util.RuntimeOptions): Promise<GetStoryResponse> {
     Util.validateModel(request);
@@ -19833,10 +25363,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 返回一个 Story 的详细信息
-   *
-   * @param request GetStoryRequest
-   * @return GetStoryResponse
+   * 返回一个 Story 的详细信息
+   * 
+   * @param request - GetStoryRequest
+   * @returns GetStoryResponse
    */
   async getStory(request: GetStoryRequest): Promise<GetStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19844,11 +25374,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务信息
-   *
-   * @param request GetTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTaskResponse
+   * 获取任务信息
+   * 
+   * @param request - GetTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskResponse
    */
   async getTaskWithOptions(request: GetTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
     Util.validateModel(request);
@@ -19887,10 +25417,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务信息
-   *
-   * @param request GetTaskRequest
-   * @return GetTaskResponse
+   * 获取任务信息
+   * 
+   * @param request - GetTaskRequest
+   * @returns GetTaskResponse
    */
   async getTask(request: GetTaskRequest): Promise<GetTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19898,11 +25428,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据接入实例
-   *
-   * @param request GetTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTriggerResponse
+   * 获取数据接入实例
+   * 
+   * @param request - GetTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTriggerResponse
    */
   async getTriggerWithOptions(request: GetTriggerRequest, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
     Util.validateModel(request);
@@ -19933,10 +25463,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据接入实例
-   *
-   * @param request GetTriggerRequest
-   * @return GetTriggerResponse
+   * 获取数据接入实例
+   * 
+   * @param request - GetTriggerRequest
+   * @returns GetTriggerResponse
    */
   async getTrigger(request: GetTriggerRequest): Promise<GetTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19944,11 +25474,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取视频标签检测任务结果
-   *
-   * @param request GetVideoLabelClassificationResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetVideoLabelClassificationResultResponse
+   * 获取视频标签检测任务结果
+   * 
+   * @param request - GetVideoLabelClassificationResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoLabelClassificationResultResponse
    */
   async getVideoLabelClassificationResultWithOptions(request: GetVideoLabelClassificationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoLabelClassificationResultResponse> {
     Util.validateModel(request);
@@ -19983,10 +25513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取视频标签检测任务结果
-   *
-   * @param request GetVideoLabelClassificationResultRequest
-   * @return GetVideoLabelClassificationResultResponse
+   * 获取视频标签检测任务结果
+   * 
+   * @param request - GetVideoLabelClassificationResultRequest
+   * @returns GetVideoLabelClassificationResultResponse
    */
   async getVideoLabelClassificationResult(request: GetVideoLabelClassificationResultRequest): Promise<GetVideoLabelClassificationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19994,11 +25524,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取视频审核任务结果
-   *
-   * @param request GetVideoModerationResultRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetVideoModerationResultResponse
+   * 获取视频审核任务结果
+   * 
+   * @param request - GetVideoModerationResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoModerationResultResponse
    */
   async getVideoModerationResultWithOptions(request: GetVideoModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoModerationResultResponse> {
     Util.validateModel(request);
@@ -20033,10 +25563,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取视频审核任务结果
-   *
-   * @param request GetVideoModerationResultRequest
-   * @return GetVideoModerationResultResponse
+   * 获取视频审核任务结果
+   * 
+   * @param request - GetVideoModerationResultRequest
+   * @returns GetVideoModerationResultResponse
    */
   async getVideoModerationResult(request: GetVideoModerationResultRequest): Promise<GetVideoModerationResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20044,11 +25574,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加文件元信息
-   *
-   * @param tmpReq IndexFileMetaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return IndexFileMetaResponse
+   * 添加文件元信息
+   * 
+   * @param tmpReq - IndexFileMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns IndexFileMetaResponse
    */
   async indexFileMetaWithOptions(tmpReq: IndexFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<IndexFileMetaResponse> {
     Util.validateModel(tmpReq);
@@ -20101,10 +25631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加文件元信息
-   *
-   * @param request IndexFileMetaRequest
-   * @return IndexFileMetaResponse
+   * 添加文件元信息
+   * 
+   * @param request - IndexFileMetaRequest
+   * @returns IndexFileMetaResponse
    */
   async indexFileMeta(request: IndexFileMetaRequest): Promise<IndexFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20112,11 +25642,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出数据接入实例
-   *
-   * @param request ListBatchesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListBatchesResponse
+   * 列出数据接入实例
+   * 
+   * @param request - ListBatchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBatchesResponse
    */
   async listBatchesWithOptions(request: ListBatchesRequest, runtime: $Util.RuntimeOptions): Promise<ListBatchesResponse> {
     Util.validateModel(request);
@@ -20167,10 +25697,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出数据接入实例
-   *
-   * @param request ListBatchesRequest
-   * @return ListBatchesResponse
+   * 列出数据接入实例
+   * 
+   * @param request - ListBatchesRequest
+   * @returns ListBatchesResponse
    */
   async listBatches(request: ListBatchesRequest): Promise<ListBatchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20178,11 +25708,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出绑定
-   *
-   * @param request ListBindingsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListBindingsResponse
+   * 列出绑定
+   * 
+   * @param request - ListBindingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBindingsResponse
    */
   async listBindingsWithOptions(request: ListBindingsRequest, runtime: $Util.RuntimeOptions): Promise<ListBindingsResponse> {
     Util.validateModel(request);
@@ -20221,10 +25751,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出绑定
-   *
-   * @param request ListBindingsRequest
-   * @return ListBindingsResponse
+   * 列出绑定
+   * 
+   * @param request - ListBindingsRequest
+   * @returns ListBindingsResponse
    */
   async listBindings(request: ListBindingsRequest): Promise<ListBindingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20232,11 +25762,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出媒体集列表
-   *
-   * @param request ListDatasetsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDatasetsResponse
+   * 列出媒体集列表
+   * 
+   * @param request - ListDatasetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasetsResponse
    */
   async listDatasetsWithOptions(request: ListDatasetsRequest, runtime: $Util.RuntimeOptions): Promise<ListDatasetsResponse> {
     Util.validateModel(request);
@@ -20275,10 +25805,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出媒体集列表
-   *
-   * @param request ListDatasetsRequest
-   * @return ListDatasetsResponse
+   * 列出媒体集列表
+   * 
+   * @param request - ListDatasetsRequest
+   * @returns ListDatasetsResponse
    */
   async listDatasets(request: ListDatasetsRequest): Promise<ListDatasetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20286,11 +25816,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目列表
-   *
-   * @param tmpReq ListProjectsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListProjectsResponse
+   * 获取项目列表
+   * 
+   * @param tmpReq - ListProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsResponse
    */
   async listProjectsWithOptions(tmpReq: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(tmpReq);
@@ -20335,10 +25865,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取项目列表
-   *
-   * @param request ListProjectsRequest
-   * @return ListProjectsResponse
+   * 获取项目列表
+   * 
+   * @param request - ListProjectsRequest
+   * @returns ListProjectsResponse
    */
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20346,11 +25876,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取地区列表
-   *
-   * @param request ListRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRegionsResponse
+   * 获取地区列表
+   * 
+   * @param request - ListRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRegionsResponse
    */
   async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
     Util.validateModel(request);
@@ -20377,10 +25907,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取地区列表
-   *
-   * @param request ListRegionsRequest
-   * @return ListRegionsResponse
+   * 获取地区列表
+   * 
+   * @param request - ListRegionsRequest
+   * @returns ListRegionsResponse
    */
   async listRegions(request: ListRegionsRequest): Promise<ListRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20388,11 +25918,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务信息列表
-   *
-   * @param tmpReq ListTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTasksResponse
+   * 获取任务信息列表
+   * 
+   * @param tmpReq - ListTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTasksResponse
    */
   async listTasksWithOptions(tmpReq: ListTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(tmpReq);
@@ -20473,10 +26003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取任务信息列表
-   *
-   * @param request ListTasksRequest
-   * @return ListTasksResponse
+   * 获取任务信息列表
+   * 
+   * @param request - ListTasksRequest
+   * @returns ListTasksResponse
    */
   async listTasks(request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20484,11 +26014,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出数据接入实例
-   *
-   * @param request ListTriggersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTriggersResponse
+   * 列出数据接入实例
+   * 
+   * @param request - ListTriggersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTriggersResponse
    */
   async listTriggersWithOptions(request: ListTriggersRequest, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
     Util.validateModel(request);
@@ -20539,10 +26069,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出数据接入实例
-   *
-   * @param request ListTriggersRequest
-   * @return ListTriggersResponse
+   * 列出数据接入实例
+   * 
+   * @param request - ListTriggersRequest
+   * @returns ListTriggersResponse
    */
   async listTriggers(request: ListTriggersRequest): Promise<ListTriggersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20550,11 +26080,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询聚类分组
-   *
-   * @param tmpReq QueryFigureClustersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryFigureClustersResponse
+   * 查询聚类分组
+   * 
+   * @param tmpReq - QueryFigureClustersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryFigureClustersResponse
    */
   async queryFigureClustersWithOptions(tmpReq: QueryFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<QueryFigureClustersResponse> {
     Util.validateModel(tmpReq);
@@ -20627,10 +26157,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询聚类分组
-   *
-   * @param request QueryFigureClustersRequest
-   * @return QueryFigureClustersResponse
+   * 查询聚类分组
+   * 
+   * @param request - QueryFigureClustersRequest
+   * @returns QueryFigureClustersResponse
    */
   async queryFigureClusters(request: QueryFigureClustersRequest): Promise<QueryFigureClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20638,11 +26168,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查找时空分组
-   *
-   * @param tmpReq QueryLocationDateClustersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryLocationDateClustersResponse
+   * 查找时空分组
+   * 
+   * @param tmpReq - QueryLocationDateClustersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryLocationDateClustersResponse
    */
   async queryLocationDateClustersWithOptions(tmpReq: QueryLocationDateClustersRequest, runtime: $Util.RuntimeOptions): Promise<QueryLocationDateClustersResponse> {
     Util.validateModel(tmpReq);
@@ -20751,10 +26281,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查找时空分组
-   *
-   * @param request QueryLocationDateClustersRequest
-   * @return QueryLocationDateClustersResponse
+   * 查找时空分组
+   * 
+   * @param request - QueryLocationDateClustersRequest
+   * @returns QueryLocationDateClustersResponse
    */
   async queryLocationDateClusters(request: QueryLocationDateClustersRequest): Promise<QueryLocationDateClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20762,11 +26292,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查找相似图片分组
-   *
-   * @param request QuerySimilarImageClustersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QuerySimilarImageClustersResponse
+   * 查找相似图片分组
+   * 
+   * @param request - QuerySimilarImageClustersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySimilarImageClustersResponse
    */
   async querySimilarImageClustersWithOptions(request: QuerySimilarImageClustersRequest, runtime: $Util.RuntimeOptions): Promise<QuerySimilarImageClustersResponse> {
     Util.validateModel(request);
@@ -20817,10 +26347,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查找相似图片分组
-   *
-   * @param request QuerySimilarImageClustersRequest
-   * @return QuerySimilarImageClustersResponse
+   * 查找相似图片分组
+   * 
+   * @param request - QuerySimilarImageClustersRequest
+   * @returns QuerySimilarImageClustersResponse
    */
   async querySimilarImageClusters(request: QuerySimilarImageClustersRequest): Promise<QuerySimilarImageClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20828,11 +26358,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查找 Story
-   *
-   * @param tmpReq QueryStoriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryStoriesResponse
+   * 查找 Story
+   * 
+   * @param tmpReq - QueryStoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryStoriesResponse
    */
   async queryStoriesWithOptions(tmpReq: QueryStoriesRequest, runtime: $Util.RuntimeOptions): Promise<QueryStoriesResponse> {
     Util.validateModel(tmpReq);
@@ -20937,10 +26467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查找 Story
-   *
-   * @param request QueryStoriesRequest
-   * @return QueryStoriesResponse
+   * 查找 Story
+   * 
+   * @param request - QueryStoriesRequest
+   * @returns QueryStoriesResponse
    */
   async queryStories(request: QueryStoriesRequest): Promise<QueryStoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20948,11 +26478,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 刷新文档预览编辑凭证
-   *
-   * @param tmpReq RefreshWebofficeTokenRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RefreshWebofficeTokenResponse
+   * 刷新文档预览编辑凭证
+   * 
+   * @param tmpReq - RefreshWebofficeTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshWebofficeTokenResponse
    */
   async refreshWebofficeTokenWithOptions(tmpReq: RefreshWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshWebofficeTokenResponse> {
     Util.validateModel(tmpReq);
@@ -20997,10 +26527,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 刷新文档预览编辑凭证
-   *
-   * @param request RefreshWebofficeTokenRequest
-   * @return RefreshWebofficeTokenResponse
+   * 刷新文档预览编辑凭证
+   * 
+   * @param request - RefreshWebofficeTokenRequest
+   * @returns RefreshWebofficeTokenResponse
    */
   async refreshWebofficeToken(request: RefreshWebofficeTokenRequest): Promise<RefreshWebofficeTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21008,11 +26538,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为故事移除文件
-   *
-   * @param tmpReq RemoveStoryFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveStoryFilesResponse
+   * 为故事移除文件
+   * 
+   * @param tmpReq - RemoveStoryFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveStoryFilesResponse
    */
   async removeStoryFilesWithOptions(tmpReq: RemoveStoryFilesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveStoryFilesResponse> {
     Util.validateModel(tmpReq);
@@ -21057,10 +26587,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为故事移除文件
-   *
-   * @param request RemoveStoryFilesRequest
-   * @return RemoveStoryFilesResponse
+   * 为故事移除文件
+   * 
+   * @param request - RemoveStoryFilesRequest
+   * @returns RemoveStoryFilesResponse
    */
   async removeStoryFiles(request: RemoveStoryFilesRequest): Promise<RemoveStoryFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21068,11 +26598,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恢复一个挂起的数据接入任务
-   *
-   * @param request ResumeBatchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResumeBatchResponse
+   * 恢复一个挂起的数据接入任务
+   * 
+   * @param request - ResumeBatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeBatchResponse
    */
   async resumeBatchWithOptions(request: ResumeBatchRequest, runtime: $Util.RuntimeOptions): Promise<ResumeBatchResponse> {
     Util.validateModel(request);
@@ -21103,10 +26633,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恢复一个挂起的数据接入任务
-   *
-   * @param request ResumeBatchRequest
-   * @return ResumeBatchResponse
+   * 恢复一个挂起的数据接入任务
+   * 
+   * @param request - ResumeBatchRequest
+   * @returns ResumeBatchResponse
    */
   async resumeBatch(request: ResumeBatchRequest): Promise<ResumeBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21114,11 +26644,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恢复一个挂起的数据接入任务
-   *
-   * @param request ResumeTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResumeTriggerResponse
+   * 恢复一个挂起的数据接入任务
+   * 
+   * @param request - ResumeTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeTriggerResponse
    */
   async resumeTriggerWithOptions(request: ResumeTriggerRequest, runtime: $Util.RuntimeOptions): Promise<ResumeTriggerResponse> {
     Util.validateModel(request);
@@ -21149,10 +26679,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恢复一个挂起的数据接入任务
-   *
-   * @param request ResumeTriggerRequest
-   * @return ResumeTriggerResponse
+   * 恢复一个挂起的数据接入任务
+   * 
+   * @param request - ResumeTriggerRequest
+   * @returns ResumeTriggerResponse
    */
   async resumeTrigger(request: ResumeTriggerRequest): Promise<ResumeTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21160,11 +26690,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 以脸搜分组
-   *
-   * @param tmpReq SearchImageFigureClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchImageFigureClusterResponse
+   * 以脸搜分组
+   * 
+   * @param tmpReq - SearchImageFigureClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchImageFigureClusterResponse
    */
   async searchImageFigureClusterWithOptions(tmpReq: SearchImageFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<SearchImageFigureClusterResponse> {
     Util.validateModel(tmpReq);
@@ -21209,10 +26739,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 以脸搜分组
-   *
-   * @param request SearchImageFigureClusterRequest
-   * @return SearchImageFigureClusterResponse
+   * 以脸搜分组
+   * 
+   * @param request - SearchImageFigureClusterRequest
+   * @returns SearchImageFigureClusterResponse
    */
   async searchImageFigureCluster(request: SearchImageFigureClusterRequest): Promise<SearchImageFigureClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21220,11 +26750,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过输入自然语言文字，对 Dataset 内的元数据进行查询与统计分析
-   *
-   * @param tmpReq SemanticQueryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SemanticQueryResponse
+   * 通过输入自然语言文字，对 Dataset 内的元数据进行查询与统计分析
+   * 
+   * @param tmpReq - SemanticQueryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SemanticQueryResponse
    */
   async semanticQueryWithOptions(tmpReq: SemanticQueryRequest, runtime: $Util.RuntimeOptions): Promise<SemanticQueryResponse> {
     Util.validateModel(tmpReq);
@@ -21285,10 +26815,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过输入自然语言文字，对 Dataset 内的元数据进行查询与统计分析
-   *
-   * @param request SemanticQueryRequest
-   * @return SemanticQueryResponse
+   * 通过输入自然语言文字，对 Dataset 内的元数据进行查询与统计分析
+   * 
+   * @param request - SemanticQueryRequest
+   * @returns SemanticQueryResponse
    */
   async semanticQuery(request: SemanticQueryRequest): Promise<SemanticQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21296,11 +26826,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过 JSON 结构的查询语言，对 Dataset 内的元数据进行查询与统计分析。
-   *
-   * @param tmpReq SimpleQueryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SimpleQueryResponse
+   * 通过 JSON 结构的查询语言，对 Dataset 内的元数据进行查询与统计分析。
+   * 
+   * @param tmpReq - SimpleQueryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SimpleQueryResponse
    */
   async simpleQueryWithOptions(tmpReq: SimpleQueryRequest, runtime: $Util.RuntimeOptions): Promise<SimpleQueryResponse> {
     Util.validateModel(tmpReq);
@@ -21377,10 +26907,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过 JSON 结构的查询语言，对 Dataset 内的元数据进行查询与统计分析。
-   *
-   * @param request SimpleQueryRequest
-   * @return SimpleQueryResponse
+   * 通过 JSON 结构的查询语言，对 Dataset 内的元数据进行查询与统计分析。
+   * 
+   * @param request - SimpleQueryRequest
+   * @returns SimpleQueryResponse
    */
   async simpleQuery(request: SimpleQueryRequest): Promise<SimpleQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21388,11 +26918,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 挂起一个数据接入任务
-   *
-   * @param request SuspendBatchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SuspendBatchResponse
+   * 挂起一个数据接入任务
+   * 
+   * @param request - SuspendBatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SuspendBatchResponse
    */
   async suspendBatchWithOptions(request: SuspendBatchRequest, runtime: $Util.RuntimeOptions): Promise<SuspendBatchResponse> {
     Util.validateModel(request);
@@ -21423,10 +26953,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 挂起一个数据接入任务
-   *
-   * @param request SuspendBatchRequest
-   * @return SuspendBatchResponse
+   * 挂起一个数据接入任务
+   * 
+   * @param request - SuspendBatchRequest
+   * @returns SuspendBatchResponse
    */
   async suspendBatch(request: SuspendBatchRequest): Promise<SuspendBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21434,11 +26964,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 挂起一个数据接入任务
-   *
-   * @param request SuspendTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SuspendTriggerResponse
+   * 挂起一个数据接入任务
+   * 
+   * @param request - SuspendTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SuspendTriggerResponse
    */
   async suspendTriggerWithOptions(request: SuspendTriggerRequest, runtime: $Util.RuntimeOptions): Promise<SuspendTriggerResponse> {
     Util.validateModel(request);
@@ -21469,10 +26999,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 挂起一个数据接入任务
-   *
-   * @param request SuspendTriggerRequest
-   * @return SuspendTriggerResponse
+   * 挂起一个数据接入任务
+   * 
+   * @param request - SuspendTriggerRequest
+   * @returns SuspendTriggerResponse
    */
   async suspendTrigger(request: SuspendTriggerRequest): Promise<SuspendTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21480,11 +27010,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新数据接入实例
-   *
-   * @param tmpReq UpdateBatchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateBatchResponse
+   * 更新数据接入实例
+   * 
+   * @param tmpReq - UpdateBatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBatchResponse
    */
   async updateBatchWithOptions(tmpReq: UpdateBatchRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBatchResponse> {
     Util.validateModel(tmpReq);
@@ -21541,10 +27071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新数据接入实例
-   *
-   * @param request UpdateBatchRequest
-   * @return UpdateBatchResponse
+   * 更新数据接入实例
+   * 
+   * @param request - UpdateBatchRequest
+   * @returns UpdateBatchResponse
    */
   async updateBatch(request: UpdateBatchRequest): Promise<UpdateBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21552,11 +27082,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新媒体集
-   *
-   * @param request UpdateDatasetRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDatasetResponse
+   * 更新媒体集
+   * 
+   * @param request - UpdateDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDatasetResponse
    */
   async updateDatasetWithOptions(request: UpdateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDatasetResponse> {
     Util.validateModel(request);
@@ -21615,10 +27145,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新媒体集
-   *
-   * @param request UpdateDatasetRequest
-   * @return UpdateDatasetResponse
+   * 更新媒体集
+   * 
+   * @param request - UpdateDatasetRequest
+   * @returns UpdateDatasetResponse
    */
   async updateDataset(request: UpdateDatasetRequest): Promise<UpdateDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21626,11 +27156,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新聚类
-   *
-   * @param tmpReq UpdateFigureClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateFigureClusterResponse
+   * 更新聚类
+   * 
+   * @param tmpReq - UpdateFigureClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFigureClusterResponse
    */
   async updateFigureClusterWithOptions(tmpReq: UpdateFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFigureClusterResponse> {
     Util.validateModel(tmpReq);
@@ -21671,10 +27201,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新聚类
-   *
-   * @param request UpdateFigureClusterRequest
-   * @return UpdateFigureClusterResponse
+   * 更新聚类
+   * 
+   * @param request - UpdateFigureClusterRequest
+   * @returns UpdateFigureClusterResponse
    */
   async updateFigureCluster(request: UpdateFigureClusterRequest): Promise<UpdateFigureClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21682,11 +27212,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新文件元信息
-   *
-   * @param tmpReq UpdateFileMetaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateFileMetaResponse
+   * 更新文件元信息
+   * 
+   * @param tmpReq - UpdateFileMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFileMetaResponse
    */
   async updateFileMetaWithOptions(tmpReq: UpdateFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileMetaResponse> {
     Util.validateModel(tmpReq);
@@ -21727,10 +27257,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新文件元信息
-   *
-   * @param request UpdateFileMetaRequest
-   * @return UpdateFileMetaResponse
+   * 更新文件元信息
+   * 
+   * @param request - UpdateFileMetaRequest
+   * @returns UpdateFileMetaResponse
    */
   async updateFileMeta(request: UpdateFileMetaRequest): Promise<UpdateFileMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21738,11 +27268,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新时空聚类
-   *
-   * @param tmpReq UpdateLocationDateClusterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateLocationDateClusterResponse
+   * 更新时空聚类
+   * 
+   * @param tmpReq - UpdateLocationDateClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLocationDateClusterResponse
    */
   async updateLocationDateClusterWithOptions(tmpReq: UpdateLocationDateClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLocationDateClusterResponse> {
     Util.validateModel(tmpReq);
@@ -21795,10 +27325,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新时空聚类
-   *
-   * @param request UpdateLocationDateClusterRequest
-   * @return UpdateLocationDateClusterResponse
+   * 更新时空聚类
+   * 
+   * @param request - UpdateLocationDateClusterRequest
+   * @returns UpdateLocationDateClusterResponse
    */
   async updateLocationDateCluster(request: UpdateLocationDateClusterRequest): Promise<UpdateLocationDateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21806,11 +27336,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新项目
-   *
-   * @param tmpReq UpdateProjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateProjectResponse
+   * 更新项目
+   * 
+   * @param tmpReq - UpdateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProjectResponse
    */
   async updateProjectWithOptions(tmpReq: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
     Util.validateModel(tmpReq);
@@ -21883,10 +27413,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新项目
-   *
-   * @param request UpdateProjectRequest
-   * @return UpdateProjectResponse
+   * 更新项目
+   * 
+   * @param request - UpdateProjectRequest
+   * @returns UpdateProjectResponse
    */
   async updateProject(request: UpdateProjectRequest): Promise<UpdateProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21894,11 +27424,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新故事
-   *
-   * @param tmpReq UpdateStoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateStoryResponse
+   * 更新故事
+   * 
+   * @param tmpReq - UpdateStoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStoryResponse
    */
   async updateStoryWithOptions(tmpReq: UpdateStoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStoryResponse> {
     Util.validateModel(tmpReq);
@@ -21959,10 +27489,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新故事
-   *
-   * @param request UpdateStoryRequest
-   * @return UpdateStoryResponse
+   * 更新故事
+   * 
+   * @param request - UpdateStoryRequest
+   * @returns UpdateStoryResponse
    */
   async updateStory(request: UpdateStoryRequest): Promise<UpdateStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21970,11 +27500,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新数据接入实例
-   *
-   * @param tmpReq UpdateTriggerRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTriggerResponse
+   * 更新数据接入实例
+   * 
+   * @param tmpReq - UpdateTriggerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTriggerResponse
    */
   async updateTriggerWithOptions(tmpReq: UpdateTriggerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTriggerResponse> {
     Util.validateModel(tmpReq);
@@ -22031,10 +27561,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新数据接入实例
-   *
-   * @param request UpdateTriggerRequest
-   * @return UpdateTriggerResponse
+   * 更新数据接入实例
+   * 
+   * @param request - UpdateTriggerRequest
+   * @returns UpdateTriggerResponse
    */
   async updateTrigger(request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
