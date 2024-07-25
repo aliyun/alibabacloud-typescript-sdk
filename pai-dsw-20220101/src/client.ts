@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,8 +8,20 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class DemoCategory extends $tea.Model {
+  /**
+   * @example
+   * sdk
+   */
   categoryCode?: string;
+  /**
+   * @example
+   * SDK Usage
+   */
   categoryName?: string;
+  /**
+   * @example
+   * 12
+   */
   order?: number;
   subCategories?: DemoCategory[];
   static names(): { [key: string]: string } {
@@ -37,10 +48,30 @@ export class DemoCategory extends $tea.Model {
 }
 
 export class ForwardInfo extends $tea.Model {
+  /**
+   * @example
+   * dsw-notebook
+   */
   containerName?: string;
+  /**
+   * @example
+   * eip-25877c70gddh****
+   */
   eipAllocationId?: string;
+  /**
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @example
+   * ngw-bp1uewa15k4iy5770****
+   */
   natGatewayId?: string;
+  /**
+   * @example
+   * 22
+   */
   port?: string;
   SSHPublicKey?: string;
   static names(): { [key: string]: string } {
@@ -72,10 +103,30 @@ export class ForwardInfo extends $tea.Model {
 
 export class ForwardInfoResponse extends $tea.Model {
   connectInfo?: ForwardInfoResponseConnectInfo;
+  /**
+   * @example
+   * dsw-notebook
+   */
   containerName?: string;
+  /**
+   * @example
+   * eip-25877c70gddh****
+   */
   eipAllocationId?: string;
+  /**
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @example
+   * ngw-bp1uewa15k4iy5770****
+   */
   natGatewayId?: string;
+  /**
+   * @example
+   * 22
+   */
   port?: string;
   SSHPublicKey?: string;
   static names(): { [key: string]: string } {
@@ -108,8 +159,20 @@ export class ForwardInfoResponse extends $tea.Model {
 }
 
 export class CreateIdleInstanceCullerRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   cpuPercentThreshold?: number;
+  /**
+   * @example
+   * 10
+   */
   gpuPercentThreshold?: number;
+  /**
+   * @example
+   * 60
+   */
   maxIdleTimeInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -133,10 +196,30 @@ export class CreateIdleInstanceCullerRequest extends $tea.Model {
 }
 
 export class CreateIdleInstanceCullerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -189,24 +272,84 @@ export class CreateIdleInstanceCullerResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   affinity?: CreateInstanceRequestAffinity;
+  /**
+   * @example
+   * []
+   */
   cloudDisks?: CreateInstanceRequestCloudDisks[];
   datasets?: CreateInstanceRequestDatasets[];
+  /**
+   * @example
+   * 535.54.03
+   */
   driver?: string;
+  /**
+   * @example
+   * ecs.c6.large
+   */
   ecsSpec?: string;
+  /**
+   * @example
+   * {userName: "Chris"}
+   */
   environmentVariables?: { [key: string]: string };
   imageAuth?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
   imageId?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * training_data
+   */
   instanceName?: string;
+  /**
+   * @example
+   * {\\"foo\\": \\"bar\\"}
+   */
   labels?: CreateInstanceRequestLabels[];
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
+   */
   requestedResource?: CreateInstanceRequestRequestedResource;
+  /**
+   * @example
+   * dsw-123456789
+   */
   resourceId?: string;
+  /**
+   * @example
+   * 1612285282502324
+   */
   userId?: string;
   userVpc?: CreateInstanceRequestUserVpc;
+  /**
+   * @example
+   * 40823
+   */
   workspaceId?: string;
+  /**
+   * @example
+   * d-123456789
+   */
   workspaceSource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -262,11 +405,35 @@ export class CreateInstanceRequest extends $tea.Model {
 }
 
 export class CreateInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -321,7 +488,15 @@ export class CreateInstanceResponse extends $tea.Model {
 }
 
 export class CreateInstanceShutdownTimerRequest extends $tea.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   dueTime?: string;
+  /**
+   * @example
+   * 3600000
+   */
   remainingTimeInMs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -343,11 +518,35 @@ export class CreateInstanceShutdownTimerRequest extends $tea.Model {
 }
 
 export class CreateInstanceShutdownTimerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -403,10 +602,26 @@ export class CreateInstanceShutdownTimerResponse extends $tea.Model {
 
 export class CreateInstanceSnapshotRequest extends $tea.Model {
   excludePaths?: string[];
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * {\\"foo\\": \\"bar\\"}
+   */
   labels?: CreateInstanceSnapshotRequestLabels[];
   overwrite?: boolean;
+  /**
+   * @example
+   * training_data_env
+   */
   snapshotDescription?: string;
+  /**
+   * @example
+   * training_data_env
+   */
   snapshotName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -436,12 +651,40 @@ export class CreateInstanceSnapshotRequest extends $tea.Model {
 }
 
 export class CreateInstanceSnapshotResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * snp-05cexxxxxxxxx
+   */
   snapshotId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -498,10 +741,30 @@ export class CreateInstanceSnapshotResponse extends $tea.Model {
 }
 
 export class DeleteIdleInstanceCullerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ValidationError
+   */
   code?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -554,11 +817,35 @@ export class DeleteIdleInstanceCullerResponse extends $tea.Model {
 }
 
 export class DeleteInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -613,11 +900,35 @@ export class DeleteInstanceResponse extends $tea.Model {
 }
 
 export class DeleteInstanceShutdownTimerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -672,12 +983,40 @@ export class DeleteInstanceShutdownTimerResponse extends $tea.Model {
 }
 
 export class DeleteInstanceSnapshotResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * snp-05cexxxxxxxxx
+   */
   snapshotId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -734,14 +1073,50 @@ export class DeleteInstanceSnapshotResponse extends $tea.Model {
 }
 
 export class GetIdleInstanceCullerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ValidationError
+   */
   code?: string;
+  /**
+   * @example
+   * 20
+   */
   cpuPercentThreshold?: number;
+  /**
+   * @example
+   * 10
+   */
   gpuPercentThreshold?: number;
+  /**
+   * @example
+   * 30
+   */
   idleTimeInMinutes?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 60
+   */
   maxIdleTimeInMinutes?: number;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -802,51 +1177,213 @@ export class GetIdleInstanceCullerResponse extends $tea.Model {
 }
 
 export class GetInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CPU
+   */
   acceleratorType?: string;
+  /**
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
+  /**
+   * @example
+   * 3600000
+   */
   accumulatedRunningTimeInMs?: number;
   affinity?: GetInstanceResponseBodyAffinity;
+  /**
+   * @example
+   * []
+   */
   cloudDisks?: GetInstanceResponseBodyCloudDisks[];
+  /**
+   * @example
+   * null
+   */
   code?: string;
   datasets?: GetInstanceResponseBodyDatasets[];
+  /**
+   * @example
+   * 535.54.03
+   */
   driver?: string;
+  /**
+   * @example
+   * ecs.c6.large
+   */
   ecsSpec?: string;
+  /**
+   * @example
+   * {userName: "Chris"}
+   */
   environmentVariables?: { [key: string]: string };
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * {"InstanceId":"dsw-05cefd0be2e5a278","CpuPercentThreshold":20,"GpuPercentThreshold":10,"MaxIdleTimeInMinutes":120,"IdleTimeInMinutes":30}
+   */
   idleInstanceCuller?: GetInstanceResponseBodyIdleInstanceCuller;
   imageAuth?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
   imageId?: string;
+  /**
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
   imageName?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * training_data
+   */
   instanceName?: string;
   instanceShutdownTimer?: GetInstanceResponseBodyInstanceShutdownTimer;
+  /**
+   * @example
+   * []
+   */
   instanceSnapshotList?: GetInstanceResponseBodyInstanceSnapshotList[];
+  /**
+   * @example
+   * https://dsw-cn-shanghai.data.aliyun.com/notebook.htm?instance=39772#/
+   */
   instanceUrl?: string;
+  /**
+   * @remarks
+   * Jupyterlab Url。
+   * 
+   * @example
+   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/lab/
+   */
   jupyterlabUrl?: string;
+  /**
+   * @example
+   * {\\"foo\\": \\"bar\\"}
+   */
   labels?: GetInstanceResponseBodyLabels[];
   latestSnapshot?: GetInstanceResponseBodyLatestSnapshot;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
   nodeErrorRecovery?: GetInstanceResponseBodyNodeErrorRecovery;
+  /**
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * Internal Error
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * ImagePullBackOff
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
+   */
   requestedResource?: GetInstanceResponseBodyRequestedResource;
+  /**
+   * @example
+   * dsw-123456789
+   */
   resourceId?: string;
+  /**
+   * @example
+   * ecs.g7.xlarge
+   */
   resourceName?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/tty/
+   */
   terminalUrl?: string;
+  /**
+   * @example
+   * 1612285282502324
+   */
   userId?: string;
+  /**
+   * @example
+   * 测试用户
+   */
   userName?: string;
   userVpc?: GetInstanceResponseBodyUserVpc;
+  /**
+   * @remarks
+   * Web IDE url。
+   * 
+   * @example
+   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/ide/
+   */
   webIDEUrl?: string;
+  /**
+   * @example
+   * 40823
+   */
   workspaceId?: string;
+  /**
+   * @example
+   * training_data
+   */
   workspaceName?: string;
+  /**
+   * @example
+   * d-123456789
+   */
   workspaceSource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -981,8 +1518,20 @@ export class GetInstanceResponse extends $tea.Model {
 }
 
 export class GetInstanceEventsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2000
+   */
   maxEventsNum?: number;
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1006,12 +1555,36 @@ export class GetInstanceEventsRequest extends $tea.Model {
 }
 
 export class GetInstanceEventsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * None
+   */
   code?: string;
   events?: string[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * XXX
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1068,9 +1641,28 @@ export class GetInstanceEventsResponse extends $tea.Model {
 }
 
 export class GetInstanceMetricsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * GpuCoreUsage
+   */
   metricType?: string;
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 15m
+   */
   timeStep?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1096,12 +1688,36 @@ export class GetInstanceMetricsRequest extends $tea.Model {
 }
 
 export class GetInstanceMetricsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
   podMetrics?: GetInstanceMetricsResponseBodyPodMetrics[];
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1158,15 +1774,55 @@ export class GetInstanceMetricsResponse extends $tea.Model {
 }
 
 export class GetInstanceShutdownTimerResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   dueTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * 3600000
+   */
   remainingTimeInMs?: number;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1229,22 +1885,86 @@ export class GetInstanceShutdownTimerResponse extends $tea.Model {
 }
 
 export class GetInstanceSnapshotResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
   excludePaths?: string[];
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
   imageId?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * {\"foo\": \"bar\"}
+   */
   labels?: GetInstanceSnapshotResponseBodyLabels[];
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * Internal Error
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * ImagePullBackOff
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * snp-05cexxxxxxxxx
+   */
   snapshotId?: string;
+  /**
+   * @example
+   * training_data_env
+   */
   snapshotName?: string;
+  /**
+   * @example
+   * Pushing
+   */
   status?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1321,10 +2041,30 @@ export class GetInstanceSnapshotResponse extends $tea.Model {
 }
 
 export class GetLifecycleRequest extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 1
+   */
   limit?: number;
+  /**
+   * @example
+   * DESC
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   sessionNumber?: number;
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1352,11 +2092,35 @@ export class GetLifecycleRequest extends $tea.Model {
 }
 
 export class GetLifecycleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * [[{"Status":"Creating","GmtCreateTime":"2022-09-19T22:38:00Z","Reason":"","ReasonCode":""}]]
+   */
   lifecycle?: GetLifecycleResponseBodyLifecycle[][];
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 35
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1411,13 +2175,45 @@ export class GetLifecycleResponse extends $tea.Model {
 }
 
 export class GetMetricsRequest extends $tea.Model {
+  /**
+   * @example
+   * {"userId":"16122852825*****","jobId":"dsw-328d2bbf605*****","regionId":"cn-wulanchabu","pod":"dsw-45680-76766f8778-95gxh"}
+   */
   dimensions?: string;
+  /**
+   * @example
+   * 2020-11-08T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 10
+   */
   length?: string;
+  /**
+   * @example
+   * INSTANCE_SPEC_MEMORY_SWAP
+   */
   metricName?: string;
+  /**
+   * @example
+   * acs_pai_dsw
+   */
   namespace?: string;
+  /**
+   * @example
+   * 15761485350009dd70bb64cff1f0fff750b08ffff073be5fb1e785e2b020f1a949d5ea14aea7fed82f01dd8****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 60
+   */
   period?: string;
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1451,12 +2247,40 @@ export class GetMetricsRequest extends $tea.Model {
 }
 
 export class GetMetricsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * [{"timestamp":1548777660000,"userId":"120886317861****","instanceId":"i-abc****","Minimum":9.92,"Average":9.92,"Maximum":9.92}]
+   */
   dataPoints?: string;
+  /**
+   * @example
+   * Succeed
+   */
   message?: string;
+  /**
+   * @example
+   * 15761485350009dd70bb64cff1f0fff750b08ffff073be5fb1e785e2b020f1a949d5ea14aea7fed82f01dd8****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 60
+   */
   period?: string;
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1513,9 +2337,37 @@ export class GetMetricsResponse extends $tea.Model {
 }
 
 export class GetResourceGroupStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-123456789
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 27218,34956
+   */
   workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1541,11 +2393,31 @@ export class GetResourceGroupStatisticsRequest extends $tea.Model {
 }
 
 export class GetResourceGroupStatisticsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InternalError
+   */
   code?: string;
+  /**
+   * @example
+   * 400
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
   statistics?: { [key: string]: {[key: string]: any} };
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1600,7 +2472,18 @@ export class GetResourceGroupStatisticsResponse extends $tea.Model {
 }
 
 export class GetTokenRequest extends $tea.Model {
+  /**
+   * @example
+   * 60
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1622,10 +2505,30 @@ export class GetTokenRequest extends $tea.Model {
 }
 
 export class GetTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ValidationError
+   */
   code?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * *******
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1678,14 +2581,46 @@ export class GetTokenResponse extends $tea.Model {
 }
 
 export class GetUserConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   accountSufficient?: boolean;
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   enableEciDisk?: boolean;
   freeTier?: GetUserConfigResponseBodyFreeTier;
+  /**
+   * @example
+   * true
+   */
   freeTierSpecAvailable?: boolean;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * "Access denied"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1746,10 +2681,33 @@ export class GetUserConfigResponse extends $tea.Model {
 }
 
 export class ListEcsSpecsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PRIVATE
+   */
   acceleratorType?: string;
+  /**
+   * @example
+   * DESC
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * gmtCreate
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1777,12 +2735,36 @@ export class ListEcsSpecsRequest extends $tea.Model {
 }
 
 export class ListEcsSpecsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
   ecsSpecs?: ListEcsSpecsResponseBodyEcsSpecs[];
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 35
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1839,9 +2821,25 @@ export class ListEcsSpecsResponse extends $tea.Model {
 }
 
 export class ListInstanceSnapshotRequest extends $tea.Model {
+  /**
+   * @example
+   * DESC
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * gmtCreate
+   */
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1867,12 +2865,36 @@ export class ListInstanceSnapshotRequest extends $tea.Model {
 }
 
 export class ListInstanceSnapshotResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
   snapshots?: ListInstanceSnapshotResponseBodySnapshots[];
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 35
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1929,6 +2951,13 @@ export class ListInstanceSnapshotResponse extends $tea.Model {
 }
 
 export class ListInstanceStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 27218,34956
+   */
   workspaceIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1948,11 +2977,31 @@ export class ListInstanceStatisticsRequest extends $tea.Model {
 }
 
 export class ListInstanceStatisticsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * InternalError
+   */
   code?: string;
+  /**
+   * @example
+   * 400
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
   statistics?: { [key: string]: {[key: string]: any} };
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2007,23 +3056,73 @@ export class ListInstanceStatisticsResponse extends $tea.Model {
 }
 
 export class ListInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * AcceleratorType
+   */
   acceleratorType?: string;
+  /**
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
+  createUserId?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * training_data
+   */
   instanceName?: string;
   labels?: { [key: string]: any };
+  /**
+   * @example
+   * DESC
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @example
+   * rg-123456789
+   */
   resourceId?: string;
+  /**
+   * @example
+   * gmtCreate
+   */
   sortBy?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * 40823
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
       accessibility: 'Accessibility',
+      createUserId: 'CreateUserId',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       labels: 'Labels',
@@ -2042,6 +3141,7 @@ export class ListInstancesRequest extends $tea.Model {
     return {
       acceleratorType: 'string',
       accessibility: 'string',
+      createUserId: 'string',
       instanceId: 'string',
       instanceName: 'string',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -2062,23 +3162,73 @@ export class ListInstancesRequest extends $tea.Model {
 }
 
 export class ListInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * AcceleratorType
+   */
   acceleratorType?: string;
+  /**
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
+  createUserId?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * training_data
+   */
   instanceName?: string;
   labelsShrink?: string;
+  /**
+   * @example
+   * DESC
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @example
+   * rg-123456789
+   */
   resourceId?: string;
+  /**
+   * @example
+   * gmtCreate
+   */
   sortBy?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * 40823
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       acceleratorType: 'AcceleratorType',
       accessibility: 'Accessibility',
+      createUserId: 'CreateUserId',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       labelsShrink: 'Labels',
@@ -2097,6 +3247,7 @@ export class ListInstancesShrinkRequest extends $tea.Model {
     return {
       acceleratorType: 'string',
       accessibility: 'string',
+      createUserId: 'string',
       instanceId: 'string',
       instanceName: 'string',
       labelsShrink: 'string',
@@ -2117,12 +3268,36 @@ export class ListInstancesShrinkRequest extends $tea.Model {
 }
 
 export class ListInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
   instances?: ListInstancesResponseBodyInstances[];
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 35
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2179,11 +3354,35 @@ export class ListInstancesResponse extends $tea.Model {
 }
 
 export class StartInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2238,6 +3437,10 @@ export class StartInstanceResponse extends $tea.Model {
 }
 
 export class StopInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   saveImage?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2257,11 +3460,35 @@ export class StopInstanceRequest extends $tea.Model {
 }
 
 export class StopInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2316,24 +3543,84 @@ export class StopInstanceResponse extends $tea.Model {
 }
 
 export class UpdateInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
   affinity?: UpdateInstanceRequestAffinity;
+  /**
+   * @example
+   * []
+   */
   cloudDisks?: UpdateInstanceRequestCloudDisks[];
   datasets?: UpdateInstanceRequestDatasets[];
+  /**
+   * @example
+   * false
+   */
   disassociateDatasets?: boolean;
+  /**
+   * @example
+   * false
+   */
   disassociateDriver?: boolean;
+  /**
+   * @example
+   * false
+   */
   disassociateForwardInfos?: boolean;
+  /**
+   * @example
+   * false
+   */
   disassociateVpc?: boolean;
+  /**
+   * @example
+   * 535.54.03
+   */
   driver?: string;
+  /**
+   * @example
+   * ecs.c6.large
+   */
   ecsSpec?: string;
   imageAuth?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
   imageId?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * training_data
+   */
   instanceName?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
+   */
   requestedResource?: UpdateInstanceRequestRequestedResource;
+  /**
+   * @example
+   * 1612285282502324
+   */
   userId?: string;
   userVpc?: UpdateInstanceRequestUserVpc;
+  /**
+   * @example
+   * d-123456789
+   */
   workspaceSource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2389,11 +3676,35 @@ export class UpdateInstanceRequest extends $tea.Model {
 }
 
 export class UpdateInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
   code?: string;
+  /**
+   * @example
+   * null
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * "XXX"
+   */
   message?: string;
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2448,7 +3759,15 @@ export class UpdateInstanceResponse extends $tea.Model {
 }
 
 export class ForwardInfoResponseConnectInfoInternet extends $tea.Model {
+  /**
+   * @example
+   * 47.111.119.114
+   */
   endpoint?: string;
+  /**
+   * @example
+   * 22
+   */
   port?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2470,7 +3789,15 @@ export class ForwardInfoResponseConnectInfoInternet extends $tea.Model {
 }
 
 export class ForwardInfoResponseConnectInfoIntranet extends $tea.Model {
+  /**
+   * @example
+   * dsw-notebook-22-urz3u6cnu0uts7ej9r.dsw-5cc6083084818f60.dsw.pai.alibaba.com
+   */
   endpoint?: string;
+  /**
+   * @example
+   * 22
+   */
   port?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2494,7 +3821,15 @@ export class ForwardInfoResponseConnectInfoIntranet extends $tea.Model {
 export class ForwardInfoResponseConnectInfo extends $tea.Model {
   internet?: ForwardInfoResponseConnectInfoInternet;
   intranet?: ForwardInfoResponseConnectInfoIntranet;
+  /**
+   * @example
+   * DNAT and privateZone are both ready.
+   */
   message?: string;
+  /**
+   * @example
+   * Ready
+   */
   phase?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2583,10 +3918,26 @@ export class CreateInstanceRequestCloudDisksStatus extends $tea.Model {
 }
 
 export class CreateInstanceRequestCloudDisks extends $tea.Model {
+  /**
+   * @example
+   * 30Gi
+   */
   capacity?: string;
+  /**
+   * @example
+   * /mmt/workspace
+   */
   mountPath?: string;
+  /**
+   * @example
+   * workspace
+   */
   path?: string;
   status?: CreateInstanceRequestCloudDisksStatus;
+  /**
+   * @example
+   * rootfs
+   */
   subType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2614,10 +3965,22 @@ export class CreateInstanceRequestCloudDisks extends $tea.Model {
 }
 
 export class CreateInstanceRequestDatasets extends $tea.Model {
+  /**
+   * @example
+   * d-vsqjvsjp4orp5l206u
+   */
   datasetId?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
   mountPath?: string;
   optionType?: string;
   options?: string;
+  /**
+   * @example
+   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2645,7 +4008,15 @@ export class CreateInstanceRequestDatasets extends $tea.Model {
 }
 
 export class CreateInstanceRequestLabels extends $tea.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
   key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2667,10 +4038,30 @@ export class CreateInstanceRequestLabels extends $tea.Model {
 }
 
 export class CreateInstanceRequestRequestedResource extends $tea.Model {
+  /**
+   * @example
+   * 32
+   */
   CPU?: string;
+  /**
+   * @example
+   * 4
+   */
   GPU?: string;
+  /**
+   * @example
+   * v100
+   */
   GPUType?: string;
+  /**
+   * @example
+   * 32
+   */
   memory?: string;
+  /**
+   * @example
+   * 32
+   */
   sharedMemory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2698,11 +4089,31 @@ export class CreateInstanceRequestRequestedResource extends $tea.Model {
 }
 
 export class CreateInstanceRequestUserVpc extends $tea.Model {
+  /**
+   * @example
+   * eth0 | eth1
+   */
   defaultRoute?: string;
+  /**
+   * @example
+   * ["192.168.0.1/24", "192.168.1.1/24"]
+   */
   extendedCIDRs?: string[];
   forwardInfos?: ForwardInfo[];
+  /**
+   * @example
+   * sg-xxxxxx
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vsw-xxxxx
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-xxxxx
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2732,7 +4143,15 @@ export class CreateInstanceRequestUserVpc extends $tea.Model {
 }
 
 export class CreateInstanceSnapshotRequestLabels extends $tea.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
   key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2792,9 +4211,25 @@ export class GetInstanceResponseBodyAffinity extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyCloudDisks extends $tea.Model {
+  /**
+   * @example
+   * 30Gi
+   */
   capacity?: string;
+  /**
+   * @example
+   * /mmt/workspace
+   */
   mountPath?: string;
+  /**
+   * @example
+   * /workspace
+   */
   path?: string;
+  /**
+   * @example
+   * rootfs
+   */
   subType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2820,10 +4255,22 @@ export class GetInstanceResponseBodyCloudDisks extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyDatasets extends $tea.Model {
+  /**
+   * @example
+   * d-vsqjvsjp4orp5l206u
+   */
   datasetId?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
   mountPath?: string;
   optionType?: string;
   options?: string;
+  /**
+   * @example
+   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2851,10 +4298,30 @@ export class GetInstanceResponseBodyDatasets extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyIdleInstanceCuller extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   cpuPercentThreshold?: number;
+  /**
+   * @example
+   * 10
+   */
   gpuPercentThreshold?: number;
+  /**
+   * @example
+   * 30
+   */
   idleTimeInMinutes?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 60
+   */
   maxIdleTimeInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2882,10 +4349,30 @@ export class GetInstanceResponseBodyIdleInstanceCuller extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyInstanceShutdownTimer extends $tea.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   dueTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 3600000
+   */
   remainingTimeInMs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2913,14 +4400,77 @@ export class GetInstanceResponseBodyInstanceShutdownTimer extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyInstanceSnapshotList extends $tea.Model {
+  /**
+   * @remarks
+   * 快照创建时间
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @remarks
+   * 快照修改时间
+   * 
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @remarks
+   * 镜像Id
+   * 
+   * @example
+   * image-05cefd0be2exxxx
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * 镜像名称
+   * 
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
   imageName?: string;
+  /**
+   * @remarks
+   * 镜像Url
+   * 
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * 实例快照错误代码
+   * 
+   * @example
+   * Internal Error
+   */
   reasonCode?: string;
+  /**
+   * @remarks
+   * 实例快照错误消息
+   * 
+   * @example
+   * ImagePullBackOff
+   */
   reasonMessage?: string;
+  /**
+   * @remarks
+   * 镜像仓库Url
+   * 
+   * @example
+   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
+   */
   repositoryUrl?: string;
+  /**
+   * @remarks
+   * 实例快照状态
+   * 
+   * @example
+   * Pushing
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2956,7 +4506,15 @@ export class GetInstanceResponseBodyInstanceSnapshotList extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyLabels extends $tea.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
   key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2978,14 +4536,59 @@ export class GetInstanceResponseBodyLabels extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyLatestSnapshot extends $tea.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
   imageId?: string;
+  /**
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
   imageName?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @remarks
+   * 实例快照错误代码
+   * 
+   * @example
+   * Internal Error
+   */
   reasonCode?: string;
+  /**
+   * @remarks
+   * 实例快照错误消息
+   * 
+   * @example
+   * ImagePullBackOff
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
+   */
   repositoryUrl?: string;
+  /**
+   * @remarks
+   * 实例快照状态
+   * 
+   * @example
+   * Pushing
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3046,10 +4649,30 @@ export class GetInstanceResponseBodyNodeErrorRecovery extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyRequestedResource extends $tea.Model {
+  /**
+   * @example
+   * 32
+   */
   CPU?: string;
+  /**
+   * @example
+   * 4
+   */
   GPU?: string;
+  /**
+   * @example
+   * v100
+   */
   GPUType?: string;
+  /**
+   * @example
+   * 32
+   */
   memory?: string;
+  /**
+   * @example
+   * 32
+   */
   sharedMemory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3077,11 +4700,34 @@ export class GetInstanceResponseBodyRequestedResource extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyUserVpc extends $tea.Model {
+  /**
+   * @example
+   * eth0 | eth1
+   */
   defaultRoute?: string;
+  /**
+   * @example
+   * ["192.168.0.1/24", "192.168.1.1/24"]
+   */
   extendedCIDRs?: string[];
   forwardInfos?: ForwardInfoResponse[];
+  /**
+   * @example
+   * sg-xxxxxx
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vsw-xxxxx
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * Vpc Id。
+   * 
+   * @example
+   * vpc-xxxxx
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3111,7 +4757,15 @@ export class GetInstanceResponseBodyUserVpc extends $tea.Model {
 }
 
 export class GetInstanceMetricsResponseBodyPodMetricsMetrics extends $tea.Model {
+  /**
+   * @example
+   * 1670890560
+   */
   time?: number;
+  /**
+   * @example
+   * 25.901031
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3134,6 +4788,10 @@ export class GetInstanceMetricsResponseBodyPodMetricsMetrics extends $tea.Model 
 
 export class GetInstanceMetricsResponseBodyPodMetrics extends $tea.Model {
   metrics?: GetInstanceMetricsResponseBodyPodMetricsMetrics[];
+  /**
+   * @example
+   * dsw-15870-695f44c5bc-hd6xm
+   */
   podId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3155,7 +4813,15 @@ export class GetInstanceMetricsResponseBodyPodMetrics extends $tea.Model {
 }
 
 export class GetInstanceSnapshotResponseBodyLabels extends $tea.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
   key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3177,9 +4843,25 @@ export class GetInstanceSnapshotResponseBodyLabels extends $tea.Model {
 }
 
 export class GetLifecycleResponseBodyLifecycle extends $tea.Model {
+  /**
+   * @example
+   * Starting
+   */
   status?: string;
+  /**
+   * @example
+   * “”
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * “”
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * 2022-10-21T07:27:44Z
+   */
   gmtCreateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3205,17 +4887,65 @@ export class GetLifecycleResponseBodyLifecycle extends $tea.Model {
 }
 
 export class GetUserConfigResponseBodyFreeTier extends $tea.Model {
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 个
+   */
   initBaseUnit?: string;
+  /**
+   * @example
+   * 5000
+   */
   initBaseValue?: number;
+  /**
+   * @example
+   * 个
+   */
   initShowUnit?: string;
+  /**
+   * @example
+   * 5000
+   */
   initShowValue?: string;
+  /**
+   * @example
+   * true
+   */
   isFreeTierUser?: boolean;
+  /**
+   * @example
+   * 个
+   */
   periodBaseUnit?: string;
+  /**
+   * @example
+   * 3000
+   */
   periodBaseValue?: number;
+  /**
+   * @example
+   * 个
+   */
   periodShowUnit?: string;
+  /**
+   * @example
+   * 3000
+   */
   periodShowValue?: string;
+  /**
+   * @example
+   * 2020-11-08T15:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * valid
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3257,6 +4987,10 @@ export class GetUserConfigResponseBodyFreeTier extends $tea.Model {
 }
 
 export class ListEcsSpecsResponseBodyEcsSpecsLabels extends $tea.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -3279,17 +5013,65 @@ export class ListEcsSpecsResponseBodyEcsSpecsLabels extends $tea.Model {
 }
 
 export class ListEcsSpecsResponseBodyEcsSpecs extends $tea.Model {
+  /**
+   * @example
+   * CPU
+   */
   acceleratorType?: string;
+  /**
+   * @example
+   * 32
+   */
   CPU?: number;
+  /**
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @example
+   * 4
+   */
   GPU?: number;
+  /**
+   * @example
+   * v100
+   */
   GPUType?: string;
+  /**
+   * @example
+   * 5120000
+   */
   instanceBandwidthRx?: number;
+  /**
+   * @example
+   * ecs.gn5-c28g1.7xlarge
+   */
   instanceType?: string;
+  /**
+   * @example
+   * True
+   */
   isAvailable?: boolean;
+  /**
+   * @example
+   * {\\"foo\\": \\"bar\\"}
+   */
   labels?: ListEcsSpecsResponseBodyEcsSpecsLabels[];
+  /**
+   * @example
+   * 32
+   */
   memory?: number;
+  /**
+   * @example
+   * 22.8
+   */
   price?: number;
+  /**
+   * @example
+   * 500
+   */
   systemDiskCapacity?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3331,7 +5113,15 @@ export class ListEcsSpecsResponseBodyEcsSpecs extends $tea.Model {
 }
 
 export class ListInstanceSnapshotResponseBodySnapshotsLabels extends $tea.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
   key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3353,17 +5143,65 @@ export class ListInstanceSnapshotResponseBodySnapshotsLabels extends $tea.Model 
 }
 
 export class ListInstanceSnapshotResponseBodySnapshots extends $tea.Model {
+  /**
+   * @example
+   * ["/path1","/path2"]
+   */
   excludePaths?: string[];
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
   imageId?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * {\\"foo\\": \\"bar\\"}
+   */
   labels?: ListInstanceSnapshotResponseBodySnapshotsLabels[];
+  /**
+   * @example
+   * Internal Error
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * ImagePullBackOff
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * snp-05cexxxxxxxxx
+   */
   snapshotId?: string;
+  /**
+   * @example
+   * training_data_env
+   */
   snapshotName?: string;
+  /**
+   * @example
+   * Pushing
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3443,9 +5281,25 @@ export class ListInstancesResponseBodyInstancesAffinity extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyInstancesCloudDisks extends $tea.Model {
+  /**
+   * @example
+   * 30Gi
+   */
   capacity?: string;
+  /**
+   * @example
+   * /mmt/workspace
+   */
   mountPath?: string;
+  /**
+   * @example
+   * /workspace
+   */
   path?: string;
+  /**
+   * @example
+   * rootfs
+   */
   subType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3471,7 +5325,15 @@ export class ListInstancesResponseBodyInstancesCloudDisks extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyInstancesDatasets extends $tea.Model {
+  /**
+   * @example
+   * d-vsqjvsjp4orp5l206u
+   */
   datasetId?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
   mountPath?: string;
   optionType?: string;
   options?: string;
@@ -3502,10 +5364,30 @@ export class ListInstancesResponseBodyInstancesDatasets extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyInstancesIdleInstanceCuller extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   cpuPercentThreshold?: number;
+  /**
+   * @example
+   * 10
+   */
   gpuPercentThreshold?: number;
+  /**
+   * @example
+   * 30
+   */
   idleTimeInMinutes?: number;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 60
+   */
   maxIdleTimeInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3533,10 +5415,30 @@ export class ListInstancesResponseBodyInstancesIdleInstanceCuller extends $tea.M
 }
 
 export class ListInstancesResponseBodyInstancesInstanceShutdownTimer extends $tea.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   dueTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 3600000
+   */
   remainingTimeInMs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3564,14 +5466,50 @@ export class ListInstancesResponseBodyInstancesInstanceShutdownTimer extends $te
 }
 
 export class ListInstancesResponseBodyInstancesInstanceSnapshotList extends $tea.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
   imageId?: string;
+  /**
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
   imageName?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * Internal Error
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * ImagePullBackOff
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
+   */
   repositoryUrl?: string;
+  /**
+   * @example
+   * Pushing
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3607,7 +5545,15 @@ export class ListInstancesResponseBodyInstancesInstanceSnapshotList extends $tea
 }
 
 export class ListInstancesResponseBodyInstancesLabels extends $tea.Model {
+  /**
+   * @example
+   * stsTokenOwner
+   */
   key?: string;
+  /**
+   * @example
+   * 123xxxxxxxx
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3629,14 +5575,50 @@ export class ListInstancesResponseBodyInstancesLabels extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyInstancesLatestSnapshot extends $tea.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
   imageId?: string;
+  /**
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
   imageName?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * Internal Error
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * ImagePullBackOff
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * https://cr.console.aliyun.com/repository/cn-hangzhou/zouxu/kf/images
+   */
   repositoryUrl?: string;
+  /**
+   * @example
+   * Pushing
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3672,10 +5654,30 @@ export class ListInstancesResponseBodyInstancesLatestSnapshot extends $tea.Model
 }
 
 export class ListInstancesResponseBodyInstancesRequestedResource extends $tea.Model {
+  /**
+   * @example
+   * 32
+   */
   CPU?: string;
+  /**
+   * @example
+   * 4
+   */
   GPU?: string;
+  /**
+   * @example
+   * v100
+   */
   GPUType?: string;
+  /**
+   * @example
+   * 32
+   */
   memory?: string;
+  /**
+   * @example
+   * 32
+   */
   sharedMemory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3703,11 +5705,31 @@ export class ListInstancesResponseBodyInstancesRequestedResource extends $tea.Mo
 }
 
 export class ListInstancesResponseBodyInstancesUserVpc extends $tea.Model {
+  /**
+   * @example
+   * eth0 | eth1
+   */
   defaultRoute?: string;
+  /**
+   * @example
+   * ["192.168.0.1/24", "192.168.1.1/24"]
+   */
   extendedCIDRs?: string[];
   forwardInfos?: ForwardInfoResponse[];
+  /**
+   * @example
+   * sg-xxxxxx
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vsw-xxxxx
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-xxxxx
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3737,45 +5759,187 @@ export class ListInstancesResponseBodyInstancesUserVpc extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyInstances extends $tea.Model {
+  /**
+   * @example
+   * CPU
+   */
   acceleratorType?: string;
+  /**
+   * @example
+   * PRIVATE
+   */
   accessibility?: string;
+  /**
+   * @example
+   * 3600000
+   */
   accumulatedRunningTimeInMs?: number;
   affinity?: ListInstancesResponseBodyInstancesAffinity;
+  /**
+   * @example
+   * []
+   */
   cloudDisks?: ListInstancesResponseBodyInstancesCloudDisks[];
   datasets?: ListInstancesResponseBodyInstancesDatasets[];
+  /**
+   * @example
+   * 535.54.03
+   */
   driver?: string;
+  /**
+   * @example
+   * ecs.c6.large
+   */
   ecsSpec?: string;
+  /**
+   * @example
+   * {userName: "Chris"}
+   */
   environmentVariables?: { [key: string]: string };
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * {"InstanceId":"dsw-05cefd0be2e5a278","CpuPercentThreshold":20,"GpuPercentThreshold":10,"MaxIdleTimeInMinutes":120,"IdleTimeInMinutes":30}
+   */
   idleInstanceCuller?: ListInstancesResponseBodyInstancesIdleInstanceCuller;
   imageAuth?: string;
+  /**
+   * @example
+   * image-05cefd0be2exxxx
+   */
   imageId?: string;
+  /**
+   * @example
+   * py36_cpu_tf1.12_ubuntu
+   */
   imageName?: string;
+  /**
+   * @example
+   * registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+   */
   imageUrl?: string;
+  /**
+   * @example
+   * dsw-730xxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * training_data
+   */
   instanceName?: string;
   instanceShutdownTimer?: ListInstancesResponseBodyInstancesInstanceShutdownTimer;
+  /**
+   * @example
+   * []
+   */
   instanceSnapshotList?: ListInstancesResponseBodyInstancesInstanceSnapshotList[];
+  /**
+   * @example
+   * https://dsw-cn-shanghai.data.aliyun.com/notebook.htm?instance=39772#/
+   */
   instanceUrl?: string;
+  /**
+   * @remarks
+   * Jupyterlab Url。
+   * 
+   * @example
+   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/lab/
+   */
   jupyterlabUrl?: string;
+  /**
+   * @example
+   * {\\"foo\\": \\"bar\\"}
+   */
   labels?: ListInstancesResponseBodyInstancesLabels[];
   latestSnapshot?: ListInstancesResponseBodyInstancesLatestSnapshot;
+  /**
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * Internal Error
+   */
   reasonCode?: string;
+  /**
+   * @example
+   * ImagePullBackOff
+   */
   reasonMessage?: string;
+  /**
+   * @example
+   * {"CPU":"4","Memory":"8Gi","SharedMemory":"4Gi","GPU":"1","GPUType":"Tesla-V100-16G"}
+   */
   requestedResource?: ListInstancesResponseBodyInstancesRequestedResource;
+  /**
+   * @example
+   * dsw-123456789
+   */
   resourceId?: string;
+  /**
+   * @example
+   * resource_group
+   */
   resourceName?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/tty/
+   */
   terminalUrl?: string;
+  /**
+   * @example
+   * 1612285282502324
+   */
   userId?: string;
+  /**
+   * @example
+   * 测试用户
+   */
   userName?: string;
   userVpc?: ListInstancesResponseBodyInstancesUserVpc;
+  /**
+   * @remarks
+   * Web IDE url。
+   * 
+   * @example
+   * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/ide/
+   */
   webIDEUrl?: string;
+  /**
+   * @example
+   * 40823
+   */
   workspaceId?: string;
+  /**
+   * @example
+   * training_data
+   */
   workspaceName?: string;
+  /**
+   * @example
+   * d-123456789
+   */
   workspaceSource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3911,7 +6075,15 @@ export class UpdateInstanceRequestAffinity extends $tea.Model {
 }
 
 export class UpdateInstanceRequestCloudDisks extends $tea.Model {
+  /**
+   * @example
+   * 30Gi
+   */
   capacity?: string;
+  /**
+   * @example
+   * rootfs
+   */
   subType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3933,10 +6105,22 @@ export class UpdateInstanceRequestCloudDisks extends $tea.Model {
 }
 
 export class UpdateInstanceRequestDatasets extends $tea.Model {
+  /**
+   * @example
+   * d-vsqjvsjp4orp5l206u
+   */
   datasetId?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
   mountPath?: string;
   optionType?: string;
   options?: string;
+  /**
+   * @example
+   * oss://bucket.oss-cn-shanghai.aliyuncs.com/data/path/
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3964,10 +6148,30 @@ export class UpdateInstanceRequestDatasets extends $tea.Model {
 }
 
 export class UpdateInstanceRequestRequestedResource extends $tea.Model {
+  /**
+   * @example
+   * 32
+   */
   CPU?: string;
+  /**
+   * @example
+   * 4
+   */
   GPU?: string;
+  /**
+   * @example
+   * v100
+   */
   GPUType?: string;
+  /**
+   * @example
+   * 32
+   */
   memory?: string;
+  /**
+   * @example
+   * 32
+   */
   sharedMemory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3995,11 +6199,31 @@ export class UpdateInstanceRequestRequestedResource extends $tea.Model {
 }
 
 export class UpdateInstanceRequestUserVpc extends $tea.Model {
+  /**
+   * @example
+   * eth0 | eth1
+   */
   defaultRoute?: string;
+  /**
+   * @example
+   * ["192.168.0.1/24", "192.168.1.1/24"]
+   */
   extendedCIDRs?: string[];
   forwardInfos?: ForwardInfo[];
+  /**
+   * @example
+   * sg-xxxxxx
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * vsw-xxxxx
+   */
   vSwitchId?: string;
+  /**
+   * @example
+   * vpc-xxxxx
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4052,10 +6276,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateIdleInstanceCullerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIdleInstanceCullerResponse
+   * @param request - CreateIdleInstanceCullerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIdleInstanceCullerResponse
    */
   async createIdleInstanceCullerWithOptions(InstanceId: string, request: CreateIdleInstanceCullerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIdleInstanceCullerResponse> {
     Util.validateModel(request);
@@ -4091,8 +6315,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateIdleInstanceCullerRequest
-   * @return CreateIdleInstanceCullerResponse
+   * @param request - CreateIdleInstanceCullerRequest
+   * @returns CreateIdleInstanceCullerResponse
    */
   async createIdleInstanceCuller(InstanceId: string, request: CreateIdleInstanceCullerRequest): Promise<CreateIdleInstanceCullerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4101,12 +6325,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实例
-   *
-   * @param request CreateInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstanceResponse
+   * 创建实例
+   * 
+   * @param request - CreateInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -4206,10 +6430,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实例
-   *
-   * @param request CreateInstanceRequest
-   * @return CreateInstanceResponse
+   * 创建实例
+   * 
+   * @param request - CreateInstanceRequest
+   * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4218,12 +6442,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建定时关机任务
-   *
-   * @param request CreateInstanceShutdownTimerRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstanceShutdownTimerResponse
+   * 创建定时关机任务
+   * 
+   * @param request - CreateInstanceShutdownTimerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceShutdownTimerResponse
    */
   async createInstanceShutdownTimerWithOptions(InstanceId: string, request: CreateInstanceShutdownTimerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceShutdownTimerResponse> {
     Util.validateModel(request);
@@ -4255,10 +6479,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建定时关机任务
-   *
-   * @param request CreateInstanceShutdownTimerRequest
-   * @return CreateInstanceShutdownTimerResponse
+   * 创建定时关机任务
+   * 
+   * @param request - CreateInstanceShutdownTimerRequest
+   * @returns CreateInstanceShutdownTimerResponse
    */
   async createInstanceShutdownTimer(InstanceId: string, request: CreateInstanceShutdownTimerRequest): Promise<CreateInstanceShutdownTimerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4267,12 +6491,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实例快照
-   *
-   * @param request CreateInstanceSnapshotRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstanceSnapshotResponse
+   * 创建实例快照
+   * 
+   * @param request - CreateInstanceSnapshotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceSnapshotResponse
    */
   async createInstanceSnapshotWithOptions(InstanceId: string, request: CreateInstanceSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceSnapshotResponse> {
     Util.validateModel(request);
@@ -4320,10 +6544,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建实例快照
-   *
-   * @param request CreateInstanceSnapshotRequest
-   * @return CreateInstanceSnapshotResponse
+   * 创建实例快照
+   * 
+   * @param request - CreateInstanceSnapshotRequest
+   * @returns CreateInstanceSnapshotResponse
    */
   async createInstanceSnapshot(InstanceId: string, request: CreateInstanceSnapshotRequest): Promise<CreateInstanceSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4332,9 +6556,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIdleInstanceCullerResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIdleInstanceCullerResponse
    */
   async deleteIdleInstanceCullerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIdleInstanceCullerResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4355,7 +6579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return DeleteIdleInstanceCullerResponse
+   * @returns DeleteIdleInstanceCullerResponse
    */
   async deleteIdleInstanceCuller(InstanceId: string): Promise<DeleteIdleInstanceCullerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4364,11 +6588,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除实例
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInstanceResponse
+   * 删除实例
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4389,9 +6613,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除实例
-   *
-   * @return DeleteInstanceResponse
+   * 删除实例
+   * @returns DeleteInstanceResponse
    */
   async deleteInstance(InstanceId: string): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4400,11 +6623,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除定时关机任务
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInstanceShutdownTimerResponse
+   * 删除定时关机任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceShutdownTimerResponse
    */
   async deleteInstanceShutdownTimerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceShutdownTimerResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4425,9 +6648,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除定时关机任务
-   *
-   * @return DeleteInstanceShutdownTimerResponse
+   * 删除定时关机任务
+   * @returns DeleteInstanceShutdownTimerResponse
    */
   async deleteInstanceShutdownTimer(InstanceId: string): Promise<DeleteInstanceShutdownTimerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4436,11 +6658,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例快照详情
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInstanceSnapshotResponse
+   * 获取实例快照详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceSnapshotResponse
    */
   async deleteInstanceSnapshotWithOptions(InstanceId: string, SnapshotId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceSnapshotResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4461,9 +6683,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例快照详情
-   *
-   * @return DeleteInstanceSnapshotResponse
+   * 获取实例快照详情
+   * @returns DeleteInstanceSnapshotResponse
    */
   async deleteInstanceSnapshot(InstanceId: string, SnapshotId: string): Promise<DeleteInstanceSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4472,9 +6693,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIdleInstanceCullerResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIdleInstanceCullerResponse
    */
   async getIdleInstanceCullerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIdleInstanceCullerResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4495,7 +6716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return GetIdleInstanceCullerResponse
+   * @returns GetIdleInstanceCullerResponse
    */
   async getIdleInstanceCuller(InstanceId: string): Promise<GetIdleInstanceCullerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4504,11 +6725,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例详情
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceResponse
+   * 获取实例详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceResponse
    */
   async getInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4529,9 +6750,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例详情
-   *
-   * @return GetInstanceResponse
+   * 获取实例详情
+   * @returns GetInstanceResponse
    */
   async getInstance(InstanceId: string): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4540,10 +6760,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetInstanceEventsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceEventsResponse
+   * @param request - GetInstanceEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceEventsResponse
    */
   async getInstanceEventsWithOptions(InstanceId: string, request: GetInstanceEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceEventsResponse> {
     Util.validateModel(request);
@@ -4579,8 +6799,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetInstanceEventsRequest
-   * @return GetInstanceEventsResponse
+   * @param request - GetInstanceEventsRequest
+   * @returns GetInstanceEventsResponse
    */
   async getInstanceEvents(InstanceId: string, request: GetInstanceEventsRequest): Promise<GetInstanceEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4589,10 +6809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetInstanceMetricsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceMetricsResponse
+   * @param request - GetInstanceMetricsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceMetricsResponse
    */
   async getInstanceMetricsWithOptions(InstanceId: string, request: GetInstanceMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceMetricsResponse> {
     Util.validateModel(request);
@@ -4632,8 +6852,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetInstanceMetricsRequest
-   * @return GetInstanceMetricsResponse
+   * @param request - GetInstanceMetricsRequest
+   * @returns GetInstanceMetricsResponse
    */
   async getInstanceMetrics(InstanceId: string, request: GetInstanceMetricsRequest): Promise<GetInstanceMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4642,11 +6862,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取定时关机任务
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceShutdownTimerResponse
+   * 获取定时关机任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceShutdownTimerResponse
    */
   async getInstanceShutdownTimerWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceShutdownTimerResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4667,9 +6887,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取定时关机任务
-   *
-   * @return GetInstanceShutdownTimerResponse
+   * 获取定时关机任务
+   * @returns GetInstanceShutdownTimerResponse
    */
   async getInstanceShutdownTimer(InstanceId: string): Promise<GetInstanceShutdownTimerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4678,11 +6897,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例快照详情
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceSnapshotResponse
+   * 获取实例快照详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceSnapshotResponse
    */
   async getInstanceSnapshotWithOptions(InstanceId: string, SnapshotId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceSnapshotResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4703,9 +6922,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例快照详情
-   *
-   * @return GetInstanceSnapshotResponse
+   * 获取实例快照详情
+   * @returns GetInstanceSnapshotResponse
    */
   async getInstanceSnapshot(InstanceId: string, SnapshotId: string): Promise<GetInstanceSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4714,10 +6932,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetLifecycleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLifecycleResponse
+   * @param request - GetLifecycleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLifecycleResponse
    */
   async getLifecycleWithOptions(InstanceId: string, request: GetLifecycleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLifecycleResponse> {
     Util.validateModel(request);
@@ -4761,8 +6979,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetLifecycleRequest
-   * @return GetLifecycleResponse
+   * @param request - GetLifecycleRequest
+   * @returns GetLifecycleResponse
    */
   async getLifecycle(InstanceId: string, request: GetLifecycleRequest): Promise<GetLifecycleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4771,12 +6989,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取metrics数据
-   *
-   * @param request GetMetricsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMetricsResponse
+   * 获取metrics数据
+   * 
+   * @param request - GetMetricsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMetricsResponse
    */
   async getMetricsWithOptions(InstanceId: string, request: GetMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMetricsResponse> {
     Util.validateModel(request);
@@ -4832,10 +7050,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取metrics数据
-   *
-   * @param request GetMetricsRequest
-   * @return GetMetricsResponse
+   * 获取metrics数据
+   * 
+   * @param request - GetMetricsRequest
+   * @returns GetMetricsResponse
    */
   async getMetrics(InstanceId: string, request: GetMetricsRequest): Promise<GetMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4844,10 +7062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetResourceGroupStatisticsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetResourceGroupStatisticsResponse
+   * @param request - GetResourceGroupStatisticsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetResourceGroupStatisticsResponse
    */
   async getResourceGroupStatisticsWithOptions(request: GetResourceGroupStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupStatisticsResponse> {
     Util.validateModel(request);
@@ -4887,8 +7105,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetResourceGroupStatisticsRequest
-   * @return GetResourceGroupStatisticsResponse
+   * @param request - GetResourceGroupStatisticsRequest
+   * @returns GetResourceGroupStatisticsResponse
    */
   async getResourceGroupStatistics(request: GetResourceGroupStatisticsRequest): Promise<GetResourceGroupStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4897,10 +7115,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTokenRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTokenResponse
+   * @param request - GetTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTokenResponse
    */
   async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
     Util.validateModel(request);
@@ -4932,8 +7150,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTokenRequest
-   * @return GetTokenResponse
+   * @param request - GetTokenRequest
+   * @returns GetTokenResponse
    */
   async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4942,11 +7160,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户配置
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserConfigResponse
+   * 获取用户配置
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserConfigResponse
    */
   async getUserConfigWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -4967,9 +7185,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户配置
-   *
-   * @return GetUserConfigResponse
+   * 获取用户配置
+   * @returns GetUserConfigResponse
    */
   async getUserConfig(): Promise<GetUserConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4978,12 +7195,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取ECS规格列表
-   *
-   * @param request ListEcsSpecsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEcsSpecsResponse
+   * 获取ECS规格列表
+   * 
+   * @param request - ListEcsSpecsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEcsSpecsResponse
    */
   async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsResponse> {
     Util.validateModel(request);
@@ -5027,10 +7244,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取ECS规格列表
-   *
-   * @param request ListEcsSpecsRequest
-   * @return ListEcsSpecsResponse
+   * 获取ECS规格列表
+   * 
+   * @param request - ListEcsSpecsRequest
+   * @returns ListEcsSpecsResponse
    */
   async listEcsSpecs(request: ListEcsSpecsRequest): Promise<ListEcsSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5039,12 +7256,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询实例快照列表
-   *
-   * @param request ListInstanceSnapshotRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstanceSnapshotResponse
+   * 查询实例快照列表
+   * 
+   * @param request - ListInstanceSnapshotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceSnapshotResponse
    */
   async listInstanceSnapshotWithOptions(InstanceId: string, request: ListInstanceSnapshotRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceSnapshotResponse> {
     Util.validateModel(request);
@@ -5084,10 +7301,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询实例快照列表
-   *
-   * @param request ListInstanceSnapshotRequest
-   * @return ListInstanceSnapshotResponse
+   * 查询实例快照列表
+   * 
+   * @param request - ListInstanceSnapshotRequest
+   * @returns ListInstanceSnapshotResponse
    */
   async listInstanceSnapshot(InstanceId: string, request: ListInstanceSnapshotRequest): Promise<ListInstanceSnapshotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5096,12 +7313,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例统计信息
-   *
-   * @param request ListInstanceStatisticsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstanceStatisticsResponse
+   * 获取实例统计信息
+   * 
+   * @param request - ListInstanceStatisticsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceStatisticsResponse
    */
   async listInstanceStatisticsWithOptions(request: ListInstanceStatisticsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceStatisticsResponse> {
     Util.validateModel(request);
@@ -5129,10 +7346,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取实例统计信息
-   *
-   * @param request ListInstanceStatisticsRequest
-   * @return ListInstanceStatisticsResponse
+   * 获取实例统计信息
+   * 
+   * @param request - ListInstanceStatisticsRequest
+   * @returns ListInstanceStatisticsResponse
    */
   async listInstanceStatistics(request: ListInstanceStatisticsRequest): Promise<ListInstanceStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5141,10 +7358,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq ListInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstancesResponse
+   * @param tmpReq - ListInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesResponse
    */
   async listInstancesWithOptions(tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(tmpReq);
@@ -5161,6 +7378,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.accessibility)) {
       query["Accessibility"] = request.accessibility;
+    }
+
+    if (!Util.isUnset(request.createUserId)) {
+      query["CreateUserId"] = request.createUserId;
     }
 
     if (!Util.isUnset(request.instanceId)) {
@@ -5226,8 +7447,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInstancesRequest
-   * @return ListInstancesResponse
+   * @param request - ListInstancesRequest
+   * @returns ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5236,11 +7457,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动实例
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartInstanceResponse
+   * 启动实例
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartInstanceResponse
    */
   async startInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -5261,9 +7482,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 启动实例
-   *
-   * @return StartInstanceResponse
+   * 启动实例
+   * @returns StartInstanceResponse
    */
   async startInstance(InstanceId: string): Promise<StartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5272,12 +7492,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止实例
-   *
-   * @param request StopInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopInstanceResponse
+   * 停止实例
+   * 
+   * @param request - StopInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopInstanceResponse
    */
   async stopInstanceWithOptions(InstanceId: string, request: StopInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
     Util.validateModel(request);
@@ -5305,10 +7525,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 停止实例
-   *
-   * @param request StopInstanceRequest
-   * @return StopInstanceResponse
+   * 停止实例
+   * 
+   * @param request - StopInstanceRequest
+   * @returns StopInstanceResponse
    */
   async stopInstance(InstanceId: string, request: StopInstanceRequest): Promise<StopInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5317,12 +7537,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新实例
-   *
-   * @param request UpdateInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateInstanceResponse
+   * 更新实例
+   * 
+   * @param request - UpdateInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceResponse
    */
   async updateInstanceWithOptions(InstanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
@@ -5422,10 +7642,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新实例
-   *
-   * @param request UpdateInstanceRequest
-   * @return UpdateInstanceResponse
+   * 更新实例
+   * 
+   * @param request - UpdateInstanceRequest
+   * @returns UpdateInstanceResponse
    */
   async updateInstance(InstanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
