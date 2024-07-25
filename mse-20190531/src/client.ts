@@ -4457,6 +4457,127 @@ export class CreateOrUpdateSwimmingLaneGroupResponse extends $tea.Model {
   }
 }
 
+export class CreatePluginConfigRequest extends $tea.Model {
+  acceptLanguage?: string;
+  config?: string;
+  configLevel?: number;
+  enable?: boolean;
+  gatewayUniqueId?: string;
+  pluginId?: number;
+  resourceIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      config: 'Config',
+      configLevel: 'ConfigLevel',
+      enable: 'Enable',
+      gatewayUniqueId: 'GatewayUniqueId',
+      pluginId: 'PluginId',
+      resourceIdList: 'ResourceIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      config: 'string',
+      configLevel: 'number',
+      enable: 'boolean',
+      gatewayUniqueId: 'string',
+      pluginId: 'number',
+      resourceIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePluginConfigShrinkRequest extends $tea.Model {
+  acceptLanguage?: string;
+  config?: string;
+  configLevel?: number;
+  enable?: boolean;
+  gatewayUniqueId?: string;
+  pluginId?: number;
+  resourceIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      config: 'Config',
+      configLevel: 'ConfigLevel',
+      enable: 'Enable',
+      gatewayUniqueId: 'GatewayUniqueId',
+      pluginId: 'PluginId',
+      resourceIdListShrink: 'ResourceIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      config: 'string',
+      configLevel: 'number',
+      enable: 'boolean',
+      gatewayUniqueId: 'string',
+      pluginId: 'number',
+      resourceIdListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePluginConfigResponseBody extends $tea.Model {
+  pluginConfigID?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pluginConfigID: 'PluginConfigID',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pluginConfigID: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePluginConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePluginConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePluginConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateZnodeRequest extends $tea.Model {
   acceptLanguage?: string;
   clusterId?: string;
@@ -6608,6 +6729,75 @@ export class DeleteNamespaceResponse extends $tea.Model {
   }
 }
 
+export class DeletePluginConfigRequest extends $tea.Model {
+  acceptLanguage?: string;
+  gatewayUniqueId?: string;
+  pluginConfigId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayUniqueId: 'GatewayUniqueId',
+      pluginConfigId: 'PluginConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayUniqueId: 'string',
+      pluginConfigId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePluginConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePluginConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePluginConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePluginConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSecurityGroupRuleRequest extends $tea.Model {
   acceptLanguage?: string;
   cascadingDelete?: boolean;
@@ -7017,6 +7207,99 @@ export class DeleteZnodeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteZnodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableHttp2Request extends $tea.Model {
+  acceptLanguage?: string;
+  enableHttp2?: boolean;
+  gatewayUniqueId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      enableHttp2: 'EnableHttp2',
+      gatewayUniqueId: 'GatewayUniqueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      enableHttp2: 'boolean',
+      gatewayUniqueId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableHttp2ResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableHttp2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableHttp2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableHttp2ResponseBody,
     };
   }
 
@@ -15499,6 +15782,99 @@ export class OrderClusterHealthCheckRiskNoticeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: OrderClusterHealthCheckRiskNoticeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreserveHeaderFormatRequest extends $tea.Model {
+  acceptLanguage?: string;
+  gatewayUniqueId?: string;
+  preserveHeaderFormat?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayUniqueId: 'GatewayUniqueId',
+      preserveHeaderFormat: 'PreserveHeaderFormat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayUniqueId: 'string',
+      preserveHeaderFormat: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreserveHeaderFormatResponseBody extends $tea.Model {
+  code?: number;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      dynamicCode: 'DynamicCode',
+      dynamicMessage: 'DynamicMessage',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreserveHeaderFormatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PreserveHeaderFormatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PreserveHeaderFormatResponseBody,
     };
   }
 
@@ -36902,7 +37278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建网关路由流控规则
+   * @summary Creates a throttling rule for a gateway.
    *
    * @param request CreateGatewayFlowRuleRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -36977,7 +37353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建网关路由流控规则
+   * @summary Creates a throttling rule for a gateway.
    *
    * @param request CreateGatewayFlowRuleRequest
    * @return CreateGatewayFlowRuleResponse
@@ -37679,6 +38055,78 @@ export default class Client extends OpenApi {
   async createOrUpdateSwimmingLaneGroup(request: CreateOrUpdateSwimmingLaneGroupRequest): Promise<CreateOrUpdateSwimmingLaneGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrUpdateSwimmingLaneGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary 创建插件配置
+   *
+   * @param tmpReq CreatePluginConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return CreatePluginConfigResponse
+   */
+  async createPluginConfigWithOptions(tmpReq: CreatePluginConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreatePluginConfigResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePluginConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceIdList)) {
+      request.resourceIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceIdList, "ResourceIdList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.configLevel)) {
+      query["ConfigLevel"] = request.configLevel;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!Util.isUnset(request.resourceIdListShrink)) {
+      query["ResourceIdList"] = request.resourceIdListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePluginConfig",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePluginConfigResponse>(await this.callApi(params, req, runtime), new CreatePluginConfigResponse({}));
+  }
+
+  /**
+   * @summary 创建插件配置
+   *
+   * @param request CreatePluginConfigRequest
+   * @return CreatePluginConfigResponse
+   */
+  async createPluginConfig(request: CreatePluginConfigRequest): Promise<CreatePluginConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPluginConfigWithOptions(request, runtime);
   }
 
   /**
@@ -39008,6 +39456,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @summary 删除插件配置
+   *
+   * @param request DeletePluginConfigRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return DeletePluginConfigResponse
+   */
+  async deletePluginConfigWithOptions(request: DeletePluginConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeletePluginConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.pluginConfigId)) {
+      query["PluginConfigId"] = request.pluginConfigId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePluginConfig",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePluginConfigResponse>(await this.callApi(params, req, runtime), new DeletePluginConfigResponse({}));
+  }
+
+  /**
+   * @summary 删除插件配置
+   *
+   * @param request DeletePluginConfigRequest
+   * @return DeletePluginConfigResponse
+   */
+  async deletePluginConfig(request: DeletePluginConfigRequest): Promise<DeletePluginConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePluginConfigWithOptions(request, runtime);
+  }
+
+  /**
    * @summary Deletes a security group rule from a gateway.
    *
    * @param request DeleteSecurityGroupRuleRequest
@@ -39270,7 +39768,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Proxy Protocol开关
+   * @summary Enables HTTP/2 for negotiation between the server and client. The modification takes effect in one to two minutes.
+   *
+   * @param request EnableHttp2Request
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return EnableHttp2Response
+   */
+  async enableHttp2WithOptions(request: EnableHttp2Request, runtime: $Util.RuntimeOptions): Promise<EnableHttp2Response> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.enableHttp2)) {
+      query["EnableHttp2"] = request.enableHttp2;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableHttp2",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableHttp2Response>(await this.callApi(params, req, runtime), new EnableHttp2Response({}));
+  }
+
+  /**
+   * @summary Enables HTTP/2 for negotiation between the server and client. The modification takes effect in one to two minutes.
+   *
+   * @param request EnableHttp2Request
+   * @return EnableHttp2Response
+   */
+  async enableHttp2(request: EnableHttp2Request): Promise<EnableHttp2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableHttp2WithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Enables the proxy protocol. When an NLB instance is used as an ingress, you cannot obtain the real IP address of the client if you do not enable the proxy protocol. After you enable the proxy protocol, non-proxy requests are not adversely affected.
    *
    * @param request EnableProxyProtocolRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -39309,7 +39857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Proxy Protocol开关
+   * @summary Enables the proxy protocol. When an NLB instance is used as an ingress, you cannot obtain the real IP address of the client if you do not enable the proxy protocol. After you enable the proxy protocol, non-proxy requests are not adversely affected.
    *
    * @param request EnableProxyProtocolRequest
    * @return EnableProxyProtocolResponse
@@ -43280,7 +43828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取网关可用区列表
+   * @summary Obtains a list of zones where a gateway is available.
    *
    * @param request ListGatewayZoneRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -43311,7 +43859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取网关可用区列表
+   * @summary Obtains a list of zones where a gateway is available.
    *
    * @param request ListGatewayZoneRequest
    * @return ListGatewayZoneResponse
@@ -44545,6 +45093,56 @@ export default class Client extends OpenApi {
   async orderClusterHealthCheckRiskNotice(request: OrderClusterHealthCheckRiskNoticeRequest): Promise<OrderClusterHealthCheckRiskNoticeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.orderClusterHealthCheckRiskNoticeWithOptions(request, runtime);
+  }
+
+  /**
+   * @summary Specifies whether to convert all letters of a header into lowercase letters. For requests and responses, HTTP/1.1 headers are not case-sensitive. By default, all letters of headers are converted into lowercase letters.
+   *
+   * @param request PreserveHeaderFormatRequest
+   * @param runtime runtime options for this request RuntimeOptions
+   * @return PreserveHeaderFormatResponse
+   */
+  async preserveHeaderFormatWithOptions(request: PreserveHeaderFormatRequest, runtime: $Util.RuntimeOptions): Promise<PreserveHeaderFormatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.preserveHeaderFormat)) {
+      query["PreserveHeaderFormat"] = request.preserveHeaderFormat;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PreserveHeaderFormat",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PreserveHeaderFormatResponse>(await this.callApi(params, req, runtime), new PreserveHeaderFormatResponse({}));
+  }
+
+  /**
+   * @summary Specifies whether to convert all letters of a header into lowercase letters. For requests and responses, HTTP/1.1 headers are not case-sensitive. By default, all letters of headers are converted into lowercase letters.
+   *
+   * @param request PreserveHeaderFormatRequest
+   * @return PreserveHeaderFormatResponse
+   */
+  async preserveHeaderFormat(request: PreserveHeaderFormatRequest): Promise<PreserveHeaderFormatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.preserveHeaderFormatWithOptions(request, runtime);
   }
 
   /**
@@ -47828,7 +48426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新路由waf状态
+   * @summary Updates the WAF status of a route.
    *
    * @param request UpdateGatewayRouteWafStatusRequest
    * @param runtime runtime options for this request RuntimeOptions
@@ -47871,7 +48469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新路由waf状态
+   * @summary Updates the WAF status of a route.
    *
    * @param request UpdateGatewayRouteWafStatusRequest
    * @return UpdateGatewayRouteWafStatusResponse
