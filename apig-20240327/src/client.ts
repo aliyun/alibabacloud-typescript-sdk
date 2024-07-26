@@ -4063,11 +4063,13 @@ export class ListHttpApisRequest extends $tea.Model {
    * 10
    */
   pageSize?: number;
+  publishedOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
       keyword: 'keyword',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      publishedOnly: 'publishedOnly',
     };
   }
 
@@ -4076,6 +4078,7 @@ export class ListHttpApisRequest extends $tea.Model {
       keyword: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      publishedOnly: 'boolean',
     };
   }
 
@@ -9969,6 +9972,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.publishedOnly)) {
+      query["publishedOnly"] = request.publishedOnly;
     }
 
     let req = new $OpenApi.OpenApiRequest({
