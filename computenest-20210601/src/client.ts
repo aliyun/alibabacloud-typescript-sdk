@@ -2978,6 +2978,128 @@ export class ListServiceInstanceResourcesResponse extends $tea.Model {
   }
 }
 
+export class ListServiceInstanceUpgradeHistoryRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * BBBAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * si-70a3b15bb62643xxxxxx
+   */
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceUpgradeHistoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * AAAAAfu+XtuBE55iRLHEYYuojI41
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * EE3EDF4E-B3B1-19B6-BD01-30D4D00F6E5D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  upgradeHistory?: ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      upgradeHistory: 'UpgradeHistory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      upgradeHistory: { 'type': 'array', 'itemType': ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceUpgradeHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceInstanceUpgradeHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceInstanceUpgradeHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstancesRequest extends $tea.Model {
   /**
    * @remarks
@@ -3599,6 +3721,91 @@ export class RestartServiceInstanceResponse extends $tea.Model {
   }
 }
 
+export class RollbackServiceInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * si-d6ab3a63ccbb4bxxxxxx
+   */
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackServiceInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackServiceInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RollbackServiceInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RollbackServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -4048,6 +4255,97 @@ export class UnTagResourcesResponse extends $tea.Model {
   }
 }
 
+export class UpdateServiceInstanceAttributesRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enableOperation?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * si-d6ab3a63ccbb4b17xxxx
+   */
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableOperation: 'EnableOperation',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableOperation: 'boolean',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceAttributesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 06BF8F22-02DC-4750-83DF-3FFC11C065EA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceInstanceAttributesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceInstanceAttributesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateServiceInstanceAttributesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateServiceInstanceSpecRequest extends $tea.Model {
   /**
    * @remarks
@@ -4427,6 +4725,173 @@ export class UpdateServiceUsageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateServiceUsageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeServiceInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * true
+   */
+  dryRun?: string;
+  /**
+   * @example
+   * { \\"RegionId\\": \\"cn-hangzhou\\", \\"InstanceType\\": \\"ecs.g5.large\\"}
+   */
+  parameters?: { [key: string]: any };
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * si-d6ab3a63ccbb4bxxxxxx
+   */
+  serviceInstanceId?: string;
+  /**
+   * @example
+   * 2
+   */
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      regionId: 'string',
+      serviceInstanceId: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeServiceInstanceShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * true
+   */
+  dryRun?: string;
+  /**
+   * @example
+   * { \\"RegionId\\": \\"cn-hangzhou\\", \\"InstanceType\\": \\"ecs.g5.large\\"}
+   */
+  parametersShrink?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * si-d6ab3a63ccbb4bxxxxxx
+   */
+  serviceInstanceId?: string;
+  /**
+   * @example
+   * 2
+   */
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      parametersShrink: 'Parameters',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'string',
+      parametersShrink: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeServiceInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
+   */
+  requestId?: string;
+  upgradeRequiredParameters?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      upgradeRequiredParameters: 'UpgradeRequiredParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      upgradeRequiredParameters: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeServiceInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeServiceInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpgradeServiceInstanceResponseBody,
     };
   }
 
@@ -6406,6 +6871,78 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $tea.Mode
   }
 }
 
+export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends $tea.Model {
+  /**
+   * @example
+   * 2022-04-26T09:09:51Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  fromVersion?: string;
+  /**
+   * @example
+   * {\\"PreUpgradeExecutionId\\":\\"exec-123\\"}
+   */
+  results?: string;
+  /**
+   * @example
+   * 2022-04-26T08:09:51Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * UpgradeFailed
+   */
+  status?: string;
+  /**
+   * @example
+   * 3
+   */
+  toVersion?: string;
+  /**
+   * @example
+   * Upgrade
+   */
+  type?: string;
+  /**
+   * @example
+   * exec-123
+   */
+  upgradeHistoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      fromVersion: 'FromVersion',
+      results: 'Results',
+      startTime: 'StartTime',
+      status: 'Status',
+      toVersion: 'ToVersion',
+      type: 'Type',
+      upgradeHistoryId: 'UpgradeHistoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      fromVersion: 'string',
+      results: 'string',
+      startTime: 'string',
+      status: 'string',
+      toVersion: 'string',
+      type: 'string',
+      upgradeHistoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstancesRequestFilter extends $tea.Model {
   /**
    * @remarks
@@ -8168,6 +8705,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看服务实例升级历史
+   * 
+   * @param request - ListServiceInstanceUpgradeHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceInstanceUpgradeHistoryResponse
+   */
+  async listServiceInstanceUpgradeHistoryWithOptions(request: ListServiceInstanceUpgradeHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceInstanceUpgradeHistoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListServiceInstanceUpgradeHistory",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceInstanceUpgradeHistoryResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceUpgradeHistoryResponse({}));
+  }
+
+  /**
+   * 查看服务实例升级历史
+   * 
+   * @param request - ListServiceInstanceUpgradeHistoryRequest
+   * @returns ListServiceInstanceUpgradeHistoryResponse
+   */
+  async listServiceInstanceUpgradeHistory(request: ListServiceInstanceUpgradeHistoryRequest): Promise<ListServiceInstanceUpgradeHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listServiceInstanceUpgradeHistoryWithOptions(request, runtime);
+  }
+
+  /**
    * {}
    * 
    * @param request - ListServiceInstancesRequest
@@ -8426,6 +9017,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 回滚服务实例
+   * 
+   * @param request - RollbackServiceInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackServiceInstanceResponse
+   */
+  async rollbackServiceInstanceWithOptions(request: RollbackServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RollbackServiceInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RollbackServiceInstance",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RollbackServiceInstanceResponse>(await this.callApi(params, req, runtime), new RollbackServiceInstanceResponse({}));
+  }
+
+  /**
+   * 回滚服务实例
+   * 
+   * @param request - RollbackServiceInstanceRequest
+   * @returns RollbackServiceInstanceResponse
+   */
+  async rollbackServiceInstance(request: RollbackServiceInstanceRequest): Promise<RollbackServiceInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rollbackServiceInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
    * 
    * @param request - StartServiceInstanceRequest
@@ -8630,6 +9271,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新服务实例属性
+   * 
+   * @param request - UpdateServiceInstanceAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceInstanceAttributesResponse
+   */
+  async updateServiceInstanceAttributesWithOptions(request: UpdateServiceInstanceAttributesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceAttributesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.enableOperation)) {
+      query["EnableOperation"] = request.enableOperation;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateServiceInstanceAttributes",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceInstanceAttributesResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceAttributesResponse({}));
+  }
+
+  /**
+   * 更新服务实例属性
+   * 
+   * @param request - UpdateServiceInstanceAttributesRequest
+   * @returns UpdateServiceInstanceAttributesResponse
+   */
+  async updateServiceInstanceAttributes(request: UpdateServiceInstanceAttributesRequest): Promise<UpdateServiceInstanceAttributesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateServiceInstanceAttributesWithOptions(request, runtime);
+  }
+
+  /**
    * @param tmpReq - UpdateServiceInstanceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceInstanceSpecResponse
@@ -8755,6 +9446,70 @@ export default class Client extends OpenApi {
   async updateServiceUsage(request: UpdateServiceUsageRequest): Promise<UpdateServiceUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateServiceUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - UpgradeServiceInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeServiceInstanceResponse
+   */
+  async upgradeServiceInstanceWithOptions(tmpReq: UpgradeServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeServiceInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpgradeServiceInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpgradeServiceInstance",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeServiceInstanceResponse({}));
+  }
+
+  /**
+   * @param request - UpgradeServiceInstanceRequest
+   * @returns UpgradeServiceInstanceResponse
+   */
+  async upgradeServiceInstance(request: UpgradeServiceInstanceRequest): Promise<UpgradeServiceInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upgradeServiceInstanceWithOptions(request, runtime);
   }
 
 }
