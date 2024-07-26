@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -10,25 +9,101 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class DataPropertiesValue extends $tea.Model {
   displayName?: string;
+  /**
+   * @example
+   * name
+   */
   description?: string;
+  /**
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @example
+   * string
+   */
   dataType?: string;
+  /**
+   * @example
+   * ^
+   */
   pattern?: string;
   patternErrorMessage?: string;
+  /**
+   * @example
+   * 1
+   */
   minLength?: number;
+  /**
+   * @example
+   * 10
+   */
   maxLength?: number;
+  /**
+   * @example
+   * 1
+   */
   minimum?: number;
+  /**
+   * @example
+   * 10
+   */
   maximum?: number;
+  /**
+   * @example
+   * false
+   */
   required?: boolean;
+  /**
+   * @example
+   * false
+   */
   system?: boolean;
+  /**
+   * @example
+   * false
+   */
   disabled?: boolean;
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
+  /**
+   * @example
+   * false
+   */
   readOnly?: boolean;
+  /**
+   * @example
+   * textbox
+   */
   editorType?: string;
+  /**
+   * @example
+   * {}
+   */
   attributes?: string;
+  /**
+   * @example
+   * 1
+   */
   displayOrder?: number;
+  /**
+   * @example
+   * 2021-07-14 10:48:43.0
+   */
   createdTime?: number;
+  /**
+   * @example
+   * 2021-07-14 10:48:43.0
+   */
   updatedTime?: number;
+  /**
+   * @example
+   * tom
+   */
   creator?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,26 +163,106 @@ export class DataPropertiesValue extends $tea.Model {
 }
 
 export class DataSchemaPropertiesValue extends $tea.Model {
+  /**
+   * @example
+   * name
+   */
   displayName?: string;
+  /**
+   * @example
+   * -
+   */
   description?: string;
+  /**
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @example
+   * string
+   */
   dataType?: string;
+  /**
+   * @example
+   * *
+   */
   pattern?: string;
   patternErrorMessage?: string;
+  /**
+   * @example
+   * 1
+   */
   minLength?: number;
+  /**
+   * @example
+   * 1
+   */
   maxLength?: number;
+  /**
+   * @example
+   * 1
+   */
   minimum?: number;
+  /**
+   * @example
+   * 1
+   */
   maximum?: number;
+  /**
+   * @example
+   * false
+   */
   required?: boolean;
+  /**
+   * @example
+   * false
+   */
   system?: boolean;
+  /**
+   * @example
+   * false
+   */
   disabled?: boolean;
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
+  /**
+   * @example
+   * false
+   */
   readOnly?: boolean;
+  /**
+   * @example
+   * textbox
+   */
   editorType?: string;
+  /**
+   * @example
+   * {}
+   */
   attributes?: string;
+  /**
+   * @example
+   * 1
+   */
   displayOrder?: number;
+  /**
+   * @example
+   * 2020-10-14T09:53:53Z
+   */
   createdTime?: number;
+  /**
+   * @example
+   * 2020-10-14T09:53:53Z
+   */
   updatedTime?: number;
+  /**
+   * @example
+   * tom
+   */
   creator?: string;
   static names(): { [key: string]: string } {
     return {
@@ -167,7 +322,21 @@ export class DataSchemaPropertiesValue extends $tea.Model {
 }
 
 export class AbortCampaignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6badb397-a8b5-40b6-21019d382a09
+   */
   campaignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -189,9 +358,21 @@ export class AbortCampaignRequest extends $tea.Model {
 }
 
 export class AbortCampaignResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: string;
   message?: string;
+  /**
+   * @example
+   * 7CC6523B-0E51-1B62-8DA5-6A9831CAE315
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -242,7 +423,21 @@ export class AbortCampaignResponse extends $tea.Model {
 }
 
 export class AcceptChatRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chat-65382141036853491
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -264,9 +459,21 @@ export class AcceptChatRequest extends $tea.Model {
 }
 
 export class AcceptChatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 2263B273-AC1B-44EB-BA98-87F2322C6780
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -317,8 +524,26 @@ export class AcceptChatResponse extends $tea.Model {
 }
 
 export class AddBlacklistCallTaggingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6582589278232****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1764590****
+   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -342,9 +567,24 @@ export class AddBlacklistCallTaggingRequest extends $tea.Model {
 }
 
 export class AddBlacklistCallTaggingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9FBA26B0-462B-4D77-B78F-AF35560DBC71
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -395,8 +635,22 @@ export class AddBlacklistCallTaggingResponse extends $tea.Model {
 }
 
 export class AddCasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c58b9719-3bc3-441d-a4d3-fc0309ef7066
+   */
   campaignId?: string;
   caseList?: AddCasesRequestCaseList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -420,8 +674,22 @@ export class AddCasesRequest extends $tea.Model {
 }
 
 export class AddCasesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c58b9719-3bc3-441d-a4d3-fc0309ef7066
+   */
   campaignId?: string;
   caseListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -445,9 +713,21 @@ export class AddCasesShrinkRequest extends $tea.Model {
 }
 
 export class AddCasesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: string;
   message?: string;
+  /**
+   * @example
+   * 41298961-CAD7-5270-9378-FFD69F153144
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -499,8 +779,26 @@ export class AddCasesResponse extends $tea.Model {
 
 export class AddNumbersToSkillGroupRequest extends $tea.Model {
   instNumberGroupIdList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * ["0103182****","0102387****"]
+   */
   numberList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -526,9 +824,21 @@ export class AddNumbersToSkillGroupRequest extends $tea.Model {
 }
 
 export class AddNumbersToSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -579,8 +889,29 @@ export class AddNumbersToSkillGroupResponse extends $tea.Model {
 }
 
 export class AddPersonalNumbersToUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["0101234****","0105678****"]
+   */
   numberList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -604,10 +935,22 @@ export class AddPersonalNumbersToUserRequest extends $tea.Model {
 }
 
 export class AddPersonalNumbersToUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -660,8 +1003,29 @@ export class AddPersonalNumbersToUserResponse extends $tea.Model {
 }
 
 export class AddPhoneNumberToSkillGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0101234****
+   */
   number?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+   */
   skillGroupIdList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -685,9 +1049,21 @@ export class AddPhoneNumberToSkillGroupsRequest extends $tea.Model {
 }
 
 export class AddPhoneNumberToSkillGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -738,10 +1114,36 @@ export class AddPhoneNumberToSkillGroupsResponse extends $tea.Model {
 }
 
 export class AddPhoneNumbersRequest extends $tea.Model {
+  /**
+   * @example
+   * dDMD_0mif4hv
+   */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 2cb77c29-5f60-4b90-b21e-9d2ba9833f14
+   */
   numberGroupId?: string;
+  /**
+   * @example
+   * ["0101234****", "0105678****"]
+   */
   numberList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Bidirection
+   */
   usage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -769,10 +1171,22 @@ export class AddPhoneNumbersRequest extends $tea.Model {
 }
 
 export class AddPhoneNumbersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -825,9 +1239,29 @@ export class AddPhoneNumbersResponse extends $tea.Model {
 }
 
 export class AddSchemaPropertyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b0eb2742-f37e-4c67-82d4-25c651c1xxxx
+   */
   instanceId?: string;
   property?: AddSchemaPropertyRequestProperty;
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -853,9 +1287,29 @@ export class AddSchemaPropertyRequest extends $tea.Model {
 }
 
 export class AddSchemaPropertyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b0eb2742-f37e-4c67-82d4-25c651c1xxxx
+   */
   instanceId?: string;
   propertyShrink?: string;
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -881,10 +1335,22 @@ export class AddSchemaPropertyShrinkRequest extends $tea.Model {
 }
 
 export class AddSchemaPropertyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BF268B34-09C2-43FD-BAC4-5D31EA633111
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -937,8 +1403,29 @@ export class AddSchemaPropertyResponse extends $tea.Model {
 }
 
 export class AddSkillGroupsToUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"skillGroupId":"test1@ccc-test","skillLevel":5},{"skillGroupId":"test2@ccc-test","skillLevel":5}]
+   */
   skillLevelList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -962,9 +1449,21 @@ export class AddSkillGroupsToUserRequest extends $tea.Model {
 }
 
 export class AddSkillGroupsToUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA7F9545-8312-4190-9BD0-63144B3F1ACC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1015,11 +1514,47 @@ export class AddSkillGroupsToUserResponse extends $tea.Model {
 }
 
 export class AddTicketTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * assignee@ccc-test
+   */
   assignee?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * After
+   */
   position?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3b8c672f-48f6-45f5-bf41-9d4cb2b4a716
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3d26b90a-c5d2-4b09-8219-********
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1049,11 +1584,23 @@ export class AddTicketTaskRequest extends $tea.Model {
 }
 
 export class AddTicketTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * B06B3244-1B44-481B-90C4-F2F92E59D6B5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1108,8 +1655,29 @@ export class AddTicketTaskResponse extends $tea.Model {
 }
 
 export class AddUsersToSkillGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test1@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"userId":"agent1@ccc-test","skillLevel":10},{"userId":"agent2@ccc-test","skillLevel":10}]
+   */
   userSkillLevelList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1133,9 +1701,21 @@ export class AddUsersToSkillGroupRequest extends $tea.Model {
 }
 
 export class AddUsersToSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1186,9 +1766,24 @@ export class AddUsersToSkillGroupResponse extends $tea.Model {
 }
 
 export class AnalyzeConversationRequest extends $tea.Model {
+  /**
+   * @example
+   * job-10963442671187****
+   */
   contactId?: string;
   fieldListJson?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
   instanceId?: string;
+  /**
+   * @example
+   * ["keywords"]
+   */
   taskListJson?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1214,10 +1809,22 @@ export class AnalyzeConversationRequest extends $tea.Model {
 }
 
 export class AnalyzeConversationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 9F766284-F103-4298-8EC5-19F9F9BE5522
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1270,9 +1877,31 @@ export class AnalyzeConversationResponse extends $tea.Model {
 }
 
 export class AnswerCallRequest extends $tea.Model {
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-65382141036853491
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1298,11 +1927,23 @@ export class AnswerCallRequest extends $tea.Model {
 }
 
 export class AnswerCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: AnswerCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1357,7 +1998,21 @@ export class AnswerCallResponse extends $tea.Model {
 }
 
 export class AppendCasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 78cf6864-9a22-4ea8-a59d-5adc2d747b0e
+   */
   campaignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   body?: AppendCasesRequestBody[];
   static names(): { [key: string]: string } {
@@ -1382,7 +2037,21 @@ export class AppendCasesRequest extends $tea.Model {
 }
 
 export class AppendCasesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 78cf6864-9a22-4ea8-a59d-5adc2d747b0e
+   */
   campaignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   bodyShrink?: string;
   static names(): { [key: string]: string } {
@@ -1407,9 +2076,21 @@ export class AppendCasesShrinkRequest extends $tea.Model {
 }
 
 export class AppendCasesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: string;
   message?: string;
+  /**
+   * @example
+   * BC976D32-AC4C-4E0F-8AA9-F4BC6C4E2B3E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1460,10 +2141,42 @@ export class AppendCasesResponse extends $tea.Model {
 }
 
 export class AssignUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["28036411123456****","29234301123456****"]
+   */
   ramIdList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Agent@ccc-test
+   */
   roleId?: string;
+  /**
+   * @example
+   * [{"skillGroupId":"skillgroup@ccc-test","skillLevel":5}]
+   */
   skillLevelList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1491,11 +2204,31 @@ export class AssignUsersRequest extends $tea.Model {
 }
 
 export class AssignUsersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 1ca2b084-6f0a-454b-9851-29768a9a5832
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1ca2b084-6f0a-454b-9851-29768a9a5832
+   */
   workflowId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1550,11 +2283,44 @@ export class AssignUsersResponse extends $tea.Model {
 }
 
 export class BargeInCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent2@ccc-test
+   */
   bargedUserId?: string;
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 60
+   */
   timeoutSeconds?: number;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1584,11 +2350,23 @@ export class BargeInCallRequest extends $tea.Model {
 }
 
 export class BargeInCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: BargeInCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1645,8 +2423,26 @@ export class BargeInCallResponse extends $tea.Model {
 export class BlindTransferRequest extends $tea.Model {
   callPriority?: number;
   contactFlowVariables?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   queuingOverflowThreshold?: number;
   queuingTimeoutSeconds?: number;
@@ -1654,10 +2450,29 @@ export class BlindTransferRequest extends $tea.Model {
   strategyName?: string;
   strategyParams?: string;
   tags?: string;
+  /**
+   * @example
+   * 60
+   */
   timeoutSeconds?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent@ccc-test
+   */
   transferee?: string;
   transfereeType?: string;
+  /**
+   * @example
+   * 08314325****
+   */
   transferor?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1707,11 +2522,23 @@ export class BlindTransferRequest extends $tea.Model {
 }
 
 export class BlindTransferResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: BlindTransferResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1766,9 +2593,21 @@ export class BlindTransferResponse extends $tea.Model {
 }
 
 export class BridgeRtcCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   callee?: string;
   caller?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   serviceProvider?: string;
   tags?: string;
@@ -1868,9 +2707,31 @@ export class BridgeRtcCallResponse extends $tea.Model {
 }
 
 export class CancelAttendedTransferRequest extends $tea.Model {
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1896,11 +2757,23 @@ export class CancelAttendedTransferRequest extends $tea.Model {
 }
 
 export class CancelAttendedTransferResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: CancelAttendedTransferResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1955,6 +2828,10 @@ export class CancelAttendedTransferResponse extends $tea.Model {
 }
 
 export class ChangeVisibilityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   invisible?: boolean;
   userId?: string;
@@ -2039,11 +2916,41 @@ export class ChangeVisibilityResponse extends $tea.Model {
 }
 
 export class ChangeWorkModeRequest extends $tea.Model {
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1382114****
+   */
   mobile?: string;
+  /**
+   * @example
+   * ["online-1@ccc-test","online-2@ccc-test","online-3@ccc-test","skg-default@ccc-test"]
+   */
   signedSkillGroupIdList?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2073,11 +2980,23 @@ export class ChangeWorkModeRequest extends $tea.Model {
 }
 
 export class ChangeWorkModeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ChangeWorkModeResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 87731ED1-6224-48A5-99E3-6237FF9B1C00
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2132,8 +3051,29 @@ export class ChangeWorkModeResponse extends $tea.Model {
 }
 
 export class ClaimChatRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chat-65382141036853491
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2157,11 +3097,23 @@ export class ClaimChatRequest extends $tea.Model {
 }
 
 export class ClaimChatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ClaimChatResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BC976D32-AC4C-4E0F-8AA9-F4BC6C4E2B3E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2216,11 +3168,44 @@ export class ClaimChatResponse extends $tea.Model {
 }
 
 export class CoachCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * coached-agent@ccc-test
+   */
   coachedUserId?: string;
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-65382141036853491
+   */
   jobId?: string;
+  /**
+   * @example
+   * 30
+   */
   timeoutSeconds?: number;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2250,11 +3235,23 @@ export class CoachCallRequest extends $tea.Model {
 }
 
 export class CoachCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: CoachCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2309,10 +3306,42 @@ export class CoachCallResponse extends $tea.Model {
 }
 
 export class CommitContactFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7d706489-d06d-4a92-8666-8c9dba2c5cb1
+   */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   definition?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b28f74ca-5846-4496-8bbd-34fb1750798c
+   */
   draftId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2340,9 +3369,21 @@ export class CommitContactFlowRequest extends $tea.Model {
 }
 
 export class CommitContactFlowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 937617D5-01E9-5A39-B52D-15D5C143260C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2393,9 +3434,31 @@ export class CommitContactFlowResponse extends $tea.Model {
 }
 
 export class CompleteAttendedTransferRequest extends $tea.Model {
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2421,11 +3484,23 @@ export class CompleteAttendedTransferRequest extends $tea.Model {
 }
 
 export class CompleteAttendedTransferResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: CompleteAttendedTransferResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2480,9 +3555,34 @@ export class CompleteAttendedTransferResponse extends $tea.Model {
 }
 
 export class CreateAudioFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-file.wav
+   */
   audioFileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test/test-file.wav
+   */
   ossFileKey?: string;
   usage?: string;
   static names(): { [key: string]: string } {
@@ -2511,10 +3611,26 @@ export class CreateAudioFileRequest extends $tea.Model {
 }
 
 export class CreateAudioFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 2301b83f-1f9f-491e-9f97-2f832ed92f0b
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 94E29B9B-DBC6-5951-B3DD-C85C1BDF20ED
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2567,7 +3683,21 @@ export class CreateAudioFileResponse extends $tea.Model {
 }
 
 export class CreateCallTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["TagA","TagB"]
+   */
   callTagNameList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2589,10 +3719,22 @@ export class CreateCallTagsRequest extends $tea.Model {
 }
 
 export class CreateCallTagsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: CreateCallTagsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2645,21 +3787,102 @@ export class CreateCallTagsResponse extends $tea.Model {
 }
 
 export class CreateCampaignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"beginTime":"00:00:00","endTime":"23:00:00" }]
+   */
   callableTime?: string;
+  /**
+   * @example
+   * ccc-test/namelist.csv
+   */
   caseFileKey?: string;
   caseList?: CreateCampaignRequestCaseList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c1f2bc75-422e-43c7-9c9d9d95633a
+   */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1634313600000
+   */
   endTime?: string;
   executingUntilTimeout?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   maxAttemptCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   minAttemptInterval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-campaign
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   queueId?: string;
   simulation?: boolean;
   simulationParameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1634140800000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"ratio":1}
+   */
   strategyParameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PACING
+   */
   strategyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2709,21 +3932,102 @@ export class CreateCampaignRequest extends $tea.Model {
 }
 
 export class CreateCampaignShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"beginTime":"00:00:00","endTime":"23:00:00" }]
+   */
   callableTime?: string;
+  /**
+   * @example
+   * ccc-test/namelist.csv
+   */
   caseFileKey?: string;
   caseListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c1f2bc75-422e-43c7-9c9d9d95633a
+   */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1634313600000
+   */
   endTime?: string;
   executingUntilTimeout?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   maxAttemptCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   minAttemptInterval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-campaign
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   queueId?: string;
   simulation?: boolean;
   simulationParameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1634140800000
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"ratio":1}
+   */
   strategyParameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PACING
+   */
   strategyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2773,10 +4077,26 @@ export class CreateCampaignShrinkRequest extends $tea.Model {
 }
 
 export class CreateCampaignResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * c58b9719-3bc3-441d-a4d3-fc0309ef7066
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 7CC6523B-0E51-1B62-8DA5-6A9831CAE315
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2829,10 +4149,39 @@ export class CreateCampaignResponse extends $tea.Model {
 }
 
 export class CreateContactFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   definition?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MAIN_FLOW
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2860,10 +4209,26 @@ export class CreateContactFlowRequest extends $tea.Model {
 }
 
 export class CreateContactFlowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 78128960-bb00-4ddc-8e82-923a8c5bd22d
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 2778FA12-EDD6-42AA-9B15-AF855072E5E5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2916,7 +4281,18 @@ export class CreateContactFlowResponse extends $tea.Model {
 }
 
 export class CreateCustomCallTaggingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   customNumberList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2938,10 +4314,22 @@ export class CreateCustomCallTaggingRequest extends $tea.Model {
 }
 
 export class CreateCustomCallTaggingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: CreateCustomCallTaggingResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2994,10 +4382,35 @@ export class CreateCustomCallTaggingResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["24861380681070****","105980354482****"]
+   */
   adminRamIdList?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["0830011xxxx", "0830312xxxx"]
+   */
   numberList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3025,10 +4438,26 @@ export class CreateInstanceRequest extends $tea.Model {
 }
 
 export class CreateInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 75c1346c-1dc2-4ed8-973f-edf8b1e5fe77
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 2778FA12-EDD6-42AA-9B15-AF855072E5E5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3081,10 +4510,32 @@ export class CreateInstanceResponse extends $tea.Model {
 }
 
 export class CreateSchemaRequest extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
   description?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * @example
+   * profile
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b0eb2742-f37e-4c67-82d4-25c651c1c450
+   */
   instanceId?: string;
   properties?: CreateSchemaRequestProperties[];
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3112,10 +4563,32 @@ export class CreateSchemaRequest extends $tea.Model {
 }
 
 export class CreateSchemaShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
   description?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * @example
+   * profile
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b0eb2742-f37e-4c67-82d4-25c651c1c450
+   */
   instanceId?: string;
   propertiesShrink?: string;
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3143,11 +4616,27 @@ export class CreateSchemaShrinkRequest extends $tea.Model {
 }
 
 export class CreateSchemaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 1ca2b084-6f0a-454b-9851-29768a9a5832
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 9F766284-F103-4298-8EC5-19F9F9BE5522
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3203,9 +4692,27 @@ export class CreateSchemaResponse extends $tea.Model {
 
 export class CreateSkillGroupRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3233,10 +4740,22 @@ export class CreateSkillGroupRequest extends $tea.Model {
 }
 
 export class CreateSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: CreateSkillGroupResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3289,11 +4808,34 @@ export class CreateSkillGroupResponse extends $tea.Model {
 }
 
 export class CreateTicketRequest extends $tea.Model {
+  /**
+   * @example
+   * job-38860977107324****
+   */
   contactId?: string;
   context?: string;
+  /**
+   * @example
+   * 51e155ce-3747-4f21-b402-13c69597b920
+   */
   customerId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * CHAT
+   */
   source?: string;
+  /**
+   * @example
+   * e9e4c76c-948d-4a6e-9ce2-9da0f5967a73
+   */
   templateId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -3326,10 +4868,26 @@ export class CreateTicketRequest extends $tea.Model {
 }
 
 export class CreateTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 3d26b90a-c5d2-4b09-8219-60cda1******
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * A450574A-337F-43E2-BC59-9C6594C994C6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3383,16 +4941,68 @@ export class CreateTicketResponse extends $tea.Model {
 
 export class CreateUserRequest extends $tea.Model {
   avatarUrl?: string;
+  /**
+   * @example
+   * 1001
+   */
   displayId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent
+   */
   loginName?: string;
+  /**
+   * @example
+   * 1382114****
+   */
   mobile?: string;
   nickname?: string;
+  /**
+   * @example
+   * false
+   */
   resetPassword?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Agent@ccc-test
+   */
   roleId?: string;
+  /**
+   * @example
+   * [{"skillGroupId":"skillgroup1@ccc-test","skillLevel":1},{"skillGroupId":"skillgroup2@ccc-test","skillLevel":10}]
+   */
   skillLevelList?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3434,11 +5044,23 @@ export class CreateUserRequest extends $tea.Model {
 }
 
 export class CreateUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: CreateUserResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3493,7 +5115,21 @@ export class CreateUserResponse extends $tea.Model {
 }
 
 export class DeleteAudioFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d5cd7a94-3b6a-47d2-b7fd-0b1cd839bf77
+   */
   audioResourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3515,10 +5151,22 @@ export class DeleteAudioFileRequest extends $tea.Model {
 }
 
 export class DeleteAudioFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * FB77821C-912F-57FF-8834-6336A6479093
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3571,7 +5219,21 @@ export class DeleteAudioFileResponse extends $tea.Model {
 }
 
 export class DeleteCallTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TagA
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3593,9 +5255,21 @@ export class DeleteCallTagRequest extends $tea.Model {
 }
 
 export class DeleteCallTagResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3646,7 +5320,21 @@ export class DeleteCallTagResponse extends $tea.Model {
 }
 
 export class DeleteContactFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0f87c997-b0c1-41d4-9e9e-1b791de6ad1f
+   */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3668,9 +5356,21 @@ export class DeleteContactFlowRequest extends $tea.Model {
 }
 
 export class DeleteContactFlowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 07511949-6DC4-5D0B-8FA8-FF8FA29B4217
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3721,7 +5421,21 @@ export class DeleteContactFlowResponse extends $tea.Model {
 }
 
 export class DeleteCustomCallTaggingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1312121****
+   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3743,9 +5457,21 @@ export class DeleteCustomCallTaggingRequest extends $tea.Model {
 }
 
 export class DeleteCustomCallTaggingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3796,9 +5522,36 @@ export class DeleteCustomCallTaggingResponse extends $tea.Model {
 }
 
 export class DeleteDocumentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   documentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d278629c-c687-4aa3-b044-4fe9b012****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * DE803553-8AA9-4B9D-9E4E-A82BC69EDCEE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3824,10 +5577,22 @@ export class DeleteDocumentRequest extends $tea.Model {
 }
 
 export class DeleteDocumentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 8707EB29-BAED-4302-B999-40BA61877437
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3881,8 +5646,28 @@ export class DeleteDocumentResponse extends $tea.Model {
 
 export class DeleteDocumentsRequest extends $tea.Model {
   documentIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 0630E5DF-CEB0-445B-8626-D5C7481181C3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3909,8 +5694,28 @@ export class DeleteDocumentsRequest extends $tea.Model {
 
 export class DeleteDocumentsShrinkRequest extends $tea.Model {
   documentIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 0630E5DF-CEB0-445B-8626-D5C7481181C3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3936,10 +5741,22 @@ export class DeleteDocumentsShrinkRequest extends $tea.Model {
 }
 
 export class DeleteDocumentsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * A450574A-337F-43E2-BC59-9C6594C994C6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3992,8 +5809,28 @@ export class DeleteDocumentsResponse extends $tea.Model {
 }
 
 export class DeleteSchemaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 0630E5DF-CEB0-445B-8626-D5C7481181C3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4017,10 +5854,22 @@ export class DeleteSchemaRequest extends $tea.Model {
 }
 
 export class DeleteSchemaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 678F7002-CA01-4ABF-A112-585AFBDF3A3B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4073,9 +5922,36 @@ export class DeleteSchemaResponse extends $tea.Model {
 }
 
 export class DeleteSchemaPropertyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   propertyName?: string;
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4101,10 +5977,26 @@ export class DeleteSchemaPropertyRequest extends $tea.Model {
 }
 
 export class DeleteSchemaPropertyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * User 244715989906081477 does not exist in instance worldfirst01.
+   */
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4157,8 +6049,26 @@ export class DeleteSchemaPropertyResponse extends $tea.Model {
 }
 
 export class DeleteSkillGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4182,9 +6092,21 @@ export class DeleteSkillGroupRequest extends $tea.Model {
 }
 
 export class DeleteSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4235,7 +6157,18 @@ export class DeleteSkillGroupResponse extends $tea.Model {
 }
 
 export class DeleteTicketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 3d26b90a-c5d2-4b09-8219-********
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4257,11 +6190,23 @@ export class DeleteTicketRequest extends $tea.Model {
 }
 
 export class DeleteTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 2263B273-AC1B-44EB-BA98-87F2322C6780
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4316,7 +6261,15 @@ export class DeleteTicketResponse extends $tea.Model {
 }
 
 export class DeleteTicketTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * ef1e71e9-ae9d-487c-96ad-9181d85cf802
+   */
   instanceId?: string;
+  /**
+   * @example
+   * **43c2671b-8939-4223-***-6bd187905cc8_1717664210492
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4338,11 +6291,23 @@ export class DeleteTicketTemplateRequest extends $tea.Model {
 }
 
 export class DeleteTicketTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 01B12EE4-6AF2-4730-8B78-EC15F4E5C025
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4397,9 +6362,36 @@ export class DeleteTicketTemplateResponse extends $tea.Model {
 }
 
 export class DisableSchemaPropertyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ef1e71e9-ae9d-487c-96ad-9181d85cf802
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   propertyName?: string;
+  /**
+   * @example
+   * 2263B273-AC1B-44EB-BA98-87F2322C6780
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4425,10 +6417,26 @@ export class DisableSchemaPropertyRequest extends $tea.Model {
 }
 
 export class DisableSchemaPropertyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * User 244715989906081477 does not exist in instance worldfirst01.
+   */
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 9FBA26B0-462B-4D77-B78F-AF35560DBC71
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4481,7 +6489,18 @@ export class DisableSchemaPropertyResponse extends $tea.Model {
 }
 
 export class DisableTicketTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 43c2671b-8939-4223-86d0-6bd187905cc8_1717664210492
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4503,11 +6522,23 @@ export class DisableTicketTemplateRequest extends $tea.Model {
 }
 
 export class DisableTicketTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 943D8EF3-3321-471F-A104-51C96FCA94D6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4562,8 +6593,29 @@ export class DisableTicketTemplateResponse extends $tea.Model {
 }
 
 export class DiscardEditingContactFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3ff4e021-fd63-4572-ad8c-10ed69972965
+   */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0aa493d6-58eb-4290-9ba2-e1c2c615b46b
+   */
   draftId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4587,9 +6639,21 @@ export class DiscardEditingContactFlowRequest extends $tea.Model {
 }
 
 export class DiscardEditingContactFlowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * CB72B537-B531-598F-9617-A636FB8040C0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4640,9 +6704,36 @@ export class DiscardEditingContactFlowResponse extends $tea.Model {
 }
 
 export class EnableSchemaPropertyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   propertyName?: string;
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4668,10 +6759,26 @@ export class EnableSchemaPropertyRequest extends $tea.Model {
 }
 
 export class EnableSchemaPropertyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * The operation is not allowed. User state (READY) does not meet expectations (OFFLINE).
+   */
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 2778FA12-EDD6-42AA-9B15-AF855072E5E5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4724,7 +6831,18 @@ export class EnableSchemaPropertyResponse extends $tea.Model {
 }
 
 export class EnableTicketTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 43c2671b-8939-4223-86d0-6bd187905cc8_1717664210492
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4746,11 +6864,23 @@ export class EnableTicketTemplateRequest extends $tea.Model {
 }
 
 export class EnableTicketTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4805,8 +6935,26 @@ export class EnableTicketTemplateResponse extends $tea.Model {
 }
 
 export class EndConferenceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4830,11 +6978,23 @@ export class EndConferenceRequest extends $tea.Model {
 }
 
 export class EndConferenceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: EndConferenceResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 0630E5DF-CEB0-445B-8626-D5C7481181C3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4889,6 +7049,13 @@ export class EndConferenceResponse extends $tea.Model {
 }
 
 export class ExportCustomCallTaggingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4908,10 +7075,26 @@ export class ExportCustomCallTaggingRequest extends $tea.Model {
 }
 
 export class ExportCustomCallTaggingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * http://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-test/tagging.xlsx ?Expires=1610910578&amp;OSSAccessKeyId=****&amp;Signature=****
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4964,8 +7147,23 @@ export class ExportCustomCallTaggingResponse extends $tea.Model {
 }
 
 export class ExportDoNotCallNumbersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * INSTANCE
+   */
   scope?: string;
+  /**
+   * @example
+   * RemarkA
+   */
   searchPattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4989,11 +7187,27 @@ export class ExportDoNotCallNumbersRequest extends $tea.Model {
 }
 
 export class ExportDoNotCallNumbersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * https://****.oss-cn-shanghai.aliyuncs.com/ccc-test/blacklist.xlsx?Expires=3294624578&OSSAccessKeyId=****&Signature=****
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5048,9 +7262,28 @@ export class ExportDoNotCallNumbersResponse extends $tea.Model {
 }
 
 export class FinishTicketTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * b52a34dc-f514-4600-9c39-3cf657167c97
+   */
   taskId?: string;
+  /**
+   * @example
+   * f2c6722b-cd13-442d-bf10-22a07c70d6d5
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5076,11 +7309,23 @@ export class FinishTicketTaskRequest extends $tea.Model {
 }
 
 export class FinishTicketTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5210,7 +7455,21 @@ export class GetAccessChannelOfStagingResponse extends $tea.Model {
 }
 
 export class GetAudioFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c1a06b46-302a-4c6e-928b-a43c0df485cf
+   */
   audioResourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5232,10 +7491,22 @@ export class GetAudioFileRequest extends $tea.Model {
 }
 
 export class GetAudioFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetAudioFileResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEE26562-D921-5CB2-AE49-E4C45A42D432
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5288,7 +7559,21 @@ export class GetAudioFileResponse extends $tea.Model {
 }
 
 export class GetAudioFileDownloadUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * acc300c4-75c9-41ba-ba5e-2a365c96c248
+   */
   audioResourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5310,10 +7595,26 @@ export class GetAudioFileDownloadUrlRequest extends $tea.Model {
 }
 
 export class GetAudioFileDownloadUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * https://****.oss-cn-shanghai.aliyuncs.com/ccc-test/****.wav?Expires=1656472158&OSSAccessKeyId=****&Signature=****
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 943D8EF3-3321-471F-A104-51C96FCA94D6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5366,7 +7667,21 @@ export class GetAudioFileDownloadUrlResponse extends $tea.Model {
 }
 
 export class GetAudioFileUploadParametersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-file.wav
+   */
   audioFileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5388,10 +7703,22 @@ export class GetAudioFileUploadParametersRequest extends $tea.Model {
 }
 
 export class GetAudioFileUploadParametersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetAudioFileUploadParametersResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * C81FD1A5-4B99-470A-A527-D80150228784
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5444,7 +7771,21 @@ export class GetAudioFileUploadParametersResponse extends $tea.Model {
 }
 
 export class GetCallDetailRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-10963442671187****
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5466,10 +7807,22 @@ export class GetCallDetailRecordRequest extends $tea.Model {
 }
 
 export class GetCallDetailRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetCallDetailRecordResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5522,7 +7875,21 @@ export class GetCallDetailRecordResponse extends $tea.Model {
 }
 
 export class GetCampaignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6badb397-a8b5-40b6-21019d382a09
+   */
   campaignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5544,9 +7911,21 @@ export class GetCampaignRequest extends $tea.Model {
 }
 
 export class GetCampaignResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetCampaignResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * 6CCEF32F-8614-535F-A1D9-D85B8C0DC4F0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5597,7 +7976,21 @@ export class GetCampaignResponse extends $tea.Model {
 }
 
 export class GetCaseFileUploadUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * case.csv
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5619,10 +8012,22 @@ export class GetCaseFileUploadUrlRequest extends $tea.Model {
 }
 
 export class GetCaseFileUploadUrlResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetCaseFileUploadUrlResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5675,8 +8080,29 @@ export class GetCaseFileUploadUrlResponse extends $tea.Model {
 }
 
 export class GetContactFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 274601be-a6d5-4429-bcef-32b51d031c6e
+   */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 566399d7-5558-447c-a72f-9be2768b6a82
+   */
   draftId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5700,10 +8126,22 @@ export class GetContactFlowRequest extends $tea.Model {
 }
 
 export class GetContactFlowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetContactFlowResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 2263B273-AC1B-44EB-BA98-87F2322C6780
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5756,7 +8194,21 @@ export class GetContactFlowResponse extends $tea.Model {
 }
 
 export class GetConversationDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-25884193037652****
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5778,10 +8230,22 @@ export class GetConversationDetailRequest extends $tea.Model {
 }
 
 export class GetConversationDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   phrases?: GetConversationDetailResponseBodyPhrases[];
+  /**
+   * @example
+   * 7E407F9B-A278-52A0-B193-3EE5471D7A87
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5834,7 +8298,15 @@ export class GetConversationDetailResponse extends $tea.Model {
 }
 
 export class GetDataChannelCredentialsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5915,7 +8387,21 @@ export class GetDataChannelCredentialsResponse extends $tea.Model {
 }
 
 export class GetDoNotCallFileUploadParametersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * blacklist.xlsx
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5937,11 +8423,27 @@ export class GetDoNotCallFileUploadParametersRequest extends $tea.Model {
 }
 
 export class GetDoNotCallFileUploadParametersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetDoNotCallFileUploadParametersResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5996,8 +8498,26 @@ export class GetDoNotCallFileUploadParametersResponse extends $tea.Model {
 }
 
 export class GetDocumentUploadParametersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * blacklist.xlsx
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 24BE19E8-BF7D-4992-A35E-15EBA874F2E5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6021,11 +8541,23 @@ export class GetDocumentUploadParametersRequest extends $tea.Model {
 }
 
 export class GetDocumentUploadParametersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetDocumentUploadParametersResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 9FBA26B0-462B-4D77-B78F-AF35560DBC71
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6080,7 +8612,21 @@ export class GetDocumentUploadParametersResponse extends $tea.Model {
 }
 
 export class GetEarlyMediaRecordingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103689****
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6102,10 +8648,22 @@ export class GetEarlyMediaRecordingRequest extends $tea.Model {
 }
 
 export class GetEarlyMediaRecordingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetEarlyMediaRecordingResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6158,9 +8716,37 @@ export class GetEarlyMediaRecordingResponse extends $tea.Model {
 }
 
 export class GetHistoricalCallerReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1900000****
+   */
   callingNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1646841600000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1646928000000
+   */
   stopTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6186,10 +8772,22 @@ export class GetHistoricalCallerReportRequest extends $tea.Model {
 }
 
 export class GetHistoricalCallerReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetHistoricalCallerReportResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6242,7 +8840,21 @@ export class GetHistoricalCallerReportResponse extends $tea.Model {
 }
 
 export class GetHistoricalCampaignReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4fc85829-f6fc-476e-9c0d-c350184e36f1
+   */
   campaignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6264,10 +8876,22 @@ export class GetHistoricalCampaignReportRequest extends $tea.Model {
 }
 
 export class GetHistoricalCampaignReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetHistoricalCampaignReportResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * E3A847C1-9800-57DF-9172-2CDDC026388D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6320,9 +8944,24 @@ export class GetHistoricalCampaignReportResponse extends $tea.Model {
 }
 
 export class GetHistoricalInstanceReportRequest extends $tea.Model {
+  /**
+   * @example
+   * 1532707199000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @example
+   * 1532448000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6348,10 +8987,22 @@ export class GetHistoricalInstanceReportRequest extends $tea.Model {
 }
 
 export class GetHistoricalInstanceReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetHistoricalInstanceReportResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 943D8EF3-3321-471F-A104-51C96FCA94D6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6404,6 +9055,13 @@ export class GetHistoricalInstanceReportResponse extends $tea.Model {
 }
 
 export class GetInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6423,10 +9081,22 @@ export class GetInstanceRequest extends $tea.Model {
 }
 
 export class GetInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetInstanceResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 2778FA12-EDD6-42AA-9B15-AF855072E5E5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6479,9 +9149,24 @@ export class GetInstanceResponse extends $tea.Model {
 }
 
 export class GetInstanceTrendingReportRequest extends $tea.Model {
+  /**
+   * @example
+   * 1604725528000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @example
+   * 1604639129000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6507,10 +9192,22 @@ export class GetInstanceTrendingReportRequest extends $tea.Model {
 }
 
 export class GetInstanceTrendingReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetInstanceTrendingReportResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 943D8EF3-3321-471F-A104-51C96FCA94D6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6564,7 +9261,18 @@ export class GetInstanceTrendingReportResponse extends $tea.Model {
 
 export class GetLoginDetailsRequest extends $tea.Model {
   chatDeviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6588,11 +9296,23 @@ export class GetLoginDetailsRequest extends $tea.Model {
 }
 
 export class GetLoginDetailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetLoginDetailsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * F1A4774A-F28B-5C40-AEF6-D88D2DD6C7E4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6647,8 +9367,22 @@ export class GetLoginDetailsResponse extends $tea.Model {
 }
 
 export class GetMonoRecordingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103689****
+   */
   contactId?: string;
   expireSeconds?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6672,10 +9406,22 @@ export class GetMonoRecordingRequest extends $tea.Model {
 }
 
 export class GetMonoRecordingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetMonoRecordingResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6728,7 +9474,21 @@ export class GetMonoRecordingResponse extends $tea.Model {
 }
 
 export class GetMultiChannelRecordingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103689****
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6750,10 +9510,22 @@ export class GetMultiChannelRecordingRequest extends $tea.Model {
 }
 
 export class GetMultiChannelRecordingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetMultiChannelRecordingResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6806,7 +9578,21 @@ export class GetMultiChannelRecordingResponse extends $tea.Model {
 }
 
 export class GetNumberLocationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1312121****
+   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6828,10 +9614,22 @@ export class GetNumberLocationRequest extends $tea.Model {
 }
 
 export class GetNumberLocationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetNumberLocationResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 584AA2E3-9AC4-561B-BC8D-C74BA11B1387
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6884,7 +9682,21 @@ export class GetNumberLocationResponse extends $tea.Model {
 }
 
 export class GetRealtimeCampaignStatsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   queueId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6906,10 +9718,22 @@ export class GetRealtimeCampaignStatsRequest extends $tea.Model {
 }
 
 export class GetRealtimeCampaignStatsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetRealtimeCampaignStatsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 42970829-E2C8-515A-8F42-5A6B59F852A7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6962,6 +9786,13 @@ export class GetRealtimeCampaignStatsResponse extends $tea.Model {
 }
 
 export class GetRealtimeInstanceStatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
   static names(): { [key: string]: string } {
@@ -6984,10 +9815,22 @@ export class GetRealtimeInstanceStatesRequest extends $tea.Model {
 }
 
 export class GetRealtimeInstanceStatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetRealtimeInstanceStatesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 943D8EF3-3321-471F-A104-51C96FCA94D6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7040,8 +9883,28 @@ export class GetRealtimeInstanceStatesResponse extends $tea.Model {
 }
 
 export class GetSchemaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b0eb2742-f37e-4c67-82d4-25c651c1xxxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7065,11 +9928,27 @@ export class GetSchemaRequest extends $tea.Model {
 }
 
 export class GetSchemaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetSchemaResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * Service abnormal, the instance 0418 is ceased.
+   */
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 19D09CCC-F298-4124-849A-AFA217819011
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7124,7 +10003,21 @@ export class GetSchemaResponse extends $tea.Model {
 }
 
 export class GetSkillGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7146,10 +10039,22 @@ export class GetSkillGroupRequest extends $tea.Model {
 }
 
 export class GetSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetSkillGroupResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * CF1C21B9-2D49-4B54-880F-FBE248C16903
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7202,7 +10107,21 @@ export class GetSkillGroupResponse extends $tea.Model {
 }
 
 export class GetTicketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3d26b90a-c5d2-4b09-8219-********
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7224,11 +10143,23 @@ export class GetTicketRequest extends $tea.Model {
 }
 
 export class GetTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetTicketResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BF268B34-09C2-43FD-BAC4-5D31EA633111
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7283,15 +10214,58 @@ export class GetTicketResponse extends $tea.Model {
 }
 
 export class GetTicketSummaryReportRequest extends $tea.Model {
+  /**
+   * @example
+   * assignee@ccc-test
+   */
   assignee?: string;
+  /**
+   * @example
+   * Agent
+   */
   assigneeType?: string;
+  /**
+   * @example
+   * 43c2671b-***-***-86d0-6bd187905cc8
+   */
   categoryId?: string;
+  /**
+   * @example
+   * creator@ccc-test
+   */
   creator?: string;
+  /**
+   * @example
+   * 1719590399999
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * participant@ccc-test
+   */
   participant?: string;
+  /**
+   * @example
+   * 1716998400000
+   */
   startTime?: number;
   state?: string;
   static names(): { [key: string]: string } {
@@ -7332,10 +10306,22 @@ export class GetTicketSummaryReportRequest extends $tea.Model {
 }
 
 export class GetTicketSummaryReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetTicketSummaryReportResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EAF3C248-E123-441B-A545-B6CD02E98EED
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7388,8 +10374,23 @@ export class GetTicketSummaryReportResponse extends $tea.Model {
 }
 
 export class GetTicketTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 4ca2e2-c8d19b82c-d7ce393ac8197d3ab
+   */
   templateId?: string;
+  /**
+   * @example
+   * 1703517780627
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7413,11 +10414,23 @@ export class GetTicketTemplateRequest extends $tea.Model {
 }
 
 export class GetTicketTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetTicketTemplateResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BF268B34-09C2-43FD-BAC4-5D31EA633111
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7472,7 +10485,18 @@ export class GetTicketTemplateResponse extends $tea.Model {
 }
 
 export class GetTurnCredentialsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7494,11 +10518,23 @@ export class GetTurnCredentialsRequest extends $tea.Model {
 }
 
 export class GetTurnCredentialsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetTurnCredentialsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7553,6 +10589,13 @@ export class GetTurnCredentialsResponse extends $tea.Model {
 }
 
 export class GetTurnServerListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7574,6 +10617,10 @@ export class GetTurnServerListRequest extends $tea.Model {
 export class GetTurnServerListResponseBody extends $tea.Model {
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
@@ -7631,7 +10678,18 @@ export class GetTurnServerListResponse extends $tea.Model {
 }
 
 export class GetUploadAudioDataParamsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-38860977107324****
+   */
   contactId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7653,10 +10711,22 @@ export class GetUploadAudioDataParamsRequest extends $tea.Model {
 }
 
 export class GetUploadAudioDataParamsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetUploadAudioDataParamsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7709,8 +10779,23 @@ export class GetUploadAudioDataParamsResponse extends $tea.Model {
 }
 
 export class GetUserRequest extends $tea.Model {
+  /**
+   * @example
+   * 8003****
+   */
   extension?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7734,11 +10819,23 @@ export class GetUserRequest extends $tea.Model {
 }
 
 export class GetUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetUserResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7793,7 +10890,15 @@ export class GetUserResponse extends $tea.Model {
 }
 
 export class GetVideoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7871,9 +10976,31 @@ export class GetVideoResponse extends $tea.Model {
 }
 
 export class GetVisitorLoginDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4c51c9116c36537cb850dc1081d745df
+   */
   chatDeviceId?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 9XYGTGWtq2wFi_Bpg7aUnIoYi_vG_rO3b***YtsxbHRHrYHlz1LDBLJAyZcLxieRQR4h_6AnWvTjJeNU5jgxzO*****bHwej7WgWrmA
+   */
   token?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fcd020fe-d8e4-40e5-8c77-1a272a174a7d
+   */
   visitorId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7899,11 +11026,23 @@ export class GetVisitorLoginDetailsRequest extends $tea.Model {
 }
 
 export class GetVisitorLoginDetailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetVisitorLoginDetailsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 19D09CCC-F298-4124-849A-AFA217819011
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7958,7 +11097,21 @@ export class GetVisitorLoginDetailsResponse extends $tea.Model {
 }
 
 export class GetVoicemailRecordingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-12515239414412****
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7980,10 +11133,22 @@ export class GetVoicemailRecordingRequest extends $tea.Model {
 }
 
 export class GetVoicemailRecordingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetVoicemailRecordingResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8036,11 +11201,40 @@ export class GetVoicemailRecordingResponse extends $tea.Model {
 }
 
 export class HoldCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ch:customer:010123****->1318888****:1609255715825:job-6582589278232****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6582589278232****
+   */
   jobId?: string;
   music?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8070,11 +11264,23 @@ export class HoldCallRequest extends $tea.Model {
 }
 
 export class HoldCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: HoldCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 174F7777-2F6C-4F10-B889-C698E26C1AE0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8129,7 +11335,21 @@ export class HoldCallResponse extends $tea.Model {
 }
 
 export class ImportAdminsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["26972543893791****"]
+   */
   ramIdList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8151,10 +11371,22 @@ export class ImportAdminsRequest extends $tea.Model {
 }
 
 export class ImportAdminsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ImportAdminsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 1CDB5C94-ACFB-59B5-85FE-C1DAF8049C63
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8209,7 +11441,18 @@ export class ImportAdminsResponse extends $tea.Model {
 export class ImportCorpNumbersRequest extends $tea.Model {
   city?: string;
   corpName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [\\"02912345678\\"]
+   */
   numberList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   provider?: string;
   province?: string;
   tagList?: string;
@@ -8241,9 +11484,21 @@ export class ImportCorpNumbersRequest extends $tea.Model {
 }
 
 export class ImportCorpNumbersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * C42981C7-93D9-55CD-B078-784F8522E0E1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8294,7 +11549,21 @@ export class ImportCorpNumbersResponse extends $tea.Model {
 }
 
 export class ImportCustomCallTaggingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * temp/ImportCustomCallTagging.xlsx
+   */
   filePath?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8316,10 +11585,22 @@ export class ImportCustomCallTaggingRequest extends $tea.Model {
 }
 
 export class ImportCustomCallTaggingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ImportCustomCallTaggingResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8372,8 +11653,23 @@ export class ImportCustomCallTaggingResponse extends $tea.Model {
 }
 
 export class ImportDoNotCallNumbersRequest extends $tea.Model {
+  /**
+   * @example
+   * temp/blacklist/import/15772471154xxxx/ccc-test/20220315100340/blacklist.xlsx
+   */
   filePath?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * ["1900000****","1312121****"]
+   */
   numberList?: string;
   remark?: string;
   static names(): { [key: string]: string } {
@@ -8400,10 +11696,22 @@ export class ImportDoNotCallNumbersRequest extends $tea.Model {
 }
 
 export class ImportDoNotCallNumbersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8456,9 +11764,36 @@ export class ImportDoNotCallNumbersResponse extends $tea.Model {
 }
 
 export class ImportDocumentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b0eb2742-f37e-4c67-82d4-25c651c1c450
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test/test-file.wav
+   */
   ossFileKey?: string;
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8484,10 +11819,22 @@ export class ImportDocumentsRequest extends $tea.Model {
 }
 
 export class ImportDocumentsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 01B12EE4-6AF2-4730-8B78-EC15F4E5C025
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8541,8 +11888,26 @@ export class ImportDocumentsResponse extends $tea.Model {
 
 export class InitiateAttendedTransferRequest extends $tea.Model {
   callPriority?: number;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   queuingOverflowThreshold?: number;
   queuingTimeoutSeconds?: number;
@@ -8550,10 +11915,25 @@ export class InitiateAttendedTransferRequest extends $tea.Model {
   strategyName?: string;
   strategyParams?: string;
   tags?: string;
+  /**
+   * @example
+   * 60
+   */
   timeoutSeconds?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent2@ccc-test
+   */
   transferee?: string;
   transfereeType?: string;
   transferor?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8601,11 +11981,23 @@ export class InitiateAttendedTransferRequest extends $tea.Model {
 }
 
 export class InitiateAttendedTransferResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: InitiateAttendedTransferResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8660,11 +12052,44 @@ export class InitiateAttendedTransferResponse extends $tea.Model {
 }
 
 export class InterceptCallRequest extends $tea.Model {
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent2@ccc-test
+   */
   interceptedUserId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 60
+   */
   timeoutSeconds?: number;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8694,11 +12119,23 @@ export class InterceptCallRequest extends $tea.Model {
 }
 
 export class InterceptCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: InterceptCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8753,11 +12190,40 @@ export class InterceptCallResponse extends $tea.Model {
 }
 
 export class LaunchAuthenticationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * af145gfc-1108-4d55-8fca-f719bd512ebb
+   */
   contactFlowId?: string;
   contactFlowVariables?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8787,11 +12253,23 @@ export class LaunchAuthenticationRequest extends $tea.Model {
 }
 
 export class LaunchAuthenticationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: LaunchAuthenticationResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8846,15 +12324,52 @@ export class LaunchAuthenticationResponse extends $tea.Model {
 }
 
 export class LaunchSurveyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4685b65a-eb8f-11ec-8ea0-0242ac120002
+   */
   contactFlowId?: string;
   contactFlowVariables?: string;
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6580466654649****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 4685b65a-eb8f-11ec-8ea0-0242ac120002
+   */
   smsMetadataId?: string;
+  /**
+   * @example
+   * IVR
+   */
   surveyChannel?: string;
   surveyTemplateId?: string;
   surveyTemplateVariables?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8892,11 +12407,23 @@ export class LaunchSurveyRequest extends $tea.Model {
 }
 
 export class LaunchSurveyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: LaunchSurveyResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * AF1E5957-5276-48FF-A6E6-347166A4ADCD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8951,9 +12478,31 @@ export class LaunchSurveyResponse extends $tea.Model {
 }
 
 export class ListAgentStateLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
+  /**
+   * @example
+   * 1620273600000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1620230400000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8979,10 +12528,22 @@ export class ListAgentStateLogsRequest extends $tea.Model {
 }
 
 export class ListAgentStateLogsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListAgentStateLogsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 943D8EF3-3321-471F-A104-51C96FCA94D6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9035,12 +12596,46 @@ export class ListAgentStateLogsResponse extends $tea.Model {
 }
 
 export class ListAgentStatesRequest extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentIds?: string;
+  /**
+   * @example
+   * true
+   * 
+   * **if can be null:**
+   * true
+   */
   excludeOfflineUsers?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * Ready
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9072,11 +12667,27 @@ export class ListAgentStatesRequest extends $tea.Model {
 }
 
 export class ListAgentStatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListAgentStatesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9131,10 +12742,33 @@ export class ListAgentStatesResponse extends $tea.Model {
 }
 
 export class ListAgentSummaryReportsSinceMidnightRequest extends $tea.Model {
+  /**
+   * @example
+   * ["agent1@ccc-test", "agent2@ccc-test"]
+   */
   agentIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9162,11 +12796,27 @@ export class ListAgentSummaryReportsSinceMidnightRequest extends $tea.Model {
 }
 
 export class ListAgentSummaryReportsSinceMidnightResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   pagedAgentSummaryReport?: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReport;
+  /**
+   * @example
+   * 27DD30C4-CAE2-481A-97CC-D3C54625341D
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9221,19 +12871,86 @@ export class ListAgentSummaryReportsSinceMidnightResponse extends $tea.Model {
 }
 
 export class ListAttemptsRequest extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
+  /**
+   * @example
+   * job-16976964500325****
+   */
   attemptId?: string;
+  /**
+   * @example
+   * 1888888****
+   */
   callee?: string;
+  /**
+   * @example
+   * 05711234****
+   */
   caller?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6badb397-a8b5-40b6-21019d382a09
+   */
   campaignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 60ecb1a2-4480-4d01-bede-c5b7655bfadf
+   */
   caseId?: string;
+  /**
+   * @example
+   * job-16976964500325****
+   */
   contactId?: string;
   criteria?: string;
+  /**
+   * @example
+   * 1634115698291
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   queueId?: string;
+  /**
+   * @example
+   * 1634115688291
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9279,10 +12996,22 @@ export class ListAttemptsRequest extends $tea.Model {
 }
 
 export class ListAttemptsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListAttemptsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 7CC6523B-0E51-1B62-8DA5-6A9831CAE315
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9335,8 +13064,29 @@ export class ListAttemptsResponse extends $tea.Model {
 }
 
 export class ListAudioFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   status?: string;
   usage?: string;
@@ -9366,10 +13116,22 @@ export class ListAudioFilesRequest extends $tea.Model {
 }
 
 export class ListAudioFilesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListAudioFilesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 53223330-EBF1-586B-A2CB-93C3B711FDA0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9422,7 +13184,21 @@ export class ListAudioFilesResponse extends $tea.Model {
 }
 
 export class ListBlacklistCallTaggingsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"number":"1521083xxxx","jobId":"job-481841171213393920"}]
+   */
   numberList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9444,10 +13220,25 @@ export class ListBlacklistCallTaggingsRequest extends $tea.Model {
 }
 
 export class ListBlacklistCallTaggingsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListBlacklistCallTaggingsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 032C73C4-3A6F-4502-872B-4F5B41161C6E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9500,10 +13291,35 @@ export class ListBlacklistCallTaggingsResponse extends $tea.Model {
 }
 
 export class ListBriefSkillGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * skillgroup
+   */
   searchPattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9531,10 +13347,22 @@ export class ListBriefSkillGroupsRequest extends $tea.Model {
 }
 
 export class ListBriefSkillGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListBriefSkillGroupsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 3969FC68-CEC2-4398-B76A-60D2F7EDEBAF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9587,26 +13415,115 @@ export class ListBriefSkillGroupsResponse extends $tea.Model {
 }
 
 export class ListCallDetailRecordsRequest extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
+  /**
+   * @example
+   * 1320523****
+   */
   calledNumber?: string;
+  /**
+   * @example
+   * 07353988****
+   */
   callingNumber?: string;
+  /**
+   * @example
+   * Success
+   */
   contactDisposition?: string;
+  /**
+   * @example
+   * ["Success","NoAnswer"]
+   */
   contactDispositionList?: string;
+  /**
+   * @example
+   * job-12515239414412****
+   */
   contactId?: string;
+  /**
+   * @example
+   * Outbound
+   */
   contactType?: string;
+  /**
+   * @example
+   * ["Internal","Inbound"]
+   */
   contactTypeList?: string;
+  /**
+   * @example
+   * {"phoneNumber":"0735"}
+   */
   criteria?: string;
+  /**
+   * @example
+   * ["NotConnected","NoAnswer"]
+   */
   earlyMediaStateList?: string;
+  /**
+   * @example
+   * 1532707199000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * startTime
+   */
   orderByField?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
   satisfactionDescriptionList?: string;
+  /**
+   * @example
+   * ["1","3"]
+   */
   satisfactionList?: string;
+  /**
+   * @example
+   * IVR
+   */
   satisfactionSurveyChannel?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * DESC
+   */
   sortOrder?: string;
+  /**
+   * @example
+   * 1532448000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9666,10 +13583,22 @@ export class ListCallDetailRecordsRequest extends $tea.Model {
 }
 
 export class ListCallDetailRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListCallDetailRecordsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9722,29 +13651,129 @@ export class ListCallDetailRecordsResponse extends $tea.Model {
 }
 
 export class ListCallDetailRecordsV2Request extends $tea.Model {
+  /**
+   * @example
+   * ["Web","AliMe"]
+   */
   accessChannelTypeList?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
+  /**
+   * @example
+   * 021****4972
+   */
   broker?: string;
+  /**
+   * @example
+   * 191***9993
+   */
   calledNumber?: string;
+  /**
+   * @example
+   * 191***9993
+   */
   callingNumber?: string;
+  /**
+   * @example
+   * ["Success","NoAnswer"]
+   */
   contactDispositionList?: string;
+  /**
+   * @example
+   * ["job-123456789","job-234567891"]
+   */
   contactIdList?: string;
+  /**
+   * @example
+   * ["INBOUND","OUTBOUND"]
+   */
   contactTypeList?: string;
+  /**
+   * @example
+   * ["NotConnected","NoAnswer"]
+   */
   earlyMediaStateList?: string;
+  /**
+   * @example
+   * 1657879880010
+   */
   endTime?: number;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   firstAgentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * AUDIO
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 191***9993
+   */
   number?: string;
+  /**
+   * @example
+   * startTime
+   */
   orderByField?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
   satisfactionDescriptionList?: string;
+  /**
+   * @example
+   * ["1","3"]
+   */
   satisfactionRateList?: string;
+  /**
+   * @example
+   * IVR
+   */
   satisfactionSurveyChannel?: string;
   searchPattern?: string;
+  /**
+   * @example
+   * [
+   *       "skg1@ccc-test",
+   *       "skg2@ccc-test"
+   * ]
+   */
   skillGroupIdList?: string;
+  /**
+   * @example
+   * DESC
+   */
   sortOrder?: string;
+  /**
+   * @example
+   * 1657853640015
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9810,10 +13839,22 @@ export class ListCallDetailRecordsV2Request extends $tea.Model {
 }
 
 export class ListCallDetailRecordsV2ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListCallDetailRecordsV2ResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 01B12EE4-6AF2-4730-8B78-EC15F4E5C025
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9866,8 +13907,29 @@ export class ListCallDetailRecordsV2Response extends $tea.Model {
 }
 
 export class ListCallTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9891,10 +13953,22 @@ export class ListCallTagsRequest extends $tea.Model {
 }
 
 export class ListCallTagsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListCallTagsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9947,9 +14021,31 @@ export class ListCallTagsResponse extends $tea.Model {
 }
 
 export class ListCampaignTrendingReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6badb397-a8b5-40b6-21019d382a09
+   */
   campaignId?: string;
+  /**
+   * @example
+   * 2021-10-14 20:59:59
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 2021-10-14 00:00:00
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9975,10 +14071,22 @@ export class ListCampaignTrendingReportRequest extends $tea.Model {
 }
 
 export class ListCampaignTrendingReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListCampaignTrendingReportResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 6CCEF32F-8614-535F-A1D9-D85B8C0DC4F0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10031,15 +14139,64 @@ export class ListCampaignTrendingReportResponse extends $tea.Model {
 }
 
 export class ListCampaignsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2021-10-14 20:59:59
+   */
   actualStartTimeFrom?: string;
+  /**
+   * @example
+   * 2021-10-14 20:59:59
+   */
   actualStartTimeTo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test-campaign
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2021-10-14 00:00:00
+   */
   planedStartTimeFrom?: string;
+  /**
+   * @example
+   * 2021-10-14 20:59:59
+   */
   planedStartTimeTo?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   queueId?: string;
+  /**
+   * @example
+   * Draft
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10077,11 +14234,27 @@ export class ListCampaignsRequest extends $tea.Model {
 }
 
 export class ListCampaignsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListCampaignsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 6CCEF32F-8614-535F-A1D9-D85B8C0DC4F0
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10136,9 +14309,37 @@ export class ListCampaignsResponse extends $tea.Model {
 }
 
 export class ListCasesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6badb397-a8b5-40b6-21019d382a09
+   */
   campaignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
   phoneNumber?: string;
   state?: string;
@@ -10170,10 +14371,22 @@ export class ListCasesRequest extends $tea.Model {
 }
 
 export class ListCasesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListCasesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 7CC6523B-0E51-1B62-8DA5-6A9831CAE316
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10226,8 +14439,23 @@ export class ListCasesResponse extends $tea.Model {
 }
 
 export class ListCategoriesRequest extends $tea.Model {
+  /**
+   * @example
+   * 43c2671b-***-***-86d0-6bd187905cc8
+   */
   categoryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Ticket
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10251,11 +14479,23 @@ export class ListCategoriesRequest extends $tea.Model {
 }
 
 export class ListCategoriesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * DE803553-8AA9-4B9D-9E4E-A82BC69EDCEE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10310,6 +14550,13 @@ export class ListCategoriesResponse extends $tea.Model {
 }
 
 export class ListCommonTicketFieldsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10329,11 +14576,23 @@ export class ListCommonTicketFieldsRequest extends $tea.Model {
 }
 
 export class ListCommonTicketFieldsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListCommonTicketFieldsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 30C7D235-DDCF-4C7F-A462-5E2598252C2B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10388,8 +14647,29 @@ export class ListCommonTicketFieldsResponse extends $tea.Model {
 }
 
 export class ListConfigItemsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   objectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10413,11 +14693,23 @@ export class ListConfigItemsRequest extends $tea.Model {
 }
 
 export class ListConfigItemsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListConfigItemsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10472,11 +14764,36 @@ export class ListConfigItemsResponse extends $tea.Model {
 }
 
 export class ListContactFlowsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   orderByField?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   sortOrder?: string;
+  /**
+   * @example
+   * MAIN_FLOW
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10506,10 +14823,22 @@ export class ListContactFlowsRequest extends $tea.Model {
 }
 
 export class ListContactFlowsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListContactFlowsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10562,10 +14891,39 @@ export class ListContactFlowsResponse extends $tea.Model {
 }
 
 export class ListCustomCallTaggingRequest extends $tea.Model {
+  /**
+   * @example
+   * ["TagA"]
+   */
   callTagNameList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1312121****
+   */
   searchPattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10593,10 +14951,22 @@ export class ListCustomCallTaggingRequest extends $tea.Model {
 }
 
 export class ListCustomCallTaggingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListCustomCallTaggingResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10649,7 +15019,18 @@ export class ListCustomCallTaggingResponse extends $tea.Model {
 }
 
 export class ListDevicesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10671,11 +15052,23 @@ export class ListDevicesRequest extends $tea.Model {
 }
 
 export class ListDevicesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListDevicesResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10730,10 +15123,39 @@ export class ListDevicesResponse extends $tea.Model {
 }
 
 export class ListDoNotCallNumbersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * INSTANCE
+   */
   scope?: string;
+  /**
+   * @example
+   * RemarkA
+   */
   searchPattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10761,11 +15183,23 @@ export class ListDoNotCallNumbersRequest extends $tea.Model {
 }
 
 export class ListDoNotCallNumbersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListDoNotCallNumbersResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10820,10 +15254,38 @@ export class ListDoNotCallNumbersResponse extends $tea.Model {
 }
 
 export class ListDocumentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d278629c-c687-4aa3-b044-4fe9b012e7ef
+   */
   instanceId?: string;
+  /**
+   * @example
+   * eyJ0YWJsZUlkIjoiY2Y2MTQxYjA5NDY0NDUxMzk5YjFjMTA5YTMxZWNkMzEiLCJ0b2tlbiI6IjAwMDAwMDAwMDAwNzAzNzcifQ==
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * 2
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EAF3C248-E123-441B-A545-B6CD02E98EED
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   searchPattern?: string;
   sorts?: ListDocumentsRequestSorts[];
@@ -10857,10 +15319,38 @@ export class ListDocumentsRequest extends $tea.Model {
 }
 
 export class ListDocumentsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d278629c-c687-4aa3-b044-4fe9b012e7ef
+   */
   instanceId?: string;
+  /**
+   * @example
+   * eyJ0YWJsZUlkIjoiY2Y2MTQxYjA5NDY0NDUxMzk5YjFjMTA5YTMxZWNkMzEiLCJ0b2tlbiI6IjAwMDAwMDAwMDAwNzAzNzcifQ==
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * 2
+   */
   pageSize?: number;
+  /**
+   * @example
+   * EAF3C248-E123-441B-A545-B6CD02E98EED
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   searchPattern?: string;
   sortsShrink?: string;
@@ -10894,11 +15384,23 @@ export class ListDocumentsShrinkRequest extends $tea.Model {
 }
 
 export class ListDocumentsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListDocumentsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10953,10 +15455,30 @@ export class ListDocumentsResponse extends $tea.Model {
 }
 
 export class ListGroupChatMessagesRequest extends $tea.Model {
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * chat-65382141036853491
+   */
   jobId?: string;
+  /**
+   * @example
+   * b2ad450b116e4f8396e58108acf5c020
+   */
   nextPageToken?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * DESC
+   */
   sortOrder?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10984,10 +15506,22 @@ export class ListGroupChatMessagesRequest extends $tea.Model {
 }
 
 export class ListGroupChatMessagesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListGroupChatMessagesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 2263B273-AC1B-44EB-BA98-87F2322C6780
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11040,13 +15574,46 @@ export class ListGroupChatMessagesResponse extends $tea.Model {
 }
 
 export class ListHistoricalAgentReportRequest extends $tea.Model {
+  /**
+   * @example
+   * ["agent1@ccc-test", "agent2@ccc-test"]
+   */
   agentIdList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
   skillGroupId?: string;
+  /**
+   * @example
+   * 1532448000000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 1532707199000
+   */
   stopTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11080,10 +15647,22 @@ export class ListHistoricalAgentReportRequest extends $tea.Model {
 }
 
 export class ListHistoricalAgentReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListHistoricalAgentReportResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11136,13 +15715,53 @@ export class ListHistoricalAgentReportResponse extends $tea.Model {
 }
 
 export class ListHistoricalAgentSkillGroupReportRequest extends $tea.Model {
+  /**
+   * @example
+   * ["agent1@ccc-test", "agent2@ccc-test"]
+   */
   agentIdList?: string;
+  /**
+   * @example
+   * 1620273600000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * [
+   *       "skg1@ccc-test",
+   *       "skg2@ccc-test"
+   * ]
+   */
   skillGroupIdList?: string;
+  /**
+   * @example
+   * 1634140800000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11176,10 +15795,22 @@ export class ListHistoricalAgentSkillGroupReportRequest extends $tea.Model {
 }
 
 export class ListHistoricalAgentSkillGroupReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListHistoricalAgentSkillGroupReportResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11232,12 +15863,45 @@ export class ListHistoricalAgentSkillGroupReportResponse extends $tea.Model {
 }
 
 export class ListHistoricalSkillGroupReportRequest extends $tea.Model {
+  /**
+   * @example
+   * 1532707199000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ["skillgroup1@ccc-test", "skillgroup2@ccc-test2"]
+   */
   skillGroupIdList?: string;
+  /**
+   * @example
+   * 1532448000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11269,10 +15933,22 @@ export class ListHistoricalSkillGroupReportRequest extends $tea.Model {
 }
 
 export class ListHistoricalSkillGroupReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListHistoricalSkillGroupReportResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 26A34338-5CD9-4C95-A7A6-5BDCE76C6B94
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11325,7 +16001,21 @@ export class ListHistoricalSkillGroupReportResponse extends $tea.Model {
 }
 
 export class ListInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11347,10 +16037,22 @@ export class ListInstancesRequest extends $tea.Model {
 }
 
 export class ListInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListInstancesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 26A34338-5CD9-4C95-A7A6-5BDCE76C6B94
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11403,7 +16105,21 @@ export class ListInstancesResponse extends $tea.Model {
 }
 
 export class ListInstancesOfUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11425,10 +16141,22 @@ export class ListInstancesOfUserRequest extends $tea.Model {
 }
 
 export class ListInstancesOfUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListInstancesOfUserResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 3969FC68-CEC2-4398-B76A-60D2F7EDEBAF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11481,11 +16209,37 @@ export class ListInstancesOfUserResponse extends $tea.Model {
 }
 
 export class ListIntervalAgentReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
+  /**
+   * @example
+   * 1532707199000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Hourly
+   */
   interval?: string;
   mediaType?: string;
+  /**
+   * @example
+   * 1532448000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11515,10 +16269,22 @@ export class ListIntervalAgentReportRequest extends $tea.Model {
 }
 
 export class ListIntervalAgentReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListIntervalAgentReportResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 943D8EF3-3321-471F-A104-51C96FCA94D6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11571,11 +16337,44 @@ export class ListIntervalAgentReportResponse extends $tea.Model {
 }
 
 export class ListIntervalAgentSkillGroupReportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
+  /**
+   * @example
+   * 1558443508000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Daily
+   */
   interval?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skg-default@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1532448000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11605,10 +16404,22 @@ export class ListIntervalAgentSkillGroupReportRequest extends $tea.Model {
 }
 
 export class ListIntervalAgentSkillGroupReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListIntervalAgentSkillGroupReportResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 2778FA12-EDD6-42AA-9B15-AF855072E5E5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11661,9 +16472,28 @@ export class ListIntervalAgentSkillGroupReportResponse extends $tea.Model {
 }
 
 export class ListIntervalInstanceReportRequest extends $tea.Model {
+  /**
+   * @example
+   * 1620316799000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Hourly
+   */
   interval?: string;
+  /**
+   * @example
+   * 1620230400000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11689,10 +16519,22 @@ export class ListIntervalInstanceReportRequest extends $tea.Model {
 }
 
 export class ListIntervalInstanceReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListIntervalInstanceReportResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 943D8EF3-3321-471F-A104-51C96FCA94D6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11745,11 +16587,37 @@ export class ListIntervalInstanceReportResponse extends $tea.Model {
 }
 
 export class ListIntervalSkillGroupReportRequest extends $tea.Model {
+  /**
+   * @example
+   * 1604725528000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Hourly
+   */
   interval?: string;
   mediaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skg-default@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1604639129000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11779,10 +16647,22 @@ export class ListIntervalSkillGroupReportRequest extends $tea.Model {
 }
 
 export class ListIntervalSkillGroupReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListIntervalSkillGroupReportResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 943D8EF3-3321-471F-A104-51C96FCA94D6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11835,9 +16715,37 @@ export class ListIntervalSkillGroupReportResponse extends $tea.Model {
 }
 
 export class ListIvrTrackingDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-10963442671187****
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11863,10 +16771,22 @@ export class ListIvrTrackingDetailsRequest extends $tea.Model {
 }
 
 export class ListIvrTrackingDetailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListIvrTrackingDetailsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * D2RB671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11919,11 +16839,50 @@ export class ListIvrTrackingDetailsResponse extends $tea.Model {
 }
 
 export class ListLegacyAgentEventLogsRequest extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1658026440011
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1657853640015
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11953,11 +16912,27 @@ export class ListLegacyAgentEventLogsRequest extends $tea.Model {
 }
 
 export class ListLegacyAgentEventLogsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListLegacyAgentEventLogsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 2802EE59-3B53-513A-A130-85E480AF689D
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12012,11 +16987,50 @@ export class ListLegacyAgentEventLogsResponse extends $tea.Model {
 }
 
 export class ListLegacyAgentStatusLogsRequest extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1657879880010
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1657778840011
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12046,11 +17060,27 @@ export class ListLegacyAgentStatusLogsRequest extends $tea.Model {
 }
 
 export class ListLegacyAgentStatusLogsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListLegacyAgentStatusLogsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 4C9A5D93-33A6-57F3-A423-4C83BD0A8455
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12105,10 +17135,45 @@ export class ListLegacyAgentStatusLogsResponse extends $tea.Model {
 }
 
 export class ListLegacyAppraiseLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1620273600000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1604638129000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12136,11 +17201,27 @@ export class ListLegacyAppraiseLogsRequest extends $tea.Model {
 }
 
 export class ListLegacyAppraiseLogsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListLegacyAppraiseLogsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * A13BB835-94AA-4E55-8D9E-5EA585CE6555"
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12195,11 +17276,50 @@ export class ListLegacyAppraiseLogsResponse extends $tea.Model {
 }
 
 export class ListLegacyQueueEventLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1658026180018
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1657939540015
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12229,11 +17349,27 @@ export class ListLegacyQueueEventLogsRequest extends $tea.Model {
 }
 
 export class ListLegacyQueueEventLogsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListLegacyQueueEventLogsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 1A5A8998-41F9-5F85-BFCF-EB2B6E376812
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12288,7 +17424,21 @@ export class ListLegacyQueueEventLogsResponse extends $tea.Model {
 }
 
 export class ListMonoRecordingsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-25697383427137****
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12310,10 +17460,22 @@ export class ListMonoRecordingsRequest extends $tea.Model {
 }
 
 export class ListMonoRecordingsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListMonoRecordingsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * E836EF2A-EDAE-5310-8921-F983C967D42D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12366,7 +17528,21 @@ export class ListMonoRecordingsResponse extends $tea.Model {
 }
 
 export class ListMultiChannelRecordingsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-25920271311543****
+   */
   contactId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12388,10 +17564,22 @@ export class ListMultiChannelRecordingsRequest extends $tea.Model {
 }
 
 export class ListMultiChannelRecordingsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListMultiChannelRecordingsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * B19CD719-9F65-56A6-8B79-DA4282EA4797
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12444,10 +17632,39 @@ export class ListMultiChannelRecordingsResponse extends $tea.Model {
 }
 
 export class ListOutboundNumbersOfUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+   */
   skillGroupIdList?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12475,10 +17692,22 @@ export class ListOutboundNumbersOfUserRequest extends $tea.Model {
 }
 
 export class ListOutboundNumbersOfUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListOutboundNumbersOfUserResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12531,11 +17760,50 @@ export class ListOutboundNumbersOfUserResponse extends $tea.Model {
 }
 
 export class ListPersonalNumbersOfUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   isMember?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 0833
+   */
   searchPattern?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user-test@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12565,10 +17833,22 @@ export class ListPersonalNumbersOfUserRequest extends $tea.Model {
 }
 
 export class ListPersonalNumbersOfUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListPersonalNumbersOfUserResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12621,11 +17901,44 @@ export class ListPersonalNumbersOfUserResponse extends $tea.Model {
 }
 
 export class ListPhoneNumbersRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   active?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 0833
+   */
   searchPattern?: string;
+  /**
+   * @example
+   * Bidirection
+   */
   usage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12655,10 +17968,22 @@ export class ListPhoneNumbersRequest extends $tea.Model {
 }
 
 export class ListPhoneNumbersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListPhoneNumbersResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12711,12 +18036,55 @@ export class ListPhoneNumbersResponse extends $tea.Model {
 }
 
 export class ListPhoneNumbersOfSkillGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   active?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   isMember?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 0833
+   */
   searchPattern?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12748,10 +18116,22 @@ export class ListPhoneNumbersOfSkillGroupRequest extends $tea.Model {
 }
 
 export class ListPhoneNumbersOfSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListPhoneNumbersOfSkillGroupResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12804,6 +18184,13 @@ export class ListPhoneNumbersOfSkillGroupResponse extends $tea.Model {
 }
 
 export class ListPrivilegesOfUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12823,10 +18210,22 @@ export class ListPrivilegesOfUserRequest extends $tea.Model {
 }
 
 export class ListPrivilegesOfUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListPrivilegesOfUserResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12879,9 +18278,34 @@ export class ListPrivilegesOfUserResponse extends $tea.Model {
 }
 
 export class ListRamUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * agent
+   */
   searchPattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12907,11 +18331,23 @@ export class ListRamUsersRequest extends $tea.Model {
 }
 
 export class ListRamUsersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListRamUsersResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 24753D71-C91D-1A38-A8AD-372BF12453F6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12966,17 +18402,70 @@ export class ListRamUsersResponse extends $tea.Model {
 }
 
 export class ListRealtimeAgentStatesRequest extends $tea.Model {
+  /**
+   * @example
+   * ["agent1@ccc-test", "agent2@ccc-test"]
+   */
   agentIdList?: string;
+  /**
+   * @example
+   * agent
+   */
   agentName?: string;
+  /**
+   * @example
+   * ["INBOUND", "OUTBOUND"]
+   */
   callTypeList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * agent
+   */
   query?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * ["ACW", "Dialing"]
+   */
   stateList?: string;
+  /**
+   * @example
+   * ["OFFICE_PHONE","ON_SITE"]
+   */
   workModeList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13018,10 +18507,22 @@ export class ListRealtimeAgentStatesRequest extends $tea.Model {
 }
 
 export class ListRealtimeAgentStatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListRealtimeAgentStatesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13074,10 +18575,35 @@ export class ListRealtimeAgentStatesResponse extends $tea.Model {
 }
 
 export class ListRealtimeSkillGroupStatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ["skillgroup1@ccc-test", "skillgroup2@ccc-test"]
+   */
   skillGroupIdList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13105,10 +18631,22 @@ export class ListRealtimeSkillGroupStatesRequest extends $tea.Model {
 }
 
 export class ListRealtimeSkillGroupStatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListRealtimeSkillGroupStatesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 26A34338-5CD9-4C95-A7A6-5BDCE76C6B94
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13161,11 +18699,44 @@ export class ListRealtimeSkillGroupStatesResponse extends $tea.Model {
 }
 
 export class ListRecentCallDetailRecordsRequest extends $tea.Model {
+  /**
+   * @example
+   * {"phoneNumber":"1312121****","callingNumber":"1312121****","calledNumber":"1312121****"}
+   */
   criteria?: string;
+  /**
+   * @example
+   * 1604639129000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1604638129000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13195,10 +18766,22 @@ export class ListRecentCallDetailRecordsRequest extends $tea.Model {
 }
 
 export class ListRecentCallDetailRecordsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListRecentCallDetailRecordsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13251,6 +18834,13 @@ export class ListRecentCallDetailRecordsResponse extends $tea.Model {
 }
 
 export class ListRolesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13270,10 +18860,22 @@ export class ListRolesRequest extends $tea.Model {
 }
 
 export class ListRolesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListRolesResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 711D948F-C616-4E23-8573-0F260513CE09
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13326,9 +18928,28 @@ export class ListRolesResponse extends $tea.Model {
 }
 
 export class ListSkillGroupStatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+   */
   skillGroupIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13354,11 +18975,27 @@ export class ListSkillGroupStatesRequest extends $tea.Model {
 }
 
 export class ListSkillGroupStatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListSkillGroupStatesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 1F69EBB0-63E9-5DDE-887F-9FC040ADF309
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13413,9 +19050,28 @@ export class ListSkillGroupStatesResponse extends $tea.Model {
 }
 
 export class ListSkillGroupSummaryReportsSinceMidnightRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ["skillgroup1@ccc-test", "skillgroup2@ccc-test2"]
+   */
   skillGroups?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13441,11 +19097,27 @@ export class ListSkillGroupSummaryReportsSinceMidnightRequest extends $tea.Model
 }
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   pagedSkillGroupSummaryReport?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReport;
+  /**
+   * @example
+   * 2B36CEBC-6D11-5451-9E6B-C6D1927841C5
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13500,9 +19172,30 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponse extends $tea.Mode
 }
 
 export class ListSkillGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   searchPattern?: string;
   static names(): { [key: string]: string } {
@@ -13531,10 +19224,22 @@ export class ListSkillGroupsRequest extends $tea.Model {
 }
 
 export class ListSkillGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListSkillGroupsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13587,11 +19292,44 @@ export class ListSkillGroupsResponse extends $tea.Model {
 }
 
 export class ListSkillLevelsOfUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * true
+   */
   isMember?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * skillgroup
+   */
   searchPattern?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13621,10 +19359,22 @@ export class ListSkillLevelsOfUserRequest extends $tea.Model {
 }
 
 export class ListSkillLevelsOfUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListSkillLevelsOfUserResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13677,7 +19427,18 @@ export class ListSkillLevelsOfUserResponse extends $tea.Model {
 }
 
 export class ListTicketTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13699,11 +19460,23 @@ export class ListTicketTasksRequest extends $tea.Model {
 }
 
 export class ListTicketTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListTicketTasksResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * DE803553-8AA9-4B9D-9E4E-A82BC69EDCEE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13758,11 +19531,34 @@ export class ListTicketTasksResponse extends $tea.Model {
 }
 
 export class ListTicketTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * 43c2671b-********86d0-6bd187905cc8
+   */
   categoryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
   searchPattern?: string;
+  /**
+   * @example
+   * Enabled
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13792,11 +19588,23 @@ export class ListTicketTemplatesRequest extends $tea.Model {
 }
 
 export class ListTicketTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListTicketTemplatesResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 8707EB29-BAED-4302-B999-40BA61877437
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13851,19 +19659,84 @@ export class ListTicketTemplatesResponse extends $tea.Model {
 }
 
 export class ListTicketsRequest extends $tea.Model {
+  /**
+   * @example
+   * assignee@cccV2-kmz
+   */
   assignee?: string;
+  /**
+   * @example
+   * Agent
+   */
   assigneeType?: string;
+  /**
+   * @example
+   * 43c2671b-****-4223-86d0-6bd187905cc8
+   */
   categoryId?: string;
+  /**
+   * @example
+   * creator@cccV2-kmz
+   */
   creator?: string;
+  /**
+   * @example
+   * 51e155ce-3747-*****-b402-13c69597b920
+   */
   customerId?: string;
+  /**
+   * @example
+   * 1646928000000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * ["job-12******","job-23****"]
+   */
   jobIdList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * participant@cccV2-kmz
+   */
   participant?: string;
+  /**
+   * @example
+   * 1646841600000
+   */
   startTime?: number;
+  /**
+   * @example
+   * Processing
+   */
   state?: string;
+  /**
+   * @example
+   * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
+   */
   ticketId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -13912,10 +19785,22 @@ export class ListTicketsRequest extends $tea.Model {
 }
 
 export class ListTicketsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListTicketsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13968,8 +19853,26 @@ export class ListTicketsResponse extends $tea.Model {
 }
 
 export class ListUnassignedNumbersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 0833
+   */
   searchPattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13993,10 +19896,22 @@ export class ListUnassignedNumbersRequest extends $tea.Model {
 }
 
 export class ListUnassignedNumbersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListUnassignedNumbersResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14049,11 +19964,46 @@ export class ListUnassignedNumbersResponse extends $tea.Model {
 }
 
 export class ListUserLevelsOfSkillGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   isMember?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   searchPattern?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14083,10 +20033,22 @@ export class ListUserLevelsOfSkillGroupRequest extends $tea.Model {
 }
 
 export class ListUserLevelsOfSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListUserLevelsOfSkillGroupResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14139,9 +20101,34 @@ export class ListUserLevelsOfSkillGroupResponse extends $tea.Model {
 }
 
 export class ListUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * agent
+   */
   searchPattern?: string;
   skillGroupId?: string;
   static names(): { [key: string]: string } {
@@ -14170,11 +20157,23 @@ export class ListUsersRequest extends $tea.Model {
 }
 
 export class ListUsersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListUsersResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14229,13 +20228,56 @@ export class ListUsersResponse extends $tea.Model {
 }
 
 export class ListVoicemailsRequest extends $tea.Model {
+  /**
+   * @example
+   * 073xxxx7539
+   */
   caller?: string;
+  /**
+   * @example
+   * job-125152394144124921
+   */
   contactId?: string;
+  /**
+   * @example
+   * 1532707199000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * voicemail-test
+   * 
+   * @deprecated
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1532448000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14269,10 +20311,22 @@ export class ListVoicemailsRequest extends $tea.Model {
 }
 
 export class ListVoicemailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListVoicemailsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14325,14 +20379,52 @@ export class ListVoicemailsResponse extends $tea.Model {
 }
 
 export class MakeCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1318888****
+   */
   callee?: string;
+  /**
+   * @example
+   * 010989****
+   */
   caller?: string;
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 131****8888
+   */
   maskedCallee?: string;
   mediaType?: string;
+  /**
+   * @example
+   * tags
+   */
   tags?: string;
+  /**
+   * @example
+   * 30
+   */
   timeoutSeconds?: number;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14368,11 +20460,23 @@ export class MakeCallRequest extends $tea.Model {
 }
 
 export class MakeCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: MakeCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 26A34338-5CD9-4C95-A7A6-5BDCE76C6B94
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14427,10 +20531,42 @@ export class MakeCallResponse extends $tea.Model {
 }
 
 export class ModifyAudioFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * new-test-file.wav
+   */
   audioFileName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * acc300c4-75c9-41ba-ba5e-2a365c96c248
+   */
   audioResourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test/new-test-file.wav
+   */
   ossFileKey?: string;
   usage?: string;
   static names(): { [key: string]: string } {
@@ -14461,10 +20597,22 @@ export class ModifyAudioFileRequest extends $tea.Model {
 }
 
 export class ModifyAudioFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * D2F84AAC-7C79-547F-8EE9-7B735F42B93F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14517,9 +20665,27 @@ export class ModifyAudioFileResponse extends $tea.Model {
 }
 
 export class ModifyCustomCallTaggingRequest extends $tea.Model {
+  /**
+   * @example
+   * ["TagA","TagB"]
+   */
   callTagNameList?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1312121****
+   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14545,9 +20711,21 @@ export class ModifyCustomCallTaggingRequest extends $tea.Model {
 }
 
 export class ModifyCustomCallTaggingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14599,6 +20777,13 @@ export class ModifyCustomCallTaggingResponse extends $tea.Model {
 
 export class ModifyInstanceRequest extends $tea.Model {
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14620,10 +20805,22 @@ export class ModifyInstanceRequest extends $tea.Model {
 }
 
 export class ModifyInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * 83TKE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14676,9 +20873,34 @@ export class ModifyInstanceResponse extends $tea.Model {
 }
 
 export class ModifyPhoneNumberRequest extends $tea.Model {
+  /**
+   * @example
+   * 78128960-bb00-4ddc-8a82-923a8c5bd22d
+   */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0102134****
+   */
   number?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Bidirection
+   */
   usage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14704,9 +20926,21 @@ export class ModifyPhoneNumberRequest extends $tea.Model {
 }
 
 export class ModifyPhoneNumberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14759,7 +20993,21 @@ export class ModifyPhoneNumberResponse extends $tea.Model {
 export class ModifySkillGroupRequest extends $tea.Model {
   description?: string;
   displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14785,9 +21033,21 @@ export class ModifySkillGroupRequest extends $tea.Model {
 }
 
 export class ModifySkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14838,8 +21098,29 @@ export class ModifySkillGroupResponse extends $tea.Model {
 }
 
 export class ModifySkillLevelsOfUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"skillGroupId":"skillgroup1@ccc-test","skillLevel":1},{"skillGroupId":"skillgroup2@ccc-test","skillLevel":10}]
+   */
   skillLevelList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14863,10 +21144,22 @@ export class ModifySkillLevelsOfUserRequest extends $tea.Model {
 }
 
 export class ModifySkillLevelsOfUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * E49D8B83-A3EC-44D4-A920-578BC3C698AD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14920,14 +21213,47 @@ export class ModifySkillLevelsOfUserResponse extends $tea.Model {
 
 export class ModifyUserRequest extends $tea.Model {
   avatarUrl?: string;
+  /**
+   * @example
+   * 1001
+   */
   displayId?: string;
   displayName?: string;
   force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1382114****
+   */
   mobile?: string;
   nickname?: string;
+  /**
+   * @example
+   * Admin@ccc-test
+   */
   roleId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user-test@ccc-test
+   */
   userId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14965,11 +21291,23 @@ export class ModifyUserRequest extends $tea.Model {
 }
 
 export class ModifyUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15024,8 +21362,29 @@ export class ModifyUserResponse extends $tea.Model {
 }
 
 export class ModifyUserLevelsOfSkillGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"userId":"agent1@ccc-test","skillLevel":1},{"userId":"agent2@ccc-test","skillLevel":10}]
+   */
   userLevelList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15049,10 +21408,22 @@ export class ModifyUserLevelsOfSkillGroupRequest extends $tea.Model {
 }
 
 export class ModifyUserLevelsOfSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * E49D8B83-A3EC-44D4-A920-578BC3C698AD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15105,10 +21476,36 @@ export class ModifyUserLevelsOfSkillGroupResponse extends $tea.Model {
 }
 
 export class MonitorCallRequest extends $tea.Model {
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent2@ccc-test
+   */
   monitoredUserId?: string;
+  /**
+   * @example
+   * 30
+   */
   timeoutSeconds?: number;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15136,11 +21533,23 @@ export class MonitorCallRequest extends $tea.Model {
 }
 
 export class MonitorCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: MonitorCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15195,10 +21604,36 @@ export class MonitorCallResponse extends $tea.Model {
 }
 
 export class MuteCallRequest extends $tea.Model {
+  /**
+   * @example
+   * ch:user:1318888****->8001****:1609253204816:job-6581536084722****
+   */
   channelId?: string;
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6581536084722****
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15226,11 +21661,23 @@ export class MuteCallRequest extends $tea.Model {
 }
 
 export class MuteCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: MuteCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * A275B008-A25B-494D-AB53-93CE253815B6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15285,7 +21732,21 @@ export class MuteCallResponse extends $tea.Model {
 }
 
 export class PauseCampaignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6badb397-a8b5-40b6-21019d382a09
+   */
   campaignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15307,9 +21768,21 @@ export class PauseCampaignRequest extends $tea.Model {
 }
 
 export class PauseCampaignResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: string;
   message?: string;
+  /**
+   * @example
+   * 4A68E287-6888-5ADB-8048-DB488B4DEF35
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15360,9 +21833,34 @@ export class PauseCampaignResponse extends $tea.Model {
 }
 
 export class PickOutboundNumbersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1388888****
+   */
   calledNumber?: string;
+  /**
+   * @example
+   * 1
+   */
   count?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["skillgroup@ccc-test"]
+   */
   skillGroupIdList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15388,10 +21886,22 @@ export class PickOutboundNumbersRequest extends $tea.Model {
 }
 
 export class PickOutboundNumbersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: PickOutboundNumbersResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15444,8 +21954,23 @@ export class PickOutboundNumbersResponse extends $tea.Model {
 }
 
 export class PollUserStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15469,11 +21994,23 @@ export class PollUserStatusRequest extends $tea.Model {
 }
 
 export class PollUserStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: PollUserStatusResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15606,8 +22143,29 @@ export class ProcessAliMeCallbackOfStagingResponse extends $tea.Model {
 }
 
 export class PublishContactFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b0a063bf-f138-42a4-ad9f-9babe3ec1a9e
+   */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0e0b8e78-af3e-4360-a5c5-f9bb5c2b8af2
+   */
   draftId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15631,9 +22189,21 @@ export class PublishContactFlowRequest extends $tea.Model {
 }
 
 export class PublishContactFlowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BFB6788F-20D4-5767-BC67-99EAAC28F789
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15684,9 +22254,28 @@ export class PublishContactFlowResponse extends $tea.Model {
 }
 
 export class ReadyForServiceRequest extends $tea.Model {
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * user-test@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15712,11 +22301,23 @@ export class ReadyForServiceRequest extends $tea.Model {
 }
 
 export class ReadyForServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ReadyForServiceResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * CC49060B-87ED-489A-AD3D-00E57775DBFF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15771,13 +22372,44 @@ export class ReadyForServiceResponse extends $tea.Model {
 }
 
 export class RedialCallRequest extends $tea.Model {
+  /**
+   * @example
+   * 1318888****
+   */
   callee?: string;
+  /**
+   * @example
+   * 0109810****
+   */
   caller?: string;
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abc
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6581536084722****
+   */
   jobId?: string;
+  /**
+   * @example
+   * a=b
+   */
   tags?: string;
+  /**
+   * @example
+   * 30
+   */
   timeoutSeconds?: number;
+  /**
+   * @example
+   * samzhang@abc
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15811,11 +22443,23 @@ export class RedialCallRequest extends $tea.Model {
 }
 
 export class RedialCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: RedialCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BF268B34-09C2-43FD-BAC4-5D31EA63****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15870,9 +22514,34 @@ export class RedialCallResponse extends $tea.Model {
 }
 
 export class RegisterDeviceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * password
+   */
   password?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15898,10 +22567,22 @@ export class RegisterDeviceRequest extends $tea.Model {
 }
 
 export class RegisterDeviceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15954,9 +22635,34 @@ export class RegisterDeviceResponse extends $tea.Model {
 }
 
 export class RegisterDevicesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * password
+   */
   password?: string;
+  /**
+   * @example
+   * ["user-test@ccc-test"]
+   */
   userIdListJson?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15982,10 +22688,22 @@ export class RegisterDevicesRequest extends $tea.Model {
 }
 
 export class RegisterDevicesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16038,7 +22756,21 @@ export class RegisterDevicesResponse extends $tea.Model {
 }
 
 export class RejectChatRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chat-65382141036853491
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16060,9 +22792,21 @@ export class RejectChatRequest extends $tea.Model {
 }
 
 export class RejectChatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * B59382D2-5755-4C6D-861F-FA2AAD8F89F7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16114,7 +22858,18 @@ export class RejectChatResponse extends $tea.Model {
 
 export class RejectTicketRequest extends $tea.Model {
   comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * f2c6722b-cd13-442d-bf10-22a07c70d6d5
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16138,11 +22893,23 @@ export class RejectTicketRequest extends $tea.Model {
 }
 
 export class RejectTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 678F7002-CA01-4ABF-A112-585AFBDF3A3B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16197,10 +22964,36 @@ export class RejectTicketResponse extends $tea.Model {
 }
 
 export class ReleaseCallRequest extends $tea.Model {
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-6538214103685****
+   */
   channelId?: string;
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16228,11 +23021,23 @@ export class ReleaseCallRequest extends $tea.Model {
 }
 
 export class ReleaseCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ReleaseCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16287,10 +23092,36 @@ export class ReleaseCallResponse extends $tea.Model {
 }
 
 export class ReleaseChatRequest extends $tea.Model {
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * chat-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 9XYGTGWtq2wFi_Bpg7aUnIoYi_vG_rO3bjEn0YtsxbHRHrYHlz1LDBLJAyZcLxieRQR4h_6AnWvTjJeNU5jg************Hwej7WgWrmA=
+   */
   token?: string;
+  /**
+   * @example
+   * edbcf95a-ef9f-4296-a0a6-985ac9e36db3
+   */
   userId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CUSTOMER
+   */
   userType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16318,9 +23149,21 @@ export class ReleaseChatRequest extends $tea.Model {
 }
 
 export class ReleaseChatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * B06B3244-1B44-481B-90C4-F2F92E59D6B5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16371,8 +23214,26 @@ export class ReleaseChatResponse extends $tea.Model {
 }
 
 export class RemoveBlacklistCallTaggingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1312121****
+   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16396,9 +23257,24 @@ export class RemoveBlacklistCallTaggingRequest extends $tea.Model {
 }
 
 export class RemoveBlacklistCallTaggingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16449,7 +23325,18 @@ export class RemoveBlacklistCallTaggingResponse extends $tea.Model {
 }
 
 export class RemoveDoNotCallNumbersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * ["1900000****","1312211****"]
+   */
   numberList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16471,11 +23358,23 @@ export class RemoveDoNotCallNumbersRequest extends $tea.Model {
 }
 
 export class RemoveDoNotCallNumbersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16530,8 +23429,29 @@ export class RemoveDoNotCallNumbersResponse extends $tea.Model {
 }
 
 export class RemovePersonalNumbersFromUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["0101234****", "0105678****"]
+   */
   numberList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16555,9 +23475,21 @@ export class RemovePersonalNumbersFromUserRequest extends $tea.Model {
 }
 
 export class RemovePersonalNumbersFromUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16608,8 +23540,29 @@ export class RemovePersonalNumbersFromUserResponse extends $tea.Model {
 }
 
 export class RemovePhoneNumberFromSkillGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0101234****
+   */
   number?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+   */
   skillGroupIdList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16633,9 +23586,21 @@ export class RemovePhoneNumberFromSkillGroupsRequest extends $tea.Model {
 }
 
 export class RemovePhoneNumberFromSkillGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16686,8 +23651,26 @@ export class RemovePhoneNumberFromSkillGroupsResponse extends $tea.Model {
 }
 
 export class RemovePhoneNumbersRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["0101234****","0105678****"]
+   */
   numberList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16711,11 +23694,23 @@ export class RemovePhoneNumbersRequest extends $tea.Model {
 }
 
 export class RemovePhoneNumbersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16770,8 +23765,29 @@ export class RemovePhoneNumbersResponse extends $tea.Model {
 }
 
 export class RemovePhoneNumbersFromSkillGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["0101234****","0105678****"]
+   */
   numberList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16795,9 +23811,21 @@ export class RemovePhoneNumbersFromSkillGroupRequest extends $tea.Model {
 }
 
 export class RemovePhoneNumbersFromSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16848,8 +23876,29 @@ export class RemovePhoneNumbersFromSkillGroupResponse extends $tea.Model {
 }
 
 export class RemoveSkillGroupsFromUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+   */
   skillGroupIdList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16873,10 +23922,22 @@ export class RemoveSkillGroupsFromUserRequest extends $tea.Model {
 }
 
 export class RemoveSkillGroupsFromUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16931,8 +23992,19 @@ export class RemoveSkillGroupsFromUserResponse extends $tea.Model {
 export class RemoveUsersRequest extends $tea.Model {
   filePath?: string;
   force?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   notificationEmail?: string;
+  /**
+   * @example
+   * ["agent1@ccc-test","agent2@ccc-test"]
+   */
   userIdList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16960,10 +24032,22 @@ export class RemoveUsersRequest extends $tea.Model {
 }
 
 export class RemoveUsersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17016,8 +24100,29 @@ export class RemoveUsersResponse extends $tea.Model {
 }
 
 export class RemoveUsersFromSkillGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["agent1@ccc-test","agent2@ccc-test"]
+   */
   userIdList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17041,9 +24146,21 @@ export class RemoveUsersFromSkillGroupRequest extends $tea.Model {
 }
 
 export class RemoveUsersFromSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17094,8 +24211,23 @@ export class RemoveUsersFromSkillGroupResponse extends $tea.Model {
 }
 
 export class ResetAgentStateRequest extends $tea.Model {
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17119,11 +24251,23 @@ export class ResetAgentStateRequest extends $tea.Model {
 }
 
 export class ResetAgentStateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ResetAgentStateResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17178,8 +24322,29 @@ export class ResetAgentStateResponse extends $tea.Model {
 }
 
 export class ResetUserPasswordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * password
+   */
   password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17203,9 +24368,21 @@ export class ResetUserPasswordRequest extends $tea.Model {
 }
 
 export class ResetUserPasswordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17256,7 +24433,18 @@ export class ResetUserPasswordResponse extends $tea.Model {
 }
 
 export class RestoreArchivedRecordingsRequest extends $tea.Model {
+  /**
+   * @example
+   * [\\"job-216750038017142784\\"]
+   */
   contactIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17278,10 +24466,26 @@ export class RestoreArchivedRecordingsRequest extends $tea.Model {
 }
 
 export class RestoreArchivedRecordingsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: RestoreArchivedRecordingsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * Instance 0 does not exist.
+   */
   message?: string;
+  /**
+   * @example
+   * F8066648-5D95-55AB-ACD3-2F4AD3BEA715
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17335,7 +24539,21 @@ export class RestoreArchivedRecordingsResponse extends $tea.Model {
 
 export class ResubmitTicketRequest extends $tea.Model {
   comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f2c6722b-cd13-442d-bf10-22a07c70d6d5
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17359,11 +24577,23 @@ export class ResubmitTicketRequest extends $tea.Model {
 }
 
 export class ResubmitTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17418,7 +24648,21 @@ export class ResubmitTicketResponse extends $tea.Model {
 }
 
 export class ResumeCampaignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6badb397-a8b5-40b6-21019d382a09
+   */
   campaignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17440,9 +24684,21 @@ export class ResumeCampaignRequest extends $tea.Model {
 }
 
 export class ResumeCampaignResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: string;
   message?: string;
+  /**
+   * @example
+   * F505C4C8-1E12-573A-9BA7-4BEAAD129553
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17493,10 +24749,39 @@ export class ResumeCampaignResponse extends $tea.Model {
 }
 
 export class RetrieveCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-6538214103685****
+   */
   channelId?: string;
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17524,11 +24809,23 @@ export class RetrieveCallRequest extends $tea.Model {
 }
 
 export class RetrieveCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: RetrieveCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17583,10 +24880,41 @@ export class RetrieveCallResponse extends $tea.Model {
 }
 
 export class SaveDocumentRequest extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
   documentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"name":"tom"}
+   */
   documentJson?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
   instanceId?: string;
+  /**
+   * @example
+   * EAF3C248-E123-441B-A545-B6CD02E98EED
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17614,11 +24942,27 @@ export class SaveDocumentRequest extends $tea.Model {
 }
 
 export class SaveDocumentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 0101234****
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 01B12EE4-6AF2-4730-8B78-EC15F4E5C025
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17673,11 +25017,50 @@ export class SaveDocumentResponse extends $tea.Model {
 }
 
 export class SaveRTCStatsV2Request extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 257e73de-1ee8-123b-0b9a-00163e0a****
+   */
   callId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   generalInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["47.101.XX.XX","44368","47.104.XX.XX","37947"]
+   */
   googAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","1649328987","40","PCMU","383560","89","49","ssrc_1649328987_recv","2022-03-15T09:52:08.820Z","","0","20000"]
+   */
   receiverReport?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["11090","2055127460","0","2236","384592","ssrc_2055127460_send","2022-03-15T09:52:08.820Z","1"]
+   */
   senderReport?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17707,12 +25090,36 @@ export class SaveRTCStatsV2Request extends $tea.Model {
 }
 
 export class SaveRTCStatsV2ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   rowCount?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1647309061000
+   */
   timeStamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17769,14 +25176,74 @@ export class SaveRTCStatsV2Response extends $tea.Model {
 }
 
 export class SaveTerminalLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CCCClient
+   */
   appName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e13c9740-1e37-123b-21b6-00163e352f9
+   */
   callId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * none
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   dataType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-b8b0ca63-330c-4e65-8ae3-9de2c7ce7683
+   */
   jobId?: string;
+  /**
+   * @example
+   * TurnServerTest
+   */
   methodName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   status?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * none
+   */
   uniqueRequestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17812,11 +25279,31 @@ export class SaveTerminalLogRequest extends $tea.Model {
 }
 
 export class SaveTerminalLogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1647309061000
+   */
   timeStamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17871,11 +25358,50 @@ export class SaveTerminalLogResponse extends $tea.Model {
 }
 
 export class SaveWebRTCStatsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 257e73de-1ee8-123b-0b9a-00163e0a****
+   */
   callId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   generalInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["47.101.XX.XX","44368","47.104.XX.XX","37947"]
+   */
   googAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["1","1649328987","40","PCMU","383560","89","49","ssrc_1649328987_recv","2022-03-15T09:52:08.820Z","","0","20000"]
+   */
   receiverReport?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["11090","2055127460","0","2236","384592","ssrc_2055127460_send","2022-03-15T09:52:08.820Z","1"]
+   */
   senderReport?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17905,12 +25431,36 @@ export class SaveWebRTCStatsRequest extends $tea.Model {
 }
 
 export class SaveWebRTCStatsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * CF1C21B9-2D49-4B54-880F-FBE248C16903
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   rowCount?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1555492246000
+   */
   timeStamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17967,10 +25517,45 @@ export class SaveWebRTCStatsResponse extends $tea.Model {
 }
 
 export class SaveWebRtcInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e13c9740-1e37-123b-21b6-00163e352f9
+   */
   callId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"media_source":{},"remote_inbound_rtp":{},"outbound_rtp":{},"inbound_rtp":{},"remote_outbound_rtp":{},"candidate":{},"basic":{"callId":"e13c9740-1e37-123b-21b6-00163e352f9","timestamp":"1647262108395","callStartTime":"1647262108393","uid":"user-test","access_point":"shanghai","browser":"90","ip":"127.0.0.1"}}
+   */
   content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-b8b0ca63-330c-4e65-8ae3-9de2c7ce7683
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17998,12 +25583,36 @@ export class SaveWebRtcInfoRequest extends $tea.Model {
 }
 
 export class SaveWebRtcInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * CF1C21B9-2D49-4B54-880F-FBE248C16903
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   rowCount?: number;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1647262108395
+   */
   timeStamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18060,11 +25669,47 @@ export class SaveWebRtcInfoResponse extends $tea.Model {
 }
 
 export class SendDtmfSignalingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ch:customer:0108989****->1318888****:1609234221870:job-6573574060089****
+   */
   channelId?: string;
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   dtmf?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-6573574060089****
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18094,11 +25739,23 @@ export class SendDtmfSignalingRequest extends $tea.Model {
 }
 
 export class SendDtmfSignalingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: SendDtmfSignalingResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 842399EC-7D32-4472-AD08-9504C3F141FF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18155,9 +25812,34 @@ export class SendDtmfSignalingResponse extends $tea.Model {
 export class SignInGroupRequest extends $tea.Model {
   additivity?: boolean;
   chatDeviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+   */
   signedSkillGroupIdList?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18187,11 +25869,23 @@ export class SignInGroupRequest extends $tea.Model {
 }
 
 export class SignInGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: SignInGroupResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18246,8 +25940,23 @@ export class SignInGroupResponse extends $tea.Model {
 }
 
 export class SignOutGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18271,11 +25980,23 @@ export class SignOutGroupRequest extends $tea.Model {
 }
 
 export class SignOutGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: SignOutGroupResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18330,12 +26051,48 @@ export class SignOutGroupResponse extends $tea.Model {
 }
 
 export class StartBack2BackCallRequest extends $tea.Model {
+  /**
+   * @example
+   * 0102156****
+   */
   additionalBroker?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0102157****
+   */
   broker?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1372168****
+   */
   callee?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1391814****
+   */
   caller?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   tags?: string;
+  /**
+   * @example
+   * 30
+   */
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18367,11 +26124,23 @@ export class StartBack2BackCallRequest extends $tea.Model {
 }
 
 export class StartBack2BackCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: StartBack2BackCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 26A34338-5CD9-4C95-A7A6-5BDCE76C6B94
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18426,9 +26195,25 @@ export class StartBack2BackCallResponse extends $tea.Model {
 }
 
 export class StartChatRequest extends $tea.Model {
+  /**
+   * @example
+   * cf584733-***-***-9699-cb77aa3b7aa6
+   */
   accessChannelId?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 9XYGTGWtq2wFi_Bpg7aUnIoYi_vG_rO3bjEn0YtsxbHRHrYHlz1LDBLJAyZcLxieRQR4h_6AnWvTjJeNU5jg************Hwej7WgWrmA=
+   */
   token?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userList?: StartChatRequestUserList[];
   static names(): { [key: string]: string } {
     return {
@@ -18454,9 +26239,25 @@ export class StartChatRequest extends $tea.Model {
 }
 
 export class StartChatShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * cf584733-***-***-9699-cb77aa3b7aa6
+   */
   accessChannelId?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 9XYGTGWtq2wFi_Bpg7aUnIoYi_vG_rO3bjEn0YtsxbHRHrYHlz1LDBLJAyZcLxieRQR4h_6AnWvTjJeNU5jg************Hwej7WgWrmA=
+   */
   token?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userListShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18482,10 +26283,22 @@ export class StartChatShrinkRequest extends $tea.Model {
 }
 
 export class StartChatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: StartChatResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18538,10 +26351,32 @@ export class StartChatResponse extends $tea.Model {
 }
 
 export class StartConferenceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ["8045****","1317511****"]
+   */
   participantListJson?: string;
   tags?: string;
+  /**
+   * @example
+   * 30
+   */
   timeoutSeconds?: number;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18569,11 +26404,23 @@ export class StartConferenceRequest extends $tea.Model {
 }
 
 export class StartConferenceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: StartConferenceResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * FDD327D1-AB8A-596B-883F-F63582A73F1D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18628,7 +26475,21 @@ export class StartConferenceResponse extends $tea.Model {
 }
 
 export class StartEditContactFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 798e83a9-5140-4039-afa1-761ca4cca2df
+   */
   contactFlowId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18650,10 +26511,26 @@ export class StartEditContactFlowRequest extends $tea.Model {
 }
 
 export class StartEditContactFlowResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * b3114362-9062-46c7-82dc-ae55ac168b2e
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BC2733CE-C470-564A-8C11-9DC02468823A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18706,14 +26583,54 @@ export class StartEditContactFlowResponse extends $tea.Model {
 }
 
 export class StartPredictiveCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1312353****
+   */
   callee?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0109810****
+   */
   caller?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9774c36c-12fe-4e37-adce-89bc77ce****
+   */
   contactFlowId?: string;
   contactFlowVariables?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1312353****
+   */
   maskedCallee?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   tags?: string;
+  /**
+   * @example
+   * 10
+   */
   timeoutSeconds?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18749,11 +26666,23 @@ export class StartPredictiveCallRequest extends $tea.Model {
 }
 
 export class StartPredictiveCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: StartPredictiveCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 26A34338-5CD9-4C95-A7A6-5BDCE76C6B94
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18808,9 +26737,37 @@ export class StartPredictiveCallResponse extends $tea.Model {
 }
 
 export class StartPrivacyCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALIPUBB7A727C170949
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1888888****
+   */
   callee?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0109810****
+   */
   caller?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18836,11 +26793,27 @@ export class StartPrivacyCallRequest extends $tea.Model {
 }
 
 export class StartPrivacyCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * job-xxx
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 0630E5DF-CEB0-445B-8626-D5C7481181C3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18895,7 +26868,21 @@ export class StartPrivacyCallResponse extends $tea.Model {
 }
 
 export class SubmitCampaignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6badb397-a8b5-40b6-21019d382a09
+   */
   campaignId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18917,9 +26904,21 @@ export class SubmitCampaignRequest extends $tea.Model {
 }
 
 export class SubmitCampaignResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: string;
   message?: string;
+  /**
+   * @example
+   * 7CC6523B-0E51-1B62-8DA5-6A9831CAE315
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18970,9 +26969,31 @@ export class SubmitCampaignResponse extends $tea.Model {
 }
 
 export class SwitchToConferenceRequest extends $tea.Model {
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * job-24114064019637****
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18998,11 +27019,23 @@ export class SwitchToConferenceRequest extends $tea.Model {
 }
 
 export class SwitchToConferenceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: SwitchToConferenceResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * D9C96A73-09C9-5E2A-8CDB-85EC0BC246DA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19057,9 +27090,31 @@ export class SwitchToConferenceResponse extends $tea.Model {
 }
 
 export class TakeBreakRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * lunchtime
+   */
   code?: string;
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19085,11 +27140,23 @@ export class TakeBreakRequest extends $tea.Model {
 }
 
 export class TakeBreakResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: TakeBreakResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * B59382D2-5755-4C6D-861F-FA2AAD8F89F7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19145,7 +27212,18 @@ export class TakeBreakResponse extends $tea.Model {
 
 export class TerminateTicketRequest extends $tea.Model {
   comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19169,11 +27247,23 @@ export class TerminateTicketRequest extends $tea.Model {
 }
 
 export class TerminateTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19228,10 +27318,32 @@ export class TerminateTicketResponse extends $tea.Model {
 }
 
 export class TransferTicketTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * assignee@ccc-test
+   */
   assignee?: string;
   comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * f780ade8-3ca9-458b-b067-63077946a570
+   */
   taskId?: string;
+  /**
+   * @example
+   * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19259,11 +27371,23 @@ export class TransferTicketTaskRequest extends $tea.Model {
 }
 
 export class TransferTicketTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 678F7002-CA01-4ABF-A112-585AFBDF3A3B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19318,10 +27442,33 @@ export class TransferTicketTaskResponse extends $tea.Model {
 }
 
 export class UnmuteCallRequest extends $tea.Model {
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-6538214103685****
+   */
   channelId?: string;
+  /**
+   * @example
+   * device
+   */
   deviceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19349,11 +27496,23 @@ export class UnmuteCallRequest extends $tea.Model {
 }
 
 export class UnmuteCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: UnmuteCallResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19408,7 +27567,18 @@ export class UnmuteCallResponse extends $tea.Model {
 }
 
 export class UnregisterDeviceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19430,9 +27600,21 @@ export class UnregisterDeviceRequest extends $tea.Model {
 }
 
 export class UnregisterDeviceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BA03159C-E808-4FF1-B27E-A61B6E888D7F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19483,12 +27665,47 @@ export class UnregisterDeviceResponse extends $tea.Model {
 }
 
 export class UpdateCampaignRequest extends $tea.Model {
+  /**
+   * @example
+   * [
+   *       {
+   *             "beginTime": "09:00:00",
+   *             "endTime": "12:00:00"
+   *       }
+   * ]
+   */
   callableTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ab11908b-6ebc-4b0c-b51e-3e17c7060
+   */
   campaignId?: string;
+  /**
+   * @example
+   * 3a310f56-4d30-4081-ba24-5d87a3b7262e
+   */
   contactFlowId?: string;
+  /**
+   * @example
+   * 1689933600000
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   name?: string;
+  /**
+   * @example
+   * 1689901200000
+   */
   startTime?: string;
   strategyParameters?: string;
   static names(): { [key: string]: string } {
@@ -19523,9 +27740,21 @@ export class UpdateCampaignRequest extends $tea.Model {
 }
 
 export class UpdateCampaignResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
+  /**
+   * @example
+   * BC976D32-AC4C-4E0F-8AA9-F4BC6C4E2B3E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19576,9 +27805,37 @@ export class UpdateCampaignResponse extends $tea.Model {
 }
 
 export class UpdateConfigItemsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"name":"ShowCalledID","value":"-1"},{"name":"ShowCalleeID","value":"1"},{"name":"AllowHangup","value":"0"},{"name":"AutoAnswerCall","value":"-1"},{"name":"AllowAudioDownload","value":"1"},{"name":"AllowChooseSignedSkillGroup","value":"1"}]
+   */
   configItems?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   objectId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   objectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19604,10 +27861,22 @@ export class UpdateConfigItemsRequest extends $tea.Model {
 }
 
 export class UpdateConfigItemsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 8E7Y5B39-3E24-4A04-81E6-6C4F5B39DF75
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19660,9 +27929,29 @@ export class UpdateConfigItemsResponse extends $tea.Model {
 }
 
 export class UpdateSchemaPropertyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b0eb2742-f37e-4c67-82d4-25c651c1xxxx
+   */
   instanceId?: string;
   property?: UpdateSchemaPropertyRequestProperty;
+  /**
+   * @example
+   * BC976D32-AC4C-4E0F-8AA9-F4BC6C4E2B3E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19688,9 +27977,29 @@ export class UpdateSchemaPropertyRequest extends $tea.Model {
 }
 
 export class UpdateSchemaPropertyShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b0eb2742-f37e-4c67-82d4-25c651c1xxxx
+   */
   instanceId?: string;
   propertyShrink?: string;
+  /**
+   * @example
+   * BC976D32-AC4C-4E0F-8AA9-F4BC6C4E2B3E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * profile
+   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19716,10 +28025,22 @@ export class UpdateSchemaPropertyShrinkRequest extends $tea.Model {
 }
 
 export class UpdateSchemaPropertyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * A450574A-337F-43E2-BC59-9C6594C994C6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19773,8 +28094,26 @@ export class UpdateSchemaPropertyResponse extends $tea.Model {
 
 export class UpdateTicketRequest extends $tea.Model {
   context?: string;
+  /**
+   * @example
+   * 51e155ce-***-****-b402-13c69597b920
+   */
   customerId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
+   */
   ticketId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -19803,11 +28142,23 @@ export class UpdateTicketRequest extends $tea.Model {
 }
 
 export class UpdateTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 7BEEA660-A45A-45E3-98CC-AFC65E715C23
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19862,8 +28213,26 @@ export class UpdateTicketResponse extends $tea.Model {
 }
 
 export class WithdrawTicketRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19887,11 +28256,23 @@ export class WithdrawTicketRequest extends $tea.Model {
 }
 
 export class WithdrawTicketResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: any;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 2778FA12-EDD6-42AA-9B15-AF855072E5E5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19949,7 +28330,15 @@ export class AddCasesRequestCaseList extends $tea.Model {
   caller?: string;
   customVariables?: string;
   maskedCallee?: string;
+  /**
+   * @example
+   * 188888****
+   */
   phoneNumber?: string;
+  /**
+   * @example
+   * 01
+   */
   referenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19977,22 +28366,88 @@ export class AddCasesRequestCaseList extends $tea.Model {
 }
 
 export class AddSchemaPropertyRequestProperty extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
   attributes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * string
+   */
   dataType?: string;
+  /**
+   * @example
+   * -
+   */
   description?: string;
+  /**
+   * @example
+   * False
+   */
   disabled?: boolean;
+  /**
+   * @example
+   * name
+   */
   displayName?: string;
+  /**
+   * @example
+   * 10
+   */
   displayOrder?: number;
+  /**
+   * @example
+   * textbox
+   */
   editorType?: string;
+  /**
+   * @example
+   * 100
+   */
   maxLength?: number;
+  /**
+   * @example
+   * 1
+   */
   maximum?: number;
+  /**
+   * @example
+   * 1
+   */
   minLength?: number;
+  /**
+   * @example
+   * 1
+   */
   minimum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @example
+   * *
+   */
   pattern?: string;
   patternErrorMessage?: string;
+  /**
+   * @example
+   * true
+   */
   readOnly?: boolean;
+  /**
+   * @example
+   * false
+   */
   required?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -20044,19 +28499,67 @@ export class AddSchemaPropertyRequestProperty extends $tea.Model {
 }
 
 export class AnswerCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * INBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
   channelVariables?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20102,9 +28605,21 @@ export class AnswerCallResponseBodyDataCallContextChannelContexts extends $tea.M
 }
 
 export class AnswerCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * INBOUND
+   */
   callType?: string;
   channelContexts?: AnswerCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20130,18 +28645,66 @@ export class AnswerCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class AnswerCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20186,6 +28749,10 @@ export class AnswerCallResponseBodyDataUserContext extends $tea.Model {
 
 export class AnswerCallResponseBodyData extends $tea.Model {
   callContext?: AnswerCallResponseBodyDataCallContext;
+  /**
+   * @example
+   * 103655
+   */
   contextId?: number;
   userContext?: AnswerCallResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -20210,11 +28777,31 @@ export class AnswerCallResponseBodyData extends $tea.Model {
 }
 
 export class AppendCasesRequestBody extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
+  /**
+   * @example
+   * 01012345678
+   */
   caller?: string;
   customVariables?: string;
+  /**
+   * @example
+   * 071*****801
+   */
   maskedCallee?: string;
+  /**
+   * @example
+   * 188888****
+   */
   phoneNumber?: string;
+  /**
+   * @example
+   * 01
+   */
   referenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20244,19 +28831,75 @@ export class AppendCasesRequestBody extends $tea.Model {
 }
 
 export class BargeInCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * BARGE
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * 10
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20302,9 +28945,21 @@ export class BargeInCallResponseBodyDataCallContextChannelContexts extends $tea.
 }
 
 export class BargeInCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * BARGE
+   */
   callType?: string;
   channelContexts?: BargeInCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20330,18 +28985,66 @@ export class BargeInCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class BargeInCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20407,17 +29110,65 @@ export class BargeInCallResponseBodyData extends $tea.Model {
 }
 
 export class BlindTransferResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20459,9 +29210,21 @@ export class BlindTransferResponseBodyDataCallContextChannelContexts extends $te
 }
 
 export class BlindTransferResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: BlindTransferResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20487,18 +29250,66 @@ export class BlindTransferResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class BlindTransferResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20543,6 +29354,10 @@ export class BlindTransferResponseBodyDataUserContext extends $tea.Model {
 
 export class BlindTransferResponseBodyData extends $tea.Model {
   callContext?: BlindTransferResponseBodyDataCallContext;
+  /**
+   * @example
+   * 103654
+   */
   contextId?: number;
   userContext?: BlindTransferResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -20592,18 +29407,70 @@ export class BridgeRtcCallResponseBodyData extends $tea.Model {
 }
 
 export class CancelAttendedTransferResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * CONSULTANT
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * 10
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20647,9 +29514,21 @@ export class CancelAttendedTransferResponseBodyDataCallContextChannelContexts ex
 }
 
 export class CancelAttendedTransferResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: CancelAttendedTransferResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20675,18 +29554,66 @@ export class CancelAttendedTransferResponseBodyDataCallContext extends $tea.Mode
 }
 
 export class CancelAttendedTransferResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20731,6 +29658,10 @@ export class CancelAttendedTransferResponseBodyDataUserContext extends $tea.Mode
 
 export class CancelAttendedTransferResponseBodyData extends $tea.Model {
   callContext?: CancelAttendedTransferResponseBodyDataCallContext;
+  /**
+   * @example
+   * 103656
+   */
   contextId?: number;
   userContext?: CancelAttendedTransferResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -20801,15 +29732,47 @@ export class ChangeVisibilityResponseBodyData extends $tea.Model {
 }
 
 export class ChangeWorkModeResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   jobId?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * OFFLINE
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20847,13 +29810,37 @@ export class ChangeWorkModeResponseBodyData extends $tea.Model {
 }
 
 export class ClaimChatResponseBodyDataChatContexts extends $tea.Model {
+  /**
+   * @example
+   * 226****-cbb6-****-8fea-1e71baf7bfa7
+   */
   accessChannelId?: string;
   accessChannelName?: string;
+  /**
+   * @example
+   * Web
+   */
   accessChannelType?: string;
+  /**
+   * @example
+   * true
+   */
   beingAssigned?: boolean;
   callVariables?: string;
+  /**
+   * @example
+   * INBOUND
+   */
   chatType?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * chat-65382141036853491
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20887,19 +29874,71 @@ export class ClaimChatResponseBodyDataChatContexts extends $tea.Model {
 }
 
 export class ClaimChatResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * CCC-169.254.165.2-browser125.0.0-bs48b41903450e6c8
+   */
   deviceId?: string;
+  /**
+   * @example
+   * ONLINE
+   */
   deviceState?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * chat-65382141036853491
+   */
   jobId?: string;
+  /**
+   * @example
+   * 18******102
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * false
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * userId@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20946,6 +29985,10 @@ export class ClaimChatResponseBodyDataUserContext extends $tea.Model {
 
 export class ClaimChatResponseBodyData extends $tea.Model {
   chatContexts?: ClaimChatResponseBodyDataChatContexts[];
+  /**
+   * @example
+   * 123456789
+   */
   contextId?: number;
   userContext?: ClaimChatResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -20970,19 +30013,75 @@ export class ClaimChatResponseBodyData extends $tea.Model {
 }
 
 export class CoachCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * COACH
+   */
   callType?: string;
+  /**
+   * @example
+   * COACHING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21028,9 +30127,21 @@ export class CoachCallResponseBodyDataCallContextChannelContexts extends $tea.Mo
 }
 
 export class CoachCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * COACH
+   */
   callType?: string;
   channelContexts?: CoachCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21056,19 +30167,71 @@ export class CoachCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class CoachCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * UNREGISTERED
+   */
   deviceState?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956370
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21136,19 +30299,75 @@ export class CoachCallResponseBodyData extends $tea.Model {
 }
 
 export class CompleteAttendedTransferResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * 10
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21194,9 +30413,21 @@ export class CompleteAttendedTransferResponseBodyDataCallContextChannelContexts 
 }
 
 export class CompleteAttendedTransferResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: CompleteAttendedTransferResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21222,18 +30453,66 @@ export class CompleteAttendedTransferResponseBodyDataCallContext extends $tea.Mo
 }
 
 export class CompleteAttendedTransferResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-65382141036853491
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21278,6 +30557,10 @@ export class CompleteAttendedTransferResponseBodyDataUserContext extends $tea.Mo
 
 export class CompleteAttendedTransferResponseBodyData extends $tea.Model {
   callContext?: CompleteAttendedTransferResponseBodyDataCallContext;
+  /**
+   * @example
+   * 103652
+   */
   contextId?: number;
   userContext?: CompleteAttendedTransferResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -21302,7 +30585,15 @@ export class CompleteAttendedTransferResponseBodyData extends $tea.Model {
 }
 
 export class CreateCallTagsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * TagC
+   */
   item?: string;
+  /**
+   * @example
+   * CALL_TAG_NAME_DUPLICATED
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21325,7 +30616,15 @@ export class CreateCallTagsResponseBodyData extends $tea.Model {
 
 export class CreateCampaignRequestCaseList extends $tea.Model {
   customVariables?: string;
+  /**
+   * @example
+   * 1888888888
+   */
   phoneNumber?: string;
+  /**
+   * @example
+   * 01
+   */
   referenceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21349,7 +30648,15 @@ export class CreateCampaignRequestCaseList extends $tea.Model {
 }
 
 export class CreateCustomCallTaggingResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1312121****
+   */
   item?: string;
+  /**
+   * @example
+   * CUSTOM_NUMBER_DUPLICATED
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21371,22 +30678,88 @@ export class CreateCustomCallTaggingResponseBodyData extends $tea.Model {
 }
 
 export class CreateSchemaRequestProperties extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
+  /**
+   * @example
+   * {\\"Clusters\\": {\\"Description\\": \\"The list of clusters.\\"}, \\"ClusterIds\\": {\\"Description\\": \\"The list of cluster IDs.\\"}}
+   */
   attributes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * string
+   */
   dataType?: string;
+  /**
+   * @example
+   * -
+   */
   description?: string;
+  /**
+   * @example
+   * false
+   */
   disabled?: boolean;
   displayName?: string;
+  /**
+   * @example
+   * 2
+   */
   displayOrder?: number;
+  /**
+   * @example
+   * textbox
+   */
   editorType?: string;
+  /**
+   * @example
+   * 100
+   */
   maxLength?: number;
+  /**
+   * @example
+   * 1
+   */
   maximum?: number;
+  /**
+   * @example
+   * 1
+   */
   minLength?: number;
+  /**
+   * @example
+   * 1
+   */
   minimum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @example
+   * *
+   */
   pattern?: string;
   patternErrorMessage?: string;
+  /**
+   * @example
+   * true
+   */
   readOnly?: boolean;
+  /**
+   * @example
+   * false
+   */
   required?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -21439,9 +30812,21 @@ export class CreateSchemaRequestProperties extends $tea.Model {
 
 export class CreateSkillGroupResponseBodyData extends $tea.Model {
   description?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   name?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21471,12 +30856,36 @@ export class CreateSkillGroupResponseBodyData extends $tea.Model {
 export class CreateUserResponseBodyData extends $tea.Model {
   avatarUrl?: string;
   displayName?: string;
+  /**
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * agent
+   */
   loginName?: string;
+  /**
+   * @example
+   * 1382114****
+   */
   mobile?: string;
   nickname?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21512,16 +30921,60 @@ export class CreateUserResponseBodyData extends $tea.Model {
 }
 
 export class EndConferenceResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * ch:user:131888****->8001****:1609225718294:job-65700074013925376
+   */
   channelId?: string;
+  /**
+   * @example
+   * CREATED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 8001****
+   */
   destination?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21562,7 +31015,15 @@ export class EndConferenceResponseBodyDataCallContextChannelContexts extends $te
 
 export class EndConferenceResponseBodyDataCallContext extends $tea.Model {
   channelContexts?: EndConferenceResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21586,16 +31047,56 @@ export class EndConferenceResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class EndConferenceResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * UNREGISTERED
+   */
   deviceState?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21636,6 +31137,10 @@ export class EndConferenceResponseBodyDataUserContext extends $tea.Model {
 
 export class EndConferenceResponseBodyData extends $tea.Model {
   callContext?: EndConferenceResponseBodyDataCallContext;
+  /**
+   * @example
+   * 103655
+   */
   contextId?: number;
   userContext?: EndConferenceResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -21679,12 +31184,36 @@ export class GetAccessChannelOfStagingResponseBodyData extends $tea.Model {
 }
 
 export class GetAudioFileResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * test-file.wav
+   */
   audioFileName?: string;
+  /**
+   * @example
+   * c1a06b46-302a-4c6e-928b-a43c0df485cf
+   */
   audioResourceId?: string;
+  /**
+   * @example
+   * 2021-07-14 10:48:43.0
+   */
   createdTime?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   name?: string;
+  /**
+   * @example
+   * ccc-test/test-file.wav
+   */
   ossFileKey?: string;
+  /**
+   * @example
+   * 2021-07-14 10:48:43.0
+   */
   updatedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21716,11 +31245,35 @@ export class GetAudioFileResponseBodyData extends $tea.Model {
 }
 
 export class GetAudioFileUploadParametersResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ****
+   */
   accessKeyId?: string;
+  /**
+   * @example
+   * 1647313420
+   */
   expireTime?: number;
+  /**
+   * @example
+   * ccc-test/test-file.wav
+   */
   filePath?: string;
+  /**
+   * @example
+   * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com
+   */
   host?: string;
+  /**
+   * @example
+   * eyJleHBpcmF0aW9uIjoiMjAyMi0wNi0yOVQwMDoyOTowMC42NTRaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjBdLFsic3RhcnRzLXdpdGgiLCIka2V5IiwiYXVkaW8vMTU3NzI0NzExNTQ5MDQwMS9seS1vbmxpbmUvMjAyMjA2MjkwNzI5MDAvIl1d****
+   */
   policy?: string;
+  /**
+   * @example
+   * HIyClras8IcVlbTV7RIJWJbU****
+   */
   signature?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21750,8 +31303,20 @@ export class GetAudioFileUploadParametersResponseBodyData extends $tea.Model {
 }
 
 export class GetCallDetailRecordResponseBodyDataAgentEventsEventSequence extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   duration?: number;
+  /**
+   * @example
+   * Dialing
+   */
   event?: string;
+  /**
+   * @example
+   * 1604639129000
+   */
   eventTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21775,9 +31340,17 @@ export class GetCallDetailRecordResponseBodyDataAgentEventsEventSequence extends
 }
 
 export class GetCallDetailRecordResponseBodyDataAgentEvents extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
   agentName?: string;
   eventSequence?: GetCallDetailRecordResponseBodyDataAgentEventsEventSequence[];
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21803,7 +31376,15 @@ export class GetCallDetailRecordResponseBodyDataAgentEvents extends $tea.Model {
 }
 
 export class GetCallDetailRecordResponseBodyDataCustomerEventsEventSequence extends $tea.Model {
+  /**
+   * @example
+   * Released
+   */
   event?: string;
+  /**
+   * @example
+   * 1532458000000
+   */
   eventTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21825,6 +31406,10 @@ export class GetCallDetailRecordResponseBodyDataCustomerEventsEventSequence exte
 }
 
 export class GetCallDetailRecordResponseBodyDataCustomerEvents extends $tea.Model {
+  /**
+   * @example
+   * 1332315****
+   */
   customerId?: string;
   eventSequence?: GetCallDetailRecordResponseBodyDataCustomerEventsEventSequence[];
   static names(): { [key: string]: string } {
@@ -21847,7 +31432,15 @@ export class GetCallDetailRecordResponseBodyDataCustomerEvents extends $tea.Mode
 }
 
 export class GetCallDetailRecordResponseBodyDataIvrEventsEventSequence extends $tea.Model {
+  /**
+   * @example
+   * Route2IVR
+   */
   event?: string;
+  /**
+   * @example
+   * 1604639129000
+   */
   eventTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21870,7 +31463,15 @@ export class GetCallDetailRecordResponseBodyDataIvrEventsEventSequence extends $
 
 export class GetCallDetailRecordResponseBodyDataIvrEvents extends $tea.Model {
   eventSequence?: GetCallDetailRecordResponseBodyDataIvrEventsEventSequence[];
+  /**
+   * @example
+   * edaf2eaa-8f88-44ca-812e-41b3cd2b7a90
+   */
   flowId?: string;
+  /**
+   * @example
+   * MAIN_FLOW
+   */
   flowType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21894,7 +31495,15 @@ export class GetCallDetailRecordResponseBodyDataIvrEvents extends $tea.Model {
 }
 
 export class GetCallDetailRecordResponseBodyDataQueueEventsEventSequence extends $tea.Model {
+  /**
+   * @example
+   * Enqueue
+   */
   event?: string;
+  /**
+   * @example
+   * 1604639129000
+   */
   eventTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21917,9 +31526,21 @@ export class GetCallDetailRecordResponseBodyDataQueueEventsEventSequence extends
 
 export class GetCallDetailRecordResponseBodyDataQueueEvents extends $tea.Model {
   eventSequence?: GetCallDetailRecordResponseBodyDataQueueEventsEventSequence[];
+  /**
+   * @example
+   * edaf2eaa-8f88-44ca-812e-41b3cd2b7a90
+   */
   flowId?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   queueId?: string;
   queueName?: string;
+  /**
+   * @example
+   * 1
+   */
   queueType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21948,31 +31569,107 @@ export class GetCallDetailRecordResponseBodyDataQueueEvents extends $tea.Model {
 
 export class GetCallDetailRecordResponseBodyData extends $tea.Model {
   agentEvents?: GetCallDetailRecordResponseBodyDataAgentEvents[];
+  /**
+   * @example
+   * agent1@ccc-test,agent2@ccc-test
+   */
   agentIds?: string;
+  /**
+   * @example
+   * agent1,agent2
+   */
   agentNames?: string;
+  /**
+   * @example
+   * 50
+   */
   callDuration?: number;
+  /**
+   * @example
+   * 1332315****
+   */
   calledNumber?: string;
   calleeLocation?: string;
   callerLocation?: string;
+  /**
+   * @example
+   * 0533128****
+   */
   callingNumber?: string;
+  /**
+   * @example
+   * Success
+   */
   contactDisposition?: string;
+  /**
+   * @example
+   * job-10963442671187****
+   */
   contactId?: string;
   contactType?: string;
   customerEvents?: GetCallDetailRecordResponseBodyDataCustomerEvents[];
+  /**
+   * @example
+   * NotConnected
+   */
   earlyMediaState?: string;
+  /**
+   * @example
+   * 1532458000000
+   */
   establishedTime?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   ivrEvents?: GetCallDetailRecordResponseBodyDataIvrEvents[];
   queueEvents?: GetCallDetailRecordResponseBodyDataQueueEvents[];
+  /**
+   * @example
+   * true
+   */
   recordingReady?: boolean;
+  /**
+   * @example
+   * customer
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 200 - OK
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * 1532458000000
+   */
   releaseTime?: number;
+  /**
+   * @example
+   * 1
+   */
   satisfaction?: number;
+  /**
+   * @example
+   * IVR
+   */
   satisfactionSurveyChannel?: string;
+  /**
+   * @example
+   * true
+   */
   satisfactionSurveyOffered?: boolean;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupIds?: string;
   skillGroupNames?: string;
+  /**
+   * @example
+   * 1532458000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22044,28 +31741,100 @@ export class GetCallDetailRecordResponseBodyData extends $tea.Model {
 }
 
 export class GetCampaignResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1634008800000
+   */
   actualEndTime?: number;
+  /**
+   * @example
+   * 1634000460000
+   */
   actualStartTime?: number;
+  /**
+   * @example
+   * 6badb397-a8b5-40b6-21019d382a09
+   */
   campaignId?: string;
+  /**
+   * @example
+   * 0
+   */
   casesAborted?: number;
+  /**
+   * @example
+   * 40
+   */
   casesConnected?: number;
+  /**
+   * @example
+   * 0
+   */
   casesUncompleted?: number;
   casesUncompletedAfterAttempt?: string;
+  /**
+   * @example
+   * 1
+   */
   casesUncompletedAfterAttempted?: number;
   completionRate?: number;
   contactFlowId?: string;
+  /**
+   * @example
+   * 1
+   */
   maxAttemptCount?: number;
+  /**
+   * @example
+   * 1
+   */
   minAttemptInterval?: number;
+  /**
+   * @example
+   * test-campaign
+   */
   name?: string;
+  /**
+   * @example
+   * 1634054400000
+   */
   planedEndTime?: number;
+  /**
+   * @example
+   * 1633968000000
+   */
   planedStartTime?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   queueId?: string;
   queueName?: string;
+  /**
+   * @example
+   * false
+   */
   simulation?: boolean;
   simulationParameters?: string;
+  /**
+   * @example
+   * Completed
+   */
   state?: string;
+  /**
+   * @example
+   * {"ratio":1}
+   */
   strategyParameters?: string;
+  /**
+   * @example
+   * PACING
+   */
   strategyType?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCases?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22129,7 +31898,15 @@ export class GetCampaignResponseBodyData extends $tea.Model {
 }
 
 export class GetCaseFileUploadUrlResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ccc-test/namelist.csv
+   */
   caseFileKey?: string;
+  /**
+   * @example
+   * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-test/namelist.csv?Expires=1642067227&OSSAccessKeyId=****&Signature=****
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22151,16 +31928,52 @@ export class GetCaseFileUploadUrlResponseBodyData extends $tea.Model {
 }
 
 export class GetContactFlowResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 274601be-a6d5-4429-bcef-32b51d031c6e
+   */
   contactFlowId?: string;
+  /**
+   * @example
+   * 2021-07-14 10:48:43.0
+   */
   createdTime?: string;
   definition?: string;
+  /**
+   * @example
+   * 1.0
+   */
   description?: string;
+  /**
+   * @example
+   * 566399d7-5558-447c-a72f-9be2768b6a82
+   */
   draftId?: string;
+  /**
+   * @example
+   * editor-xxx
+   */
   editor?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   name?: string;
+  /**
+   * @example
+   * False
+   */
   published?: boolean;
+  /**
+   * @example
+   * MAIN_FLOW
+   */
   type?: string;
+  /**
+   * @example
+   * 2021-07-14 10:48:43.0
+   */
   updatedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22200,8 +32013,20 @@ export class GetContactFlowResponseBodyData extends $tea.Model {
 }
 
 export class GetConversationDetailResponseBodyPhrases extends $tea.Model {
+  /**
+   * @example
+   * 240
+   */
   begin?: number;
+  /**
+   * @example
+   * 1280
+   */
   end?: number;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   identity?: string;
   role?: string;
   words?: string;
@@ -22268,11 +32093,35 @@ export class GetDataChannelCredentialsResponseBodyData extends $tea.Model {
 }
 
 export class GetDoNotCallFileUploadParametersResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ****
+   */
   accessKeyId?: string;
+  /**
+   * @example
+   * 1647313420
+   */
   expireTime?: number;
+  /**
+   * @example
+   * ccc-test/blacklist.xlsx
+   */
   filePath?: string;
+  /**
+   * @example
+   * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com
+   */
   host?: string;
+  /**
+   * @example
+   * eyJleHBpcmF0aW9uIjoiMjAyMi0wMy0xNVQwMzowMzo0MC4zMTJaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjBdLFsic3RhcnRzLXdpdGgiLCIka2V5IiwidGVtcC9ibGFja2xpc3QvaW1wb3J0LzE1NzcyNDcxMTU0OTA0MDEvY2NjVjIta216LzIwMjIE1MTAwMzQwLyJd****
+   */
   policy?: string;
+  /**
+   * @example
+   * zi31STIMtIfa/UN2l+6lww****
+   */
   signature?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22302,11 +32151,38 @@ export class GetDoNotCallFileUploadParametersResponseBodyData extends $tea.Model
 }
 
 export class GetDocumentUploadParametersResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ****
+   */
   accessKeyId?: string;
+  /**
+   * @example
+   * 1647313420
+   */
   expireTime?: number;
+  /**
+   * @example
+   * ccc-test/blacklist.xlsx
+   */
   filePath?: string;
+  /**
+   * @remarks
+   * oss host
+   * 
+   * @example
+   * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com
+   */
   host?: string;
+  /**
+   * @example
+   * Permit
+   */
   policy?: string;
+  /**
+   * @example
+   * zi31STIMtIfa/UN2l+6lww****
+   */
   signature?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22336,7 +32212,15 @@ export class GetDocumentUploadParametersResponseBodyData extends $tea.Model {
 }
 
 export class GetEarlyMediaRecordingResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * job-6538214103689****-earlyMedia..wav
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-record-mixed/ccc-test/2022/06/voicemail.job-054ded02****.wav?Expires=1656074923&OSSAccessKeyId=****&Signature=****
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22358,7 +32242,15 @@ export class GetEarlyMediaRecordingResponseBodyData extends $tea.Model {
 }
 
 export class GetHistoricalCallerReportResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1646917200000
+   */
   lastCallingTime?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCalls?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22381,12 +32273,36 @@ export class GetHistoricalCallerReportResponseBodyData extends $tea.Model {
 
 export class GetHistoricalCampaignReportResponseBodyData extends $tea.Model {
   abandonRate?: number;
+  /**
+   * @example
+   * 0.10
+   */
   abandonedRate?: number;
   answerRate?: number;
+  /**
+   * @example
+   * 5
+   */
   callsAbandoned?: number;
+  /**
+   * @example
+   * 50
+   */
   callsConnected?: number;
+  /**
+   * @example
+   * 100
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 0.50
+   */
   connectedRate?: number;
+  /**
+   * @example
+   * 0.50
+   */
   occupancyRate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22442,67 +32358,275 @@ export class GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelType
 }
 
 export class GetHistoricalInstanceReportResponseBodyDataInbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   abandonRate?: number;
   accessChannelTypeDetailList?: GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList[];
+  /**
+   * @example
+   * 0
+   */
   averageAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonedInIVRTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonedInRingTime?: number;
   averageFirstResponseTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
   averageResponseTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWaitTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandoned?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInIVR?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInQueue?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInRing?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInVoiceNavigator?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferred?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferred?: number;
   callsCausedIVRException?: number;
+  /**
+   * @example
+   * 0
+   */
   callsForwardToOutsideNumber?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 0
+   */
   callsIVRException?: number;
+  /**
+   * @example
+   * 0
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsQueued?: number;
+  /**
+   * @example
+   * 0
+   */
   callsQueuingFailed?: number;
+  /**
+   * @example
+   * 0
+   */
   callsQueuingOverflow?: number;
+  /**
+   * @example
+   * 0
+   */
   callsQueuingTimeout?: number;
+  /**
+   * @example
+   * 0
+   */
   callsRinged?: number;
   callsToVoicemail?: number;
+  /**
+   * @example
+   * 0
+   */
   callsVoicemail?: number;
+  /**
+   * @example
+   * 0
+   */
   handleRate?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxAbandonedInIVRTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonedInRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWaitTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
   serviceLevel15?: number;
+  /**
+   * @example
+   * 0
+   */
   serviceLevel20?: number;
   serviceLevel30?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonedInIVRTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonedInRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
   totalMessagesSent?: number;
   totalMessagesSentByAgent?: number;
   totalMessagesSentByCustomer?: number;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWaitTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22666,31 +32790,135 @@ export class GetHistoricalInstanceReportResponseBodyDataInternal extends $tea.Mo
 }
 
 export class GetHistoricalInstanceReportResponseBodyDataOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 0
+   */
   averageDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferred?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferred?: number;
+  /**
+   * @example
+   * 0
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 0
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 0
+   */
   maxDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   totalDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22760,28 +32988,116 @@ export class GetHistoricalInstanceReportResponseBodyDataOutbound extends $tea.Mo
 }
 
 export class GetHistoricalInstanceReportResponseBodyDataOverall extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   averageBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
   maxLoggedInAgents?: number;
+  /**
+   * @example
+   * 0
+   */
   maxReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   occupancyRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   totalBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalLoggedInTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22874,14 +33190,50 @@ export class GetHistoricalInstanceReportResponseBodyData extends $tea.Model {
 
 export class GetInstanceResponseBodyDataAdminList extends $tea.Model {
   displayName?: string;
+  /**
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent
+   */
   loginName?: string;
+  /**
+   * @example
+   * 1382114****
+   */
   mobile?: string;
+  /**
+   * @example
+   * Admin@ccc-test
+   */
   roleId?: string;
+  /**
+   * @example
+   * Admin
+   */
   roleName?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22921,10 +33273,30 @@ export class GetInstanceResponseBodyDataAdminList extends $tea.Model {
 export class GetInstanceResponseBodyDataNumberListSkillGroups extends $tea.Model {
   description?: string;
   displayName?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   phoneNumberCount?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 3
+   */
   userCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22956,14 +33328,38 @@ export class GetInstanceResponseBodyDataNumberListSkillGroups extends $tea.Model
 }
 
 export class GetInstanceResponseBodyDataNumberList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   active?: boolean;
   city?: string;
+  /**
+   * @example
+   * 2ec7a58f-3243-4815-bb21-97b480b95f5e
+   */
   contactFlowId?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 0830011****
+   */
   number?: string;
   province?: string;
   skillGroups?: GetInstanceResponseBodyDataNumberListSkillGroups[];
+  /**
+   * @example
+   * Bidirection
+   */
   usage?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23000,13 +33396,33 @@ export class GetInstanceResponseBodyDataNumberList extends $tea.Model {
 
 export class GetInstanceResponseBodyData extends $tea.Model {
   adminList?: GetInstanceResponseBodyDataAdminList[];
+  /**
+   * @example
+   * 157123456789****
+   */
   aliyunUid?: string;
+  /**
+   * @example
+   * https://ccc-v2.aliyun.com/#/workbench/ccc-test
+   */
   consoleUrl?: string;
   description?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   domainName?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   id?: string;
   name?: string;
   numberList?: GetInstanceResponseBodyDataNumberList[];
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23042,12 +33458,40 @@ export class GetInstanceResponseBodyData extends $tea.Model {
 }
 
 export class GetInstanceTrendingReportResponseBodyDataInbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInIVR?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInQueue?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInRing?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 0
+   */
   callsQueued?: number;
+  /**
+   * @example
+   * 1604639129000
+   */
   statsTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalCalls?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23079,8 +33523,20 @@ export class GetInstanceTrendingReportResponseBodyDataInbound extends $tea.Model
 }
 
 export class GetInstanceTrendingReportResponseBodyDataOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 1604639129000
+   */
   statsTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalCalls?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23151,6 +33607,10 @@ export class GetInstanceTrendingReportResponseBodyData extends $tea.Model {
 }
 
 export class GetLoginDetailsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * sh-wss-ccc.aliyuncs.com
+   */
   agentServerUrl?: string;
   avatarUrl?: string;
   chatAppId?: string;
@@ -23159,18 +33619,58 @@ export class GetLoginDetailsResponseBodyData extends $tea.Model {
   chatLoginToken?: string;
   chatServerUrl?: string;
   chatUserId?: string;
+  /**
+   * @example
+   * 8033****
+   */
   deviceExt?: string;
+  /**
+   * @example
+   * Yealink SIP-T23G 44.84.XX.XX
+   */
   deviceId?: string;
+  /**
+   * @example
+   * OFFLINE
+   */
   deviceState?: string;
   displayName?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
   nickname?: string;
+  /**
+   * @example
+   * zi31STIMtIfa/UN2l+6lww****
+   */
   signature?: string;
+  /**
+   * @example
+   * zi31STIMtIfa/UN2l+6lww****
+   */
   signature2?: string;
+  /**
+   * @example
+   * sh-sip-ccc.aliyuncs.com:443
+   */
   sipServerUrl?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   userKey?: string;
+  /**
+   * @example
+   * 802001:1656406628862"
+   */
   userKey2?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23231,7 +33731,15 @@ export class GetLoginDetailsResponseBodyData extends $tea.Model {
 
 export class GetMonoRecordingResponseBodyData extends $tea.Model {
   duration?: number;
+  /**
+   * @example
+   * job-6538214103689****.wav
+   */
   fileName?: string;
+  /**
+   * @example
+   * http://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-record/job-6538214103689****.wav?Expires=1610910578&OSSAccessKeyId=****&Signature=****
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23255,7 +33763,15 @@ export class GetMonoRecordingResponseBodyData extends $tea.Model {
 }
 
 export class GetMultiChannelRecordingResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * job-6538214103689****.mkv
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-record-mixed/ccc-test/2021/04/job-6538214103689****.mkv?Expires=1617435462&OSSAccessKeyId=****&Signature=****
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23278,6 +33794,10 @@ export class GetMultiChannelRecordingResponseBodyData extends $tea.Model {
 
 export class GetNumberLocationResponseBodyData extends $tea.Model {
   city?: string;
+  /**
+   * @example
+   * 1312121****
+   */
   number?: string;
   province?: string;
   static names(): { [key: string]: string } {
@@ -23302,16 +33822,44 @@ export class GetNumberLocationResponseBodyData extends $tea.Model {
 }
 
 export class GetRealtimeCampaignStatsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   breakingAgents?: number;
+  /**
+   * @example
+   * 5
+   */
   caps?: number;
+  /**
+   * @example
+   * 10
+   */
   loggedInAgents?: number;
   outboundScenarioBreakingAgents?: number;
   outboundScenarioReadyAgents?: number;
   outboundScenarioTalkingAgents?: number;
   outboundScenarioWorkingAgents?: number;
+  /**
+   * @example
+   * 3
+   */
   readyAgents?: number;
+  /**
+   * @example
+   * 4
+   */
   talkingAgents?: number;
+  /**
+   * @example
+   * 10
+   */
   totalAgents?: number;
+  /**
+   * @example
+   * 2
+   */
   workingAgents?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23374,15 +33922,55 @@ export class GetRealtimeInstanceStatesResponseBodyDataBreakCodeDetailList extend
 
 export class GetRealtimeInstanceStatesResponseBodyData extends $tea.Model {
   breakCodeDetailList?: GetRealtimeInstanceStatesResponseBodyDataBreakCodeDetailList[];
+  /**
+   * @example
+   * 0
+   */
   breakingAgents?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 0
+   */
   interactiveCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   loggedInAgents?: number;
+  /**
+   * @example
+   * 0
+   */
   longestWaitingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   readyAgents?: number;
+  /**
+   * @example
+   * 0
+   */
   talkingAgents?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAgents?: number;
+  /**
+   * @example
+   * 0
+   */
   waitingCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   workingAgents?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23422,12 +34010,35 @@ export class GetRealtimeInstanceStatesResponseBodyData extends $tea.Model {
 }
 
 export class GetSchemaResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2021-07-14 10:48:43.0
+   */
   createdTime?: string;
+  /**
+   * @example
+   * false
+   */
   deleted?: boolean;
   description?: string;
+  /**
+   * @remarks
+   * schema id
+   * 
+   * @example
+   * profile
+   */
   id?: string;
+  /**
+   * @example
+   * 5e0964fd-951c-4e45-b518-d09d4d2db8ca
+   */
   instanceId?: string;
   properties?: { [key: string]: DataPropertiesValue };
+  /**
+   * @example
+   * 2021-07-14 10:48:43.0
+   */
   updatedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23461,9 +34072,21 @@ export class GetSchemaResponseBodyData extends $tea.Model {
 export class GetSkillGroupResponseBodyData extends $tea.Model {
   description?: string;
   displayName?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   name?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23493,30 +34116,102 @@ export class GetSkillGroupResponseBodyData extends $tea.Model {
 }
 
 export class GetTicketResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * agent1@ccc-test
+   */
   assignee?: string;
   assigneeName?: string;
+  /**
+   * @example
+   * 8939-4223-86d0-6bd187905cc8
+   */
   categoryId?: string;
   categoryName?: string;
+  /**
+   * @example
+   * Completed
+   */
   closeCode?: string;
   comment?: string;
   context?: string;
+  /**
+   * @example
+   * 1620259200000
+   */
   createdTime?: number;
+  /**
+   * @example
+   * creator@ccc-test
+   */
   creator?: string;
   creatorName?: string;
+  /**
+   * @example
+   * 912f0b78-6639-4a93-ae18-0d832885c27e
+   */
   currentTaskId?: string;
   currentTaskName?: string;
+  /**
+   * @example
+   * 1693793208075
+   */
   currentTaskStartTime?: number;
+  /**
+   * @example
+   * 4223-86d0-6bd187905-891798749
+   */
   customerId?: string;
+  /**
+   * @example
+   * 1687846259999
+   */
   endTime?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-399383842187575296
+   */
   jobId?: string;
+  /**
+   * @example
+   * Audio
+   */
   source?: string;
+  /**
+   * @example
+   * 1620259200000
+   */
   startTime?: number;
+  /**
+   * @example
+   * Processing
+   */
   state?: string;
+  /**
+   * @example
+   * ccc-test_43c2671b-8939-4223-86d0-6bd187905cc8_*****0666238
+   */
   templateId?: string;
+  /**
+   * @example
+   * 0
+   */
   templateVersion?: string;
+  /**
+   * @example
+   * b3a6a131-359e-46bd-9bc5-1f5cb0ea093f
+   */
   ticketId?: string;
   title?: string;
+  /**
+   * @example
+   * 1693793208075
+   */
   updatedTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23584,8 +34279,20 @@ export class GetTicketResponseBodyData extends $tea.Model {
 }
 
 export class GetTicketSummaryReportResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   ticketsAssigned?: string;
+  /**
+   * @example
+   * 10
+   */
   ticketsCreated?: string;
+  /**
+   * @example
+   * 5
+   */
   ticketsParticipated?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23609,26 +34316,98 @@ export class GetTicketSummaryReportResponseBodyData extends $tea.Model {
 }
 
 export class GetTicketTemplateResponseBodyDataTicketFields extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
+  /**
+   * @example
+   * {}
+   */
   attributes?: string;
+  /**
+   * @example
+   * 1717664210000
+   */
   createdTime?: number;
+  /**
+   * @example
+   * creator@cccV2-kmz
+   */
   creator?: string;
+  /**
+   * @example
+   * string
+   */
   dataType?: string;
   description?: string;
+  /**
+   * @example
+   * false
+   */
   disabled?: boolean;
   displayName?: string;
+  /**
+   * @example
+   * 1
+   */
   displayOrder?: number;
+  /**
+   * @example
+   * textbox
+   */
   editorType?: string;
+  /**
+   * @example
+   * 30
+   */
   maxLength?: number;
+  /**
+   * @example
+   * 10
+   */
   maximum?: number;
+  /**
+   * @example
+   * 1
+   */
   minLength?: number;
+  /**
+   * @example
+   * 1
+   */
   minimum?: number;
+  /**
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @example
+   * ^
+   */
   pattern?: string;
   patternErrorMessage?: string;
+  /**
+   * @example
+   * false
+   */
   readOnly?: boolean;
+  /**
+   * @example
+   * false
+   */
   required?: boolean;
+  /**
+   * @example
+   * false
+   */
   system?: boolean;
+  /**
+   * @example
+   * 1717664210000
+   */
   updatedTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23688,14 +34467,38 @@ export class GetTicketTemplateResponseBodyDataTicketFields extends $tea.Model {
 }
 
 export class GetTicketTemplateResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 43c2671b-****-4223-86d0-6bd187905cc8
+   */
   categoryId?: string;
+  /**
+   * @example
+   * editor-xxx@ccc-test
+   */
   editor?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   name?: string;
   processDefinition?: string;
+  /**
+   * @example
+   * Enabled
+   */
   state?: string;
+  /**
+   * @example
+   * 4ca2e2-c8d19b82c-d7ce393ac8197d3ab
+   */
   templateId?: string;
   ticketFields?: GetTicketTemplateResponseBodyDataTicketFields[];
+  /**
+   * @example
+   * 1717664210000
+   */
   updatedTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23731,7 +34534,15 @@ export class GetTicketTemplateResponseBodyData extends $tea.Model {
 }
 
 export class GetTurnCredentialsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * M0NQNG/uRUrfIxW7er/S9gKX****
+   */
   password?: string;
+  /**
+   * @example
+   * 1602585817:****
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23773,20 +34584,72 @@ export class GetUploadAudioDataParamsResponseBodyData extends $tea.Model {
 
 export class GetUserResponseBodyData extends $tea.Model {
   avatarUrl?: string;
+  /**
+   * @example
+   * 8033****
+   */
   deviceExt?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * OFFLINE
+   */
   deviceState?: string;
+  /**
+   * @example
+   * 1001
+   */
   displayId?: string;
   displayName?: string;
+  /**
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @example
+   * 8003****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent
+   */
   loginName?: string;
+  /**
+   * @example
+   * 1391234****
+   */
   mobile?: string;
   nickname?: string;
+  /**
+   * @example
+   * Admin@ccc-test
+   */
   roleId?: string;
+  /**
+   * @example
+   * Admin
+   */
   roleName?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23858,11 +34721,35 @@ export class GetVideoResponseBodyData extends $tea.Model {
 }
 
 export class GetVisitorLoginDetailsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 7pjxxx
+   */
   chatAppId?: string;
+  /**
+   * @example
+   * 955e4bd7xxxxxxxxxxxxxd7898ba9fa0d0
+   */
   chatAppKey?: string;
+  /**
+   * @example
+   * 4c51c9116c36537cb850dc1081d745df
+   */
   chatDeviceId?: string;
+  /**
+   * @example
+   * {"accessToken":"oauth_cloud_key:+4oJXUAFSWxGD2YuRW4V/oUN0/8qJGNc0I*********n1E3DOr3Q3lX00ZnTpyqRi8Y6hYoLYA7n2ZkWuv485hVtXeSgnIQkKxXPbMgwoLxWaK//lI5Dn/mb4YuDifigv+ZyFzc+07vxm9ZFu/NjA==","accessTokenExpiredTime":86400000,"refreshToken":"oauth_cloud_key:/U+8UueDmpeUszhXC+SWow4pNLZp2C***********U/377BNXF+Mjo1lFgDk6GtEjNNoJpapX2mHH8GcRke2+yKQs/w4gAN9xSMn543Ciung+93pXV6IpQGbEVlu"}
+   */
   chatLoginToken?: string;
+  /**
+   * @example
+   * wss://wss.im.dingtalk.cn
+   */
   chatServerUrl?: string;
+  /**
+   * @example
+   * dac9c001****a15684ea91a81317
+   */
   chatUserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23892,7 +34779,15 @@ export class GetVisitorLoginDetailsResponseBodyData extends $tea.Model {
 }
 
 export class GetVoicemailRecordingResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * voicemail.job-054ded02****.wav
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-record-mixed/ccc-test/2022/06/voicemail.job-054ded02****.wav?Expires=1656074923&OSSAccessKeyId=****&Signature=****
+   */
   fileUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23914,17 +34809,65 @@ export class GetVoicemailRecordingResponseBodyData extends $tea.Model {
 }
 
 export class HoldCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 8001****
+   */
   destination?: string;
+  /**
+   * @example
+   * job-6582589278232****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1318888****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609255716900
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8001****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23966,9 +34909,21 @@ export class HoldCallResponseBodyDataCallContextChannelContexts extends $tea.Mod
 }
 
 export class HoldCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: HoldCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6582589278232****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23994,18 +34949,66 @@ export class HoldCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class HoldCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609255716908
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6582589278232****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1390000****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609255715822
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24071,10 +35074,30 @@ export class HoldCallResponseBodyData extends $tea.Model {
 }
 
 export class ImportAdminsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 8021****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 26972543893791****
+   */
   ramId?: string;
+  /**
+   * @example
+   * Admin@ccc-test
+   */
   roleId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24102,7 +35125,15 @@ export class ImportAdminsResponseBodyData extends $tea.Model {
 }
 
 export class ImportCustomCallTaggingResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1312121****
+   */
   item?: string;
+  /**
+   * @example
+   * CUSTOM_NUMBER_DUPLICATED
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24124,19 +35155,75 @@ export class ImportCustomCallTaggingResponseBodyData extends $tea.Model {
 }
 
 export class InitiateAttendedTransferResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:139xxxx0501->80326034:1609138902226:job-6538214103685****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * 10
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24182,9 +35269,21 @@ export class InitiateAttendedTransferResponseBodyDataCallContextChannelContexts 
 }
 
 export class InitiateAttendedTransferResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: InitiateAttendedTransferResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24210,18 +35309,66 @@ export class InitiateAttendedTransferResponseBodyDataCallContext extends $tea.Mo
 }
 
 export class InitiateAttendedTransferResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24266,6 +35413,10 @@ export class InitiateAttendedTransferResponseBodyDataUserContext extends $tea.Mo
 
 export class InitiateAttendedTransferResponseBodyData extends $tea.Model {
   callContext?: InitiateAttendedTransferResponseBodyDataCallContext;
+  /**
+   * @example
+   * 103655
+   */
   contextId?: number;
   userContext?: InitiateAttendedTransferResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -24290,19 +35441,71 @@ export class InitiateAttendedTransferResponseBodyData extends $tea.Model {
 }
 
 export class InterceptCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * INTERCEPT
+   */
   callType?: string;
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * 10
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24348,9 +35551,21 @@ export class InterceptCallResponseBodyDataCallContextChannelContexts extends $te
 }
 
 export class InterceptCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * INTERCEPT
+   */
   callType?: string;
   channelContexts?: InterceptCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24376,18 +35591,66 @@ export class InterceptCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class InterceptCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24453,19 +35716,75 @@ export class InterceptCallResponseBodyData extends $tea.Model {
 }
 
 export class LaunchAuthenticationResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * 10
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24511,9 +35830,21 @@ export class LaunchAuthenticationResponseBodyDataCallContextChannelContexts exte
 }
 
 export class LaunchAuthenticationResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: LaunchAuthenticationResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24539,18 +35870,66 @@ export class LaunchAuthenticationResponseBodyDataCallContext extends $tea.Model 
 }
 
 export class LaunchAuthenticationResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24616,19 +35995,67 @@ export class LaunchAuthenticationResponseBodyData extends $tea.Model {
 }
 
 export class LaunchSurveyResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1318888****
+   */
   destination?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * job-6580466654649****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1318888****
+   */
   originator?: string;
   releaseInitiator?: string;
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609250655922
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8001****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24674,9 +36101,21 @@ export class LaunchSurveyResponseBodyDataCallContextChannelContexts extends $tea
 }
 
 export class LaunchSurveyResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: LaunchSurveyResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6580466654649****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24702,18 +36141,66 @@ export class LaunchSurveyResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class LaunchSurveyResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609250656122
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6580466654649****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1390000****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609250655090
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24758,6 +36245,10 @@ export class LaunchSurveyResponseBodyDataUserContext extends $tea.Model {
 
 export class LaunchSurveyResponseBodyData extends $tea.Model {
   callContext?: LaunchSurveyResponseBodyDataCallContext;
+  /**
+   * @example
+   * 102323
+   */
   contextId?: number;
   userContext?: LaunchSurveyResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -24784,9 +36275,25 @@ export class LaunchSurveyResponseBodyData extends $tea.Model {
 export class ListAgentStateLogsResponseBodyData extends $tea.Model {
   breakCode?: string;
   duration?: number;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1620259200000
+   */
   startTime?: number;
+  /**
+   * @example
+   * Break
+   */
   state?: string;
+  /**
+   * @example
+   * CHECK_IN_BREAK
+   */
   stateCode?: string;
   workMode?: string;
   static names(): { [key: string]: string } {
@@ -24819,14 +36326,46 @@ export class ListAgentStateLogsResponseBodyData extends $tea.Model {
 }
 
 export class ListAgentStatesResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
   agentName?: string;
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * 8030****
+   */
   dn?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent
+   */
   loginName?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * Ready
+   */
   state?: string;
+  /**
+   * @example
+   * 10
+   */
   stateDuration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24863,8 +36402,20 @@ export class ListAgentStatesResponseBodyDataList extends $tea.Model {
 
 export class ListAgentStatesResponseBodyData extends $tea.Model {
   list?: ListAgentStatesResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 11
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24890,21 +36441,85 @@ export class ListAgentStatesResponseBodyData extends $tea.Model {
 }
 
 export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListInbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 0
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   handleRate?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   serviceLevel20?: number;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24954,20 +36569,80 @@ export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryRe
 }
 
 export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 0
+   */
   averageDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 0
+   */
   maxDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: string;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   totalDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25015,22 +36690,90 @@ export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryRe
 }
 
 export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListOverall extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   averageReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 37
+   */
   maxReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   occupancyRate?: number;
+  /**
+   * @example
+   * 0
+   */
   oneTransferCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   totalBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   totalLoggedInTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25082,15 +36825,35 @@ export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryRe
 }
 
 export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportList extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
   agentName?: string;
   inbound?: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListInbound;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent
+   */
   loginName?: string;
   outbound?: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListOutbound;
   overall?: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListOverall;
+  /**
+   * @example
+   * ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+   */
   skillGroupIds?: string;
   skillGroupNames?: string;
+  /**
+   * @example
+   * 2018-09-13 00:00:00
+   */
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25129,8 +36892,20 @@ export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryRe
 
 export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReport extends $tea.Model {
   list?: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25156,25 +36931,105 @@ export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryRe
 }
 
 export class ListAttemptsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 1632883592732
+   */
   agentEstablishedTime?: number;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
+  /**
+   * @example
+   * 23
+   */
   agentRingDuration?: number;
+  /**
+   * @example
+   * 1634196287869
+   */
   assignAgentTime?: number;
+  /**
+   * @example
+   * job-1704342174816****
+   */
   attemptId?: string;
+  /**
+   * @example
+   * 1888888****
+   */
   callee?: string;
+  /**
+   * @example
+   * 05711234****
+   */
   caller?: string;
+  /**
+   * @example
+   * 083046e3-5822-4cda-9b84-04f2a02eb605
+   */
   campaignId?: string;
+  /**
+   * @example
+   * 21d194a7-60b7-4824-932b-48ed03a83704
+   */
   caseId?: string;
+  /**
+   * @example
+   * job-1704342174816****
+   */
   contactId?: string;
+  /**
+   * @example
+   * 1634196286708
+   */
   customerEstablishedTime?: number;
+  /**
+   * @example
+   * 1634196317888
+   */
   customerReleasedTime?: number;
+  /**
+   * @example
+   * 2734
+   */
   dialDuration?: number;
+  /**
+   * @example
+   * 1634196283974
+   */
   dialTime?: number;
+  /**
+   * @example
+   * 1634196287789
+   */
   enqueueTime?: number;
+  /**
+   * @example
+   * 1634196286740
+   */
   enterIvrTime?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1049
+   */
   ivrDuration?: number;
+  /**
+   * @example
+   * 80
+   */
   queueDuration?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   queueId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25233,8 +37088,20 @@ export class ListAttemptsResponseBodyDataList extends $tea.Model {
 
 export class ListAttemptsResponseBodyData extends $tea.Model {
   list?: ListAttemptsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25260,14 +37127,38 @@ export class ListAttemptsResponseBodyData extends $tea.Model {
 }
 
 export class ListAudioFilesResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * test-file.wav
+   */
   audioFileName?: string;
+  /**
+   * @example
+   * d5cd7a94-3b6a-47d2-b7fd-0b1cd839bf77
+   */
   audioResourceId?: string;
   auditResult?: string;
+  /**
+   * @example
+   * 2021-03-05 17:35:45.0
+   */
   createdTime?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   name?: string;
+  /**
+   * @example
+   * ccc-test/test-file.wav
+   */
   ossFileKey?: string;
   status?: string;
+  /**
+   * @example
+   * 2021-03-08 15:34:49.0
+   */
   updatedTime?: string;
   usage?: string;
   static names(): { [key: string]: string } {
@@ -25307,8 +37198,20 @@ export class ListAudioFilesResponseBodyDataList extends $tea.Model {
 
 export class ListAudioFilesResponseBodyData extends $tea.Model {
   list?: ListAudioFilesResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25334,8 +37237,20 @@ export class ListAudioFilesResponseBodyData extends $tea.Model {
 }
 
 export class ListBlacklistCallTaggingsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   blacklisted?: boolean;
+  /**
+   * @example
+   * job-481841171213393920
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1521083xxxx
+   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25361,11 +37276,31 @@ export class ListBlacklistCallTaggingsResponseBodyData extends $tea.Model {
 export class ListBriefSkillGroupsResponseBodyDataList extends $tea.Model {
   description?: string;
   displayName?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @example
+   * 1
+   */
   phoneNumberCount?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   skillGroupName?: string;
+  /**
+   * @example
+   * 10
+   */
   userCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25400,8 +37335,20 @@ export class ListBriefSkillGroupsResponseBodyDataList extends $tea.Model {
 
 export class ListBriefSkillGroupsResponseBodyData extends $tea.Model {
   list?: ListBriefSkillGroupsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25427,39 +37374,139 @@ export class ListBriefSkillGroupsResponseBodyData extends $tea.Model {
 }
 
 export class ListCallDetailRecordsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 0533128****
+   */
   additionalBroker?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentIds?: string;
   agentNames?: string;
+  /**
+   * @example
+   * 0533127****
+   */
   broker?: string;
+  /**
+   * @example
+   * 30
+   */
   callDuration?: string;
+  /**
+   * @example
+   * 1332315****
+   */
   calledNumber?: string;
   calleeLocation?: string;
   callerLocation?: string;
+  /**
+   * @example
+   * 0533128****
+   */
   callingNumber?: string;
+  /**
+   * @example
+   * Success
+   */
   contactDisposition?: string;
+  /**
+   * @example
+   * job-12515239414412****
+   */
   contactId?: string;
+  /**
+   * @example
+   * Outbound
+   */
   contactType?: string;
   dialingTime?: number;
+  /**
+   * @example
+   * NotConnected
+   */
   earlyMediaState?: string;
+  /**
+   * @example
+   * 1532448000000
+   */
   establishedTime?: number;
   heldTime?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 8
+   */
   ivrTime?: number;
+  /**
+   * @example
+   * 0
+   */
   queueTime?: number;
+  /**
+   * @example
+   * 10
+   */
   recordingDuration?: number;
+  /**
+   * @example
+   * true
+   */
   recordingReady?: boolean;
+  /**
+   * @example
+   * customer
+   */
   releaseInitiator?: string;
   releaseReason?: string;
+  /**
+   * @example
+   * 1532707199000
+   */
   releaseTime?: number;
+  /**
+   * @example
+   * 5
+   */
   ringTime?: number;
   satisfactionDescription?: string;
+  /**
+   * @example
+   * 1
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * IVR
+   */
   satisfactionSurveyChannel?: string;
+  /**
+   * @example
+   * true
+   */
   satisfactionSurveyOffered?: boolean;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupIds?: string;
   skillGroupNames?: string;
+  /**
+   * @example
+   * 1532448000000
+   */
   startTime?: number;
   talkTime?: number;
+  /**
+   * @example
+   * 5
+   */
   waitTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25546,8 +37593,20 @@ export class ListCallDetailRecordsResponseBodyDataList extends $tea.Model {
 
 export class ListCallDetailRecordsResponseBodyData extends $tea.Model {
   list?: ListCallDetailRecordsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 11
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25574,56 +37633,228 @@ export class ListCallDetailRecordsResponseBodyData extends $tea.Model {
 
 export class ListCallDetailRecordsV2ResponseBodyDataList extends $tea.Model {
   accessChannelName?: string;
+  /**
+   * @example
+   * Web
+   */
   accessChannelType?: string;
+  /**
+   * @example
+   * test-user-id
+   */
   accessChannelUserId?: string;
   accessChannelUserName?: string;
+  /**
+   * @example
+   * 0533128****
+   */
   additionalBroker?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentIds?: string;
   agentNames?: string;
+  /**
+   * @example
+   * 053xxxx3127
+   */
   broker?: string;
+  /**
+   * @example
+   * 16
+   */
   callDuration?: string;
+  /**
+   * @example
+   * 1332315****
+   */
   calledNumber?: string;
   calleeLocation?: string;
   callerLocation?: string;
+  /**
+   * @example
+   * 0533128****
+   */
   callingNumber?: string;
   clientAppName?: string;
+  /**
+   * @example
+   * 10.100.2.1
+   */
   clientIpAddress?: string;
+  /**
+   * @example
+   * ---
+   */
   clientLocation?: string;
+  /**
+   * @example
+   * Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+   */
   clientUserAgent?: string;
+  /**
+   * @example
+   * Success
+   */
   contactDisposition?: string;
+  /**
+   * @example
+   * job-2255019651513856
+   */
   contactId?: string;
+  /**
+   * @example
+   * OUTBOUND
+   */
   contactType?: string;
+  /**
+   * @example
+   * 0
+   */
   dialingTime?: number;
+  /**
+   * @example
+   * NotConnected
+   */
   earlyMediaState?: string;
   earlyMediaText?: string;
+  /**
+   * @example
+   * 1532448000000
+   */
   establishedTime?: number;
+  /**
+   * @example
+   * 10
+   */
   firstResponseTime?: number;
+  /**
+   * @example
+   * 12
+   */
   heldTime?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 8
+   */
   ivrTime?: number;
+  /**
+   * @example
+   * CHAT
+   */
   mediaType?: string;
+  /**
+   * @example
+   * 10
+   */
   messagesSent?: number;
+  /**
+   * @example
+   * 5
+   */
   messagesSentByAgent?: number;
+  /**
+   * @example
+   * 5
+   */
   messagesSentByCustomer?: number;
+  /**
+   * @example
+   * skg-default@ccc-test
+   */
   offSiteAgentIds?: string;
+  /**
+   * @example
+   * 80312348
+   */
   offsiteAgentDestinationNumbers?: string;
+  /**
+   * @example
+   * 0101257****
+   */
   offsiteAgentOriginatorNumbers?: string;
+  /**
+   * @example
+   * 0
+   */
   queueTime?: number;
+  /**
+   * @example
+   * 10
+   */
   recordingDuration?: number;
+  /**
+   * @example
+   * true
+   */
   recordingReady?: boolean;
+  /**
+   * @example
+   * customer
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 486:USER_BUSY
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * 1532707199000
+   */
   releaseTime?: number;
+  /**
+   * @example
+   * 5
+   */
   ringTime?: number;
   satisfactionDescription?: string;
+  /**
+   * @example
+   * 1
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * IVR
+   */
   satisfactionSurveyChannel?: string;
+  /**
+   * @example
+   * true
+   */
   satisfactionSurveyOffered?: boolean;
+  /**
+   * @example
+   * skg-default@ccc-test
+   */
   skillGroupIds?: string;
   skillGroupNames?: string;
+  /**
+   * @example
+   * 1631440860000
+   */
   startTime?: number;
+  /**
+   * @example
+   * 0
+   */
   talkTime?: number;
+  /**
+   * @example
+   * 1
+   */
   transferCount?: number;
+  /**
+   * @example
+   * 5
+   */
   waitTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25746,8 +37977,20 @@ export class ListCallDetailRecordsV2ResponseBodyDataList extends $tea.Model {
 
 export class ListCallDetailRecordsV2ResponseBodyData extends $tea.Model {
   list?: ListCallDetailRecordsV2ResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25773,7 +38016,15 @@ export class ListCallDetailRecordsV2ResponseBodyData extends $tea.Model {
 }
 
 export class ListCallTagsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * TagA
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25796,8 +38047,20 @@ export class ListCallTagsResponseBodyDataList extends $tea.Model {
 
 export class ListCallTagsResponseBodyData extends $tea.Model {
   list?: ListCallTagsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25823,19 +38086,47 @@ export class ListCallTagsResponseBodyData extends $tea.Model {
 }
 
 export class ListCampaignTrendingReportResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   breakAgents?: number;
   breakingAgents?: number;
+  /**
+   * @example
+   * 1
+   */
   concurrency?: number;
+  /**
+   * @example
+   * 1634037840000
+   */
   datetime?: number;
+  /**
+   * @example
+   * 2
+   */
   loggedInAgents?: number;
   outboundScenarioBreakingAgents?: number;
   outboundScenarioReadyAgents?: number;
   outboundScenarioTalkingAgents?: number;
   outboundScenarioWorkingAgents?: number;
+  /**
+   * @example
+   * 2
+   */
   readyAgents?: number;
   statsTime?: number;
+  /**
+   * @example
+   * 0
+   */
   talkAgents?: number;
   talkingAgents?: number;
+  /**
+   * @example
+   * 0
+   */
   workAgents?: number;
   workingAgents?: number;
   static names(): { [key: string]: string } {
@@ -25884,25 +38175,93 @@ export class ListCampaignTrendingReportResponseBodyData extends $tea.Model {
 }
 
 export class ListCampaignsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 1634008800000
+   */
   actualEndTime?: number;
+  /**
+   * @example
+   * 1634000460000
+   */
   actualStartTime?: number;
+  /**
+   * @example
+   * 6badb397-a8b5-40b6-21019d382a09
+   */
   campaignId?: string;
+  /**
+   * @example
+   * 0
+   */
   casesAborted?: number;
+  /**
+   * @example
+   * 40
+   */
   casesConnected?: number;
+  /**
+   * @example
+   * 0
+   */
   casesUncompleted?: number;
   completionRate?: number;
   contactFlowId?: string;
+  /**
+   * @example
+   * 1
+   */
   maxAttemptCount?: number;
+  /**
+   * @example
+   * 1
+   */
   minAttemptInterval?: number;
+  /**
+   * @example
+   * test-campaign
+   */
   name?: string;
+  /**
+   * @example
+   * 1634054400000
+   */
   planedEndTime?: number;
+  /**
+   * @example
+   * 1633968000000
+   */
   planedStartTime?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   queueId?: string;
   queueName?: string;
+  /**
+   * @example
+   * false
+   */
   simulation?: boolean;
+  /**
+   * @example
+   * Completed
+   */
   state?: string;
+  /**
+   * @example
+   * {"ratio":1}
+   */
   strategyParameters?: string;
+  /**
+   * @example
+   * PACING
+   */
   strategyType?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCases?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25961,8 +38320,20 @@ export class ListCampaignsResponseBodyDataList extends $tea.Model {
 
 export class ListCampaignsResponseBodyData extends $tea.Model {
   list?: ListCampaignsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25989,12 +38360,32 @@ export class ListCampaignsResponseBodyData extends $tea.Model {
 
 export class ListCasesResponseBodyDataList extends $tea.Model {
   abandonPhase?: string;
+  /**
+   * @example
+   * NA
+   */
   abandonType?: string;
+  /**
+   * @example
+   * 1
+   */
   attemptCount?: number;
+  /**
+   * @example
+   * 60ecb1a2-4480-4d01-bede-c5b7655bfadf
+   */
   caseId?: string;
   customVariables?: string;
   failureReason?: string;
+  /**
+   * @example
+   * 1888888****
+   */
   phoneNumber?: string;
+  /**
+   * @example
+   * Connected
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26029,8 +38420,20 @@ export class ListCasesResponseBodyDataList extends $tea.Model {
 
 export class ListCasesResponseBodyData extends $tea.Model {
   list?: ListCasesResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26056,10 +38459,29 @@ export class ListCasesResponseBodyData extends $tea.Model {
 }
 
 export class ListCommonTicketFieldsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1703517780627
+   */
   createdTime?: string;
+  /**
+   * @remarks
+   * Schema ID。
+   * 
+   * @example
+   * ticketing
+   */
   id?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   properties?: { [key: string]: DataPropertiesValue };
+  /**
+   * @example
+   * 1716211430928
+   */
   updatedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26087,10 +38509,30 @@ export class ListCommonTicketFieldsResponseBodyData extends $tea.Model {
 }
 
 export class ListConfigItemsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * config-item
+   */
   name?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   objectId?: string;
+  /**
+   * @example
+   * INSTANCE
+   */
   objectType?: string;
+  /**
+   * @example
+   * 100
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26118,17 +38560,53 @@ export class ListConfigItemsResponseBodyData extends $tea.Model {
 }
 
 export class ListContactFlowsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 78128960-bb00-4ddc-8e82-923a8c5bd22d
+   */
   contactFlowId?: string;
+  /**
+   * @example
+   * 2021-03-05 17:35:45.0
+   */
   createdTime?: string;
   definition?: string;
+  /**
+   * @example
+   * 1.0
+   */
   description?: string;
+  /**
+   * @example
+   * db07c0bb-6b1f-47d2-b37e-2451c617562d
+   */
   draftId?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   editor?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   name?: string;
   numberList?: string[];
+  /**
+   * @example
+   * true
+   */
   published?: boolean;
+  /**
+   * @example
+   * MAIN_FLOW
+   */
   type?: string;
+  /**
+   * @example
+   * 2021-03-08 15:34:49.0
+   */
   updatedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26171,8 +38649,20 @@ export class ListContactFlowsResponseBodyDataList extends $tea.Model {
 
 export class ListContactFlowsResponseBodyData extends $tea.Model {
   list?: ListContactFlowsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26198,7 +38688,15 @@ export class ListContactFlowsResponseBodyData extends $tea.Model {
 }
 
 export class ListCustomCallTaggingResponseBodyDataListCallTagList extends $tea.Model {
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * TagA
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26221,10 +38719,26 @@ export class ListCustomCallTaggingResponseBodyDataListCallTagList extends $tea.M
 
 export class ListCustomCallTaggingResponseBodyDataList extends $tea.Model {
   callTagList?: ListCustomCallTaggingResponseBodyDataListCallTagList[];
+  /**
+   * @example
+   * agent
+   */
   creator?: string;
   description?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1312121****
+   */
   number?: string;
+  /**
+   * @example
+   * 2020-07-05 00:00:00.0
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26255,8 +38769,20 @@ export class ListCustomCallTaggingResponseBodyDataList extends $tea.Model {
 
 export class ListCustomCallTaggingResponseBodyData extends $tea.Model {
   list?: ListCustomCallTaggingResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26282,13 +38808,41 @@ export class ListCustomCallTaggingResponseBodyData extends $tea.Model {
 }
 
 export class ListDevicesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * d7b818c3-8d3a-732f-bc9e-1782wa16****
+   */
   callId?: string;
+  /**
+   * @example
+   * sip:8032****@33.89.XX.XX:64189;transport=tcp;registering_acc=18_134_23_4
+   */
   contact?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
   deviceType?: string;
+  /**
+   * @example
+   * 1609118499750
+   */
   expires?: number;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26322,11 +38876,27 @@ export class ListDevicesResponseBodyData extends $tea.Model {
 }
 
 export class ListDoNotCallNumbersResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 1626962425000
+   */
   createTime?: number;
   createdTime?: number;
+  /**
+   * @example
+   * agent
+   */
   creator?: string;
+  /**
+   * @example
+   * 1900000****
+   */
   number?: string;
   remark?: string;
+  /**
+   * @example
+   * INSTANCE
+   */
   scope?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26357,8 +38927,20 @@ export class ListDoNotCallNumbersResponseBodyDataList extends $tea.Model {
 
 export class ListDoNotCallNumbersResponseBodyData extends $tea.Model {
   list?: ListDoNotCallNumbersResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26384,7 +38966,15 @@ export class ListDoNotCallNumbersResponseBodyData extends $tea.Model {
 }
 
 export class ListDocumentsRequestSorts extends $tea.Model {
+  /**
+   * @example
+   * desc
+   */
   order?: string;
+  /**
+   * @example
+   * name
+   */
   propertyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26406,12 +38996,39 @@ export class ListDocumentsRequestSorts extends $tea.Model {
 }
 
 export class ListDocumentsResponseBodyDataSchema extends $tea.Model {
+  /**
+   * @example
+   * 2020-10-14T09:53:53Z
+   */
   createdTime?: string;
+  /**
+   * @example
+   * false
+   */
   deleted?: boolean;
+  /**
+   * @example
+   * -
+   */
   description?: string;
+  /**
+   * @remarks
+   * schame id
+   * 
+   * @example
+   * profile
+   */
   id?: string;
+  /**
+   * @example
+   * 87b12784-8ce2-40b6-b21f-c49cb3b5501e
+   */
   instanceId?: string;
   properties?: { [key: string]: DataSchemaPropertiesValue };
+  /**
+   * @example
+   * 2020-10-14T09:53:53Z
+   */
   updatedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26444,8 +39061,20 @@ export class ListDocumentsResponseBodyDataSchema extends $tea.Model {
 
 export class ListDocumentsResponseBodyData extends $tea.Model {
   documents?: { [key: string]: any }[];
+  /**
+   * @example
+   * 54d1a616d95a4a01ba58967a9115b649
+   */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * scheme
+   */
   schema?: ListDocumentsResponseBodyDataSchema;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26472,12 +39101,40 @@ export class ListDocumentsResponseBodyData extends $tea.Model {
 
 export class ListGroupChatMessagesResponseBodyDataMessages extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * chat-65382141036853491
+   */
   jobId?: string;
+  /**
+   * @example
+   * false
+   */
   recalled?: boolean;
+  /**
+   * @example
+   * http://xxxxx.com
+   */
   senderAvatarUrl?: string;
+  /**
+   * @example
+   * 64bb4ececc34fc5ec1ca1153
+   */
   senderId?: string;
+  /**
+   * @example
+   * test-agent@test-instanceId
+   */
   senderName?: string;
+  /**
+   * @example
+   * CUSTOMER
+   */
   senderType?: string;
+  /**
+   * @example
+   * 1696126980371
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26512,6 +39169,10 @@ export class ListGroupChatMessagesResponseBodyDataMessages extends $tea.Model {
 
 export class ListGroupChatMessagesResponseBodyData extends $tea.Model {
   messages?: ListGroupChatMessagesResponseBodyDataMessages[];
+  /**
+   * @example
+   * 54d1a616d95a4a01ba58967a9115b649
+   */
   nextPageToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26621,35 +39282,135 @@ export class ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTy
 export class ListHistoricalAgentReportResponseBodyDataListInbound extends $tea.Model {
   accessChannelTypeDetails?: ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails[];
   averageFirstResponseTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
   averageResponseTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 0
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 0
+   */
   handleRate?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
   serviceLevel15?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
   totalMessagesSent?: number;
   totalMessagesSentByAgent?: number;
   totalMessagesSentByCustomer?: string;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26771,33 +39532,145 @@ export class ListHistoricalAgentReportResponseBodyDataListInternal extends $tea.
 }
 
 export class ListHistoricalAgentReportResponseBodyDataListOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 0
+   */
   averageDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 0
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 0
+   */
   maxDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   totalDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26896,39 +39769,143 @@ export class ListHistoricalAgentReportResponseBodyDataListOverallBreakCodeDetail
 }
 
 export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   averageBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
   breakCodeDetailList?: ListHistoricalAgentReportResponseBodyDataListOverallBreakCodeDetailList[];
   firstCheckInTime?: number;
   lastCheckOutTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   occupancyRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   totalBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalLoggedInTime?: number;
   totalOffSiteLoggedInTime?: number;
+  /**
+   * @example
+   * 已弃用，请使用TotalOffSiteLoggedInTime代替此参数
+   */
   totalOffSiteOnlineTime?: number;
   totalOfficePhoneLoggedInTime?: number;
+  /**
+   * @example
+   * 已弃用，请使用TotalOfficePhoneLoggedInTime代替此参数
+   */
   totalOfficePhoneOnlineTime?: number;
   totalOnSiteLoggedInTime?: number;
+  /**
+   * @example
+   * 已弃用，请使用TotalOnSiteLoggedInTime代替此参数
+   */
   totalOnSiteOnlineTime?: number;
   totalOutboundScenarioLoggedInTime?: number;
   totalOutboundScenarioReadyTime?: number;
+  /**
+   * @example
+   * 已弃用，请使用TotalOutboundScenarioLoggedInTime代替此参数
+   */
   totalOutboundScenarioTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27014,14 +39991,26 @@ export class ListHistoricalAgentReportResponseBodyDataListOverall extends $tea.M
 }
 
 export class ListHistoricalAgentReportResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * agent1@ccc-test
+   */
   agentId?: string;
   agentName?: string;
   back2Back?: ListHistoricalAgentReportResponseBodyDataListBack2Back;
+  /**
+   * @example
+   * 001
+   */
   displayId?: string;
   inbound?: ListHistoricalAgentReportResponseBodyDataListInbound;
   internal?: ListHistoricalAgentReportResponseBodyDataListInternal;
   outbound?: ListHistoricalAgentReportResponseBodyDataListOutbound;
   overall?: ListHistoricalAgentReportResponseBodyDataListOverall;
+  /**
+   * @example
+   * ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
+   */
   skillGroupIds?: string;
   skillGroupNames?: string;
   static names(): { [key: string]: string } {
@@ -27061,8 +40050,20 @@ export class ListHistoricalAgentReportResponseBodyDataList extends $tea.Model {
 
 export class ListHistoricalAgentReportResponseBodyData extends $tea.Model {
   list?: ListHistoricalAgentReportResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27088,24 +40089,84 @@ export class ListHistoricalAgentReportResponseBodyData extends $tea.Model {
 }
 
 export class ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back extends $tea.Model {
+  /**
+   * @example
+   * 0.5
+   */
   agentAnswerRate?: number;
   agentHandleRate?: number;
+  /**
+   * @example
+   * 0.6
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 100
+   */
   averageCustomerRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
   callsAgentHandled?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAnswered?: number;
   callsCustomerAnswered?: number;
+  /**
+   * @example
+   * 100
+   */
   callsCustomerHandled?: number;
+  /**
+   * @example
+   * 100
+   */
   callsDialed?: number;
   customerAnswerRate?: number;
+  /**
+   * @example
+   * 0.5
+   */
   customerHandleRate?: number;
+  /**
+   * @example
+   * 100
+   */
   maxCustomerRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalCustomerRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27162,34 +40223,134 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back ex
 
 export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound extends $tea.Model {
   averageFirstResponseTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageHoldTime?: number;
   averageResponseTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 100
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 100
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 100
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 100
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 100
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 100
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 100
+   */
   handleRate?: number;
+  /**
+   * @example
+   * 100
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0.5
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 100
+   */
   totalHoldTime?: number;
   totalMessagesSent?: number;
   totalMessagesSentByAgent?: number;
   totalMessagesSentByCustomer?: number;
+  /**
+   * @example
+   * 100
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27267,14 +40428,46 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound exte
 }
 
 export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInternal extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 100
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 100
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 100
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 100
+   */
   callsTalk?: number;
   callsTalked?: number;
+  /**
+   * @example
+   * 100
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27310,33 +40503,145 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListInternal ext
 }
 
 export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0.5
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 100
+   */
   averageDialingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 100
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 100
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 100
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 100
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 100
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 100
+   */
   maxDialingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 1.4
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0.5
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 100
+   */
   totalDialingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27411,7 +40716,15 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOutbound ext
 
 export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList extends $tea.Model {
   breakCode?: string;
+  /**
+   * @example
+   * 1
+   */
   count?: number;
+  /**
+   * @example
+   * 100
+   */
   duration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27435,36 +40748,140 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOverallBreak
 }
 
 export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOverall extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   averageBreakTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageReadyTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageWorkTime?: number;
   breakCodeDetailList?: ListHistoricalAgentSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList[];
+  /**
+   * @example
+   * 1686030515000
+   */
   firstCheckInTime?: number;
+  /**
+   * @example
+   * 1686030515000
+   */
   lastCheckOutTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxBreakTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxReadyTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0.5
+   */
   occupancyRate?: number;
+  /**
+   * @example
+   * 1.4
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0.5
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 100
+   */
   totalBreakTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalCalls?: number;
+  /**
+   * @example
+   * 100
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalLoggedInTime?: number;
   totalOffSiteLggedInTime?: number;
   totalOfficePhoneLoggedInTime?: number;
   totalOnSiteLoggedInTime?: string;
   totalOutboundScenarioLoggedInTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalOutboundScenarioReadyTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalOutboundScenarioTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalReadyTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27544,15 +40961,31 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataListOverall exte
 }
 
 export class ListHistoricalAgentSkillGroupReportResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * agent1@ccc-test
+   */
   agentId?: string;
   agentName?: string;
   back2Back?: ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back;
+  /**
+   * @example
+   * 1001
+   */
   displayId?: string;
   inbound?: ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound;
   internal?: ListHistoricalAgentSkillGroupReportResponseBodyDataListInternal;
   outbound?: ListHistoricalAgentSkillGroupReportResponseBodyDataListOutbound;
   overall?: ListHistoricalAgentSkillGroupReportResponseBodyDataListOverall;
+  /**
+   * @example
+   * skillgroup1@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * Default
+   */
   skillGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27591,8 +41024,20 @@ export class ListHistoricalAgentSkillGroupReportResponseBodyDataList extends $te
 
 export class ListHistoricalAgentSkillGroupReportResponseBodyData extends $tea.Model {
   list?: ListHistoricalAgentSkillGroupReportResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 11
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27701,61 +41146,241 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChan
 }
 
 export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   abandonRate?: number;
   accessChannelTypeDetails?: ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails[];
+  /**
+   * @example
+   * 0
+   */
   averageAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonedInRingTime?: number;
   averageFirstResponseTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
   averageResponseTime?: number;
+  /**
+   * @example
+   * 5
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 64
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 5
+   */
   averageWaitTime?: number;
+  /**
+   * @example
+   * 13
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandoned?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInQueue?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInRing?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 7
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 7
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsOverflow?: number;
+  /**
+   * @example
+   * 7
+   */
   callsQueued?: number;
   callsQueuingFailed?: number;
   callsQueuingOverflow?: number;
   callsQueuingTimeout?: number;
+  /**
+   * @example
+   * 7
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 0
+   */
   callsTimeout?: number;
+  /**
+   * @example
+   * 1
+   */
   handleRate?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonedInRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 12
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 13
+   */
   maxWaitTime?: number;
+  /**
+   * @example
+   * 12
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
   serviceLevel15?: number;
+  /**
+   * @example
+   * 0
+   */
   serviceLevel20?: number;
   serviceLevel30?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonedInRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
   totalMessagesSent?: number;
   totalMessagesSentByAgent?: number;
   totalMessagesSentByCustomer?: number;
+  /**
+   * @example
+   * 32
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 447
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 34
+   */
   totalWaitTime?: number;
+  /**
+   * @example
+   * 85
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27885,33 +41510,145 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListInbound extends $
 }
 
 export class ListHistoricalSkillGroupReportResponseBodyDataListOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 37
+   */
   averageDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 3
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 2
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 1
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 6
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 0
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 12
+   */
   maxDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 218
+   */
   totalDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 3
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 9
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28010,28 +41747,116 @@ export class ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeD
 }
 
 export class ListHistoricalSkillGroupReportResponseBodyDataListOverall extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   averageBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 8
+   */
   averageWorkTime?: number;
   breakCodeDetailList?: ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList[];
+  /**
+   * @example
+   * 1
+   */
   maxBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 19328
+   */
   maxReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 12
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0.02332222293912065
+   */
   occupancyRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 3
+   */
   totalBreakTime?: number;
+  /**
+   * @example
+   * 13
+   */
   totalCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 23218
+   */
   totalLoggedInTime?: number;
+  /**
+   * @example
+   * 22428
+   */
   totalReadyTime?: number;
+  /**
+   * @example
+   * 449
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 94
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28099,7 +41924,15 @@ export class ListHistoricalSkillGroupReportResponseBodyDataList extends $tea.Mod
   inbound?: ListHistoricalSkillGroupReportResponseBodyDataListInbound;
   outbound?: ListHistoricalSkillGroupReportResponseBodyDataListOutbound;
   overall?: ListHistoricalSkillGroupReportResponseBodyDataListOverall;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   skillGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28130,8 +41963,20 @@ export class ListHistoricalSkillGroupReportResponseBodyDataList extends $tea.Mod
 
 export class ListHistoricalSkillGroupReportResponseBodyData extends $tea.Model {
   list?: ListHistoricalSkillGroupReportResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28158,14 +42003,50 @@ export class ListHistoricalSkillGroupReportResponseBodyData extends $tea.Model {
 
 export class ListInstancesResponseBodyDataListAdminList extends $tea.Model {
   displayName?: string;
+  /**
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent
+   */
   loginName?: string;
+  /**
+   * @example
+   * 1382114****
+   */
   mobile?: string;
+  /**
+   * @example
+   * Admin@ccc-test
+   */
   roleId?: string;
+  /**
+   * @example
+   * Admin
+   */
   roleName?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28203,6 +42084,10 @@ export class ListInstancesResponseBodyDataListAdminList extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyDataListNumberList extends $tea.Model {
+  /**
+   * @example
+   * 0830011****
+   */
   number?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28223,14 +42108,38 @@ export class ListInstancesResponseBodyDataListNumberList extends $tea.Model {
 
 export class ListInstancesResponseBodyDataList extends $tea.Model {
   adminList?: ListInstancesResponseBodyDataListAdminList[];
+  /**
+   * @example
+   * 157123456789****
+   */
   aliyunUid?: string;
+  /**
+   * @example
+   * https://ccc-v2.aliyun.com/#/workbench/ccc-test
+   */
   consoleUrl?: string;
+  /**
+   * @example
+   * 1624679747000
+   */
   createTime?: number;
   description?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   domainName?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   id?: string;
   name?: string;
   numberList?: ListInstancesResponseBodyDataListNumberList[];
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28269,8 +42178,20 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
 
 export class ListInstancesResponseBodyData extends $tea.Model {
   list?: ListInstancesResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28297,14 +42218,50 @@ export class ListInstancesResponseBodyData extends $tea.Model {
 
 export class ListInstancesOfUserResponseBodyDataListAdminList extends $tea.Model {
   displayName?: string;
+  /**
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * agent
+   */
   loginName?: string;
+  /**
+   * @example
+   * 1382114****
+   */
   mobile?: string;
+  /**
+   * @example
+   * Admin@ccc-test
+   */
   roleId?: string;
+  /**
+   * @example
+   * Admin
+   */
   roleName?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28344,10 +42301,30 @@ export class ListInstancesOfUserResponseBodyDataListAdminList extends $tea.Model
 export class ListInstancesOfUserResponseBodyDataListNumberListSkillGroups extends $tea.Model {
   description?: string;
   displayName?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   phoneNumberCount?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 2
+   */
   userCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28379,14 +42356,38 @@ export class ListInstancesOfUserResponseBodyDataListNumberListSkillGroups extend
 }
 
 export class ListInstancesOfUserResponseBodyDataListNumberList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   active?: boolean;
   city?: string;
+  /**
+   * @example
+   * a3fb6c62-9b49-4942-ae5b-cf2abd4123ek
+   */
   contactFlowId?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 0830011****
+   */
   number?: string;
   province?: string;
   skillGroups?: ListInstancesOfUserResponseBodyDataListNumberListSkillGroups[];
+  /**
+   * @example
+   * Bidirection
+   */
   usage?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28423,13 +42424,33 @@ export class ListInstancesOfUserResponseBodyDataListNumberList extends $tea.Mode
 
 export class ListInstancesOfUserResponseBodyDataList extends $tea.Model {
   adminList?: ListInstancesOfUserResponseBodyDataListAdminList[];
+  /**
+   * @example
+   * 157123456789****
+   */
   aliyunUid?: string;
+  /**
+   * @example
+   * https://ccc-v2.aliyun.com/#/workbench/ccc-test
+   */
   consoleUrl?: string;
   description?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   domainName?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   id?: string;
   name?: string;
   numberList?: ListInstancesOfUserResponseBodyDataListNumberList[];
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28466,8 +42487,20 @@ export class ListInstancesOfUserResponseBodyDataList extends $tea.Model {
 
 export class ListInstancesOfUserResponseBodyData extends $tea.Model {
   list?: ListInstancesOfUserResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28581,35 +42614,135 @@ export class ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDeta
 export class ListIntervalAgentReportResponseBodyDataInbound extends $tea.Model {
   accessChannelTypeDetails?: ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails[];
   averageFirstResponseTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
   averageResponseTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 0
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 0
+   */
   handleRate?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
   serviceLevel15?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
   totalMessagesSent?: number;
   totalMessagesSentByAgent?: number;
   totalMessagesSentByCustomer?: number;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28725,33 +42858,145 @@ export class ListIntervalAgentReportResponseBodyDataInternal extends $tea.Model 
 }
 
 export class ListIntervalAgentReportResponseBodyDataOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 30
+   */
   averageDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 1
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 5
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 0
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 60
+   */
   maxDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 2
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 148
+   */
   totalDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 4
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28850,40 +43095,152 @@ export class ListIntervalAgentReportResponseBodyDataOverallBreakCodeDetailList e
 }
 
 export class ListIntervalAgentReportResponseBodyDataOverall extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   averageBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 1
+   */
   averageWorkTime?: number;
   breakCodeDetailList?: ListIntervalAgentReportResponseBodyDataOverallBreakCodeDetailList[];
+  /**
+   * @example
+   * 0
+   */
   firstCheckInTime?: number;
   lastCheckOutTime?: number;
+  /**
+   * @example
+   * 0
+   */
   lastCheckoutTime?: number;
+  /**
+   * @example
+   * 1
+   */
   maxBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 435
+   */
   maxReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 2
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   occupancyRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 1
+   */
   totalBreakTime?: number;
+  /**
+   * @example
+   * 5
+   */
   totalCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 914
+   */
   totalLoggedInTime?: number;
   totalOffSiteLoggedInTime?: number;
+  /**
+   * @example
+   * 已弃用，请使用TotalOffSiteLoggedInTime代替此参数
+   */
   totalOffSiteOnlineTime?: number;
   totalOfficePhoneLoggedInTime?: number;
+  /**
+   * @example
+   * 已弃用，请使用TotalOfficePhoneLoggedInTime代替此参数
+   */
   totalOfficePhoneOnlineTime?: number;
   totalOnSiteLoggedInTime?: number;
+  /**
+   * @example
+   * 已弃用，请使用TotalOnSiteLoggedInTime代替此参数
+   */
   totalOnSiteOnlineTime?: number;
   totalOutboundScenarioLoggedInTime?: number;
   totalOutboundScenarioReadyTime?: number;
+  /**
+   * @example
+   * 已弃用，请使用TotalOutboundScenarioLoggedInTime代替此参数
+   */
   totalOutboundScenarioTime?: number;
+  /**
+   * @example
+   * 763
+   */
   totalReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 4
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28976,6 +43333,10 @@ export class ListIntervalAgentReportResponseBodyData extends $tea.Model {
   internal?: ListIntervalAgentReportResponseBodyDataInternal;
   outbound?: ListIntervalAgentReportResponseBodyDataOutbound;
   overall?: ListIntervalAgentReportResponseBodyDataOverall;
+  /**
+   * @example
+   * 1620291600000
+   */
   statsTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29005,24 +43366,84 @@ export class ListIntervalAgentReportResponseBodyData extends $tea.Model {
 }
 
 export class ListIntervalAgentSkillGroupReportResponseBodyDataBack2Back extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   agentAnswerRate?: number;
   agentHandleRate?: number;
+  /**
+   * @example
+   * 0.5
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 100
+   */
   averageCustomerRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
   callsAgentHandled?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAnswered?: number;
   callsCustomerAnswered?: number;
+  /**
+   * @example
+   * 100
+   */
   callsCustomerHandled?: number;
+  /**
+   * @example
+   * 100
+   */
   callsDialed?: number;
   customerAnswerRate?: number;
+  /**
+   * @example
+   * 100
+   */
   customerHandleRate?: number;
+  /**
+   * @example
+   * 100
+   */
   maxCustomerRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalCustomerRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29079,34 +43500,134 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataBack2Back extends 
 
 export class ListIntervalAgentSkillGroupReportResponseBodyDataInbound extends $tea.Model {
   averageFirstResponseTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageHoldTime?: number;
   averageResponseTime?: number;
+  /**
+   * @example
+   * 11
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 10
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 100
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 100
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 7
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 100
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 100
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 100
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 0.5
+   */
   handleRate?: number;
+  /**
+   * @example
+   * 100
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0.5
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 100
+   */
   totalHoldTime?: number;
   totalMessagesSent?: number;
   totalMessagesSentByAgent?: number;
   totalMessagesSentByCustomer?: number;
+  /**
+   * @example
+   * 100
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 85
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29184,14 +43705,46 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataInbound extends $t
 }
 
 export class ListIntervalAgentSkillGroupReportResponseBodyDataInternal extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 100
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 100
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 100
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 100
+   */
   callsTalk?: number;
   callsTalked?: number;
+  /**
+   * @example
+   * 100
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29227,33 +43780,145 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataInternal extends $
 }
 
 export class ListIntervalAgentSkillGroupReportResponseBodyDataOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0.5
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 100
+   */
   averageDialingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 100
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 100
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 100
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 100
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 100
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 100
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 100
+   */
   maxDialingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 100
+   */
   totalDialingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29328,7 +43993,15 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataOutbound extends $
 
 export class ListIntervalAgentSkillGroupReportResponseBodyDataOverallBreakCodeDetailList extends $tea.Model {
   breakCode?: string;
+  /**
+   * @example
+   * 1
+   */
   count?: number;
+  /**
+   * @example
+   * 100
+   */
   duration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29352,37 +44025,141 @@ export class ListIntervalAgentSkillGroupReportResponseBodyDataOverallBreakCodeDe
 }
 
 export class ListIntervalAgentSkillGroupReportResponseBodyDataOverall extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   averageBreakTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageReadyTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   averageWorkTime?: number;
   breakCodeDetailList?: ListIntervalAgentSkillGroupReportResponseBodyDataOverallBreakCodeDetailList[];
+  /**
+   * @example
+   * 100
+   */
   firstCheckInTime?: number;
   lastCheckOutTime?: number;
+  /**
+   * @example
+   * 100
+   */
   lastCheckoutTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxBreakTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxReadyTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0.4
+   */
   occupancyRate?: number;
+  /**
+   * @example
+   * 1.4
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 100
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 100
+   */
   totalBreakTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalCalls?: number;
+  /**
+   * @example
+   * 100
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalLoggedInTime?: number;
   totalOffSiteLoggedInTime?: string;
   totalOfficePhoneLoggedInTime?: string;
   totalOnSiteLoggedInTime?: string;
   totalOutboundScenarioLoggedInTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalOutboundScenarioReadyTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalOutboundScenarioTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalReadyTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 100
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29469,6 +44246,10 @@ export class ListIntervalAgentSkillGroupReportResponseBodyData extends $tea.Mode
   internal?: ListIntervalAgentSkillGroupReportResponseBodyDataInternal;
   outbound?: ListIntervalAgentSkillGroupReportResponseBodyDataOutbound;
   overall?: ListIntervalAgentSkillGroupReportResponseBodyDataOverall;
+  /**
+   * @example
+   * 1620291600000
+   */
   statsTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29499,64 +44280,272 @@ export class ListIntervalAgentSkillGroupReportResponseBodyData extends $tea.Mode
 
 export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Model {
   abandonRate?: number;
+  /**
+   * @example
+   * 0
+   */
   abandonedRate?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonedInIVRTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonedInRingTime?: number;
   averageFirstResponseTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
   averageResponseTime?: number;
+  /**
+   * @example
+   * 5
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 64
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 5
+   */
   averageWaitTime?: number;
+  /**
+   * @example
+   * 13
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandoned?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInIVR?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInQueue?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInRing?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInVoiceNavigator?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferred?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferred?: number;
   callsCausedIVRException?: number;
+  /**
+   * @example
+   * 0
+   */
   callsForwardToOutsideNumber?: number;
+  /**
+   * @example
+   * 7
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 0
+   */
   callsIVRException?: number;
+  /**
+   * @example
+   * 7
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 7
+   */
   callsQueued?: number;
+  /**
+   * @example
+   * 0
+   */
   callsQueuingFailed?: number;
+  /**
+   * @example
+   * 0
+   */
   callsQueuingOverflow?: number;
+  /**
+   * @example
+   * 0
+   */
   callsQueuingTimeout?: number;
+  /**
+   * @example
+   * 7
+   */
   callsRinged?: number;
   callsToVoicemail?: number;
+  /**
+   * @example
+   * 0
+   */
   callsVoicemail?: number;
+  /**
+   * @example
+   * 1
+   */
   handleRate?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonedInIVRTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonedInRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 12
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 219
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 13
+   */
   maxWaitTime?: number;
+  /**
+   * @example
+   * 17
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 1
+   */
   serviceLevel20?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonedInIVRTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonedInRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
   totalMessagesSent?: number;
   totalMessagesSentByAgent?: number;
   totalMessagesSentByCustomer?: number;
+  /**
+   * @example
+   * 32
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 447
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 34
+   */
   totalWaitTime?: number;
+  /**
+   * @example
+   * 85
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29694,31 +44683,135 @@ export class ListIntervalInstanceReportResponseBodyDataInbound extends $tea.Mode
 }
 
 export class ListIntervalInstanceReportResponseBodyDataOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 0
+   */
   averageDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferred?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferred?: number;
+  /**
+   * @example
+   * 0
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 0
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 0
+   */
   maxDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   totalDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29788,27 +44881,115 @@ export class ListIntervalInstanceReportResponseBodyDataOutbound extends $tea.Mod
 }
 
 export class ListIntervalInstanceReportResponseBodyDataOverall extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   averageBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   occupancyRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   totalBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalLoggedInTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29873,6 +45054,10 @@ export class ListIntervalInstanceReportResponseBodyData extends $tea.Model {
   inbound?: ListIntervalInstanceReportResponseBodyDataInbound;
   outbound?: ListIntervalInstanceReportResponseBodyDataOutbound;
   overall?: ListIntervalInstanceReportResponseBodyDataOverall;
+  /**
+   * @example
+   * 1620230400000
+   */
   statsTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29962,57 +45147,237 @@ export class ListIntervalSkillGroupReportResponseBodyDataBack2Back extends $tea.
 }
 
 export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   abandonRate?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageAbandonedInRingTime?: number;
   averageFirstResponseTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
   averageResponseTime?: number;
+  /**
+   * @example
+   * 11
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 5
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 11
+   */
   averageWaitTime?: number;
+  /**
+   * @example
+   * 8
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandoned?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInQueue?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAbandonedInRing?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 2
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 3
+   */
   callsOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsOverflow?: number;
+  /**
+   * @example
+   * 3
+   */
   callsQueued?: number;
   callsQueuingOverflow?: number;
   callsQueuingTimeout?: number;
+  /**
+   * @example
+   * 3
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 0
+   */
   callsTimeout?: number;
+  /**
+   * @example
+   * 0.6666666666666666
+   */
   handleRate?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxAbandonedInRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 18
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 6
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 18
+   */
   maxWaitTime?: number;
+  /**
+   * @example
+   * 19
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   serviceLevel20?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonedInQueueTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalAbandonedInRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
   totalMessagesSent?: number;
   totalMessagesSentByAgent?: number;
   totalMessagesSentByCustomer?: number;
+  /**
+   * @example
+   * 33
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 9
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 33
+   */
   totalWaitTime?: number;
+  /**
+   * @example
+   * 23
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30134,33 +45499,145 @@ export class ListIntervalSkillGroupReportResponseBodyDataInbound extends $tea.Mo
 }
 
 export class ListIntervalSkillGroupReportResponseBodyDataOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 30
+   */
   averageDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 5
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 3
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 1
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferIn?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 2
+   */
   callsDialed?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHold?: number;
+  /**
+   * @example
+   * 0
+   */
   callsRinged?: number;
+  /**
+   * @example
+   * 49
+   */
   maxDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 5
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 4
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 60
+   */
   totalDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 5
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 5
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30259,28 +45736,116 @@ export class ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailL
 }
 
 export class ListIntervalSkillGroupReportResponseBodyDataOverall extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   averageBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageHoldTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 6
+   */
   averageWorkTime?: number;
   breakCodeDetailList?: ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList[];
+  /**
+   * @example
+   * 1
+   */
   maxBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxHoldTime?: number;
+  /**
+   * @example
+   * 4927
+   */
   maxReadyTime?: number;
+  /**
+   * @example
+   * 6
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 19
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0.00422315148470254
+   */
   occupancyRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 5
+   */
   totalBreakTime?: number;
+  /**
+   * @example
+   * 5
+   */
   totalCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   totalHoldTime?: number;
+  /**
+   * @example
+   * 9236
+   */
   totalLoggedInTime?: number;
+  /**
+   * @example
+   * 9106
+   */
   totalReadyTime?: number;
+  /**
+   * @example
+   * 13
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 27
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30348,6 +45913,10 @@ export class ListIntervalSkillGroupReportResponseBodyData extends $tea.Model {
   inbound?: ListIntervalSkillGroupReportResponseBodyDataInbound;
   outbound?: ListIntervalSkillGroupReportResponseBodyDataOutbound;
   overall?: ListIntervalSkillGroupReportResponseBodyDataOverall;
+  /**
+   * @example
+   * 1604639129000
+   */
   statsTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30375,21 +45944,73 @@ export class ListIntervalSkillGroupReportResponseBodyData extends $tea.Model {
 }
 
 export class ListIvrTrackingDetailsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 0533128****
+   */
   callee?: string;
+  /**
+   * @example
+   * 1332315****
+   */
   caller?: string;
+  /**
+   * @example
+   * 65cp2c15-92ac-4e67-98b2-073a3c541c5d
+   */
   channelId?: string;
+  /**
+   * @example
+   * A=B;C=D
+   */
   channelVariables?: string;
+  /**
+   * @example
+   * job-10963442671187****
+   */
   contactId?: string;
+  /**
+   * @example
+   * 1621910542876
+   */
   enterTime?: number;
+  /**
+   * @example
+   * abc99462-1058-47d0-a114-f145ea7444ff
+   */
   flowId?: string;
   flowName?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instance?: string;
+  /**
+   * @example
+   * 1621910545105
+   */
   leaveTime?: number;
+  /**
+   * @example
+   * Success
+   */
   nodeExitCode?: string;
+  /**
+   * @example
+   * e0bc19a3
+   */
   nodeId?: string;
   nodeName?: string;
   nodeProperties?: { [key: string]: any };
+  /**
+   * @example
+   * PLAY_OR_SAY
+   */
   nodeType?: string;
+  /**
+   * @example
+   * {"digits":"2"}
+   */
   nodeVariables?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -30440,8 +46061,20 @@ export class ListIvrTrackingDetailsResponseBodyDataList extends $tea.Model {
 
 export class ListIvrTrackingDetailsResponseBodyData extends $tea.Model {
   list?: ListIvrTrackingDetailsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 3
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30467,23 +46100,79 @@ export class ListIvrTrackingDetailsResponseBodyData extends $tea.Model {
 }
 
 export class ListLegacyAgentEventLogsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   agentDropCall?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentNo?: string;
   callDir?: string;
+  /**
+   * @example
+   * 378654****
+   */
   callId?: string;
   callMode?: string;
   callType?: string;
+  /**
+   * @example
+   * 1312343****
+   */
   calleeId?: string;
+  /**
+   * @example
+   * 08331111****
+   */
   callerId?: string;
+  /**
+   * @example
+   * 345467****
+   */
   connId?: string;
   event?: string;
+  /**
+   * @example
+   * skillgroup1@ccc-test,skillgroup2@ccc-test
+   */
   groupNo?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 8012****
+   */
   phoneNo?: string;
+  /**
+   * @example
+   * 2021-12-03T10:15:30
+   */
   statisticDate?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   targetRequest?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   targetSelect?: string;
+  /**
+   * @example
+   * acc101
+   */
   tenantId?: string;
+  /**
+   * @example
+   * 07518888****
+   */
   transferNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30538,8 +46227,20 @@ export class ListLegacyAgentEventLogsResponseBodyDataList extends $tea.Model {
 
 export class ListLegacyAgentEventLogsResponseBodyData extends $tea.Model {
   list?: ListLegacyAgentEventLogsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30565,31 +46266,103 @@ export class ListLegacyAgentEventLogsResponseBodyData extends $tea.Model {
 }
 
 export class ListLegacyAgentStatusLogsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   agentDropCall?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentNo?: string;
   aliHangupCause?: string;
   callDir?: string;
+  /**
+   * @example
+   * 454326****
+   */
   callId?: string;
   callType?: string;
+  /**
+   * @example
+   * 1312121****
+   */
   calleeId?: string;
+  /**
+   * @example
+   * 08337676****
+   */
   callerId?: string;
+  /**
+   * @example
+   * 487326****
+   */
   connId?: string;
   extend1?: string;
   extend2?: string;
   extend3?: string;
   extend4?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   groupNo?: string;
+  /**
+   * @example
+   * 8032****
+   */
   monitedAgentNo?: string;
+  /**
+   * @example
+   * 8012****
+   */
   monitedAgentPhoneNo?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 8012****
+   */
   phoneNo?: string;
+  /**
+   * @example
+   * 2021-12-03T10:15:30
+   */
   statisticDate?: string;
+  /**
+   * @example
+   * 3
+   */
   statisticTime?: number;
   status?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   targetRequest?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   targetSelect?: string;
+  /**
+   * @example
+   * acc6736
+   */
   tenantId?: string;
+  /**
+   * @example
+   * 07551231****
+   */
   transferNo?: string;
+  /**
+   * @example
+   * 05711231****
+   */
   transferNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30660,8 +46433,20 @@ export class ListLegacyAgentStatusLogsResponseBodyDataList extends $tea.Model {
 
 export class ListLegacyAgentStatusLogsResponseBodyData extends $tea.Model {
   list?: ListLegacyAgentStatusLogsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30687,17 +46472,57 @@ export class ListLegacyAgentStatusLogsResponseBodyData extends $tea.Model {
 }
 
 export class ListLegacyAppraiseLogsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 3786929579
+   */
   acid?: string;
+  /**
+   * @example
+   * Outbound
+   */
   contactType?: string;
+  /**
+   * @example
+   * 10505
+   */
   id?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * {}
+   */
   keyMarkRelation?: string;
   note?: string;
   parentNote?: string;
+  /**
+   * @example
+   * 2
+   */
   pressKey?: string;
+  /**
+   * @example
+   * 28036411123456****
+   */
   ramId?: string;
+  /**
+   * @example
+   * test@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 2021-12-03T10:15:30
+   */
   statisticDate?: string;
+  /**
+   * @example
+   * Launch
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30740,8 +46565,20 @@ export class ListLegacyAppraiseLogsResponseBodyDataList extends $tea.Model {
 
 export class ListLegacyAppraiseLogsResponseBodyData extends $tea.Model {
   list?: ListLegacyAppraiseLogsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 18
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30767,16 +46604,52 @@ export class ListLegacyAppraiseLogsResponseBodyData extends $tea.Model {
 }
 
 export class ListLegacyQueueEventLogsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 456328****
+   */
   acid?: string;
+  /**
+   * @example
+   * 8012****
+   */
   ani?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   answerPhone?: string;
+  /**
+   * @example
+   * 15
+   */
   answerTime?: number;
   cause?: string;
+  /**
+   * @example
+   * 1312211****
+   */
   dnis?: string;
   id?: number;
+  /**
+   * @example
+   * 10
+   */
   queueTime?: number;
+  /**
+   * @example
+   * 2021-12-03T10:15:30
+   */
   statisticDate?: string;
+  /**
+   * @example
+   * acc3733
+   */
   tenantId?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   vq?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30817,8 +46690,20 @@ export class ListLegacyQueueEventLogsResponseBodyDataList extends $tea.Model {
 
 export class ListLegacyQueueEventLogsResponseBodyData extends $tea.Model {
   list?: ListLegacyQueueEventLogsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30844,14 +46729,46 @@ export class ListLegacyQueueEventLogsResponseBodyData extends $tea.Model {
 }
 
 export class ListMonoRecordingsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
   agentName?: string;
+  /**
+   * @example
+   * job-25920271311543****
+   */
   contactId?: string;
+  /**
+   * @example
+   * 5903871
+   */
   duration?: string;
+  /**
+   * @example
+   * job-25920271311543****-798f1e90-1f82-42da-914c-46580c8f4c85-1656926518491.wav
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://ccc-v2-shanghai.oss-cn-shanghai.aliyuncs.com/ccc-test/job-25920271311543****-798f1e90-1f82-42da-914c-46580c8f4c85-1656926518491.wav?Expires=1657014031&OSSAccessKeyId=****&Signature=****
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * 26972543893791****
+   */
   ramId?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1620259200000
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30909,16 +46826,52 @@ export class ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments extends 
 }
 
 export class ListMultiChannelRecordingsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ch-user-8526899****-8602****-1656926504363-job-25920271311543****
+   */
   agentChannelId?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentId?: string;
   agentName?: string;
+  /**
+   * @example
+   * job-25920271311543****
+   */
   contactId?: string;
+  /**
+   * @example
+   * 56321
+   */
   duration?: string;
+  /**
+   * @example
+   * job-25920271311543****-798f1e90-1f82-42da-914c-46580c8f4c85-1656926518491.mkv
+   */
   fileName?: string;
+  /**
+   * @example
+   * https://ccc-v2-shanghai.oss-cn-shanghai.aliyuncs.com/ccc-test/job-25920271311543****-798f1e90-1f82-42da-914c-46580c8f4c85-1656926518491.mkv?Expires=1657014031&OSSAccessKeyId=****&Signature=****
+   */
   fileUrl?: string;
   holdTimeSegments?: ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments[];
+  /**
+   * @example
+   * 22807673106369****
+   */
   ramId?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1656926518491
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30959,6 +46912,10 @@ export class ListMultiChannelRecordingsResponseBodyData extends $tea.Model {
 
 export class ListOutboundNumbersOfUserResponseBodyDataList extends $tea.Model {
   city?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   number?: string;
   province?: string;
   static names(): { [key: string]: string } {
@@ -30984,8 +46941,20 @@ export class ListOutboundNumbersOfUserResponseBodyDataList extends $tea.Model {
 
 export class ListOutboundNumbersOfUserResponseBodyData extends $tea.Model {
   list?: ListOutboundNumbersOfUserResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31011,10 +46980,26 @@ export class ListOutboundNumbersOfUserResponseBodyData extends $tea.Model {
 }
 
 export class ListPersonalNumbersOfUserResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   active?: boolean;
   city?: string;
+  /**
+   * @example
+   * a3fb6c62-9b49-4942-ae5b-cf2abd4123ek
+   */
   contactFlowId?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 08330011****
+   */
   number?: string;
   province?: string;
   static names(): { [key: string]: string } {
@@ -31046,8 +47031,20 @@ export class ListPersonalNumbersOfUserResponseBodyDataList extends $tea.Model {
 
 export class ListPersonalNumbersOfUserResponseBodyData extends $tea.Model {
   list?: ListPersonalNumbersOfUserResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31074,8 +47071,20 @@ export class ListPersonalNumbersOfUserResponseBodyData extends $tea.Model {
 
 export class ListPhoneNumbersResponseBodyDataListSkillGroups extends $tea.Model {
   displayName?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   name?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31101,18 +47110,54 @@ export class ListPhoneNumbersResponseBodyDataListSkillGroups extends $tea.Model 
 }
 
 export class ListPhoneNumbersResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   active?: boolean;
   city?: string;
+  /**
+   * @example
+   * a3fb6c62-9b49-4942-ae5b-cf2abd4123ek
+   */
   contactFlowId?: string;
   contactFlowName?: string;
+  /**
+   * @example
+   * 1617958538000
+   */
   createTime?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 08330011****
+   */
   number?: string;
+  /**
+   * @example
+   * alicom
+   */
   provider?: string;
   province?: string;
   skillGroups?: ListPhoneNumbersResponseBodyDataListSkillGroups[];
+  /**
+   * @example
+   * M1
+   */
   tags?: string;
+  /**
+   * @example
+   * Bidirection
+   */
   usage?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31157,8 +47202,20 @@ export class ListPhoneNumbersResponseBodyDataList extends $tea.Model {
 
 export class ListPhoneNumbersResponseBodyData extends $tea.Model {
   list?: ListPhoneNumbersResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31184,12 +47241,32 @@ export class ListPhoneNumbersResponseBodyData extends $tea.Model {
 }
 
 export class ListPhoneNumbersOfSkillGroupResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   active?: boolean;
   city?: string;
+  /**
+   * @example
+   * a3fb6c62-9b49-4942-ae5b-cf2abd4123ek
+   */
   contactFlowId?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 08330011****
+   */
   number?: string;
   province?: string;
+  /**
+   * @example
+   * Bidirection
+   */
   usage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31222,8 +47299,20 @@ export class ListPhoneNumbersOfSkillGroupResponseBodyDataList extends $tea.Model
 
 export class ListPhoneNumbersOfSkillGroupResponseBodyData extends $tea.Model {
   list?: ListPhoneNumbersOfSkillGroupResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31249,8 +47338,20 @@ export class ListPhoneNumbersOfSkillGroupResponseBodyData extends $tea.Model {
 }
 
 export class ListPrivilegesOfUserResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * Workbench:Call
+   */
   name?: string;
+  /**
+   * @example
+   * SELF_ONLY
+   */
   scope?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31274,12 +47375,36 @@ export class ListPrivilegesOfUserResponseBodyData extends $tea.Model {
 }
 
 export class ListRamUsersResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 15772400000****
+   */
   aliyunUid?: number;
   displayName?: string;
+  /**
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @example
+   * agent
+   */
   loginName?: string;
+  /**
+   * @example
+   * 1382114****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   primary?: boolean;
+  /**
+   * @example
+   * 28036411123456****
+   */
   ramId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31312,8 +47437,20 @@ export class ListRamUsersResponseBodyDataList extends $tea.Model {
 
 export class ListRamUsersResponseBodyData extends $tea.Model {
   list?: ListRamUsersResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31339,20 +47476,68 @@ export class ListRamUsersResponseBodyData extends $tea.Model {
 }
 
 export class ListRealtimeAgentStatesResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * agent1@ccc-test
+   */
   agentId?: string;
   agentName?: string;
+  /**
+   * @example
+   * Outbound
+   */
   callType?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   counterParty?: string;
+  /**
+   * @example
+   * 16
+   */
   duration?: number;
+  /**
+   * @example
+   * 80317391
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1382114****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   skillGroupIdList?: string[];
   skillGroupNameList?: string[];
+  /**
+   * @example
+   * ACW
+   */
   state?: string;
+  /**
+   * @example
+   * Monitored
+   */
   stateCode?: string;
+  /**
+   * @example
+   * 8
+   */
   stateTime?: number;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31401,8 +47586,20 @@ export class ListRealtimeAgentStatesResponseBodyDataList extends $tea.Model {
 
 export class ListRealtimeAgentStatesResponseBodyData extends $tea.Model {
   list?: ListRealtimeAgentStatesResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31451,17 +47648,61 @@ export class ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList
 
 export class ListRealtimeSkillGroupStatesResponseBodyDataList extends $tea.Model {
   breakCodeDetailList?: ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList[];
+  /**
+   * @example
+   * 0
+   */
   breakingAgents?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 2
+   */
   loggedInAgents?: number;
+  /**
+   * @example
+   * 0
+   */
   longestWaitingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   outboundScenarioReadyAgents?: number;
+  /**
+   * @example
+   * 2
+   */
   readyAgents?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   skillGroupName?: string;
+  /**
+   * @example
+   * 0
+   */
   talkingAgents?: number;
   totalAgents?: number;
+  /**
+   * @example
+   * 0
+   */
   waitingCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   workingAgents?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31506,8 +47747,20 @@ export class ListRealtimeSkillGroupStatesResponseBodyDataList extends $tea.Model
 
 export class ListRealtimeSkillGroupStatesResponseBodyData extends $tea.Model {
   list?: ListRealtimeSkillGroupStatesResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31533,16 +47786,60 @@ export class ListRealtimeSkillGroupStatesResponseBodyData extends $tea.Model {
 }
 
 export class ListRecentCallDetailRecordsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * agent@ccc-test
+   */
   agentIds?: string;
+  /**
+   * @example
+   * 16
+   */
   callDuration?: string;
+  /**
+   * @example
+   * 1332315****
+   */
   calledNumber?: string;
+  /**
+   * @example
+   * 0533128****
+   */
   callingNumber?: string;
+  /**
+   * @example
+   * Success
+   */
   contactDisposition?: string;
+  /**
+   * @example
+   * job-7660472242845****
+   */
   contactId?: string;
+  /**
+   * @example
+   * Outbound
+   */
   contactType?: string;
+  /**
+   * @example
+   * 16
+   */
   duration?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupIds?: string;
+  /**
+   * @example
+   * 1532448000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31583,8 +47880,20 @@ export class ListRecentCallDetailRecordsResponseBodyDataList extends $tea.Model 
 
 export class ListRecentCallDetailRecordsResponseBodyData extends $tea.Model {
   list?: ListRecentCallDetailRecordsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 11
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31610,7 +47919,15 @@ export class ListRecentCallDetailRecordsResponseBodyData extends $tea.Model {
 }
 
 export class ListRolesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Admin
+   */
   name?: string;
+  /**
+   * @example
+   * Admin@ccc-test
+   */
   roleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31632,22 +47949,78 @@ export class ListRolesResponseBodyData extends $tea.Model {
 }
 
 export class ListSkillGroupStatesResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   averageWaitingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   breakingAgents?: number;
   inboundTalkingAgents?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 0
+   */
   loggedInAgents?: number;
+  /**
+   * @example
+   * 0
+   */
   longestCall?: number;
+  /**
+   * @example
+   * 0
+   */
   outboundScenarioReadyAgents?: number;
   outboundTalkingAgents?: number;
+  /**
+   * @example
+   * 1
+   */
   readyAgents?: number;
+  /**
+   * @example
+   * skillgroup1@ccc-test
+   */
   skillGroupId?: string;
   skillGroupName?: string;
+  /**
+   * @example
+   * 0
+   */
   talkingAgents?: number;
+  /**
+   * @example
+   * 0
+   */
   waitingCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   waitingCallsLevel10?: number;
+  /**
+   * @example
+   * 0
+   */
   waitingCallsLevel20?: number;
+  /**
+   * @example
+   * 0
+   */
   waitingCallsLevel30?: number;
+  /**
+   * @example
+   * 0
+   */
   workingAgents?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31700,8 +48073,20 @@ export class ListSkillGroupStatesResponseBodyDataList extends $tea.Model {
 
 export class ListSkillGroupStatesResponseBodyData extends $tea.Model {
   list?: ListSkillGroupStatesResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31727,42 +48112,162 @@ export class ListSkillGroupStatesResponseBodyData extends $tea.Model {
 }
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListInbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   abandonedInQueueOfQueueCount?: number;
+  /**
+   * @example
+   * 0
+   */
   answeredByAgentOfQueueCount?: number;
+  /**
+   * @example
+   * 0
+   */
   answeredByAgentOfQueueMaxWaitTimeDuration?: number;
+  /**
+   * @example
+   * 0
+   */
   answeredByAgentOfQueueWaitTimeDuration?: number;
+  /**
+   * @example
+   * 0
+   */
   averageRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
   callsAbandoned?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAttendedTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsBlindTransferOut?: number;
+  /**
+   * @example
+   * 0
+   */
   callsHandled?: number;
+  /**
+   * @example
+   * 0
+   */
   callsOffered?: number;
   callsOverflow?: string;
   callsQueuingCanceled?: string;
   callsQueuingFailure?: string;
   callsQueuingRerouted?: string;
   callsQueuingTimeout?: number;
+  /**
+   * @example
+   * 0
+   */
   callsServiceLevel10?: number;
+  /**
+   * @example
+   * 0
+   */
   callsServiceLevel20?: number;
+  /**
+   * @example
+   * 0
+   */
   callsServiceLevel30?: number;
   callsTimeout?: number;
+  /**
+   * @example
+   * 0
+   */
   giveUpByAgentOfQueueCount?: number;
+  /**
+   * @example
+   * 0
+   */
   handleRate?: number;
+  /**
+   * @example
+   * 0
+   */
   inComingQueueOfQueueCount?: number;
+  /**
+   * @example
+   * 0
+   */
   maxRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: string;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   overFlowInQueueOfQueueCount?: number;
+  /**
+   * @example
+   * 0
+   */
   queueMaxWaitTimeDuration?: number;
+  /**
+   * @example
+   * 0
+   */
   queueWaitTimeDuration?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   serviceLevel20?: number;
+  /**
+   * @example
+   * 0
+   */
   totalRingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31854,13 +48359,37 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
 }
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOutbound extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   answerRate?: number;
+  /**
+   * @example
+   * 0
+   */
   averageDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
   callsAbandoned?: number;
   callsAgentHandled?: number;
+  /**
+   * @example
+   * 0
+   */
   callsAnswered?: number;
+  /**
+   * @example
+   * 0
+   */
   callsDialed?: number;
   callsOffered?: number;
   callsQueuingCancelled?: number;
@@ -31869,17 +48398,57 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
   callsQueuingOverflow?: number;
   callsQueuingRerouted?: number;
   callsQueuingTimeout?: number;
+  /**
+   * @example
+   * 0
+   */
   callsServiceLevel30?: string;
   callsServiceLevel30V2?: number;
+  /**
+   * @example
+   * 0
+   */
   maxDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   totalDialingTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
   totalWaitTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -31951,21 +48520,85 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
 }
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOverall extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   averageReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   averageWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   maxWorkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   occupancyRate?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionIndex?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysOffered?: number;
+  /**
+   * @example
+   * 0
+   */
   satisfactionSurveysResponded?: number;
+  /**
+   * @example
+   * 0
+   */
   totalBreakTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalCalls?: number;
+  /**
+   * @example
+   * 0
+   */
   totalLoggedInTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalReadyTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalTalkTime?: number;
+  /**
+   * @example
+   * 0
+   */
   totalWorkTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32016,11 +48649,23 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportList extends $tea.Model {
   inbound?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListInbound;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   outbound?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOutbound;
   overall?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOverall;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
   skillGroupName?: string;
+  /**
+   * @example
+   * 2018-09-13 00:00:00
+   */
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32053,8 +48698,20 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
 
 export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReport extends $tea.Model {
   list?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 3
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32082,11 +48739,31 @@ export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGrou
 export class ListSkillGroupsResponseBodyDataList extends $tea.Model {
   description?: string;
   displayName?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   mediaType?: string;
+  /**
+   * @example
+   * 1
+   */
   phoneNumberCount?: number;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   skillGroupName?: string;
+  /**
+   * @example
+   * 2
+   */
   userCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32121,8 +48798,20 @@ export class ListSkillGroupsResponseBodyDataList extends $tea.Model {
 
 export class ListSkillGroupsResponseBodyData extends $tea.Model {
   list?: ListSkillGroupsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32149,8 +48838,20 @@ export class ListSkillGroupsResponseBodyData extends $tea.Model {
 
 export class ListSkillLevelsOfUserResponseBodyDataList extends $tea.Model {
   mediaType?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   skillGroupName?: string;
+  /**
+   * @example
+   * 5
+   */
   skillLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32177,8 +48878,20 @@ export class ListSkillLevelsOfUserResponseBodyDataList extends $tea.Model {
 
 export class ListSkillLevelsOfUserResponseBodyData extends $tea.Model {
   list?: ListSkillLevelsOfUserResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32204,19 +48917,59 @@ export class ListSkillLevelsOfUserResponseBodyData extends $tea.Model {
 }
 
 export class ListTicketTasksResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * CounterSignTask
+   */
   action?: string;
+  /**
+   * @example
+   * assignee@ccc-test
+   */
   assignee?: string;
+  /**
+   * @example
+   * assignee
+   */
   assigneeName?: string;
   comment?: string;
+  /**
+   * @example
+   * 1620269200000
+   */
   endTime?: number;
   fileKeys?: string[];
   fileUrls?: string[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1620259200000
+   */
   startTime?: number;
+  /**
+   * @example
+   * APPROVAL__6zu2QjAz
+   */
   taskDefinitionNodeId?: string;
+  /**
+   * @example
+   * APPROVAL
+   */
   taskDefinitionNodeType?: string;
+  /**
+   * @example
+   * eb039a4a6a5742c6b44ccff0c1fca745
+   */
   taskId?: string;
   taskName?: string;
+  /**
+   * @example
+   * 5491d3b4-14ee-4341-b5f1-db2c78beddeb
+   */
   ticketId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32262,26 +49015,98 @@ export class ListTicketTasksResponseBodyData extends $tea.Model {
 }
 
 export class ListTicketTemplatesResponseBodyDataListTicketFields extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
+  /**
+   * @example
+   * {}
+   */
   attribute?: string;
+  /**
+   * @example
+   * 1715780670000
+   */
   createdTime?: number;
+  /**
+   * @example
+   * creator
+   */
   creator?: string;
+  /**
+   * @example
+   * String
+   */
   dataType?: string;
   description?: string;
+  /**
+   * @example
+   * false
+   */
   disabled?: boolean;
   displayName?: string;
+  /**
+   * @example
+   * 1
+   */
   displayOrder?: number;
+  /**
+   * @example
+   * textbox
+   */
   editorType?: string;
+  /**
+   * @example
+   * 30
+   */
   maxLength?: number;
+  /**
+   * @example
+   * 10
+   */
   maximum?: number;
+  /**
+   * @example
+   * 1
+   */
   minLength?: number;
+  /**
+   * @example
+   * 1
+   */
   minimum?: number;
+  /**
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @example
+   * ^
+   */
   pattern?: string;
   patternErrorMessage?: string;
+  /**
+   * @example
+   * false
+   */
   readOnly?: boolean;
+  /**
+   * @example
+   * false
+   */
   required?: boolean;
+  /**
+   * @example
+   * false
+   */
   system?: boolean;
+  /**
+   * @example
+   * 1715780670000
+   */
   updatedTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32341,16 +49166,48 @@ export class ListTicketTemplatesResponseBodyDataListTicketFields extends $tea.Mo
 }
 
 export class ListTicketTemplatesResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   appliedVersion?: string;
+  /**
+   * @example
+   * 43c2671b-*****-4223-86d0-6bd187905cc8
+   */
   categoryId?: string;
+  /**
+   * @example
+   * creator@ccc-test
+   */
   editor?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1715780670000
+   */
   latestVersion?: string;
   name?: string;
   processDefinition?: string;
+  /**
+   * @example
+   * Enabled
+   */
   state?: string;
+  /**
+   * @example
+   * b5c21219-3a1e-4bc0-92e7-da66e057d2f6
+   */
   templateId?: string;
   ticketFields?: ListTicketTemplatesResponseBodyDataListTicketFields[];
+  /**
+   * @example
+   * 1715780670000
+   */
   updatedTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32391,8 +49248,20 @@ export class ListTicketTemplatesResponseBodyDataList extends $tea.Model {
 
 export class ListTicketTemplatesResponseBodyData extends $tea.Model {
   list?: ListTicketTemplatesResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 25
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32418,30 +49287,114 @@ export class ListTicketTemplatesResponseBodyData extends $tea.Model {
 }
 
 export class ListTicketsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * assignee@ccc-test
+   */
   assignee?: string;
+  /**
+   * @example
+   * Assignee
+   */
   assigneeName?: string;
+  /**
+   * @example
+   * 43c2671b-*****-4223-86d0-6bd187905cc8
+   */
   categoryId?: string;
   categoryName?: string;
+  /**
+   * @example
+   * Completed
+   */
   closeCode?: string;
   comment?: string;
+  /**
+   * @example
+   * {"productName":"alynx"}
+   */
   context?: string;
+  /**
+   * @example
+   * 1631440860000
+   */
   createdTime?: string;
+  /**
+   * @example
+   * creator@ccc-test
+   */
   creator?: string;
+  /**
+   * @example
+   * Creator
+   */
   creatorName?: string;
+  /**
+   * @example
+   * 0707dab6-34a8-11ef-9823-161e3802b2d4
+   */
   currentTaskId?: string;
   currentTaskName?: string;
+  /**
+   * @example
+   * 1631440860000
+   */
   currentTaskStartTime?: number;
+  /**
+   * @example
+   * 51e155ce-*****1-b402-13c69597b920
+   */
   customerId?: string;
+  /**
+   * @example
+   * 1631440860000
+   */
   endTime?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-47150***150396416
+   */
   jobId?: string;
+  /**
+   * @example
+   * CHAT
+   */
   source?: string;
+  /**
+   * @example
+   * 1631440860000
+   */
   startTime?: number;
+  /**
+   * @example
+   * Processing
+   */
   state?: string;
+  /**
+   * @example
+   * c844a5f0-496c-4c5b-8a0c-dd27686e8ff6
+   */
   templateId?: string;
+  /**
+   * @example
+   * 0
+   */
   templateVersion?: string;
+  /**
+   * @example
+   * feb83abd-9f08-49d2-9b56-41d1b66ca0ac
+   */
   ticketId?: string;
   title?: string;
+  /**
+   * @example
+   * 1631440860000
+   */
   updatedTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32510,8 +49463,20 @@ export class ListTicketsResponseBodyDataList extends $tea.Model {
 
 export class ListTicketsResponseBodyData extends $tea.Model {
   list?: ListTicketsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32538,6 +49503,10 @@ export class ListTicketsResponseBodyData extends $tea.Model {
 
 export class ListUnassignedNumbersResponseBodyDataList extends $tea.Model {
   city?: string;
+  /**
+   * @example
+   * 08330011****
+   */
   number?: string;
   province?: string;
   static names(): { [key: string]: string } {
@@ -32563,8 +49532,20 @@ export class ListUnassignedNumbersResponseBodyDataList extends $tea.Model {
 
 export class ListUnassignedNumbersResponseBodyData extends $tea.Model {
   list?: ListUnassignedNumbersResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 3
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32591,13 +49572,41 @@ export class ListUnassignedNumbersResponseBodyData extends $tea.Model {
 
 export class ListUserLevelsOfSkillGroupResponseBodyDataList extends $tea.Model {
   displayName?: string;
+  /**
+   * @example
+   * agent
+   */
   loginName?: string;
   ramId?: string;
+  /**
+   * @example
+   * Admin@ccc-test
+   */
   roleId?: string;
+  /**
+   * @example
+   * Admin
+   */
   roleName?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   skillGroupName?: string;
+  /**
+   * @example
+   * 5
+   */
   skillLevel?: number;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32634,8 +49643,20 @@ export class ListUserLevelsOfSkillGroupResponseBodyDataList extends $tea.Model {
 
 export class ListUserLevelsOfSkillGroupResponseBodyData extends $tea.Model {
   list?: ListUserLevelsOfSkillGroupResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32661,10 +49682,22 @@ export class ListUserLevelsOfSkillGroupResponseBodyData extends $tea.Model {
 }
 
 export class ListUsersResponseBodyDataListPersonalOutboundNumberList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   active?: boolean;
   city?: string;
+  /**
+   * @example
+   * 0830011****
+   */
   number?: string;
   province?: string;
+  /**
+   * @example
+   * Bidirection
+   */
   usage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32692,8 +49725,20 @@ export class ListUsersResponseBodyDataListPersonalOutboundNumberList extends $te
 }
 
 export class ListUsersResponseBodyDataListSkillLevelList extends $tea.Model {
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * skillgroup
+   */
   skillGroupName?: string;
+  /**
+   * @example
+   * 5
+   */
   skillLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32717,23 +49762,79 @@ export class ListUsersResponseBodyDataListSkillLevelList extends $tea.Model {
 }
 
 export class ListUsersResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 8033****
+   */
   deviceExt?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * OFFLINE
+   */
   deviceState?: string;
+  /**
+   * @example
+   * 1001
+   */
   displayId?: string;
   displayName?: string;
+  /**
+   * @example
+   * username@example.com
+   */
   email?: string;
+  /**
+   * @example
+   * 8031****
+   */
   extension?: string;
+  /**
+   * @example
+   * agent
+   */
   loginName?: string;
+  /**
+   * @example
+   * 1382114****
+   */
   mobile?: string;
   personalOutboundNumberList?: ListUsersResponseBodyDataListPersonalOutboundNumberList[];
   primary?: boolean;
+  /**
+   * @example
+   * false
+   */
   primaryAccount?: boolean;
+  /**
+   * @example
+   * 21234502254620****
+   */
   ramId?: number;
+  /**
+   * @example
+   * Admin@ccc-test
+   */
   roleId?: string;
+  /**
+   * @example
+   * Admin
+   */
   roleName?: string;
   skillLevelList?: ListUsersResponseBodyDataListSkillLevelList[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32788,8 +49889,20 @@ export class ListUsersResponseBodyDataList extends $tea.Model {
 
 export class ListUsersResponseBodyData extends $tea.Model {
   list?: ListUsersResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32815,14 +49928,42 @@ export class ListUsersResponseBodyData extends $tea.Model {
 }
 
 export class ListVoicemailsResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 0533128****
+   */
   callee?: string;
+  /**
+   * @example
+   * 073xxxx7539
+   */
   caller?: string;
   cdrStartTime?: number;
+  /**
+   * @example
+   * job-125152394144124921
+   */
   contactId?: string;
+  /**
+   * @example
+   * 16
+   */
   duration?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * voicemail-test
+   */
   name?: string;
   recordingDuration?: number;
+  /**
+   * @example
+   * 1631440860000
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32859,8 +50000,20 @@ export class ListVoicemailsResponseBodyDataList extends $tea.Model {
 
 export class ListVoicemailsResponseBodyData extends $tea.Model {
   list?: ListVoicemailsResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 11
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32886,18 +50039,58 @@ export class ListVoicemailsResponseBodyData extends $tea.Model {
 }
 
 export class MakeCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * NONE
+   */
   channelState?: string;
+  /**
+   * @example
+   * 8001****
+   */
   destination?: string;
+  /**
+   * @example
+   * job-6570007401392****
+   */
   jobId?: string;
   mediaType?: string;
+  /**
+   * @example
+   * 1318888****
+   */
   originator?: string;
   releaseInitiator?: string;
   releaseReason?: string;
+  /**
+   * @example
+   * 1609225718295
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8001****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32941,9 +50134,21 @@ export class MakeCallResponseBodyDataCallContextChannelContexts extends $tea.Mod
 }
 
 export class MakeCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: MakeCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6570007401392****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32969,15 +50174,51 @@ export class MakeCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class MakeCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6570007401392****
+   */
   jobId?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * READY
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33016,6 +50257,10 @@ export class MakeCallResponseBodyDataUserContext extends $tea.Model {
 
 export class MakeCallResponseBodyData extends $tea.Model {
   callContext?: MakeCallResponseBodyDataCallContext;
+  /**
+   * @example
+   * 123456
+   */
   contextId?: number;
   userContext?: MakeCallResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -33040,19 +50285,75 @@ export class MakeCallResponseBodyData extends $tea.Model {
 }
 
 export class MonitorCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * CREATED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33098,9 +50399,21 @@ export class MonitorCallResponseBodyDataCallContextChannelContexts extends $tea.
 }
 
 export class MonitorCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: MonitorCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33126,18 +50439,66 @@ export class MonitorCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class MonitorCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * BREAK
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33203,19 +50564,63 @@ export class MonitorCallResponseBodyData extends $tea.Model {
 }
 
 export class MuteCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * []
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1318888****->8001****:1609253204816:job-6581536084722****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 8001****
+   */
   destination?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * job-6581536084722****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1318888****
+   */
   originator?: string;
   releaseInitiator?: string;
   releaseReason?: string;
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609253212511
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8001****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33261,9 +50666,21 @@ export class MuteCallResponseBodyDataCallContextChannelContexts extends $tea.Mod
 }
 
 export class MuteCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: MuteCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6581536084722****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33289,18 +50706,66 @@ export class MuteCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class MuteCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609253205896
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6581536084722****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1390000****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609253204811
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33367,6 +50832,10 @@ export class MuteCallResponseBodyData extends $tea.Model {
 
 export class PickOutboundNumbersResponseBodyDataCallee extends $tea.Model {
   city?: string;
+  /**
+   * @example
+   * 1388888****
+   */
   number?: string;
   province?: string;
   static names(): { [key: string]: string } {
@@ -33392,6 +50861,10 @@ export class PickOutboundNumbersResponseBodyDataCallee extends $tea.Model {
 
 export class PickOutboundNumbersResponseBodyDataCaller extends $tea.Model {
   city?: string;
+  /**
+   * @example
+   * 0108989****
+   */
   number?: string;
   province?: string;
   static names(): { [key: string]: string } {
@@ -33438,20 +50911,80 @@ export class PickOutboundNumbersResponseBodyData extends $tea.Model {
 }
 
 export class PollUserStatusResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * CREATED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 123
+   */
   channelVariables?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33499,10 +51032,26 @@ export class PollUserStatusResponseBodyDataCallContextChannelContexts extends $t
 }
 
 export class PollUserStatusResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * a=b;c=d
+   */
   callVariables?: string;
   channelContexts?: PollUserStatusResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33623,19 +51172,67 @@ export class PollUserStatusResponseBodyDataUserContextParallelJobList extends $t
 }
 
 export class PollUserStatusResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   parallelJobList?: PollUserStatusResponseBodyDataUserContextParallelJobList[];
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * BREAK
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33683,6 +51280,10 @@ export class PollUserStatusResponseBodyDataUserContext extends $tea.Model {
 export class PollUserStatusResponseBodyData extends $tea.Model {
   callContext?: PollUserStatusResponseBodyDataCallContext;
   chatContexts?: PollUserStatusResponseBodyDataChatContexts[];
+  /**
+   * @example
+   * 103655
+   */
   contextId?: number;
   userContext?: PollUserStatusResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -33728,15 +51329,51 @@ export class ProcessAliMeCallbackOfStagingResponseBodyData extends $tea.Model {
 }
 
 export class ReadyForServiceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * READY
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33774,17 +51411,65 @@ export class ReadyForServiceResponseBodyData extends $tea.Model {
 }
 
 export class RedialCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * COACHING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * CREATED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 8001****
+   */
   destination?: string;
+  /**
+   * @example
+   * job-6573574060089****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1318888****
+   */
   originator?: string;
+  /**
+   * @example
+   * 139xxxx0501
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 486:USER_BUSY
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8000****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * samzhang@abc
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33826,9 +51511,21 @@ export class RedialCallResponseBodyDataCallContextChannelContexts extends $tea.M
 }
 
 export class RedialCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: RedialCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * abc
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33856,11 +51553,31 @@ export class RedialCallResponseBodyDataCallContext extends $tea.Model {
 export class RedialCallResponseBodyDataUserContext extends $tea.Model {
   breakCode?: string;
   deviceId?: string;
+  /**
+   * @example
+   * 8000****
+   */
   extension?: string;
+  /**
+   * @example
+   * abc
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6573574060089****
+   */
   jobId?: string;
+  /**
+   * @example
+   * False
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * samzhang@abc
+   */
   userId?: string;
   userState?: string;
   workMode?: string;
@@ -33901,6 +51618,10 @@ export class RedialCallResponseBodyDataUserContext extends $tea.Model {
 
 export class RedialCallResponseBodyData extends $tea.Model {
   callContext?: RedialCallResponseBodyDataCallContext;
+  /**
+   * @example
+   * 123456789
+   */
   contextId?: number;
   userContext?: RedialCallResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -33925,17 +51646,61 @@ export class RedialCallResponseBodyData extends $tea.Model {
 }
 
 export class ReleaseCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * CREATED
+   */
   channelState?: string;
   channelVariables?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33978,7 +51743,15 @@ export class ReleaseCallResponseBodyDataCallContextChannelContexts extends $tea.
 
 export class ReleaseCallResponseBodyDataCallContext extends $tea.Model {
   channelContexts?: ReleaseCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34002,15 +51775,51 @@ export class ReleaseCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class ReleaseCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * BREAK
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34049,6 +51858,10 @@ export class ReleaseCallResponseBodyDataUserContext extends $tea.Model {
 
 export class ReleaseCallResponseBodyData extends $tea.Model {
   callContext?: ReleaseCallResponseBodyDataCallContext;
+  /**
+   * @example
+   * 123456
+   */
   contextId?: number;
   userContext?: ReleaseCallResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
@@ -34073,15 +51886,47 @@ export class ReleaseCallResponseBodyData extends $tea.Model {
 }
 
 export class ResetAgentStateResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   jobId?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * OFFLINE
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34119,9 +51964,25 @@ export class ResetAgentStateResponseBodyData extends $tea.Model {
 }
 
 export class RestoreArchivedRecordingsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * job-25920271311543****
+   */
   contactId?: string;
+  /**
+   * @example
+   * False
+   */
   exists?: string;
+  /**
+   * @example
+   * Progressing
+   */
   status?: string;
+  /**
+   * @example
+   * Standard
+   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34147,17 +52008,65 @@ export class RestoreArchivedRecordingsResponseBodyData extends $tea.Model {
 }
 
 export class RetrieveCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * CREATED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34199,9 +52108,21 @@ export class RetrieveCallResponseBodyDataCallContextChannelContexts extends $tea
 }
 
 export class RetrieveCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: RetrieveCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34227,18 +52148,66 @@ export class RetrieveCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class RetrieveCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * BREAK
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34304,19 +52273,67 @@ export class RetrieveCallResponseBodyData extends $tea.Model {
 }
 
 export class SendDtmfSignalingResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:131888****->8001****:1609234221870:job-6573574060089****
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 8001****
+   */
   destination?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * job-6573574060089****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0101234****
+   */
   originator?: string;
   releaseInitiator?: string;
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609234222367
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8001****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34362,9 +52379,21 @@ export class SendDtmfSignalingResponseBodyDataCallContextChannelContexts extends
 }
 
 export class SendDtmfSignalingResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: SendDtmfSignalingResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6573574060089****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34390,18 +52419,66 @@ export class SendDtmfSignalingResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class SendDtmfSignalingResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609234222375
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6573574060089****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1390000****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609234221864
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34467,16 +52544,48 @@ export class SendDtmfSignalingResponseBodyData extends $tea.Model {
 }
 
 export class SignInGroupResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
   chatDeviceId?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   jobId?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * READY
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34516,18 +52625,66 @@ export class SignInGroupResponseBodyData extends $tea.Model {
 }
 
 export class SignOutGroupResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * BREAK
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34571,16 +52728,52 @@ export class SignOutGroupResponseBodyData extends $tea.Model {
 }
 
 export class StartBack2BackCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * BACK2BACK
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-653821410368****
+   */
   channelId?: string;
+  /**
+   * @example
+   * NONE
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1372168****
+   */
   destination?: string;
+  /**
+   * @example
+   * job-1034159089076****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0102157****
+   */
   originator?: string;
   releaseInitiator?: string;
   releaseReason?: string;
+  /**
+   * @example
+   * 1618217874062
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8001****
+   */
   userExtension?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -34623,9 +52816,21 @@ export class StartBack2BackCallResponseBodyDataCallContextChannelContexts extend
 }
 
 export class StartBack2BackCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * BACK2BACK
+   */
   callType?: string;
   channelContexts?: StartBack2BackCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-1034159089076****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34651,19 +52856,67 @@ export class StartBack2BackCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class StartBack2BackCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
   deviceState?: string;
+  /**
+   * @example
+   * 8020****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1618217872911
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-1034159089076****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1618217794599
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * OFFLINE
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34731,9 +52984,21 @@ export class StartBack2BackCallResponseBodyData extends $tea.Model {
 }
 
 export class StartChatRequestUserList extends $tea.Model {
+  /**
+   * @example
+   * http://xxx.com/image
+   */
   avatarUrl?: string;
   nickname?: string;
+  /**
+   * @example
+   * fcd020fe-d8e4-40e5-8c77-1a272a174a7d
+   */
   userId?: string;
+  /**
+   * @example
+   * CUSTOMER
+   */
   userType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34759,7 +53024,15 @@ export class StartChatRequestUserList extends $tea.Model {
 }
 
 export class StartChatResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * $23086709$EAUNIT
+   */
   chatConversationId?: string;
+  /**
+   * @example
+   * chat-525523618219921408
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34781,17 +53054,65 @@ export class StartChatResponseBodyData extends $tea.Model {
 }
 
 export class StartConferenceResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:131888****->8001****:1609225718294:job-65700074013925376
+   */
   channelId?: string;
+  /**
+   * @example
+   * ANSWERED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 8001****
+   */
   destination?: string;
+  /**
+   * @example
+   * job-6573574060089****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1318888****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34833,9 +53154,21 @@ export class StartConferenceResponseBodyDataCallContextChannelContexts extends $
 }
 
 export class StartConferenceResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: StartConferenceResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34861,19 +53194,71 @@ export class StartConferenceResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class StartConferenceResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * false
+   */
   deviceState?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * 1609136956378
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34941,17 +53326,57 @@ export class StartConferenceResponseBodyData extends $tea.Model {
 }
 
 export class StartPredictiveCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * []
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:131888****->8001****:1609225718294:job-6570007401392****
+   */
   channelId?: string;
+  /**
+   * @example
+   * NONE
+   */
   channelState?: string;
+  /**
+   * @example
+   * 8001****
+   */
   destination?: string;
+  /**
+   * @example
+   * job-6570007401392****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1318888****
+   */
   originator?: string;
   releaseInitiator?: string;
   releaseReason?: string;
+  /**
+   * @example
+   * 1609225718295
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8001****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34993,9 +53418,21 @@ export class StartPredictiveCallResponseBodyDataCallContextChannelContexts exten
 }
 
 export class StartPredictiveCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: StartPredictiveCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6570007401392****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35021,19 +53458,71 @@ export class StartPredictiveCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class StartPredictiveCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * ONLINE
+   */
   deviceState?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6570007401392****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609136956378
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * READY
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35101,19 +53590,75 @@ export class StartPredictiveCallResponseBodyData extends $tea.Model {
 }
 
 export class SwitchToConferenceResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:131888****->8001****:1609225718294:job-6538214103685****
+   */
   channelId?: string;
+  /**
+   * @example
+   * NONE
+   */
   channelState?: string;
+  /**
+   * @example
+   * 8001****
+   */
   destination?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1318888****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609255716900
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35159,9 +53704,21 @@ export class SwitchToConferenceResponseBodyDataCallContextChannelContexts extend
 }
 
 export class SwitchToConferenceResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: SwitchToConferenceResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35187,18 +53744,66 @@ export class SwitchToConferenceResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class SwitchToConferenceResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * false
+   */
   deviceState?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * 1609136956378
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35264,18 +53869,62 @@ export class SwitchToConferenceResponseBodyData extends $tea.Model {
 }
 
 export class TakeBreakResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * lunchtime
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609249563836
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
   jobId?: string;
+  /**
+   * @example
+   * 1390000****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
+  /**
+   * @example
+   * 1609234221864
+   */
   reserved?: number;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * BREAK
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35319,19 +53968,75 @@ export class TakeBreakResponseBodyData extends $tea.Model {
 }
 
 export class UnmuteCallResponseBodyDataCallContextChannelContexts extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
+  /**
+   * @example
+   * MONITORING
+   */
   channelFlags?: string;
+  /**
+   * @example
+   * ch:user:1390501****->8032****:1609138902226:job-6538214103685****
+   */
   channelId?: string;
+  /**
+   * @example
+   * CREATED
+   */
   channelState?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   destination?: string;
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 0830019****
+   */
   originator?: string;
+  /**
+   * @example
+   * 1390501****
+   */
   releaseInitiator?: string;
+  /**
+   * @example
+   * 404 - No destination
+   */
   releaseReason?: string;
+  /**
+   * @example
+   * skillgroup@ccc-test
+   */
   skillGroupId?: string;
+  /**
+   * @example
+   * 1609138903315
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 8032****
+   */
   userExtension?: string;
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35377,9 +54082,21 @@ export class UnmuteCallResponseBodyDataCallContextChannelContexts extends $tea.M
 }
 
 export class UnmuteCallResponseBodyDataCallContext extends $tea.Model {
+  /**
+   * @example
+   * OUTBOUND
+   */
   callType?: string;
   channelContexts?: UnmuteCallResponseBodyDataCallContextChannelContexts[];
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35405,17 +54122,61 @@ export class UnmuteCallResponseBodyDataCallContext extends $tea.Model {
 }
 
 export class UnmuteCallResponseBodyDataUserContext extends $tea.Model {
+  /**
+   * @example
+   * Warm-up
+   */
   breakCode?: string;
+  /**
+   * @example
+   * ACC-YUNBS-1.0.10-****
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8032****
+   */
   extension?: string;
+  /**
+   * @example
+   * 1609136956378
+   */
   heartbeat?: number;
+  /**
+   * @example
+   * ccc-test
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-6538214103685****
+   */
   jobId?: string;
+  /**
+   * @example
+   * 1324730****
+   */
   mobile?: string;
+  /**
+   * @example
+   * false
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * agent@ccc-test
+   */
   userId?: string;
+  /**
+   * @example
+   * TALKING
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35479,22 +54240,88 @@ export class UnmuteCallResponseBodyData extends $tea.Model {
 }
 
 export class UpdateSchemaPropertyRequestProperty extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   array?: boolean;
+  /**
+   * @example
+   * {\\"instanceId\\":\\"4cc3f160-ca64-49ff-bc70-390a044a4e83\\",\\"appId\\":\\"1684145288664\\",\\"commodityCode\\":\\"dide_pre\\",\\"dide_pre_set\\":\\"version_ent\\"}
+   */
   attributes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * string
+   */
   dataType?: string;
+  /**
+   * @example
+   * -
+   */
   description?: string;
+  /**
+   * @example
+   * true
+   */
   disabled?: boolean;
   displayName?: string;
+  /**
+   * @example
+   * 10
+   */
   displayOrder?: number;
+  /**
+   * @example
+   * textbox
+   */
   editorType?: string;
+  /**
+   * @example
+   * 100
+   */
   maxLength?: number;
+  /**
+   * @example
+   * 11
+   */
   maximum?: number;
+  /**
+   * @example
+   * 1
+   */
   minLength?: number;
+  /**
+   * @example
+   * 10800
+   */
   minimum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @example
+   * (.*)
+   */
   pattern?: string;
   patternErrorMessage?: string;
+  /**
+   * @example
+   * true
+   */
   readOnly?: boolean;
+  /**
+   * @example
+   * false
+   */
   required?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -35593,11 +54420,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 废弃预测式外呼活动
-   *
-   * @param request AbortCampaignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AbortCampaignResponse
+   * 废弃预测式外呼活动
+   * 
+   * @param request - AbortCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AbortCampaignResponse
    */
   async abortCampaignWithOptions(request: AbortCampaignRequest, runtime: $Util.RuntimeOptions): Promise<AbortCampaignResponse> {
     Util.validateModel(request);
@@ -35628,10 +54455,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 废弃预测式外呼活动
-   *
-   * @param request AbortCampaignRequest
-   * @return AbortCampaignResponse
+   * 废弃预测式外呼活动
+   * 
+   * @param request - AbortCampaignRequest
+   * @returns AbortCampaignResponse
    */
   async abortCampaign(request: AbortCampaignRequest): Promise<AbortCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35639,9 +54466,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AcceptChatRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AcceptChatResponse
+   * @param request - AcceptChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AcceptChatResponse
    */
   async acceptChatWithOptions(request: AcceptChatRequest, runtime: $Util.RuntimeOptions): Promise<AcceptChatResponse> {
     Util.validateModel(request);
@@ -35672,8 +54499,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AcceptChatRequest
-   * @return AcceptChatResponse
+   * @param request - AcceptChatRequest
+   * @returns AcceptChatResponse
    */
   async acceptChat(request: AcceptChatRequest): Promise<AcceptChatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35681,11 +54508,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑呼入控制号码
-   *
-   * @param request AddBlacklistCallTaggingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddBlacklistCallTaggingResponse
+   * 编辑呼入控制号码
+   * 
+   * @param request - AddBlacklistCallTaggingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddBlacklistCallTaggingResponse
    */
   async addBlacklistCallTaggingWithOptions(request: AddBlacklistCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<AddBlacklistCallTaggingResponse> {
     Util.validateModel(request);
@@ -35720,10 +54547,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑呼入控制号码
-   *
-   * @param request AddBlacklistCallTaggingRequest
-   * @return AddBlacklistCallTaggingResponse
+   * 编辑呼入控制号码
+   * 
+   * @param request - AddBlacklistCallTaggingRequest
+   * @returns AddBlacklistCallTaggingResponse
    */
   async addBlacklistCallTagging(request: AddBlacklistCallTaggingRequest): Promise<AddBlacklistCallTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35731,11 +54558,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 追加联系人
-   *
-   * @param tmpReq AddCasesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddCasesResponse
+   * 追加联系人
+   * 
+   * @param tmpReq - AddCasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddCasesResponse
    */
   async addCasesWithOptions(tmpReq: AddCasesRequest, runtime: $Util.RuntimeOptions): Promise<AddCasesResponse> {
     Util.validateModel(tmpReq);
@@ -35776,10 +54603,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 追加联系人
-   *
-   * @param request AddCasesRequest
-   * @return AddCasesResponse
+   * 追加联系人
+   * 
+   * @param request - AddCasesRequest
+   * @returns AddCasesResponse
    */
   async addCases(request: AddCasesRequest): Promise<AddCasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35787,9 +54614,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddNumbersToSkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddNumbersToSkillGroupResponse
+   * @param request - AddNumbersToSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddNumbersToSkillGroupResponse
    */
   async addNumbersToSkillGroupWithOptions(request: AddNumbersToSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddNumbersToSkillGroupResponse> {
     Util.validateModel(request);
@@ -35828,8 +54655,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddNumbersToSkillGroupRequest
-   * @return AddNumbersToSkillGroupResponse
+   * @param request - AddNumbersToSkillGroupRequest
+   * @returns AddNumbersToSkillGroupResponse
    */
   async addNumbersToSkillGroup(request: AddNumbersToSkillGroupRequest): Promise<AddNumbersToSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35837,9 +54664,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddPersonalNumbersToUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddPersonalNumbersToUserResponse
+   * @param request - AddPersonalNumbersToUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddPersonalNumbersToUserResponse
    */
   async addPersonalNumbersToUserWithOptions(request: AddPersonalNumbersToUserRequest, runtime: $Util.RuntimeOptions): Promise<AddPersonalNumbersToUserResponse> {
     Util.validateModel(request);
@@ -35874,8 +54701,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddPersonalNumbersToUserRequest
-   * @return AddPersonalNumbersToUserResponse
+   * @param request - AddPersonalNumbersToUserRequest
+   * @returns AddPersonalNumbersToUserResponse
    */
   async addPersonalNumbersToUser(request: AddPersonalNumbersToUserRequest): Promise<AddPersonalNumbersToUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35883,9 +54710,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddPhoneNumberToSkillGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddPhoneNumberToSkillGroupsResponse
+   * @param request - AddPhoneNumberToSkillGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddPhoneNumberToSkillGroupsResponse
    */
   async addPhoneNumberToSkillGroupsWithOptions(request: AddPhoneNumberToSkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<AddPhoneNumberToSkillGroupsResponse> {
     Util.validateModel(request);
@@ -35920,8 +54747,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddPhoneNumberToSkillGroupsRequest
-   * @return AddPhoneNumberToSkillGroupsResponse
+   * @param request - AddPhoneNumberToSkillGroupsRequest
+   * @returns AddPhoneNumberToSkillGroupsResponse
    */
   async addPhoneNumberToSkillGroups(request: AddPhoneNumberToSkillGroupsRequest): Promise<AddPhoneNumberToSkillGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35929,9 +54756,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddPhoneNumbersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddPhoneNumbersResponse
+   * @param request - AddPhoneNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddPhoneNumbersResponse
    */
   async addPhoneNumbersWithOptions(request: AddPhoneNumbersRequest, runtime: $Util.RuntimeOptions): Promise<AddPhoneNumbersResponse> {
     Util.validateModel(request);
@@ -35974,8 +54801,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddPhoneNumbersRequest
-   * @return AddPhoneNumbersResponse
+   * @param request - AddPhoneNumbersRequest
+   * @returns AddPhoneNumbersResponse
    */
   async addPhoneNumbers(request: AddPhoneNumbersRequest): Promise<AddPhoneNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35983,9 +54810,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq AddSchemaPropertyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddSchemaPropertyResponse
+   * @param tmpReq - AddSchemaPropertyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddSchemaPropertyResponse
    */
   async addSchemaPropertyWithOptions(tmpReq: AddSchemaPropertyRequest, runtime: $Util.RuntimeOptions): Promise<AddSchemaPropertyResponse> {
     Util.validateModel(tmpReq);
@@ -36030,8 +54857,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddSchemaPropertyRequest
-   * @return AddSchemaPropertyResponse
+   * @param request - AddSchemaPropertyRequest
+   * @returns AddSchemaPropertyResponse
    */
   async addSchemaProperty(request: AddSchemaPropertyRequest): Promise<AddSchemaPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36039,9 +54866,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddSkillGroupsToUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddSkillGroupsToUserResponse
+   * @param request - AddSkillGroupsToUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddSkillGroupsToUserResponse
    */
   async addSkillGroupsToUserWithOptions(request: AddSkillGroupsToUserRequest, runtime: $Util.RuntimeOptions): Promise<AddSkillGroupsToUserResponse> {
     Util.validateModel(request);
@@ -36076,8 +54903,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddSkillGroupsToUserRequest
-   * @return AddSkillGroupsToUserResponse
+   * @param request - AddSkillGroupsToUserRequest
+   * @returns AddSkillGroupsToUserResponse
    */
   async addSkillGroupsToUser(request: AddSkillGroupsToUserRequest): Promise<AddSkillGroupsToUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36085,9 +54912,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddTicketTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddTicketTaskResponse
+   * @param request - AddTicketTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddTicketTaskResponse
    */
   async addTicketTaskWithOptions(request: AddTicketTaskRequest, runtime: $Util.RuntimeOptions): Promise<AddTicketTaskResponse> {
     Util.validateModel(request);
@@ -36134,8 +54961,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddTicketTaskRequest
-   * @return AddTicketTaskResponse
+   * @param request - AddTicketTaskRequest
+   * @returns AddTicketTaskResponse
    */
   async addTicketTask(request: AddTicketTaskRequest): Promise<AddTicketTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36143,9 +54970,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddUsersToSkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddUsersToSkillGroupResponse
+   * @param request - AddUsersToSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddUsersToSkillGroupResponse
    */
   async addUsersToSkillGroupWithOptions(request: AddUsersToSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUsersToSkillGroupResponse> {
     Util.validateModel(request);
@@ -36180,8 +55007,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddUsersToSkillGroupRequest
-   * @return AddUsersToSkillGroupResponse
+   * @param request - AddUsersToSkillGroupRequest
+   * @returns AddUsersToSkillGroupResponse
    */
   async addUsersToSkillGroup(request: AddUsersToSkillGroupRequest): Promise<AddUsersToSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36189,9 +55016,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AnalyzeConversationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AnalyzeConversationResponse
+   * @param request - AnalyzeConversationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnalyzeConversationResponse
    */
   async analyzeConversationWithOptions(request: AnalyzeConversationRequest, runtime: $Util.RuntimeOptions): Promise<AnalyzeConversationResponse> {
     Util.validateModel(request);
@@ -36230,8 +55057,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AnalyzeConversationRequest
-   * @return AnalyzeConversationResponse
+   * @param request - AnalyzeConversationRequest
+   * @returns AnalyzeConversationResponse
    */
   async analyzeConversation(request: AnalyzeConversationRequest): Promise<AnalyzeConversationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36239,9 +55066,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AnswerCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AnswerCallResponse
+   * @param request - AnswerCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnswerCallResponse
    */
   async answerCallWithOptions(request: AnswerCallRequest, runtime: $Util.RuntimeOptions): Promise<AnswerCallResponse> {
     Util.validateModel(request);
@@ -36280,8 +55107,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AnswerCallRequest
-   * @return AnswerCallResponse
+   * @param request - AnswerCallRequest
+   * @returns AnswerCallResponse
    */
   async answerCall(request: AnswerCallRequest): Promise<AnswerCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36289,11 +55116,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 追加联系人
-   *
-   * @param tmpReq AppendCasesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AppendCasesResponse
+   * 追加联系人
+   * 
+   * @param tmpReq - AppendCasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AppendCasesResponse
    */
   async appendCasesWithOptions(tmpReq: AppendCasesRequest, runtime: $Util.RuntimeOptions): Promise<AppendCasesResponse> {
     Util.validateModel(tmpReq);
@@ -36336,10 +55163,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 追加联系人
-   *
-   * @param request AppendCasesRequest
-   * @return AppendCasesResponse
+   * 追加联系人
+   * 
+   * @param request - AppendCasesRequest
+   * @returns AppendCasesResponse
    */
   async appendCases(request: AppendCasesRequest): Promise<AppendCasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36348,10 +55175,10 @@ export default class Client extends OpenApi {
 
   /**
    * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
-   *
-   * @param request AssignUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AssignUsersResponse
+   * 
+   * @param request - AssignUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssignUsersResponse
    */
   // Deprecated
   async assignUsersWithOptions(request: AssignUsersRequest, runtime: $Util.RuntimeOptions): Promise<AssignUsersResponse> {
@@ -36396,9 +55223,9 @@ export default class Client extends OpenApi {
 
   /**
    * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
-   *
-   * @param request AssignUsersRequest
-   * @return AssignUsersResponse
+   * 
+   * @param request - AssignUsersRequest
+   * @returns AssignUsersResponse
    */
   // Deprecated
   async assignUsers(request: AssignUsersRequest): Promise<AssignUsersResponse> {
@@ -36407,9 +55234,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BargeInCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BargeInCallResponse
+   * @param request - BargeInCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BargeInCallResponse
    */
   async bargeInCallWithOptions(request: BargeInCallRequest, runtime: $Util.RuntimeOptions): Promise<BargeInCallResponse> {
     Util.validateModel(request);
@@ -36456,8 +55283,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BargeInCallRequest
-   * @return BargeInCallResponse
+   * @param request - BargeInCallRequest
+   * @returns BargeInCallResponse
    */
   async bargeInCall(request: BargeInCallRequest): Promise<BargeInCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36465,9 +55292,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BlindTransferRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BlindTransferResponse
+   * @param request - BlindTransferRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BlindTransferResponse
    */
   async blindTransferWithOptions(request: BlindTransferRequest, runtime: $Util.RuntimeOptions): Promise<BlindTransferResponse> {
     Util.validateModel(request);
@@ -36554,8 +55381,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BlindTransferRequest
-   * @return BlindTransferResponse
+   * @param request - BlindTransferRequest
+   * @returns BlindTransferResponse
    */
   async blindTransfer(request: BlindTransferRequest): Promise<BlindTransferResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36563,9 +55390,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BridgeRtcCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BridgeRtcCallResponse
+   * @param request - BridgeRtcCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BridgeRtcCallResponse
    */
   async bridgeRtcCallWithOptions(request: BridgeRtcCallRequest, runtime: $Util.RuntimeOptions): Promise<BridgeRtcCallResponse> {
     Util.validateModel(request);
@@ -36624,8 +55451,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BridgeRtcCallRequest
-   * @return BridgeRtcCallResponse
+   * @param request - BridgeRtcCallRequest
+   * @returns BridgeRtcCallResponse
    */
   async bridgeRtcCall(request: BridgeRtcCallRequest): Promise<BridgeRtcCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36633,9 +55460,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CancelAttendedTransferRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelAttendedTransferResponse
+   * @param request - CancelAttendedTransferRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAttendedTransferResponse
    */
   async cancelAttendedTransferWithOptions(request: CancelAttendedTransferRequest, runtime: $Util.RuntimeOptions): Promise<CancelAttendedTransferResponse> {
     Util.validateModel(request);
@@ -36674,8 +55501,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CancelAttendedTransferRequest
-   * @return CancelAttendedTransferResponse
+   * @param request - CancelAttendedTransferRequest
+   * @returns CancelAttendedTransferResponse
    */
   async cancelAttendedTransfer(request: CancelAttendedTransferRequest): Promise<CancelAttendedTransferResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36683,9 +55510,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ChangeVisibilityRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeVisibilityResponse
+   * @param request - ChangeVisibilityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeVisibilityResponse
    */
   async changeVisibilityWithOptions(request: ChangeVisibilityRequest, runtime: $Util.RuntimeOptions): Promise<ChangeVisibilityResponse> {
     Util.validateModel(request);
@@ -36720,8 +55547,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ChangeVisibilityRequest
-   * @return ChangeVisibilityResponse
+   * @param request - ChangeVisibilityRequest
+   * @returns ChangeVisibilityResponse
    */
   async changeVisibility(request: ChangeVisibilityRequest): Promise<ChangeVisibilityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36729,9 +55556,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ChangeWorkModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeWorkModeResponse
+   * @param request - ChangeWorkModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeWorkModeResponse
    */
   async changeWorkModeWithOptions(request: ChangeWorkModeRequest, runtime: $Util.RuntimeOptions): Promise<ChangeWorkModeResponse> {
     Util.validateModel(request);
@@ -36778,8 +55605,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ChangeWorkModeRequest
-   * @return ChangeWorkModeResponse
+   * @param request - ChangeWorkModeRequest
+   * @returns ChangeWorkModeResponse
    */
   async changeWorkMode(request: ChangeWorkModeRequest): Promise<ChangeWorkModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36787,9 +55614,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ClaimChatRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ClaimChatResponse
+   * @param request - ClaimChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClaimChatResponse
    */
   async claimChatWithOptions(request: ClaimChatRequest, runtime: $Util.RuntimeOptions): Promise<ClaimChatResponse> {
     Util.validateModel(request);
@@ -36824,8 +55651,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ClaimChatRequest
-   * @return ClaimChatResponse
+   * @param request - ClaimChatRequest
+   * @returns ClaimChatResponse
    */
   async claimChat(request: ClaimChatRequest): Promise<ClaimChatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36833,9 +55660,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CoachCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CoachCallResponse
+   * @param request - CoachCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CoachCallResponse
    */
   async coachCallWithOptions(request: CoachCallRequest, runtime: $Util.RuntimeOptions): Promise<CoachCallResponse> {
     Util.validateModel(request);
@@ -36882,8 +55709,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CoachCallRequest
-   * @return CoachCallResponse
+   * @param request - CoachCallRequest
+   * @returns CoachCallResponse
    */
   async coachCall(request: CoachCallRequest): Promise<CoachCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36891,9 +55718,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CommitContactFlowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CommitContactFlowResponse
+   * @param request - CommitContactFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CommitContactFlowResponse
    */
   async commitContactFlowWithOptions(request: CommitContactFlowRequest, runtime: $Util.RuntimeOptions): Promise<CommitContactFlowResponse> {
     Util.validateModel(request);
@@ -36936,8 +55763,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CommitContactFlowRequest
-   * @return CommitContactFlowResponse
+   * @param request - CommitContactFlowRequest
+   * @returns CommitContactFlowResponse
    */
   async commitContactFlow(request: CommitContactFlowRequest): Promise<CommitContactFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36945,9 +55772,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CompleteAttendedTransferRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CompleteAttendedTransferResponse
+   * @param request - CompleteAttendedTransferRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CompleteAttendedTransferResponse
    */
   async completeAttendedTransferWithOptions(request: CompleteAttendedTransferRequest, runtime: $Util.RuntimeOptions): Promise<CompleteAttendedTransferResponse> {
     Util.validateModel(request);
@@ -36986,8 +55813,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CompleteAttendedTransferRequest
-   * @return CompleteAttendedTransferResponse
+   * @param request - CompleteAttendedTransferRequest
+   * @returns CompleteAttendedTransferResponse
    */
   async completeAttendedTransfer(request: CompleteAttendedTransferRequest): Promise<CompleteAttendedTransferResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36995,9 +55822,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAudioFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAudioFileResponse
+   * @param request - CreateAudioFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAudioFileResponse
    */
   async createAudioFileWithOptions(request: CreateAudioFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateAudioFileResponse> {
     Util.validateModel(request);
@@ -37040,8 +55867,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAudioFileRequest
-   * @return CreateAudioFileResponse
+   * @param request - CreateAudioFileRequest
+   * @returns CreateAudioFileResponse
    */
   async createAudioFile(request: CreateAudioFileRequest): Promise<CreateAudioFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37049,11 +55876,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量创建号码标签
-   *
-   * @param request CreateCallTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCallTagsResponse
+   * 批量创建号码标签
+   * 
+   * @param request - CreateCallTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCallTagsResponse
    */
   async createCallTagsWithOptions(request: CreateCallTagsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCallTagsResponse> {
     Util.validateModel(request);
@@ -37084,10 +55911,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 批量创建号码标签
-   *
-   * @param request CreateCallTagsRequest
-   * @return CreateCallTagsResponse
+   * 批量创建号码标签
+   * 
+   * @param request - CreateCallTagsRequest
+   * @returns CreateCallTagsResponse
    */
   async createCallTags(request: CreateCallTagsRequest): Promise<CreateCallTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37095,11 +55922,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建预测式外呼活动
-   *
-   * @param tmpReq CreateCampaignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCampaignResponse
+   * 创建预测式外呼活动
+   * 
+   * @param tmpReq - CreateCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCampaignResponse
    */
   async createCampaignWithOptions(tmpReq: CreateCampaignRequest, runtime: $Util.RuntimeOptions): Promise<CreateCampaignResponse> {
     Util.validateModel(tmpReq);
@@ -37192,10 +56019,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建预测式外呼活动
-   *
-   * @param request CreateCampaignRequest
-   * @return CreateCampaignResponse
+   * 创建预测式外呼活动
+   * 
+   * @param request - CreateCampaignRequest
+   * @returns CreateCampaignResponse
    */
   async createCampaign(request: CreateCampaignRequest): Promise<CreateCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37203,9 +56030,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateContactFlowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateContactFlowResponse
+   * @param request - CreateContactFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContactFlowResponse
    */
   async createContactFlowWithOptions(request: CreateContactFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateContactFlowResponse> {
     Util.validateModel(request);
@@ -37248,8 +56075,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateContactFlowRequest
-   * @return CreateContactFlowResponse
+   * @param request - CreateContactFlowRequest
+   * @returns CreateContactFlowResponse
    */
   async createContactFlow(request: CreateContactFlowRequest): Promise<CreateContactFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37257,13 +56084,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建呼入控制号码
+   * 
    * @deprecated OpenAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead.
-   *
-   * @summary 创建呼入控制号码
-   *
-   * @param request CreateCustomCallTaggingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCustomCallTaggingResponse
+   * 
+   * @param request - CreateCustomCallTaggingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomCallTaggingResponse
    */
   // Deprecated
   async createCustomCallTaggingWithOptions(request: CreateCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomCallTaggingResponse> {
@@ -37295,12 +56122,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建呼入控制号码
+   * 
    * @deprecated OpenAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead.
-   *
-   * @summary 创建呼入控制号码
-   *
-   * @param request CreateCustomCallTaggingRequest
-   * @return CreateCustomCallTaggingResponse
+   * 
+   * @param request - CreateCustomCallTaggingRequest
+   * @returns CreateCustomCallTaggingResponse
    */
   // Deprecated
   async createCustomCallTagging(request: CreateCustomCallTaggingRequest): Promise<CreateCustomCallTaggingResponse> {
@@ -37309,9 +56136,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstanceResponse
+   * @param request - CreateInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -37354,8 +56181,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateInstanceRequest
-   * @return CreateInstanceResponse
+   * @param request - CreateInstanceRequest
+   * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37363,9 +56190,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq CreateSchemaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSchemaResponse
+   * @param tmpReq - CreateSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSchemaResponse
    */
   async createSchemaWithOptions(tmpReq: CreateSchemaRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchemaResponse> {
     Util.validateModel(tmpReq);
@@ -37414,8 +56241,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateSchemaRequest
-   * @return CreateSchemaResponse
+   * @param request - CreateSchemaRequest
+   * @returns CreateSchemaResponse
    */
   async createSchema(request: CreateSchemaRequest): Promise<CreateSchemaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37423,9 +56250,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateSkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSkillGroupResponse
+   * @param request - CreateSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSkillGroupResponse
    */
   async createSkillGroupWithOptions(request: CreateSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSkillGroupResponse> {
     Util.validateModel(request);
@@ -37468,8 +56295,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateSkillGroupRequest
-   * @return CreateSkillGroupResponse
+   * @param request - CreateSkillGroupRequest
+   * @returns CreateSkillGroupResponse
    */
   async createSkillGroup(request: CreateSkillGroupRequest): Promise<CreateSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37477,9 +56304,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateTicketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTicketResponse
+   * @param request - CreateTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTicketResponse
    */
   async createTicketWithOptions(request: CreateTicketRequest, runtime: $Util.RuntimeOptions): Promise<CreateTicketResponse> {
     Util.validateModel(request);
@@ -37530,8 +56357,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateTicketRequest
-   * @return CreateTicketResponse
+   * @param request - CreateTicketRequest
+   * @returns CreateTicketResponse
    */
   async createTicket(request: CreateTicketRequest): Promise<CreateTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37539,9 +56366,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateUserResponse
+   * @param request - CreateUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserResponse
    */
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
@@ -37612,8 +56439,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateUserRequest
-   * @return CreateUserResponse
+   * @param request - CreateUserRequest
+   * @returns CreateUserResponse
    */
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37621,9 +56448,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteAudioFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAudioFileResponse
+   * @param request - DeleteAudioFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAudioFileResponse
    */
   async deleteAudioFileWithOptions(request: DeleteAudioFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAudioFileResponse> {
     Util.validateModel(request);
@@ -37654,8 +56481,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteAudioFileRequest
-   * @return DeleteAudioFileResponse
+   * @param request - DeleteAudioFileRequest
+   * @returns DeleteAudioFileResponse
    */
   async deleteAudioFile(request: DeleteAudioFileRequest): Promise<DeleteAudioFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37663,11 +56490,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除号码标签
-   *
-   * @param request DeleteCallTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCallTagResponse
+   * 删除号码标签
+   * 
+   * @param request - DeleteCallTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCallTagResponse
    */
   async deleteCallTagWithOptions(request: DeleteCallTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCallTagResponse> {
     Util.validateModel(request);
@@ -37698,10 +56525,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除号码标签
-   *
-   * @param request DeleteCallTagRequest
-   * @return DeleteCallTagResponse
+   * 删除号码标签
+   * 
+   * @param request - DeleteCallTagRequest
+   * @returns DeleteCallTagResponse
    */
   async deleteCallTag(request: DeleteCallTagRequest): Promise<DeleteCallTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37709,9 +56536,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteContactFlowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteContactFlowResponse
+   * @param request - DeleteContactFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContactFlowResponse
    */
   async deleteContactFlowWithOptions(request: DeleteContactFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteContactFlowResponse> {
     Util.validateModel(request);
@@ -37742,8 +56569,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteContactFlowRequest
-   * @return DeleteContactFlowResponse
+   * @param request - DeleteContactFlowRequest
+   * @returns DeleteContactFlowResponse
    */
   async deleteContactFlow(request: DeleteContactFlowRequest): Promise<DeleteContactFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37751,11 +56578,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除呼入控制号码
-   *
-   * @param request DeleteCustomCallTaggingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCustomCallTaggingResponse
+   * 删除呼入控制号码
+   * 
+   * @param request - DeleteCustomCallTaggingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomCallTaggingResponse
    */
   async deleteCustomCallTaggingWithOptions(request: DeleteCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomCallTaggingResponse> {
     Util.validateModel(request);
@@ -37786,10 +56613,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除呼入控制号码
-   *
-   * @param request DeleteCustomCallTaggingRequest
-   * @return DeleteCustomCallTaggingResponse
+   * 删除呼入控制号码
+   * 
+   * @param request - DeleteCustomCallTaggingRequest
+   * @returns DeleteCustomCallTaggingResponse
    */
   async deleteCustomCallTagging(request: DeleteCustomCallTaggingRequest): Promise<DeleteCustomCallTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37797,9 +56624,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDocumentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDocumentResponse
+   * @param request - DeleteDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDocumentResponse
    */
   async deleteDocumentWithOptions(request: DeleteDocumentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDocumentResponse> {
     Util.validateModel(request);
@@ -37838,8 +56665,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDocumentRequest
-   * @return DeleteDocumentResponse
+   * @param request - DeleteDocumentRequest
+   * @returns DeleteDocumentResponse
    */
   async deleteDocument(request: DeleteDocumentRequest): Promise<DeleteDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37847,9 +56674,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq DeleteDocumentsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDocumentsResponse
+   * @param tmpReq - DeleteDocumentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDocumentsResponse
    */
   async deleteDocumentsWithOptions(tmpReq: DeleteDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDocumentsResponse> {
     Util.validateModel(tmpReq);
@@ -37894,8 +56721,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDocumentsRequest
-   * @return DeleteDocumentsResponse
+   * @param request - DeleteDocumentsRequest
+   * @returns DeleteDocumentsResponse
    */
   async deleteDocuments(request: DeleteDocumentsRequest): Promise<DeleteDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37903,9 +56730,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteSchemaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSchemaResponse
+   * @param request - DeleteSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSchemaResponse
    */
   async deleteSchemaWithOptions(request: DeleteSchemaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchemaResponse> {
     Util.validateModel(request);
@@ -37940,8 +56767,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteSchemaRequest
-   * @return DeleteSchemaResponse
+   * @param request - DeleteSchemaRequest
+   * @returns DeleteSchemaResponse
    */
   async deleteSchema(request: DeleteSchemaRequest): Promise<DeleteSchemaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37949,9 +56776,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteSchemaPropertyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSchemaPropertyResponse
+   * @param request - DeleteSchemaPropertyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSchemaPropertyResponse
    */
   async deleteSchemaPropertyWithOptions(request: DeleteSchemaPropertyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchemaPropertyResponse> {
     Util.validateModel(request);
@@ -37990,8 +56817,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteSchemaPropertyRequest
-   * @return DeleteSchemaPropertyResponse
+   * @param request - DeleteSchemaPropertyRequest
+   * @returns DeleteSchemaPropertyResponse
    */
   async deleteSchemaProperty(request: DeleteSchemaPropertyRequest): Promise<DeleteSchemaPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37999,9 +56826,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteSkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSkillGroupResponse
+   * @param request - DeleteSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSkillGroupResponse
    */
   async deleteSkillGroupWithOptions(request: DeleteSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSkillGroupResponse> {
     Util.validateModel(request);
@@ -38036,8 +56863,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteSkillGroupRequest
-   * @return DeleteSkillGroupResponse
+   * @param request - DeleteSkillGroupRequest
+   * @returns DeleteSkillGroupResponse
    */
   async deleteSkillGroup(request: DeleteSkillGroupRequest): Promise<DeleteSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38045,9 +56872,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteTicketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTicketResponse
+   * @param request - DeleteTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTicketResponse
    */
   async deleteTicketWithOptions(request: DeleteTicketRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTicketResponse> {
     Util.validateModel(request);
@@ -38078,8 +56905,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteTicketRequest
-   * @return DeleteTicketResponse
+   * @param request - DeleteTicketRequest
+   * @returns DeleteTicketResponse
    */
   async deleteTicket(request: DeleteTicketRequest): Promise<DeleteTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38087,9 +56914,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteTicketTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTicketTemplateResponse
+   * @param request - DeleteTicketTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTicketTemplateResponse
    */
   async deleteTicketTemplateWithOptions(request: DeleteTicketTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTicketTemplateResponse> {
     Util.validateModel(request);
@@ -38120,8 +56947,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteTicketTemplateRequest
-   * @return DeleteTicketTemplateResponse
+   * @param request - DeleteTicketTemplateRequest
+   * @returns DeleteTicketTemplateResponse
    */
   async deleteTicketTemplate(request: DeleteTicketTemplateRequest): Promise<DeleteTicketTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38129,9 +56956,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DisableSchemaPropertyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableSchemaPropertyResponse
+   * @param request - DisableSchemaPropertyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableSchemaPropertyResponse
    */
   async disableSchemaPropertyWithOptions(request: DisableSchemaPropertyRequest, runtime: $Util.RuntimeOptions): Promise<DisableSchemaPropertyResponse> {
     Util.validateModel(request);
@@ -38170,8 +56997,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DisableSchemaPropertyRequest
-   * @return DisableSchemaPropertyResponse
+   * @param request - DisableSchemaPropertyRequest
+   * @returns DisableSchemaPropertyResponse
    */
   async disableSchemaProperty(request: DisableSchemaPropertyRequest): Promise<DisableSchemaPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38179,9 +57006,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DisableTicketTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableTicketTemplateResponse
+   * @param request - DisableTicketTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableTicketTemplateResponse
    */
   async disableTicketTemplateWithOptions(request: DisableTicketTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DisableTicketTemplateResponse> {
     Util.validateModel(request);
@@ -38212,8 +57039,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DisableTicketTemplateRequest
-   * @return DisableTicketTemplateResponse
+   * @param request - DisableTicketTemplateRequest
+   * @returns DisableTicketTemplateResponse
    */
   async disableTicketTemplate(request: DisableTicketTemplateRequest): Promise<DisableTicketTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38221,9 +57048,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DiscardEditingContactFlowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DiscardEditingContactFlowResponse
+   * @param request - DiscardEditingContactFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DiscardEditingContactFlowResponse
    */
   async discardEditingContactFlowWithOptions(request: DiscardEditingContactFlowRequest, runtime: $Util.RuntimeOptions): Promise<DiscardEditingContactFlowResponse> {
     Util.validateModel(request);
@@ -38258,8 +57085,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DiscardEditingContactFlowRequest
-   * @return DiscardEditingContactFlowResponse
+   * @param request - DiscardEditingContactFlowRequest
+   * @returns DiscardEditingContactFlowResponse
    */
   async discardEditingContactFlow(request: DiscardEditingContactFlowRequest): Promise<DiscardEditingContactFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38267,9 +57094,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EnableSchemaPropertyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableSchemaPropertyResponse
+   * @param request - EnableSchemaPropertyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableSchemaPropertyResponse
    */
   async enableSchemaPropertyWithOptions(request: EnableSchemaPropertyRequest, runtime: $Util.RuntimeOptions): Promise<EnableSchemaPropertyResponse> {
     Util.validateModel(request);
@@ -38308,8 +57135,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EnableSchemaPropertyRequest
-   * @return EnableSchemaPropertyResponse
+   * @param request - EnableSchemaPropertyRequest
+   * @returns EnableSchemaPropertyResponse
    */
   async enableSchemaProperty(request: EnableSchemaPropertyRequest): Promise<EnableSchemaPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38317,9 +57144,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EnableTicketTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableTicketTemplateResponse
+   * @param request - EnableTicketTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableTicketTemplateResponse
    */
   async enableTicketTemplateWithOptions(request: EnableTicketTemplateRequest, runtime: $Util.RuntimeOptions): Promise<EnableTicketTemplateResponse> {
     Util.validateModel(request);
@@ -38350,8 +57177,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EnableTicketTemplateRequest
-   * @return EnableTicketTemplateResponse
+   * @param request - EnableTicketTemplateRequest
+   * @returns EnableTicketTemplateResponse
    */
   async enableTicketTemplate(request: EnableTicketTemplateRequest): Promise<EnableTicketTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38359,9 +57186,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EndConferenceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EndConferenceResponse
+   * @param request - EndConferenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EndConferenceResponse
    */
   async endConferenceWithOptions(request: EndConferenceRequest, runtime: $Util.RuntimeOptions): Promise<EndConferenceResponse> {
     Util.validateModel(request);
@@ -38396,8 +57223,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EndConferenceRequest
-   * @return EndConferenceResponse
+   * @param request - EndConferenceRequest
+   * @returns EndConferenceResponse
    */
   async endConference(request: EndConferenceRequest): Promise<EndConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38405,13 +57232,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导出全部呼入号码标签
+   * 
    * @deprecated OpenAPI ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead.
-   *
-   * @summary 导出全部呼入号码标签
-   *
-   * @param request ExportCustomCallTaggingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExportCustomCallTaggingResponse
+   * 
+   * @param request - ExportCustomCallTaggingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportCustomCallTaggingResponse
    */
   // Deprecated
   async exportCustomCallTaggingWithOptions(request: ExportCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<ExportCustomCallTaggingResponse> {
@@ -38439,12 +57266,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导出全部呼入号码标签
+   * 
    * @deprecated OpenAPI ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead.
-   *
-   * @summary 导出全部呼入号码标签
-   *
-   * @param request ExportCustomCallTaggingRequest
-   * @return ExportCustomCallTaggingResponse
+   * 
+   * @param request - ExportCustomCallTaggingRequest
+   * @returns ExportCustomCallTaggingResponse
    */
   // Deprecated
   async exportCustomCallTagging(request: ExportCustomCallTaggingRequest): Promise<ExportCustomCallTaggingResponse> {
@@ -38453,11 +57280,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导出黑名单号码
-   *
-   * @param request ExportDoNotCallNumbersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExportDoNotCallNumbersResponse
+   * 导出黑名单号码
+   * 
+   * @param request - ExportDoNotCallNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportDoNotCallNumbersResponse
    */
   async exportDoNotCallNumbersWithOptions(request: ExportDoNotCallNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ExportDoNotCallNumbersResponse> {
     Util.validateModel(request);
@@ -38492,10 +57319,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 导出黑名单号码
-   *
-   * @param request ExportDoNotCallNumbersRequest
-   * @return ExportDoNotCallNumbersResponse
+   * 导出黑名单号码
+   * 
+   * @param request - ExportDoNotCallNumbersRequest
+   * @returns ExportDoNotCallNumbersResponse
    */
   async exportDoNotCallNumbers(request: ExportDoNotCallNumbersRequest): Promise<ExportDoNotCallNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38503,9 +57330,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request FinishTicketTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FinishTicketTaskResponse
+   * @param request - FinishTicketTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FinishTicketTaskResponse
    */
   async finishTicketTaskWithOptions(request: FinishTicketTaskRequest, runtime: $Util.RuntimeOptions): Promise<FinishTicketTaskResponse> {
     Util.validateModel(request);
@@ -38544,8 +57371,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request FinishTicketTaskRequest
-   * @return FinishTicketTaskResponse
+   * @param request - FinishTicketTaskRequest
+   * @returns FinishTicketTaskResponse
    */
   async finishTicketTask(request: FinishTicketTaskRequest): Promise<FinishTicketTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38553,11 +57380,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetAccessChannelOfStaging
-   *
-   * @param request GetAccessChannelOfStagingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAccessChannelOfStagingResponse
+   * GetAccessChannelOfStaging
+   * 
+   * @param request - GetAccessChannelOfStagingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccessChannelOfStagingResponse
    */
   async getAccessChannelOfStagingWithOptions(request: GetAccessChannelOfStagingRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessChannelOfStagingResponse> {
     Util.validateModel(request);
@@ -38580,10 +57407,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetAccessChannelOfStaging
-   *
-   * @param request GetAccessChannelOfStagingRequest
-   * @return GetAccessChannelOfStagingResponse
+   * GetAccessChannelOfStaging
+   * 
+   * @param request - GetAccessChannelOfStagingRequest
+   * @returns GetAccessChannelOfStagingResponse
    */
   async getAccessChannelOfStaging(request: GetAccessChannelOfStagingRequest): Promise<GetAccessChannelOfStagingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38591,11 +57418,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取音频文件
-   *
-   * @param request GetAudioFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAudioFileResponse
+   * 获取音频文件
+   * 
+   * @param request - GetAudioFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAudioFileResponse
    */
   async getAudioFileWithOptions(request: GetAudioFileRequest, runtime: $Util.RuntimeOptions): Promise<GetAudioFileResponse> {
     Util.validateModel(request);
@@ -38626,10 +57453,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取音频文件
-   *
-   * @param request GetAudioFileRequest
-   * @return GetAudioFileResponse
+   * 获取音频文件
+   * 
+   * @param request - GetAudioFileRequest
+   * @returns GetAudioFileResponse
    */
   async getAudioFile(request: GetAudioFileRequest): Promise<GetAudioFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38637,9 +57464,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAudioFileDownloadUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAudioFileDownloadUrlResponse
+   * @param request - GetAudioFileDownloadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAudioFileDownloadUrlResponse
    */
   async getAudioFileDownloadUrlWithOptions(request: GetAudioFileDownloadUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetAudioFileDownloadUrlResponse> {
     Util.validateModel(request);
@@ -38670,8 +57497,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAudioFileDownloadUrlRequest
-   * @return GetAudioFileDownloadUrlResponse
+   * @param request - GetAudioFileDownloadUrlRequest
+   * @returns GetAudioFileDownloadUrlResponse
    */
   async getAudioFileDownloadUrl(request: GetAudioFileDownloadUrlRequest): Promise<GetAudioFileDownloadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38679,9 +57506,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAudioFileUploadParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAudioFileUploadParametersResponse
+   * @param request - GetAudioFileUploadParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAudioFileUploadParametersResponse
    */
   async getAudioFileUploadParametersWithOptions(request: GetAudioFileUploadParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetAudioFileUploadParametersResponse> {
     Util.validateModel(request);
@@ -38712,8 +57539,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAudioFileUploadParametersRequest
-   * @return GetAudioFileUploadParametersResponse
+   * @param request - GetAudioFileUploadParametersRequest
+   * @returns GetAudioFileUploadParametersResponse
    */
   async getAudioFileUploadParameters(request: GetAudioFileUploadParametersRequest): Promise<GetAudioFileUploadParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38721,9 +57548,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetCallDetailRecordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCallDetailRecordResponse
+   * @param request - GetCallDetailRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCallDetailRecordResponse
    */
   async getCallDetailRecordWithOptions(request: GetCallDetailRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetCallDetailRecordResponse> {
     Util.validateModel(request);
@@ -38754,8 +57581,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetCallDetailRecordRequest
-   * @return GetCallDetailRecordResponse
+   * @param request - GetCallDetailRecordRequest
+   * @returns GetCallDetailRecordResponse
    */
   async getCallDetailRecord(request: GetCallDetailRecordRequest): Promise<GetCallDetailRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38763,11 +57590,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼活动信息
-   *
-   * @param request GetCampaignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCampaignResponse
+   * 获取预测式外呼活动信息
+   * 
+   * @param request - GetCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCampaignResponse
    */
   async getCampaignWithOptions(request: GetCampaignRequest, runtime: $Util.RuntimeOptions): Promise<GetCampaignResponse> {
     Util.validateModel(request);
@@ -38798,10 +57625,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼活动信息
-   *
-   * @param request GetCampaignRequest
-   * @return GetCampaignResponse
+   * 获取预测式外呼活动信息
+   * 
+   * @param request - GetCampaignRequest
+   * @returns GetCampaignResponse
    */
   async getCampaign(request: GetCampaignRequest): Promise<GetCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38809,9 +57636,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetCaseFileUploadUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetCaseFileUploadUrlResponse
+   * @param request - GetCaseFileUploadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCaseFileUploadUrlResponse
    */
   async getCaseFileUploadUrlWithOptions(request: GetCaseFileUploadUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetCaseFileUploadUrlResponse> {
     Util.validateModel(request);
@@ -38842,8 +57669,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetCaseFileUploadUrlRequest
-   * @return GetCaseFileUploadUrlResponse
+   * @param request - GetCaseFileUploadUrlRequest
+   * @returns GetCaseFileUploadUrlResponse
    */
   async getCaseFileUploadUrl(request: GetCaseFileUploadUrlRequest): Promise<GetCaseFileUploadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38851,9 +57678,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetContactFlowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetContactFlowResponse
+   * @param request - GetContactFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContactFlowResponse
    */
   async getContactFlowWithOptions(request: GetContactFlowRequest, runtime: $Util.RuntimeOptions): Promise<GetContactFlowResponse> {
     Util.validateModel(request);
@@ -38888,8 +57715,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetContactFlowRequest
-   * @return GetContactFlowResponse
+   * @param request - GetContactFlowRequest
+   * @returns GetContactFlowResponse
    */
   async getContactFlow(request: GetContactFlowRequest): Promise<GetContactFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38897,11 +57724,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取通话文本信息
-   *
-   * @param request GetConversationDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetConversationDetailResponse
+   * 获取通话文本信息
+   * 
+   * @param request - GetConversationDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConversationDetailResponse
    */
   async getConversationDetailWithOptions(request: GetConversationDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetConversationDetailResponse> {
     Util.validateModel(request);
@@ -38932,10 +57759,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取通话文本信息
-   *
-   * @param request GetConversationDetailRequest
-   * @return GetConversationDetailResponse
+   * 获取通话文本信息
+   * 
+   * @param request - GetConversationDetailRequest
+   * @returns GetConversationDetailResponse
    */
   async getConversationDetail(request: GetConversationDetailRequest): Promise<GetConversationDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38943,9 +57770,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetDataChannelCredentialsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDataChannelCredentialsResponse
+   * @param request - GetDataChannelCredentialsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataChannelCredentialsResponse
    */
   async getDataChannelCredentialsWithOptions(request: GetDataChannelCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<GetDataChannelCredentialsResponse> {
     Util.validateModel(request);
@@ -38976,8 +57803,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetDataChannelCredentialsRequest
-   * @return GetDataChannelCredentialsResponse
+   * @param request - GetDataChannelCredentialsRequest
+   * @returns GetDataChannelCredentialsResponse
    */
   async getDataChannelCredentials(request: GetDataChannelCredentialsRequest): Promise<GetDataChannelCredentialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38985,11 +57812,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取黑名单文件上传地址
-   *
-   * @param request GetDoNotCallFileUploadParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDoNotCallFileUploadParametersResponse
+   * 获取黑名单文件上传地址
+   * 
+   * @param request - GetDoNotCallFileUploadParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDoNotCallFileUploadParametersResponse
    */
   async getDoNotCallFileUploadParametersWithOptions(request: GetDoNotCallFileUploadParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetDoNotCallFileUploadParametersResponse> {
     Util.validateModel(request);
@@ -39020,10 +57847,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取黑名单文件上传地址
-   *
-   * @param request GetDoNotCallFileUploadParametersRequest
-   * @return GetDoNotCallFileUploadParametersResponse
+   * 获取黑名单文件上传地址
+   * 
+   * @param request - GetDoNotCallFileUploadParametersRequest
+   * @returns GetDoNotCallFileUploadParametersResponse
    */
   async getDoNotCallFileUploadParameters(request: GetDoNotCallFileUploadParametersRequest): Promise<GetDoNotCallFileUploadParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39031,9 +57858,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetDocumentUploadParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDocumentUploadParametersResponse
+   * @param request - GetDocumentUploadParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocumentUploadParametersResponse
    */
   async getDocumentUploadParametersWithOptions(request: GetDocumentUploadParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetDocumentUploadParametersResponse> {
     Util.validateModel(request);
@@ -39068,8 +57895,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetDocumentUploadParametersRequest
-   * @return GetDocumentUploadParametersResponse
+   * @param request - GetDocumentUploadParametersRequest
+   * @returns GetDocumentUploadParametersResponse
    */
   async getDocumentUploadParameters(request: GetDocumentUploadParametersRequest): Promise<GetDocumentUploadParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39077,11 +57904,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取早媒体音频
-   *
-   * @param request GetEarlyMediaRecordingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetEarlyMediaRecordingResponse
+   * 获取早媒体音频
+   * 
+   * @param request - GetEarlyMediaRecordingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEarlyMediaRecordingResponse
    */
   async getEarlyMediaRecordingWithOptions(request: GetEarlyMediaRecordingRequest, runtime: $Util.RuntimeOptions): Promise<GetEarlyMediaRecordingResponse> {
     Util.validateModel(request);
@@ -39112,10 +57939,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取早媒体音频
-   *
-   * @param request GetEarlyMediaRecordingRequest
-   * @return GetEarlyMediaRecordingResponse
+   * 获取早媒体音频
+   * 
+   * @param request - GetEarlyMediaRecordingRequest
+   * @returns GetEarlyMediaRecordingResponse
    */
   async getEarlyMediaRecording(request: GetEarlyMediaRecordingRequest): Promise<GetEarlyMediaRecordingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39123,9 +57950,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetHistoricalCallerReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetHistoricalCallerReportResponse
+   * @param request - GetHistoricalCallerReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHistoricalCallerReportResponse
    */
   async getHistoricalCallerReportWithOptions(request: GetHistoricalCallerReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHistoricalCallerReportResponse> {
     Util.validateModel(request);
@@ -39164,8 +57991,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetHistoricalCallerReportRequest
-   * @return GetHistoricalCallerReportResponse
+   * @param request - GetHistoricalCallerReportRequest
+   * @returns GetHistoricalCallerReportResponse
    */
   async getHistoricalCallerReport(request: GetHistoricalCallerReportRequest): Promise<GetHistoricalCallerReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39173,11 +58000,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼活动历史报表
-   *
-   * @param request GetHistoricalCampaignReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetHistoricalCampaignReportResponse
+   * 获取预测式外呼活动历史报表
+   * 
+   * @param request - GetHistoricalCampaignReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHistoricalCampaignReportResponse
    */
   async getHistoricalCampaignReportWithOptions(request: GetHistoricalCampaignReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHistoricalCampaignReportResponse> {
     Util.validateModel(request);
@@ -39200,10 +58027,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼活动历史报表
-   *
-   * @param request GetHistoricalCampaignReportRequest
-   * @return GetHistoricalCampaignReportResponse
+   * 获取预测式外呼活动历史报表
+   * 
+   * @param request - GetHistoricalCampaignReportRequest
+   * @returns GetHistoricalCampaignReportResponse
    */
   async getHistoricalCampaignReport(request: GetHistoricalCampaignReportRequest): Promise<GetHistoricalCampaignReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39211,9 +58038,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetHistoricalInstanceReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetHistoricalInstanceReportResponse
+   * @param request - GetHistoricalInstanceReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHistoricalInstanceReportResponse
    */
   async getHistoricalInstanceReportWithOptions(request: GetHistoricalInstanceReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHistoricalInstanceReportResponse> {
     Util.validateModel(request);
@@ -39252,8 +58079,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetHistoricalInstanceReportRequest
-   * @return GetHistoricalInstanceReportResponse
+   * @param request - GetHistoricalInstanceReportRequest
+   * @returns GetHistoricalInstanceReportResponse
    */
   async getHistoricalInstanceReport(request: GetHistoricalInstanceReportRequest): Promise<GetHistoricalInstanceReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39261,9 +58088,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceResponse
+   * @param request - GetInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceResponse
    */
   async getInstanceWithOptions(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     Util.validateModel(request);
@@ -39290,8 +58117,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetInstanceRequest
-   * @return GetInstanceResponse
+   * @param request - GetInstanceRequest
+   * @returns GetInstanceResponse
    */
   async getInstance(request: GetInstanceRequest): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39299,9 +58126,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetInstanceTrendingReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceTrendingReportResponse
+   * @param request - GetInstanceTrendingReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceTrendingReportResponse
    */
   async getInstanceTrendingReportWithOptions(request: GetInstanceTrendingReportRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceTrendingReportResponse> {
     Util.validateModel(request);
@@ -39340,8 +58167,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetInstanceTrendingReportRequest
-   * @return GetInstanceTrendingReportResponse
+   * @param request - GetInstanceTrendingReportRequest
+   * @returns GetInstanceTrendingReportResponse
    */
   async getInstanceTrendingReport(request: GetInstanceTrendingReportRequest): Promise<GetInstanceTrendingReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39349,9 +58176,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetLoginDetailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLoginDetailsResponse
+   * @param request - GetLoginDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLoginDetailsResponse
    */
   async getLoginDetailsWithOptions(request: GetLoginDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginDetailsResponse> {
     Util.validateModel(request);
@@ -39386,8 +58213,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetLoginDetailsRequest
-   * @return GetLoginDetailsResponse
+   * @param request - GetLoginDetailsRequest
+   * @returns GetLoginDetailsResponse
    */
   async getLoginDetails(request: GetLoginDetailsRequest): Promise<GetLoginDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39395,9 +58222,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetMonoRecordingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMonoRecordingResponse
+   * @param request - GetMonoRecordingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMonoRecordingResponse
    */
   async getMonoRecordingWithOptions(request: GetMonoRecordingRequest, runtime: $Util.RuntimeOptions): Promise<GetMonoRecordingResponse> {
     Util.validateModel(request);
@@ -39432,8 +58259,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetMonoRecordingRequest
-   * @return GetMonoRecordingResponse
+   * @param request - GetMonoRecordingRequest
+   * @returns GetMonoRecordingResponse
    */
   async getMonoRecording(request: GetMonoRecordingRequest): Promise<GetMonoRecordingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39441,9 +58268,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetMultiChannelRecordingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMultiChannelRecordingResponse
+   * @param request - GetMultiChannelRecordingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMultiChannelRecordingResponse
    */
   async getMultiChannelRecordingWithOptions(request: GetMultiChannelRecordingRequest, runtime: $Util.RuntimeOptions): Promise<GetMultiChannelRecordingResponse> {
     Util.validateModel(request);
@@ -39474,8 +58301,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetMultiChannelRecordingRequest
-   * @return GetMultiChannelRecordingResponse
+   * @param request - GetMultiChannelRecordingRequest
+   * @returns GetMultiChannelRecordingResponse
    */
   async getMultiChannelRecording(request: GetMultiChannelRecordingRequest): Promise<GetMultiChannelRecordingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39483,9 +58310,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetNumberLocationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetNumberLocationResponse
+   * @param request - GetNumberLocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNumberLocationResponse
    */
   async getNumberLocationWithOptions(request: GetNumberLocationRequest, runtime: $Util.RuntimeOptions): Promise<GetNumberLocationResponse> {
     Util.validateModel(request);
@@ -39516,8 +58343,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetNumberLocationRequest
-   * @return GetNumberLocationResponse
+   * @param request - GetNumberLocationRequest
+   * @returns GetNumberLocationResponse
    */
   async getNumberLocation(request: GetNumberLocationRequest): Promise<GetNumberLocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39525,11 +58352,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼实时状态
-   *
-   * @param request GetRealtimeCampaignStatsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetRealtimeCampaignStatsResponse
+   * 获取预测式外呼实时状态
+   * 
+   * @param request - GetRealtimeCampaignStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRealtimeCampaignStatsResponse
    */
   async getRealtimeCampaignStatsWithOptions(request: GetRealtimeCampaignStatsRequest, runtime: $Util.RuntimeOptions): Promise<GetRealtimeCampaignStatsResponse> {
     Util.validateModel(request);
@@ -39552,10 +58379,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼实时状态
-   *
-   * @param request GetRealtimeCampaignStatsRequest
-   * @return GetRealtimeCampaignStatsResponse
+   * 获取预测式外呼实时状态
+   * 
+   * @param request - GetRealtimeCampaignStatsRequest
+   * @returns GetRealtimeCampaignStatsResponse
    */
   async getRealtimeCampaignStats(request: GetRealtimeCampaignStatsRequest): Promise<GetRealtimeCampaignStatsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39563,9 +58390,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetRealtimeInstanceStatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetRealtimeInstanceStatesResponse
+   * @param request - GetRealtimeInstanceStatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRealtimeInstanceStatesResponse
    */
   async getRealtimeInstanceStatesWithOptions(request: GetRealtimeInstanceStatesRequest, runtime: $Util.RuntimeOptions): Promise<GetRealtimeInstanceStatesResponse> {
     Util.validateModel(request);
@@ -39596,8 +58423,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetRealtimeInstanceStatesRequest
-   * @return GetRealtimeInstanceStatesResponse
+   * @param request - GetRealtimeInstanceStatesRequest
+   * @returns GetRealtimeInstanceStatesResponse
    */
   async getRealtimeInstanceStates(request: GetRealtimeInstanceStatesRequest): Promise<GetRealtimeInstanceStatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39605,9 +58432,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetSchemaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSchemaResponse
+   * @param request - GetSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSchemaResponse
    */
   async getSchemaWithOptions(request: GetSchemaRequest, runtime: $Util.RuntimeOptions): Promise<GetSchemaResponse> {
     Util.validateModel(request);
@@ -39642,8 +58469,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetSchemaRequest
-   * @return GetSchemaResponse
+   * @param request - GetSchemaRequest
+   * @returns GetSchemaResponse
    */
   async getSchema(request: GetSchemaRequest): Promise<GetSchemaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39651,11 +58478,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询技能组
-   *
-   * @param request GetSkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSkillGroupResponse
+   * 查询技能组
+   * 
+   * @param request - GetSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillGroupResponse
    */
   async getSkillGroupWithOptions(request: GetSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupResponse> {
     Util.validateModel(request);
@@ -39686,10 +58513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询技能组
-   *
-   * @param request GetSkillGroupRequest
-   * @return GetSkillGroupResponse
+   * 查询技能组
+   * 
+   * @param request - GetSkillGroupRequest
+   * @returns GetSkillGroupResponse
    */
   async getSkillGroup(request: GetSkillGroupRequest): Promise<GetSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39697,9 +58524,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTicketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTicketResponse
+   * @param request - GetTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTicketResponse
    */
   async getTicketWithOptions(request: GetTicketRequest, runtime: $Util.RuntimeOptions): Promise<GetTicketResponse> {
     Util.validateModel(request);
@@ -39730,8 +58557,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTicketRequest
-   * @return GetTicketResponse
+   * @param request - GetTicketRequest
+   * @returns GetTicketResponse
    */
   async getTicket(request: GetTicketRequest): Promise<GetTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39739,9 +58566,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTicketSummaryReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTicketSummaryReportResponse
+   * @param request - GetTicketSummaryReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTicketSummaryReportResponse
    */
   async getTicketSummaryReportWithOptions(request: GetTicketSummaryReportRequest, runtime: $Util.RuntimeOptions): Promise<GetTicketSummaryReportResponse> {
     Util.validateModel(request);
@@ -39808,8 +58635,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTicketSummaryReportRequest
-   * @return GetTicketSummaryReportResponse
+   * @param request - GetTicketSummaryReportRequest
+   * @returns GetTicketSummaryReportResponse
    */
   async getTicketSummaryReport(request: GetTicketSummaryReportRequest): Promise<GetTicketSummaryReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39817,9 +58644,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTicketTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTicketTemplateResponse
+   * @param request - GetTicketTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTicketTemplateResponse
    */
   async getTicketTemplateWithOptions(request: GetTicketTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTicketTemplateResponse> {
     Util.validateModel(request);
@@ -39854,8 +58681,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTicketTemplateRequest
-   * @return GetTicketTemplateResponse
+   * @param request - GetTicketTemplateRequest
+   * @returns GetTicketTemplateResponse
    */
   async getTicketTemplate(request: GetTicketTemplateRequest): Promise<GetTicketTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39863,9 +58690,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTurnCredentialsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTurnCredentialsResponse
+   * @param request - GetTurnCredentialsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTurnCredentialsResponse
    */
   async getTurnCredentialsWithOptions(request: GetTurnCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<GetTurnCredentialsResponse> {
     Util.validateModel(request);
@@ -39896,8 +58723,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTurnCredentialsRequest
-   * @return GetTurnCredentialsResponse
+   * @param request - GetTurnCredentialsRequest
+   * @returns GetTurnCredentialsResponse
    */
   async getTurnCredentials(request: GetTurnCredentialsRequest): Promise<GetTurnCredentialsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39905,9 +58732,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTurnServerListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTurnServerListResponse
+   * @param request - GetTurnServerListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTurnServerListResponse
    */
   async getTurnServerListWithOptions(request: GetTurnServerListRequest, runtime: $Util.RuntimeOptions): Promise<GetTurnServerListResponse> {
     Util.validateModel(request);
@@ -39934,8 +58761,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetTurnServerListRequest
-   * @return GetTurnServerListResponse
+   * @param request - GetTurnServerListRequest
+   * @returns GetTurnServerListResponse
    */
   async getTurnServerList(request: GetTurnServerListRequest): Promise<GetTurnServerListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39943,11 +58770,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取质检参数
-   *
-   * @param request GetUploadAudioDataParamsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUploadAudioDataParamsResponse
+   * 获取质检参数
+   * 
+   * @param request - GetUploadAudioDataParamsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUploadAudioDataParamsResponse
    */
   async getUploadAudioDataParamsWithOptions(request: GetUploadAudioDataParamsRequest, runtime: $Util.RuntimeOptions): Promise<GetUploadAudioDataParamsResponse> {
     Util.validateModel(request);
@@ -39970,10 +58797,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取质检参数
-   *
-   * @param request GetUploadAudioDataParamsRequest
-   * @return GetUploadAudioDataParamsResponse
+   * 获取质检参数
+   * 
+   * @param request - GetUploadAudioDataParamsRequest
+   * @returns GetUploadAudioDataParamsResponse
    */
   async getUploadAudioDataParams(request: GetUploadAudioDataParamsRequest): Promise<GetUploadAudioDataParamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -39981,9 +58808,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserResponse
+   * @param request - GetUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserResponse
    */
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
@@ -40018,8 +58845,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetUserRequest
-   * @return GetUserResponse
+   * @param request - GetUserRequest
+   * @returns GetUserResponse
    */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40027,11 +58854,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取视频
-   *
-   * @param request GetVideoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetVideoResponse
+   * 获取视频
+   * 
+   * @param request - GetVideoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoResponse
    */
   async getVideoWithOptions(request: GetVideoRequest, runtime: $Util.RuntimeOptions): Promise<GetVideoResponse> {
     Util.validateModel(request);
@@ -40054,10 +58881,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取视频
-   *
-   * @param request GetVideoRequest
-   * @return GetVideoResponse
+   * 获取视频
+   * 
+   * @param request - GetVideoRequest
+   * @returns GetVideoResponse
    */
   async getVideo(request: GetVideoRequest): Promise<GetVideoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40065,9 +58892,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetVisitorLoginDetailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetVisitorLoginDetailsResponse
+   * @param request - GetVisitorLoginDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVisitorLoginDetailsResponse
    */
   async getVisitorLoginDetailsWithOptions(request: GetVisitorLoginDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetVisitorLoginDetailsResponse> {
     Util.validateModel(request);
@@ -40106,8 +58933,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetVisitorLoginDetailsRequest
-   * @return GetVisitorLoginDetailsResponse
+   * @param request - GetVisitorLoginDetailsRequest
+   * @returns GetVisitorLoginDetailsResponse
    */
   async getVisitorLoginDetails(request: GetVisitorLoginDetailsRequest): Promise<GetVisitorLoginDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40115,9 +58942,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetVoicemailRecordingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetVoicemailRecordingResponse
+   * @param request - GetVoicemailRecordingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVoicemailRecordingResponse
    */
   async getVoicemailRecordingWithOptions(request: GetVoicemailRecordingRequest, runtime: $Util.RuntimeOptions): Promise<GetVoicemailRecordingResponse> {
     Util.validateModel(request);
@@ -40148,8 +58975,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetVoicemailRecordingRequest
-   * @return GetVoicemailRecordingResponse
+   * @param request - GetVoicemailRecordingRequest
+   * @returns GetVoicemailRecordingResponse
    */
   async getVoicemailRecording(request: GetVoicemailRecordingRequest): Promise<GetVoicemailRecordingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40157,9 +58984,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request HoldCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return HoldCallResponse
+   * @param request - HoldCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HoldCallResponse
    */
   async holdCallWithOptions(request: HoldCallRequest, runtime: $Util.RuntimeOptions): Promise<HoldCallResponse> {
     Util.validateModel(request);
@@ -40206,8 +59033,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request HoldCallRequest
-   * @return HoldCallResponse
+   * @param request - HoldCallRequest
+   * @returns HoldCallResponse
    */
   async holdCall(request: HoldCallRequest): Promise<HoldCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40215,9 +59042,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ImportAdminsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportAdminsResponse
+   * @param request - ImportAdminsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportAdminsResponse
    */
   async importAdminsWithOptions(request: ImportAdminsRequest, runtime: $Util.RuntimeOptions): Promise<ImportAdminsResponse> {
     Util.validateModel(request);
@@ -40248,8 +59075,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ImportAdminsRequest
-   * @return ImportAdminsResponse
+   * @param request - ImportAdminsRequest
+   * @returns ImportAdminsResponse
    */
   async importAdmins(request: ImportAdminsRequest): Promise<ImportAdminsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40257,9 +59084,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ImportCorpNumbersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportCorpNumbersResponse
+   * @param request - ImportCorpNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportCorpNumbersResponse
    */
   async importCorpNumbersWithOptions(request: ImportCorpNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ImportCorpNumbersResponse> {
     Util.validateModel(request);
@@ -40306,8 +59133,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ImportCorpNumbersRequest
-   * @return ImportCorpNumbersResponse
+   * @param request - ImportCorpNumbersRequest
+   * @returns ImportCorpNumbersResponse
    */
   async importCorpNumbers(request: ImportCorpNumbersRequest): Promise<ImportCorpNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40315,13 +59142,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 文件导入呼入控制号码
+   * 
    * @deprecated OpenAPI ImportCustomCallTagging is deprecated, please use CCC::2020-07-01::ImportCustomCallTaggings instead.
-   *
-   * @summary 文件导入呼入控制号码
-   *
-   * @param request ImportCustomCallTaggingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportCustomCallTaggingResponse
+   * 
+   * @param request - ImportCustomCallTaggingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportCustomCallTaggingResponse
    */
   // Deprecated
   async importCustomCallTaggingWithOptions(request: ImportCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<ImportCustomCallTaggingResponse> {
@@ -40353,12 +59180,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 文件导入呼入控制号码
+   * 
    * @deprecated OpenAPI ImportCustomCallTagging is deprecated, please use CCC::2020-07-01::ImportCustomCallTaggings instead.
-   *
-   * @summary 文件导入呼入控制号码
-   *
-   * @param request ImportCustomCallTaggingRequest
-   * @return ImportCustomCallTaggingResponse
+   * 
+   * @param request - ImportCustomCallTaggingRequest
+   * @returns ImportCustomCallTaggingResponse
    */
   // Deprecated
   async importCustomCallTagging(request: ImportCustomCallTaggingRequest): Promise<ImportCustomCallTaggingResponse> {
@@ -40367,11 +59194,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加黑名单号码
-   *
-   * @param request ImportDoNotCallNumbersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportDoNotCallNumbersResponse
+   * 添加黑名单号码
+   * 
+   * @param request - ImportDoNotCallNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportDoNotCallNumbersResponse
    */
   async importDoNotCallNumbersWithOptions(request: ImportDoNotCallNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ImportDoNotCallNumbersResponse> {
     Util.validateModel(request);
@@ -40410,10 +59237,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加黑名单号码
-   *
-   * @param request ImportDoNotCallNumbersRequest
-   * @return ImportDoNotCallNumbersResponse
+   * 添加黑名单号码
+   * 
+   * @param request - ImportDoNotCallNumbersRequest
+   * @returns ImportDoNotCallNumbersResponse
    */
   async importDoNotCallNumbers(request: ImportDoNotCallNumbersRequest): Promise<ImportDoNotCallNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40421,9 +59248,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ImportDocumentsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportDocumentsResponse
+   * @param request - ImportDocumentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportDocumentsResponse
    */
   async importDocumentsWithOptions(request: ImportDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<ImportDocumentsResponse> {
     Util.validateModel(request);
@@ -40462,8 +59289,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ImportDocumentsRequest
-   * @return ImportDocumentsResponse
+   * @param request - ImportDocumentsRequest
+   * @returns ImportDocumentsResponse
    */
   async importDocuments(request: ImportDocumentsRequest): Promise<ImportDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40471,9 +59298,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request InitiateAttendedTransferRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InitiateAttendedTransferResponse
+   * @param request - InitiateAttendedTransferRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitiateAttendedTransferResponse
    */
   async initiateAttendedTransferWithOptions(request: InitiateAttendedTransferRequest, runtime: $Util.RuntimeOptions): Promise<InitiateAttendedTransferResponse> {
     Util.validateModel(request);
@@ -40556,8 +59383,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request InitiateAttendedTransferRequest
-   * @return InitiateAttendedTransferResponse
+   * @param request - InitiateAttendedTransferRequest
+   * @returns InitiateAttendedTransferResponse
    */
   async initiateAttendedTransfer(request: InitiateAttendedTransferRequest): Promise<InitiateAttendedTransferResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40565,9 +59392,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request InterceptCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InterceptCallResponse
+   * @param request - InterceptCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InterceptCallResponse
    */
   async interceptCallWithOptions(request: InterceptCallRequest, runtime: $Util.RuntimeOptions): Promise<InterceptCallResponse> {
     Util.validateModel(request);
@@ -40614,8 +59441,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request InterceptCallRequest
-   * @return InterceptCallResponse
+   * @param request - InterceptCallRequest
+   * @returns InterceptCallResponse
    */
   async interceptCall(request: InterceptCallRequest): Promise<InterceptCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40623,9 +59450,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request LaunchAuthenticationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LaunchAuthenticationResponse
+   * @param request - LaunchAuthenticationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LaunchAuthenticationResponse
    */
   async launchAuthenticationWithOptions(request: LaunchAuthenticationRequest, runtime: $Util.RuntimeOptions): Promise<LaunchAuthenticationResponse> {
     Util.validateModel(request);
@@ -40672,8 +59499,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request LaunchAuthenticationRequest
-   * @return LaunchAuthenticationResponse
+   * @param request - LaunchAuthenticationRequest
+   * @returns LaunchAuthenticationResponse
    */
   async launchAuthentication(request: LaunchAuthenticationRequest): Promise<LaunchAuthenticationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40681,9 +59508,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request LaunchSurveyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LaunchSurveyResponse
+   * @param request - LaunchSurveyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LaunchSurveyResponse
    */
   async launchSurveyWithOptions(request: LaunchSurveyRequest, runtime: $Util.RuntimeOptions): Promise<LaunchSurveyResponse> {
     Util.validateModel(request);
@@ -40746,8 +59573,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request LaunchSurveyRequest
-   * @return LaunchSurveyResponse
+   * @param request - LaunchSurveyRequest
+   * @returns LaunchSurveyResponse
    */
   async launchSurvey(request: LaunchSurveyRequest): Promise<LaunchSurveyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40755,9 +59582,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListAgentStateLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAgentStateLogsResponse
+   * @param request - ListAgentStateLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentStateLogsResponse
    */
   async listAgentStateLogsWithOptions(request: ListAgentStateLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentStateLogsResponse> {
     Util.validateModel(request);
@@ -40796,8 +59623,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListAgentStateLogsRequest
-   * @return ListAgentStateLogsResponse
+   * @param request - ListAgentStateLogsRequest
+   * @returns ListAgentStateLogsResponse
    */
   async listAgentStateLogs(request: ListAgentStateLogsRequest): Promise<ListAgentStateLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40805,13 +59632,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListAgentStates for ACC
+   * 
    * @deprecated OpenAPI ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead.
-   *
-   * @summary ListAgentStates for ACC
-   *
-   * @param request ListAgentStatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAgentStatesResponse
+   * 
+   * @param request - ListAgentStatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentStatesResponse
    */
   // Deprecated
   async listAgentStatesWithOptions(request: ListAgentStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentStatesResponse> {
@@ -40863,12 +59690,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListAgentStates for ACC
+   * 
    * @deprecated OpenAPI ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead.
-   *
-   * @summary ListAgentStates for ACC
-   *
-   * @param request ListAgentStatesRequest
-   * @return ListAgentStatesResponse
+   * 
+   * @param request - ListAgentStatesRequest
+   * @returns ListAgentStatesResponse
    */
   // Deprecated
   async listAgentStates(request: ListAgentStatesRequest): Promise<ListAgentStatesResponse> {
@@ -40877,13 +59704,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListAgentSummaryReportsSinceMidnight for acc
+   * 
    * @deprecated OpenAPI ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead.
-   *
-   * @summary ListAgentSummaryReportsSinceMidnight for acc
-   *
-   * @param request ListAgentSummaryReportsSinceMidnightRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAgentSummaryReportsSinceMidnightResponse
+   * 
+   * @param request - ListAgentSummaryReportsSinceMidnightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentSummaryReportsSinceMidnightResponse
    */
   // Deprecated
   async listAgentSummaryReportsSinceMidnightWithOptions(request: ListAgentSummaryReportsSinceMidnightRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentSummaryReportsSinceMidnightResponse> {
@@ -40907,12 +59734,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListAgentSummaryReportsSinceMidnight for acc
+   * 
    * @deprecated OpenAPI ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead.
-   *
-   * @summary ListAgentSummaryReportsSinceMidnight for acc
-   *
-   * @param request ListAgentSummaryReportsSinceMidnightRequest
-   * @return ListAgentSummaryReportsSinceMidnightResponse
+   * 
+   * @param request - ListAgentSummaryReportsSinceMidnightRequest
+   * @returns ListAgentSummaryReportsSinceMidnightResponse
    */
   // Deprecated
   async listAgentSummaryReportsSinceMidnight(request: ListAgentSummaryReportsSinceMidnightRequest): Promise<ListAgentSummaryReportsSinceMidnightResponse> {
@@ -40921,11 +59748,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼呼叫记录
-   *
-   * @param request ListAttemptsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAttemptsResponse
+   * 获取预测式外呼呼叫记录
+   * 
+   * @param request - ListAttemptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAttemptsResponse
    */
   async listAttemptsWithOptions(request: ListAttemptsRequest, runtime: $Util.RuntimeOptions): Promise<ListAttemptsResponse> {
     Util.validateModel(request);
@@ -40948,10 +59775,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼呼叫记录
-   *
-   * @param request ListAttemptsRequest
-   * @return ListAttemptsResponse
+   * 获取预测式外呼呼叫记录
+   * 
+   * @param request - ListAttemptsRequest
+   * @returns ListAttemptsResponse
    */
   async listAttempts(request: ListAttemptsRequest): Promise<ListAttemptsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -40959,11 +59786,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取音频文件列表
-   *
-   * @param request ListAudioFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAudioFilesResponse
+   * 获取音频文件列表
+   * 
+   * @param request - ListAudioFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAudioFilesResponse
    */
   async listAudioFilesWithOptions(request: ListAudioFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListAudioFilesResponse> {
     Util.validateModel(request);
@@ -41006,10 +59833,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取音频文件列表
-   *
-   * @param request ListAudioFilesRequest
-   * @return ListAudioFilesResponse
+   * 获取音频文件列表
+   * 
+   * @param request - ListAudioFilesRequest
+   * @returns ListAudioFilesResponse
    */
   async listAudioFiles(request: ListAudioFilesRequest): Promise<ListAudioFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41017,11 +59844,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑呼入控制号码
-   *
-   * @param request ListBlacklistCallTaggingsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListBlacklistCallTaggingsResponse
+   * 编辑呼入控制号码
+   * 
+   * @param request - ListBlacklistCallTaggingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBlacklistCallTaggingsResponse
    */
   async listBlacklistCallTaggingsWithOptions(request: ListBlacklistCallTaggingsRequest, runtime: $Util.RuntimeOptions): Promise<ListBlacklistCallTaggingsResponse> {
     Util.validateModel(request);
@@ -41052,10 +59879,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑呼入控制号码
-   *
-   * @param request ListBlacklistCallTaggingsRequest
-   * @return ListBlacklistCallTaggingsResponse
+   * 编辑呼入控制号码
+   * 
+   * @param request - ListBlacklistCallTaggingsRequest
+   * @returns ListBlacklistCallTaggingsResponse
    */
   async listBlacklistCallTaggings(request: ListBlacklistCallTaggingsRequest): Promise<ListBlacklistCallTaggingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41063,9 +59890,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListBriefSkillGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListBriefSkillGroupsResponse
+   * @param request - ListBriefSkillGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBriefSkillGroupsResponse
    */
   async listBriefSkillGroupsWithOptions(request: ListBriefSkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListBriefSkillGroupsResponse> {
     Util.validateModel(request);
@@ -41108,8 +59935,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListBriefSkillGroupsRequest
-   * @return ListBriefSkillGroupsResponse
+   * @param request - ListBriefSkillGroupsRequest
+   * @returns ListBriefSkillGroupsResponse
    */
   async listBriefSkillGroups(request: ListBriefSkillGroupsRequest): Promise<ListBriefSkillGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41117,9 +59944,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCallDetailRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCallDetailRecordsResponse
+   * @param request - ListCallDetailRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCallDetailRecordsResponse
    */
   async listCallDetailRecordsWithOptions(request: ListCallDetailRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListCallDetailRecordsResponse> {
     Util.validateModel(request);
@@ -41226,8 +60053,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCallDetailRecordsRequest
-   * @return ListCallDetailRecordsResponse
+   * @param request - ListCallDetailRecordsRequest
+   * @returns ListCallDetailRecordsResponse
    */
   async listCallDetailRecords(request: ListCallDetailRecordsRequest): Promise<ListCallDetailRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41235,9 +60062,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCallDetailRecordsV2Request
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCallDetailRecordsV2Response
+   * @param request - ListCallDetailRecordsV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCallDetailRecordsV2Response
    */
   async listCallDetailRecordsV2WithOptions(request: ListCallDetailRecordsV2Request, runtime: $Util.RuntimeOptions): Promise<ListCallDetailRecordsV2Response> {
     Util.validateModel(request);
@@ -41356,8 +60183,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCallDetailRecordsV2Request
-   * @return ListCallDetailRecordsV2Response
+   * @param request - ListCallDetailRecordsV2Request
+   * @returns ListCallDetailRecordsV2Response
    */
   async listCallDetailRecordsV2(request: ListCallDetailRecordsV2Request): Promise<ListCallDetailRecordsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41365,11 +60192,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出号码标签
-   *
-   * @param request ListCallTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCallTagsResponse
+   * 列出号码标签
+   * 
+   * @param request - ListCallTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCallTagsResponse
    */
   async listCallTagsWithOptions(request: ListCallTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListCallTagsResponse> {
     Util.validateModel(request);
@@ -41404,10 +60231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列出号码标签
-   *
-   * @param request ListCallTagsRequest
-   * @return ListCallTagsResponse
+   * 列出号码标签
+   * 
+   * @param request - ListCallTagsRequest
+   * @returns ListCallTagsResponse
    */
   async listCallTags(request: ListCallTagsRequest): Promise<ListCallTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41415,11 +60242,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼活动趋势报表
-   *
-   * @param request ListCampaignTrendingReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCampaignTrendingReportResponse
+   * 获取预测式外呼活动趋势报表
+   * 
+   * @param request - ListCampaignTrendingReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCampaignTrendingReportResponse
    */
   async listCampaignTrendingReportWithOptions(request: ListCampaignTrendingReportRequest, runtime: $Util.RuntimeOptions): Promise<ListCampaignTrendingReportResponse> {
     Util.validateModel(request);
@@ -41442,10 +60269,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼活动趋势报表
-   *
-   * @param request ListCampaignTrendingReportRequest
-   * @return ListCampaignTrendingReportResponse
+   * 获取预测式外呼活动趋势报表
+   * 
+   * @param request - ListCampaignTrendingReportRequest
+   * @returns ListCampaignTrendingReportResponse
    */
   async listCampaignTrendingReport(request: ListCampaignTrendingReportRequest): Promise<ListCampaignTrendingReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41453,11 +60280,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼活动列表
-   *
-   * @param request ListCampaignsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCampaignsResponse
+   * 获取预测式外呼活动列表
+   * 
+   * @param request - ListCampaignsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCampaignsResponse
    */
   async listCampaignsWithOptions(request: ListCampaignsRequest, runtime: $Util.RuntimeOptions): Promise<ListCampaignsResponse> {
     Util.validateModel(request);
@@ -41520,10 +60347,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼活动列表
-   *
-   * @param request ListCampaignsRequest
-   * @return ListCampaignsResponse
+   * 获取预测式外呼活动列表
+   * 
+   * @param request - ListCampaignsRequest
+   * @returns ListCampaignsResponse
    */
   async listCampaigns(request: ListCampaignsRequest): Promise<ListCampaignsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41531,11 +60358,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼活动的联系人呼叫详情
-   *
-   * @param request ListCasesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCasesResponse
+   * 获取预测式外呼活动的联系人呼叫详情
+   * 
+   * @param request - ListCasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCasesResponse
    */
   async listCasesWithOptions(request: ListCasesRequest, runtime: $Util.RuntimeOptions): Promise<ListCasesResponse> {
     Util.validateModel(request);
@@ -41582,10 +60409,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取预测式外呼活动的联系人呼叫详情
-   *
-   * @param request ListCasesRequest
-   * @return ListCasesResponse
+   * 获取预测式外呼活动的联系人呼叫详情
+   * 
+   * @param request - ListCasesRequest
+   * @returns ListCasesResponse
    */
   async listCases(request: ListCasesRequest): Promise<ListCasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41593,9 +60420,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCategoriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCategoriesResponse
+   * @param request - ListCategoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCategoriesResponse
    */
   async listCategoriesWithOptions(request: ListCategoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListCategoriesResponse> {
     Util.validateModel(request);
@@ -41630,8 +60457,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCategoriesRequest
-   * @return ListCategoriesResponse
+   * @param request - ListCategoriesRequest
+   * @returns ListCategoriesResponse
    */
   async listCategories(request: ListCategoriesRequest): Promise<ListCategoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41639,9 +60466,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCommonTicketFieldsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCommonTicketFieldsResponse
+   * @param request - ListCommonTicketFieldsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCommonTicketFieldsResponse
    */
   async listCommonTicketFieldsWithOptions(request: ListCommonTicketFieldsRequest, runtime: $Util.RuntimeOptions): Promise<ListCommonTicketFieldsResponse> {
     Util.validateModel(request);
@@ -41668,8 +60495,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCommonTicketFieldsRequest
-   * @return ListCommonTicketFieldsResponse
+   * @param request - ListCommonTicketFieldsRequest
+   * @returns ListCommonTicketFieldsResponse
    */
   async listCommonTicketFields(request: ListCommonTicketFieldsRequest): Promise<ListCommonTicketFieldsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41677,9 +60504,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListConfigItemsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListConfigItemsResponse
+   * @param request - ListConfigItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConfigItemsResponse
    */
   async listConfigItemsWithOptions(request: ListConfigItemsRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigItemsResponse> {
     Util.validateModel(request);
@@ -41714,8 +60541,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListConfigItemsRequest
-   * @return ListConfigItemsResponse
+   * @param request - ListConfigItemsRequest
+   * @returns ListConfigItemsResponse
    */
   async listConfigItems(request: ListConfigItemsRequest): Promise<ListConfigItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41723,9 +60550,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListContactFlowsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListContactFlowsResponse
+   * @param request - ListContactFlowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContactFlowsResponse
    */
   async listContactFlowsWithOptions(request: ListContactFlowsRequest, runtime: $Util.RuntimeOptions): Promise<ListContactFlowsResponse> {
     Util.validateModel(request);
@@ -41772,8 +60599,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListContactFlowsRequest
-   * @return ListContactFlowsResponse
+   * @param request - ListContactFlowsRequest
+   * @returns ListContactFlowsResponse
    */
   async listContactFlows(request: ListContactFlowsRequest): Promise<ListContactFlowsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41781,13 +60608,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出呼入控制号码
+   * 
    * @deprecated OpenAPI ListCustomCallTagging is deprecated, please use CCC::2020-07-01::ListCustomCallTaggings instead.
-   *
-   * @summary 列出呼入控制号码
-   *
-   * @param request ListCustomCallTaggingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCustomCallTaggingResponse
+   * 
+   * @param request - ListCustomCallTaggingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomCallTaggingResponse
    */
   // Deprecated
   async listCustomCallTaggingWithOptions(request: ListCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomCallTaggingResponse> {
@@ -41831,12 +60658,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出呼入控制号码
+   * 
    * @deprecated OpenAPI ListCustomCallTagging is deprecated, please use CCC::2020-07-01::ListCustomCallTaggings instead.
-   *
-   * @summary 列出呼入控制号码
-   *
-   * @param request ListCustomCallTaggingRequest
-   * @return ListCustomCallTaggingResponse
+   * 
+   * @param request - ListCustomCallTaggingRequest
+   * @returns ListCustomCallTaggingResponse
    */
   // Deprecated
   async listCustomCallTagging(request: ListCustomCallTaggingRequest): Promise<ListCustomCallTaggingResponse> {
@@ -41845,9 +60672,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListDevicesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDevicesResponse
+   * @param request - ListDevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDevicesResponse
    */
   async listDevicesWithOptions(request: ListDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListDevicesResponse> {
     Util.validateModel(request);
@@ -41878,8 +60705,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListDevicesRequest
-   * @return ListDevicesResponse
+   * @param request - ListDevicesRequest
+   * @returns ListDevicesResponse
    */
   async listDevices(request: ListDevicesRequest): Promise<ListDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41887,11 +60714,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询黑名单号码
-   *
-   * @param request ListDoNotCallNumbersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDoNotCallNumbersResponse
+   * 查询黑名单号码
+   * 
+   * @param request - ListDoNotCallNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDoNotCallNumbersResponse
    */
   async listDoNotCallNumbersWithOptions(request: ListDoNotCallNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ListDoNotCallNumbersResponse> {
     Util.validateModel(request);
@@ -41934,10 +60761,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询黑名单号码
-   *
-   * @param request ListDoNotCallNumbersRequest
-   * @return ListDoNotCallNumbersResponse
+   * 查询黑名单号码
+   * 
+   * @param request - ListDoNotCallNumbersRequest
+   * @returns ListDoNotCallNumbersResponse
    */
   async listDoNotCallNumbers(request: ListDoNotCallNumbersRequest): Promise<ListDoNotCallNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -41945,9 +60772,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq ListDocumentsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDocumentsResponse
+   * @param tmpReq - ListDocumentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDocumentsResponse
    */
   async listDocumentsWithOptions(tmpReq: ListDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<ListDocumentsResponse> {
     Util.validateModel(tmpReq);
@@ -42004,8 +60831,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListDocumentsRequest
-   * @return ListDocumentsResponse
+   * @param request - ListDocumentsRequest
+   * @returns ListDocumentsResponse
    */
   async listDocuments(request: ListDocumentsRequest): Promise<ListDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42013,11 +60840,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListGroupChatMessages
-   *
-   * @param request ListGroupChatMessagesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGroupChatMessagesResponse
+   * ListGroupChatMessages
+   * 
+   * @param request - ListGroupChatMessagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGroupChatMessagesResponse
    */
   async listGroupChatMessagesWithOptions(request: ListGroupChatMessagesRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupChatMessagesResponse> {
     Util.validateModel(request);
@@ -42060,10 +60887,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListGroupChatMessages
-   *
-   * @param request ListGroupChatMessagesRequest
-   * @return ListGroupChatMessagesResponse
+   * ListGroupChatMessages
+   * 
+   * @param request - ListGroupChatMessagesRequest
+   * @returns ListGroupChatMessagesResponse
    */
   async listGroupChatMessages(request: ListGroupChatMessagesRequest): Promise<ListGroupChatMessagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42071,9 +60898,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListHistoricalAgentReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListHistoricalAgentReportResponse
+   * @param request - ListHistoricalAgentReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHistoricalAgentReportResponse
    */
   async listHistoricalAgentReportWithOptions(request: ListHistoricalAgentReportRequest, runtime: $Util.RuntimeOptions): Promise<ListHistoricalAgentReportResponse> {
     Util.validateModel(request);
@@ -42130,8 +60957,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListHistoricalAgentReportRequest
-   * @return ListHistoricalAgentReportResponse
+   * @param request - ListHistoricalAgentReportRequest
+   * @returns ListHistoricalAgentReportResponse
    */
   async listHistoricalAgentReport(request: ListHistoricalAgentReportRequest): Promise<ListHistoricalAgentReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42139,11 +60966,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListHistoricalAgentSkillGroupReport
-   *
-   * @param request ListHistoricalAgentSkillGroupReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListHistoricalAgentSkillGroupReportResponse
+   * ListHistoricalAgentSkillGroupReport
+   * 
+   * @param request - ListHistoricalAgentSkillGroupReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHistoricalAgentSkillGroupReportResponse
    */
   async listHistoricalAgentSkillGroupReportWithOptions(request: ListHistoricalAgentSkillGroupReportRequest, runtime: $Util.RuntimeOptions): Promise<ListHistoricalAgentSkillGroupReportResponse> {
     Util.validateModel(request);
@@ -42200,10 +61027,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListHistoricalAgentSkillGroupReport
-   *
-   * @param request ListHistoricalAgentSkillGroupReportRequest
-   * @return ListHistoricalAgentSkillGroupReportResponse
+   * ListHistoricalAgentSkillGroupReport
+   * 
+   * @param request - ListHistoricalAgentSkillGroupReportRequest
+   * @returns ListHistoricalAgentSkillGroupReportResponse
    */
   async listHistoricalAgentSkillGroupReport(request: ListHistoricalAgentSkillGroupReportRequest): Promise<ListHistoricalAgentSkillGroupReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42211,9 +61038,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListHistoricalSkillGroupReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListHistoricalSkillGroupReportResponse
+   * @param request - ListHistoricalSkillGroupReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHistoricalSkillGroupReportResponse
    */
   async listHistoricalSkillGroupReportWithOptions(request: ListHistoricalSkillGroupReportRequest, runtime: $Util.RuntimeOptions): Promise<ListHistoricalSkillGroupReportResponse> {
     Util.validateModel(request);
@@ -42266,8 +61093,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListHistoricalSkillGroupReportRequest
-   * @return ListHistoricalSkillGroupReportResponse
+   * @param request - ListHistoricalSkillGroupReportRequest
+   * @returns ListHistoricalSkillGroupReportResponse
    */
   async listHistoricalSkillGroupReport(request: ListHistoricalSkillGroupReportRequest): Promise<ListHistoricalSkillGroupReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42275,9 +61102,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstancesResponse
+   * @param request - ListInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesResponse
    */
   async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
@@ -42308,8 +61135,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInstancesRequest
-   * @return ListInstancesResponse
+   * @param request - ListInstancesRequest
+   * @returns ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42317,9 +61144,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInstancesOfUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstancesOfUserResponse
+   * @param request - ListInstancesOfUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesOfUserResponse
    */
   async listInstancesOfUserWithOptions(request: ListInstancesOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesOfUserResponse> {
     Util.validateModel(request);
@@ -42350,8 +61177,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListInstancesOfUserRequest
-   * @return ListInstancesOfUserResponse
+   * @param request - ListInstancesOfUserRequest
+   * @returns ListInstancesOfUserResponse
    */
   async listInstancesOfUser(request: ListInstancesOfUserRequest): Promise<ListInstancesOfUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42359,9 +61186,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIntervalAgentReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIntervalAgentReportResponse
+   * @param request - ListIntervalAgentReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntervalAgentReportResponse
    */
   async listIntervalAgentReportWithOptions(request: ListIntervalAgentReportRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervalAgentReportResponse> {
     Util.validateModel(request);
@@ -42408,8 +61235,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIntervalAgentReportRequest
-   * @return ListIntervalAgentReportResponse
+   * @param request - ListIntervalAgentReportRequest
+   * @returns ListIntervalAgentReportResponse
    */
   async listIntervalAgentReport(request: ListIntervalAgentReportRequest): Promise<ListIntervalAgentReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42417,11 +61244,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListIntervalAgentSkillGroupReport
-   *
-   * @param request ListIntervalAgentSkillGroupReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIntervalAgentSkillGroupReportResponse
+   * ListIntervalAgentSkillGroupReport
+   * 
+   * @param request - ListIntervalAgentSkillGroupReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntervalAgentSkillGroupReportResponse
    */
   async listIntervalAgentSkillGroupReportWithOptions(request: ListIntervalAgentSkillGroupReportRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervalAgentSkillGroupReportResponse> {
     Util.validateModel(request);
@@ -42444,10 +61271,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListIntervalAgentSkillGroupReport
-   *
-   * @param request ListIntervalAgentSkillGroupReportRequest
-   * @return ListIntervalAgentSkillGroupReportResponse
+   * ListIntervalAgentSkillGroupReport
+   * 
+   * @param request - ListIntervalAgentSkillGroupReportRequest
+   * @returns ListIntervalAgentSkillGroupReportResponse
    */
   async listIntervalAgentSkillGroupReport(request: ListIntervalAgentSkillGroupReportRequest): Promise<ListIntervalAgentSkillGroupReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42455,9 +61282,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIntervalInstanceReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIntervalInstanceReportResponse
+   * @param request - ListIntervalInstanceReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntervalInstanceReportResponse
    */
   async listIntervalInstanceReportWithOptions(request: ListIntervalInstanceReportRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervalInstanceReportResponse> {
     Util.validateModel(request);
@@ -42496,8 +61323,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIntervalInstanceReportRequest
-   * @return ListIntervalInstanceReportResponse
+   * @param request - ListIntervalInstanceReportRequest
+   * @returns ListIntervalInstanceReportResponse
    */
   async listIntervalInstanceReport(request: ListIntervalInstanceReportRequest): Promise<ListIntervalInstanceReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42505,9 +61332,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIntervalSkillGroupReportRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIntervalSkillGroupReportResponse
+   * @param request - ListIntervalSkillGroupReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIntervalSkillGroupReportResponse
    */
   async listIntervalSkillGroupReportWithOptions(request: ListIntervalSkillGroupReportRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervalSkillGroupReportResponse> {
     Util.validateModel(request);
@@ -42554,8 +61381,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIntervalSkillGroupReportRequest
-   * @return ListIntervalSkillGroupReportResponse
+   * @param request - ListIntervalSkillGroupReportRequest
+   * @returns ListIntervalSkillGroupReportResponse
    */
   async listIntervalSkillGroupReport(request: ListIntervalSkillGroupReportRequest): Promise<ListIntervalSkillGroupReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42563,9 +61390,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIvrTrackingDetailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIvrTrackingDetailsResponse
+   * @param request - ListIvrTrackingDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIvrTrackingDetailsResponse
    */
   async listIvrTrackingDetailsWithOptions(request: ListIvrTrackingDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListIvrTrackingDetailsResponse> {
     Util.validateModel(request);
@@ -42604,8 +61431,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListIvrTrackingDetailsRequest
-   * @return ListIvrTrackingDetailsResponse
+   * @param request - ListIvrTrackingDetailsRequest
+   * @returns ListIvrTrackingDetailsResponse
    */
   async listIvrTrackingDetails(request: ListIvrTrackingDetailsRequest): Promise<ListIvrTrackingDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42613,13 +61440,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListLegacyAgentEventLogs
+   * 
    * @deprecated OpenAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
-   *
-   * @summary ListLegacyAgentEventLogs
-   *
-   * @param request ListLegacyAgentEventLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLegacyAgentEventLogsResponse
+   * 
+   * @param request - ListLegacyAgentEventLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLegacyAgentEventLogsResponse
    */
   // Deprecated
   async listLegacyAgentEventLogsWithOptions(request: ListLegacyAgentEventLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListLegacyAgentEventLogsResponse> {
@@ -42667,12 +61494,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListLegacyAgentEventLogs
+   * 
    * @deprecated OpenAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
-   *
-   * @summary ListLegacyAgentEventLogs
-   *
-   * @param request ListLegacyAgentEventLogsRequest
-   * @return ListLegacyAgentEventLogsResponse
+   * 
+   * @param request - ListLegacyAgentEventLogsRequest
+   * @returns ListLegacyAgentEventLogsResponse
    */
   // Deprecated
   async listLegacyAgentEventLogs(request: ListLegacyAgentEventLogsRequest): Promise<ListLegacyAgentEventLogsResponse> {
@@ -42681,13 +61508,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListLegacyAgentStatusLogs
+   * 
    * @deprecated OpenAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
-   *
-   * @summary ListLegacyAgentStatusLogs
-   *
-   * @param request ListLegacyAgentStatusLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLegacyAgentStatusLogsResponse
+   * 
+   * @param request - ListLegacyAgentStatusLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLegacyAgentStatusLogsResponse
    */
   // Deprecated
   async listLegacyAgentStatusLogsWithOptions(request: ListLegacyAgentStatusLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListLegacyAgentStatusLogsResponse> {
@@ -42735,12 +61562,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListLegacyAgentStatusLogs
+   * 
    * @deprecated OpenAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
-   *
-   * @summary ListLegacyAgentStatusLogs
-   *
-   * @param request ListLegacyAgentStatusLogsRequest
-   * @return ListLegacyAgentStatusLogsResponse
+   * 
+   * @param request - ListLegacyAgentStatusLogsRequest
+   * @returns ListLegacyAgentStatusLogsResponse
    */
   // Deprecated
   async listLegacyAgentStatusLogs(request: ListLegacyAgentStatusLogsRequest): Promise<ListLegacyAgentStatusLogsResponse> {
@@ -42749,11 +61576,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListLegacyAppraiseLogs
-   *
-   * @param request ListLegacyAppraiseLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLegacyAppraiseLogsResponse
+   * ListLegacyAppraiseLogs
+   * 
+   * @param request - ListLegacyAppraiseLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLegacyAppraiseLogsResponse
    */
   async listLegacyAppraiseLogsWithOptions(request: ListLegacyAppraiseLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListLegacyAppraiseLogsResponse> {
     Util.validateModel(request);
@@ -42796,10 +61623,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListLegacyAppraiseLogs
-   *
-   * @param request ListLegacyAppraiseLogsRequest
-   * @return ListLegacyAppraiseLogsResponse
+   * ListLegacyAppraiseLogs
+   * 
+   * @param request - ListLegacyAppraiseLogsRequest
+   * @returns ListLegacyAppraiseLogsResponse
    */
   async listLegacyAppraiseLogs(request: ListLegacyAppraiseLogsRequest): Promise<ListLegacyAppraiseLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42807,11 +61634,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListLegacyQueueEventLogs
-   *
-   * @param request ListLegacyQueueEventLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLegacyQueueEventLogsResponse
+   * ListLegacyQueueEventLogs
+   * 
+   * @param request - ListLegacyQueueEventLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLegacyQueueEventLogsResponse
    */
   async listLegacyQueueEventLogsWithOptions(request: ListLegacyQueueEventLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListLegacyQueueEventLogsResponse> {
     Util.validateModel(request);
@@ -42858,10 +61685,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListLegacyQueueEventLogs
-   *
-   * @param request ListLegacyQueueEventLogsRequest
-   * @return ListLegacyQueueEventLogsResponse
+   * ListLegacyQueueEventLogs
+   * 
+   * @param request - ListLegacyQueueEventLogsRequest
+   * @returns ListLegacyQueueEventLogsResponse
    */
   async listLegacyQueueEventLogs(request: ListLegacyQueueEventLogsRequest): Promise<ListLegacyQueueEventLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42869,9 +61696,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListMonoRecordingsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMonoRecordingsResponse
+   * @param request - ListMonoRecordingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMonoRecordingsResponse
    */
   async listMonoRecordingsWithOptions(request: ListMonoRecordingsRequest, runtime: $Util.RuntimeOptions): Promise<ListMonoRecordingsResponse> {
     Util.validateModel(request);
@@ -42902,8 +61729,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListMonoRecordingsRequest
-   * @return ListMonoRecordingsResponse
+   * @param request - ListMonoRecordingsRequest
+   * @returns ListMonoRecordingsResponse
    */
   async listMonoRecordings(request: ListMonoRecordingsRequest): Promise<ListMonoRecordingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42911,9 +61738,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListMultiChannelRecordingsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMultiChannelRecordingsResponse
+   * @param request - ListMultiChannelRecordingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMultiChannelRecordingsResponse
    */
   async listMultiChannelRecordingsWithOptions(request: ListMultiChannelRecordingsRequest, runtime: $Util.RuntimeOptions): Promise<ListMultiChannelRecordingsResponse> {
     Util.validateModel(request);
@@ -42944,8 +61771,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListMultiChannelRecordingsRequest
-   * @return ListMultiChannelRecordingsResponse
+   * @param request - ListMultiChannelRecordingsRequest
+   * @returns ListMultiChannelRecordingsResponse
    */
   async listMultiChannelRecordings(request: ListMultiChannelRecordingsRequest): Promise<ListMultiChannelRecordingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -42953,9 +61780,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListOutboundNumbersOfUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListOutboundNumbersOfUserResponse
+   * @param request - ListOutboundNumbersOfUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOutboundNumbersOfUserResponse
    */
   async listOutboundNumbersOfUserWithOptions(request: ListOutboundNumbersOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListOutboundNumbersOfUserResponse> {
     Util.validateModel(request);
@@ -42998,8 +61825,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListOutboundNumbersOfUserRequest
-   * @return ListOutboundNumbersOfUserResponse
+   * @param request - ListOutboundNumbersOfUserRequest
+   * @returns ListOutboundNumbersOfUserResponse
    */
   async listOutboundNumbersOfUser(request: ListOutboundNumbersOfUserRequest): Promise<ListOutboundNumbersOfUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43007,9 +61834,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPersonalNumbersOfUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPersonalNumbersOfUserResponse
+   * @param request - ListPersonalNumbersOfUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPersonalNumbersOfUserResponse
    */
   async listPersonalNumbersOfUserWithOptions(request: ListPersonalNumbersOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonalNumbersOfUserResponse> {
     Util.validateModel(request);
@@ -43056,8 +61883,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPersonalNumbersOfUserRequest
-   * @return ListPersonalNumbersOfUserResponse
+   * @param request - ListPersonalNumbersOfUserRequest
+   * @returns ListPersonalNumbersOfUserResponse
    */
   async listPersonalNumbersOfUser(request: ListPersonalNumbersOfUserRequest): Promise<ListPersonalNumbersOfUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43065,11 +61892,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取号码列表
-   *
-   * @param request ListPhoneNumbersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPhoneNumbersResponse
+   * 获取号码列表
+   * 
+   * @param request - ListPhoneNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPhoneNumbersResponse
    */
   async listPhoneNumbersWithOptions(request: ListPhoneNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ListPhoneNumbersResponse> {
     Util.validateModel(request);
@@ -43116,10 +61943,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取号码列表
-   *
-   * @param request ListPhoneNumbersRequest
-   * @return ListPhoneNumbersResponse
+   * 获取号码列表
+   * 
+   * @param request - ListPhoneNumbersRequest
+   * @returns ListPhoneNumbersResponse
    */
   async listPhoneNumbers(request: ListPhoneNumbersRequest): Promise<ListPhoneNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43127,9 +61954,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPhoneNumbersOfSkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPhoneNumbersOfSkillGroupResponse
+   * @param request - ListPhoneNumbersOfSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPhoneNumbersOfSkillGroupResponse
    */
   async listPhoneNumbersOfSkillGroupWithOptions(request: ListPhoneNumbersOfSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListPhoneNumbersOfSkillGroupResponse> {
     Util.validateModel(request);
@@ -43180,8 +62007,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPhoneNumbersOfSkillGroupRequest
-   * @return ListPhoneNumbersOfSkillGroupResponse
+   * @param request - ListPhoneNumbersOfSkillGroupRequest
+   * @returns ListPhoneNumbersOfSkillGroupResponse
    */
   async listPhoneNumbersOfSkillGroup(request: ListPhoneNumbersOfSkillGroupRequest): Promise<ListPhoneNumbersOfSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43189,9 +62016,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPrivilegesOfUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPrivilegesOfUserResponse
+   * @param request - ListPrivilegesOfUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPrivilegesOfUserResponse
    */
   async listPrivilegesOfUserWithOptions(request: ListPrivilegesOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivilegesOfUserResponse> {
     Util.validateModel(request);
@@ -43218,8 +62045,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPrivilegesOfUserRequest
-   * @return ListPrivilegesOfUserResponse
+   * @param request - ListPrivilegesOfUserRequest
+   * @returns ListPrivilegesOfUserResponse
    */
   async listPrivilegesOfUser(request: ListPrivilegesOfUserRequest): Promise<ListPrivilegesOfUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43227,9 +62054,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRamUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRamUsersResponse
+   * @param request - ListRamUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRamUsersResponse
    */
   async listRamUsersWithOptions(request: ListRamUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListRamUsersResponse> {
     Util.validateModel(request);
@@ -43268,8 +62095,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRamUsersRequest
-   * @return ListRamUsersResponse
+   * @param request - ListRamUsersRequest
+   * @returns ListRamUsersResponse
    */
   async listRamUsers(request: ListRamUsersRequest): Promise<ListRamUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43277,9 +62104,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRealtimeAgentStatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRealtimeAgentStatesResponse
+   * @param request - ListRealtimeAgentStatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRealtimeAgentStatesResponse
    */
   async listRealtimeAgentStatesWithOptions(request: ListRealtimeAgentStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListRealtimeAgentStatesResponse> {
     Util.validateModel(request);
@@ -43352,8 +62179,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRealtimeAgentStatesRequest
-   * @return ListRealtimeAgentStatesResponse
+   * @param request - ListRealtimeAgentStatesRequest
+   * @returns ListRealtimeAgentStatesResponse
    */
   async listRealtimeAgentStates(request: ListRealtimeAgentStatesRequest): Promise<ListRealtimeAgentStatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43361,9 +62188,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRealtimeSkillGroupStatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRealtimeSkillGroupStatesResponse
+   * @param request - ListRealtimeSkillGroupStatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRealtimeSkillGroupStatesResponse
    */
   async listRealtimeSkillGroupStatesWithOptions(request: ListRealtimeSkillGroupStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListRealtimeSkillGroupStatesResponse> {
     Util.validateModel(request);
@@ -43408,8 +62235,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRealtimeSkillGroupStatesRequest
-   * @return ListRealtimeSkillGroupStatesResponse
+   * @param request - ListRealtimeSkillGroupStatesRequest
+   * @returns ListRealtimeSkillGroupStatesResponse
    */
   async listRealtimeSkillGroupStates(request: ListRealtimeSkillGroupStatesRequest): Promise<ListRealtimeSkillGroupStatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43417,9 +62244,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRecentCallDetailRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRecentCallDetailRecordsResponse
+   * @param request - ListRecentCallDetailRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecentCallDetailRecordsResponse
    */
   async listRecentCallDetailRecordsWithOptions(request: ListRecentCallDetailRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListRecentCallDetailRecordsResponse> {
     Util.validateModel(request);
@@ -43468,8 +62295,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRecentCallDetailRecordsRequest
-   * @return ListRecentCallDetailRecordsResponse
+   * @param request - ListRecentCallDetailRecordsRequest
+   * @returns ListRecentCallDetailRecordsResponse
    */
   async listRecentCallDetailRecords(request: ListRecentCallDetailRecordsRequest): Promise<ListRecentCallDetailRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43477,9 +62304,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRolesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRolesResponse
+   * @param request - ListRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRolesResponse
    */
   async listRolesWithOptions(request: ListRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
     Util.validateModel(request);
@@ -43506,8 +62333,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRolesRequest
-   * @return ListRolesResponse
+   * @param request - ListRolesRequest
+   * @returns ListRolesResponse
    */
   async listRoles(request: ListRolesRequest): Promise<ListRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43515,13 +62342,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListSkillGroupStates for acc
+   * 
    * @deprecated OpenAPI ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead.
-   *
-   * @summary ListSkillGroupStates for acc
-   *
-   * @param request ListSkillGroupStatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSkillGroupStatesResponse
+   * 
+   * @param request - ListSkillGroupStatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillGroupStatesResponse
    */
   // Deprecated
   async listSkillGroupStatesWithOptions(request: ListSkillGroupStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupStatesResponse> {
@@ -43545,12 +62372,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListSkillGroupStates for acc
+   * 
    * @deprecated OpenAPI ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead.
-   *
-   * @summary ListSkillGroupStates for acc
-   *
-   * @param request ListSkillGroupStatesRequest
-   * @return ListSkillGroupStatesResponse
+   * 
+   * @param request - ListSkillGroupStatesRequest
+   * @returns ListSkillGroupStatesResponse
    */
   // Deprecated
   async listSkillGroupStates(request: ListSkillGroupStatesRequest): Promise<ListSkillGroupStatesResponse> {
@@ -43559,13 +62386,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListSkillGroupSummaryReportsSinceMidnight for acc
+   * 
    * @deprecated OpenAPI ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead.
-   *
-   * @summary ListSkillGroupSummaryReportsSinceMidnight for acc
-   *
-   * @param request ListSkillGroupSummaryReportsSinceMidnightRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSkillGroupSummaryReportsSinceMidnightResponse
+   * 
+   * @param request - ListSkillGroupSummaryReportsSinceMidnightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillGroupSummaryReportsSinceMidnightResponse
    */
   // Deprecated
   async listSkillGroupSummaryReportsSinceMidnightWithOptions(request: ListSkillGroupSummaryReportsSinceMidnightRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupSummaryReportsSinceMidnightResponse> {
@@ -43589,12 +62416,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListSkillGroupSummaryReportsSinceMidnight for acc
+   * 
    * @deprecated OpenAPI ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead.
-   *
-   * @summary ListSkillGroupSummaryReportsSinceMidnight for acc
-   *
-   * @param request ListSkillGroupSummaryReportsSinceMidnightRequest
-   * @return ListSkillGroupSummaryReportsSinceMidnightResponse
+   * 
+   * @param request - ListSkillGroupSummaryReportsSinceMidnightRequest
+   * @returns ListSkillGroupSummaryReportsSinceMidnightResponse
    */
   // Deprecated
   async listSkillGroupSummaryReportsSinceMidnight(request: ListSkillGroupSummaryReportsSinceMidnightRequest): Promise<ListSkillGroupSummaryReportsSinceMidnightResponse> {
@@ -43603,9 +62430,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListSkillGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSkillGroupsResponse
+   * @param request - ListSkillGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillGroupsResponse
    */
   async listSkillGroupsWithOptions(request: ListSkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupsResponse> {
     Util.validateModel(request);
@@ -43648,8 +62475,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListSkillGroupsRequest
-   * @return ListSkillGroupsResponse
+   * @param request - ListSkillGroupsRequest
+   * @returns ListSkillGroupsResponse
    */
   async listSkillGroups(request: ListSkillGroupsRequest): Promise<ListSkillGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43657,9 +62484,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListSkillLevelsOfUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSkillLevelsOfUserResponse
+   * @param request - ListSkillLevelsOfUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillLevelsOfUserResponse
    */
   async listSkillLevelsOfUserWithOptions(request: ListSkillLevelsOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillLevelsOfUserResponse> {
     Util.validateModel(request);
@@ -43706,8 +62533,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListSkillLevelsOfUserRequest
-   * @return ListSkillLevelsOfUserResponse
+   * @param request - ListSkillLevelsOfUserRequest
+   * @returns ListSkillLevelsOfUserResponse
    */
   async listSkillLevelsOfUser(request: ListSkillLevelsOfUserRequest): Promise<ListSkillLevelsOfUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43715,9 +62542,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTicketTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTicketTasksResponse
+   * @param request - ListTicketTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTicketTasksResponse
    */
   async listTicketTasksWithOptions(request: ListTicketTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTicketTasksResponse> {
     Util.validateModel(request);
@@ -43748,8 +62575,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTicketTasksRequest
-   * @return ListTicketTasksResponse
+   * @param request - ListTicketTasksRequest
+   * @returns ListTicketTasksResponse
    */
   async listTicketTasks(request: ListTicketTasksRequest): Promise<ListTicketTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43757,9 +62584,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTicketTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTicketTemplatesResponse
+   * @param request - ListTicketTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTicketTemplatesResponse
    */
   async listTicketTemplatesWithOptions(request: ListTicketTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTicketTemplatesResponse> {
     Util.validateModel(request);
@@ -43806,8 +62633,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTicketTemplatesRequest
-   * @return ListTicketTemplatesResponse
+   * @param request - ListTicketTemplatesRequest
+   * @returns ListTicketTemplatesResponse
    */
   async listTicketTemplates(request: ListTicketTemplatesRequest): Promise<ListTicketTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43815,9 +62642,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTicketsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTicketsResponse
+   * @param request - ListTicketsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTicketsResponse
    */
   async listTicketsWithOptions(request: ListTicketsRequest, runtime: $Util.RuntimeOptions): Promise<ListTicketsResponse> {
     Util.validateModel(request);
@@ -43900,8 +62727,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListTicketsRequest
-   * @return ListTicketsResponse
+   * @param request - ListTicketsRequest
+   * @returns ListTicketsResponse
    */
   async listTickets(request: ListTicketsRequest): Promise<ListTicketsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43909,11 +62736,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取未分配号码列表
-   *
-   * @param request ListUnassignedNumbersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUnassignedNumbersResponse
+   * 获取未分配号码列表
+   * 
+   * @param request - ListUnassignedNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUnassignedNumbersResponse
    */
   async listUnassignedNumbersWithOptions(request: ListUnassignedNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ListUnassignedNumbersResponse> {
     Util.validateModel(request);
@@ -43948,10 +62775,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取未分配号码列表
-   *
-   * @param request ListUnassignedNumbersRequest
-   * @return ListUnassignedNumbersResponse
+   * 获取未分配号码列表
+   * 
+   * @param request - ListUnassignedNumbersRequest
+   * @returns ListUnassignedNumbersResponse
    */
   async listUnassignedNumbers(request: ListUnassignedNumbersRequest): Promise<ListUnassignedNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -43959,9 +62786,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserLevelsOfSkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserLevelsOfSkillGroupResponse
+   * @param request - ListUserLevelsOfSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserLevelsOfSkillGroupResponse
    */
   async listUserLevelsOfSkillGroupWithOptions(request: ListUserLevelsOfSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListUserLevelsOfSkillGroupResponse> {
     Util.validateModel(request);
@@ -44008,8 +62835,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUserLevelsOfSkillGroupRequest
-   * @return ListUserLevelsOfSkillGroupResponse
+   * @param request - ListUserLevelsOfSkillGroupRequest
+   * @returns ListUserLevelsOfSkillGroupResponse
    */
   async listUserLevelsOfSkillGroup(request: ListUserLevelsOfSkillGroupRequest): Promise<ListUserLevelsOfSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44017,9 +62844,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUsersResponse
+   * @param request - ListUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUsersResponse
    */
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
@@ -44062,8 +62889,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListUsersRequest
-   * @return ListUsersResponse
+   * @param request - ListUsersRequest
+   * @returns ListUsersResponse
    */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44071,9 +62898,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListVoicemailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListVoicemailsResponse
+   * @param request - ListVoicemailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVoicemailsResponse
    */
   async listVoicemailsWithOptions(request: ListVoicemailsRequest, runtime: $Util.RuntimeOptions): Promise<ListVoicemailsResponse> {
     Util.validateModel(request);
@@ -44128,8 +62955,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListVoicemailsRequest
-   * @return ListVoicemailsResponse
+   * @param request - ListVoicemailsRequest
+   * @returns ListVoicemailsResponse
    */
   async listVoicemails(request: ListVoicemailsRequest): Promise<ListVoicemailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44137,9 +62964,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MakeCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MakeCallResponse
+   * @param request - MakeCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MakeCallResponse
    */
   async makeCallWithOptions(request: MakeCallRequest, runtime: $Util.RuntimeOptions): Promise<MakeCallResponse> {
     Util.validateModel(request);
@@ -44198,8 +63025,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MakeCallRequest
-   * @return MakeCallResponse
+   * @param request - MakeCallRequest
+   * @returns MakeCallResponse
    */
   async makeCall(request: MakeCallRequest): Promise<MakeCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44207,9 +63034,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyAudioFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAudioFileResponse
+   * @param request - ModifyAudioFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAudioFileResponse
    */
   async modifyAudioFileWithOptions(request: ModifyAudioFileRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAudioFileResponse> {
     Util.validateModel(request);
@@ -44256,8 +63083,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyAudioFileRequest
-   * @return ModifyAudioFileResponse
+   * @param request - ModifyAudioFileRequest
+   * @returns ModifyAudioFileResponse
    */
   async modifyAudioFile(request: ModifyAudioFileRequest): Promise<ModifyAudioFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44265,11 +63092,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑呼入控制号码
-   *
-   * @param request ModifyCustomCallTaggingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyCustomCallTaggingResponse
+   * 编辑呼入控制号码
+   * 
+   * @param request - ModifyCustomCallTaggingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCustomCallTaggingResponse
    */
   async modifyCustomCallTaggingWithOptions(request: ModifyCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCustomCallTaggingResponse> {
     Util.validateModel(request);
@@ -44308,10 +63135,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑呼入控制号码
-   *
-   * @param request ModifyCustomCallTaggingRequest
-   * @return ModifyCustomCallTaggingResponse
+   * 编辑呼入控制号码
+   * 
+   * @param request - ModifyCustomCallTaggingRequest
+   * @returns ModifyCustomCallTaggingResponse
    */
   async modifyCustomCallTagging(request: ModifyCustomCallTaggingRequest): Promise<ModifyCustomCallTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44319,9 +63146,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceResponse
+   * @param request - ModifyInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceResponse
    */
   async modifyInstanceWithOptions(request: ModifyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceResponse> {
     Util.validateModel(request);
@@ -44352,8 +63179,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyInstanceRequest
-   * @return ModifyInstanceResponse
+   * @param request - ModifyInstanceRequest
+   * @returns ModifyInstanceResponse
    */
   async modifyInstance(request: ModifyInstanceRequest): Promise<ModifyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44361,9 +63188,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyPhoneNumberRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyPhoneNumberResponse
+   * @param request - ModifyPhoneNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPhoneNumberResponse
    */
   async modifyPhoneNumberWithOptions(request: ModifyPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPhoneNumberResponse> {
     Util.validateModel(request);
@@ -44402,8 +63229,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyPhoneNumberRequest
-   * @return ModifyPhoneNumberResponse
+   * @param request - ModifyPhoneNumberRequest
+   * @returns ModifyPhoneNumberResponse
    */
   async modifyPhoneNumber(request: ModifyPhoneNumberRequest): Promise<ModifyPhoneNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44411,9 +63238,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifySkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifySkillGroupResponse
+   * @param request - ModifySkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySkillGroupResponse
    */
   async modifySkillGroupWithOptions(request: ModifySkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifySkillGroupResponse> {
     Util.validateModel(request);
@@ -44452,8 +63279,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifySkillGroupRequest
-   * @return ModifySkillGroupResponse
+   * @param request - ModifySkillGroupRequest
+   * @returns ModifySkillGroupResponse
    */
   async modifySkillGroup(request: ModifySkillGroupRequest): Promise<ModifySkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44461,9 +63288,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifySkillLevelsOfUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifySkillLevelsOfUserResponse
+   * @param request - ModifySkillLevelsOfUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySkillLevelsOfUserResponse
    */
   async modifySkillLevelsOfUserWithOptions(request: ModifySkillLevelsOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ModifySkillLevelsOfUserResponse> {
     Util.validateModel(request);
@@ -44498,8 +63325,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifySkillLevelsOfUserRequest
-   * @return ModifySkillLevelsOfUserResponse
+   * @param request - ModifySkillLevelsOfUserRequest
+   * @returns ModifySkillLevelsOfUserResponse
    */
   async modifySkillLevelsOfUser(request: ModifySkillLevelsOfUserRequest): Promise<ModifySkillLevelsOfUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44507,9 +63334,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyUserResponse
+   * @param request - ModifyUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserResponse
    */
   async modifyUserWithOptions(request: ModifyUserRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserResponse> {
     Util.validateModel(request);
@@ -44572,8 +63399,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyUserRequest
-   * @return ModifyUserResponse
+   * @param request - ModifyUserRequest
+   * @returns ModifyUserResponse
    */
   async modifyUser(request: ModifyUserRequest): Promise<ModifyUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44581,9 +63408,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyUserLevelsOfSkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyUserLevelsOfSkillGroupResponse
+   * @param request - ModifyUserLevelsOfSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserLevelsOfSkillGroupResponse
    */
   async modifyUserLevelsOfSkillGroupWithOptions(request: ModifyUserLevelsOfSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserLevelsOfSkillGroupResponse> {
     Util.validateModel(request);
@@ -44618,8 +63445,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyUserLevelsOfSkillGroupRequest
-   * @return ModifyUserLevelsOfSkillGroupResponse
+   * @param request - ModifyUserLevelsOfSkillGroupRequest
+   * @returns ModifyUserLevelsOfSkillGroupResponse
    */
   async modifyUserLevelsOfSkillGroup(request: ModifyUserLevelsOfSkillGroupRequest): Promise<ModifyUserLevelsOfSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44627,9 +63454,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MonitorCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MonitorCallResponse
+   * @param request - MonitorCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MonitorCallResponse
    */
   async monitorCallWithOptions(request: MonitorCallRequest, runtime: $Util.RuntimeOptions): Promise<MonitorCallResponse> {
     Util.validateModel(request);
@@ -44672,8 +63499,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MonitorCallRequest
-   * @return MonitorCallResponse
+   * @param request - MonitorCallRequest
+   * @returns MonitorCallResponse
    */
   async monitorCall(request: MonitorCallRequest): Promise<MonitorCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44681,9 +63508,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MuteCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MuteCallResponse
+   * @param request - MuteCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MuteCallResponse
    */
   async muteCallWithOptions(request: MuteCallRequest, runtime: $Util.RuntimeOptions): Promise<MuteCallResponse> {
     Util.validateModel(request);
@@ -44726,8 +63553,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MuteCallRequest
-   * @return MuteCallResponse
+   * @param request - MuteCallRequest
+   * @returns MuteCallResponse
    */
   async muteCall(request: MuteCallRequest): Promise<MuteCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44735,11 +63562,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 暂停预测式外呼活动
-   *
-   * @param request PauseCampaignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PauseCampaignResponse
+   * 暂停预测式外呼活动
+   * 
+   * @param request - PauseCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PauseCampaignResponse
    */
   async pauseCampaignWithOptions(request: PauseCampaignRequest, runtime: $Util.RuntimeOptions): Promise<PauseCampaignResponse> {
     Util.validateModel(request);
@@ -44770,10 +63597,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 暂停预测式外呼活动
-   *
-   * @param request PauseCampaignRequest
-   * @return PauseCampaignResponse
+   * 暂停预测式外呼活动
+   * 
+   * @param request - PauseCampaignRequest
+   * @returns PauseCampaignResponse
    */
   async pauseCampaign(request: PauseCampaignRequest): Promise<PauseCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44781,9 +63608,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PickOutboundNumbersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PickOutboundNumbersResponse
+   * @param request - PickOutboundNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PickOutboundNumbersResponse
    */
   async pickOutboundNumbersWithOptions(request: PickOutboundNumbersRequest, runtime: $Util.RuntimeOptions): Promise<PickOutboundNumbersResponse> {
     Util.validateModel(request);
@@ -44822,8 +63649,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PickOutboundNumbersRequest
-   * @return PickOutboundNumbersResponse
+   * @param request - PickOutboundNumbersRequest
+   * @returns PickOutboundNumbersResponse
    */
   async pickOutboundNumbers(request: PickOutboundNumbersRequest): Promise<PickOutboundNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44831,9 +63658,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PollUserStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PollUserStatusResponse
+   * @param request - PollUserStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PollUserStatusResponse
    */
   async pollUserStatusWithOptions(request: PollUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<PollUserStatusResponse> {
     Util.validateModel(request);
@@ -44868,8 +63695,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PollUserStatusRequest
-   * @return PollUserStatusResponse
+   * @param request - PollUserStatusRequest
+   * @returns PollUserStatusResponse
    */
   async pollUserStatus(request: PollUserStatusRequest): Promise<PollUserStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44877,11 +63704,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ProcessAliMeCallbackOfStaging
-   *
-   * @param request ProcessAliMeCallbackOfStagingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ProcessAliMeCallbackOfStagingResponse
+   * ProcessAliMeCallbackOfStaging
+   * 
+   * @param request - ProcessAliMeCallbackOfStagingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ProcessAliMeCallbackOfStagingResponse
    */
   async processAliMeCallbackOfStagingWithOptions(request: ProcessAliMeCallbackOfStagingRequest, runtime: $Util.RuntimeOptions): Promise<ProcessAliMeCallbackOfStagingResponse> {
     Util.validateModel(request);
@@ -44912,10 +63739,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ProcessAliMeCallbackOfStaging
-   *
-   * @param request ProcessAliMeCallbackOfStagingRequest
-   * @return ProcessAliMeCallbackOfStagingResponse
+   * ProcessAliMeCallbackOfStaging
+   * 
+   * @param request - ProcessAliMeCallbackOfStagingRequest
+   * @returns ProcessAliMeCallbackOfStagingResponse
    */
   async processAliMeCallbackOfStaging(request: ProcessAliMeCallbackOfStagingRequest): Promise<ProcessAliMeCallbackOfStagingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44923,9 +63750,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PublishContactFlowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PublishContactFlowResponse
+   * @param request - PublishContactFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishContactFlowResponse
    */
   async publishContactFlowWithOptions(request: PublishContactFlowRequest, runtime: $Util.RuntimeOptions): Promise<PublishContactFlowResponse> {
     Util.validateModel(request);
@@ -44960,8 +63787,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PublishContactFlowRequest
-   * @return PublishContactFlowResponse
+   * @param request - PublishContactFlowRequest
+   * @returns PublishContactFlowResponse
    */
   async publishContactFlow(request: PublishContactFlowRequest): Promise<PublishContactFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -44969,9 +63796,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReadyForServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReadyForServiceResponse
+   * @param request - ReadyForServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReadyForServiceResponse
    */
   async readyForServiceWithOptions(request: ReadyForServiceRequest, runtime: $Util.RuntimeOptions): Promise<ReadyForServiceResponse> {
     Util.validateModel(request);
@@ -45010,8 +63837,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReadyForServiceRequest
-   * @return ReadyForServiceResponse
+   * @param request - ReadyForServiceRequest
+   * @returns ReadyForServiceResponse
    */
   async readyForService(request: ReadyForServiceRequest): Promise<ReadyForServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45019,9 +63846,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RedialCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RedialCallResponse
+   * @param request - RedialCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RedialCallResponse
    */
   async redialCallWithOptions(request: RedialCallRequest, runtime: $Util.RuntimeOptions): Promise<RedialCallResponse> {
     Util.validateModel(request);
@@ -45076,8 +63903,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RedialCallRequest
-   * @return RedialCallResponse
+   * @param request - RedialCallRequest
+   * @returns RedialCallResponse
    */
   async redialCall(request: RedialCallRequest): Promise<RedialCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45085,9 +63912,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RegisterDeviceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RegisterDeviceResponse
+   * @param request - RegisterDeviceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterDeviceResponse
    */
   async registerDeviceWithOptions(request: RegisterDeviceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDeviceResponse> {
     Util.validateModel(request);
@@ -45126,8 +63953,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RegisterDeviceRequest
-   * @return RegisterDeviceResponse
+   * @param request - RegisterDeviceRequest
+   * @returns RegisterDeviceResponse
    */
   async registerDevice(request: RegisterDeviceRequest): Promise<RegisterDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45135,9 +63962,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RegisterDevicesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RegisterDevicesResponse
+   * @param request - RegisterDevicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterDevicesResponse
    */
   async registerDevicesWithOptions(request: RegisterDevicesRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDevicesResponse> {
     Util.validateModel(request);
@@ -45176,8 +64003,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RegisterDevicesRequest
-   * @return RegisterDevicesResponse
+   * @param request - RegisterDevicesRequest
+   * @returns RegisterDevicesResponse
    */
   async registerDevices(request: RegisterDevicesRequest): Promise<RegisterDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45185,9 +64012,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RejectChatRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RejectChatResponse
+   * @param request - RejectChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RejectChatResponse
    */
   async rejectChatWithOptions(request: RejectChatRequest, runtime: $Util.RuntimeOptions): Promise<RejectChatResponse> {
     Util.validateModel(request);
@@ -45218,8 +64045,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RejectChatRequest
-   * @return RejectChatResponse
+   * @param request - RejectChatRequest
+   * @returns RejectChatResponse
    */
   async rejectChat(request: RejectChatRequest): Promise<RejectChatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45227,9 +64054,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RejectTicketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RejectTicketResponse
+   * @param request - RejectTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RejectTicketResponse
    */
   async rejectTicketWithOptions(request: RejectTicketRequest, runtime: $Util.RuntimeOptions): Promise<RejectTicketResponse> {
     Util.validateModel(request);
@@ -45264,8 +64091,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RejectTicketRequest
-   * @return RejectTicketResponse
+   * @param request - RejectTicketRequest
+   * @returns RejectTicketResponse
    */
   async rejectTicket(request: RejectTicketRequest): Promise<RejectTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45273,9 +64100,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReleaseCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleaseCallResponse
+   * @param request - ReleaseCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseCallResponse
    */
   async releaseCallWithOptions(request: ReleaseCallRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseCallResponse> {
     Util.validateModel(request);
@@ -45318,8 +64145,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReleaseCallRequest
-   * @return ReleaseCallResponse
+   * @param request - ReleaseCallRequest
+   * @returns ReleaseCallResponse
    */
   async releaseCall(request: ReleaseCallRequest): Promise<ReleaseCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45327,9 +64154,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReleaseChatRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleaseChatResponse
+   * @param request - ReleaseChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseChatResponse
    */
   async releaseChatWithOptions(request: ReleaseChatRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseChatResponse> {
     Util.validateModel(request);
@@ -45372,8 +64199,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReleaseChatRequest
-   * @return ReleaseChatResponse
+   * @param request - ReleaseChatRequest
+   * @returns ReleaseChatResponse
    */
   async releaseChat(request: ReleaseChatRequest): Promise<ReleaseChatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45381,11 +64208,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑呼入控制号码
-   *
-   * @param request RemoveBlacklistCallTaggingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveBlacklistCallTaggingResponse
+   * 编辑呼入控制号码
+   * 
+   * @param request - RemoveBlacklistCallTaggingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveBlacklistCallTaggingResponse
    */
   async removeBlacklistCallTaggingWithOptions(request: RemoveBlacklistCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<RemoveBlacklistCallTaggingResponse> {
     Util.validateModel(request);
@@ -45420,10 +64247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑呼入控制号码
-   *
-   * @param request RemoveBlacklistCallTaggingRequest
-   * @return RemoveBlacklistCallTaggingResponse
+   * 编辑呼入控制号码
+   * 
+   * @param request - RemoveBlacklistCallTaggingRequest
+   * @returns RemoveBlacklistCallTaggingResponse
    */
   async removeBlacklistCallTagging(request: RemoveBlacklistCallTaggingRequest): Promise<RemoveBlacklistCallTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45431,11 +64258,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除黑名单号码
-   *
-   * @param request RemoveDoNotCallNumbersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveDoNotCallNumbersResponse
+   * 删除黑名单号码
+   * 
+   * @param request - RemoveDoNotCallNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveDoNotCallNumbersResponse
    */
   async removeDoNotCallNumbersWithOptions(request: RemoveDoNotCallNumbersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveDoNotCallNumbersResponse> {
     Util.validateModel(request);
@@ -45466,10 +64293,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除黑名单号码
-   *
-   * @param request RemoveDoNotCallNumbersRequest
-   * @return RemoveDoNotCallNumbersResponse
+   * 删除黑名单号码
+   * 
+   * @param request - RemoveDoNotCallNumbersRequest
+   * @returns RemoveDoNotCallNumbersResponse
    */
   async removeDoNotCallNumbers(request: RemoveDoNotCallNumbersRequest): Promise<RemoveDoNotCallNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45477,9 +64304,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemovePersonalNumbersFromUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemovePersonalNumbersFromUserResponse
+   * @param request - RemovePersonalNumbersFromUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemovePersonalNumbersFromUserResponse
    */
   async removePersonalNumbersFromUserWithOptions(request: RemovePersonalNumbersFromUserRequest, runtime: $Util.RuntimeOptions): Promise<RemovePersonalNumbersFromUserResponse> {
     Util.validateModel(request);
@@ -45514,8 +64341,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemovePersonalNumbersFromUserRequest
-   * @return RemovePersonalNumbersFromUserResponse
+   * @param request - RemovePersonalNumbersFromUserRequest
+   * @returns RemovePersonalNumbersFromUserResponse
    */
   async removePersonalNumbersFromUser(request: RemovePersonalNumbersFromUserRequest): Promise<RemovePersonalNumbersFromUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45523,9 +64350,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemovePhoneNumberFromSkillGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemovePhoneNumberFromSkillGroupsResponse
+   * @param request - RemovePhoneNumberFromSkillGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemovePhoneNumberFromSkillGroupsResponse
    */
   async removePhoneNumberFromSkillGroupsWithOptions(request: RemovePhoneNumberFromSkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<RemovePhoneNumberFromSkillGroupsResponse> {
     Util.validateModel(request);
@@ -45560,8 +64387,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemovePhoneNumberFromSkillGroupsRequest
-   * @return RemovePhoneNumberFromSkillGroupsResponse
+   * @param request - RemovePhoneNumberFromSkillGroupsRequest
+   * @returns RemovePhoneNumberFromSkillGroupsResponse
    */
   async removePhoneNumberFromSkillGroups(request: RemovePhoneNumberFromSkillGroupsRequest): Promise<RemovePhoneNumberFromSkillGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45569,9 +64396,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemovePhoneNumbersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemovePhoneNumbersResponse
+   * @param request - RemovePhoneNumbersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemovePhoneNumbersResponse
    */
   async removePhoneNumbersWithOptions(request: RemovePhoneNumbersRequest, runtime: $Util.RuntimeOptions): Promise<RemovePhoneNumbersResponse> {
     Util.validateModel(request);
@@ -45606,8 +64433,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemovePhoneNumbersRequest
-   * @return RemovePhoneNumbersResponse
+   * @param request - RemovePhoneNumbersRequest
+   * @returns RemovePhoneNumbersResponse
    */
   async removePhoneNumbers(request: RemovePhoneNumbersRequest): Promise<RemovePhoneNumbersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45615,9 +64442,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemovePhoneNumbersFromSkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemovePhoneNumbersFromSkillGroupResponse
+   * @param request - RemovePhoneNumbersFromSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemovePhoneNumbersFromSkillGroupResponse
    */
   async removePhoneNumbersFromSkillGroupWithOptions(request: RemovePhoneNumbersFromSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemovePhoneNumbersFromSkillGroupResponse> {
     Util.validateModel(request);
@@ -45652,8 +64479,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemovePhoneNumbersFromSkillGroupRequest
-   * @return RemovePhoneNumbersFromSkillGroupResponse
+   * @param request - RemovePhoneNumbersFromSkillGroupRequest
+   * @returns RemovePhoneNumbersFromSkillGroupResponse
    */
   async removePhoneNumbersFromSkillGroup(request: RemovePhoneNumbersFromSkillGroupRequest): Promise<RemovePhoneNumbersFromSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45661,9 +64488,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveSkillGroupsFromUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveSkillGroupsFromUserResponse
+   * @param request - RemoveSkillGroupsFromUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveSkillGroupsFromUserResponse
    */
   async removeSkillGroupsFromUserWithOptions(request: RemoveSkillGroupsFromUserRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSkillGroupsFromUserResponse> {
     Util.validateModel(request);
@@ -45698,8 +64525,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveSkillGroupsFromUserRequest
-   * @return RemoveSkillGroupsFromUserResponse
+   * @param request - RemoveSkillGroupsFromUserRequest
+   * @returns RemoveSkillGroupsFromUserResponse
    */
   async removeSkillGroupsFromUser(request: RemoveSkillGroupsFromUserRequest): Promise<RemoveSkillGroupsFromUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45707,9 +64534,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveUsersResponse
+   * @param request - RemoveUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveUsersResponse
    */
   async removeUsersWithOptions(request: RemoveUsersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUsersResponse> {
     Util.validateModel(request);
@@ -45752,8 +64579,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveUsersRequest
-   * @return RemoveUsersResponse
+   * @param request - RemoveUsersRequest
+   * @returns RemoveUsersResponse
    */
   async removeUsers(request: RemoveUsersRequest): Promise<RemoveUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45761,9 +64588,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveUsersFromSkillGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveUsersFromSkillGroupResponse
+   * @param request - RemoveUsersFromSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveUsersFromSkillGroupResponse
    */
   async removeUsersFromSkillGroupWithOptions(request: RemoveUsersFromSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUsersFromSkillGroupResponse> {
     Util.validateModel(request);
@@ -45798,8 +64625,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveUsersFromSkillGroupRequest
-   * @return RemoveUsersFromSkillGroupResponse
+   * @param request - RemoveUsersFromSkillGroupRequest
+   * @returns RemoveUsersFromSkillGroupResponse
    */
   async removeUsersFromSkillGroup(request: RemoveUsersFromSkillGroupRequest): Promise<RemoveUsersFromSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45807,9 +64634,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResetAgentStateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResetAgentStateResponse
+   * @param request - ResetAgentStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetAgentStateResponse
    */
   async resetAgentStateWithOptions(request: ResetAgentStateRequest, runtime: $Util.RuntimeOptions): Promise<ResetAgentStateResponse> {
     Util.validateModel(request);
@@ -45844,8 +64671,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResetAgentStateRequest
-   * @return ResetAgentStateResponse
+   * @param request - ResetAgentStateRequest
+   * @returns ResetAgentStateResponse
    */
   async resetAgentState(request: ResetAgentStateRequest): Promise<ResetAgentStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45853,9 +64680,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResetUserPasswordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResetUserPasswordResponse
+   * @param request - ResetUserPasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetUserPasswordResponse
    */
   async resetUserPasswordWithOptions(request: ResetUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetUserPasswordResponse> {
     Util.validateModel(request);
@@ -45890,8 +64717,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResetUserPasswordRequest
-   * @return ResetUserPasswordResponse
+   * @param request - ResetUserPasswordRequest
+   * @returns ResetUserPasswordResponse
    */
   async resetUserPassword(request: ResetUserPasswordRequest): Promise<ResetUserPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45899,11 +64726,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 录音解冻
-   *
-   * @param request RestoreArchivedRecordingsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RestoreArchivedRecordingsResponse
+   * 录音解冻
+   * 
+   * @param request - RestoreArchivedRecordingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestoreArchivedRecordingsResponse
    */
   async restoreArchivedRecordingsWithOptions(request: RestoreArchivedRecordingsRequest, runtime: $Util.RuntimeOptions): Promise<RestoreArchivedRecordingsResponse> {
     Util.validateModel(request);
@@ -45934,10 +64761,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 录音解冻
-   *
-   * @param request RestoreArchivedRecordingsRequest
-   * @return RestoreArchivedRecordingsResponse
+   * 录音解冻
+   * 
+   * @param request - RestoreArchivedRecordingsRequest
+   * @returns RestoreArchivedRecordingsResponse
    */
   async restoreArchivedRecordings(request: RestoreArchivedRecordingsRequest): Promise<RestoreArchivedRecordingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45945,9 +64772,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResubmitTicketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResubmitTicketResponse
+   * @param request - ResubmitTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResubmitTicketResponse
    */
   async resubmitTicketWithOptions(request: ResubmitTicketRequest, runtime: $Util.RuntimeOptions): Promise<ResubmitTicketResponse> {
     Util.validateModel(request);
@@ -45982,8 +64809,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ResubmitTicketRequest
-   * @return ResubmitTicketResponse
+   * @param request - ResubmitTicketRequest
+   * @returns ResubmitTicketResponse
    */
   async resubmitTicket(request: ResubmitTicketRequest): Promise<ResubmitTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -45991,11 +64818,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恢复预测式外呼活动
-   *
-   * @param request ResumeCampaignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResumeCampaignResponse
+   * 恢复预测式外呼活动
+   * 
+   * @param request - ResumeCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeCampaignResponse
    */
   async resumeCampaignWithOptions(request: ResumeCampaignRequest, runtime: $Util.RuntimeOptions): Promise<ResumeCampaignResponse> {
     Util.validateModel(request);
@@ -46026,10 +64853,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恢复预测式外呼活动
-   *
-   * @param request ResumeCampaignRequest
-   * @return ResumeCampaignResponse
+   * 恢复预测式外呼活动
+   * 
+   * @param request - ResumeCampaignRequest
+   * @returns ResumeCampaignResponse
    */
   async resumeCampaign(request: ResumeCampaignRequest): Promise<ResumeCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46037,9 +64864,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RetrieveCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RetrieveCallResponse
+   * @param request - RetrieveCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetrieveCallResponse
    */
   async retrieveCallWithOptions(request: RetrieveCallRequest, runtime: $Util.RuntimeOptions): Promise<RetrieveCallResponse> {
     Util.validateModel(request);
@@ -46082,8 +64909,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RetrieveCallRequest
-   * @return RetrieveCallResponse
+   * @param request - RetrieveCallRequest
+   * @returns RetrieveCallResponse
    */
   async retrieveCall(request: RetrieveCallRequest): Promise<RetrieveCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46091,9 +64918,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveDocumentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveDocumentResponse
+   * @param request - SaveDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveDocumentResponse
    */
   async saveDocumentWithOptions(request: SaveDocumentRequest, runtime: $Util.RuntimeOptions): Promise<SaveDocumentResponse> {
     Util.validateModel(request);
@@ -46136,8 +64963,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveDocumentRequest
-   * @return SaveDocumentResponse
+   * @param request - SaveDocumentRequest
+   * @returns SaveDocumentResponse
    */
   async saveDocument(request: SaveDocumentRequest): Promise<SaveDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46145,9 +64972,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveRTCStatsV2Request
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveRTCStatsV2Response
+   * @param request - SaveRTCStatsV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveRTCStatsV2Response
    */
   async saveRTCStatsV2WithOptions(request: SaveRTCStatsV2Request, runtime: $Util.RuntimeOptions): Promise<SaveRTCStatsV2Response> {
     Util.validateModel(request);
@@ -46194,8 +65021,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveRTCStatsV2Request
-   * @return SaveRTCStatsV2Response
+   * @param request - SaveRTCStatsV2Request
+   * @returns SaveRTCStatsV2Response
    */
   async saveRTCStatsV2(request: SaveRTCStatsV2Request): Promise<SaveRTCStatsV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46203,9 +65030,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveTerminalLogRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveTerminalLogResponse
+   * @param request - SaveTerminalLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveTerminalLogResponse
    */
   async saveTerminalLogWithOptions(request: SaveTerminalLogRequest, runtime: $Util.RuntimeOptions): Promise<SaveTerminalLogResponse> {
     Util.validateModel(request);
@@ -46264,8 +65091,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveTerminalLogRequest
-   * @return SaveTerminalLogResponse
+   * @param request - SaveTerminalLogRequest
+   * @returns SaveTerminalLogResponse
    */
   async saveTerminalLog(request: SaveTerminalLogRequest): Promise<SaveTerminalLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46273,9 +65100,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveWebRTCStatsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveWebRTCStatsResponse
+   * @param request - SaveWebRTCStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveWebRTCStatsResponse
    */
   async saveWebRTCStatsWithOptions(request: SaveWebRTCStatsRequest, runtime: $Util.RuntimeOptions): Promise<SaveWebRTCStatsResponse> {
     Util.validateModel(request);
@@ -46322,8 +65149,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveWebRTCStatsRequest
-   * @return SaveWebRTCStatsResponse
+   * @param request - SaveWebRTCStatsRequest
+   * @returns SaveWebRTCStatsResponse
    */
   async saveWebRTCStats(request: SaveWebRTCStatsRequest): Promise<SaveWebRTCStatsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46331,9 +65158,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveWebRtcInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveWebRtcInfoResponse
+   * @param request - SaveWebRtcInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveWebRtcInfoResponse
    */
   async saveWebRtcInfoWithOptions(request: SaveWebRtcInfoRequest, runtime: $Util.RuntimeOptions): Promise<SaveWebRtcInfoResponse> {
     Util.validateModel(request);
@@ -46376,8 +65203,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveWebRtcInfoRequest
-   * @return SaveWebRtcInfoResponse
+   * @param request - SaveWebRtcInfoRequest
+   * @returns SaveWebRtcInfoResponse
    */
   async saveWebRtcInfo(request: SaveWebRtcInfoRequest): Promise<SaveWebRtcInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46385,9 +65212,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SendDtmfSignalingRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendDtmfSignalingResponse
+   * @param request - SendDtmfSignalingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendDtmfSignalingResponse
    */
   async sendDtmfSignalingWithOptions(request: SendDtmfSignalingRequest, runtime: $Util.RuntimeOptions): Promise<SendDtmfSignalingResponse> {
     Util.validateModel(request);
@@ -46434,8 +65261,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SendDtmfSignalingRequest
-   * @return SendDtmfSignalingResponse
+   * @param request - SendDtmfSignalingRequest
+   * @returns SendDtmfSignalingResponse
    */
   async sendDtmfSignaling(request: SendDtmfSignalingRequest): Promise<SendDtmfSignalingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46443,9 +65270,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SignInGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SignInGroupResponse
+   * @param request - SignInGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SignInGroupResponse
    */
   async signInGroupWithOptions(request: SignInGroupRequest, runtime: $Util.RuntimeOptions): Promise<SignInGroupResponse> {
     Util.validateModel(request);
@@ -46492,8 +65319,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SignInGroupRequest
-   * @return SignInGroupResponse
+   * @param request - SignInGroupRequest
+   * @returns SignInGroupResponse
    */
   async signInGroup(request: SignInGroupRequest): Promise<SignInGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46501,9 +65328,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SignOutGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SignOutGroupResponse
+   * @param request - SignOutGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SignOutGroupResponse
    */
   async signOutGroupWithOptions(request: SignOutGroupRequest, runtime: $Util.RuntimeOptions): Promise<SignOutGroupResponse> {
     Util.validateModel(request);
@@ -46538,8 +65365,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SignOutGroupRequest
-   * @return SignOutGroupResponse
+   * @param request - SignOutGroupRequest
+   * @returns SignOutGroupResponse
    */
   async signOutGroup(request: SignOutGroupRequest): Promise<SignOutGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46547,9 +65374,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartBack2BackCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartBack2BackCallResponse
+   * @param request - StartBack2BackCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartBack2BackCallResponse
    */
   async startBack2BackCallWithOptions(request: StartBack2BackCallRequest, runtime: $Util.RuntimeOptions): Promise<StartBack2BackCallResponse> {
     Util.validateModel(request);
@@ -46600,8 +65427,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartBack2BackCallRequest
-   * @return StartBack2BackCallResponse
+   * @param request - StartBack2BackCallRequest
+   * @returns StartBack2BackCallResponse
    */
   async startBack2BackCall(request: StartBack2BackCallRequest): Promise<StartBack2BackCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46609,9 +65436,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq StartChatRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartChatResponse
+   * @param tmpReq - StartChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartChatResponse
    */
   async startChatWithOptions(tmpReq: StartChatRequest, runtime: $Util.RuntimeOptions): Promise<StartChatResponse> {
     Util.validateModel(tmpReq);
@@ -46656,8 +65483,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartChatRequest
-   * @return StartChatResponse
+   * @param request - StartChatRequest
+   * @returns StartChatResponse
    */
   async startChat(request: StartChatRequest): Promise<StartChatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46665,9 +65492,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartConferenceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartConferenceResponse
+   * @param request - StartConferenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartConferenceResponse
    */
   async startConferenceWithOptions(request: StartConferenceRequest, runtime: $Util.RuntimeOptions): Promise<StartConferenceResponse> {
     Util.validateModel(request);
@@ -46710,8 +65537,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartConferenceRequest
-   * @return StartConferenceResponse
+   * @param request - StartConferenceRequest
+   * @returns StartConferenceResponse
    */
   async startConference(request: StartConferenceRequest): Promise<StartConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46719,9 +65546,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartEditContactFlowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartEditContactFlowResponse
+   * @param request - StartEditContactFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartEditContactFlowResponse
    */
   async startEditContactFlowWithOptions(request: StartEditContactFlowRequest, runtime: $Util.RuntimeOptions): Promise<StartEditContactFlowResponse> {
     Util.validateModel(request);
@@ -46752,8 +65579,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartEditContactFlowRequest
-   * @return StartEditContactFlowResponse
+   * @param request - StartEditContactFlowRequest
+   * @returns StartEditContactFlowResponse
    */
   async startEditContactFlow(request: StartEditContactFlowRequest): Promise<StartEditContactFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46761,9 +65588,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartPredictiveCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartPredictiveCallResponse
+   * @param request - StartPredictiveCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartPredictiveCallResponse
    */
   async startPredictiveCallWithOptions(request: StartPredictiveCallRequest, runtime: $Util.RuntimeOptions): Promise<StartPredictiveCallResponse> {
     Util.validateModel(request);
@@ -46822,8 +65649,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartPredictiveCallRequest
-   * @return StartPredictiveCallResponse
+   * @param request - StartPredictiveCallRequest
+   * @returns StartPredictiveCallResponse
    */
   async startPredictiveCall(request: StartPredictiveCallRequest): Promise<StartPredictiveCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46831,11 +65658,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发起隐私呼叫
-   *
-   * @param request StartPrivacyCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartPrivacyCallResponse
+   * 发起隐私呼叫
+   * 
+   * @param request - StartPrivacyCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartPrivacyCallResponse
    */
   async startPrivacyCallWithOptions(request: StartPrivacyCallRequest, runtime: $Util.RuntimeOptions): Promise<StartPrivacyCallResponse> {
     Util.validateModel(request);
@@ -46874,10 +65701,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 发起隐私呼叫
-   *
-   * @param request StartPrivacyCallRequest
-   * @return StartPrivacyCallResponse
+   * 发起隐私呼叫
+   * 
+   * @param request - StartPrivacyCallRequest
+   * @returns StartPrivacyCallResponse
    */
   async startPrivacyCall(request: StartPrivacyCallRequest): Promise<StartPrivacyCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46885,11 +65712,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交预测式外呼活动
-   *
-   * @param request SubmitCampaignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitCampaignResponse
+   * 提交预测式外呼活动
+   * 
+   * @param request - SubmitCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCampaignResponse
    */
   async submitCampaignWithOptions(request: SubmitCampaignRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCampaignResponse> {
     Util.validateModel(request);
@@ -46920,10 +65747,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交预测式外呼活动
-   *
-   * @param request SubmitCampaignRequest
-   * @return SubmitCampaignResponse
+   * 提交预测式外呼活动
+   * 
+   * @param request - SubmitCampaignRequest
+   * @returns SubmitCampaignResponse
    */
   async submitCampaign(request: SubmitCampaignRequest): Promise<SubmitCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46931,9 +65758,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SwitchToConferenceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SwitchToConferenceResponse
+   * @param request - SwitchToConferenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchToConferenceResponse
    */
   async switchToConferenceWithOptions(request: SwitchToConferenceRequest, runtime: $Util.RuntimeOptions): Promise<SwitchToConferenceResponse> {
     Util.validateModel(request);
@@ -46972,8 +65799,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SwitchToConferenceRequest
-   * @return SwitchToConferenceResponse
+   * @param request - SwitchToConferenceRequest
+   * @returns SwitchToConferenceResponse
    */
   async switchToConference(request: SwitchToConferenceRequest): Promise<SwitchToConferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -46981,9 +65808,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request TakeBreakRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TakeBreakResponse
+   * @param request - TakeBreakRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TakeBreakResponse
    */
   async takeBreakWithOptions(request: TakeBreakRequest, runtime: $Util.RuntimeOptions): Promise<TakeBreakResponse> {
     Util.validateModel(request);
@@ -47022,8 +65849,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request TakeBreakRequest
-   * @return TakeBreakResponse
+   * @param request - TakeBreakRequest
+   * @returns TakeBreakResponse
    */
   async takeBreak(request: TakeBreakRequest): Promise<TakeBreakResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47031,9 +65858,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request TerminateTicketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TerminateTicketResponse
+   * @param request - TerminateTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TerminateTicketResponse
    */
   async terminateTicketWithOptions(request: TerminateTicketRequest, runtime: $Util.RuntimeOptions): Promise<TerminateTicketResponse> {
     Util.validateModel(request);
@@ -47068,8 +65895,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request TerminateTicketRequest
-   * @return TerminateTicketResponse
+   * @param request - TerminateTicketRequest
+   * @returns TerminateTicketResponse
    */
   async terminateTicket(request: TerminateTicketRequest): Promise<TerminateTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47077,9 +65904,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request TransferTicketTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TransferTicketTaskResponse
+   * @param request - TransferTicketTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferTicketTaskResponse
    */
   async transferTicketTaskWithOptions(request: TransferTicketTaskRequest, runtime: $Util.RuntimeOptions): Promise<TransferTicketTaskResponse> {
     Util.validateModel(request);
@@ -47122,8 +65949,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request TransferTicketTaskRequest
-   * @return TransferTicketTaskResponse
+   * @param request - TransferTicketTaskRequest
+   * @returns TransferTicketTaskResponse
    */
   async transferTicketTask(request: TransferTicketTaskRequest): Promise<TransferTicketTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47131,9 +65958,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnmuteCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnmuteCallResponse
+   * @param request - UnmuteCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnmuteCallResponse
    */
   async unmuteCallWithOptions(request: UnmuteCallRequest, runtime: $Util.RuntimeOptions): Promise<UnmuteCallResponse> {
     Util.validateModel(request);
@@ -47176,8 +66003,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UnmuteCallRequest
-   * @return UnmuteCallResponse
+   * @param request - UnmuteCallRequest
+   * @returns UnmuteCallResponse
    */
   async unmuteCall(request: UnmuteCallRequest): Promise<UnmuteCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47185,11 +66012,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除注册设备
-   *
-   * @param request UnregisterDeviceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnregisterDeviceResponse
+   * 删除注册设备
+   * 
+   * @param request - UnregisterDeviceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnregisterDeviceResponse
    */
   async unregisterDeviceWithOptions(request: UnregisterDeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnregisterDeviceResponse> {
     Util.validateModel(request);
@@ -47220,10 +66047,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除注册设备
-   *
-   * @param request UnregisterDeviceRequest
-   * @return UnregisterDeviceResponse
+   * 删除注册设备
+   * 
+   * @param request - UnregisterDeviceRequest
+   * @returns UnregisterDeviceResponse
    */
   async unregisterDevice(request: UnregisterDeviceRequest): Promise<UnregisterDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47231,11 +66058,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update campaign
-   *
-   * @param request UpdateCampaignRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCampaignResponse
+   * Update campaign
+   * 
+   * @param request - UpdateCampaignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCampaignResponse
    */
   async updateCampaignWithOptions(request: UpdateCampaignRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCampaignResponse> {
     Util.validateModel(request);
@@ -47290,10 +66117,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update campaign
-   *
-   * @param request UpdateCampaignRequest
-   * @return UpdateCampaignResponse
+   * Update campaign
+   * 
+   * @param request - UpdateCampaignRequest
+   * @returns UpdateCampaignResponse
    */
   async updateCampaign(request: UpdateCampaignRequest): Promise<UpdateCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47301,9 +66128,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateConfigItemsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateConfigItemsResponse
+   * @param request - UpdateConfigItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConfigItemsResponse
    */
   async updateConfigItemsWithOptions(request: UpdateConfigItemsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConfigItemsResponse> {
     Util.validateModel(request);
@@ -47342,8 +66169,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateConfigItemsRequest
-   * @return UpdateConfigItemsResponse
+   * @param request - UpdateConfigItemsRequest
+   * @returns UpdateConfigItemsResponse
    */
   async updateConfigItems(request: UpdateConfigItemsRequest): Promise<UpdateConfigItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47351,9 +66178,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq UpdateSchemaPropertyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSchemaPropertyResponse
+   * @param tmpReq - UpdateSchemaPropertyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSchemaPropertyResponse
    */
   async updateSchemaPropertyWithOptions(tmpReq: UpdateSchemaPropertyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSchemaPropertyResponse> {
     Util.validateModel(tmpReq);
@@ -47398,8 +66225,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateSchemaPropertyRequest
-   * @return UpdateSchemaPropertyResponse
+   * @param request - UpdateSchemaPropertyRequest
+   * @returns UpdateSchemaPropertyResponse
    */
   async updateSchemaProperty(request: UpdateSchemaPropertyRequest): Promise<UpdateSchemaPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47407,9 +66234,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateTicketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTicketResponse
+   * @param request - UpdateTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTicketResponse
    */
   async updateTicketWithOptions(request: UpdateTicketRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTicketResponse> {
     Util.validateModel(request);
@@ -47452,8 +66279,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateTicketRequest
-   * @return UpdateTicketResponse
+   * @param request - UpdateTicketRequest
+   * @returns UpdateTicketResponse
    */
   async updateTicket(request: UpdateTicketRequest): Promise<UpdateTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -47461,9 +66288,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request WithdrawTicketRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return WithdrawTicketResponse
+   * @param request - WithdrawTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WithdrawTicketResponse
    */
   async withdrawTicketWithOptions(request: WithdrawTicketRequest, runtime: $Util.RuntimeOptions): Promise<WithdrawTicketResponse> {
     Util.validateModel(request);
@@ -47498,8 +66325,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request WithdrawTicketRequest
-   * @return WithdrawTicketResponse
+   * @param request - WithdrawTicketRequest
+   * @returns WithdrawTicketResponse
    */
   async withdrawTicket(request: WithdrawTicketRequest): Promise<WithdrawTicketResponse> {
     let runtime = new $Util.RuntimeOptions({ });
