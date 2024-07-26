@@ -899,6 +899,80 @@ export class DeleteInstanceResponse extends $tea.Model {
   }
 }
 
+export class DeleteInstanceLabelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * labelKey1,labelKey2,labelKey3
+   */
+  labelKeys?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labelKeys: 'LabelKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelKeys: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceLabelsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceLabelsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInstanceLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteInstanceShutdownTimerResponseBody extends $tea.Model {
   /**
    * @example
@@ -3758,6 +3832,77 @@ export class UpdateInstanceResponse extends $tea.Model {
   }
 }
 
+export class UpdateInstanceLabelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  labels?: UpdateInstanceLabelsRequestLabels[];
+  static names(): { [key: string]: string } {
+    return {
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labels: { 'type': 'array', 'itemType': UpdateInstanceLabelsRequestLabels },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceLabelsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E7D55162-4489-1619-AAF5-3F97D5FCA948
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceLabelsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceLabelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateInstanceLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ForwardInfoResponseConnectInfoInternet extends $tea.Model {
   /**
    * @example
@@ -6252,6 +6397,42 @@ export class UpdateInstanceRequestUserVpc extends $tea.Model {
   }
 }
 
+export class UpdateInstanceLabelsRequestLabels extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * customLabelKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * labelValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -6620,6 +6801,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceWithOptions(InstanceId, headers, runtime);
+  }
+
+  /**
+   * 删除DSW实例的标签
+   * 
+   * @param request - DeleteInstanceLabelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceLabelsResponse
+   */
+  async deleteInstanceLabelsWithOptions(InstanceId: string, request: DeleteInstanceLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceLabelsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labelKeys)) {
+      query["LabelKeys"] = request.labelKeys;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteInstanceLabels",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/labels`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceLabelsResponse>(await this.callApi(params, req, runtime), new DeleteInstanceLabelsResponse({}));
+  }
+
+  /**
+   * 删除DSW实例的标签
+   * 
+   * @param request - DeleteInstanceLabelsRequest
+   * @returns DeleteInstanceLabelsResponse
+   */
+  async deleteInstanceLabels(InstanceId: string, request: DeleteInstanceLabelsRequest): Promise<DeleteInstanceLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteInstanceLabelsWithOptions(InstanceId, request, headers, runtime);
   }
 
   /**
@@ -7651,6 +7877,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
+   * 修改DSW实例的标签
+   * 
+   * @param request - UpdateInstanceLabelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceLabelsResponse
+   */
+  async updateInstanceLabelsWithOptions(InstanceId: string, request: UpdateInstanceLabelsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceLabelsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateInstanceLabels",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/labels`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateInstanceLabelsResponse>(await this.callApi(params, req, runtime), new UpdateInstanceLabelsResponse({}));
+  }
+
+  /**
+   * 修改DSW实例的标签
+   * 
+   * @param request - UpdateInstanceLabelsRequest
+   * @returns UpdateInstanceLabelsResponse
+   */
+  async updateInstanceLabels(InstanceId: string, request: UpdateInstanceLabelsRequest): Promise<UpdateInstanceLabelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateInstanceLabelsWithOptions(InstanceId, request, headers, runtime);
   }
 
 }
