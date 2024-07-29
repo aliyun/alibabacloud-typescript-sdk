@@ -37395,6 +37395,7 @@ export class ListCallDetailRecordsResponseBodyDataList extends $tea.Model {
    * 30
    */
   callDuration?: string;
+  callIds?: string;
   /**
    * @example
    * 1332315****
@@ -37515,6 +37516,7 @@ export class ListCallDetailRecordsResponseBodyDataList extends $tea.Model {
       agentNames: 'AgentNames',
       broker: 'Broker',
       callDuration: 'CallDuration',
+      callIds: 'CallIds',
       calledNumber: 'CalledNumber',
       calleeLocation: 'CalleeLocation',
       callerLocation: 'CallerLocation',
@@ -37554,6 +37556,7 @@ export class ListCallDetailRecordsResponseBodyDataList extends $tea.Model {
       agentNames: 'string',
       broker: 'string',
       callDuration: 'string',
+      callIds: 'string',
       calledNumber: 'string',
       calleeLocation: 'string',
       callerLocation: 'string',
