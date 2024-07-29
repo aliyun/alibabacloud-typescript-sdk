@@ -23009,6 +23009,87 @@ export class PassPipelineValidateResponse extends $tea.Model {
   }
 }
 
+export class PassReleaseStagePipelineValidateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 226241***
+   */
+  jobId?: string;
+  /**
+   * @example
+   * 66c0c9fffeb86b450c199***
+   */
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'jobId',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PassReleaseStagePipelineValidateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PassReleaseStagePipelineValidateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PassReleaseStagePipelineValidateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PassReleaseStagePipelineValidateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefusePipelineValidateResponseBody extends $tea.Model {
   /**
    * @example
@@ -23070,6 +23151,87 @@ export class RefusePipelineValidateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RefusePipelineValidateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefuseReleaseStagePipelineValidateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 226241***
+   */
+  jobId?: string;
+  /**
+   * @example
+   * 66c0c9fffeb86b450c19****
+   */
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'jobId',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefuseReleaseStagePipelineValidateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefuseReleaseStagePipelineValidateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefuseReleaseStagePipelineValidateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefuseReleaseStagePipelineValidateResponseBody,
     };
   }
 
@@ -63583,6 +63745,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过人工卡点
+   * 
+   * @param request - PassReleaseStagePipelineValidateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PassReleaseStagePipelineValidateResponse
+   */
+  async passReleaseStagePipelineValidateWithOptions(appName: string, releaseWorkflowSn: string, releaseStageSn: string, executionNumber: string, request: PassReleaseStagePipelineValidateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PassReleaseStagePipelineValidateResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["jobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PassReleaseStagePipelineValidate",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/releaseWorkflows/${OpenApiUtil.getEncodeParam(releaseWorkflowSn)}/releaseStages/${OpenApiUtil.getEncodeParam(releaseStageSn)}/executions/${OpenApiUtil.getEncodeParam(executionNumber)}%3ApassPipelineValidate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PassReleaseStagePipelineValidateResponse>(await this.callApi(params, req, runtime), new PassReleaseStagePipelineValidateResponse({}));
+  }
+
+  /**
+   * 通过人工卡点
+   * 
+   * @param request - PassReleaseStagePipelineValidateRequest
+   * @returns PassReleaseStagePipelineValidateResponse
+   */
+  async passReleaseStagePipelineValidate(appName: string, releaseWorkflowSn: string, releaseStageSn: string, executionNumber: string, request: PassReleaseStagePipelineValidateRequest): Promise<PassReleaseStagePipelineValidateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.passReleaseStagePipelineValidateWithOptions(appName, releaseWorkflowSn, releaseStageSn, executionNumber, request, headers, runtime);
+  }
+
+  /**
    * 拒绝人工卡点
    * 
    * @param headers - map
@@ -63615,6 +63826,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.refusePipelineValidateWithOptions(organizationId, pipelineId, pipelineRunId, jobId, headers, runtime);
+  }
+
+  /**
+   * 拒绝人工卡点
+   * 
+   * @param request - RefuseReleaseStagePipelineValidateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefuseReleaseStagePipelineValidateResponse
+   */
+  async refuseReleaseStagePipelineValidateWithOptions(appName: string, releaseWorkflowSn: string, releaseStageSn: string, executionNumber: string, request: RefuseReleaseStagePipelineValidateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RefuseReleaseStagePipelineValidateResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["jobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefuseReleaseStagePipelineValidate",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/appstack/apps/${OpenApiUtil.getEncodeParam(appName)}/releaseWorkflows/${OpenApiUtil.getEncodeParam(releaseWorkflowSn)}/releaseStages/${OpenApiUtil.getEncodeParam(releaseStageSn)}/executions/${OpenApiUtil.getEncodeParam(executionNumber)}%3ArefusePipelineValidate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RefuseReleaseStagePipelineValidateResponse>(await this.callApi(params, req, runtime), new RefuseReleaseStagePipelineValidateResponse({}));
+  }
+
+  /**
+   * 拒绝人工卡点
+   * 
+   * @param request - RefuseReleaseStagePipelineValidateRequest
+   * @returns RefuseReleaseStagePipelineValidateResponse
+   */
+  async refuseReleaseStagePipelineValidate(appName: string, releaseWorkflowSn: string, releaseStageSn: string, executionNumber: string, request: RefuseReleaseStagePipelineValidateRequest): Promise<RefuseReleaseStagePipelineValidateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.refuseReleaseStagePipelineValidateWithOptions(appName, releaseWorkflowSn, releaseStageSn, executionNumber, request, headers, runtime);
   }
 
   /**
