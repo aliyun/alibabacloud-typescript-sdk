@@ -1255,6 +1255,28 @@ export class ResourceStatistic extends $tea.Model {
   }
 }
 
+export class RouteRulesConflictInfo extends $tea.Model {
+  conflicts?: RouteRulesConflictInfoConflicts[];
+  domainInfo?: RouteRulesConflictInfoDomainInfo;
+  static names(): { [key: string]: string } {
+    return {
+      conflicts: 'conflicts',
+      domainInfo: 'domainInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conflicts: { 'type': 'array', 'itemType': RouteRulesConflictInfoConflicts },
+      domainInfo: RouteRulesConflictInfoDomainInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ServiceHealthCheck extends $tea.Model {
   /**
    * @example
@@ -3363,6 +3385,7 @@ export class GetHttpApiOperationResponse extends $tea.Model {
 }
 
 export class ListDomainsRequest extends $tea.Model {
+  gatewayId?: string;
   /**
    * @example
    * test
@@ -3380,6 +3403,7 @@ export class ListDomainsRequest extends $tea.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      gatewayId: 'gatewayId',
       nameLike: 'nameLike',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
@@ -3388,6 +3412,7 @@ export class ListDomainsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      gatewayId: 'string',
       nameLike: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -6472,6 +6497,194 @@ export class HttpRouteMatchQueryParams extends $tea.Model {
       name: 'string',
       type: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo extends $tea.Model {
+  name?: string;
+  operationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      operationId: 'operationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RouteRulesConflictInfoConflictsDetailsConflictingMatch extends $tea.Model {
+  match?: HttpRouteMatch;
+  operationInfo?: RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo;
+  static names(): { [key: string]: string } {
+    return {
+      match: 'match',
+      operationInfo: 'operationInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      match: HttpRouteMatch,
+      operationInfo: RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo extends $tea.Model {
+  name?: string;
+  operationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      operationId: 'operationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RouteRulesConflictInfoConflictsDetailsDetectedMatch extends $tea.Model {
+  match?: HttpRouteMatch;
+  operationInfo?: RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo;
+  static names(): { [key: string]: string } {
+    return {
+      match: 'match',
+      operationInfo: 'operationInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      match: HttpRouteMatch,
+      operationInfo: RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RouteRulesConflictInfoConflictsDetails extends $tea.Model {
+  conflictingMatch?: RouteRulesConflictInfoConflictsDetailsConflictingMatch;
+  detectedMatch?: RouteRulesConflictInfoConflictsDetailsDetectedMatch;
+  level?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conflictingMatch: 'conflictingMatch',
+      detectedMatch: 'detectedMatch',
+      level: 'level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conflictingMatch: RouteRulesConflictInfoConflictsDetailsConflictingMatch,
+      detectedMatch: RouteRulesConflictInfoConflictsDetailsDetectedMatch,
+      level: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RouteRulesConflictInfoConflictsEnvironmentInfo extends $tea.Model {
+  environmentId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'environmentId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RouteRulesConflictInfoConflicts extends $tea.Model {
+  details?: RouteRulesConflictInfoConflictsDetails[];
+  environmentInfo?: RouteRulesConflictInfoConflictsEnvironmentInfo;
+  resourceId?: string;
+  resourceName?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      details: 'details',
+      environmentInfo: 'environmentInfo',
+      resourceId: 'resourceId',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      details: { 'type': 'array', 'itemType': RouteRulesConflictInfoConflictsDetails },
+      environmentInfo: RouteRulesConflictInfoConflictsEnvironmentInfo,
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RouteRulesConflictInfoDomainInfo extends $tea.Model {
+  domainId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'domainId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      name: 'string',
     };
   }
 
@@ -9600,6 +9813,10 @@ export default class Client extends OpenApi {
   async listDomainsWithOptions(request: ListDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
     if (!Util.isUnset(request.nameLike)) {
       query["nameLike"] = request.nameLike;
     }
