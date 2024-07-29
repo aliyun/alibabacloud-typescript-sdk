@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,7 +8,15 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class DataImageRegionDistributeMapValue extends $tea.Model {
+  /**
+   * @example
+   * AVAILABLE
+   */
   distributeStatus?: string;
+  /**
+   * @example
+   * 100%
+   */
   progress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +39,13 @@ export class DataImageRegionDistributeMapValue extends $tea.Model {
 
 export class AttachKeyPairRequest extends $tea.Model {
   instanceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * kp-6v2q33ae4tw3a****
+   */
   keyPairId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54,6 +68,10 @@ export class AttachKeyPairRequest extends $tea.Model {
 
 export class AttachKeyPairResponseBody extends $tea.Model {
   data?: AttachKeyPairResponseBodyData;
+  /**
+   * @example
+   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -101,7 +119,15 @@ export class AttachKeyPairResponse extends $tea.Model {
 
 export class AuthorizeAndroidInstanceRequest extends $tea.Model {
   androidInstanceIds?: string[];
+  /**
+   * @example
+   * test
+   */
   authorizeUserId?: string;
+  /**
+   * @example
+   * test
+   */
   unAuthorizeUserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,6 +151,10 @@ export class AuthorizeAndroidInstanceRequest extends $tea.Model {
 }
 
 export class AuthorizeAndroidInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1A923337-44D9-5CAD-9A53-95084BD4****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -169,11 +199,31 @@ export class AuthorizeAndroidInstanceResponse extends $tea.Model {
 }
 
 export class BackupFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   androidInstanceIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   backupFilePath?: string;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sourceFilePathList?: string[];
+  /**
+   * @example
+   * oss-cn-shanghai-internal.aliyuncs.com
+   */
   uploadEndpoint?: string;
+  /**
+   * @example
+   * OSS
+   */
   uploadType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -203,7 +253,15 @@ export class BackupFileRequest extends $tea.Model {
 }
 
 export class BackupFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
+   */
   data?: string;
+  /**
+   * @example
+   * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -250,13 +308,30 @@ export class BackupFileResponse extends $tea.Model {
 }
 
 export class CheckResourceStockRequest extends $tea.Model {
+  /**
+   * @example
+   * acp.basic.small
+   */
   acpSpecId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  gpuAcceleration?: boolean;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       acpSpecId: 'AcpSpecId',
       bizRegionId: 'BizRegionId',
+      gpuAcceleration: 'GpuAcceleration',
       zoneId: 'ZoneId',
     };
   }
@@ -265,6 +340,7 @@ export class CheckResourceStockRequest extends $tea.Model {
     return {
       acpSpecId: 'string',
       bizRegionId: 'string',
+      gpuAcceleration: 'boolean',
       zoneId: 'string',
     };
   }
@@ -275,6 +351,10 @@ export class CheckResourceStockRequest extends $tea.Model {
 }
 
 export class CheckResourceStockResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 805D8FB6-512A-531C-9E4D-2A807D3C****
+   */
   requestId?: string;
   resourceStockModels?: CheckResourceStockResponseBodyResourceStockModels[];
   static names(): { [key: string]: string } {
@@ -323,19 +403,79 @@ export class CheckResourceStockResponse extends $tea.Model {
 
 export class CreateAndroidInstanceGroupRequest extends $tea.Model {
   amount?: number;
+  /**
+   * @example
+   * false
+   */
   autoPay?: boolean;
+  /**
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
   gpuAcceleration?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * imgc-06zyt9m93zwax****
+   */
   imageId?: string;
   instanceGroupName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * acp.basic.small
+   */
   instanceGroupSpec?: string;
+  /**
+   * @example
+   * 1
+   */
   numberOfInstances?: number;
+  /**
+   * @example
+   * cn-hangzhou+dir-745976****
+   */
   officeSiteId?: string;
+  /**
+   * @example
+   * 1
+   */
   period?: number;
+  /**
+   * @example
+   * Month
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pg-b7bxrrwxkijjh****
+   */
   policyGroupId?: string;
+  /**
+   * @example
+   * vsw-uf61uvzhz8ejaw776****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -384,7 +524,15 @@ export class CreateAndroidInstanceGroupRequest extends $tea.Model {
 
 export class CreateAndroidInstanceGroupResponseBody extends $tea.Model {
   instanceGroupIds?: string[];
+  /**
+   * @example
+   * 22365781890****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 1A923337-44D9-5CAD-9A53-95084BD4****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -433,13 +581,33 @@ export class CreateAndroidInstanceGroupResponse extends $tea.Model {
 }
 
 export class CreateAppRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   appName?: string;
   bizRegionId?: string;
   description?: string;
+  /**
+   * @example
+   * testApp.apk
+   */
   fileName?: string;
   filePath?: string;
+  /**
+   * @example
+   * https://test.png
+   */
   iconUrl?: string;
+  /**
+   * @example
+   * -d
+   */
   installParam?: string;
+  /**
+   * @example
+   * http://testApp.apk
+   */
   ossAppUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -473,7 +641,15 @@ export class CreateAppRequest extends $tea.Model {
 }
 
 export class CreateAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
   appId?: number;
+  /**
+   * @example
+   * E5138F7E-46B5-526A-8C99-82DEAE6B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -520,8 +696,26 @@ export class CreateAppResponse extends $tea.Model {
 }
 
 export class CreateCustomImageRequest extends $tea.Model {
+  /**
+   * @example
+   * create for cc5g group auth rules test
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * custom image name
+   */
   imageName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * acp-2zecay9ponatdc4m****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -545,6 +739,10 @@ export class CreateCustomImageRequest extends $tea.Model {
 }
 
 export class CreateCustomImageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 20393E53-8FF1-524C-B494-B478A5369733
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -589,6 +787,13 @@ export class CreateCustomImageResponse extends $tea.Model {
 }
 
 export class CreateKeyPairRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testKeyPairName
+   */
   keyPairName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -609,6 +814,10 @@ export class CreateKeyPairRequest extends $tea.Model {
 
 export class CreateKeyPairResponseBody extends $tea.Model {
   data?: CreateKeyPairResponseBodyData;
+  /**
+   * @example
+   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -655,12 +864,36 @@ export class CreateKeyPairResponse extends $tea.Model {
 }
 
 export class CreatePolicyGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * off
+   */
   cameraRedirect?: string;
+  /**
+   * @example
+   * readwrite
+   */
   clipboard?: string;
+  /**
+   * @example
+   * off
+   */
   html5FileTransfer?: string;
+  /**
+   * @example
+   * off
+   */
   localDrive?: string;
   policyGroupName?: string;
+  /**
+   * @example
+   * 1280
+   */
   resolutionHeight?: number;
+  /**
+   * @example
+   * 720
+   */
   resolutionWidth?: number;
   static names(): { [key: string]: string } {
     return {
@@ -692,7 +925,15 @@ export class CreatePolicyGroupRequest extends $tea.Model {
 }
 
 export class CreatePolicyGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pg-exbuu6yrpvb******
+   */
   policyGroupId?: string;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -758,6 +999,10 @@ export class DeleteAndroidInstanceGroupRequest extends $tea.Model {
 }
 
 export class DeleteAndroidInstanceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CB95E410-FD1D-53C5-9F7D-93CC44D7****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -821,6 +1066,10 @@ export class DeleteAppsRequest extends $tea.Model {
 }
 
 export class DeleteAppsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 310A783E-CC46-5452-A8A3-71AE5DB5****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -865,6 +1114,10 @@ export class DeleteAppsResponse extends $tea.Model {
 }
 
 export class DeleteImagesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   imageIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -884,6 +1137,10 @@ export class DeleteImagesRequest extends $tea.Model {
 }
 
 export class DeleteImagesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   imageIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -904,6 +1161,10 @@ export class DeleteImagesShrinkRequest extends $tea.Model {
 
 export class DeleteImagesResponseBody extends $tea.Model {
   data?: DeleteImagesResponseBodyData;
+  /**
+   * @example
+   * 4610632D-D661-5982-B3D7-5D3FD183F595
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -969,6 +1230,10 @@ export class DeleteKeyPairsRequest extends $tea.Model {
 }
 
 export class DeleteKeyPairsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5C5CEF0A-D6E1-58D3-8750-67DB4F82****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1013,6 +1278,10 @@ export class DeleteKeyPairsResponse extends $tea.Model {
 }
 
 export class DeletePolicyGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   policyGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1032,6 +1301,10 @@ export class DeletePolicyGroupRequest extends $tea.Model {
 }
 
 export class DeletePolicyGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 17C731AB-AAEE-5844-A352-D8D0352D3F0B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1076,15 +1349,47 @@ export class DeletePolicyGroupResponse extends $tea.Model {
 }
 
 export class DescribeAndroidInstanceGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
   bizRegionId?: string;
+  /**
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
   instanceGroupIds?: string[];
   instanceGroupName?: string;
+  /**
+   * @example
+   * kp-5htf0ymsrnb7q****
+   */
   keyPairId?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * pg-1b77w6xrqfubi****
+   */
   policyGroupId?: string;
+  /**
+   * @example
+   * standard
+   */
   saleMode?: string;
+  /**
+   * @example
+   * CREATING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1123,8 +1428,20 @@ export class DescribeAndroidInstanceGroupsRequest extends $tea.Model {
 
 export class DescribeAndroidInstanceGroupsResponseBody extends $tea.Model {
   instanceGroupModel?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel[];
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * F07A1DA1-E1EB-5CCA-8EED-12F85D32****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1176,12 +1493,40 @@ export class DescribeAndroidInstanceGroupsResponse extends $tea.Model {
 
 export class DescribeAndroidInstancesRequest extends $tea.Model {
   androidInstanceIds?: string[];
+  /**
+   * @example
+   * name
+   */
   androidInstanceName?: string;
+  /**
+   * @example
+   * ag-25nt4kk9whjh****
+   */
   instanceGroupId?: string;
+  /**
+   * @example
+   * kp-5hh431emkpuoi****
+   */
   keyPairId?: string;
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * standard
+   */
   saleMode?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1216,8 +1561,20 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
 
 export class DescribeAndroidInstancesResponseBody extends $tea.Model {
   instanceModel?: DescribeAndroidInstancesResponseBodyInstanceModel[];
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kmma/xxE9WtwL/ADvZ****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * F07A1DA1-E1EB-5CCA-8EED-12F85D32****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1271,9 +1628,25 @@ export class DescribeAppsRequest extends $tea.Model {
   appIdList?: string[];
   appName?: string;
   bizRegionId?: string;
+  /**
+   * @example
+   * INSTALLING
+   */
   installationStatus?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1306,8 +1679,20 @@ export class DescribeAppsRequest extends $tea.Model {
 
 export class DescribeAppsResponseBody extends $tea.Model {
   data?: DescribeAppsResponseBodyData[];
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * CB95E410-FD1D-53C5-9F7D-93CC44D7****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1358,16 +1743,52 @@ export class DescribeAppsResponse extends $tea.Model {
 }
 
 export class DescribeBackupFilesRequest extends $tea.Model {
+  /**
+   * @example
+   * acp-34pqe4r0kd9kn****
+   */
   androidInstanceId?: string;
+  /**
+   * @example
+   * acp-34pqe4r0kd9kn****
+   */
   androidInstanceName?: string;
+  /**
+   * @example
+   * bf-dxrh5jrv0zpb8****
+   */
   backupFileId?: string;
   backupFileName?: string;
   description?: string;
+  /**
+   * @example
+   * 2024-05-20 10:00:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * test1
+   */
   endUserId?: string;
+  /**
+   * @example
+   * ag-fxdx91jsfyiy3****
+   */
   instanceGroupId?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 2024-05-23 10:00:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1408,9 +1829,25 @@ export class DescribeBackupFilesRequest extends $tea.Model {
 
 export class DescribeBackupFilesResponseBody extends $tea.Model {
   data?: DescribeBackupFilesResponseBodyData[];
+  /**
+   * @example
+   * 10
+   */
   maxResults?: string;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 425F351C-3F8E-5218-A520-B6311D0D****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 91
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1463,11 +1900,37 @@ export class DescribeBackupFilesResponse extends $tea.Model {
 }
 
 export class DescribeImageListRequest extends $tea.Model {
+  /**
+   * @example
+   * imgc-075cllfeuazh0****
+   */
   imageId?: string;
   imageName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * System
+   */
   imageType?: string;
+  /**
+   * @example
+   * 20
+   * 
+   * **if can be null:**
+   * true
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * AVAILABLE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1498,8 +1961,20 @@ export class DescribeImageListRequest extends $tea.Model {
 
 export class DescribeImageListResponseBody extends $tea.Model {
   data?: DescribeImageListResponseBodyData[];
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 620740FF-492F-5956-B1BA-361E966C0269
+   */
   requestId?: string;
+  /**
+   * @example
+   * 30
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1550,7 +2025,18 @@ export class DescribeImageListResponse extends $tea.Model {
 }
 
 export class DescribeInvocationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * t-4e98eeb5****
+   */
   invocationId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1573,7 +2059,15 @@ export class DescribeInvocationsRequest extends $tea.Model {
 
 export class DescribeInvocationsResponseBody extends $tea.Model {
   data?: DescribeInvocationsResponseBodyData[];
+  /**
+   * @example
+   * 440D7342-5E7C-B2DB-D0B4EAC2BDF1****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1623,8 +2117,20 @@ export class DescribeInvocationsResponse extends $tea.Model {
 
 export class DescribeKeyPairsRequest extends $tea.Model {
   keyPairIds?: string[];
+  /**
+   * @example
+   * testKeyPairName
+   */
   keyPairName?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAYRHtOLVQzCYj17y+OP7LZQBUVVbi0GTu8g5****
+   */
   nextToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1651,8 +2157,20 @@ export class DescribeKeyPairsRequest extends $tea.Model {
 
 export class DescribeKeyPairsResponseBody extends $tea.Model {
   data?: DescribeKeyPairsResponseBodyData[];
+  /**
+   * @example
+   * FFbc8N4E1iOlcSxC+8boa0HHH2LKWbggYUinyrZWvtS1oTrMYCg1HuMLGuftj0****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 565FB06A-AE04-5AD0-8A32-5BA92CA5****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1704,6 +2222,10 @@ export class DescribeKeyPairsResponse extends $tea.Model {
 
 export class DescribeRegionsResponseBody extends $tea.Model {
   regionModels?: DescribeRegionsResponseBodyRegionModels[];
+  /**
+   * @example
+   * A87B3769-0D05-5383-B236-5798B455****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1750,10 +2272,26 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DescribeSpecRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
+   */
   nextToken?: string;
   specIds?: string[];
+  /**
+   * @example
+   * Available
+   */
   specStatus?: string;
+  /**
+   * @example
+   * ARM
+   */
   specType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1781,9 +2319,21 @@ export class DescribeSpecRequest extends $tea.Model {
 }
 
 export class DescribeSpecResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * D9888DAD-331E-5FBC-B5A0-F2445115****
+   */
   requestId?: string;
   specInfoModel?: DescribeSpecResponseBodySpecInfoModel[];
+  /**
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1834,12 +2384,32 @@ export class DescribeSpecResponse extends $tea.Model {
 }
 
 export class DescribeTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * B8ED2BA9-0C6A-5643-818F-B5D60A64****
+   */
   invokeId?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * FFbc8N4E1iOlcSxC+8boa0HHH2LKWbggYUinyrZWvtS1oTrMYCg1HuMLGuftj0****
+   */
   nextToken?: string;
   resourceIds?: string[];
   taskIds?: string[];
+  /**
+   * @example
+   * Processing
+   */
   taskStatus?: string;
+  /**
+   * @example
+   * StartInstance
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1872,8 +2442,20 @@ export class DescribeTasksRequest extends $tea.Model {
 
 export class DescribeTasksResponseBody extends $tea.Model {
   data?: DescribeTasksResponseBodyData[];
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
+   */
   nextToken?: string;
+  /**
+   * @example
+   * B8ED2BA9-0C6A-5643-818F-B5D60A64****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1925,6 +2507,13 @@ export class DescribeTasksResponse extends $tea.Model {
 
 export class DetachKeyPairRequest extends $tea.Model {
   instanceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * kp-6v2q33ae4tw3a****
+   */
   keyPairId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1947,6 +2536,10 @@ export class DetachKeyPairRequest extends $tea.Model {
 
 export class DetachKeyPairResponseBody extends $tea.Model {
   data?: DetachKeyPairResponseBodyData;
+  /**
+   * @example
+   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1993,7 +2586,18 @@ export class DetachKeyPairResponse extends $tea.Model {
 }
 
 export class DistributeImageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   distributeRegionList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * imgc-075cllfeuazh0****
+   */
   imageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2015,6 +2619,10 @@ export class DistributeImageRequest extends $tea.Model {
 }
 
 export class DistributeImageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 440D7342-5FC2-5E7C-B2DB-D0B4EAC2BDF1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2060,7 +2668,18 @@ export class DistributeImageResponse extends $tea.Model {
 
 export class DowngradeAndroidInstanceGroupRequest extends $tea.Model {
   androidInstanceIds?: string[];
+  /**
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ag-cuv4scs4obxhs****
+   */
   instanceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2084,7 +2703,15 @@ export class DowngradeAndroidInstanceGroupRequest extends $tea.Model {
 }
 
 export class DowngradeAndroidInstanceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22326560487****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 3AF82CE1-2801-52CE-BF64-B491DD7C****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2131,10 +2758,39 @@ export class DowngradeAndroidInstanceGroupResponse extends $tea.Model {
 }
 
 export class FetchFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   androidInstanceIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /data/a.txt
+   */
   sourceFilePath?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss-cn-hangzhou.aliyuncs.com
+   */
   uploadEndpoint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   uploadType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   uploadUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2162,7 +2818,15 @@ export class FetchFileRequest extends $tea.Model {
 }
 
 export class FetchFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 425F351C-3F8E-5218-A520-B6311D0D****
+   */
   data?: string;
+  /**
+   * @example
+   * 425F351C-3F8E-5218-A520-B6311D0D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2229,6 +2893,10 @@ export class GetAdbSecureRequest extends $tea.Model {
 
 export class GetAdbSecureResponseBody extends $tea.Model {
   data?: GetAdbSecureResponseBodyData;
+  /**
+   * @example
+   * 1A923337-44D9-5CAD-9A53-95084BD4****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2275,7 +2943,21 @@ export class GetAdbSecureResponse extends $tea.Model {
 }
 
 export class ImportKeyPairRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TestKeyPairName
+   */
   keyPairName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ABC1234567*****
+   */
   publicKeyBody?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2298,6 +2980,10 @@ export class ImportKeyPairRequest extends $tea.Model {
 
 export class ImportKeyPairResponseBody extends $tea.Model {
   data?: ImportKeyPairResponseBodyData;
+  /**
+   * @example
+   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2366,6 +3052,10 @@ export class InstallAppRequest extends $tea.Model {
 }
 
 export class InstallAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E5138F7E-46B5-526A-8C99-82DEAE6B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2410,7 +3100,15 @@ export class InstallAppResponse extends $tea.Model {
 }
 
 export class ListPolicyGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
+   */
   nextToken?: string;
   policyGroupIds?: string[];
   policyGroupName?: string;
@@ -2438,9 +3136,21 @@ export class ListPolicyGroupsRequest extends $tea.Model {
 }
 
 export class ListPolicyGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uON****
+   */
   nextToken?: string;
   policyGroupModel?: ListPolicyGroupsResponseBodyPolicyGroupModel[];
+  /**
+   * @example
+   * 7B9EFA4F-4305-5968-BAEE-BD8B8DE5****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 31
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2491,7 +3201,15 @@ export class ListPolicyGroupsResponse extends $tea.Model {
 }
 
 export class ModifyAndroidInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * acp-8v5bjld0r7tkl****
+   */
   androidInstanceId?: string;
+  /**
+   * @example
+   * new_name
+   */
   newAndroidInstanceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2513,6 +3231,10 @@ export class ModifyAndroidInstanceRequest extends $tea.Model {
 }
 
 export class ModifyAndroidInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E5138F7E-46B5-526A-8C99-82DEAE6B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2557,8 +3279,20 @@ export class ModifyAndroidInstanceResponse extends $tea.Model {
 }
 
 export class ModifyAndroidInstanceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * ag-cuv4scs4obxhs****
+   */
   instanceGroupId?: string;
+  /**
+   * @example
+   * newName
+   */
   newInstanceGroupName?: string;
+  /**
+   * @example
+   * pg-2w97kp89gnsif****
+   */
   policyGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2582,6 +3316,10 @@ export class ModifyAndroidInstanceGroupRequest extends $tea.Model {
 }
 
 export class ModifyAndroidInstanceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6C83EBE3-F267-5F11-ABF8-4E7B90B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2626,9 +3364,17 @@ export class ModifyAndroidInstanceGroupResponse extends $tea.Model {
 }
 
 export class ModifyAppRequest extends $tea.Model {
+  /**
+   * @example
+   * 1234
+   */
   appId?: number;
   appName?: string;
   description?: string;
+  /**
+   * @example
+   * https://defaultIcon.png
+   */
   iconUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2654,6 +3400,10 @@ export class ModifyAppRequest extends $tea.Model {
 }
 
 export class ModifyAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 83418504-5A82-5896-A24C-B2D468F0****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2698,7 +3448,21 @@ export class ModifyAppResponse extends $tea.Model {
 }
 
 export class ModifyKeyPairNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * kp-6v2q33ae4tw3a****
+   */
   keyPairId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * newKeyPairName
+   */
   newKeyPairName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2720,6 +3484,10 @@ export class ModifyKeyPairNameRequest extends $tea.Model {
 }
 
 export class ModifyKeyPairNameResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2764,13 +3532,41 @@ export class ModifyKeyPairNameResponse extends $tea.Model {
 }
 
 export class ModifyPolicyGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * off
+   */
   cameraRedirect?: string;
+  /**
+   * @example
+   * readwrite
+   */
   clipboard?: string;
+  /**
+   * @example
+   * off
+   */
   html5FileTransfer?: string;
+  /**
+   * @example
+   * off
+   */
   localDrive?: string;
+  /**
+   * @example
+   * pg-4bi18ebi9tfjh****
+   */
   policyGroupId?: string;
   policyGroupName?: string;
+  /**
+   * @example
+   * 1280
+   */
   resolutionHeight?: number;
+  /**
+   * @example
+   * 720
+   */
   resolutionWidth?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2804,6 +3600,10 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
 }
 
 export class ModifyPolicyGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 552B7EED-D434-511F-B838-29EA4E906034
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2870,6 +3670,10 @@ export class RebootAndroidInstancesInGroupRequest extends $tea.Model {
 }
 
 export class RebootAndroidInstancesInGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 227CBB4C-F5DC-589D-A667-C5CA3D52****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2914,10 +3718,33 @@ export class RebootAndroidInstancesInGroupResponse extends $tea.Model {
 }
 
 export class RecoveryFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   androidInstanceIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * bf-azhps4rdyi2th****
+   */
   backupFileId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   backupFilePath?: string;
+  /**
+   * @example
+   * oss-cn-hangzhou-internal.aliyuncs.com
+   */
   uploadEndpoint?: string;
+  /**
+   * @example
+   * OSS
+   */
   uploadType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2945,7 +3772,15 @@ export class RecoveryFileRequest extends $tea.Model {
 }
 
 export class RecoveryFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6AD56E39-430B-5401-AB4A-7B086454****
+   */
   data?: string;
+  /**
+   * @example
+   * 6AD56E39-430B-5401-AB4A-7B086454****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2992,9 +3827,21 @@ export class RecoveryFileResponse extends $tea.Model {
 }
 
 export class RenewAndroidInstanceGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   autoPay?: boolean;
   instanceGroupIds?: string[];
+  /**
+   * @example
+   * 6
+   */
   period?: number;
+  /**
+   * @example
+   * Month
+   */
   periodUnit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3020,7 +3867,15 @@ export class RenewAndroidInstanceGroupsRequest extends $tea.Model {
 }
 
 export class RenewAndroidInstanceGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22326560487****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 4B886792-2051-5DB4-8AE6-C8E45D3B4****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3086,6 +3941,10 @@ export class ResetAndroidInstancesInGroupRequest extends $tea.Model {
 }
 
 export class ResetAndroidInstancesInGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3130,8 +3989,16 @@ export class ResetAndroidInstancesInGroupResponse extends $tea.Model {
 }
 
 export class RunCommandRequest extends $tea.Model {
+  /**
+   * @example
+   * ls
+   */
   commandContent?: string;
   instanceIds?: string[];
+  /**
+   * @example
+   * 60
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3155,7 +4022,15 @@ export class RunCommandRequest extends $tea.Model {
 }
 
 export class RunCommandResponseBody extends $tea.Model {
+  /**
+   * @example
+   * t-gov2ujrk32v4****
+   */
   invokeId?: string;
+  /**
+   * @example
+   * 440D7342-5E7C-B2DB-D0B4EAC2BDF1****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3202,10 +4077,39 @@ export class RunCommandResponse extends $tea.Model {
 }
 
 export class SendFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   androidInstanceIdList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * /data
+   */
   sourceFilePath?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss-cn-hangzhou.aliyuncs.com
+   */
   uploadEndpoint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
   uploadType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   uploadUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3233,7 +4137,15 @@ export class SendFileRequest extends $tea.Model {
 }
 
 export class SendFileResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 425F351C-3F8E-5218-A520-B6311D0D****
+   */
   data?: string;
+  /**
+   * @example
+   * 425F351C-3F8E-5218-A520-B6311D0D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3281,6 +4193,13 @@ export class SendFileResponse extends $tea.Model {
 
 export class SetAdbSecureRequest extends $tea.Model {
   instanceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3303,6 +4222,10 @@ export class SetAdbSecureRequest extends $tea.Model {
 
 export class SetAdbSecureResponseBody extends $tea.Model {
   data?: SetAdbSecureResponseBodyData;
+  /**
+   * @example
+   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3368,6 +4291,10 @@ export class StartAndroidInstanceRequest extends $tea.Model {
 }
 
 export class StartAndroidInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 17C731AB-AAEE-5844-A352-D8D0352D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3434,6 +4361,10 @@ export class StopAndroidInstanceRequest extends $tea.Model {
 }
 
 export class StopAndroidInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E38B41A8-8E00-5AE4-A957-6636ACB8****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3500,6 +4431,10 @@ export class UninstallAppRequest extends $tea.Model {
 }
 
 export class UninstallAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E5138F7E-46B5-526A-8C99-82DEAE6B****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3544,7 +4479,15 @@ export class UninstallAppResponse extends $tea.Model {
 }
 
 export class UpdateCustomImageNameRequest extends $tea.Model {
+  /**
+   * @example
+   * imgc-075cllfeuazh0****
+   */
   imageId?: string;
+  /**
+   * @example
+   * imagename
+   */
   imageName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3566,6 +4509,10 @@ export class UpdateCustomImageNameRequest extends $tea.Model {
 }
 
 export class UpdateCustomImageNameResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 552B7EED-D434-511F-B838-29EA4E906034
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3610,7 +4557,18 @@ export class UpdateCustomImageNameResponse extends $tea.Model {
 }
 
 export class UpdateInstanceGroupImageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * imgc-075cllfeuazh****
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceGroupIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3632,6 +4590,10 @@ export class UpdateInstanceGroupImageRequest extends $tea.Model {
 }
 
 export class UpdateInstanceGroupImageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 55726272-E40B-530D-914F-5126B19C79B3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3676,8 +4638,20 @@ export class UpdateInstanceGroupImageResponse extends $tea.Model {
 }
 
 export class UpgradeAndroidInstanceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   autoPay?: boolean;
+  /**
+   * @example
+   * 10
+   */
   increaseNumberOfInstance?: number;
+  /**
+   * @example
+   * ag-asguicdjh****
+   */
   instanceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3702,7 +4676,15 @@ export class UpgradeAndroidInstanceGroupRequest extends $tea.Model {
 
 export class UpgradeAndroidInstanceGroupResponseBody extends $tea.Model {
   instanceIds?: string;
+  /**
+   * @example
+   * 223684716098****
+   */
   orderId?: string;
+  /**
+   * @example
+   * 310A783E-CC46-5452-A8A3-71AE5DB59****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3752,8 +4734,20 @@ export class UpgradeAndroidInstanceGroupResponse extends $tea.Model {
 
 export class AttachKeyPairResponseBodyData extends $tea.Model {
   attachedInstanceIds?: string[];
+  /**
+   * @example
+   * 0
+   */
   failCount?: number;
+  /**
+   * @example
+   * kp-6v2q33ae4tw3a****
+   */
   keyPairId?: string;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3779,8 +4773,20 @@ export class AttachKeyPairResponseBodyData extends $tea.Model {
 }
 
 export class CheckResourceStockResponseBodyResourceStockModels extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai
+   */
   regionId?: string;
+  /**
+   * @example
+   * Available
+   */
   stockStatus?: string;
+  /**
+   * @example
+   * cn-shanghai-b
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3804,9 +4810,25 @@ export class CheckResourceStockResponseBodyResourceStockModels extends $tea.Mode
 }
 
 export class CreateKeyPairResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-06-30 08:45:09.0
+   */
   gmtCreated?: string;
+  /**
+   * @example
+   * kp-6v2q33ae4tw3*****
+   */
   keyPairId?: string;
+  /**
+   * @example
+   * testKeyPairName
+   */
   keyPairName?: string;
+  /**
+   * @example
+   * MIIEpAIBAAKCAQEAtReyMzLIcBH78EV2zj****
+   */
   privateKeyBody?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3854,7 +4876,15 @@ export class DeleteImagesResponseBodyData extends $tea.Model {
 }
 
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks extends $tea.Model {
+  /**
+   * @example
+   * 32
+   */
   diskSize?: number;
+  /**
+   * @example
+   * SYSTEM
+   */
   diskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3876,32 +4906,120 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks ex
 }
 
 export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends $tea.Model {
+  /**
+   * @example
+   * aig-48xr63m4dybjk****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * ARM
+   */
   architectureType?: string;
+  /**
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @example
+   * 8
+   */
   cpu?: string;
   disks?: DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks[];
   errorCode?: string;
+  /**
+   * @example
+   * 2024-02-01 10:56:36
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2027-06-29 07:25:31
+   */
   gmtExpired?: string;
+  /**
+   * @example
+   * 2024-02-01 10:56:36
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * imgc-06zyt9m93zwax****
+   */
   imageId?: string;
   installedAppList?: string;
+  /**
+   * @example
+   * ag-h67a2cs0zprfdh****
+   */
   instanceGroupId?: string;
   instanceGroupName?: string;
+  /**
+   * @example
+   * acp.basic.small
+   */
   instanceGroupSpec?: string;
+  /**
+   * @example
+   * ARM-2vCPU4GiB 32GiB
+   */
   instanceGroupSpecDescribe?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   instanceGroupStatus?: string;
+  /**
+   * @example
+   * 8
+   */
   memory?: number;
+  /**
+   * @example
+   * 10
+   */
   numberOfInstances?: string;
+  /**
+   * @example
+   * cn-shanghai+dir-030598****
+   */
   officeSiteId?: string;
+  /**
+   * @example
+   * pg-c6n38xucps8kl****
+   */
   policyGroupId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   renderingType?: string;
+  /**
+   * @example
+   * 1280
+   */
   resolutionHeight?: number;
+  /**
+   * @example
+   * 720
+   */
   resolutionWidth?: number;
+  /**
+   * @example
+   * standard
+   */
   saleMode?: string;
+  /**
+   * @example
+   * Android 12
+   */
   systemVersion?: string;
+  /**
+   * @example
+   * vsw-t4n0yqs009ho024wt****
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3973,21 +5091,85 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
 }
 
 export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Model {
+  /**
+   * @example
+   * ag-ayyhomlal7po****
+   */
   androidInstanceGroupId?: string;
+  /**
+   * @example
+   * acp-8at8h6ejkadjh****
+   */
   androidInstanceId?: string;
+  /**
+   * @example
+   * name
+   */
   androidInstanceName?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   androidInstanceStatus?: string;
+  /**
+   * @example
+   * aig-i7yv6tkn7kh8dv****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @example
+   * ai-9ey6io0q58rcd****
+   */
   appInstanceId?: string;
+  /**
+   * @example
+   * test
+   */
   authorizedUserId?: string;
+  /**
+   * @example
+   * test
+   */
   bindUserId?: string;
+  /**
+   * @example
+   * FilePathNotFound
+   */
   errorCode?: string;
+  /**
+   * @example
+   * 2023-05-06 10:42:10
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2023-05-06 10:42:10
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * kp-5hh431emkpucs****
+   */
   keyPairId?: string;
+  /**
+   * @example
+   * 192.168.22.48
+   */
   networkInterfaceIp?: string;
+  /**
+   * @example
+   * p-0btrd5zj8epo****
+   */
   persistentAppInstanceId?: string;
+  /**
+   * @example
+   * 100
+   */
   rate?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   renderingType?: string;
   static names(): { [key: string]: string } {
@@ -4040,16 +5222,48 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
 }
 
 export class DescribeAppsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1.0.0
+   */
   androidAppVersion?: string;
+  /**
+   * @example
+   * 10404
+   */
   appId?: number;
+  /**
+   * @example
+   * testapp
+   */
   appName?: string;
   bizRegionId?: string;
   description?: string;
+  /**
+   * @example
+   * 2022-08-11 17:45:03
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2022-08-11 17:45:03
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * https://test.png
+   */
   iconUrl?: string;
+  /**
+   * @example
+   * INSTALLING
+   */
   installationStatus?: string;
   instanceGroupList?: string[];
+  /**
+   * @example
+   * NORMAL
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4089,20 +5303,68 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeBackupFilesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * acp-34pqe4r0kd9kn****
+   */
   androidInstanceId?: string;
   androidInstanceName?: string;
+  /**
+   * @example
+   * bf-b0qbg3pbpjkn7****
+   */
   backupFileId?: string;
+  /**
+   * @example
+   * a-58ftsoo90p0qa****.ab
+   */
   backupFileName?: string;
+  /**
+   * @example
+   * oss://cloudphone-saved-bucket-cn-shanghai/backup/aic-58ftsoo90p0qa****.ab
+   */
   backupFilePath?: string;
   description?: string;
+  /**
+   * @example
+   * test
+   */
   endUserId?: string;
+  /**
+   * @example
+   * 10227168
+   */
   fileSize?: number;
+  /**
+   * @example
+   * 2024-05-15 17:33:59
+   */
   gmtCreated?: string;
+  /**
+   * @example
+   * 2024-05-15 17:33:59
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * ag-58ftsoo90p0qi****
+   */
   instanceGroupId?: string;
   sourceFilePathList?: string[];
+  /**
+   * @example
+   * AVAILABLE
+   */
   status?: string;
+  /**
+   * @example
+   * oss-cn-hangzhou.aliyuncs.com
+   */
   uploadEndpoint?: string;
+  /**
+   * @example
+   * OSS
+   */
   uploadType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4150,19 +5412,59 @@ export class DescribeBackupFilesResponseBodyData extends $tea.Model {
 }
 
 export class DescribeImageListResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 117819727354****
+   */
   aliUid?: number;
+  /**
+   * @example
+   * description
+   */
   description?: string;
+  /**
+   * @example
+   * 2024-02-01 10:56:36
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2024-02-01 10:56:36
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * imgc-075cllfeuazh****
+   */
   imageId?: string;
+  /**
+   * @example
+   * IMAGE
+   */
   imageName?: string;
   imageRegionDistributeMap?: { [key: string]: DataImageRegionDistributeMapValue };
   imageRegionList?: string[];
+  /**
+   * @example
+   * System
+   */
   imageType?: string;
+  /**
+   * @example
+   * zh
+   */
   language?: string;
   releaseTime?: string;
   renderingType?: string;
+  /**
+   * @example
+   * AVAILABLE
+   */
   status?: string;
+  /**
+   * @example
+   * Android 12
+   */
   systemType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4208,11 +5510,35 @@ export class DescribeImageListResponseBodyData extends $tea.Model {
 }
 
 export class DescribeInvocationsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2022-08-11 17:45:03
+   */
   finishTime?: string;
+  /**
+   * @example
+   * acp-uto81vfd8t8z****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * t-15775dc8****
+   */
   invocationId?: string;
+  /**
+   * @example
+   * RUNNING
+   */
   invocationStatus?: string;
+  /**
+   * @example
+   * success
+   */
   output?: string;
+  /**
+   * @example
+   * 2022-08-11 17:45:03
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4242,8 +5568,20 @@ export class DescribeInvocationsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeKeyPairsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2022-10-11T08:53:32Z
+   */
   gmtCreated?: string;
+  /**
+   * @example
+   * kp-6v2q33ae4tw3*****
+   */
   keyPairId?: string;
+  /**
+   * @example
+   * testKeyPairName
+   */
   keyPairName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4267,6 +5605,10 @@ export class DescribeKeyPairsResponseBodyData extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyRegionModels extends $tea.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4286,11 +5628,35 @@ export class DescribeRegionsResponseBodyRegionModels extends $tea.Model {
 }
 
 export class DescribeSpecResponseBodySpecInfoModel extends $tea.Model {
+  /**
+   * @example
+   * 8
+   */
   core?: number;
+  /**
+   * @example
+   * 16
+   */
   memory?: number;
+  /**
+   * @example
+   * acp.basic.small
+   */
   specId?: string;
+  /**
+   * @example
+   * Available
+   */
   specStatus?: string;
+  /**
+   * @example
+   * ARM
+   */
   specType?: string;
+  /**
+   * @example
+   * 32
+   */
   systemDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4320,13 +5686,45 @@ export class DescribeSpecResponseBodySpecInfoModel extends $tea.Model {
 }
 
 export class DescribeTasksResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2022-10-11T08:53:32Z
+   */
   finishTime?: string;
+  /**
+   * @example
+   * B8ED2BA9-0C6A-5643-818F-B5D60A64****
+   */
   invokeId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * acp-25nt4kk9whhok****
+   */
   resourceId?: string;
+  /**
+   * @example
+   * 2022-10-11T08:53:32Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * t-bp67acfmxazb4p****
+   */
   taskId?: string;
+  /**
+   * @example
+   * Processing
+   */
   taskStatus?: string;
+  /**
+   * @example
+   * StartInstance
+   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4361,8 +5759,20 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
 
 export class DetachKeyPairResponseBodyData extends $tea.Model {
   detachedInstanceIds?: string[];
+  /**
+   * @example
+   * 0
+   */
   failCount?: number;
+  /**
+   * @example
+   * kp-6v2q33ae4tw3a****
+   */
   keyPairId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4388,7 +5798,15 @@ export class DetachKeyPairResponseBodyData extends $tea.Model {
 }
 
 export class GetAdbSecureResponseBodyDataAdbSecureList extends $tea.Model {
+  /**
+   * @example
+   * acp-5hh431emkt6u*****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4429,8 +5847,20 @@ export class GetAdbSecureResponseBodyData extends $tea.Model {
 }
 
 export class ImportKeyPairResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2023-03-05T10:29:22Z
+   */
   gmtCreated?: string;
+  /**
+   * @example
+   * kp-6v2q33ae4tw3*****
+   */
   keyPairId?: string;
+  /**
+   * @example
+   * TestKeyPairName
+   */
   keyPairName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4454,14 +5884,46 @@ export class ImportKeyPairResponseBodyData extends $tea.Model {
 }
 
 export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
+  /**
+   * @example
+   * on
+   */
   cameraRedirect?: string;
+  /**
+   * @example
+   * readwrite
+   */
   clipboard?: string;
+  /**
+   * @example
+   * 2024-06-04 10:28:54
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * download
+   */
   html5FileTransfer?: string;
+  /**
+   * @example
+   * off
+   */
   localDrive?: string;
+  /**
+   * @example
+   * pg-9q6o8qpiy8opkj****
+   */
   policyGroupId?: string;
   policyGroupName?: string;
+  /**
+   * @example
+   * 1080
+   */
   sessionResolutionHeight?: string;
+  /**
+   * @example
+   * 1920
+   */
   sessionResolutionWidth?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4497,8 +5959,16 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
 }
 
 export class SetAdbSecureResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   failCount?: number;
   instanceIds?: string[];
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4546,11 +6016,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 绑定密钥对
-   *
-   * @param request AttachKeyPairRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AttachKeyPairResponse
+   * 绑定密钥对
+   * 
+   * @param request - AttachKeyPairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachKeyPairResponse
    */
   async attachKeyPairWithOptions(request: AttachKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<AttachKeyPairResponse> {
     Util.validateModel(request);
@@ -4581,10 +6051,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 绑定密钥对
-   *
-   * @param request AttachKeyPairRequest
-   * @return AttachKeyPairResponse
+   * 绑定密钥对
+   * 
+   * @param request - AttachKeyPairRequest
+   * @returns AttachKeyPairResponse
    */
   async attachKeyPair(request: AttachKeyPairRequest): Promise<AttachKeyPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4592,11 +6062,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为用户授权/解授权安卓实例
-   *
-   * @param request AuthorizeAndroidInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AuthorizeAndroidInstanceResponse
+   * 为用户授权/解授权安卓实例
+   * 
+   * @param request - AuthorizeAndroidInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeAndroidInstanceResponse
    */
   async authorizeAndroidInstanceWithOptions(request: AuthorizeAndroidInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AuthorizeAndroidInstanceResponse> {
     Util.validateModel(request);
@@ -4631,10 +6101,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 为用户授权/解授权安卓实例
-   *
-   * @param request AuthorizeAndroidInstanceRequest
-   * @return AuthorizeAndroidInstanceResponse
+   * 为用户授权/解授权安卓实例
+   * 
+   * @param request - AuthorizeAndroidInstanceRequest
+   * @returns AuthorizeAndroidInstanceResponse
    */
   async authorizeAndroidInstance(request: AuthorizeAndroidInstanceRequest): Promise<AuthorizeAndroidInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4642,9 +6112,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BackupFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BackupFileResponse
+   * @param request - BackupFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BackupFileResponse
    */
   async backupFileWithOptions(request: BackupFileRequest, runtime: $Util.RuntimeOptions): Promise<BackupFileResponse> {
     Util.validateModel(request);
@@ -4691,8 +6161,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BackupFileRequest
-   * @return BackupFileResponse
+   * @param request - BackupFileRequest
+   * @returns BackupFileResponse
    */
   async backupFile(request: BackupFileRequest): Promise<BackupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4700,11 +6170,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检查资源库存
-   *
-   * @param request CheckResourceStockRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckResourceStockResponse
+   * 检查资源库存
+   * 
+   * @param request - CheckResourceStockRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckResourceStockResponse
    */
   async checkResourceStockWithOptions(request: CheckResourceStockRequest, runtime: $Util.RuntimeOptions): Promise<CheckResourceStockResponse> {
     Util.validateModel(request);
@@ -4715,6 +6185,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.bizRegionId)) {
       query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!Util.isUnset(request.gpuAcceleration)) {
+      query["GpuAcceleration"] = request.gpuAcceleration;
     }
 
     if (!Util.isUnset(request.zoneId)) {
@@ -4739,10 +6213,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检查资源库存
-   *
-   * @param request CheckResourceStockRequest
-   * @return CheckResourceStockResponse
+   * 检查资源库存
+   * 
+   * @param request - CheckResourceStockRequest
+   * @returns CheckResourceStockResponse
    */
   async checkResourceStock(request: CheckResourceStockRequest): Promise<CheckResourceStockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4750,11 +6224,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建安卓实例组
-   *
-   * @param request CreateAndroidInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAndroidInstanceGroupResponse
+   * 创建安卓实例组
+   * 
+   * @param request - CreateAndroidInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAndroidInstanceGroupResponse
    */
   async createAndroidInstanceGroupWithOptions(request: CreateAndroidInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAndroidInstanceGroupResponse> {
     Util.validateModel(request);
@@ -4837,10 +6311,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建安卓实例组
-   *
-   * @param request CreateAndroidInstanceGroupRequest
-   * @return CreateAndroidInstanceGroupResponse
+   * 创建安卓实例组
+   * 
+   * @param request - CreateAndroidInstanceGroupRequest
+   * @returns CreateAndroidInstanceGroupResponse
    */
   async createAndroidInstanceGroup(request: CreateAndroidInstanceGroupRequest): Promise<CreateAndroidInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4848,9 +6322,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAppResponse
+   * @param request - CreateAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppResponse
    */
   async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
@@ -4905,8 +6379,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAppRequest
-   * @return CreateAppResponse
+   * @param request - CreateAppRequest
+   * @returns CreateAppResponse
    */
   async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4914,11 +6388,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义镜像
-   *
-   * @param request CreateCustomImageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCustomImageResponse
+   * 创建自定义镜像
+   * 
+   * @param request - CreateCustomImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomImageResponse
    */
   async createCustomImageWithOptions(request: CreateCustomImageRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomImageResponse> {
     Util.validateModel(request);
@@ -4953,10 +6427,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义镜像
-   *
-   * @param request CreateCustomImageRequest
-   * @return CreateCustomImageResponse
+   * 创建自定义镜像
+   * 
+   * @param request - CreateCustomImageRequest
+   * @returns CreateCustomImageResponse
    */
   async createCustomImage(request: CreateCustomImageRequest): Promise<CreateCustomImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4964,11 +6438,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建密钥对
-   *
-   * @param request CreateKeyPairRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateKeyPairResponse
+   * 创建密钥对
+   * 
+   * @param request - CreateKeyPairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKeyPairResponse
    */
   async createKeyPairWithOptions(request: CreateKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<CreateKeyPairResponse> {
     Util.validateModel(request);
@@ -4995,10 +6469,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建密钥对
-   *
-   * @param request CreateKeyPairRequest
-   * @return CreateKeyPairResponse
+   * 创建密钥对
+   * 
+   * @param request - CreateKeyPairRequest
+   * @returns CreateKeyPairResponse
    */
   async createKeyPair(request: CreateKeyPairRequest): Promise<CreateKeyPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5006,11 +6480,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建策略
-   *
-   * @param request CreatePolicyGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePolicyGroupResponse
+   * 创建策略
+   * 
+   * @param request - CreatePolicyGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePolicyGroupResponse
    */
   async createPolicyGroupWithOptions(request: CreatePolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyGroupResponse> {
     Util.validateModel(request);
@@ -5061,10 +6535,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建策略
-   *
-   * @param request CreatePolicyGroupRequest
-   * @return CreatePolicyGroupResponse
+   * 创建策略
+   * 
+   * @param request - CreatePolicyGroupRequest
+   * @returns CreatePolicyGroupResponse
    */
   async createPolicyGroup(request: CreatePolicyGroupRequest): Promise<CreatePolicyGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5072,11 +6546,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除安卓实例组
-   *
-   * @param request DeleteAndroidInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAndroidInstanceGroupResponse
+   * 删除安卓实例组
+   * 
+   * @param request - DeleteAndroidInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAndroidInstanceGroupResponse
    */
   async deleteAndroidInstanceGroupWithOptions(request: DeleteAndroidInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAndroidInstanceGroupResponse> {
     Util.validateModel(request);
@@ -5103,10 +6577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除安卓实例组
-   *
-   * @param request DeleteAndroidInstanceGroupRequest
-   * @return DeleteAndroidInstanceGroupResponse
+   * 删除安卓实例组
+   * 
+   * @param request - DeleteAndroidInstanceGroupRequest
+   * @returns DeleteAndroidInstanceGroupResponse
    */
   async deleteAndroidInstanceGroup(request: DeleteAndroidInstanceGroupRequest): Promise<DeleteAndroidInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5114,11 +6588,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除app
-   *
-   * @param request DeleteAppsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAppsResponse
+   * 删除app
+   * 
+   * @param request - DeleteAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppsResponse
    */
   async deleteAppsWithOptions(request: DeleteAppsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppsResponse> {
     Util.validateModel(request);
@@ -5145,10 +6619,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除app
-   *
-   * @param request DeleteAppsRequest
-   * @return DeleteAppsResponse
+   * 删除app
+   * 
+   * @param request - DeleteAppsRequest
+   * @returns DeleteAppsResponse
    */
   async deleteApps(request: DeleteAppsRequest): Promise<DeleteAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5156,9 +6630,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq DeleteImagesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteImagesResponse
+   * @param tmpReq - DeleteImagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteImagesResponse
    */
   async deleteImagesWithOptions(tmpReq: DeleteImagesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteImagesResponse> {
     Util.validateModel(tmpReq);
@@ -5191,8 +6665,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteImagesRequest
-   * @return DeleteImagesResponse
+   * @param request - DeleteImagesRequest
+   * @returns DeleteImagesResponse
    */
   async deleteImages(request: DeleteImagesRequest): Promise<DeleteImagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5200,11 +6674,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除密钥对
-   *
-   * @param request DeleteKeyPairsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteKeyPairsResponse
+   * 删除密钥对
+   * 
+   * @param request - DeleteKeyPairsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKeyPairsResponse
    */
   async deleteKeyPairsWithOptions(request: DeleteKeyPairsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteKeyPairsResponse> {
     Util.validateModel(request);
@@ -5231,10 +6705,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除密钥对
-   *
-   * @param request DeleteKeyPairsRequest
-   * @return DeleteKeyPairsResponse
+   * 删除密钥对
+   * 
+   * @param request - DeleteKeyPairsRequest
+   * @returns DeleteKeyPairsResponse
    */
   async deleteKeyPairs(request: DeleteKeyPairsRequest): Promise<DeleteKeyPairsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5242,11 +6716,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除策略
-   *
-   * @param request DeletePolicyGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePolicyGroupResponse
+   * 删除策略
+   * 
+   * @param request - DeletePolicyGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolicyGroupResponse
    */
   async deletePolicyGroupWithOptions(request: DeletePolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyGroupResponse> {
     Util.validateModel(request);
@@ -5273,10 +6747,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除策略
-   *
-   * @param request DeletePolicyGroupRequest
-   * @return DeletePolicyGroupResponse
+   * 删除策略
+   * 
+   * @param request - DeletePolicyGroupRequest
+   * @returns DeletePolicyGroupResponse
    */
   async deletePolicyGroup(request: DeletePolicyGroupRequest): Promise<DeletePolicyGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5284,11 +6758,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询实例组
-   *
-   * @param request DescribeAndroidInstanceGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAndroidInstanceGroupsResponse
+   * 查询实例组
+   * 
+   * @param request - DescribeAndroidInstanceGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAndroidInstanceGroupsResponse
    */
   async describeAndroidInstanceGroupsWithOptions(request: DescribeAndroidInstanceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAndroidInstanceGroupsResponse> {
     Util.validateModel(request);
@@ -5351,10 +6825,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询实例组
-   *
-   * @param request DescribeAndroidInstanceGroupsRequest
-   * @return DescribeAndroidInstanceGroupsResponse
+   * 查询实例组
+   * 
+   * @param request - DescribeAndroidInstanceGroupsRequest
+   * @returns DescribeAndroidInstanceGroupsResponse
    */
   async describeAndroidInstanceGroups(request: DescribeAndroidInstanceGroupsRequest): Promise<DescribeAndroidInstanceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5362,11 +6836,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询安卓实例列表
-   *
-   * @param request DescribeAndroidInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAndroidInstancesResponse
+   * 查询安卓实例列表
+   * 
+   * @param request - DescribeAndroidInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAndroidInstancesResponse
    */
   async describeAndroidInstancesWithOptions(request: DescribeAndroidInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAndroidInstancesResponse> {
     Util.validateModel(request);
@@ -5421,10 +6895,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询安卓实例列表
-   *
-   * @param request DescribeAndroidInstancesRequest
-   * @return DescribeAndroidInstancesResponse
+   * 查询安卓实例列表
+   * 
+   * @param request - DescribeAndroidInstancesRequest
+   * @returns DescribeAndroidInstancesResponse
    */
   async describeAndroidInstances(request: DescribeAndroidInstancesRequest): Promise<DescribeAndroidInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5432,11 +6906,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询app
-   *
-   * @param request DescribeAppsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAppsResponse
+   * 查询app
+   * 
+   * @param request - DescribeAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppsResponse
    */
   async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
     Util.validateModel(request);
@@ -5487,10 +6961,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询app
-   *
-   * @param request DescribeAppsRequest
-   * @return DescribeAppsResponse
+   * 查询app
+   * 
+   * @param request - DescribeAppsRequest
+   * @returns DescribeAppsResponse
    */
   async describeApps(request: DescribeAppsRequest): Promise<DescribeAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5498,9 +6972,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackupFilesResponse
+   * @param request - DescribeBackupFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackupFilesResponse
    */
   async describeBackupFilesWithOptions(request: DescribeBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupFilesResponse> {
     Util.validateModel(request);
@@ -5567,8 +7041,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBackupFilesRequest
-   * @return DescribeBackupFilesResponse
+   * @param request - DescribeBackupFilesRequest
+   * @returns DescribeBackupFilesResponse
    */
   async describeBackupFiles(request: DescribeBackupFilesRequest): Promise<DescribeBackupFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5576,9 +7050,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeImageListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeImageListResponse
+   * @param request - DescribeImageListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeImageListResponse
    */
   async describeImageListWithOptions(request: DescribeImageListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageListResponse> {
     Util.validateModel(request);
@@ -5625,8 +7099,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeImageListRequest
-   * @return DescribeImageListResponse
+   * @param request - DescribeImageListRequest
+   * @returns DescribeImageListResponse
    */
   async describeImageList(request: DescribeImageListRequest): Promise<DescribeImageListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5634,11 +7108,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询命令结果
-   *
-   * @param request DescribeInvocationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInvocationsResponse
+   * 查询命令结果
+   * 
+   * @param request - DescribeInvocationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInvocationsResponse
    */
   async describeInvocationsWithOptions(request: DescribeInvocationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInvocationsResponse> {
     Util.validateModel(request);
@@ -5669,10 +7143,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询命令结果
-   *
-   * @param request DescribeInvocationsRequest
-   * @return DescribeInvocationsResponse
+   * 查询命令结果
+   * 
+   * @param request - DescribeInvocationsRequest
+   * @returns DescribeInvocationsResponse
    */
   async describeInvocations(request: DescribeInvocationsRequest): Promise<DescribeInvocationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5680,11 +7154,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询密钥对
-   *
-   * @param request DescribeKeyPairsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeKeyPairsResponse
+   * 查询密钥对
+   * 
+   * @param request - DescribeKeyPairsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKeyPairsResponse
    */
   async describeKeyPairsWithOptions(request: DescribeKeyPairsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKeyPairsResponse> {
     Util.validateModel(request);
@@ -5723,10 +7197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询密钥对
-   *
-   * @param request DescribeKeyPairsRequest
-   * @return DescribeKeyPairsResponse
+   * 查询密钥对
+   * 
+   * @param request - DescribeKeyPairsRequest
+   * @returns DescribeKeyPairsResponse
    */
   async describeKeyPairs(request: DescribeKeyPairsRequest): Promise<DescribeKeyPairsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5734,11 +7208,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询地域
-   *
-   * @param request DescribeRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRegionsResponse
+   * 查询地域
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
    */
   async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -5757,9 +7231,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询地域
-   *
-   * @return DescribeRegionsResponse
+   * 查询地域
+   * @returns DescribeRegionsResponse
    */
   async describeRegions(): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5767,11 +7240,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询规格
-   *
-   * @param request DescribeSpecRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSpecResponse
+   * 查询规格
+   * 
+   * @param request - DescribeSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSpecResponse
    */
   async describeSpecWithOptions(request: DescribeSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSpecResponse> {
     Util.validateModel(request);
@@ -5814,10 +7287,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询规格
-   *
-   * @param request DescribeSpecRequest
-   * @return DescribeSpecResponse
+   * 查询规格
+   * 
+   * @param request - DescribeSpecRequest
+   * @returns DescribeSpecResponse
    */
   async describeSpec(request: DescribeSpecRequest): Promise<DescribeSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5825,11 +7298,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询异步任务
-   *
-   * @param request DescribeTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTasksResponse
+   * 查询异步任务
+   * 
+   * @param request - DescribeTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTasksResponse
    */
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
@@ -5880,10 +7353,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询异步任务
-   *
-   * @param request DescribeTasksRequest
-   * @return DescribeTasksResponse
+   * 查询异步任务
+   * 
+   * @param request - DescribeTasksRequest
+   * @returns DescribeTasksResponse
    */
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5891,11 +7364,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 解绑密钥对
-   *
-   * @param request DetachKeyPairRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetachKeyPairResponse
+   * 解绑密钥对
+   * 
+   * @param request - DetachKeyPairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachKeyPairResponse
    */
   async detachKeyPairWithOptions(request: DetachKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<DetachKeyPairResponse> {
     Util.validateModel(request);
@@ -5926,10 +7399,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 解绑密钥对
-   *
-   * @param request DetachKeyPairRequest
-   * @return DetachKeyPairResponse
+   * 解绑密钥对
+   * 
+   * @param request - DetachKeyPairRequest
+   * @returns DetachKeyPairResponse
    */
   async detachKeyPair(request: DetachKeyPairRequest): Promise<DetachKeyPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5937,11 +7410,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 自定义镜像分发
-   *
-   * @param request DistributeImageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DistributeImageResponse
+   * 自定义镜像分发
+   * 
+   * @param request - DistributeImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DistributeImageResponse
    */
   async distributeImageWithOptions(request: DistributeImageRequest, runtime: $Util.RuntimeOptions): Promise<DistributeImageResponse> {
     Util.validateModel(request);
@@ -5972,10 +7445,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 自定义镜像分发
-   *
-   * @param request DistributeImageRequest
-   * @return DistributeImageResponse
+   * 自定义镜像分发
+   * 
+   * @param request - DistributeImageRequest
+   * @returns DistributeImageResponse
    */
   async distributeImage(request: DistributeImageRequest): Promise<DistributeImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5983,11 +7456,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实例组缩容
-   *
-   * @param request DowngradeAndroidInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DowngradeAndroidInstanceGroupResponse
+   * 实例组缩容
+   * 
+   * @param request - DowngradeAndroidInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DowngradeAndroidInstanceGroupResponse
    */
   async downgradeAndroidInstanceGroupWithOptions(request: DowngradeAndroidInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DowngradeAndroidInstanceGroupResponse> {
     Util.validateModel(request);
@@ -6022,10 +7495,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实例组缩容
-   *
-   * @param request DowngradeAndroidInstanceGroupRequest
-   * @return DowngradeAndroidInstanceGroupResponse
+   * 实例组缩容
+   * 
+   * @param request - DowngradeAndroidInstanceGroupRequest
+   * @returns DowngradeAndroidInstanceGroupResponse
    */
   async downgradeAndroidInstanceGroup(request: DowngradeAndroidInstanceGroupRequest): Promise<DowngradeAndroidInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6033,11 +7506,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 云手机拉取文件到OSS
-   *
-   * @param request FetchFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FetchFileResponse
+   * 云手机拉取文件到OSS
+   * 
+   * @param request - FetchFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchFileResponse
    */
   async fetchFileWithOptions(request: FetchFileRequest, runtime: $Util.RuntimeOptions): Promise<FetchFileResponse> {
     Util.validateModel(request);
@@ -6080,10 +7553,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 云手机拉取文件到OSS
-   *
-   * @param request FetchFileRequest
-   * @return FetchFileResponse
+   * 云手机拉取文件到OSS
+   * 
+   * @param request - FetchFileRequest
+   * @returns FetchFileResponse
    */
   async fetchFile(request: FetchFileRequest): Promise<FetchFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6091,9 +7564,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAdbSecureRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAdbSecureResponse
+   * @param request - GetAdbSecureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAdbSecureResponse
    */
   async getAdbSecureWithOptions(request: GetAdbSecureRequest, runtime: $Util.RuntimeOptions): Promise<GetAdbSecureResponse> {
     Util.validateModel(request);
@@ -6120,8 +7593,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAdbSecureRequest
-   * @return GetAdbSecureResponse
+   * @param request - GetAdbSecureRequest
+   * @returns GetAdbSecureResponse
    */
   async getAdbSecure(request: GetAdbSecureRequest): Promise<GetAdbSecureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6129,9 +7602,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ImportKeyPairRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportKeyPairResponse
+   * @param request - ImportKeyPairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportKeyPairResponse
    */
   async importKeyPairWithOptions(request: ImportKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<ImportKeyPairResponse> {
     Util.validateModel(request);
@@ -6162,8 +7635,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ImportKeyPairRequest
-   * @return ImportKeyPairResponse
+   * @param request - ImportKeyPairRequest
+   * @returns ImportKeyPairResponse
    */
   async importKeyPair(request: ImportKeyPairRequest): Promise<ImportKeyPairResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6171,11 +7644,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 安装app到实例组
-   *
-   * @param request InstallAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InstallAppResponse
+   * 安装app到实例组
+   * 
+   * @param request - InstallAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InstallAppResponse
    */
   async installAppWithOptions(request: InstallAppRequest, runtime: $Util.RuntimeOptions): Promise<InstallAppResponse> {
     Util.validateModel(request);
@@ -6206,10 +7679,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 安装app到实例组
-   *
-   * @param request InstallAppRequest
-   * @return InstallAppResponse
+   * 安装app到实例组
+   * 
+   * @param request - InstallAppRequest
+   * @returns InstallAppResponse
    */
   async installApp(request: InstallAppRequest): Promise<InstallAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6217,11 +7690,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询Policy列表
-   *
-   * @param request ListPolicyGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPolicyGroupsResponse
+   * 查询Policy列表
+   * 
+   * @param request - ListPolicyGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPolicyGroupsResponse
    */
   async listPolicyGroupsWithOptions(request: ListPolicyGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicyGroupsResponse> {
     Util.validateModel(request);
@@ -6260,10 +7733,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询Policy列表
-   *
-   * @param request ListPolicyGroupsRequest
-   * @return ListPolicyGroupsResponse
+   * 查询Policy列表
+   * 
+   * @param request - ListPolicyGroupsRequest
+   * @returns ListPolicyGroupsResponse
    */
   async listPolicyGroups(request: ListPolicyGroupsRequest): Promise<ListPolicyGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6271,11 +7744,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改安卓实例信息
-   *
-   * @param request ModifyAndroidInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAndroidInstanceResponse
+   * 修改安卓实例信息
+   * 
+   * @param request - ModifyAndroidInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAndroidInstanceResponse
    */
   async modifyAndroidInstanceWithOptions(request: ModifyAndroidInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAndroidInstanceResponse> {
     Util.validateModel(request);
@@ -6306,10 +7779,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改安卓实例信息
-   *
-   * @param request ModifyAndroidInstanceRequest
-   * @return ModifyAndroidInstanceResponse
+   * 修改安卓实例信息
+   * 
+   * @param request - ModifyAndroidInstanceRequest
+   * @returns ModifyAndroidInstanceResponse
    */
   async modifyAndroidInstance(request: ModifyAndroidInstanceRequest): Promise<ModifyAndroidInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6317,11 +7790,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改安卓实例组
-   *
-   * @param request ModifyAndroidInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAndroidInstanceGroupResponse
+   * 修改安卓实例组
+   * 
+   * @param request - ModifyAndroidInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAndroidInstanceGroupResponse
    */
   async modifyAndroidInstanceGroupWithOptions(request: ModifyAndroidInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAndroidInstanceGroupResponse> {
     Util.validateModel(request);
@@ -6356,10 +7829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改安卓实例组
-   *
-   * @param request ModifyAndroidInstanceGroupRequest
-   * @return ModifyAndroidInstanceGroupResponse
+   * 修改安卓实例组
+   * 
+   * @param request - ModifyAndroidInstanceGroupRequest
+   * @returns ModifyAndroidInstanceGroupResponse
    */
   async modifyAndroidInstanceGroup(request: ModifyAndroidInstanceGroupRequest): Promise<ModifyAndroidInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6367,11 +7840,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改app
-   *
-   * @param request ModifyAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAppResponse
+   * 修改app
+   * 
+   * @param request - ModifyAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppResponse
    */
   async modifyAppWithOptions(request: ModifyAppRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppResponse> {
     Util.validateModel(request);
@@ -6410,10 +7883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改app
-   *
-   * @param request ModifyAppRequest
-   * @return ModifyAppResponse
+   * 修改app
+   * 
+   * @param request - ModifyAppRequest
+   * @returns ModifyAppResponse
    */
   async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6421,11 +7894,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改密钥对名称
-   *
-   * @param request ModifyKeyPairNameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyKeyPairNameResponse
+   * 修改密钥对名称
+   * 
+   * @param request - ModifyKeyPairNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyKeyPairNameResponse
    */
   async modifyKeyPairNameWithOptions(request: ModifyKeyPairNameRequest, runtime: $Util.RuntimeOptions): Promise<ModifyKeyPairNameResponse> {
     Util.validateModel(request);
@@ -6456,10 +7929,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改密钥对名称
-   *
-   * @param request ModifyKeyPairNameRequest
-   * @return ModifyKeyPairNameResponse
+   * 修改密钥对名称
+   * 
+   * @param request - ModifyKeyPairNameRequest
+   * @returns ModifyKeyPairNameResponse
    */
   async modifyKeyPairName(request: ModifyKeyPairNameRequest): Promise<ModifyKeyPairNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6467,11 +7940,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改policy
-   *
-   * @param request ModifyPolicyGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyPolicyGroupResponse
+   * 修改policy
+   * 
+   * @param request - ModifyPolicyGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPolicyGroupResponse
    */
   async modifyPolicyGroupWithOptions(request: ModifyPolicyGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyGroupResponse> {
     Util.validateModel(request);
@@ -6526,10 +7999,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改policy
-   *
-   * @param request ModifyPolicyGroupRequest
-   * @return ModifyPolicyGroupResponse
+   * 修改policy
+   * 
+   * @param request - ModifyPolicyGroupRequest
+   * @returns ModifyPolicyGroupResponse
    */
   async modifyPolicyGroup(request: ModifyPolicyGroupRequest): Promise<ModifyPolicyGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6537,11 +8010,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 重启安卓实例
-   *
-   * @param request RebootAndroidInstancesInGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RebootAndroidInstancesInGroupResponse
+   * 重启安卓实例
+   * 
+   * @param request - RebootAndroidInstancesInGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebootAndroidInstancesInGroupResponse
    */
   async rebootAndroidInstancesInGroupWithOptions(request: RebootAndroidInstancesInGroupRequest, runtime: $Util.RuntimeOptions): Promise<RebootAndroidInstancesInGroupResponse> {
     Util.validateModel(request);
@@ -6572,10 +8045,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 重启安卓实例
-   *
-   * @param request RebootAndroidInstancesInGroupRequest
-   * @return RebootAndroidInstancesInGroupResponse
+   * 重启安卓实例
+   * 
+   * @param request - RebootAndroidInstancesInGroupRequest
+   * @returns RebootAndroidInstancesInGroupResponse
    */
   async rebootAndroidInstancesInGroup(request: RebootAndroidInstancesInGroupRequest): Promise<RebootAndroidInstancesInGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6583,9 +8056,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RecoveryFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RecoveryFileResponse
+   * @param request - RecoveryFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecoveryFileResponse
    */
   async recoveryFileWithOptions(request: RecoveryFileRequest, runtime: $Util.RuntimeOptions): Promise<RecoveryFileResponse> {
     Util.validateModel(request);
@@ -6628,8 +8101,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RecoveryFileRequest
-   * @return RecoveryFileResponse
+   * @param request - RecoveryFileRequest
+   * @returns RecoveryFileResponse
    */
   async recoveryFile(request: RecoveryFileRequest): Promise<RecoveryFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6637,11 +8110,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 续费安卓实例组
-   *
-   * @param request RenewAndroidInstanceGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RenewAndroidInstanceGroupsResponse
+   * 续费安卓实例组
+   * 
+   * @param request - RenewAndroidInstanceGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewAndroidInstanceGroupsResponse
    */
   async renewAndroidInstanceGroupsWithOptions(request: RenewAndroidInstanceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<RenewAndroidInstanceGroupsResponse> {
     Util.validateModel(request);
@@ -6680,10 +8153,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 续费安卓实例组
-   *
-   * @param request RenewAndroidInstanceGroupsRequest
-   * @return RenewAndroidInstanceGroupsResponse
+   * 续费安卓实例组
+   * 
+   * @param request - RenewAndroidInstanceGroupsRequest
+   * @returns RenewAndroidInstanceGroupsResponse
    */
   async renewAndroidInstanceGroups(request: RenewAndroidInstanceGroupsRequest): Promise<RenewAndroidInstanceGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6691,11 +8164,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 重置安卓实例
-   *
-   * @param request ResetAndroidInstancesInGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResetAndroidInstancesInGroupResponse
+   * 重置安卓实例
+   * 
+   * @param request - ResetAndroidInstancesInGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetAndroidInstancesInGroupResponse
    */
   async resetAndroidInstancesInGroupWithOptions(request: ResetAndroidInstancesInGroupRequest, runtime: $Util.RuntimeOptions): Promise<ResetAndroidInstancesInGroupResponse> {
     Util.validateModel(request);
@@ -6722,10 +8195,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 重置安卓实例
-   *
-   * @param request ResetAndroidInstancesInGroupRequest
-   * @return ResetAndroidInstancesInGroupResponse
+   * 重置安卓实例
+   * 
+   * @param request - ResetAndroidInstancesInGroupRequest
+   * @returns ResetAndroidInstancesInGroupResponse
    */
   async resetAndroidInstancesInGroup(request: ResetAndroidInstancesInGroupRequest): Promise<ResetAndroidInstancesInGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6733,11 +8206,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过eds agent通道下发命令
-   *
-   * @param request RunCommandRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RunCommandResponse
+   * 通过eds agent通道下发命令
+   * 
+   * @param request - RunCommandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCommandResponse
    */
   async runCommandWithOptions(request: RunCommandRequest, runtime: $Util.RuntimeOptions): Promise<RunCommandResponse> {
     Util.validateModel(request);
@@ -6772,10 +8245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过eds agent通道下发命令
-   *
-   * @param request RunCommandRequest
-   * @return RunCommandResponse
+   * 通过eds agent通道下发命令
+   * 
+   * @param request - RunCommandRequest
+   * @returns RunCommandResponse
    */
   async runCommand(request: RunCommandRequest): Promise<RunCommandResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6783,11 +8256,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 推送文件到云手机
-   *
-   * @param request SendFileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SendFileResponse
+   * 推送文件到云手机
+   * 
+   * @param request - SendFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendFileResponse
    */
   async sendFileWithOptions(request: SendFileRequest, runtime: $Util.RuntimeOptions): Promise<SendFileResponse> {
     Util.validateModel(request);
@@ -6830,10 +8303,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 推送文件到云手机
-   *
-   * @param request SendFileRequest
-   * @return SendFileResponse
+   * 推送文件到云手机
+   * 
+   * @param request - SendFileRequest
+   * @returns SendFileResponse
    */
   async sendFile(request: SendFileRequest): Promise<SendFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6841,9 +8314,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetAdbSecureRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetAdbSecureResponse
+   * @param request - SetAdbSecureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAdbSecureResponse
    */
   async setAdbSecureWithOptions(request: SetAdbSecureRequest, runtime: $Util.RuntimeOptions): Promise<SetAdbSecureResponse> {
     Util.validateModel(request);
@@ -6874,8 +8347,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetAdbSecureRequest
-   * @return SetAdbSecureResponse
+   * @param request - SetAdbSecureRequest
+   * @returns SetAdbSecureResponse
    */
   async setAdbSecure(request: SetAdbSecureRequest): Promise<SetAdbSecureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6883,11 +8356,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实例开机
-   *
-   * @param request StartAndroidInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartAndroidInstanceResponse
+   * 实例开机
+   * 
+   * @param request - StartAndroidInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAndroidInstanceResponse
    */
   async startAndroidInstanceWithOptions(request: StartAndroidInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartAndroidInstanceResponse> {
     Util.validateModel(request);
@@ -6914,10 +8387,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实例开机
-   *
-   * @param request StartAndroidInstanceRequest
-   * @return StartAndroidInstanceResponse
+   * 实例开机
+   * 
+   * @param request - StartAndroidInstanceRequest
+   * @returns StartAndroidInstanceResponse
    */
   async startAndroidInstance(request: StartAndroidInstanceRequest): Promise<StartAndroidInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6925,11 +8398,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实例关机
-   *
-   * @param request StopAndroidInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopAndroidInstanceResponse
+   * 实例关机
+   * 
+   * @param request - StopAndroidInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAndroidInstanceResponse
    */
   async stopAndroidInstanceWithOptions(request: StopAndroidInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopAndroidInstanceResponse> {
     Util.validateModel(request);
@@ -6960,10 +8433,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实例关机
-   *
-   * @param request StopAndroidInstanceRequest
-   * @return StopAndroidInstanceResponse
+   * 实例关机
+   * 
+   * @param request - StopAndroidInstanceRequest
+   * @returns StopAndroidInstanceResponse
    */
   async stopAndroidInstance(request: StopAndroidInstanceRequest): Promise<StopAndroidInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6971,11 +8444,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 卸载app
-   *
-   * @param request UninstallAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UninstallAppResponse
+   * 卸载app
+   * 
+   * @param request - UninstallAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UninstallAppResponse
    */
   async uninstallAppWithOptions(request: UninstallAppRequest, runtime: $Util.RuntimeOptions): Promise<UninstallAppResponse> {
     Util.validateModel(request);
@@ -7006,10 +8479,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 卸载app
-   *
-   * @param request UninstallAppRequest
-   * @return UninstallAppResponse
+   * 卸载app
+   * 
+   * @param request - UninstallAppRequest
+   * @returns UninstallAppResponse
    */
   async uninstallApp(request: UninstallAppRequest): Promise<UninstallAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7017,11 +8490,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改自定义镜像名称
-   *
-   * @param request UpdateCustomImageNameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCustomImageNameResponse
+   * 修改自定义镜像名称
+   * 
+   * @param request - UpdateCustomImageNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomImageNameResponse
    */
   async updateCustomImageNameWithOptions(request: UpdateCustomImageNameRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomImageNameResponse> {
     Util.validateModel(request);
@@ -7052,10 +8525,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改自定义镜像名称
-   *
-   * @param request UpdateCustomImageNameRequest
-   * @return UpdateCustomImageNameResponse
+   * 修改自定义镜像名称
+   * 
+   * @param request - UpdateCustomImageNameRequest
+   * @returns UpdateCustomImageNameResponse
    */
   async updateCustomImageName(request: UpdateCustomImageNameRequest): Promise<UpdateCustomImageNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7063,11 +8536,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实例组变更镜像
-   *
-   * @param request UpdateInstanceGroupImageRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateInstanceGroupImageResponse
+   * 实例组变更镜像
+   * 
+   * @param request - UpdateInstanceGroupImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceGroupImageResponse
    */
   async updateInstanceGroupImageWithOptions(request: UpdateInstanceGroupImageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceGroupImageResponse> {
     Util.validateModel(request);
@@ -7098,10 +8571,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 实例组变更镜像
-   *
-   * @param request UpdateInstanceGroupImageRequest
-   * @return UpdateInstanceGroupImageResponse
+   * 实例组变更镜像
+   * 
+   * @param request - UpdateInstanceGroupImageRequest
+   * @returns UpdateInstanceGroupImageResponse
    */
   async updateInstanceGroupImage(request: UpdateInstanceGroupImageRequest): Promise<UpdateInstanceGroupImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -7109,11 +8582,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 安卓实例组扩容
-   *
-   * @param request UpgradeAndroidInstanceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpgradeAndroidInstanceGroupResponse
+   * 安卓实例组扩容
+   * 
+   * @param request - UpgradeAndroidInstanceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeAndroidInstanceGroupResponse
    */
   async upgradeAndroidInstanceGroupWithOptions(request: UpgradeAndroidInstanceGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeAndroidInstanceGroupResponse> {
     Util.validateModel(request);
@@ -7148,10 +8621,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 安卓实例组扩容
-   *
-   * @param request UpgradeAndroidInstanceGroupRequest
-   * @return UpgradeAndroidInstanceGroupResponse
+   * 安卓实例组扩容
+   * 
+   * @param request - UpgradeAndroidInstanceGroupRequest
+   * @returns UpgradeAndroidInstanceGroupResponse
    */
   async upgradeAndroidInstanceGroup(request: UpgradeAndroidInstanceGroupRequest): Promise<UpgradeAndroidInstanceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
