@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,7 +8,23 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CancelExecutionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * exec-xxx
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,6 +46,13 @@ export class CancelExecutionRequest extends $tea.Model {
 }
 
 export class CancelExecutionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 14A07460-EBE7-47CA-9757-12CC4761D47A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,9 +97,55 @@ export class CancelExecutionResponse extends $tea.Model {
 }
 
 export class ChangeResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the cloud resource is to be moved. You can use resource groups to manage resources owned by your Alibaba Cloud account. Resource groups simplify the resource and permission management of your Alibaba Cloud account. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acfm3peow3k****
+   */
   newResourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the cloud resource that you want to move to another resource group.
+   * 
+   * *   If the ResourceType parameter is set to template, set the ResourceId parameter to the name of the template.
+   * *   If the ResourceType parameter is set to parameter, set the ResourceId parameter to the name of the parameter.
+   * *   If the ResourceType parameter is set to secretparameter, set the ResourceId parameter to the name of the encryption parameter.
+   * *   If the ResourceType parameter is set to stateconfiguration, set the ResourceId parameter to the ID of the desired-state configuration.
+   * *   If the ResourceType parameter is set to application, set the ResourceId parameter to the name of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TemplateName
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the cloud resource. Valid values:
+   * 
+   * *   template: template
+   * *   parameter: parameter
+   * *   secretparameter: encryption parameter
+   * *   stateconfiguration: desired-state configuration
+   * *   application: application
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * template
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,6 +171,13 @@ export class ChangeResourceGroupRequest extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0620E49F-B884-5F98-A834-69D72922E5CF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -147,9 +222,43 @@ export class ChangeResourceGroupResponse extends $tea.Model {
 }
 
 export class ContinueDeployApplicationGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The deployment information about the application group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {       "TemplateURL": "https://ros-template.oss-cn-zhangjiakou.aliyuncs.com/App_Management_Existing_Vpc_Ecs_Instance.json",       "Parameters": {         "ZoneId": "cn-hangzhou-k",         "ProjectName": "test",         "SystemDiskSize": 40,         "InstanceChargeType": "PostPaid",         "SecurityGroupId": "sg-bp1a4374akk63jl8tddy",         "VSwitchId": "vsw-bp1fcvc3zn0jrag86rrlm",         "SystemDiskCategory": "cloud_essd",         "InstancePassword": "******",         "InternetChargeType": "PayByTraffic",         "InstanceCount": 1,         "InternetMaxBandwidthOut": 0,         "VpcId": "vpc-bp1i99boyas8i8m9t3skp",         "EcsImageId": "centos_8_5_x64_20G_alibase_20211228.vhd",         "DataDiskSize": 100,         "EcsInstanceType": "ecs.s6-c1m4.small",         "DataDiskCategory": "cloud_efficiency",         "EnvironmentCommandId": "c-hz028fc3g031gcg"       }
+   */
   deployParameters?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplicationGroup
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,6 +284,13 @@ export class ContinueDeployApplicationGroupRequest extends $tea.Model {
 }
 
 export class ContinueDeployApplicationGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8AF4800A-A316-589A-90C4-313B1FEEB084
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -219,13 +335,68 @@ export class ContinueDeployApplicationGroupResponse extends $tea.Model {
 }
 
 export class CreateApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of application alerts.
+   */
   alarmConfig?: CreateApplicationRequestAlarmConfig;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * TF-CreateApplication-1647587475-84104b89-eba5-47a8-b2fd-807b8b7d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the application.
+   * 
+   * @example
+   * application
+   */
   description?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the service.
+   * 
+   * @example
+   * service-79538e30e44541b699d8
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -259,13 +430,68 @@ export class CreateApplicationRequest extends $tea.Model {
 }
 
 export class CreateApplicationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of application alerts.
+   */
   alarmConfigShrink?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * TF-CreateApplication-1647587475-84104b89-eba5-47a8-b2fd-807b8b7d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the application.
+   * 
+   * @example
+   * application
+   */
   description?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the service.
+   * 
+   * @example
+   * service-79538e30e44541b699d8
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -299,7 +525,18 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
 }
 
 export class CreateApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the application.
+   */
   application?: CreateApplicationResponseBodyApplication;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 274917E8-8E74-5928-A82F-4940F52F7ACB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -346,14 +583,83 @@ export class CreateApplicationResponse extends $tea.Model {
 }
 
 export class CreateApplicationGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * -
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the application group in CloudMonitor.
+   * 
+   * @example
+   * 218026174
+   */
   cmsGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the related sources reside.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   deployRegionId?: string;
+  /**
+   * @remarks
+   * The description of the application group.
+   * 
+   * @example
+   * ApplicationGroup
+   */
   description?: string;
+  /**
+   * @remarks
+   * The key of the tag. You must set both the ImportTagKey and the ImportTagValue parameters, or leave both of them empty. If you do not set the ImportTagKey and ImportTagValue parameters, the application name is used for this parameter by default.
+   * 
+   * @example
+   * k1
+   */
   importTagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag. You must set both the ImportTagKey and the ImportTagValue parameters, or leave both of them empty. If you do not set the ImportTagKey and ImportTagValue parameters, the application group name is used for this parameter by default.
+   * 
+   * @example
+   * v1
+   */
   importTagValue?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplicationGroup
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -389,7 +695,18 @@ export class CreateApplicationGroupRequest extends $tea.Model {
 }
 
 export class CreateApplicationGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the application group.
+   */
   applicationGroup?: CreateApplicationGroupResponseBodyApplicationGroup;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0E6BEBD3-7F9E-5878-834B-097633AB5F33
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -436,18 +753,196 @@ export class CreateApplicationGroupResponse extends $tea.Model {
 }
 
 export class CreateOpsItemRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The category.
+   * 
+   * Valid values:
+   * 
+   * *   Availability
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Performance
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Security
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Cost
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Recovery
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Security
+   */
   category?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * 123e56767-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The string to be deduplicated.
+   * 
+   * @example
+   * ecs_instance_Sys
+   */
   dedupString?: string;
+  /**
+   * @remarks
+   * The description of the operation.
+   * 
+   * @example
+   * OpsItem
+   */
   description?: string;
+  /**
+   * @remarks
+   * The priority. Valid values: 1 to 5. 1 indicates the highest priority.
+   * 
+   * @example
+   * 4
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Names (ARNs) of the associated resources.
+   * 
+   * @example
+   * [\\"acs:oos:cn-hangzhou:1563457855438522:application/test-33333/applicationgroup/default-cn-hangzhou-1\\"]
+   */
   resources?: string;
+  /**
+   * @remarks
+   * The severity level.
+   * 
+   * Valid values:
+   * 
+   * *   High
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Low
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Medium
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Critical
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Medium
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The solutions.
+   * 
+   * @example
+   * [{\\n \\\\"priority\\\\":3,\\n \\\\"type\\\\":\\\\"SingleAZEcs\\\\",\\n \\\\"url\\\\":\\\\"http://ecs.consle.aliyuncs.com\\\\",\\n \\\\"description\\\\":\\\\"Create Elastic Compute Service (ECS) instances in different zones and import them to an application group.\\\\"\\n}]
+   */
   solutions?: string;
+  /**
+   * @remarks
+   * The source business.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /aliyun/ecs
+   */
   source?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {
+   *       "k1": "v1",
+   *       "k2": "v2"
+   * }
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The title of the O\\&M item.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ECS reboot is scheduled
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -491,18 +986,196 @@ export class CreateOpsItemRequest extends $tea.Model {
 }
 
 export class CreateOpsItemShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The category.
+   * 
+   * Valid values:
+   * 
+   * *   Availability
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Performance
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Security
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Cost
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Recovery
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Security
+   */
   category?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * 123e56767-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The string to be deduplicated.
+   * 
+   * @example
+   * ecs_instance_Sys
+   */
   dedupString?: string;
+  /**
+   * @remarks
+   * The description of the operation.
+   * 
+   * @example
+   * OpsItem
+   */
   description?: string;
+  /**
+   * @remarks
+   * The priority. Valid values: 1 to 5. 1 indicates the highest priority.
+   * 
+   * @example
+   * 4
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Names (ARNs) of the associated resources.
+   * 
+   * @example
+   * [\\"acs:oos:cn-hangzhou:1563457855438522:application/test-33333/applicationgroup/default-cn-hangzhou-1\\"]
+   */
   resources?: string;
+  /**
+   * @remarks
+   * The severity level.
+   * 
+   * Valid values:
+   * 
+   * *   High
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Low
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Medium
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Critical
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Medium
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The solutions.
+   * 
+   * @example
+   * [{\\n \\\\"priority\\\\":3,\\n \\\\"type\\\\":\\\\"SingleAZEcs\\\\",\\n \\\\"url\\\\":\\\\"http://ecs.consle.aliyuncs.com\\\\",\\n \\\\"description\\\\":\\\\"Create Elastic Compute Service (ECS) instances in different zones and import them to an application group.\\\\"\\n}]
+   */
   solutions?: string;
+  /**
+   * @remarks
+   * The source business.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /aliyun/ecs
+   */
   source?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {
+   *       "k1": "v1",
+   *       "k2": "v2"
+   * }
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The title of the O\\&M item.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ECS reboot is scheduled
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -546,7 +1219,18 @@ export class CreateOpsItemShrinkRequest extends $tea.Model {
 }
 
 export class CreateOpsItemResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the O\\&M item.
+   */
   opsItem?: CreateOpsItemResponseBodyOpsItem;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DA4F08D4-DA54-5407-84B9-108C71D75B17
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -593,14 +1277,95 @@ export class CreateOpsItemResponse extends $tea.Model {
 }
 
 export class CreateParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). For more information, see "How to ensure idempotence".
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The constraints of the common parameter. By default, this parameter is null. Valid values:
+   * 
+   * *   AllowedValues: The value that is allowed for the common parameter. It must be an array string.
+   * *   AllowedPattern: The pattern that is allowed for the common parameter. It must be a regular expression.
+   * *   MinLength: The minimum length of the common parameter.
+   * *   MaxLength: The maximum length of the common parameter.
+   * 
+   * @example
+   * {
+   *     "AllowedValues": [
+   *         "parameter"
+   *     ],
+   *     "AllowedPattern": "parameter",
+   *     "MinLength": 0,
+   *     "MaxLength": 20
+   * }
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The description of the common parameter. The description must be 1 to 200 characters in length.
+   * 
+   * @example
+   * parameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the parameter. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The data type of the parameter. Valid values: String and StringList.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * String
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value of the common parameter. The value must be 1 to 4096 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * parameter
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -636,14 +1401,95 @@ export class CreateParameterRequest extends $tea.Model {
 }
 
 export class CreateParameterShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). For more information, see "How to ensure idempotence".
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The constraints of the common parameter. By default, this parameter is null. Valid values:
+   * 
+   * *   AllowedValues: The value that is allowed for the common parameter. It must be an array string.
+   * *   AllowedPattern: The pattern that is allowed for the common parameter. It must be a regular expression.
+   * *   MinLength: The minimum length of the common parameter.
+   * *   MaxLength: The maximum length of the common parameter.
+   * 
+   * @example
+   * {
+   *     "AllowedValues": [
+   *         "parameter"
+   *     ],
+   *     "AllowedPattern": "parameter",
+   *     "MinLength": 0,
+   *     "MaxLength": 20
+   * }
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The description of the common parameter. The description must be 1 to 200 characters in length.
+   * 
+   * @example
+   * parameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the parameter. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The data type of the parameter. Valid values: String and StringList.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * String
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value of the common parameter. The value must be 1 to 4096 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * parameter
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -679,7 +1525,18 @@ export class CreateParameterShrinkRequest extends $tea.Model {
 }
 
 export class CreateParameterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the common parameter.
+   */
   parameter?: CreateParameterResponseBodyParameter;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0B419FF3-ABC6-4DF0-95E5-636DC8CBB8AF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -726,18 +1583,112 @@ export class CreateParameterResponse extends $tea.Model {
 }
 
 export class CreatePatchBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rules of scanning and installing patches for the specified operating system.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
+   */
   approvalRules?: string;
+  /**
+   * @remarks
+   * The approved patches.
+   */
   approvedPatches?: string[];
+  /**
+   * @remarks
+   * Specifies whether the approved patch involves updates other than security-related updates.
+   * 
+   * @example
+   * true
+   */
   approvedPatchesEnableNonSecurity?: boolean;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * -
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the patch baseline.
+   * 
+   * @example
+   * PatchBaseline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the operating system. Valid values:
+   * 
+   * *   Windows
+   * *   Ubuntu
+   * *   CentOS
+   * *   Debian
+   * *   AliyunLinux
+   * *   RedhatEnterpriseLinux
+   * *   Anolis
+   * *   AlmaLinux
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Windows
+   */
   operationSystem?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you want to create a patch baseline.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The rejected patches.
+   */
   rejectedPatches?: string[];
+  /**
+   * @remarks
+   * The action of the rejected patch.
+   * 
+   * @example
+   * ALLOW_AS_DEPENDENCY
+   */
   rejectedPatchesAction?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The patch source configurations.
+   */
   sources?: string[];
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: CreatePatchBaselineRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -781,18 +1732,112 @@ export class CreatePatchBaselineRequest extends $tea.Model {
 }
 
 export class CreatePatchBaselineShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rules of scanning and installing patches for the specified operating system.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
+   */
   approvalRules?: string;
+  /**
+   * @remarks
+   * The approved patches.
+   */
   approvedPatchesShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether the approved patch involves updates other than security-related updates.
+   * 
+   * @example
+   * true
+   */
   approvedPatchesEnableNonSecurity?: boolean;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * -
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the patch baseline.
+   * 
+   * @example
+   * PatchBaseline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the operating system. Valid values:
+   * 
+   * *   Windows
+   * *   Ubuntu
+   * *   CentOS
+   * *   Debian
+   * *   AliyunLinux
+   * *   RedhatEnterpriseLinux
+   * *   Anolis
+   * *   AlmaLinux
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Windows
+   */
   operationSystem?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you want to create a patch baseline.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The rejected patches.
+   */
   rejectedPatchesShrink?: string;
+  /**
+   * @remarks
+   * The action of the rejected patch.
+   * 
+   * @example
+   * ALLOW_AS_DEPENDENCY
+   */
   rejectedPatchesAction?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The patch source configurations.
+   */
   sourcesShrink?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -836,7 +1881,18 @@ export class CreatePatchBaselineShrinkRequest extends $tea.Model {
 }
 
 export class CreatePatchBaselineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the patch baseline.
+   */
   patchBaseline?: CreatePatchBaselineResponseBodyPatchBaseline;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A5173FF6-D10D-5E8C-8F71-943C2A3E25C0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -883,16 +1939,102 @@ export class CreatePatchBaselineResponse extends $tea.Model {
 }
 
 export class CreateSecretParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). For more information, see "How to ensure idempotence".
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The constraints of the encryption parameter. By default, this parameter is null. Valid values:
+   * 
+   * *   AllowedValues: The value that is allowed for the encryption parameter. It must be an array string.
+   * *   AllowedPattern: The pattern that is allowed for the encryption parameter. It must be a regular expression.
+   * *   MinLength: The minimum length of the encryption parameter.
+   * *   MaxLength: The maximum length of the encryption parameter.
+   * 
+   * @example
+   * \\"{\\"\\"AllowedValues":["secretparameter"],"AllowedPattern":"secretparameter","MinLength":0,"MaxLength":20}\\"
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The instance ID of the KMS instance.
+   * 
+   * @example
+   * kst-hzz****
+   */
   DKMSInstanceId?: string;
+  /**
+   * @remarks
+   * The description of the encryption parameter. The description must be 1 to 200 characters in length.
+   * 
+   * @example
+   * SecretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The key ID of Key Management Service (KMS) that is used to encrypt the parameter.
+   * 
+   * @example
+   * 80e9409f-78fa-42ab-84bd-83f40c******
+   */
   keyId?: string;
+  /**
+   * @remarks
+   * The name of the parameter. The name must be 1 to 180 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the parameter. Set the value to Secret.
+   * 
+   * @example
+   * Secret
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value of the encryption parameter. The value must be 1 to 4096 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SecretParameter
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -932,16 +2074,102 @@ export class CreateSecretParameterRequest extends $tea.Model {
 }
 
 export class CreateSecretParameterShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). For more information, see "How to ensure idempotence".
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The constraints of the encryption parameter. By default, this parameter is null. Valid values:
+   * 
+   * *   AllowedValues: The value that is allowed for the encryption parameter. It must be an array string.
+   * *   AllowedPattern: The pattern that is allowed for the encryption parameter. It must be a regular expression.
+   * *   MinLength: The minimum length of the encryption parameter.
+   * *   MaxLength: The maximum length of the encryption parameter.
+   * 
+   * @example
+   * \\"{\\"\\"AllowedValues":["secretparameter"],"AllowedPattern":"secretparameter","MinLength":0,"MaxLength":20}\\"
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The instance ID of the KMS instance.
+   * 
+   * @example
+   * kst-hzz****
+   */
   DKMSInstanceId?: string;
+  /**
+   * @remarks
+   * The description of the encryption parameter. The description must be 1 to 200 characters in length.
+   * 
+   * @example
+   * SecretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The key ID of Key Management Service (KMS) that is used to encrypt the parameter.
+   * 
+   * @example
+   * 80e9409f-78fa-42ab-84bd-83f40c******
+   */
   keyId?: string;
+  /**
+   * @remarks
+   * The name of the parameter. The name must be 1 to 180 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The type of the parameter. Set the value to Secret.
+   * 
+   * @example
+   * Secret
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value of the encryption parameter. The value must be 1 to 4096 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SecretParameter
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -981,7 +2209,18 @@ export class CreateSecretParameterShrinkRequest extends $tea.Model {
 }
 
 export class CreateSecretParameterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the encryption parameter.
+   */
   parameter?: CreateSecretParameterResponseBodyParameter;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0B419FF3-ABC6-4DF0-95E5-636DC8CBB8AF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1028,17 +2267,109 @@ export class CreateSecretParameterResponse extends $tea.Model {
 }
 
 export class CreateStateConfigurationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * DASKJJLKADS-AHKLJHJSAKL-AJK
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The configuration mode. Valid values: ApplyOnce: The configuration is applied only once. After a configuration is updated, the new configuration is applied. ApplyAndMonitor: The configuration is applied only once. After the configuration is applied, the system only checks whether the configuration is migrated in the future. ApplyAndAutoCorrect: The configuration is always applied.
+   * 
+   * @example
+   * ApplyOnce
+   */
   configureMode?: string;
+  /**
+   * @remarks
+   * The description of the desired-state configuration.
+   * 
+   * @example
+   * The region ID.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The parameters.
+   * 
+   * @example
+   * {     "policy": {       "ACS:Application": {         "Collection": "Enabled"       },       "ACS:Network": {         "Collection": "Enabled"       }     }   }
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The schedule expression. The interval between two schedules must be a minimum of 30 minutes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * The ID of the resource group.
+   */
   scheduleExpression?: string;
+  /**
+   * @remarks
+   * The schedule type. Set the value to rate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rate
+   */
   scheduleType?: string;
+  /**
+   * @remarks
+   * The tags to be added to the configuration.
+   * 
+   * @example
+   * {"Key": "oos", "Value": "inventory"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The resources to be queried.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {     "ResourceType": "ALIYUN::ECS::Instance",     "Filters": [       {         "Type": "All",         "RegionId": "cn-hangzhou",         "Parameters": {           "RegionId": "cn-hangzhou",           "Status": "Running"         }       }     ]   }
+   */
   targets?: string;
+  /**
+   * @remarks
+   * The name of the template. The name must be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version number of the template. If you do not specify this parameter, the latest version of the template is used.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1080,17 +2411,109 @@ export class CreateStateConfigurationRequest extends $tea.Model {
 }
 
 export class CreateStateConfigurationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * DASKJJLKADS-AHKLJHJSAKL-AJK
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The configuration mode. Valid values: ApplyOnce: The configuration is applied only once. After a configuration is updated, the new configuration is applied. ApplyAndMonitor: The configuration is applied only once. After the configuration is applied, the system only checks whether the configuration is migrated in the future. ApplyAndAutoCorrect: The configuration is always applied.
+   * 
+   * @example
+   * ApplyOnce
+   */
   configureMode?: string;
+  /**
+   * @remarks
+   * The description of the desired-state configuration.
+   * 
+   * @example
+   * The region ID.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The parameters.
+   * 
+   * @example
+   * {     "policy": {       "ACS:Application": {         "Collection": "Enabled"       },       "ACS:Network": {         "Collection": "Enabled"       }     }   }
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The schedule expression. The interval between two schedules must be a minimum of 30 minutes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * The ID of the resource group.
+   */
   scheduleExpression?: string;
+  /**
+   * @remarks
+   * The schedule type. Set the value to rate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rate
+   */
   scheduleType?: string;
+  /**
+   * @remarks
+   * The tags to be added to the configuration.
+   * 
+   * @example
+   * {"Key": "oos", "Value": "inventory"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The resources to be queried.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {     "ResourceType": "ALIYUN::ECS::Instance",     "Filters": [       {         "Type": "All",         "RegionId": "cn-hangzhou",         "Parameters": {           "RegionId": "cn-hangzhou",           "Status": "Running"         }       }     ]   }
+   */
   targets?: string;
+  /**
+   * @remarks
+   * The name of the template. The name must be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version number of the template. If you do not specify this parameter, the latest version of the template is used.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1132,7 +2555,18 @@ export class CreateStateConfigurationShrinkRequest extends $tea.Model {
 }
 
 export class CreateStateConfigurationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1306108F-610C-40FD-AAD5-DA13E8B00BE9
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the desired-state configuration.
+   */
   stateConfiguration?: CreateStateConfigurationResponseBodyStateConfiguration;
   static names(): { [key: string]: string } {
     return {
@@ -1179,11 +2613,57 @@ export class CreateStateConfigurationResponse extends $tea.Model {
 }
 
 export class CreateTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the template. The content must be in the JSON or YAML format, and its maximum size is 64 KB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"FormatVersion": "OOS-2019-06-01", "Description": "Describe instances of given status", "Parameters": {"Status": {"Type": "String", "Description": "(Required) The status of the Ecs instance."}}, "Tasks": [{"Properties": {"Parameters": {"Status": "{{ Status }}"}, "API": "DescribeInstances", "Service": "Ecs"}, "Name": "foo", "Action": "ACS::ExecuteApi"}]}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag keys and tag values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the template. The name can be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_). The name cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The name of the version of the template.
+   * 
+   * @example
+   * v2
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1213,11 +2693,57 @@ export class CreateTemplateRequest extends $tea.Model {
 }
 
 export class CreateTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the template. The content must be in the JSON or YAML format, and its maximum size is 64 KB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"FormatVersion": "OOS-2019-06-01", "Description": "Describe instances of given status", "Parameters": {"Status": {"Type": "String", "Description": "(Required) The status of the Ecs instance."}}, "Tasks": [{"Properties": {"Parameters": {"Status": "{{ Status }}"}, "API": "DescribeInstances", "Service": "Ecs"}, "Name": "foo", "Action": "ACS::ExecuteApi"}]}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag keys and tag values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The name of the template. The name can be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_). The name cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The name of the version of the template.
+   * 
+   * @example
+   * v2
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1247,8 +2773,26 @@ export class CreateTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 20758A-585D-4A41-A9B2-28DA8F4F534F
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The metadata of the template.
+   */
   template?: CreateTemplateResponseBodyTemplate;
+  /**
+   * @remarks
+   * The type of the template.
+   * 
+   * @example
+   * Private
+   */
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1297,9 +2841,44 @@ export class CreateTemplateResponse extends $tea.Model {
 }
 
 export class DeleteApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to forcibly delete the application. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * False
+   */
   force?: boolean;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to retain resources created by application manager when deleting the application. Valid values:
+   * - true
+   * - false
+   * 
+   * @example
+   * false
+   */
   retainResource?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1325,6 +2904,13 @@ export class DeleteApplicationRequest extends $tea.Model {
 }
 
 export class DeleteApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 37A9F0FD-51D0-58D5-B91F-DF570281556B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1369,9 +2955,43 @@ export class DeleteApplicationResponse extends $tea.Model {
 }
 
 export class DeleteApplicationGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplicationGroup
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to retain resources created by application manager when deleting the application. Valid values:
+   * - true
+   * - false
+   * 
+   * @example
+   * false
+   */
   retainResource?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1397,6 +3017,13 @@ export class DeleteApplicationGroupRequest extends $tea.Model {
 }
 
 export class DeleteApplicationGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9E011F98-4EE5-5E3A-8FA3-D38F2C531C1F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1441,7 +3068,25 @@ export class DeleteApplicationGroupResponse extends $tea.Model {
 }
 
 export class DeleteExecutionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The execution IDs.
+   * 
+   * You can specify multiple execution IDs in a JSON array in the format of `["xxxxxxxxx", "yyyyyyyyy", ... "zzzzzzzzz"]`. You can specify up to 100 execution IDs at a time. Separate multiple IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["exec-xxx"]
+   */
   executionIds?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1463,6 +3108,13 @@ export class DeleteExecutionsRequest extends $tea.Model {
 }
 
 export class DeleteExecutionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 491DF8C2-34C9-4679-9DB3-4C0F49B129AC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1507,7 +3159,23 @@ export class DeleteExecutionsResponse extends $tea.Model {
 }
 
 export class DeleteParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the common parameter. The name can be up to 180 characters in length and can contain only letters, digits, hyphens (-), and underscores (_). It cannot start with aliyun, acs, alibaba, alicloud, or oos.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1529,6 +3197,13 @@ export class DeleteParameterRequest extends $tea.Model {
 }
 
 export class DeleteParameterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C0D02BDF-77F6-49F2-95C9-8E87121D2979
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1573,7 +3248,23 @@ export class DeleteParameterResponse extends $tea.Model {
 }
 
 export class DeletePatchBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1595,6 +3286,13 @@ export class DeletePatchBaselineRequest extends $tea.Model {
 }
 
 export class DeletePatchBaselineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 85197066-0209-5775-BBED-99DF9DA44E48
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1639,7 +3337,23 @@ export class DeletePatchBaselineResponse extends $tea.Model {
 }
 
 export class DeleteSecretParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the encryption parameter. The name must be 1 to 180 characters in length and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1661,6 +3375,13 @@ export class DeleteSecretParameterRequest extends $tea.Model {
 }
 
 export class DeleteSecretParameterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C0D02BDF-77F6-49F2-95C9-8E87121D1944
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1705,8 +3426,31 @@ export class DeleteSecretParameterResponse extends $tea.Model {
 }
 
 export class DeleteStateConfigurationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * abcde3OARpx77No54nv6
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of desired-state configurations.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["sc-asfgdhj12345"]
+   */
   stateConfigurationIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1730,6 +3474,13 @@ export class DeleteStateConfigurationsRequest extends $tea.Model {
 }
 
 export class DeleteStateConfigurationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 12345B731-0FCE-48BA-8D42-605abcde
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1774,8 +3525,31 @@ export class DeleteStateConfigurationsResponse extends $tea.Model {
 }
 
 export class DeleteTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to delete the related executions when a template is deleted.
+   * 
+   * @example
+   * false
+   */
   autoDeleteExecutions?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the template. The name can be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1799,6 +3573,13 @@ export class DeleteTemplateRequest extends $tea.Model {
 }
 
 export class DeleteTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2075899A-585D-4A41-A9B2-28DA8534F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1843,8 +3624,31 @@ export class DeleteTemplateResponse extends $tea.Model {
 }
 
 export class DeleteTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to delete the related executions when a template is deleted.
+   * 
+   * @example
+   * false
+   */
   autoDeleteExecutions?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The names of the templates to be deleted.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["t1","t2"]
+   */
   templateNames?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1868,6 +3672,13 @@ export class DeleteTemplatesRequest extends $tea.Model {
 }
 
 export class DeleteTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2075899A-585D-4A41-A9B2-28DA8534
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1912,9 +3723,43 @@ export class DeleteTemplatesResponse extends $tea.Model {
 }
 
 export class DeployApplicationGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The deployment information about the application group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {       "TemplateURL": "https://ros-template.oss-cn-zhangjiakou.aliyuncs.com/App_Management_Existing_Vpc_Ecs_Instance.json",       "Parameters": {         "ZoneId": "cn-hangzhou-k",         "ProjectName": "test",         "SystemDiskSize": 40,         "InstanceChargeType": "PostPaid",         "SecurityGroupId": "sg-bp1a4374akk63jl8tddy",         "VSwitchId": "vsw-bp1fcvc3zn0jrag86rrlm",         "SystemDiskCategory": "cloud_essd",         "InstancePassword": "******",         "InternetChargeType": "PayByTraffic",         "InstanceCount": 1,         "InternetMaxBandwidthOut": 0,         "VpcId": "vpc-bp1i99boyas8i8m9t3skp",         "EcsImageId": "centos_8_5_x64_20G_alibase_20211228.vhd",         "DataDiskSize": 100,         "EcsInstanceType": "ecs.s6-c1m4.small",         "DataDiskCategory": "cloud_efficiency",         "EnvironmentCommandId": "c-hz028fc3g031gcg"       }
+   */
   deployParameters?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplicationGroup
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you want to deploy the application group.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1940,6 +3785,13 @@ export class DeployApplicationGroupRequest extends $tea.Model {
 }
 
 export class DeployApplicationGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8AF4800A-A316-589A-90C4-313B1FEEB084
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1984,12 +3836,69 @@ export class DeployApplicationGroupResponse extends $tea.Model {
 }
 
 export class DescribeApplicationGroupBillRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_application
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The billing cycle, in the YYYY-MM format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-06
+   */
   billingCycle?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The application group name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_application_group
+   */
   name?: string;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the cloud resource.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ALIYUN::ECS::INSTANCE
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2021,9 +3930,34 @@ export class DescribeApplicationGroupBillRequest extends $tea.Model {
 }
 
 export class DescribeApplicationGroupBillResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The consume of application group.
+   */
   applicationGroupConsume?: DescribeApplicationGroupBillResponseBodyApplicationGroupConsume[];
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * ""
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E897A1AB-4701-5B71-93AD-38FD703763A3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2074,7 +4008,24 @@ export class DescribeApplicationGroupBillResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The supported natural language. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2096,7 +4047,18 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the regions.
+   */
   regions?: DescribeRegionsResponseBodyRegions[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 469E79B1-90A3-4A57-B7C4-2FE0C8B5175E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2143,10 +4105,45 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class GenerateExecutionPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The RAM role.
+   * 
+   * @example
+   * AliyunServiceRoleForOOSBandwidthScheduler
+   */
   ramRole?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The content of the template in the JSON or YAML format. This parameter is the same as the Content parameter that you can specify when you call the CreateTemplate operation. You can use this parameter to specify the tasks that you want to run. This way, you do not need to create a template before you start an execution. If you select an existing template, you do not need to specify this parameter.
+   * 
+   * @example
+   * {   "Description": "Example template, describe instances in some status",   "FormatVersion": "OOS-2019-06-01",   "Parameters": {},   "Tasks": [     {       "Name": "describeInstances",       "Action": "ACS::ExecuteAPI",       "Description": "desc-en",       "Properties": {         "Service": "ECS",         "API": "DescribeInstances",         "Parameters": {           "Status": "Running"         }       }     }   ] }
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * vmeixme
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version of the template. The default value is the latest version of the template.
+   * 
+   * @example
+   * v2
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2174,8 +4171,29 @@ export class GenerateExecutionPolicyRequest extends $tea.Model {
 }
 
 export class GenerateExecutionPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The policies that are missing.
+   * 
+   * @example
+   * [{\\"Action\\": [\\"ecs:DescribeInvocationResults\\", \\"ecs:DescribeInstances\\", \\"ecs:RunCommand\\", \\"ecs:DescribeInvocations\\"], \\"ServiceName\\": \\"ecs\\", \\"Resources\\": \\"*\\"}]
+   */
   missingPolicy?: string;
+  /**
+   * @remarks
+   * The RAM policy.
+   * 
+   * @example
+   * {}
+   */
   policy?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 14A07460-EBE7-47CA-9757-12CC4761D47A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2224,7 +4242,23 @@ export class GenerateExecutionPolicyResponse extends $tea.Model {
 }
 
 export class GetApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2246,7 +4280,18 @@ export class GetApplicationRequest extends $tea.Model {
 }
 
 export class GetApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the application.
+   */
   application?: GetApplicationResponseBodyApplication;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 51004B8A-6D9A-5ACB-9158-6C6794496AD0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2293,8 +4338,33 @@ export class GetApplicationResponse extends $tea.Model {
 }
 
 export class GetApplicationGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplicationGroup
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2318,7 +4388,18 @@ export class GetApplicationGroupRequest extends $tea.Model {
 }
 
 export class GetApplicationGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the application group.
+   */
   applicationGroup?: GetApplicationGroupResponseBodyApplicationGroup;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 92EA60ED-544D-55E9-93D9-237BE9976C0D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2365,7 +4446,23 @@ export class GetApplicationGroupResponse extends $tea.Model {
 }
 
 export class GetExecutionTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * exec-046490ff88f242
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2387,8 +4484,26 @@ export class GetExecutionTemplateRequest extends $tea.Model {
 }
 
 export class GetExecutionTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the template.
+   * 
+   * @example
+   * "{\\n \\"FormatVersion\\": \\"OOS-2019-06-01\\",\\n \\"Parameters\\": {\\n \\"Status\\": {\\n \\"Type\\": \\"String\\",\\n \\"Description\\": \\"(Required) The ID of the ECS instance.\\"\\n }\\n },\\n \\"Tasks\\": [\\n {\\n \\"Name\\": \\"bar\\",\\n \\"Properties\\": {\\n \\"Parameters\\": {\\n \\"Status\\": \\"{{ Status }}\\"\\n },\\n \\"API\\": \\"DescribeInstances\\",\\n \\"Service\\": \\"Ecs\\"\\n },\\n \\"Action\\": \\"acs::ExecuteAPI\\",\\n \\"Outputs\\": {\\n \\"InstanceIds\\", {\\n \\"ValueSelector\\": \\".Instances.Instance[].InstanceId\\",\\n \\"Type\\": \\"List\\"\\n }\\n }\\n }\\n ],\\n \\"Outputs\\": {\\n \\"InstanceIds\\": {\\n \\"Value\\": \\" {{ bar.InstanceIds }} \\",\\n \\"Type\\": \\"List\\"\\n }\\n }\\n}\\n"
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 14A60-EBE7-47CA-9757-12C1D47A
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The metadata of the template.
+   */
   template?: GetExecutionTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -2437,10 +4552,57 @@ export class GetExecutionTemplateResponse extends $tea.Model {
 }
 
 export class GetInventorySchemaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to return only properties that support the aggregate feature in the configuration list. Valid values:
+   * 
+   * *   true: only returns properties that support the aggregate feature in the configuration list.
+   * *   false: returns all properties in the configuration list.
+   * 
+   * @example
+   * false
+   */
   aggregator?: boolean;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * gAAAAABfh8MVLQI9AuKGACLgjbsXbWs-Mna47IDM6tr6wK7TZ1
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The configuration list type name. Valid values:
+   * 
+   * *   ACS:InstanceInformation
+   * *   ACS:Application
+   * *   ACS:File
+   * *   ACS:Network
+   * *   ACS:WindowsRole
+   * *   ACS:Service
+   * *   ACS:WindowsUpdate
+   * *   ACS:WindowsRegistry
+   * 
+   * @example
+   * ACS:Application
+   */
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2468,9 +4630,34 @@ export class GetInventorySchemaRequest extends $tea.Model {
 }
 
 export class GetInventorySchemaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 1
+   */
   maxResults?: string;
+  /**
+   * @remarks
+   * The pagination token that was used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * gAAAAABfh8MVLQI9AuKGACLgjbsXbWs-Mna47IDM6tr6wK7TZ1
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 89117642-7167-4F4D-B7F1-876582279E3E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The detailed configurations of the configuration list.
+   */
   schemas?: GetInventorySchemaResponseBodySchemas[];
   static names(): { [key: string]: string } {
     return {
@@ -2521,7 +4708,23 @@ export class GetInventorySchemaResponse extends $tea.Model {
 }
 
 export class GetOpsItemRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The O\\&M item ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * oi-d52b08695e2b46ae8413
+   */
   opsItemId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2543,7 +4746,18 @@ export class GetOpsItemRequest extends $tea.Model {
 }
 
 export class GetOpsItemResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the O\\&M item.
+   */
   opsItem?: GetOpsItemResponseBodyOpsItem;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8BED4C16-BD30-5E27-94D4-7EBCCECF70C1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2590,9 +4804,39 @@ export class GetOpsItemResponse extends $tea.Model {
 }
 
 export class GetParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the common parameter. The name can be up to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the common parameter. Valid values: 1 to 100.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m*****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2618,7 +4862,18 @@ export class GetParameterRequest extends $tea.Model {
 }
 
 export class GetParameterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the common parameter.
+   */
   parameter?: GetParameterResponseBodyParameter;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BA326372-2A10-4C3B-BE3E-6439DB7557CC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2665,7 +4920,23 @@ export class GetParameterResponse extends $tea.Model {
 }
 
 export class GetParametersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The names of the common parameters.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["parameter1","parameter2"]
+   */
   names?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2687,8 +4958,23 @@ export class GetParametersRequest extends $tea.Model {
 }
 
 export class GetParametersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Invalid parameters.
+   */
   invalidParameters?: string[];
+  /**
+   * @remarks
+   * The information about the common parameters.
+   */
   parameters?: GetParametersResponseBodyParameters[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2597E94B-5346-42D1-BB58-D3333EDD0975
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2737,10 +5023,50 @@ export class GetParametersResponse extends $tea.Model {
 }
 
 export class GetParametersByPathRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzA
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The path of the parameter. For example, if the name of a parameter is /path/path1/Myparameter, the path of the parameter is /path/path1/.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /parameter
+   */
   path?: string;
+  /**
+   * @remarks
+   * Specifies whether to recursively query encryption parameters from all levels of directories in the specified path. Valid values: true and false. For example, if you want to query the /secretParameter/mySecretParameter and /secretParameter/secretParameter 1/mySecretParameter parameters, the valid values specify the parameters to be returned.
+   * 
+   * *   true: returns both of the /secretParameter/mySecretParameter and /secretParameter/secretParameter1/mySecretParameter parameters.
+   * *   false: returns only the /secretParameter/mySecretParameter parameter.
+   * 
+   * @example
+   * false
+   */
   recursive?: boolean;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2768,10 +5094,42 @@ export class GetParametersByPathRequest extends $tea.Model {
 }
 
 export class GetParametersByPathResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The information about the common parameters.
+   */
   parameters?: GetParametersByPathResponseBodyParameters[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25156E99-7437-4590-AA58-2ACA17DE405C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2824,7 +5182,23 @@ export class GetParametersByPathResponse extends $tea.Model {
 }
 
 export class GetPatchBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the patch baseline whose details you want to query resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2846,7 +5220,18 @@ export class GetPatchBaselineRequest extends $tea.Model {
 }
 
 export class GetPatchBaselineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the patch baseline.
+   */
   patchBaseline?: GetPatchBaselineResponseBodyPatchBaseline;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2C630E64-7273-57AC-A598-1B2B8B35CEA5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2893,9 +5278,39 @@ export class GetPatchBaselineResponse extends $tea.Model {
 }
 
 export class GetSecretParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the parameter. The name must be 1 to 180 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the common parameter. Valid values: 1 to 100.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to decrypt the parameter value. The decrypted parameter value is returned only if this parameter is set to true. Otherwise, null is returned.
+   * 
+   * @example
+   * false
+   */
   withDecryption?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2921,7 +5336,18 @@ export class GetSecretParameterRequest extends $tea.Model {
 }
 
 export class GetSecretParameterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the encryption parameter.
+   */
   parameter?: GetSecretParameterResponseBodyParameter;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7F14FB7C-C9BE-44AE-92ED-21ACC02FBFD2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2968,8 +5394,34 @@ export class GetSecretParameterResponse extends $tea.Model {
 }
 
 export class GetSecretParametersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the encryption parameter. Multiple encryption parameters can form a JSON array in the format of ["xxxxxxxxx", "yyyyyyyyy", … "zzzzzzzzz"]. Each JSON array can contain a maximum of 10 encryption parameters. Multiple encryption parameters in the array are separated by commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["secretParameter","secretParameter1"]
+   */
   names?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to decrypt the parameter value. Default value: false. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   withDecryption?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2993,8 +5445,23 @@ export class GetSecretParametersRequest extends $tea.Model {
 }
 
 export class GetSecretParametersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Invalid encryption parameter.
+   */
   invalidParameters?: string[];
+  /**
+   * @remarks
+   * The information about the encryption parameter.
+   */
   parameters?: GetSecretParametersResponseBodyParameters[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A5320F1D-92D9-44BB-A416-5FC525ED6D57
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3043,11 +5510,61 @@ export class GetSecretParametersResponse extends $tea.Model {
 }
 
 export class GetSecretParametersByPathRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 10. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzA
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The path of the encryption parameter. The path must be 1 to 200 characters in length. For example, if the name of an encryption parameter is /secretParameter/mySecretParameter, the path of the encryption parameter is /secretParameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /secretParameter
+   */
   path?: string;
+  /**
+   * @remarks
+   * Specifies whether to recursively query encryption parameters from all levels of directories in the specified path. Valid values: true and false. For example, if you want to query the /secretParameter/mySecretParameter and /secretParameter/secretParameter 1/mySecretParameter parameters, the valid values specify the parameters to be returned.
+   * 
+   * *   true: returns both of the /secretParameter/mySecretParameter and /secretParameter/secretParameter1/mySecretParameter parameters.
+   * *   false: returns only the /secretParameter/mySecretParameter parameter.
+   * 
+   * @example
+   * false
+   */
   recursive?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to decrypt the parameter value. Default value: false. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   withDecryption?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3077,10 +5594,42 @@ export class GetSecretParametersByPathRequest extends $tea.Model {
 }
 
 export class GetSecretParametersByPathResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The information about the encryption parameters.
+   */
   parameters?: GetSecretParametersByPathResponseBodyParameters[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 25156E99-7437-4590-AA58-2ACA17DE405C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3133,6 +5682,13 @@ export class GetSecretParametersByPathResponse extends $tea.Model {
 }
 
 export class GetServiceSettingsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3152,7 +5708,18 @@ export class GetServiceSettingsRequest extends $tea.Model {
 }
 
 export class GetServiceSettingsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9F755DC9-C0CF-4598-B2E3-2CC763F18CB2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of service settings.
+   */
   serviceSettings?: GetServiceSettingsResponseBodyServiceSettings[];
   static names(): { [key: string]: string } {
     return {
@@ -3199,8 +5766,31 @@ export class GetServiceSettingsResponse extends $tea.Model {
 }
 
 export class GetTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the template. The name can be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_). The name cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version of the template. The default value is the latest version of the template.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3224,8 +5814,26 @@ export class GetTemplateRequest extends $tea.Model {
 }
 
 export class GetTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the template.
+   * 
+   * @example
+   * "FormatVersion: OOS-2019-06-01\\nDescription:\\n  en:  Creates an ECS image\\n  zh-cn: 创建一个ECS镜像\\n  name-en: Create Image\\n  name-zh-cn: 创建镜像\\n  categories:\\n    - image_manage\\n    - application_manage\\nParameters:\\n  regionId:\\n    Type: String\\n    Label:\\n      en: RegionId\\n      zh-cn: 地域ID\\n    AssociationProperty: RegionId\\n    Default: \\"{{ ACS::RegionId }}\\"\\n  instanceId:\\n    Label:\\n      en: InstanceId\\n      zh-cn: ECS实例ID\\n    Type: String\\n    AssociationProperty: ALIYUN::ECS::Instance::InstanceId\\n    AssociationPropertyMetadata:\\n      RegionId: regionId\\n  imageName:\\n    Label:\\n      en: ImageName\\n      zh-cn: 新镜像的名称\\n    Type: String\\n    Description:\\n      en: <p class=\\"p\\">Note:</p> <ul class=\\"ul\\"> <li class=\\"li\\">Length is 2~128 English or Chinese characters</li> <li class=\\"li\\"><font color=\\"red\\">must start with big or small letters or Chinese, not http:// and https://. </font></li> <li class=\\"li\\">Can contain numbers, colons (:), underscores (_), or dashes (-). </li> </ul>\\n      zh-cn: <p class=\\"p\\">注意：</p> <ul class=\\"ul\\"> <li class=\\"li\\">长度为2~128个英文或中文字符</li> <li class=\\"li\\"><font color=\\"red\\">必须以大小字母或中文开头，不能以http://和https://开头。</font></li> <li class=\\"li\\">可以包含数字、半角冒号（:）、下划线（_）或者短划线（-）。</li> </ul>\\n  tags:\\n    Label:\\n      en: Tags\\n      zh-cn: 镜像标签\\n    Type: Json\\n    AssociationProperty: Tags\\n    AssociationPropertyMetadata:\\n      ShowSystem: false\\n    Default: []\\n  OOSAssumeRole:\\n    Label:\\n      en: OOSAssumeRole\\n      zh-cn: OOS扮演的RAM角色\\n    Type: String\\n    Default: OOSServiceRole\\nRamRole: \\"{{ OOSAssumeRole }}\\"\\nTasks:\\n- Name: createImage\\n  Action: ACS::ECS::CreateImage\\n  Description:\\n    en: Create new image with the specified image name and instance ID\\n    zh-cn: 通过指定实例ID和镜像名称创建新的镜像\\n  Properties:\\n    regionId: \\"{{ regionId }}\\"\\n    imageName: \\"{{ imageName }}__on_{{ ACS::ExecutionId }}_at_{{ Acs::CurrentDate }}\\"\\n    instanceId: \\"{{ instanceId }}\\"\\n    tags: \\"{{tags}}\\"\\n  Outputs:\\n    imageId:\\n      ValueSelector: imageId\\n      Type: String\\nOutputs:\\n  imageId:\\n    Type: String\\n    Value: \\"{{ createImage.imageId }}\\"\\nMetadata:\\n  ALIYUN::OOS::Interface:\\n    ParameterGroups:\\n      - Parameters:\\n          - regionId\\n          - instanceId\\n        Label:\\n          default:\\n            zh-cn: 选择实例\\n            en: Select Ecs Instances\\n      - Parameters:\\n          - imageName\\n          - tags\\n        Label:\\n          default:\\n            zh-cn: 镜像设置\\n            en: Image Configure\\n      - Parameters:\\n          - OOSAssumeRole\\n        Label:\\n          default:\\n            zh-cn: 高级选项\\n            en: Control Options"
+   */
   content?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5BBE2663-A18E-5261-9BBB-F4832F5294D9
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The metadata of the template.
+   */
   template?: GetTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -3274,9 +5882,37 @@ export class GetTemplateResponse extends $tea.Model {
 }
 
 export class ListActionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 20 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The name of the action. All actions whose names contain the specified action name are returned.
+   * 
+   * @example
+   * MyTemplate
+   */
   OOSActionName?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3302,9 +5938,34 @@ export class ListActionsRequest extends $tea.Model {
 }
 
 export class ListActionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the actions.
+   */
   actions?: ListActionsResponseBodyActions[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * xxx
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F9154C02-F847-4563-BB6A-6DD01A4F0
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3355,13 +6016,69 @@ export class ListActionsResponse extends $tea.Model {
 }
 
 export class ListApplicationGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the related resources reside.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   deployRegionId?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the cloud resource.
+   * 
+   * @example
+   * i-2vcj9raxrhxb48zz3whw
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The code of the product to which the cloud resource belongs.
+   * 
+   * @example
+   * ecs
+   */
   resourceProduct?: string;
+  /**
+   * @remarks
+   * The type of the cloud resource.
+   * 
+   * @example
+   * instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3395,9 +6112,34 @@ export class ListApplicationGroupsRequest extends $tea.Model {
 }
 
 export class ListApplicationGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the application group.
+   */
   applicationGroups?: ListApplicationGroupsResponseBodyApplicationGroups[];
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 69D97BF2-5DF2-544C-A650-36A474E17BC3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3448,12 +6190,87 @@ export class ListApplicationGroupsResponse extends $tea.Model {
 }
 
 export class ListApplicationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the application.
+   * 
+   * Valid values:
+   * 
+   * *   ComputeNest
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Custom
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DingTalk
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * DingTalk
+   */
   applicationType?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * "MyApplications"
+   */
   name?: string;
+  /**
+   * @remarks
+   * The names of the applications.
+   * 
+   * @example
+   * ["MyApplication"]
+   */
   names?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1","k2": "v2"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -3485,12 +6302,87 @@ export class ListApplicationsRequest extends $tea.Model {
 }
 
 export class ListApplicationsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the application.
+   * 
+   * Valid values:
+   * 
+   * *   ComputeNest
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Custom
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DingTalk
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * DingTalk
+   */
   applicationType?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * "MyApplications"
+   */
   name?: string;
+  /**
+   * @remarks
+   * The names of the applications.
+   * 
+   * @example
+   * ["MyApplication"]
+   */
   names?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1","k2": "v2"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3522,9 +6414,34 @@ export class ListApplicationsShrinkRequest extends $tea.Model {
 }
 
 export class ListApplicationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the application.
+   */
   applications?: ListApplicationsResponseBodyApplications[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 12067D53-56A9-561B-ADD6-61429D207117
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3575,11 +6492,55 @@ export class ListApplicationsResponse extends $tea.Model {
 }
 
 export class ListExecutionLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * exec-xxx
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * The type of the log.
+   * 
+   * @example
+   * System
+   */
   logType?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you want to query the logs of the execution.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The execution ID of the task.
+   * 
+   * @example
+   * exec-1234567zxcvb.t0010
+   */
   taskExecutionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3609,10 +6570,42 @@ export class ListExecutionLogsRequest extends $tea.Model {
 }
 
 export class ListExecutionLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The logs of the execution.
+   */
   executionLogs?: ListExecutionLogsResponseBodyExecutionLogs[];
+  /**
+   * @remarks
+   * Indicates whether the log is truncated.
+   * 
+   * @example
+   * true
+   */
   isTruncated?: boolean;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * gAAAAABdpsGWjX8dJ-a6dl_pvoS7AFxNHSNJKHLCAJJ0ylgA53nWW5V4HTEZKCYTaEPNOrxFir4z43UTOjE150cFr8AGTifA==
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 14A07460-EBE7-47CA-9757-12CC4761D47A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3665,7 +6658,23 @@ export class ListExecutionLogsResponse extends $tea.Model {
 }
 
 export class ListExecutionRiskyTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myTemplate
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3687,7 +6696,18 @@ export class ListExecutionRiskyTasksRequest extends $tea.Model {
 }
 
 export class ListExecutionRiskyTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C04B668D-D2DD-4B40-B6E9-0E3C4F53D5B5
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about high-risk tasks.
+   */
   riskyTasks?: ListExecutionRiskyTasksResponseBodyRiskyTasks[];
   static names(): { [key: string]: string } {
     return {
@@ -3734,30 +6754,215 @@ export class ListExecutionRiskyTasksResponse extends $tea.Model {
 }
 
 export class ListExecutionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The types of the execution template. Valid values: Other, TimerTrigger, EventTrigger, and AlarmTrigger. You can specify only one of the Categories and Category parameters. We recommend that you specify Categories.
+   * 
+   * @example
+   * ["TimerTrigger"、"EventTrigger"]
+   */
   categories?: string;
+  /**
+   * @remarks
+   * The type of the execution template. Valid values: Other, TimerTrigger, EventTrigger, and AlarmTrigger.
+   * 
+   * @example
+   * Other
+   */
   category?: string;
+  /**
+   * @remarks
+   * The depth of execution. Valid values: RootDepth and FirstChildDepth. If you set this parameter to RootDepth, only the parent execution is returned. If you set this parameter to FirstChildDepth, only the child executions at the first level are returned. You can specify only one of the Depth and IncludeChildExecution parameters. We recommend that you specify Depth.
+   * 
+   * @example
+   * RootDepth
+   */
   depth?: string;
+  /**
+   * @remarks
+   * The description of the execution.
+   * 
+   * @example
+   * MyDescription
+   */
   description?: string;
+  /**
+   * @remarks
+   * The earliest end time. The executions that stop running at or later than the specified time are queried.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   endDateAfter?: string;
+  /**
+   * @remarks
+   * The latest end time. The executions that stop running at or earlier than the specified time are queried.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   endDateBefore?: string;
+  /**
+   * @remarks
+   * The executor.
+   * 
+   * @example
+   * vme
+   */
   executedBy?: string;
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * @example
+   * exec-xxx
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to include child executions. Default value: False.
+   * 
+   * @example
+   * true
+   */
   includeChildExecution?: boolean;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The execution mode. Valid values:
+   * 
+   * *   **Automatic**
+   * *   **Debug**
+   * 
+   * @example
+   * Automatic
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the parent execution.
+   * 
+   * @example
+   * exec-xxx
+   */
   parentExecutionId?: string;
+  /**
+   * @remarks
+   * The RAM role.
+   * 
+   * @example
+   * OOSServiceRole
+   */
   ramRole?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instances you want to query belong.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the Elastic Compute Service (ECS) resource.
+   * 
+   * @example
+   * i-xxx
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource template.
+   * 
+   * @example
+   * ACS-ECS-TEST
+   */
   resourceTemplateName?: string;
+  /**
+   * @remarks
+   * The field that is used to sort the executions to query. Valid values:
+   * 
+   * *   **StartDate**: specifies that the executions are sorted based on the time when they are created. This is the default value.
+   * *   **EndDate**: specifies that the executions are sorted based on the time when they stop running.
+   * *   **Status**: specifies that the executions are sorted based on their states.
+   * 
+   * @example
+   * StartDate
+   */
   sortField?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the results. Valid values:
+   * 
+   * *   **Ascending**: ascending order.
+   * *   **Descending**: descending order. This is the default value.
+   * 
+   * @example
+   * Ascending
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The earliest start time. The executions that start to run at or later than the specified time are queried.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   startDateAfter?: string;
+  /**
+   * @remarks
+   * The latest start time. The executions that start to run at or earlier than the specified point in time are queried.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   startDateBefore?: string;
+  /**
+   * @remarks
+   * The status of the execution. Valid values: Running, Started, Success, Failed, Waiting, Cancelled, Pending, and Skipped.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags for the execution.
+   * 
+   * @example
+   * {"k1":"v2","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the template. All templates whose names contain the specified template name are queried.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3825,30 +7030,215 @@ export class ListExecutionsRequest extends $tea.Model {
 }
 
 export class ListExecutionsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The types of the execution template. Valid values: Other, TimerTrigger, EventTrigger, and AlarmTrigger. You can specify only one of the Categories and Category parameters. We recommend that you specify Categories.
+   * 
+   * @example
+   * ["TimerTrigger"、"EventTrigger"]
+   */
   categories?: string;
+  /**
+   * @remarks
+   * The type of the execution template. Valid values: Other, TimerTrigger, EventTrigger, and AlarmTrigger.
+   * 
+   * @example
+   * Other
+   */
   category?: string;
+  /**
+   * @remarks
+   * The depth of execution. Valid values: RootDepth and FirstChildDepth. If you set this parameter to RootDepth, only the parent execution is returned. If you set this parameter to FirstChildDepth, only the child executions at the first level are returned. You can specify only one of the Depth and IncludeChildExecution parameters. We recommend that you specify Depth.
+   * 
+   * @example
+   * RootDepth
+   */
   depth?: string;
+  /**
+   * @remarks
+   * The description of the execution.
+   * 
+   * @example
+   * MyDescription
+   */
   description?: string;
+  /**
+   * @remarks
+   * The earliest end time. The executions that stop running at or later than the specified time are queried.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   endDateAfter?: string;
+  /**
+   * @remarks
+   * The latest end time. The executions that stop running at or earlier than the specified time are queried.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   endDateBefore?: string;
+  /**
+   * @remarks
+   * The executor.
+   * 
+   * @example
+   * vme
+   */
   executedBy?: string;
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * @example
+   * exec-xxx
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * Specifies whether to include child executions. Default value: False.
+   * 
+   * @example
+   * true
+   */
   includeChildExecution?: boolean;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The execution mode. Valid values:
+   * 
+   * *   **Automatic**
+   * *   **Debug**
+   * 
+   * @example
+   * Automatic
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the parent execution.
+   * 
+   * @example
+   * exec-xxx
+   */
   parentExecutionId?: string;
+  /**
+   * @remarks
+   * The RAM role.
+   * 
+   * @example
+   * OOSServiceRole
+   */
   ramRole?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instances you want to query belong.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the Elastic Compute Service (ECS) resource.
+   * 
+   * @example
+   * i-xxx
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource template.
+   * 
+   * @example
+   * ACS-ECS-TEST
+   */
   resourceTemplateName?: string;
+  /**
+   * @remarks
+   * The field that is used to sort the executions to query. Valid values:
+   * 
+   * *   **StartDate**: specifies that the executions are sorted based on the time when they are created. This is the default value.
+   * *   **EndDate**: specifies that the executions are sorted based on the time when they stop running.
+   * *   **Status**: specifies that the executions are sorted based on their states.
+   * 
+   * @example
+   * StartDate
+   */
   sortField?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the results. Valid values:
+   * 
+   * *   **Ascending**: ascending order.
+   * *   **Descending**: descending order. This is the default value.
+   * 
+   * @example
+   * Ascending
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The earliest start time. The executions that start to run at or later than the specified time are queried.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   startDateAfter?: string;
+  /**
+   * @remarks
+   * The latest start time. The executions that start to run at or earlier than the specified point in time are queried.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   startDateBefore?: string;
+  /**
+   * @remarks
+   * The status of the execution. Valid values: Running, Started, Success, Failed, Waiting, Cancelled, Pending, and Skipped.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags for the execution.
+   * 
+   * @example
+   * {"k1":"v2","k2":"v2"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The name of the template. All templates whose names contain the specified template name are queried.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3916,9 +7306,34 @@ export class ListExecutionsShrinkRequest extends $tea.Model {
 }
 
 export class ListExecutionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the task executions.
+   */
   executions?: ListExecutionsResponseBodyExecutions[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 14A074-47CA-9757-12CC4761D47A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3971,9 +7386,17 @@ export class ListExecutionsResponse extends $tea.Model {
 export class ListGitRepositoriesRequest extends $tea.Model {
   clientToken?: string;
   orgName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   owner?: string;
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   platform?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -4055,10 +7478,160 @@ export class ListGitRepositoriesResponse extends $tea.Model {
   }
 }
 
-export class ListInstancePatchStatesRequest extends $tea.Model {
-  instanceIds?: string;
+export class ListInstancePackageStatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp1cpoxxxwxxxxxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctzxxxxxxx
+   */
   nextToken?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * ["template1","template2"]
+   */
+  templateNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      templateNames: 'TemplateNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      templateNames: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancePackageStatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 50
+   */
+  maxResults?: string;
+  /**
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctzxxxxxxx
+   */
+  nextToken?: string;
+  packageStates?: ListInstancePackageStatesResponseBodyPackageStates[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1306108F-610C-40FD-AAD5-XXXXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      packageStates: 'PackageStates',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'string',
+      nextToken: 'string',
+      packageStates: { 'type': 'array', 'itemType': ListInstancePackageStatesResponseBodyPackageStates },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancePackageStatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancePackageStatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstancePackageStatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancePatchStatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Elastic Compute Service (ECS) instance. The value can be a JSON array that consists of up to 100 instance IDs. Separate the instance IDs with commas (,).
+   * 
+   * @example
+   * ["i-bp1jaxa2bs4bps7*****", "i-bp67acfmxazb4p****", … "i-bp67acfmxazb4p****"]
+   */
+  instanceIds?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 50
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * -
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the instance whose patches you want to query resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4084,9 +7657,34 @@ export class ListInstancePatchStatesRequest extends $tea.Model {
 }
 
 export class ListInstancePatchStatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of patches of the instance.
+   */
   instancePatchStates?: ListInstancePatchStatesResponseBodyInstancePatchStates[];
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9A47C086-E64D-52EE-8B2C-EFD23877C55E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4137,10 +7735,45 @@ export class ListInstancePatchStatesResponse extends $tea.Model {
 }
 
 export class ListInstancePatchesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * i-bp1jaxa2bs4bps7*****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC6KPDUL0FIIb
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The status of the patches that you want to query. If you do not set this parameter, patches are not filtered.
+   * 
+   * @example
+   * Installed
+   */
   patchStatuses?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the instance whose patches you want to query resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4168,9 +7801,34 @@ export class ListInstancePatchesRequest extends $tea.Model {
 }
 
 export class ListInstancePatchesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The information about the patch.
+   */
   patches?: ListInstancePatchesResponseBodyPatches[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0A615755-9C86-5EA6-BF9E-6E8F1AFF9403
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4221,11 +7879,63 @@ export class ListInstancePatchesResponse extends $tea.Model {
 }
 
 export class ListInventoryEntriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The filter rules for the component.
+   */
   filter?: ListInventoryEntriesRequestFilter[];
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp1cpoxxxwxxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzA
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the instance resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The name of the component. Valid values:
+   * 
+   * *   ACS:InstanceInformation
+   * *   ACS:Application
+   * *   ACS:File
+   * *   ACS:Network
+   * *   ACS:WindowsRole
+   * *   ACS:Service
+   * *   ACS:WindowsRegistry
+   * *   ACS:WindowsUpdate
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ACS:InstanceInformation
+   */
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4255,13 +7965,66 @@ export class ListInventoryEntriesRequest extends $tea.Model {
 }
 
 export class ListInventoryEntriesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the request was sent.
+   * 
+   * @example
+   * 2020-09-17T12:28:13Z
+   */
   captureTime?: string;
+  /**
+   * @remarks
+   * The configurations of the component.
+   */
   entries?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The ID of the ECS instance.
+   * 
+   * @example
+   * i-bp1cpoxxxwxxxxxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A81E4B2E-6B33-4BAE-9856-55DB7C893E01
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The version number of the component.
+   * 
+   * @example
+   * 1.0
+   */
   schemaVersion?: string;
+  /**
+   * @remarks
+   * The name of the component.
+   * 
+   * @example
+   * ACS:InstanceInformation
+   */
   typeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4320,11 +8083,53 @@ export class ListInventoryEntriesResponse extends $tea.Model {
 }
 
 export class ListOpsItemsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The filter rules for the component.
+   */
   filter?: ListOpsItemsRequestFilter[];
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The information about resource tags.
+   * 
+   * @example
+   * {
+   *       "k1": "v1",
+   *       "k2": "v2"
+   * }
+   */
   resourceTags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -4354,11 +8159,53 @@ export class ListOpsItemsRequest extends $tea.Model {
 }
 
 export class ListOpsItemsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The filter rules for the component.
+   */
   filter?: ListOpsItemsShrinkRequestFilter[];
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The information about resource tags.
+   * 
+   * @example
+   * {
+   *       "k1": "v1",
+   *       "k2": "v2"
+   * }
+   */
   resourceTagsShrink?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4388,10 +8235,42 @@ export class ListOpsItemsShrinkRequest extends $tea.Model {
 }
 
 export class ListOpsItemsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC6KPDUL0FIIb
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of O\\&M items.
+   */
   opsItems?: ListOpsItemsResponseBodyOpsItems[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 113DD533-389C-5F83-9C69-F64D5BAB10B2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4444,10 +8323,47 @@ export class ListOpsItemsResponse extends $tea.Model {
 }
 
 export class ListParameterVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the common parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The share type of the common parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4475,16 +8391,90 @@ export class ListParameterVersionsRequest extends $tea.Model {
 }
 
 export class ListParameterVersionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The user who created the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was created.
+   * 
+   * @example
+   * 2020-09-07T11:37:29Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the common parameter.
+   * 
+   * @example
+   * parameter-description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the common parameter.
+   * 
+   * @example
+   * p-a483b520e0axxxxxxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the common parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The pagination token that was used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The information about the version of the common parameter.
+   */
   parameterVersions?: ListParameterVersionsResponseBodyParameterVersions[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * FD08D89D-B6C8-4AA2-A2B4-521D3F4A39FA
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 50
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The data type of the common parameter.
+   * 
+   * @example
+   * String
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4549,17 +8539,112 @@ export class ListParameterVersionsResponse extends $tea.Model {
 }
 
 export class ListParametersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the common parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The pagination token that can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzA
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The path of the parameter. For example, if the name of a parameter is /path/path1/Myparameter, the path of the parameter is /path/path1/.
+   * 
+   * @example
+   * /path1/path2/
+   */
   path?: string;
+  /**
+   * @remarks
+   * Specifies whether to query parameters from all levels of directories in the specified path. Default value: false.
+   * 
+   * @example
+   * false
+   */
   recursive?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the common parameter. Valid values:
+   * 
+   * *   Public
+   * *   Private
+   * 
+   * Default value: Private.
+   * 
+   * @example
+   * ‘Private’
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The field used to sort the query results. Valid values:
+   * 
+   * *   Name
+   * *   CreatedDate
+   * 
+   * @example
+   * Name
+   */
   sortField?: string;
+  /**
+   * @remarks
+   * The order in which the entries are sorted. Valid values:
+   * 
+   * *   Ascending
+   * *   Descending (Default)
+   * 
+   * @example
+   * Descending
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The data type of the common parameter.
+   * 
+   * @example
+   * String
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4601,17 +8686,112 @@ export class ListParametersRequest extends $tea.Model {
 }
 
 export class ListParametersShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the common parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The pagination token that can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzA
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The path of the parameter. For example, if the name of a parameter is /path/path1/Myparameter, the path of the parameter is /path/path1/.
+   * 
+   * @example
+   * /path1/path2/
+   */
   path?: string;
+  /**
+   * @remarks
+   * Specifies whether to query parameters from all levels of directories in the specified path. Default value: false.
+   * 
+   * @example
+   * false
+   */
   recursive?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the common parameter. Valid values:
+   * 
+   * *   Public
+   * *   Private
+   * 
+   * Default value: Private.
+   * 
+   * @example
+   * ‘Private’
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The field used to sort the query results. Valid values:
+   * 
+   * *   Name
+   * *   CreatedDate
+   * 
+   * @example
+   * Name
+   */
   sortField?: string;
+  /**
+   * @remarks
+   * The order in which the entries are sorted. Valid values:
+   * 
+   * *   Ascending
+   * *   Descending (Default)
+   * 
+   * @example
+   * Descending
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The data type of the common parameter.
+   * 
+   * @example
+   * String
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4653,10 +8833,42 @@ export class ListParametersShrinkRequest extends $tea.Model {
 }
 
 export class ListParametersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC6KPDUL0FIIb
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The information about the common parameter.
+   */
   parameters?: ListParametersResponseBodyParameters[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A81E4B2E-6B33-4BAE-9856-55DB7C893E01
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4709,16 +8921,96 @@ export class ListParametersResponse extends $tea.Model {
 }
 
 export class ListPatchBaselinesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The approved patches.
+   */
   approvedPatches?: string[];
+  /**
+   * @remarks
+   * Specifies whether the approved patch involves updates other than security-related updates.
+   * 
+   * @example
+   * true
+   */
   approvedPatchesEnableNonSecurity?: boolean;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The type of the operating system. Valid values:
+   * 
+   * *   Windows
+   * *   Ubuntu
+   * *   CentOS
+   * *   Debian
+   * *   AliyunLinux
+   * *   RedhatEnterpriseLinux
+   * *   Anolis
+   * *   AlmaLinux
+   * 
+   * @example
+   * AliyunLinux
+   */
   operationSystem?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the template. Valid values:
+   * 
+   * *   **Public**
+   * *   **Private**
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The patch source configurations.
+   */
   sources?: string[];
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: ListPatchBaselinesRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -4758,16 +9050,96 @@ export class ListPatchBaselinesRequest extends $tea.Model {
 }
 
 export class ListPatchBaselinesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The approved patches.
+   */
   approvedPatchesShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether the approved patch involves updates other than security-related updates.
+   * 
+   * @example
+   * true
+   */
   approvedPatchesEnableNonSecurity?: boolean;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * -
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The type of the operating system. Valid values:
+   * 
+   * *   Windows
+   * *   Ubuntu
+   * *   CentOS
+   * *   Debian
+   * *   AliyunLinux
+   * *   RedhatEnterpriseLinux
+   * *   Anolis
+   * *   AlmaLinux
+   * 
+   * @example
+   * AliyunLinux
+   */
   operationSystem?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the template. Valid values:
+   * 
+   * *   **Public**
+   * *   **Private**
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The patch source configurations.
+   */
   sourcesShrink?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4807,9 +9179,34 @@ export class ListPatchBaselinesShrinkRequest extends $tea.Model {
 }
 
 export class ListPatchBaselinesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * The number of entries returned on each page.
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The patch baselines.
+   */
   patchBaselines?: ListPatchBaselinesResponseBodyPatchBaselines[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 432996A1-03C0-5C4C-A8E6-66C4110765B8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4860,9 +9257,39 @@ export class ListPatchBaselinesResponse extends $tea.Model {
 }
 
 export class ListResourceExecutionStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * exec-xxxxxxxxxxxx
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4888,9 +9315,34 @@ export class ListResourceExecutionStatusRequest extends $tea.Model {
 }
 
 export class ListResourceExecutionStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ED571CBD-9F96-419D-B919-CF340BBCA157
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The execution information of the resource.
+   */
   resourceExecutionStatus?: ListResourceExecutionStatusResponseBodyResourceExecutionStatus[];
   static names(): { [key: string]: string } {
     return {
@@ -4941,11 +9393,55 @@ export class ListResourceExecutionStatusResponse extends $tea.Model {
 }
 
 export class ListSecretParameterVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the encryption parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The share type of the encryption parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * Specifies whether to decrypt the parameter value. The decrypted parameter value is returned only if this parameter is set to true. Otherwise, null is returned.
+   * 
+   * @example
+   * false
+   */
   withDecryption?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4975,16 +9471,90 @@ export class ListSecretParameterVersionsRequest extends $tea.Model {
 }
 
 export class ListSecretParameterVersionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The user who created the encryption parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the encryption parameter was created.
+   * 
+   * @example
+   * 2020-09-01T08:01:43Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the encryption parameter.
+   * 
+   * @example
+   * SecretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the encryption parameter.
+   * 
+   * @example
+   * p-4c4b401cab6747xxxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the encryption parameter.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The information about the version of the encryption parameter.
+   */
   parameterVersions?: ListSecretParameterVersionsResponseBodyParameterVersions[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DBA6E6C8-F75D-41DE-AFF5-1FA03F551CA3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The type of the encryption parameter.
+   * 
+   * @example
+   * Secret
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5049,15 +9619,91 @@ export class ListSecretParameterVersionsResponse extends $tea.Model {
 }
 
 export class ListSecretParametersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the parameter. **You can enter a keyword to query parameter names in fuzzy match mode.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * sPH90GZOVGC6KPDUL0FIIbEtMQHq_19S6_4O_XqA
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The path of the parameter. For example, if the name of a parameter is /path/path1/Myparameter, the path of the parameter is /path/path1/.
+   * 
+   * @example
+   * /path1/path2/
+   */
   path?: string;
+  /**
+   * @remarks
+   * Specifies whether to query parameters from all levels of directories in the specified path. Default value: false.
+   * 
+   * @example
+   * false
+   */
   recursive?: boolean;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The field used to sort the query results. Valid values:
+   * 
+   * *   Name
+   * *   CreatedDate
+   * 
+   * @example
+   * Name
+   */
   sortField?: string;
+  /**
+   * @remarks
+   * The order in which the entries are sorted. Valid values:
+   * 
+   * *   Ascending
+   * *   Descending (Default)
+   * 
+   * @example
+   * Descending
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The tags of the parameter.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5095,15 +9741,91 @@ export class ListSecretParametersRequest extends $tea.Model {
 }
 
 export class ListSecretParametersShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The name of the parameter. **You can enter a keyword to query parameter names in fuzzy match mode.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * sPH90GZOVGC6KPDUL0FIIbEtMQHq_19S6_4O_XqA
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The path of the parameter. For example, if the name of a parameter is /path/path1/Myparameter, the path of the parameter is /path/path1/.
+   * 
+   * @example
+   * /path1/path2/
+   */
   path?: string;
+  /**
+   * @remarks
+   * Specifies whether to query parameters from all levels of directories in the specified path. Default value: false.
+   * 
+   * @example
+   * false
+   */
   recursive?: boolean;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The field used to sort the query results. Valid values:
+   * 
+   * *   Name
+   * *   CreatedDate
+   * 
+   * @example
+   * Name
+   */
   sortField?: string;
+  /**
+   * @remarks
+   * The order in which the entries are sorted. Valid values:
+   * 
+   * *   Ascending
+   * *   Descending (Default)
+   * 
+   * @example
+   * Descending
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The tags of the parameter.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5141,9 +9863,34 @@ export class ListSecretParametersShrinkRequest extends $tea.Model {
 }
 
 export class ListSecretParametersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * sPH90GZOVGC6KPDUL0FIIbEtMQHq_19S6_4O_XqA
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The information about the parameters.
+   */
   parameters?: ListSecretParametersResponseBodyParameters[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CA9C6248-AF2A-4AE9-A166-88FD901BBB90
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5194,13 +9941,69 @@ export class ListSecretParametersResponse extends $tea.Model {
 }
 
 export class ListStateConfigurationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AHJKH-AHKJHDJK-AKHDIOWJL
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the desired-state configuration.
+   * 
+   * @example
+   * ["sc-asfgdhj12345"]
+   */
   stateConfigurationIds?: string;
+  /**
+   * @remarks
+   * The tags to be added to the configuration.
+   * 
+   * @example
+   * {"Key": "oos", "Value": "inventory"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the template. The name must be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version number of the template. If you do not specify this parameter, the latest version of the template is used.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5234,13 +10037,69 @@ export class ListStateConfigurationsRequest extends $tea.Model {
 }
 
 export class ListStateConfigurationsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AHJKH-AHKJHDJK-AKHDIOWJL
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the desired-state configuration.
+   * 
+   * @example
+   * ["sc-asfgdhj12345"]
+   */
   stateConfigurationIds?: string;
+  /**
+   * @remarks
+   * The tags to be added to the configuration.
+   * 
+   * @example
+   * {"Key": "oos", "Value": "inventory"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The name of the template. The name must be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version number of the template. If you do not specify this parameter, the latest version of the template is used.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5274,8 +10133,26 @@ export class ListStateConfigurationsShrinkRequest extends $tea.Model {
 }
 
 export class ListStateConfigurationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination token that was used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAASO3cL82+b5iji7bfPNpMh8=
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1306108F-610C-40FD-AAD5-DA13E8B00BE9
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the desired-state configurations.
+   */
   stateConfigurations?: ListStateConfigurationsResponseBodyStateConfigurations[];
   static names(): { [key: string]: string } {
     return {
@@ -5324,9 +10201,37 @@ export class ListStateConfigurationsResponse extends $tea.Model {
 }
 
 export class ListTagKeysRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page. Valid value: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page.
+   * 
+   * @example
+   * djsdlkasd
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the resource to which the tag is added.
+   * 
+   * @example
+   * template
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5352,9 +10257,34 @@ export class ListTagKeysRequest extends $tea.Model {
 }
 
 export class ListTagKeysResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tag keys.
+   */
   keys?: string[];
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page.
+   * 
+   * @example
+   * 87y29h80h20h3f2
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 36210B73-8262-4D08-9D3A-7F96789733C8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5405,10 +10335,49 @@ export class ListTagKeysResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of resources. The number of resource IDs ranges from 1 to 50.
+   * 
+   * @example
+   * ["templateNam1","templateName2"]
+   */
   resourceIds?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the resource. Valid values: template execution
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * template
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"v2","k2":"v2"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5436,10 +10405,49 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of resources. The number of resource IDs ranges from 1 to 50.
+   * 
+   * @example
+   * ["templateNam1","templateName2"]
+   */
   resourceIdsShrink?: string;
+  /**
+   * @remarks
+   * The type of the resource. Valid values: template execution
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * template
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"v2","k2":"v2"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5467,8 +10475,26 @@ export class ListTagResourcesShrinkRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. If the return value of the NextToken parameter is empty, the next page does not exist.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A5EF78C1-67FC-4E36-A6A8-7DF9C51726DF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The set of resources and the tags that are added to the resources.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
@@ -5517,10 +10543,45 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListTagValuesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key to query.
+   * 
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The maximum number of results on each page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * 3272h923879hsaksad
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the tagged resource.
+   * 
+   * @example
+   * template
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5548,9 +10609,34 @@ export class ListTagValuesRequest extends $tea.Model {
 }
 
 export class ListTagValuesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of results on each page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * 83u29j2dj3dskds
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 65591133-1188-4935-B78F-20F72
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tag values returned.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5601,21 +10687,140 @@ export class ListTagValuesResponse extends $tea.Model {
 }
 
 export class ListTaskExecutionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The execution ID of the task.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   endDateAfter?: string;
+  /**
+   * @remarks
+   * Specifies to query task executions that stop running at or later than the specified time.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   endDateBefore?: string;
+  /**
+   * @remarks
+   * The status of the execution. Valid values: Running, Started, Success, Failed, Waiting, Cancelled, Pending, and Skipped.
+   * 
+   * @example
+   * exec-xxx
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 20 to 100. Default value: 50.
+   * 
+   * @example
+   * false
+   */
   includeChildTaskExecution?: boolean;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * Sorts the task executions to query. Valid values:
+   * 
+   * *   **StartDate**: specifies that the task executions are sorted based on the time when they are created. This is the default value.
+   * *   **EndDate**: specifies that the task executions are sorted based on the time when the time when they stop running.
+   * *   **Status**: specifies that the task executions are sorted based on their statuses.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to show the child nodes in the loop task. Default value: False.
+   * 
+   * @example
+   * task-exec-xxx
+   */
   parentTaskExecutionId?: string;
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the task executions to query. Valid values:
+   * 
+   * *   **Ascending**: ascending order.
+   * *   **Descending**: descending order. This is the default value.
+   * 
+   * @example
+   * StartDate
+   */
   sortField?: string;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * Ascending
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * Specifies to query task executions that stop running at or before the specified time.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   startDateAfter?: string;
+  /**
+   * @remarks
+   * Specifies to query task executions that start to run at or later than the specified time.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   startDateBefore?: string;
+  /**
+   * @remarks
+   * Specifies to query task executions that start to run at or before the specified time.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The execution ID of the parent node. In a loop task, set this parameter to the execution ID of the parent node.
+   * 
+   * @example
+   * ACS::Sleep
+   */
   taskAction?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * task-exec-xxx
+   */
   taskExecutionId?: string;
+  /**
+   * @remarks
+   * The action of the task.
+   * 
+   * @example
+   * describeInstance
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5665,9 +10870,34 @@ export class ListTaskExecutionsRequest extends $tea.Model {
 }
 
 export class ListTaskExecutionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the task executions.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * CDABABABAB-FC28-4D9C-8FB5-68DC6F0486FC
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The execution ID of the child node.
+   */
   taskExecutions?: ListTaskExecutionsResponseBodyTaskExecutions[];
   static names(): { [key: string]: string } {
     return {
@@ -5718,10 +10948,47 @@ export class ListTaskExecutionsResponse extends $tea.Model {
 }
 
 export class ListTemplateVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * H8xj9c-398djs9-39ajd9asdjjJ
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the template. Valid values: Private and Public.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * describeinstances
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5749,9 +11016,34 @@ export class ListTemplateVersionsRequest extends $tea.Model {
 }
 
 export class ListTemplateVersionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * NJSNDKLJS-SJKJDO090k30-JSDK232
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E6CD612B-5889-4F1A-823F-8A4029E46
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The versions of the template.
+   */
   templateVersions?: ListTemplateVersionsResponseBodyTemplateVersions[];
   static names(): { [key: string]: string } {
     return {
@@ -5802,23 +11094,175 @@ export class ListTemplateVersionsResponse extends $tea.Model {
 }
 
 export class ListTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the template. Valid values include TimerTrigger, EventTrigger, AlarmTrigger, and Other.
+   * 
+   * @example
+   * TimerTrigger
+   */
   category?: string;
+  /**
+   * @remarks
+   * The creator of the template.
+   * 
+   * *   To query the template provided by Alibaba Cloud, set this parameter to **ACS**.
+   * *   To query the template created by a user, set this parameter to the **ID** of the template or the **name of the user** who creates the template.
+   * 
+   * @example
+   * ACS
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * Specifies to query the template that is created at or later than the specified time.
+   * 
+   * The value must be in the YYYY-MM-DDThh:mm:ssZ format.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createdDateAfter?: string;
+  /**
+   * @remarks
+   * Specifies to query the template that is created at or before the specified time.
+   * 
+   * The value must be in the YYYY-MM-DDThh:mm::ssZ format.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createdDateBefore?: string;
+  /**
+   * @remarks
+   * Specifies whether to query the template that is configured with a trigger.
+   * 
+   * @example
+   * true
+   */
   hasTrigger?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the template is an example template
+   * 
+   * @example
+   * false
+   */
   isExample?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the template is added to favorites.
+   * 
+   * @example
+   * true
+   */
   isFavorite?: boolean;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * xxx
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you want to query templates.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the template. Valid values:
+   * 
+   * *   **Public**
+   * *   **Private**
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The field that is used to sort the templates to be queried. Valid values:
+   * 
+   * *   **TotalExecutionCount** (default): The system sorts the returned templates based on the total number of times that the templates are used.
+   * *   **Popularity**: The system sorts the returned templates based on the popularity of the templates.
+   * *   **TemplateName**: The system sorts the returned templates based on the names of the templates.
+   * *   **CreatedDate**: The system sorts the returned templates based on the points in time when the templates are created.
+   * *   **UpdatedDate**: The system sorts the returned templates based on the points in time when the templates are updated.
+   * 
+   * @example
+   * Popularity
+   */
   sortField?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the results. Valid values:
+   * 
+   * *   **Ascending**: ascending order.
+   * *   **Descending**: descending order. This is the default value.
+   * 
+   * @example
+   * Descending
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"k2","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The format of the template. Valid values:
+   * 
+   * *   **JSON**
+   * *   **YAML**
+   * 
+   * @example
+   * YAML
+   */
   templateFormat?: string;
+  /**
+   * @remarks
+   * The name of the template. All templates whose names contain the specified template name are to be returned.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The type of the template. Valid values:
+   * 
+   * *   Automation: the template for automated tasks.
+   * *   State: the template for configuration inventories.
+   * *   Package: the template for software packages.
+   * 
+   * @example
+   * private
+   */
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5872,23 +11316,175 @@ export class ListTemplatesRequest extends $tea.Model {
 }
 
 export class ListTemplatesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the template. Valid values include TimerTrigger, EventTrigger, AlarmTrigger, and Other.
+   * 
+   * @example
+   * TimerTrigger
+   */
   category?: string;
+  /**
+   * @remarks
+   * The creator of the template.
+   * 
+   * *   To query the template provided by Alibaba Cloud, set this parameter to **ACS**.
+   * *   To query the template created by a user, set this parameter to the **ID** of the template or the **name of the user** who creates the template.
+   * 
+   * @example
+   * ACS
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * Specifies to query the template that is created at or later than the specified time.
+   * 
+   * The value must be in the YYYY-MM-DDThh:mm:ssZ format.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createdDateAfter?: string;
+  /**
+   * @remarks
+   * Specifies to query the template that is created at or before the specified time.
+   * 
+   * The value must be in the YYYY-MM-DDThh:mm::ssZ format.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createdDateBefore?: string;
+  /**
+   * @remarks
+   * Specifies whether to query the template that is configured with a trigger.
+   * 
+   * @example
+   * true
+   */
   hasTrigger?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the template is an example template
+   * 
+   * @example
+   * false
+   */
   isExample?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the template is added to favorites.
+   * 
+   * @example
+   * true
+   */
   isFavorite?: boolean;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 10 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * xxx
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you want to query templates.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the template. Valid values:
+   * 
+   * *   **Public**
+   * *   **Private**
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The field that is used to sort the templates to be queried. Valid values:
+   * 
+   * *   **TotalExecutionCount** (default): The system sorts the returned templates based on the total number of times that the templates are used.
+   * *   **Popularity**: The system sorts the returned templates based on the popularity of the templates.
+   * *   **TemplateName**: The system sorts the returned templates based on the names of the templates.
+   * *   **CreatedDate**: The system sorts the returned templates based on the points in time when the templates are created.
+   * *   **UpdatedDate**: The system sorts the returned templates based on the points in time when the templates are updated.
+   * 
+   * @example
+   * Popularity
+   */
   sortField?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the results. Valid values:
+   * 
+   * *   **Ascending**: ascending order.
+   * *   **Descending**: descending order. This is the default value.
+   * 
+   * @example
+   * Descending
+   */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"k2","k2":"v2"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The format of the template. Valid values:
+   * 
+   * *   **JSON**
+   * *   **YAML**
+   * 
+   * @example
+   * YAML
+   */
   templateFormat?: string;
+  /**
+   * @remarks
+   * The name of the template. All templates whose names contain the specified template name are to be returned.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The type of the template. Valid values:
+   * 
+   * *   Automation: the template for automated tasks.
+   * *   State: the template for configuration inventories.
+   * *   Package: the template for software packages.
+   * 
+   * @example
+   * private
+   */
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5942,9 +11538,34 @@ export class ListTemplatesShrinkRequest extends $tea.Model {
 }
 
 export class ListTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * xxx
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BEF54BA-17B6-449F-A219-49ACB157E3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The template metadata.
+   */
   templates?: ListTemplatesResponseBodyTemplates[];
   static names(): { [key: string]: string } {
     return {
@@ -5995,15 +11616,97 @@ export class ListTemplatesResponse extends $tea.Model {
 }
 
 export class NotifyExecutionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * exec-xxx
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * The state of the terminated execution. This parameter is valid if you set the NotifyType parameter to CompleteExecution.
+   * 
+   * @example
+   * Success
+   */
   executionStatus?: string;
+  /**
+   * @remarks
+   * The items of the child node in the loop task.
+   * 
+   * @example
+   * i-xxx
+   */
   loopItem?: string;
+  /**
+   * @remarks
+   * The description for the notification.
+   * 
+   * @example
+   * Note
+   */
   notifyNote?: string;
+  /**
+   * @remarks
+   * The type of the notification. Valid values:
+   * 
+   * *   **ExecuteTask**: starts to run a specific task. This value is used if you perform debugging in the Debug mode. If you set this parameter to ExecuteTask, you also need to set the Parameters parameter.
+   * *   **CancelTask**: cancels a current task. This value is used if you perform debugging in the Debug mode.
+   * *   **CompleteExecution**: manually terminates an execution if you perform debugging in the Debug mode. You can specify the state of the terminated execution by using the **ExecutionStatus** parameter.
+   * *   **Approve**: approves an execution. For example, you are aware of the risks of an operation task and agree to approve the execution.
+   * *   **Reject**: rejects an execution. For example, you want to reject the execution of a high-risk operation task.
+   * *   **RetryTask**: retries a failed task whose execution mode is Suspend upon Failure.
+   * *   **SkipTask**: skips a failed task whose execution mode is Suspend upon Failure.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Approve
+   */
   notifyType?: string;
+  /**
+   * @remarks
+   * The parameters of the subsequent task. This parameter is valid if you set the NotifyType parameter to ExecuteTask.
+   * 
+   * @example
+   * {}
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the execution resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The execution ID of the task.
+   * 
+   * @example
+   * task-exec-xxx
+   */
   taskExecutionId?: string;
+  /**
+   * @remarks
+   * The execution IDs of the tasks.
+   * 
+   * @example
+   * ["exec-79c321c11003a97c","exec-79c321c11003aqw97cz"]
+   */
   taskExecutionIds?: string;
+  /**
+   * @remarks
+   * The name of the subsequent task.
+   * 
+   * @example
+   * describeInstance
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6041,6 +11744,13 @@ export class NotifyExecutionRequest extends $tea.Model {
 }
 
 export class NotifyExecutionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 491DF8C2-34C9-4679-9DB3-4C0F49B129AC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6085,7 +11795,23 @@ export class NotifyExecutionResponse extends $tea.Model {
 }
 
 export class RegisterDefaultPatchBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6107,7 +11833,18 @@ export class RegisterDefaultPatchBaselineRequest extends $tea.Model {
 }
 
 export class RegisterDefaultPatchBaselineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the patch baseline.
+   */
   patchBaseline?: RegisterDefaultPatchBaselineResponseBodyPatchBaseline;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D6850689-348D-59FC-AE13-BB0EDB7C4BE8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6154,10 +11891,45 @@ export class RegisterDefaultPatchBaselineResponse extends $tea.Model {
 }
 
 export class SearchInventoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about aggregators. You can use one or more aggregators to query the aggregate information of an instance. Valid values:
+   * 
+   * *   ACS:Application.Name
+   * *   ACS:Application.Version
+   * 
+   * @example
+   * ACS:Application.Name
+   */
   aggregator?: string[];
+  /**
+   * @remarks
+   * The filter rules for the component.
+   */
   filter?: SearchInventoryRequestFilter[];
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 50.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6186,8 +11958,29 @@ export class SearchInventoryRequest extends $tea.Model {
 
 export class SearchInventoryResponseBody extends $tea.Model {
   entities?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 50
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token that is used to retrieve the next page of results.
+   * 
+   * @example
+   * gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A81E4B2E-6B33-4BAE-9856-55DB7C893E01
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6238,12 +12031,61 @@ export class SearchInventoryResponse extends $tea.Model {
 }
 
 export class SetServiceSettingsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of OSS bucket to deliver.
+   * 
+   * @example
+   * OssBucketName
+   */
   deliveryOssBucketName?: string;
+  /**
+   * @remarks
+   * Whether to enable OSS delivery.
+   * 
+   * @example
+   * false
+   */
   deliveryOssEnabled?: boolean;
+  /**
+   * @remarks
+   * The key prefix of OSS to deliver.
+   * 
+   * @example
+   * oos/execution
+   */
   deliveryOssKeyPrefix?: string;
+  /**
+   * @remarks
+   * Whether to enable SLS delivery.
+   * 
+   * @example
+   * false
+   */
   deliverySlsEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of SLS project to deliver.
+   * 
+   * @example
+   * SlsProjectName
+   */
   deliverySlsProjectName?: string;
+  /**
+   * @remarks
+   * The id of RDC Enterprise.
+   * 
+   * @example
+   * RdcEnterpriseId
+   */
   rdcEnterpriseId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6275,7 +12117,18 @@ export class SetServiceSettingsRequest extends $tea.Model {
 }
 
 export class SetServiceSettingsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CBEC8072-BEC2-478E-8EAE-E723BA79CF19
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information of service settings.
+   */
   serviceSettings?: SetServiceSettingsResponseBodyServiceSettings[];
   static names(): { [key: string]: string } {
     return {
@@ -6322,19 +12175,128 @@ export class SetServiceSettingsResponse extends $tea.Model {
 }
 
 export class StartExecutionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The access token.
+   * 
+   * @example
+   * 123e56767-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the execution.
+   * 
+   * @example
+   * test execution.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The loop mode. Valid values:
+   * 
+   * *   Automatic: does not suspend the execution of the template. This is the default value.
+   * *   FirstBatchPause: suspends the execution of the template after the first batch is complete.
+   * *   EveryBatchPause: suspends the execution of the template after each batch is complete.
+   * 
+   * @example
+   * Automatic
+   */
   loopMode?: string;
+  /**
+   * @remarks
+   * The execution mode. Valid values:
+   * 
+   * *   Automatic: automatically starts the execution of the template. This is the default value.
+   * *   FailurePause: suspends the execution of the template upon a failure.
+   * *   Debug: manually starts the execution of the template.
+   * 
+   * @example
+   * Automatic
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The JSON string that consists of a set of parameters. Default value: {}.
+   * 
+   * @example
+   * {"Status":"Running"}
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * The ID of the parent execution.
+   * 
+   * @example
+   * exec-xxx
+   */
   parentExecutionId?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the execution resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The security check mode. Valid values:
+   * 
+   * *   Skip: specifies that you are aware of the risks. The system performs all actions in the execution without manual confirmation, regardless of the risk level. This parameter is valid only if the `Mode` parameter is set to Automatic.
+   * *   ConfirmEveryHighRiskAction: requires you to confirm each high-risk action. This is the default value. You can call the **NotifyExecution** operation to confirm or cancel an action.
+   * 
+   * @example
+   * Skip
+   */
   safetyCheck?: string;
+  /**
+   * @remarks
+   * The tags for the execution.
+   * 
+   * @example
+   * {"k1":"v2","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The content of the template in the JSON or YAML format. This parameter is the same as the Content parameter that you can specify when you call the CreateTemplate operation. You can use this parameter to specify the tasks that you want to run. This way, you do not need to create a template before you start an execution. If you select an existing template, you do not need to specify this parameter.
+   * 
+   * @example
+   * {   "Description": "Example template, describe instances in some status",   "FormatVersion": "OOS-2019-06-01",   "Parameters": {},   "Tasks": [     {       "Name": "describeInstances",       "Action": "ACS::ExecuteAPI",       "Description": "desc-en",       "Properties": {         "Service": "ECS",         "API": "DescribeInstances",         "Parameters": {           "Status": "Running"         }       }     }   ] }
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * The name of the template. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * @example
+   * vmeixme
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the object that stores the content of the Operation Orchestration Service (OOS) template. The access control list (ACL) of the object must be public-read. You can use this parameter to specify the tasks that you want to run. This way, you do not need to create a template before you start an execution. If you select an existing template, you do not need to specify this parameter.
+   * 
+   * @example
+   * http://oos-template.cn-hangzhou.oss.aliyun-inc.com/oos-test-template.json
+   */
   templateURL?: string;
+  /**
+   * @remarks
+   * The version number of the template. If you do not specify this parameter, the system uses the latest version.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6380,19 +12342,128 @@ export class StartExecutionRequest extends $tea.Model {
 }
 
 export class StartExecutionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The access token.
+   * 
+   * @example
+   * 123e56767-e89b-12d3-a456-426655440000
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the execution.
+   * 
+   * @example
+   * test execution.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The loop mode. Valid values:
+   * 
+   * *   Automatic: does not suspend the execution of the template. This is the default value.
+   * *   FirstBatchPause: suspends the execution of the template after the first batch is complete.
+   * *   EveryBatchPause: suspends the execution of the template after each batch is complete.
+   * 
+   * @example
+   * Automatic
+   */
   loopMode?: string;
+  /**
+   * @remarks
+   * The execution mode. Valid values:
+   * 
+   * *   Automatic: automatically starts the execution of the template. This is the default value.
+   * *   FailurePause: suspends the execution of the template upon a failure.
+   * *   Debug: manually starts the execution of the template.
+   * 
+   * @example
+   * Automatic
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The JSON string that consists of a set of parameters. Default value: {}.
+   * 
+   * @example
+   * {"Status":"Running"}
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * The ID of the parent execution.
+   * 
+   * @example
+   * exec-xxx
+   */
   parentExecutionId?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the execution resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The security check mode. Valid values:
+   * 
+   * *   Skip: specifies that you are aware of the risks. The system performs all actions in the execution without manual confirmation, regardless of the risk level. This parameter is valid only if the `Mode` parameter is set to Automatic.
+   * *   ConfirmEveryHighRiskAction: requires you to confirm each high-risk action. This is the default value. You can call the **NotifyExecution** operation to confirm or cancel an action.
+   * 
+   * @example
+   * Skip
+   */
   safetyCheck?: string;
+  /**
+   * @remarks
+   * The tags for the execution.
+   * 
+   * @example
+   * {"k1":"v2","k2":"v2"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The content of the template in the JSON or YAML format. This parameter is the same as the Content parameter that you can specify when you call the CreateTemplate operation. You can use this parameter to specify the tasks that you want to run. This way, you do not need to create a template before you start an execution. If you select an existing template, you do not need to specify this parameter.
+   * 
+   * @example
+   * {   "Description": "Example template, describe instances in some status",   "FormatVersion": "OOS-2019-06-01",   "Parameters": {},   "Tasks": [     {       "Name": "describeInstances",       "Action": "ACS::ExecuteAPI",       "Description": "desc-en",       "Properties": {         "Service": "ECS",         "API": "DescribeInstances",         "Parameters": {           "Status": "Running"         }       }     }   ] }
+   */
   templateContent?: string;
+  /**
+   * @remarks
+   * The name of the template. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
+   * @example
+   * vmeixme
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the object that stores the content of the Operation Orchestration Service (OOS) template. The access control list (ACL) of the object must be public-read. You can use this parameter to specify the tasks that you want to run. This way, you do not need to create a template before you start an execution. If you select an existing template, you do not need to specify this parameter.
+   * 
+   * @example
+   * http://oos-template.cn-hangzhou.oss.aliyun-inc.com/oos-test-template.json
+   */
   templateURL?: string;
+  /**
+   * @remarks
+   * The version number of the template. If you do not specify this parameter, the system uses the latest version.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6438,7 +12509,18 @@ export class StartExecutionShrinkRequest extends $tea.Model {
 }
 
 export class StartExecutionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the execution.
+   */
   execution?: StartExecutionResponseBodyExecution;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 14A07460-EBE7-47CA-9757-12CC4761D47A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6485,9 +12567,57 @@ export class StartExecutionResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of the resources for which you want to modify the resource group. The number of resource IDs is 1 to 50.
+   * 
+   * *   If you set ResourceType to template, specify ResourceIds in the ["TemplateName1","TemplateName2"] format.
+   * *   If you set ResourceType to parameter, specify ResourceIds in the ["Name1","Name2"] format.
+   * *   If you set ResourceType to secretparameter, specify ResourceIds in the ["Name1","Name2"] format.
+   * *   If you set ResourceType to stateconfiguration, specify ResourceIds in the ["StateConfigurationId 1","StateConfigurationId 2"] format.
+   * *   If you set ResourceType to application, specify ResourceIds in the ["Name1","Name2"] format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["templateName1","templateName2"]
+   */
   resourceIds?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the resource for which you want to modify the resource group. Valid values:
+   * 
+   * *   template: template.
+   * *   parameter: parameter.
+   * *   secretparameter: encryption parameter.
+   * *   stateconfiguration: desired-state configuration.
+   * *   application: application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * template
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6513,9 +12643,57 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of the resources for which you want to modify the resource group. The number of resource IDs is 1 to 50.
+   * 
+   * *   If you set ResourceType to template, specify ResourceIds in the ["TemplateName1","TemplateName2"] format.
+   * *   If you set ResourceType to parameter, specify ResourceIds in the ["Name1","Name2"] format.
+   * *   If you set ResourceType to secretparameter, specify ResourceIds in the ["Name1","Name2"] format.
+   * *   If you set ResourceType to stateconfiguration, specify ResourceIds in the ["StateConfigurationId 1","StateConfigurationId 2"] format.
+   * *   If you set ResourceType to application, specify ResourceIds in the ["Name1","Name2"] format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["templateName1","templateName2"]
+   */
   resourceIdsShrink?: string;
+  /**
+   * @remarks
+   * The type of the resource for which you want to modify the resource group. Valid values:
+   * 
+   * *   template: template.
+   * *   parameter: parameter.
+   * *   secretparameter: encryption parameter.
+   * *   stateconfiguration: desired-state configuration.
+   * *   application: application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * template
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6541,6 +12719,13 @@ export class TagResourcesShrinkRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B19AE203-FD99-49C7-9253-FAAACAD46F4A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6585,10 +12770,55 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class TriggerExecutionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * dswe2-3i0-029
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The message body to be sent to the trigger task.
+   * 
+   * @example
+   * {"eventTime": "20181226T220114.058+0800", "id": "9435EAD6-3CF6-4494-8F7A-3A********77","level": "INFO","name": "Instance:StateChange","product": "ECS","regionId":"cn-hangzhou","resourceId": "acs:ecs:cn-hangzhou:169070********30:instance/i-bp1ecr********5go2go","userId": "169070********30","ver": "1.0","content": {"resourceId": "i-bp1ecr********5go2go", "resourceType": "ALIYUN::ECS::Instance","state": "Stopping"} }
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the event-, alert-, or timer-triggered execution.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * exec-sadw3f23rsad
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The type of the trigger. Valid values:
+   * 
+   * *   Event
+   * *   Alarm
+   * *   Timer
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Event
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6616,6 +12846,13 @@ export class TriggerExecutionRequest extends $tea.Model {
 }
 
 export class TriggerExecutionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 14A07460-EBE7-47CA-9757-12CC4761D47A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6660,10 +12897,63 @@ export class TriggerExecutionResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags. This parameter takes effect only if TagKeys is left empty. Valid values: true and false. Default value: false. TagKeys is required if this parameter is set to false.
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of the resources for which you want to modify the resource group. The number of resource IDs is 1 to 50.
+   * 
+   * *   If you set ResourceType to template, specify ResourceIds in the ["TemplateName1","TemplateName2"] format.
+   * *   If you set ResourceType to parameter, specify ResourceIds in the ["Name1","Name2"] format.
+   * *   If you set ResourceType to secretparameter, specify ResourceIds in the ["Name1","Name2"] format.
+   * *   If you set ResourceType to stateconfiguration, specify ResourceIds in the ["StateConfigurationId 1","StateConfigurationId 2"] format.
+   * *   If you set ResourceType to application, specify ResourceIds in the ["Name1","Name2"] format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["templateName1","templateName2"]
+   */
   resourceIds?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the resource for which you want to modify the resource group. Valid values:
+   * 
+   * *   template: template.
+   * *   parameter: parameter.
+   * *   secretparameter: encryption parameter.
+   * *   stateconfiguration: desired-state configuration.
+   * *   application: application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * template
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag keys. The number of keys ranges from 1 to 20.
+   * 
+   * @example
+   * ["k1","k2"]
+   */
   tagKeys?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6691,10 +12981,63 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags. This parameter takes effect only if TagKeys is left empty. Valid values: true and false. Default value: false. TagKeys is required if this parameter is set to false.
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of the resources for which you want to modify the resource group. The number of resource IDs is 1 to 50.
+   * 
+   * *   If you set ResourceType to template, specify ResourceIds in the ["TemplateName1","TemplateName2"] format.
+   * *   If you set ResourceType to parameter, specify ResourceIds in the ["Name1","Name2"] format.
+   * *   If you set ResourceType to secretparameter, specify ResourceIds in the ["Name1","Name2"] format.
+   * *   If you set ResourceType to stateconfiguration, specify ResourceIds in the ["StateConfigurationId 1","StateConfigurationId 2"] format.
+   * *   If you set ResourceType to application, specify ResourceIds in the ["Name1","Name2"] format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["templateName1","templateName2"]
+   */
   resourceIdsShrink?: string;
+  /**
+   * @remarks
+   * The type of the resource for which you want to modify the resource group. Valid values:
+   * 
+   * *   template: template.
+   * *   parameter: parameter.
+   * *   secretparameter: encryption parameter.
+   * *   stateconfiguration: desired-state configuration.
+   * *   application: application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * template
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag keys. The number of keys ranges from 1 to 20.
+   * 
+   * @example
+   * ["k1","k2"]
+   */
   tagKeysShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6722,6 +13065,13 @@ export class UntagResourcesShrinkRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 491DF8C2-34C9-4679-9DB3-4C0F49B129AC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6766,11 +13116,52 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateApplicationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of application alerts.
+   */
   alarmConfig?: UpdateApplicationRequestAlarmConfig;
+  /**
+   * @remarks
+   * Specifies whether to delete existing alert rules before applying the alert template. Default value: false.
+   * 
+   * @example
+   * false
+   */
   deleteAlarmRulesBeforeUpdate?: boolean;
+  /**
+   * @remarks
+   * The description to be updated for the application.
+   * 
+   * @example
+   * test application
+   */
   description?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * My-Application
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6800,11 +13191,52 @@ export class UpdateApplicationRequest extends $tea.Model {
 }
 
 export class UpdateApplicationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of application alerts.
+   */
   alarmConfigShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether to delete existing alert rules before applying the alert template. Default value: false.
+   * 
+   * @example
+   * false
+   */
   deleteAlarmRulesBeforeUpdate?: boolean;
+  /**
+   * @remarks
+   * The description to be updated for the application.
+   * 
+   * @example
+   * test application
+   */
   description?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * My-Application
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6834,7 +13266,18 @@ export class UpdateApplicationShrinkRequest extends $tea.Model {
 }
 
 export class UpdateApplicationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the application.
+   */
   application?: UpdateApplicationResponseBodyApplication;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F1F00F41-D24C-5377-831B-C97F739CE1AB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6881,9 +13324,41 @@ export class UpdateApplicationResponse extends $tea.Model {
 }
 
 export class UpdateApplicationGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyApplicationGroup
+   */
   name?: string;
+  /**
+   * @remarks
+   * The new name of the application group.
+   * 
+   * @example
+   * UpdateMyApplicationGroup
+   */
   newName?: string;
+  /**
+   * @remarks
+   * The region ID. Set the value to cn-hangzhou.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6909,7 +13384,18 @@ export class UpdateApplicationGroupRequest extends $tea.Model {
 }
 
 export class UpdateApplicationGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the application group.
+   */
   applicationGroup?: UpdateApplicationGroupResponseBodyApplicationGroup;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AA9FA778-AE4B-55EC-81CC-C46BAF08A166
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6956,12 +13442,63 @@ export class UpdateApplicationGroupResponse extends $tea.Model {
 }
 
 export class UpdateExecutionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the execution.
+   * 
+   * @example
+   * Execution description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * exec-c223xxxxxxxxxxxxxxxx
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * The information about the parameters.
+   * 
+   * @example
+   * {"Status":"Running"}
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m*****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags of the execution.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6993,6 +13530,13 @@ export class UpdateExecutionRequest extends $tea.Model {
 }
 
 export class UpdateExecutionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C8345E88-5334-469E-901D-F912C8CB9C55
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7036,21 +13580,314 @@ export class UpdateExecutionResponse extends $tea.Model {
   }
 }
 
-export class UpdateOpsItemRequest extends $tea.Model {
-  category?: string;
-  clientToken?: string;
-  dedupString?: string;
-  description?: string;
-  opsItemId?: string;
-  priority?: number;
+export class UpdateInstancePackageStateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * install
+   */
+  configureAction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp1jaxa2bs4bps7*****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * {"username": "xx"}
+   */
+  parameters?: { [key: string]: any };
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
+  templateName?: string;
+  /**
+   * @example
+   * v1
+   */
+  templateVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configureAction: 'ConfigureAction',
+      instanceId: 'InstanceId',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configureAction: 'string',
+      instanceId: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      regionId: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstancePackageStateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * install
+   */
+  configureAction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-bp1jaxa2bs4bps7*****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * {"username": "xx"}
+   */
+  parametersShrink?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
+  templateName?: string;
+  /**
+   * @example
+   * v1
+   */
+  templateVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configureAction: 'ConfigureAction',
+      instanceId: 'InstanceId',
+      parametersShrink: 'Parameters',
+      regionId: 'RegionId',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configureAction: 'string',
+      instanceId: 'string',
+      parametersShrink: 'string',
+      regionId: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstancePackageStateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2597E94B-5346-42D1-BB58-XXXXXXXXXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstancePackageStateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstancePackageStateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateInstancePackageStateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOpsItemRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The category.
+   * 
+   * @example
+   * Security
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * DASKJJLKADS-AHKLJHJSAKL-AJK
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The string to be deduplicated.
+   * 
+   * @example
+   * ecs_instance_SystemMaintenance.Reboot
+   */
+  dedupString?: string;
+  /**
+   * @remarks
+   * The description of the O\\&M item.
+   * 
+   * @example
+   * test-update
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M item.
+   * 
+   * @example
+   * oi-e2264dcf040c472598e9
+   */
+  opsItemId?: string;
+  /**
+   * @remarks
+   * The priority.
+   * 
+   * @example
+   * 2
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The Alibaba Resource Names (ARNs) of the associated resources.
+   * 
+   * @example
+   * [\\"arn:acs:ecs:cn-heyuan:1139354755361920:instance/i-f8z928h7aqotd3o65032\\"]
+   */
   resources?: string;
+  /**
+   * @remarks
+   * The severity level.
+   * 
+   * @example
+   * Medium
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The solutions.
+   * 
+   * @example
+   * [{\\n \\\\"priority\\\\":3,\\n \\\\"type\\\\":\\\\"url\\\\",\\n \\\\"url\\\\":\\\\"https://example.com\\\\",\\n \\\\"description\\\\":\\\\"Specify a cross-zone high availability cluster. \\\\"\\n}]
+   */
   solutions?: string;
+  /**
+   * @remarks
+   * The source business.
+   * 
+   * @example
+   * /aliyun/ecs
+   */
   source?: string;
+  /**
+   * @remarks
+   * The status.
+   * 
+   * @example
+   * Open
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {
+   *       "k1": "v1",
+   *       "k2": "v2"
+   * }
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The title of the O\\&M item.
+   * 
+   * @example
+   * Test
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7098,20 +13935,128 @@ export class UpdateOpsItemRequest extends $tea.Model {
 }
 
 export class UpdateOpsItemShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The category.
+   * 
+   * @example
+   * Security
+   */
   category?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * DASKJJLKADS-AHKLJHJSAKL-AJK
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The string to be deduplicated.
+   * 
+   * @example
+   * ecs_instance_SystemMaintenance.Reboot
+   */
   dedupString?: string;
+  /**
+   * @remarks
+   * The description of the O\\&M item.
+   * 
+   * @example
+   * test-update
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M item.
+   * 
+   * @example
+   * oi-e2264dcf040c472598e9
+   */
   opsItemId?: string;
+  /**
+   * @remarks
+   * The priority.
+   * 
+   * @example
+   * 2
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The Alibaba Resource Names (ARNs) of the associated resources.
+   * 
+   * @example
+   * [\\"arn:acs:ecs:cn-heyuan:1139354755361920:instance/i-f8z928h7aqotd3o65032\\"]
+   */
   resources?: string;
+  /**
+   * @remarks
+   * The severity level.
+   * 
+   * @example
+   * Medium
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The solutions.
+   * 
+   * @example
+   * [{\\n \\\\"priority\\\\":3,\\n \\\\"type\\\\":\\\\"url\\\\",\\n \\\\"url\\\\":\\\\"https://example.com\\\\",\\n \\\\"description\\\\":\\\\"Specify a cross-zone high availability cluster. \\\\"\\n}]
+   */
   solutions?: string;
+  /**
+   * @remarks
+   * The source business.
+   * 
+   * @example
+   * /aliyun/ecs
+   */
   source?: string;
+  /**
+   * @remarks
+   * The status.
+   * 
+   * @example
+   * Open
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {
+   *       "k1": "v1",
+   *       "k2": "v2"
+   * }
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The title of the O\\&M item.
+   * 
+   * @example
+   * Test
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7159,7 +14104,18 @@ export class UpdateOpsItemShrinkRequest extends $tea.Model {
 }
 
 export class UpdateOpsItemResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the O\\&M item.
+   */
   opsItem?: UpdateOpsItemResponseBodyOpsItem;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C996DECB-3D2B-5321-B359-BE7031B6399E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7206,11 +14162,57 @@ export class UpdateOpsItemResponse extends $tea.Model {
 }
 
 export class UpdateParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the common parameter. The description must be 1 to 200 characters in length.
+   * 
+   * @example
+   * update
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the common parameter. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags to be added to common parameter.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The value of the common parameter. The value must be 1 to 4,096 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * update
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7240,7 +14242,18 @@ export class UpdateParameterRequest extends $tea.Model {
 }
 
 export class UpdateParameterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the common parameter.
+   */
   parameter?: UpdateParameterResponseBodyParameter;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AF1AE6DE-61C4-435E-8687-072CFACCCEC7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7287,17 +14300,91 @@ export class UpdateParameterResponse extends $tea.Model {
 }
 
 export class UpdatePatchBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rules of scanning and installing patches for the specified operating system.
+   * 
+   * @example
+   * {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
+   */
   approvalRules?: string;
+  /**
+   * @remarks
+   * The approved patches.
+   */
   approvedPatches?: string[];
+  /**
+   * @remarks
+   * Indicates whether the approved patch involves updates other than security-related updates.
+   * 
+   * @example
+   * true
+   */
   approvedPatchesEnableNonSecurity?: boolean;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * -
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the patch baseline.
+   * 
+   * @example
+   * UpdatePatchBaseline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The rejected patches.
+   */
   rejectedPatches?: string[];
+  /**
+   * @remarks
+   * The action of the rejected patch.
+   * 
+   * @example
+   * ALLOW_AS_DEPENDENCY
+   */
   rejectedPatchesAction?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The patch source configurations.
+   */
   sources?: string[];
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: UpdatePatchBaselineRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -7339,17 +14426,91 @@ export class UpdatePatchBaselineRequest extends $tea.Model {
 }
 
 export class UpdatePatchBaselineShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rules of scanning and installing patches for the specified operating system.
+   * 
+   * @example
+   * {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
+   */
   approvalRules?: string;
+  /**
+   * @remarks
+   * The approved patches.
+   */
   approvedPatchesShrink?: string;
+  /**
+   * @remarks
+   * Indicates whether the approved patch involves updates other than security-related updates.
+   * 
+   * @example
+   * true
+   */
   approvedPatchesEnableNonSecurity?: boolean;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * -
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The description of the patch baseline.
+   * 
+   * @example
+   * UpdatePatchBaseline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The rejected patches.
+   */
   rejectedPatchesShrink?: string;
+  /**
+   * @remarks
+   * The action of the rejected patch.
+   * 
+   * @example
+   * ALLOW_AS_DEPENDENCY
+   */
   rejectedPatchesAction?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The patch source configurations.
+   */
   sourcesShrink?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7391,7 +14552,18 @@ export class UpdatePatchBaselineShrinkRequest extends $tea.Model {
 }
 
 export class UpdatePatchBaselineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the patch baseline.
+   */
   patchBaseline?: UpdatePatchBaselineResponseBodyPatchBaseline;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1457F46C-7AAE-59FA-BD12-0BDB3751E6F8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7438,11 +14610,57 @@ export class UpdatePatchBaselineResponse extends $tea.Model {
 }
 
 export class UpdateSecretParameterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the parameter. The description must be 1 to 200 characters in length.
+   * 
+   * @example
+   * SecretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the parameter. The name must be 1 to 180 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags of the parameter.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The value of the parameter. The value must be 1 to 4096 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * update
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7472,11 +14690,57 @@ export class UpdateSecretParameterRequest extends $tea.Model {
 }
 
 export class UpdateSecretParameterShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the parameter. The description must be 1 to 200 characters in length.
+   * 
+   * @example
+   * SecretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the parameter. The name must be 1 to 180 characters in length, and can contain letters, digits, hyphens (-), and underscores (_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags of the parameter.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The value of the parameter. The value must be 1 to 4096 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * update
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7506,7 +14770,18 @@ export class UpdateSecretParameterShrinkRequest extends $tea.Model {
 }
 
 export class UpdateSecretParameterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the parameter.
+   */
   parameter?: UpdateSecretParameterResponseBodyParameter;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0B419FF3-ABC6-4DF0-95E5-636DC8CBB8AF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7553,16 +14828,95 @@ export class UpdateSecretParameterResponse extends $tea.Model {
 }
 
 export class UpdateStateConfigurationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * DASKJJLKADS-AHKLJHJSAKL-AJK
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The configuration mode. Valid values: ApplyOnce: The configuration is applied only once. After a configuration is updated, the new configuration is applied. ApplyAndMonitor: The configuration is applied only once. After the configuration is applied, the system only checks whether the configuration is migrated in the future. ApplyAndAutoCorrect: The configuration is always applied.
+   * 
+   * @example
+   * ApplyOnce
+   */
   configureMode?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
   description?: string;
+  /**
+   * @remarks
+   * The parameters.
+   * 
+   * @example
+   * { "policy": { "ACS:Application": { "Collection": "Enabled" }, "ACS:Network": { "Collection": "Enabled" } } }
+   */
   parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The schedule expression.
+   * 
+   * @example
+   * 1 hour
+   */
   scheduleExpression?: string;
+  /**
+   * @remarks
+   * The schedule type.
+   * 
+   * @example
+   * rate
+   */
   scheduleType?: string;
+  /**
+   * @remarks
+   * The ID of the desired-state configuration.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sc-asfgdhj12345
+   */
   stateConfigurationId?: string;
+  /**
+   * @remarks
+   * The tags to be added to the configuration.
+   * 
+   * @example
+   * {"Key": "oos", "Value": "sc"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The resources to be queried.
+   * 
+   * @example
+   * { "ResourceType": "ALIYUN::ECS::Instance", "Filters": [ { "Type": "All", "RegionId": "cn-hangzhou", "Parameters": { "RegionId": "cn-hangzhou", "Status": "Running" } } ] }
+   */
   targets?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7602,16 +14956,95 @@ export class UpdateStateConfigurationRequest extends $tea.Model {
 }
 
 export class UpdateStateConfigurationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * DASKJJLKADS-AHKLJHJSAKL-AJK
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The configuration mode. Valid values: ApplyOnce: The configuration is applied only once. After a configuration is updated, the new configuration is applied. ApplyAndMonitor: The configuration is applied only once. After the configuration is applied, the system only checks whether the configuration is migrated in the future. ApplyAndAutoCorrect: The configuration is always applied.
+   * 
+   * @example
+   * ApplyOnce
+   */
   configureMode?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
   description?: string;
+  /**
+   * @remarks
+   * The parameters.
+   * 
+   * @example
+   * { "policy": { "ACS:Application": { "Collection": "Enabled" }, "ACS:Network": { "Collection": "Enabled" } } }
+   */
   parametersShrink?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The schedule expression.
+   * 
+   * @example
+   * 1 hour
+   */
   scheduleExpression?: string;
+  /**
+   * @remarks
+   * The schedule type.
+   * 
+   * @example
+   * rate
+   */
   scheduleType?: string;
+  /**
+   * @remarks
+   * The ID of the desired-state configuration.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sc-asfgdhj12345
+   */
   stateConfigurationId?: string;
+  /**
+   * @remarks
+   * The tags to be added to the configuration.
+   * 
+   * @example
+   * {"Key": "oos", "Value": "sc"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The resources to be queried.
+   * 
+   * @example
+   * { "ResourceType": "ALIYUN::ECS::Instance", "Filters": [ { "Type": "All", "RegionId": "cn-hangzhou", "Parameters": { "RegionId": "cn-hangzhou", "Status": "Running" } } ] }
+   */
   targets?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7651,7 +15084,18 @@ export class UpdateStateConfigurationShrinkRequest extends $tea.Model {
 }
 
 export class UpdateStateConfigurationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1306108F-610C-40FD-AAD5-DA13E8B00BE9
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the configuration.
+   */
   stateConfiguration?: UpdateStateConfigurationResponseBodyStateConfiguration[];
   static names(): { [key: string]: string } {
     return {
@@ -7698,11 +15142,57 @@ export class UpdateStateConfigurationResponse extends $tea.Model {
 }
 
 export class UpdateTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the template. The content must be in the JSON or YAML format, and its maximum size is 64 KB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * { "FormatVersion": "OOS-2019-06-01", "Description": { "en": "Bulky starts the ECS instances", "name-en": "Bulky Start Instances", }, "Parameters": { "regionId": { "Type": "String", "Label": { "en": "RegionId", }, "AssociationProperty": "RegionId", "Default": "{{ ACS::RegionId }}" }, "targets": { "Type": "Json", "Label": { "en": "TargetInstance", }, "AssociationProperty": "Targets", "AssociationPropertyMetadata": { "ResourceType": "ALIYUN::ECS::Instance", "RegionId": "regionId" } }, "rateControl": { "Label": { "en": "RateControl", }, "Type": "Json", "AssociationProperty": "RateControl", "Default": { "Mode": "Concurrency", "MaxErrors": 0, "Concurrency": 10 } }, "OOSAssumeRole": { "Label": { "en": "OOSAssumeRole", }, "Type": "String", "Default": "OOSServiceRole" } }, "RamRole": "{{ OOSAssumeRole }}", "Tasks": [ { "Name": "getInstance", "Description": { "en": "Views the ECS instances", }, "Action": "ACS::SelectTargets", "Properties": { "ResourceType": "ALIYUN::ECS::Instance", "RegionId": "{{ regionId }}", "Filters": [ "{{ targets }}" ] }, "Outputs": { "instanceIds": { "Type": "List", "ValueSelector": "Instances.Instance[].InstanceId" } } }, { "Name": "startInstance", "Action": "ACS::ECS::StartInstance", "Description": { "en": "Starts the ECS instances", }, "Properties": { "regionId": "{{ regionId }}", "instanceId": "{{ ACS::TaskLoopItem }}" }, "Loop": { "RateControl": "{{ rateControl }}", "Items": "{{ getInstance.instanceIds }}" } } ], "Outputs": { "instanceIds": { "Type": "List", "Value": "{{ getInstance.instanceIds }}" } } }
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"k2","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The name of the template. The name can be up to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_). The name cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The name of the template version.
+   * 
+   * @example
+   * v2
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7732,11 +15222,57 @@ export class UpdateTemplateRequest extends $tea.Model {
 }
 
 export class UpdateTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the template. The content must be in the JSON or YAML format, and its maximum size is 64 KB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * { "FormatVersion": "OOS-2019-06-01", "Description": { "en": "Bulky starts the ECS instances", "name-en": "Bulky Start Instances", }, "Parameters": { "regionId": { "Type": "String", "Label": { "en": "RegionId", }, "AssociationProperty": "RegionId", "Default": "{{ ACS::RegionId }}" }, "targets": { "Type": "Json", "Label": { "en": "TargetInstance", }, "AssociationProperty": "Targets", "AssociationPropertyMetadata": { "ResourceType": "ALIYUN::ECS::Instance", "RegionId": "regionId" } }, "rateControl": { "Label": { "en": "RateControl", }, "Type": "Json", "AssociationProperty": "RateControl", "Default": { "Mode": "Concurrency", "MaxErrors": 0, "Concurrency": 10 } }, "OOSAssumeRole": { "Label": { "en": "OOSAssumeRole", }, "Type": "String", "Default": "OOSServiceRole" } }, "RamRole": "{{ OOSAssumeRole }}", "Tasks": [ { "Name": "getInstance", "Description": { "en": "Views the ECS instances", }, "Action": "ACS::SelectTargets", "Properties": { "ResourceType": "ALIYUN::ECS::Instance", "RegionId": "{{ regionId }}", "Filters": [ "{{ targets }}" ] }, "Outputs": { "instanceIds": { "Type": "List", "ValueSelector": "Instances.Instance[].InstanceId" } } }, { "Name": "startInstance", "Action": "ACS::ECS::StartInstance", "Description": { "en": "Starts the ECS instances", }, "Properties": { "regionId": "{{ regionId }}", "instanceId": "{{ ACS::TaskLoopItem }}" }, "Loop": { "RateControl": "{{ rateControl }}", "Items": "{{ getInstance.instanceIds }}" } } ], "Outputs": { "instanceIds": { "Type": "List", "Value": "{{ getInstance.instanceIds }}" } } }
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"k2","k2":"v2"}
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The name of the template. The name can be up to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (_). The name cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The name of the template version.
+   * 
+   * @example
+   * v2
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7766,7 +15302,18 @@ export class UpdateTemplateShrinkRequest extends $tea.Model {
 }
 
 export class UpdateTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2075899A-585D-4A41-A9B2-28DF4F534F
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The metadata of the template.
+   */
   template?: UpdateTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -7813,8 +15360,29 @@ export class UpdateTemplateResponse extends $tea.Model {
 }
 
 export class ValidateTemplateContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the template.
+   * 
+   * @example
+   * {"FormatVersion": "OOS-2019-06-01", "Description": "Describe instances of given status", "Parameters": {"Status": {"Type": "String", "Description": "(Required) The status of the Ecs instance."}}, "Tasks": [{"Properties": {"Parameters": {"Status": "{{ Status }}"}, "API": "DescribeInstances", "Service": "Ecs"}, "Name": "foo", "Action": "ACS::ExecuteApi"}]}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The URL that is used to store the content of the Operation Orchestration Service (OOS) template in the Alibaba Cloud Object Storage Service (OSS). Only the public-read URL is supported. You can use this parameter to specify the tasks that you want to run. This way, you do not need to create a template before you start an execution. If you select an existing template, you do not need to specify this parameter.
+   * 
+   * @example
+   * http:/oos-template.cn-hangzhou.oss.aliyun-inc.com/oos-template.json
+   */
   templateURL?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7838,10 +15406,42 @@ export class ValidateTemplateContentRequest extends $tea.Model {
 }
 
 export class ValidateTemplateContentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The outputs of the template.
+   * 
+   * @example
+   * {}
+   */
   outputs?: string;
+  /**
+   * @remarks
+   * The parameters of the template.
+   * 
+   * @example
+   * { "Status": { "Description": "(Required) The status of the Ecs instance.", "Type": "String" } }
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * The RAM role.
+   * 
+   * @example
+   * OOSServiceRole
+   */
   ramRole?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D5EE9591-1F2D-573E-8751-7F08BBB388D4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The task defined in the template.
+   */
   tasks?: ValidateTemplateContentResponseBodyTasks[];
   static names(): { [key: string]: string } {
     return {
@@ -7894,8 +15494,23 @@ export class ValidateTemplateContentResponse extends $tea.Model {
 }
 
 export class CreateApplicationRequestAlarmConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The alert contact groups.
+   */
   contactGroups?: string[];
+  /**
+   * @remarks
+   * The health check URL of the application.
+   * 
+   * @example
+   * /healthcheck/tcp50122
+   */
   healthCheckUrl?: string;
+  /**
+   * @remarks
+   * The alert templates.
+   */
   templateIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7919,10 +15534,45 @@ export class CreateApplicationRequestAlarmConfig extends $tea.Model {
 }
 
 export class CreateApplicationResponseBodyApplication extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the application was created.
+   * 
+   * @example
+   * 2021-09-07T09:17:46Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The description of the application.
+   * 
+   * @example
+   * application
+   */
   description?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * Myapplication
+   */
   name?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * The time when the application was updated.
+   * 
+   * @example
+   * 2021-09-07T09:17:46Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7950,14 +15600,77 @@ export class CreateApplicationResponseBodyApplication extends $tea.Model {
 }
 
 export class CreateApplicationGroupResponseBodyApplicationGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The ID of the application group in CloudMonitor.
+   * 
+   * @example
+   * 1245768
+   */
   cmsGroupId?: string;
+  /**
+   * @remarks
+   * The time when the application group was created.
+   * 
+   * @example
+   * 2021-09-07T10:28:25Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the related sources reside.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   deployRegionId?: string;
+  /**
+   * @remarks
+   * The description of the application group.
+   * 
+   * @example
+   * ApplicationGroup
+   */
   description?: string;
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * k1
+   */
   importTagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * v1
+   */
   importTagValue?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * @example
+   * MyApplicationGroup
+   */
   name?: string;
+  /**
+   * @remarks
+   * The time when the application group was updated.
+   * 
+   * @example
+   * 2021-09-07T10:28:25Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7993,22 +15706,141 @@ export class CreateApplicationGroupResponseBodyApplicationGroup extends $tea.Mod
 }
 
 export class CreateOpsItemResponseBodyOpsItem extends $tea.Model {
+  /**
+   * @remarks
+   * The attributes of the O\\&M item.
+   * 
+   * @example
+   * {\\"regionId\\":\\"cn-zhangjiakou\\",\\"appId\\":\\"992BKO1X75GRQ4E8\\",\\"instanceId\\":\\"i-8vbcymxagqsyyyjppbr4\\",\\"instance_name\\":\\"cdae\\"}
+   */
   attributes?: string;
+  /**
+   * @remarks
+   * The category of the O\\&M item.
+   * 
+   * @example
+   * Security
+   */
   category?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M item was created.
+   * 
+   * @example
+   * 2023-03-24T03:55Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The user who created the O\\&M item.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The description of the O\\&M item.
+   * 
+   * @example
+   * OpsItem
+   */
   description?: string;
+  /**
+   * @remarks
+   * The user who last modified the O\\&M item.
+   * 
+   * @example
+   * root(130900000)
+   */
   lastModifiedBy?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M item.
+   * 
+   * @example
+   * oi-dba9c6eec9254a4d87c1
+   */
   opsItemId?: string;
+  /**
+   * @remarks
+   * The priority of the O\\&M item.
+   * 
+   * @example
+   * 2
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ARNs of the associated resources.
+   * 
+   * @example
+   * [\\"acs:oos:cn-hangzhou:1563457855438522:application/dingTest/applicationgroup/fltest\\"]
+   */
   resources?: string;
+  /**
+   * @remarks
+   * The severity level of the O\\&M item.
+   * 
+   * @example
+   * Medium
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The solutions.
+   * 
+   * @example
+   * [{\\n \\\\"priority\\\\":3,\\n \\\\"type\\\\":\\\\"url\\\\",\\n \\\\"url\\\\":\\\\"https://example..com\\\\",\\n \\\\"description\\\\":\\\\"Specify a cross-zone high availability cluster. \\\\"\\n}]
+   */
   solutions?: string;
+  /**
+   * @remarks
+   * The source business of the O\\&M item.
+   * 
+   * @example
+   * /aliyun/ecs
+   */
   source?: string;
+  /**
+   * @remarks
+   * The state of the O\\&M item.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the O\\&M item.
+   * 
+   * @example
+   * {"k1": "v1"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The title of the O\\&M item.
+   * 
+   * @example
+   * ECS reboot is scheduled
+   */
   title?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M item was updated.
+   * 
+   * @example
+   * 2023-03-24T03:55Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8060,18 +15892,109 @@ export class CreateOpsItemResponseBodyOpsItem extends $tea.Model {
 }
 
 export class CreateParameterResponseBodyParameter extends $tea.Model {
+  /**
+   * @remarks
+   * The constraints of the common parameter.
+   * 
+   * @example
+   * "{\\"AllowedValues\\":[\\"parameter\\"],\\"AllowedPattern\\":\\"parameter\\",\\"MinLength\\":0,\\"MaxLength\\":20}"
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was created.
+   * 
+   * @example
+   * 2020-09-01T08:01:43Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the common parameter.
+   * 
+   * @example
+   * parameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the common parameter.
+   * 
+   * @example
+   * p-4c4b401cab6747xxxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the common parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the common parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the common parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the common parameter.
+   * 
+   * @example
+   * String
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was updated.
+   * 
+   * @example
+   * 2020-09-01T08:01:43Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8115,7 +16038,21 @@ export class CreateParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class CreatePatchBaselineRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8137,7 +16074,21 @@ export class CreatePatchBaselineRequestTags extends $tea.Model {
 }
 
 export class CreatePatchBaselineResponseBodyPatchBaselineTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8159,22 +16110,129 @@ export class CreatePatchBaselineResponseBodyPatchBaselineTags extends $tea.Model
 }
 
 export class CreatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
+  /**
+   * @remarks
+   * The rules of scanning and installing patches for the specified operating system.
+   * 
+   * @example
+   * {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
+   */
   approvalRules?: string;
+  /**
+   * @remarks
+   * The approved patches.
+   */
   approvedPatches?: string[];
+  /**
+   * @remarks
+   * Indicates whether the approved patch involves updates other than security-related updates.
+   * 
+   * @example
+   * true
+   */
   approvedPatchesEnableNonSecurity?: boolean;
+  /**
+   * @remarks
+   * The creator of the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the patch baseline was created.
+   * 
+   * @example
+   * 2021-09-08T06:25:41Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the patch baseline.
+   * 
+   * @example
+   * PatchBaseline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the patch baseline.
+   * 
+   * @example
+   * pb-0a0aeda72ed147eb97ea
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the operating system.
+   * 
+   * @example
+   * Windows
+   */
   operationSystem?: string;
+  /**
+   * @remarks
+   * The rejected patches.
+   */
   rejectedPatches?: string[];
+  /**
+   * @remarks
+   * The action of the rejected patch.
+   * 
+   * @example
+   * "ALLOW_AS_DEPENDENCY"
+   */
   rejectedPatchesAction?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfm3comlufxpva
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the patch baseline.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The patch source configurations.
+   */
   sources?: string[];
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: CreatePatchBaselineResponseBodyPatchBaselineTags[];
+  /**
+   * @remarks
+   * The Alibaba Cloud account that last modified the information about the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the information about the patch baseline was last modified.
+   * 
+   * @example
+   * 2021-09-08T06:25:41Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8226,20 +16284,125 @@ export class CreatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
 }
 
 export class CreateSecretParameterResponseBodyParameter extends $tea.Model {
+  /**
+   * @remarks
+   * The constraints of the encryption parameter.
+   * 
+   * @example
+   * \\"{ 	"AllowedValues": ["secretparameter"], 	"AllowedPattern": "secretparameter", 	"MinLength": 0, 	"MaxLength": 20 }\\"
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the encryption parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the encryption parameter was created.
+   * 
+   * @example
+   * 2020-09-01T09:30:36Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The instance ID of the KMS instance.
+   * 
+   * @example
+   * kst-hzz****
+   */
   DKMSInstanceId?: string;
+  /**
+   * @remarks
+   * The description of the encryption parameter.
+   * 
+   * @example
+   * SecretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the encryption parameter.
+   * 
+   * @example
+   * p-0b0fff9919c946xxxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The key ID of KMS that is used to encrypt the parameter.
+   * 
+   * @example
+   * 80e9409f-78fa-42ab-84bd-83f40c******
+   */
   keyId?: string;
+  /**
+   * @remarks
+   * The name of the encryption parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the encryption parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the encryption parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the parameter.
+   * 
+   * @example
+   * Secret
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the encryption parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the encryption parameter was updated.
+   * 
+   * @example
+   * 2020-09-01T09:30:36Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8287,18 +16450,109 @@ export class CreateSecretParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class CreateStateConfigurationResponseBodyStateConfiguration extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration mode. Valid values:
+   * 
+   * @example
+   * ApplyAndAutoCorrect
+   */
   configureMode?: string;
+  /**
+   * @remarks
+   * The time when the desired-state configuration was created.
+   * 
+   * @example
+   * 2021-03-22T03:13:32Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * collect inventory data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The parameters.
+   * 
+   * @example
+   * {"policy": {"ACS:Network": {"Collection": "Enabled"}, "ACS:Application": {"Collection": "Enabled"}}}
+   */
   parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The schedule expression.
+   * 
+   * @example
+   * 1 hour
+   */
   scheduleExpression?: string;
+  /**
+   * @remarks
+   * The schedule type.
+   * 
+   * @example
+   * rate
+   */
   scheduleType?: string;
+  /**
+   * @remarks
+   * The ID of the desired-state configuration.
+   * 
+   * @example
+   * sc-a538febe18fabcdef
+   */
   stateConfigurationId?: string;
+  /**
+   * @remarks
+   * The tags added to the configuration.
+   * 
+   * @example
+   * {"Key": "oos", "Value": "inventory"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The queried resources.
+   * 
+   * @example
+   * {     "ResourceType": "ALIYUN::ECS::Instance",     "Filters": [       {         "Type": "All",         "RegionId": "cn-hangzhou",         "Parameters": {           "RegionId": "cn-hangzhou",           "Status": "Running"         }       }     ]   }
+   */
   targets?: string;
+  /**
+   * @remarks
+   * The template ID.
+   * 
+   * @example
+   * t-1234asadf
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The name of the template version.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8342,19 +16596,117 @@ export class CreateStateConfigurationResponseBodyStateConfiguration extends $tea
 }
 
 export class CreateTemplateResponseBodyTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The creator of the template.
+   * 
+   * @example
+   * root(13090000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the template was created.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the template.
+   * 
+   * @example
+   * Describe instances of given status
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the template was configured with a trigger.
+   * 
+   * @example
+   * true
+   */
   hasTrigger?: boolean;
+  /**
+   * @remarks
+   * The SHA-256 value of the template content.
+   * 
+   * @example
+   * 4bc7d7a21b3e003434b9c223f6e6d2578b5ebfeb5be28c1fcf8a8a1b11907bb4
+   */
   hash?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the template. The share type of the template that you create is Private.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags of the resources.
+   * 
+   * @example
+   * {     "k1":"v1",     "k2":"v2" }
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The format of the template. The system automatically determines whether the format is JSON or YAML.
+   * 
+   * @example
+   * JSON
+   */
   templateFormat?: string;
+  /**
+   * @remarks
+   * The ID of the template.
+   * 
+   * @example
+   * t-94753d38
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version of the template. The name of the version consists of the letter v and a number. The number starts from 1.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account that last modified the information about the template.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the template was last updated.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8400,15 +16752,85 @@ export class CreateTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class DescribeApplicationGroupBillResponseBodyApplicationGroupConsume extends $tea.Model {
+  /**
+   * @remarks
+   * The amount consumed by the instance.
+   * 
+   * @example
+   * 18.88
+   */
   amount?: number;
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * 2023-06-10T06:00Z
+   */
   creationTime?: string;
+  /**
+   * @remarks
+   * The currency unit.
+   * 
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * i-0jl781czrhqey0s5zpsj
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * test-
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The instance type.
+   * 
+   * @example
+   * ALIYUN::ECS::INSTANCE
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * Optimization suggestions.
+   * 
+   * @example
+   * 1
+   */
   optimization?: string;
+  /**
+   * @remarks
+   * The peak type.
+   * 
+   * @example
+   * WHITE
+   */
   peakType?: string;
+  /**
+   * @remarks
+   * The performance of the data synchronization instance.
+   * 
+   * @example
+   * "{\\"mem\\":\\"6.82\\",\\"cpu\\":\\"0.55\\"}"
+   */
   performance?: string;
+  /**
+   * @remarks
+   * The status of instance.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8446,8 +16868,29 @@ export class DescribeApplicationGroupBillResponseBodyApplicationGroupConsume ext
 }
 
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * China (Shenzhen)
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The endpoint of the region.
+   * 
+   * @example
+   * oos.cn-shenzhen.aliyuncs.com
+   */
   regionEndpoint?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shenzhen
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8471,8 +16914,23 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class GetApplicationResponseBodyApplicationAlarmConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The alert contact list.
+   */
   contactGroups?: string[];
+  /**
+   * @remarks
+   * The health check URL of the application.
+   * 
+   * @example
+   * /api/health/
+   */
   healthCheckUrl?: string;
+  /**
+   * @remarks
+   * The ID of the alert template.
+   */
   templateIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8496,14 +16954,100 @@ export class GetApplicationResponseBodyApplicationAlarmConfig extends $tea.Model
 }
 
 export class GetApplicationResponseBodyApplication extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of application alerts.
+   */
   alarmConfig?: GetApplicationResponseBodyApplicationAlarmConfig;
+  /**
+   * @remarks
+   * The type of the application.
+   * 
+   * Valid values:
+   * 
+   * *   ComputeNest
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Custom
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DingTalk
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * DingTalk
+   */
   applicationType?: string;
+  /**
+   * @remarks
+   * The time when the application was created.
+   * 
+   * @example
+   * 2021-09-07T09:17:46Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The description of the application.
+   * 
+   * @example
+   * Application
+   */
   description?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * MyApplication
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the service.
+   * 
+   * @example
+   * service-79538e30e44541b699d8
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The time when the application was updated.
+   * 
+   * @example
+   * 2021-09-07T09:17:46Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8539,19 +17083,117 @@ export class GetApplicationResponseBodyApplication extends $tea.Model {
 }
 
 export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The ID of the application group in CloudMonitor.
+   * 
+   * @example
+   * 12345678
+   */
   cmsGroupId?: string;
+  /**
+   * @remarks
+   * The time when the application group was created.
+   * 
+   * @example
+   * 2021-09-07T10:28:25Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The output of the deployment result.
+   * 
+   * @example
+   * {       "Outputs": [         {           "Description": "No description given",           "OutputKey": "InstanceIds"         }       ],       "StackId": "6ef4b860-f6e7-4145-8d22-f4a2a32363e1"     }   }
+   */
   deployOutputs?: string;
+  /**
+   * @remarks
+   * The configuration information of the application group.
+   * 
+   * @example
+   * {       "TemplateURL": "https://ros-template.oss-cn-zhangjiakou.aliyuncs.com/App_Management_Existing_Vpc_Ecs_Instance.json",       "Parameters": {         "ZoneId": "cn-hangzhou-k",         "ProjectName": "test",         "SystemDiskSize": 40,         "InstanceChargeType": "PostPaid",         "SecurityGroupId": "sg-bp1a4374akk63jl8tddy",         "VSwitchId": "vsw-bp1fcvc3zn0jrag86rrlm",         "SystemDiskCategory": "cloud_essd",         "InstancePassword": "******",         "InternetChargeType": "PayByTraffic",         "InstanceCount": 1,         "InternetMaxBandwidthOut": 0,         "VpcId": "vpc-bp1i99boyas8i8m9t3skp",         "EcsImageId": "centos_8_5_x64_20G_alibase_20211228.vhd",         "DataDiskSize": 100,         "EcsInstanceType": "ecs.s6-c1m4.small",         "DataDiskCategory": "cloud_efficiency",         "EnvironmentCommandId": "c-hz028fc3g031gcg"       }
+   */
   deployParameters?: string;
+  /**
+   * @remarks
+   * The ID of the region in which you deploy the application group.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   deployRegionId?: string;
+  /**
+   * @remarks
+   * The description of the application group.
+   * 
+   * @example
+   * ApplicationGroup
+   */
   description?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
   importTagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
   importTagValue?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * @example
+   * MyApplicationGroup
+   */
   name?: string;
+  /**
+   * @remarks
+   * The creation progress of the application instance.
+   * 
+   * @example
+   * 100
+   */
   progress?: string;
+  /**
+   * @remarks
+   * The state of the application group.
+   * 
+   * @example
+   * Created
+   */
   status?: string;
+  /**
+   * @remarks
+   * The state information of the application group.
+   * 
+   * @example
+   * Stack CREATE completed successfully
+   */
   statusReason?: string;
+  /**
+   * @remarks
+   * The time when the application group was last modified.
+   * 
+   * @example
+   * 2021-09-07T10:28:25Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8597,17 +17239,101 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
 }
 
 export class GetExecutionTemplateResponseBodyTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The creator of the template.
+   * 
+   * @example
+   * root(13090000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the template was created.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the template.
+   * 
+   * @example
+   * Get status of instances
+   */
   description?: string;
+  /**
+   * @remarks
+   * The SHA-256 value of the template content.
+   * 
+   * @example
+   * 4bc7d7a21b3e003434b9c223f6e6d2578b5ebfeb5be28c1fcf8a8a1b11907bb4
+   */
   hash?: string;
+  /**
+   * @remarks
+   * The share type of the template. The share type of a user-created template is **Private**.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"k2","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The format of the template. The system automatically determines whether the format is JSON or YAML.
+   * 
+   * @example
+   * JSON
+   */
   templateFormat?: string;
+  /**
+   * @remarks
+   * The ID of the template.
+   * 
+   * @example
+   * t-94753d4d828d38
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version of the template. The name of the version consists of the letter v and a number. The number starts from 1.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The user who last updated the template.
+   * 
+   * @example
+   * root(13090000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the template was last updated.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8649,7 +17375,21 @@ export class GetExecutionTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class GetInventorySchemaResponseBodySchemasAttributes extends $tea.Model {
+  /**
+   * @remarks
+   * The data type of the property.
+   * 
+   * @example
+   * STRING
+   */
   dataType?: string;
+  /**
+   * @remarks
+   * The name of the property.
+   * 
+   * @example
+   * ApplicationType
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8671,8 +17411,26 @@ export class GetInventorySchemaResponseBodySchemasAttributes extends $tea.Model 
 }
 
 export class GetInventorySchemaResponseBodySchemas extends $tea.Model {
+  /**
+   * @remarks
+   * The properties of the configuration list.
+   */
   attributes?: GetInventorySchemaResponseBodySchemasAttributes[];
+  /**
+   * @remarks
+   * The name of the configuration list.
+   * 
+   * @example
+   * ACS:Application
+   */
   typeName?: string;
+  /**
+   * @remarks
+   * The version of the configuration list.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8696,22 +17454,132 @@ export class GetInventorySchemaResponseBodySchemas extends $tea.Model {
 }
 
 export class GetOpsItemResponseBodyOpsItem extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the attributes of the O\\&M item.
+   */
   attributes?: { [key: string]: any };
+  /**
+   * @remarks
+   * The category of the O\\&M item.
+   * 
+   * @example
+   * Security
+   */
   category?: string;
+  /**
+   * @remarks
+   * The user who created the O\\&M item.
+   * 
+   * @example
+   * root(130900000)
+   */
   createBy?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M item was created.
+   * 
+   * @example
+   * 2023-04-10T06:15Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test-update
+   */
   description?: string;
+  /**
+   * @remarks
+   * The user who last modified the O\\&M item.
+   * 
+   * @example
+   * modifiedBy
+   */
   lastModifiedBy?: string;
+  /**
+   * @remarks
+   * The O\\&M item ID.
+   * 
+   * @example
+   * oi-d52b08695e2b46ae8413
+   */
   opsItemId?: string;
+  /**
+   * @remarks
+   * The priority of the O\\&M item.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aekzxkofnlxtn2i
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Names (ARNs) of the associated resources.
+   */
   resources?: string[];
+  /**
+   * @remarks
+   * The severity level of the O\\&M item.
+   * 
+   * @example
+   * Medium
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The solutions to the O\\&M item.
+   */
   solutions?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The source business of the O\\&M item.
+   * 
+   * @example
+   * /aliyun/appManager
+   */
   source?: string;
+  /**
+   * @remarks
+   * The status of the O\\&M item.
+   * 
+   * @example
+   * Open
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags attached to the O\\&M item.
+   * 
+   * @example
+   * {"K1":"V1"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The title of the O\\&M item.
+   * 
+   * @example
+   * test
+   */
   title?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M item was updated.
+   * 
+   * @example
+   * 2023-04-10T06:15Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8763,19 +17631,117 @@ export class GetOpsItemResponseBodyOpsItem extends $tea.Model {
 }
 
 export class GetParameterResponseBodyParameter extends $tea.Model {
+  /**
+   * @remarks
+   * The constraints of the common parameter.
+   * 
+   * @example
+   * \\"{\\"\\"AllowedValues":["parameter"],"AllowedPattern":"parameter","MinLength":0,"MaxLength":20}\\"
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was created.
+   * 
+   * @example
+   * 2020-09-01T08:01:43Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the common parameter.
+   * 
+   * @example
+   * parameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the common parameter.
+   * 
+   * @example
+   * p-4c4b401cab6747xxxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the common parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the common parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m*****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the common parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags added to the common parameter.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The data type of the common parameter.
+   * 
+   * @example
+   * String
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was updated.
+   * 
+   * @example
+   * 2020-09-01T08:01:43Z
+   */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The value of the common parameter.
+   * 
+   * @example
+   * parameter
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8821,19 +17787,117 @@ export class GetParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class GetParametersResponseBodyParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The constraints of the common parameter.
+   * 
+   * @example
+   * {\\"MaxLength\\": 2}
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was created.
+   * 
+   * @example
+   * 2020-10-22T03:30:45Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the common parameter.
+   * 
+   * @example
+   * parameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the common parameter.
+   * 
+   * @example
+   * p-7cdc0000000000000000
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the common parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the common parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the common parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the parameter.
+   * 
+   * @example
+   * StringList
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the parameter was updated.
+   * 
+   * @example
+   * 2020-10-22T03:30:45Z
+   */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The value of the common parameter.
+   * 
+   * @example
+   * parameter,parameter1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8879,18 +17943,109 @@ export class GetParametersResponseBodyParameters extends $tea.Model {
 }
 
 export class GetParametersByPathResponseBodyParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The constraints of the common parameter.
+   * 
+   * @example
+   * {\\"MaxLength\\": 2}
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was created.
+   * 
+   * @example
+   * 2020-10-21T04:03:12Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the common parameter.
+   * 
+   * @example
+   * parameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the common parameter.
+   * 
+   * @example
+   * p-7cdc0000000000000000
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the common parameter.
+   * 
+   * @example
+   * myParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the common parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The share type of the common parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags added to the common parameters.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the common parameter.
+   * 
+   * @example
+   * StringList
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was last updated.
+   * 
+   * @example
+   * 2020-10-21T04:03:12Z
+   */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The value of the common parameter.
+   * 
+   * @example
+   * "parameter1,parameter2"
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8934,7 +18089,21 @@ export class GetParametersByPathResponseBodyParameters extends $tea.Model {
 }
 
 export class GetPatchBaselineResponseBodyPatchBaselineTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8956,23 +18125,137 @@ export class GetPatchBaselineResponseBodyPatchBaselineTags extends $tea.Model {
 }
 
 export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
+  /**
+   * @remarks
+   * The rules of scanning and installing patches for the specified operating system.
+   * 
+   * @example
+   * {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
+   */
   approvalRules?: string;
+  /**
+   * @remarks
+   * The approved patches.
+   */
   approvedPatches?: string[];
+  /**
+   * @remarks
+   * Indicates whether the approved patch involves updates other than security-related updates.
+   * 
+   * @example
+   * true
+   */
   approvedPatchesEnableNonSecurity?: boolean;
+  /**
+   * @remarks
+   * The creator of the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the patch baseline was created.
+   * 
+   * @example
+   * 2021-09-07T03:42:56Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the patch baseline.
+   * 
+   * @example
+   * UpdatePatchBaseline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the patch baseline.
+   * 
+   * @example
+   * pb-445340b5c6504a85a300
+   */
   id?: string;
+  /**
+   * @remarks
+   * Indicates whether the patch baseline is set as the default patch baseline.
+   * 
+   * @example
+   * false
+   */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * @example
+   * MypatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the operating system.
+   * 
+   * @example
+   * Windows
+   */
   operationSystem?: string;
+  /**
+   * @remarks
+   * The rejected patches.
+   */
   rejectedPatches?: string[];
+  /**
+   * @remarks
+   * The action of the rejected patch.
+   * 
+   * @example
+   * ALLOW_AS_DEPENDENCY
+   */
   rejectedPatchesAction?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmzmhzoaad5oq
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the patch baseline.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The patch source configurations.
+   */
   sources?: string[];
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: GetPatchBaselineResponseBodyPatchBaselineTags[];
+  /**
+   * @remarks
+   * The user who last modified the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the patch baseline was last modified.
+   * 
+   * @example
+   * 2021-09-08T07:26:38Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9026,21 +18309,133 @@ export class GetPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
 }
 
 export class GetSecretParameterResponseBodyParameter extends $tea.Model {
+  /**
+   * @remarks
+   * The constraints of the encryption parameter.
+   * 
+   * @example
+   * \\"{\\"\\"AllowedValues":["secretparameter"],"AllowedPattern":".*","MinLength":0,"MaxLength":20}\\"
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the encryption parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the encryption parameter was created.
+   * 
+   * @example
+   * 2020-09-01T09:28:47Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The instance ID of the KMS instance.
+   * 
+   * @example
+   * kst-hzz****
+   */
   DKMSInstanceId?: string;
+  /**
+   * @remarks
+   * The description of the encryption parameter.
+   * 
+   * @example
+   * SecretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the encryption parameter.
+   * 
+   * @example
+   * p-14ed150fdcd048xxxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The ID of the key of Key Management Service (KMS) that is used for encryption.
+   * 
+   * @example
+   * 80e9409f-78fa-42ab-84bd-83f40c******
+   */
   keyId?: string;
+  /**
+   * @remarks
+   * The name of the encryption parameter.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the encryption parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the encryption parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags of the parameter.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the parameter.
+   * 
+   * @example
+   * Secret
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the encryption parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the encryption parameter was updated.
+   * 
+   * @example
+   * 2020-09-01T09:35:17Z
+   */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The value of the encryption parameter.
+   * 
+   * @example
+   * SecretParameter
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9090,20 +18485,125 @@ export class GetSecretParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class GetSecretParametersResponseBodyParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The constraints of the encryption parameter.
+   * 
+   * @example
+   * {\\"AllowedValues\\": [\\"test\\"]}
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the encryption parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the encryption parameter was created.
+   * 
+   * @example
+   * 2020-10-22T03:11:13Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the encryption parameter.
+   * 
+   * @example
+   * secretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the encryption parameter.
+   * 
+   * @example
+   * p-7cdc0000000000000000
+   */
   id?: string;
+  /**
+   * @remarks
+   * The ID of the key.
+   * 
+   * @example
+   * ssh-bp67acfmxazb4p****
+   */
   keyId?: string;
+  /**
+   * @remarks
+   * The name of the encryption parameter.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the encryption parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the encryption parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The data type of the encryption parameter.
+   * 
+   * @example
+   * Secret
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the encryption parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the encryption parameter was updated.
+   * 
+   * @example
+   * 2020-10-22T03:11:13Z
+   */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The value of the encryption parameter.
+   * 
+   * @example
+   * secretParameter,secretParameter1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9151,18 +18651,109 @@ export class GetSecretParametersResponseBodyParameters extends $tea.Model {
 }
 
 export class GetSecretParametersByPathResponseBodyParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The constraints of the encryption parameter.
+   * 
+   * @example
+   * {\\"AllowedPattern\\": \\"^[a-g]*$\\"}
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the encryption parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the encryption parameter was updated.
+   * 
+   * @example
+   * 2020-10-21T06:22:48Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the encryption parameter.
+   * 
+   * @example
+   * secretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the encryption parameter.
+   * 
+   * @example
+   * p-7cdc0000000000000000
+   */
   id?: string;
+  /**
+   * @remarks
+   * The ID of the key.
+   * 
+   * @example
+   * 090xxbex-xexx-xxxx-axfc-ddxxcxxxxcex
+   */
   keyId?: string;
+  /**
+   * @remarks
+   * The name of the encryption parameter.
+   * 
+   * @example
+   * mySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the encryption parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The share type of the encryption parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The data type of the encryption parameter.
+   * 
+   * @example
+   * Secret
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the encryption parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the encryption parameter was updated.
+   * 
+   * @example
+   * 2020-10-21T06:22:48Z
+   */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The value of the encryption parameter.
+   * 
+   * @example
+   * secretParameter
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9206,11 +18797,53 @@ export class GetSecretParametersByPathResponseBodyParameters extends $tea.Model 
 }
 
 export class GetServiceSettingsResponseBodyServiceSettings extends $tea.Model {
+  /**
+   * @remarks
+   * The name of OSS bucket to deliver.
+   * 
+   * @example
+   * OssBucketName
+   */
   deliveryOssBucketName?: string;
+  /**
+   * @remarks
+   * Whether to enable OSS delivery.
+   * 
+   * @example
+   * false
+   */
   deliveryOssEnabled?: boolean;
+  /**
+   * @remarks
+   * The key prefix of OSS to deliver.
+   * 
+   * @example
+   * oos/execution
+   */
   deliveryOssKeyPrefix?: string;
+  /**
+   * @remarks
+   * Whether to enable SLS delivery.
+   * 
+   * @example
+   * false
+   */
   deliverySlsEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of SLS project to deliver.
+   * 
+   * @example
+   * SlsProjectName
+   */
   deliverySlsProjectName?: string;
+  /**
+   * @remarks
+   * The id of RDC Enterprise.
+   * 
+   * @example
+   * RdcEnterpriseId
+   */
   rdcEnterpriseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9240,21 +18873,133 @@ export class GetServiceSettingsResponseBodyServiceSettings extends $tea.Model {
 }
 
 export class GetTemplateResponseBodyTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The creator of the template.
+   * 
+   * @example
+   * ACS
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the template was created.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the template.
+   * 
+   * @example
+   * "{\\"en\\": \\"Creates an ECS image\\", \\"zh-cn\\": \\"创建一个ECS镜像\\", \\"name-en\\": \\"Create Image\\", \\"name-zh-cn\\": \\"创建镜像\\", \\"categories\\": [\\"image_manage\\", \\"application_manage\\"]}"
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the template was configured with a trigger.
+   * 
+   * @example
+   * false
+   */
   hasTrigger?: boolean;
+  /**
+   * @remarks
+   * The SHA-256 value of the template content.
+   * 
+   * @example
+   * 40fb5e3e08ef6c8a499ff7cd8441194f518028ad08338a84cb70c023a64576f1
+   */
   hash?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the template. The share type of a user-created template is **Private**.
+   * 
+   * @example
+   * Public
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"k2","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The format of the template. The system automatically determines whether the format is JSON or YAML.
+   * 
+   * @example
+   * YAML
+   */
   templateFormat?: string;
+  /**
+   * @remarks
+   * The ID of the template.
+   * 
+   * @example
+   * t-4bdb1745c171401883a2
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * ACS-ECS-CreateImage
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The type of the template.
+   * 
+   * @example
+   * Automation
+   */
   templateType?: string;
+  /**
+   * @remarks
+   * The version of the template. The name of the version consists of the letter v and a number. The number starts from 1.
+   * 
+   * @example
+   * v15
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The user who last updated the template.
+   * 
+   * @example
+   * ACS
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the template was last updated.
+   * 
+   * @example
+   * 2022-04-26T08:37:07Z
+   */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The name of the version of the template.
+   * 
+   * @example
+   * version15
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9304,12 +19049,78 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class ListActionsResponseBodyActions extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the action.
+   * 
+   * 1.  Atomic actions
+   * 
+   *     *   Atomic.API
+   *     *   Atomic.Trigger
+   *     *   Atomic.Control
+   *     *   Atomic.Embedded
+   * 
+   * 2.  Cloud product actions
+   * 
+   *     *   Product.ECS
+   *     *   Product.RDS
+   *     *   Product.VPC
+   *     *   Product.FC
+   *     *   ...
+   * 
+   * @example
+   * ACS::Template
+   */
   actionType?: string;
+  /**
+   * @remarks
+   * The time when the action was created.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the action.
+   * 
+   * @example
+   * ReplaceSystemDisk
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the action.
+   * 
+   * @example
+   * ACS::ECS::ReplaceSystemDisk
+   */
   OOSActionName?: string;
+  /**
+   * @remarks
+   * The number of times that the action is used.
+   * 
+   * @example
+   * 5
+   */
   popularity?: number;
+  /**
+   * @remarks
+   * The parameters of the action.
+   * 
+   * @example
+   * { "ImageId": { "Description": "The mirror ID you will use when resetting the system", "Type": "String" }, "InstanceId": { "Description": "the instance id that you will handle .", "Type": "String" } }
+   */
   properties?: string;
+  /**
+   * @remarks
+   * The version of the template that corresponds to the action.
+   * 
+   * >  For atomic actions, this parameter is not returned.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9341,17 +19152,101 @@ export class ListActionsResponseBodyActions extends $tea.Model {
 }
 
 export class ListApplicationGroupsResponseBodyApplicationGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The ID of the application group in CloudMonitor.
+   * 
+   * @example
+   * 12345678
+   */
   cmsGroupId?: string;
+  /**
+   * @remarks
+   * The time when the application group was created.
+   * 
+   * @example
+   * 2021-09-07T10:28:25Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The configuration information of the application group.
+   * 
+   * @example
+   * {   "TemplateURL": "https://ros-template.oss-cn-zhangjiakou.aliyuncs.com/App_Management_Existing_Vpc_Ecs_Instance.json",   "Parameters": {     "ZoneId": "cn-hangzhou-k",     "ProjectName": "test",     "SystemDiskSize": 40,     "InstanceChargeType": "PostPaid",     "SecurityGroupId": "sg-bp1a4374akk63jl8tddy",     "VSwitchId": "vsw-bp1fcvc3zn0jrag86rrlm",     "SystemDiskCategory": "cloud_essd",     "InstancePassword": "******",     "InternetChargeType": "PayByTraffic",     "InstanceCount": 1,     "InternetMaxBandwidthOut": 0,     "VpcId": "vpc-bp1i99boyas8i8m9t3skp",     "EcsImageId": "centos_8_5_x64_20G_alibase_20211228.vhd",     "DataDiskSize": 100,     "EcsInstanceType": "ecs.s6-c1m4.small",     "DataDiskCategory": "cloud_efficiency",     "EnvironmentCommandId": "c-hz028fc3g031gcg"   },   "RegionId": "cn-hangzhou",   "StackName": "stack-1645688523068-3no_AKhOJ",   "DisableRollback": true }
+   */
   deployParameters?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the related resources reside.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   deployRegionId?: string;
+  /**
+   * @remarks
+   * The description of the application group.
+   * 
+   * @example
+   * ApplicationGroup
+   */
   description?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
   importTagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
   importTagValue?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * @example
+   * UpdateMyApplicationGroup
+   */
   name?: string;
+  /**
+   * @remarks
+   * The state of the application group.
+   * 
+   * @example
+   * Created
+   */
   status?: string;
+  /**
+   * @remarks
+   * The state information of the application group.
+   * 
+   * @example
+   * ApplicationGroup is Created.
+   */
   statusReason?: string;
+  /**
+   * @remarks
+   * The time when the application group was updated.
+   * 
+   * @example
+   * 2021-09-08T03:01:53Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9393,12 +19288,61 @@ export class ListApplicationGroupsResponseBodyApplicationGroups extends $tea.Mod
 }
 
 export class ListApplicationsResponseBodyApplications extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the application.
+   * 
+   * @example
+   * DingTalk
+   */
   applicationType?: string;
+  /**
+   * @remarks
+   * The time when the application was created.
+   * 
+   * @example
+   * 2021-09-07T09:09:59Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The description of the application.
+   * 
+   * @example
+   * Application
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * MyApplication
+   */
   name?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags added to the application.
+   * 
+   * @example
+   * {"k1": "v1","k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The time when the application was updated.
+   * 
+   * @example
+   * 2021-09-07T09:09:59Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9430,9 +19374,37 @@ export class ListApplicationsResponseBodyApplications extends $tea.Model {
 }
 
 export class ListExecutionLogsResponseBodyExecutionLogs extends $tea.Model {
+  /**
+   * @remarks
+   * The log type.
+   * 
+   * @example
+   * System
+   */
   logType?: string;
+  /**
+   * @remarks
+   * The details of the task execution.
+   * 
+   * @example
+   * The task CheckDiskCategory completed.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The task execution ID.
+   * 
+   * @example
+   * exec-1234567zxcvb.t0010
+   */
   taskExecutionId?: string;
+  /**
+   * @remarks
+   * The timestamp when the task was run.
+   * 
+   * @example
+   * 2019-05-24T:02:29:07Z
+   */
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9458,9 +19430,31 @@ export class ListExecutionLogsResponseBodyExecutionLogs extends $tea.Model {
 }
 
 export class ListExecutionRiskyTasksResponseBodyRiskyTasks extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the operation that the high-risk task calls.
+   * 
+   * @example
+   * DeleteInstance
+   */
   API?: string;
+  /**
+   * @remarks
+   * The cloud service in which the high-risk task runs.
+   * 
+   * @example
+   * ECS
+   */
   service?: string;
+  /**
+   * @remarks
+   * The details of the high-risk task.
+   */
   task?: string[];
+  /**
+   * @remarks
+   * The details of templates to which the high-risk task belongs.
+   */
   template?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9486,8 +19480,29 @@ export class ListExecutionRiskyTasksResponseBodyRiskyTasks extends $tea.Model {
 }
 
 export class ListExecutionsResponseBodyExecutionsCurrentTasks extends $tea.Model {
+  /**
+   * @remarks
+   * The execution template of the task.
+   * 
+   * @example
+   * acs::Template
+   */
   taskAction?: string;
+  /**
+   * @remarks
+   * The ID of the task execution.
+   * 
+   * @example
+   * task-exec-44d32b45d2a49899#1
+   */
   taskExecutionId?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * installSLSILogtail
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9511,38 +19526,268 @@ export class ListExecutionsResponseBodyExecutionsCurrentTasks extends $tea.Model
 }
 
 export class ListExecutionsResponseBodyExecutions extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the execution template. Valid values: Other, TimerTrigger, EventTrigger, and AlarmTrigger.
+   * 
+   * @example
+   * Other
+   */
   category?: string;
+  /**
+   * @remarks
+   * The number of tasks that are counted by execution status.
+   * 
+   * @example
+   * {"Failed": 0,"Success": 1,"Total": 2}
+   */
   counters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The time when the execution was created.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The information about the tasks that are running.
+   */
   currentTasks?: ListExecutionsResponseBodyExecutionsCurrentTasks[];
+  /**
+   * @remarks
+   * The description of the execution.
+   * 
+   * @example
+   * test execution.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The time when the execution stops running.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The account ID of the user who started the execution of the template.
+   * 
+   * @example
+   * 1309252800
+   */
   executedBy?: string;
+  /**
+   * @remarks
+   * The unique ID of the execution.
+   * 
+   * @example
+   * exec-44d32b45d2a449e
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * Indicates whether the execution contains child executions.
+   * 
+   * @example
+   * false
+   */
   isParent?: boolean;
+  /**
+   * @remarks
+   * The time when the template was last successfully triggered.
+   * 
+   * @example
+   * 2019-05-27T09:29:18Z
+   */
   lastSuccessfulTriggerTime?: string;
+  /**
+   * @remarks
+   * The outputs of last trigger.
+   * 
+   * @example
+   * {
+   *       "InstanceId": "i-xxx"
+   * }
+   */
   lastTriggerOutputs?: string;
+  /**
+   * @remarks
+   * The status of the execution after the template was last triggered.
+   * 
+   * @example
+   * Success
+   */
   lastTriggerStatus?: string;
+  /**
+   * @remarks
+   * The status message of last trigger.
+   * 
+   * @example
+   * ""
+   */
   lastTriggerStatusMessage?: string;
+  /**
+   * @remarks
+   * The time when the template was last successfully triggered.
+   * 
+   * @example
+   * 2019-05-27T09:29:18Z
+   */
   lastTriggerTime?: string;
+  /**
+   * @remarks
+   * The execution mode.
+   * 
+   * @example
+   * Automatic
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The output of the execution.
+   * 
+   * @example
+   * { "InstanceId":"i-xxx" }
+   */
   outputs?: string;
+  /**
+   * @remarks
+   * The input parameters of the execution.
+   * 
+   * @example
+   * { "Status":"Running" }
+   */
   parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The ID of the parent execution.
+   * 
+   * @example
+   * exec-xxx
+   */
   parentExecutionId?: string;
+  /**
+   * @remarks
+   * The role that started the execution of the template.
+   * 
+   * @example
+   * OOSServiceRole
+   */
   ramRole?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the resource.
+   * 
+   * @example
+   * { 			"Success": 1 		}
+   */
   resourceStatus?: string;
+  /**
+   * @remarks
+   * The security check mode. Valid values: Skip, and ConfirmEveryHighRiskAction.
+   * 
+   * @example
+   * Skip
+   */
   safetyCheck?: string;
+  /**
+   * @remarks
+   * The time when the execution was started.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The status of the execution. Valid values: Started, Queued, Running, Waiting, Success, Failed, and Cancelled.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * The status of the task execution.
+   * 
+   * @example
+   * “”
+   */
   statusMessage?: string;
+  /**
+   * @remarks
+   * The reason for which the status occurs.
+   * 
+   * @example
+   * ""
+   */
   statusReason?: string;
+  /**
+   * @remarks
+   * The tags of the execution.
+   * 
+   * @example
+   * {}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The target resource.
+   * 
+   * @example
+   * "{"ResourceType": "ALIYUN::ECS::Instance", "Filters": [{"ResourceIds": ["i-bp14z07dg3464980x72o"], "RegionId": "cn-hangzhou", "Type": "ResourceIds"}]}"
+   */
   targets?: string;
+  /**
+   * @remarks
+   * The ID of the template.
+   * 
+   * @example
+   * 123
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version number of the template.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The time when the execution was updated.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   updateDate?: string;
+  /**
+   * @remarks
+   * The Waiting state.
+   * 
+   * @example
+   * ""
+   */
   waitingStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9653,19 +19898,189 @@ export class ListGitRepositoriesResponseBodyGitRepos extends $tea.Model {
   }
 }
 
+export class ListInstancePackageStatesResponseBodyPackageStates extends $tea.Model {
+  /**
+   * @example
+   * template description
+   */
+  description?: string;
+  /**
+   * @example
+   * {}
+   */
+  parameters?: string;
+  /**
+   * @example
+   * Alibaba Cloud
+   */
+  publisher?: string;
+  /**
+   * @example
+   * Package
+   */
+  templateCategory?: string;
+  /**
+   * @example
+   * 087b1e11072a40259f6fxxxxxxxxx
+   */
+  templateId?: string;
+  /**
+   * @example
+   * ACS-ECS-Docker
+   */
+  templateName?: string;
+  /**
+   * @example
+   * v3
+   */
+  templateVersion?: string;
+  /**
+   * @example
+   * fix bug
+   */
+  templateVersionName?: string;
+  /**
+   * @example
+   * 2024-05-04T11:17:28
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      parameters: 'Parameters',
+      publisher: 'Publisher',
+      templateCategory: 'TemplateCategory',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateVersion: 'TemplateVersion',
+      templateVersionName: 'TemplateVersionName',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      parameters: 'string',
+      publisher: 'string',
+      templateCategory: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateVersion: 'string',
+      templateVersionName: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancePatchStatesResponseBodyInstancePatchStates extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the patch baseline.
+   * 
+   * @example
+   * pb-f9393021b7a049e1b34e
+   */
   baselineId?: string;
+  /**
+   * @remarks
+   * The number of patches that failed to be installed.
+   * 
+   * @example
+   * 0
+   */
   failedCount?: string;
+  /**
+   * @remarks
+   * The number of installed patches.
+   * 
+   * @example
+   * 0
+   */
   installedCount?: string;
+  /**
+   * @remarks
+   * The number of patches that do not meet the baseline.
+   * 
+   * @example
+   * 0
+   */
   installedOtherCount?: string;
+  /**
+   * @remarks
+   * The number of patches that have been installed but require a restart to take effect.
+   * 
+   * @example
+   * 0
+   */
   installedPendingRebootCount?: string;
+  /**
+   * @remarks
+   * The number of patches that are rejected by the user.
+   * 
+   * @example
+   * 0
+   */
   installedRejectedCount?: string;
+  /**
+   * @remarks
+   * The ID of the ECS instance.
+   * 
+   * @example
+   * i-bp1jaxa2bs4bps7*****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of patches that are not installed.
+   * 
+   * @example
+   * 0
+   */
   missingCount?: string;
+  /**
+   * @remarks
+   * The time when the operation ended.
+   * 
+   * @example
+   * 2021-09-10T11:42:22Z
+   */
   operationEndTime?: string;
+  /**
+   * @remarks
+   * The time when the operation was initiated.
+   * 
+   * @example
+   * 2021-09-10T11:42:22Z
+   */
   operationStartTime?: string;
+  /**
+   * @remarks
+   * The operation type.
+   * 
+   * @example
+   * scan
+   */
   operationType?: string;
+  /**
+   * @remarks
+   * The information about the user.
+   * 
+   * @example
+   * “”
+   */
   ownerInformation?: string;
+  /**
+   * @remarks
+   * The patch group.
+   * 
+   * @example
+   * null
+   */
   patchGroup?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9709,11 +20124,53 @@ export class ListInstancePatchStatesResponseBodyInstancePatchStates extends $tea
 }
 
 export class ListInstancePatchesResponseBodyPatches extends $tea.Model {
+  /**
+   * @remarks
+   * The classification of the patch.
+   * 
+   * @example
+   * “”
+   */
   classification?: string;
+  /**
+   * @remarks
+   * The time when the patch was installed.
+   * 
+   * @example
+   * 2021-01-28T07:07:20Z
+   */
   installedTime?: string;
+  /**
+   * @remarks
+   * The Id of KBId.
+   * 
+   * @example
+   * apt-utils.amd64
+   */
   KBId?: string;
+  /**
+   * @remarks
+   * The level of the severity.
+   * 
+   * @example
+   * important
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The status of the installation.
+   * 
+   * @example
+   * Installed
+   */
   status?: string;
+  /**
+   * @remarks
+   * The name of the patch.
+   * 
+   * @example
+   * isc-dhcp-common.amd64:4.3.5-3ubuntu7.3
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9743,8 +20200,35 @@ export class ListInstancePatchesResponseBodyPatches extends $tea.Model {
 }
 
 export class ListInventoryEntriesRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the component property. Valid values of N: 1 to 5.
+   * 
+   * @example
+   * PlatformName
+   */
   name?: string;
+  /**
+   * @remarks
+   * The comparison operator that is used to filter property values. Valid values of N: 1 to 5. Valid values:
+   * 
+   * *   Equal
+   * *   NotEqual
+   * *   BeginWith
+   * *   LessThan
+   * *   GreaterThan
+   * 
+   * @example
+   * Equal
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The values of properties. Valid values of the first N: 1 to 5. Valid values of the second N: 1 to 20.
+   * 
+   * @example
+   * test
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9768,8 +20252,26 @@ export class ListInventoryEntriesRequestFilter extends $tea.Model {
 }
 
 export class ListOpsItemsRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter.
+   * 
+   * @example
+   * Status
+   */
   name?: string;
+  /**
+   * @remarks
+   * The comparison operator that is used to filter property values.
+   * 
+   * @example
+   * Equal
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The parameter values of the filter.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9793,8 +20295,26 @@ export class ListOpsItemsRequestFilter extends $tea.Model {
 }
 
 export class ListOpsItemsShrinkRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter.
+   * 
+   * @example
+   * Status
+   */
   name?: string;
+  /**
+   * @remarks
+   * The comparison operator that is used to filter property values.
+   * 
+   * @example
+   * Equal
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The parameter values of the filter.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9818,16 +20338,90 @@ export class ListOpsItemsShrinkRequestFilter extends $tea.Model {
 }
 
 export class ListOpsItemsResponseBodyOpsItems extends $tea.Model {
+  /**
+   * @remarks
+   * The category.
+   * 
+   * @example
+   * Security
+   */
   category?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M item was created.
+   * 
+   * @example
+   * 2023-07-09T10:01Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M item.
+   * 
+   * @example
+   * oi-d52b08695e2b46ae8413
+   */
   opsItemId?: string;
+  /**
+   * @remarks
+   * The priority.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The Alibaba Resource Names (ARNs) of the associated resources.
+   */
   resources?: string[];
+  /**
+   * @remarks
+   * The severity level.
+   * 
+   * @example
+   * Medium
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The source business.
+   * 
+   * @example
+   * /aliyun/ecs
+   */
   source?: string;
+  /**
+   * @remarks
+   * The status of the O\\&M item.
+   * 
+   * @example
+   * Open
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1":"v1"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The title of the O\\&M item.
+   * 
+   * @example
+   * Test
+   */
   title?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M item was updated.
+   * 
+   * @example
+   * 2023-07-09T10:01Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9867,9 +20461,37 @@ export class ListOpsItemsResponseBodyOpsItems extends $tea.Model {
 }
 
 export class ListParameterVersionsResponseBodyParameterVersions extends $tea.Model {
+  /**
+   * @remarks
+   * The version number of the common parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The user who updated the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was last updated.
+   * 
+   * @example
+   * 2020-09-07T11:37:29Z
+   */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The value of the common parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9895,17 +20517,101 @@ export class ListParameterVersionsResponseBodyParameterVersions extends $tea.Mod
 }
 
 export class ListParametersResponseBodyParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The user who created the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was created.
+   * 
+   * @example
+   * 2020-09-01T08:01:43Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the common parameter.
+   * 
+   * @example
+   * parameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The common parameter ID.
+   * 
+   * @example
+   * p-4c4b401cab6747xxxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the common parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the common parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the common parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags added to the common parameter.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The data type of the common parameter.
+   * 
+   * @example
+   * String
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was updated.
+   * 
+   * @example
+   * 2020-09-01T08:01:43Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9947,7 +20653,21 @@ export class ListParametersResponseBodyParameters extends $tea.Model {
 }
 
 export class ListPatchBaselinesRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9969,7 +20689,21 @@ export class ListPatchBaselinesRequestTags extends $tea.Model {
 }
 
 export class ListPatchBaselinesResponseBodyPatchBaselinesTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9991,20 +20725,116 @@ export class ListPatchBaselinesResponseBodyPatchBaselinesTags extends $tea.Model
 }
 
 export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
+  /**
+   * @remarks
+   * The approved patches.
+   */
   approvedPatches?: string[];
+  /**
+   * @remarks
+   * Indicates whether the approved patch involves updates other than security-related updates.
+   * 
+   * @example
+   * true
+   */
   approvedPatchesEnableNonSecurity?: boolean;
+  /**
+   * @remarks
+   * The user who created the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the patch baseline was created.
+   * 
+   * @example
+   * 2021-09-08T03:41:23Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the patch baseline.
+   * 
+   * @example
+   * ListPatchBaseline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the patch baseline.
+   * 
+   * @example
+   * pb-c2838b5d89b540e19ee6
+   */
   id?: string;
+  /**
+   * @remarks
+   * Indicates whether the patch baseline is set as the default patch baseline.
+   * 
+   * @example
+   * false
+   */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the operating system.
+   * 
+   * @example
+   * AliyunLinux
+   */
   operationSystem?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aek256ia6vhsndy
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the patch baseline.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The configurations of patch sources.
+   */
   sources?: string[];
+  /**
+   * @remarks
+   * The tags of the patch baseline.
+   */
   tags?: ListPatchBaselinesResponseBodyPatchBaselinesTags[];
+  /**
+   * @remarks
+   * The user who last updated the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the patch baseline was updated.
+   * 
+   * @example
+   * 2021-09-08T03:44:34Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10052,10 +20882,45 @@ export class ListPatchBaselinesResponseBodyPatchBaselines extends $tea.Model {
 }
 
 export class ListResourceExecutionStatusResponseBodyResourceExecutionStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * @example
+   * exec-6be6d6ff805349d9ac13
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * The time when the execution started running.
+   * 
+   * @example
+   * 2020-11-13T08:48:34Z
+   */
   executionTime?: string;
+  /**
+   * @remarks
+   * The output of the template.
+   * 
+   * @example
+   * { 				"commandOutput": "hello\\n" 			}
+   */
   outputs?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * i-bp1e1bxxxxxxxxxxxxxx
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The status of the execution.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10083,9 +20948,37 @@ export class ListResourceExecutionStatusResponseBodyResourceExecutionStatus exte
 }
 
 export class ListSecretParameterVersionsResponseBodyParameterVersions extends $tea.Model {
+  /**
+   * @remarks
+   * The version number of the encryption parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The user who updated the encryption parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the encryption parameter was updated.
+   * 
+   * @example
+   * 2020-09-01T08:01:43Z
+   */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The value of the encryption parameter.
+   * 
+   * @example
+   * SecretParameter
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10111,18 +21004,109 @@ export class ListSecretParameterVersionsResponseBodyParameterVersions extends $t
 }
 
 export class ListSecretParametersResponseBodyParameters extends $tea.Model {
+  /**
+   * @remarks
+   * The user who created the parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the parameter was created.
+   * 
+   * @example
+   * 2020-09-01T09:28:47Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the parameter.
+   * 
+   * @example
+   * SecretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the parameter.
+   * 
+   * @example
+   * p-14ed150fdcd048xxxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The ID of the KMS customer master key (CMK) that is used for encryption.
+   * 
+   * @example
+   * 80e9409f-78fa-42ab-84bd-83f40c******
+   */
   keyId?: string;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * MySecretParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the parameter.
+   * 
+   * @example
+   * 1
+   */
   parameterVersion?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags of the parameter.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The type of the parameter.
+   * 
+   * @example
+   * Secret
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the parameter was updated.
+   * 
+   * @example
+   * 2020-09-01T09:35:17Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10166,19 +21150,117 @@ export class ListSecretParametersResponseBodyParameters extends $tea.Model {
 }
 
 export class ListStateConfigurationsResponseBodyStateConfigurations extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration mode. Valid values:
+   * 
+   * @example
+   * ApplyAndAutoCorrect
+   */
   configureMode?: string;
+  /**
+   * @remarks
+   * The time when the desired-state configuration was created.
+   * 
+   * @example
+   * 2021-03-22T03:13:32Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Collect inventory data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The parameters.
+   * 
+   * @example
+   * {"policy": {"ACS:Network": {"Collection": "Enabled"}, "ACS:Application": {"Collection": "Enabled"}}}
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The schedule expression.
+   * 
+   * @example
+   * 1 hour
+   */
   scheduleExpression?: string;
+  /**
+   * @remarks
+   * The schedule type.
+   * 
+   * @example
+   * rate
+   */
   scheduleType?: string;
+  /**
+   * @remarks
+   * The ID of the desired-state configuration.
+   * 
+   * @example
+   * sc-a538febe18fabcdef
+   */
   stateConfigurationId?: string;
+  /**
+   * @remarks
+   * The tags added to the configuration.
+   * 
+   * @example
+   * {"Key": "oos", "Value": "inventory"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The queried resources.
+   * 
+   * @example
+   * { "ResourceType": "ALIYUN::ECS::Instance", "Filters": [ { "Type": "All", "RegionId": "cn-hangzhou", "Parameters": { "RegionId": "cn-hangzhou", "Status": "Running" } } ] }
+   */
   targets?: string;
+  /**
+   * @remarks
+   * The template ID.
+   * 
+   * @example
+   * t-ajshjalscfhjk2214
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version of the template.
+   * 
+   * @example
+   * v2
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The time when the configuration was updated.
+   * 
+   * @example
+   * 2021-04-22T03:13:32Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10224,9 +21306,37 @@ export class ListStateConfigurationsResponseBodyStateConfigurations extends $tea
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * TagTest2
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * @example
+   * template
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10271,24 +21381,157 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ListTaskExecutionsResponseBodyTaskExecutions extends $tea.Model {
+  /**
+   * @remarks
+   * The output of the execution.
+   * 
+   * @example
+   * exec-xxx
+   */
   childExecutionId?: string;
+  /**
+   * @remarks
+   * The ID of the execution.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The execution ID of the parent node.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The action of the task.
+   * 
+   * @example
+   * exec-44d32b45d2a449e49899
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * The Input parameters of the task execution.
+   * 
+   * @example
+   * {                     "NotifyNote":""                 }
+   */
   extraData?: { [key: string]: any };
+  /**
+   * @remarks
+   * The ID of the template.
+   * 
+   * @example
+   * {}
+   */
   loop?: { [key: string]: any };
+  /**
+   * @remarks
+   * The status information of the task execution.
+   * 
+   * @example
+   * 2
+   */
   loopBatchNumber?: number;
+  /**
+   * @remarks
+   * The time when the execution was created.
+   * 
+   * @example
+   * i-1234566zxcvvb
+   */
   loopItem?: string;
+  /**
+   * @remarks
+   * The status of the task.
+   * 
+   * @example
+   * { "InstanceId":"i-xxx" }
+   */
   outputs?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * task-exec-xxx
+   */
   parentTaskExecutionId?: string;
+  /**
+   * @remarks
+   * Queries task executions. Multiple methods are supported to filter task executions.
+   * 
+   * @example
+   * { "Status":"Running" }
+   */
   properties?: string;
+  /**
+   * @remarks
+   * The elements in the loop task.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The time when the task execution stopped running.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The additional information.
+   * 
+   * @example
+   * ""
+   */
   statusMessage?: string;
+  /**
+   * @remarks
+   * The execution ID of the task.
+   * 
+   * @example
+   * ACS::Sleep
+   */
   taskAction?: string;
+  /**
+   * @remarks
+   * The time when the execution was last updated.
+   * 
+   * @example
+   * task-exec-xxx
+   */
   taskExecutionId?: string;
+  /**
+   * @remarks
+   * The time when the execution started.
+   * 
+   * @example
+   * describeInstance
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * The number of times for which the loop task is run.
+   * 
+   * @example
+   * xxx
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The configuration and statistics information of the loop task. This parameter is returned only for the parent node of the loop task.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10344,11 +21587,53 @@ export class ListTaskExecutionsResponseBodyTaskExecutions extends $tea.Model {
 }
 
 export class ListTemplateVersionsResponseBodyTemplateVersions extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the version.
+   * 
+   * @example
+   * Detach the eip from the special instance.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The format of the template content. Valid values: YAML and JSON.
+   * 
+   * @example
+   * YAML
+   */
   templateFormat?: string;
+  /**
+   * @remarks
+   * The number of the version.
+   * 
+   * @example
+   * v2
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The user who last updated the version.
+   * 
+   * @example
+   * foo
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the version was last updated.
+   * 
+   * @example
+   * 2020-05-19T06:05:41Z
+   */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The name of the version.
+   * 
+   * @example
+   * baz
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10378,26 +21663,185 @@ export class ListTemplateVersionsResponseBodyTemplateVersions extends $tea.Model
 }
 
 export class ListTemplatesResponseBodyTemplates extends $tea.Model {
+  /**
+   * @remarks
+   * The template type.
+   * 
+   * @example
+   * TimerTrigger
+   */
   category?: string;
+  /**
+   * @remarks
+   * The template constraints.
+   * 
+   * @example
+   * {
+   *   "InstanceTypeFamilies": ["ecs.g8y", "ecs.c8y"],
+   *   "ImageTypes": ["system"],
+   *   "OSPlatforms": ["CentOS", "Ubuntu"],
+   *   "OSVersions": ["CentOS7.9 64bit"]
+   * }
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the template.
+   * 
+   * @example
+   * root(1309200)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The creation time of the template.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The template description.
+   * 
+   * @example
+   * Describe instances of given status
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the template was configured with a trigger.
+   * 
+   * @example
+   * true
+   */
   hasTrigger?: boolean;
+  /**
+   * @remarks
+   * The SHA256 value of the template content.
+   * 
+   * @example
+   * 4bc7d7a21b3e003434b9c223f6e6d2578b5ebfeb5be28c1fcf8a8a1b11907bb4
+   */
   hash?: string;
+  /**
+   * @remarks
+   * Indicates whether the template is added to favorites.
+   * 
+   * @example
+   * true
+   */
   isFavorite?: boolean;
+  /**
+   * @remarks
+   * The popularity of the public template. Valid values: **1-10**. A greater value indicates higher popularity. If **ShareType** is set to **Private**, the value of this parameter is `-1`.
+   * 
+   * >  This parameter is valid only if **ShareType** is set to **Public**.
+   * 
+   * @example
+   * 8
+   */
   popularity?: number;
+  /**
+   * @remarks
+   * The user who published the template.
+   * 
+   * @example
+   * aliyun
+   */
   publisher?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the template. The share type of a template created by a user is **Private**. Valid values:
+   * 
+   * *   **Public**
+   * *   **Private**
+   * 
+   * @example
+   * Public
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The template format. The system automatically determines whether the format of the template is JSON or YAML.
+   * 
+   * @example
+   * JSON
+   */
   templateFormat?: string;
+  /**
+   * @remarks
+   * The template ID.
+   * 
+   * @example
+   * t-94753deed38
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The template type.
+   * 
+   * @example
+   * private
+   */
   templateType?: string;
+  /**
+   * @remarks
+   * The template version. The version contains the letter v and a number. The number starts from 1.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The number of times for which the private template is executed. If **ShareType** is set to **Public**, the value of this parameter is `-1`.
+   * 
+   * >  This parameter is valid only if **ShareType** is set to **Private**.
+   * 
+   * @example
+   * 5
+   */
   totalExecutionCount?: number;
+  /**
+   * @remarks
+   * The user who last updated the template.
+   * 
+   * @example
+   * root(13092000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the template was last updated.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10457,16 +21901,93 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
 }
 
 export class RegisterDefaultPatchBaselineResponseBodyPatchBaseline extends $tea.Model {
+  /**
+   * @remarks
+   * The rules of scanning and installing patches for the specified operating system.
+   * 
+   * @example
+   * {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
+   */
   approvalRules?: string;
+  /**
+   * @remarks
+   * The user who created the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the patch baseline was created.
+   * 
+   * @example
+   * 2021-09-07T03:42:56Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the patch baseline.
+   * 
+   * @example
+   * RegisterPatchBaseline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the patch baseline.
+   * 
+   * @example
+   * pb-445340b5c6504a85a300
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The operating system.
+   * 
+   * @example
+   * Windows
+   */
   operationSystem?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfm4dpaq2yox6q
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the patch baseline.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The user who last updated the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the patch baseline was last updated.
+   * 
+   * @example
+   * 2021-09-07T03:42:56Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10506,8 +22027,35 @@ export class RegisterDefaultPatchBaselineResponseBodyPatchBaseline extends $tea.
 }
 
 export class SearchInventoryRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the component property. Valid values of N: 1 to 5. Different components have different property names. You can call the [GetInventorySchema](https://api.aliyun.com/#/?product=oos\\&version=2019-06-01\\&api=GetInventorySchema) operation to query the property names of different components. For example, the ACS:InstanceInformation component has the InstanceId property. Therefore, you can set this parameter to ACS:InstanceInformation.InstanceId.
+   * 
+   * @example
+   * ACS:InstanceInformation.InstanceId
+   */
   name?: string;
+  /**
+   * @remarks
+   * The comparison operator that is used to filter property values. Valid values of N: 1 to 5. Valid values:
+   * 
+   * *   Equal
+   * *   NotEqual
+   * *   BeginWith
+   * *   LessThan
+   * *   GreaterThan
+   * 
+   * @example
+   * Equal
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The property values to query.
+   * 
+   * @example
+   * i-bp1cpoxxxxxxxxxxxxxx
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10531,11 +22079,53 @@ export class SearchInventoryRequestFilter extends $tea.Model {
 }
 
 export class SetServiceSettingsResponseBodyServiceSettings extends $tea.Model {
+  /**
+   * @remarks
+   * The name of OSS bucket to deliver.
+   * 
+   * @example
+   * OssBucketName
+   */
   deliveryOssBucketName?: string;
+  /**
+   * @remarks
+   * Whether to enable OSS delivery.
+   * 
+   * @example
+   * true
+   */
   deliveryOssEnabled?: boolean;
+  /**
+   * @remarks
+   * The key prefix of OSS to deliver.
+   * 
+   * @example
+   * oos/execution
+   */
   deliveryOssKeyPrefix?: string;
+  /**
+   * @remarks
+   * Whether to enable SLS delivery.
+   * 
+   * @example
+   * false
+   */
   deliverySlsEnabled?: boolean;
+  /**
+   * @remarks
+   * The name of SLS project to deliver.
+   * 
+   * @example
+   * SlsProjectName
+   */
   deliverySlsProjectName?: string;
+  /**
+   * @remarks
+   * The id of RDC Enterprise.
+   * 
+   * @example
+   * RdcEnterpriseId
+   */
   rdcEnterpriseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10565,8 +22155,29 @@ export class SetServiceSettingsResponseBodyServiceSettings extends $tea.Model {
 }
 
 export class StartExecutionResponseBodyExecutionCurrentTasks extends $tea.Model {
+  /**
+   * @remarks
+   * The action of the task.
+   * 
+   * @example
+   * ACS::TimerTrigger
+   */
   taskAction?: string;
+  /**
+   * @remarks
+   * The execution ID of the task.
+   * 
+   * @example
+   * exec-dsadasdawq
+   */
   taskExecutionId?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * testTask
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10590,29 +22201,194 @@ export class StartExecutionResponseBodyExecutionCurrentTasks extends $tea.Model 
 }
 
 export class StartExecutionResponseBodyExecution extends $tea.Model {
+  /**
+   * @remarks
+   * The number of executions.
+   * 
+   * @example
+   * 1
+   */
   counters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The time when the execution was created.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The information about in-progress tasks.
+   */
   currentTasks?: StartExecutionResponseBodyExecutionCurrentTasks[];
+  /**
+   * @remarks
+   * The description of the execution.
+   * 
+   * @example
+   * test execution.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The time when the execution stopped.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The account ID of the user who started the execution of the template.
+   * 
+   * @example
+   * root(13092080xx12344)
+   */
   executedBy?: string;
+  /**
+   * @remarks
+   * The GUID of the execution.
+   * 
+   * @example
+   * exec-xxxyyy
+   */
   executionId?: string;
+  /**
+   * @remarks
+   * Indicates whether the execution is a parent execution.
+   * 
+   * @example
+   * false
+   */
   isParent?: boolean;
+  /**
+   * @remarks
+   * The loop mode.
+   * 
+   * @example
+   * Automatic
+   */
   loopMode?: string;
+  /**
+   * @remarks
+   * The execution mode.
+   * 
+   * @example
+   * Automatic
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The output of the execution.
+   * 
+   * @example
+   * { "InstanceId":"i-xxx" }
+   */
   outputs?: string;
+  /**
+   * @remarks
+   * The input parameters of the execution.
+   * 
+   * @example
+   * { "Status":"Running" }
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * The ID of the parent execution.
+   * 
+   * @example
+   * exec-xxxx
+   */
   parentExecutionId?: string;
+  /**
+   * @remarks
+   * The role that started the execution of the template.
+   * 
+   * @example
+   * OOSServiceRole
+   */
   ramRole?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The security check mode.
+   * 
+   * @example
+   * Skip
+   */
   safetyCheck?: string;
+  /**
+   * @remarks
+   * The time when the execution was started.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The status of the execution.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * The status information of the execution.
+   * 
+   * @example
+   * ""
+   */
   statusMessage?: string;
+  /**
+   * @remarks
+   * The tags of the execution.
+   * 
+   * @example
+   * {"k1":"v2","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The ID of the template.
+   * 
+   * @example
+   * t-1bd341007f
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version number of the template.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The time when the execution was last updated.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10678,8 +22454,23 @@ export class StartExecutionResponseBodyExecution extends $tea.Model {
 }
 
 export class UpdateApplicationRequestAlarmConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The alert contact groups.
+   */
   contactGroups?: string[];
+  /**
+   * @remarks
+   * The health check URL of the application.
+   * 
+   * @example
+   * /healthcheck/tcp50122
+   */
   healthCheckUrl?: string;
+  /**
+   * @remarks
+   * The alert templates.
+   */
   templateIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10703,11 +22494,53 @@ export class UpdateApplicationRequestAlarmConfig extends $tea.Model {
 }
 
 export class UpdateApplicationResponseBodyApplication extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the application was created.
+   * 
+   * @example
+   * 2021-09-07T09:17:46Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the application.
+   * 
+   * @example
+   * test application
+   */
   description?: string;
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * My-Application
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m*****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {"k1":"v1","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The time when the application was updated.
+   * 
+   * @example
+   * 2021-09-07T10:17:46Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10737,13 +22570,69 @@ export class UpdateApplicationResponseBodyApplication extends $tea.Model {
 }
 
 export class UpdateApplicationGroupResponseBodyApplicationGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The application name.
+   * 
+   * @example
+   * MyApplication
+   */
   applicationName?: string;
+  /**
+   * @remarks
+   * The time when the application group was created.
+   * 
+   * @example
+   * 2021-09-07T10:28:25Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The ID of the region in which the related resources reside.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   deployRegionId?: string;
+  /**
+   * @remarks
+   * The description of the application group.
+   * 
+   * @example
+   * ApplicationGroup
+   */
   description?: string;
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * k1
+   */
   importTagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * v1
+   */
   importTagValue?: string;
+  /**
+   * @remarks
+   * The name of the application group.
+   * 
+   * @example
+   * UpdateMyApplicationGroup
+   */
   name?: string;
+  /**
+   * @remarks
+   * The time when the application group was updated.
+   * 
+   * @example
+   * 2021-09-08T03:01:53Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10777,22 +22666,138 @@ export class UpdateApplicationGroupResponseBodyApplicationGroup extends $tea.Mod
 }
 
 export class UpdateOpsItemResponseBodyOpsItem extends $tea.Model {
+  /**
+   * @remarks
+   * The attributes of the O\\&M item.
+   * 
+   * @example
+   * [{\\"Attribute\\": {\\"Weight\\": 100}, \\"RealServer\\": \\"uaejc8hnqzqz5valyh8dibolpvza48ik.yundunwaf5.com\\"}]
+   */
   attributes?: string;
+  /**
+   * @remarks
+   * The category.
+   * 
+   * @example
+   * Security
+   */
   category?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M item was created.
+   * 
+   * @example
+   * 2023-03-16T07:04Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The user who created the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test-update
+   */
   description?: string;
+  /**
+   * @remarks
+   * The user who modified the O\\&M item.
+   * 
+   * @example
+   * root(130900000)
+   */
   lastModifiedBy?: string;
+  /**
+   * @remarks
+   * The ID of the O\\&M item.
+   * 
+   * @example
+   * oi-e2264dcf040c472598e9
+   */
   opsItemId?: string;
+  /**
+   * @remarks
+   * The priority.
+   * 
+   * @example
+   * 2
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ARNs of the associated resources.
+   */
   resources?: string[];
+  /**
+   * @remarks
+   * The severity level.
+   * 
+   * @example
+   * Medium
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The solutions.
+   */
   solutions?: string[];
+  /**
+   * @remarks
+   * The source business.
+   * 
+   * @example
+   * /aliyun/ecs
+   */
   source?: string;
+  /**
+   * @remarks
+   * The status.
+   * 
+   * @example
+   * Open
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags.
+   * 
+   * @example
+   * {
+   *       "k1": "v1",
+   *       "k2": "v2"
+   * }
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The title of the O\\&M item.
+   * 
+   * @example
+   * Test
+   */
   title?: string;
+  /**
+   * @remarks
+   * The time when the O\\&M item was updated.
+   * 
+   * @example
+   * 2023-03-16T08:04Z
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10844,18 +22849,109 @@ export class UpdateOpsItemResponseBodyOpsItem extends $tea.Model {
 }
 
 export class UpdateParameterResponseBodyParameter extends $tea.Model {
+  /**
+   * @remarks
+   * The constraints of the common parameter.
+   * 
+   * @example
+   * "{\\"AllowedValues\\":[\\"parameter\\"],\\"AllowedPattern\\":\\"parameter\\",\\"MinLength\\":0,\\"MaxLength\\":20}"
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was created.
+   * 
+   * @example
+   * 2020-09-01T08:01:43Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the common parameter.
+   * 
+   * @example
+   * update
+   */
   description?: string;
+  /**
+   * @remarks
+   * The parameter ID.
+   * 
+   * @example
+   * p-4c4b401cab6747xxxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the common parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the common parameter.
+   * 
+   * @example
+   * 2
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the common parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tag added to the common parameter.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The data type of the common parameter.
+   * 
+   * @example
+   * String
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the common parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the common parameter was updated.
+   * 
+   * @example
+   * 2020-09-01T08:04:23Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10899,7 +22995,21 @@ export class UpdateParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class UpdatePatchBaselineRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10921,7 +23031,21 @@ export class UpdatePatchBaselineRequestTags extends $tea.Model {
 }
 
 export class UpdatePatchBaselineResponseBodyPatchBaselineTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * key
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * value
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10943,22 +23067,129 @@ export class UpdatePatchBaselineResponseBodyPatchBaselineTags extends $tea.Model
 }
 
 export class UpdatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
+  /**
+   * @remarks
+   * The rules of scanning and installing patches for the specified operating system.
+   * 
+   * @example
+   * {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
+   */
   approvalRules?: string;
+  /**
+   * @remarks
+   * The approved patches.
+   */
   approvedPatches?: string[];
+  /**
+   * @remarks
+   * Indicates whether the approved patch involves updates other than security-related updates.
+   * 
+   * @example
+   * true
+   */
   approvedPatchesEnableNonSecurity?: boolean;
+  /**
+   * @remarks
+   * The creator of the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the patch baseline was created.
+   * 
+   * @example
+   * 2021-09-07T03:42:56Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the patch baseline.
+   * 
+   * @example
+   * UpdatePatchBaseline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the patch baseline.
+   * 
+   * @example
+   * pb-445340b5c6504a85a300
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the patch baseline.
+   * 
+   * @example
+   * MyPatchBaseline
+   */
   name?: string;
+  /**
+   * @remarks
+   * The operating system.
+   * 
+   * @example
+   * Windows
+   */
   operationSystem?: string;
+  /**
+   * @remarks
+   * The rejected patches.
+   */
   rejectedPatches?: string[];
+  /**
+   * @remarks
+   * The action of the rejected patch.
+   * 
+   * @example
+   * ALLOW_AS_DEPENDENCY
+   */
   rejectedPatchesAction?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmy2zdbbjplii
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the patch baseline.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The patch source configurations.
+   */
   sources?: string[];
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: UpdatePatchBaselineResponseBodyPatchBaselineTags[];
+  /**
+   * @remarks
+   * The user who updated the patch baseline.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the patch baseline was updated.
+   * 
+   * @example
+   * 2021-09-08T07:26:37Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11010,19 +23241,117 @@ export class UpdatePatchBaselineResponseBodyPatchBaseline extends $tea.Model {
 }
 
 export class UpdateSecretParameterResponseBodyParameter extends $tea.Model {
+  /**
+   * @remarks
+   * The constraints of the parameter.
+   * 
+   * @example
+   * \\"{\\"\\"AllowedValues":["secretparameter"],"AllowedPattern":".*","MinLength":0,"MaxLength":20}\\"
+   */
   constraints?: string;
+  /**
+   * @remarks
+   * The user who created the parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the parameter was created.
+   * 
+   * @example
+   * 2020-09-01T09:30:36Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the parameter.
+   * 
+   * @example
+   * SecretParameter
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the parameter.
+   * 
+   * @example
+   * p-0b0fff9919c946xxxxxx
+   */
   id?: string;
+  /**
+   * @remarks
+   * The ID of customer master key (CMK) of Key Management Service (KMS) that is used for encryption.
+   * 
+   * @example
+   * 80e9409f-78fa-42ab-84bd-83f40c******
+   */
   keyId?: string;
+  /**
+   * @remarks
+   * The name of the parameter.
+   * 
+   * @example
+   * MyParameter
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version number of the parameter.
+   * 
+   * @example
+   * 2
+   */
   parameterVersion?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the parameter.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tags of the parameter.
+   * 
+   * @example
+   * {"k1": "v1", "k2": "v2"}
+   */
   tags?: string;
+  /**
+   * @remarks
+   * The type of the parameter.
+   * 
+   * @example
+   * Secret
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who updated the parameter.
+   * 
+   * @example
+   * root(130900000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the parameter was updated.
+   * 
+   * @example
+   * 2020-09-01T09:33:11Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11068,19 +23397,117 @@ export class UpdateSecretParameterResponseBodyParameter extends $tea.Model {
 }
 
 export class UpdateStateConfigurationResponseBodyStateConfiguration extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration mode. Valid values:
+   * 
+   * @example
+   * ApplyAndAutoCorrect
+   */
   configureMode?: string;
+  /**
+   * @remarks
+   * The time when the configuration was created.
+   * 
+   * @example
+   * 2021-03-22T03:13:32Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the desired-state configuration.
+   * 
+   * @example
+   * collect inventory data
+   */
   description?: string;
+  /**
+   * @remarks
+   * The parameters.
+   * 
+   * @example
+   * {"policy": {"ACS:Network": {"Collection": "Enabled"}, "ACS:Application": {"Collection": "Enabled"}}}
+   */
   parameters?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The CRON expression.
+   * 
+   * @example
+   * 1 hour
+   */
   scheduleExpression?: string;
+  /**
+   * @remarks
+   * The schedule type.
+   * 
+   * @example
+   * rate
+   */
   scheduleType?: string;
+  /**
+   * @remarks
+   * The ID of the desired-state configuration.
+   * 
+   * @example
+   * StateConfigurationId
+   */
   stateConfigurationId?: string;
+  /**
+   * @remarks
+   * The tags added to the configuration.
+   * 
+   * @example
+   * {"Key": "oos", "Value": "inventory"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The queried resources.
+   * 
+   * @example
+   * { "ResourceType": "ALIYUN::ECS::Instance", "Filters": [ { "Type": "All", "RegionId": "cn-hangzhou", "Parameters": { "RegionId": "cn-hangzhou", "Status": "Running" } } ] }
+   */
   targets?: string;
+  /**
+   * @remarks
+   * The template ID.
+   * 
+   * @example
+   * t-1234asadf
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * ACS-ECS-InventoryDataCollection
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The name of the template version.
+   * 
+   * @example
+   * v1
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The time when the configuration was updated.
+   * 
+   * @example
+   * 2021-03-22T03:13:32Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11126,19 +23553,117 @@ export class UpdateStateConfigurationResponseBodyStateConfiguration extends $tea
 }
 
 export class UpdateTemplateResponseBodyTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * The user who created the template.
+   * 
+   * @example
+   * root(130920000)
+   */
   createdBy?: string;
+  /**
+   * @remarks
+   * The time when the template was created.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   createdDate?: string;
+  /**
+   * @remarks
+   * The description of the template.
+   * 
+   * @example
+   * Describe instances of given status
+   */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether the template is configured with a trigger.
+   * 
+   * @example
+   * true
+   */
   hasTrigger?: boolean;
+  /**
+   * @remarks
+   * The SHA-256 value of the template content.
+   * 
+   * @example
+   * 4bc7d7a21b3e003434b9c223f6e6d2578b5ebfeb5be28c1fcf8a8a1b11907bb4
+   */
   hash?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxsn4m4******
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The share type of the template. The share type of a user-created template is **Private**.
+   * 
+   * @example
+   * Private
+   */
   shareType?: string;
+  /**
+   * @remarks
+   * The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+   * 
+   * @example
+   * {"k1":"k2","k2":"v2"}
+   */
   tags?: { [key: string]: any };
+  /**
+   * @remarks
+   * The format of the template. The system automatically determines whether the format is JSON or YAML.
+   * 
+   * @example
+   * JSON
+   */
   templateFormat?: string;
+  /**
+   * @remarks
+   * The ID of the template.
+   * 
+   * @example
+   * t-94753deed38
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * MyTemplate
+   */
   templateName?: string;
+  /**
+   * @remarks
+   * The version of the template. The name of the version consists of the letter v and a number. The number starts from 1.
+   * 
+   * @example
+   * v2
+   */
   templateVersion?: string;
+  /**
+   * @remarks
+   * The user who last modified the information about the template.
+   * 
+   * @example
+   * root(1309000)
+   */
   updatedBy?: string;
+  /**
+   * @remarks
+   * The time when the information about the template was last modified.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   updatedDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11184,10 +23709,45 @@ export class UpdateTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class ValidateTemplateContentResponseBodyTasks extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the task.
+   * 
+   * @example
+   * (Required) The status of the Ecs instance.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * foo
+   */
   name?: string;
+  /**
+   * @remarks
+   * The outputs of the task.
+   * 
+   * @example
+   * .instanceId
+   */
   outputs?: string;
+  /**
+   * @remarks
+   * The properties of the task.
+   * 
+   * @example
+   * {"API": "DescribeInstances","Parameters": {"Status": "{{ Status }}"},"Service": "Ecs"}
+   */
   properties?: string;
+  /**
+   * @remarks
+   * The type of the task.
+   * 
+   * @example
+   * ACS::ExecuteAPI
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11238,11 +23798,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Cancels an execution.
-   *
-   * @param request CancelExecutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelExecutionResponse
+   * Cancels an execution.
+   * 
+   * @param request - CancelExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelExecutionResponse
    */
   async cancelExecutionWithOptions(request: CancelExecutionRequest, runtime: $Util.RuntimeOptions): Promise<CancelExecutionResponse> {
     Util.validateModel(request);
@@ -11273,10 +23833,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Cancels an execution.
-   *
-   * @param request CancelExecutionRequest
-   * @return CancelExecutionResponse
+   * Cancels an execution.
+   * 
+   * @param request - CancelExecutionRequest
+   * @returns CancelExecutionResponse
    */
   async cancelExecution(request: CancelExecutionRequest): Promise<CancelExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11284,11 +23844,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the resource group to which a cloud resource belongs.
-   *
-   * @param request ChangeResourceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeResourceGroupResponse
+   * Modifies the resource group to which a cloud resource belongs.
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
@@ -11327,10 +23887,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the resource group to which a cloud resource belongs.
-   *
-   * @param request ChangeResourceGroupRequest
-   * @return ChangeResourceGroupResponse
+   * Modifies the resource group to which a cloud resource belongs.
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11338,11 +23898,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Continues deploying an application group when an error occurs for calling the DeployApplicationGroup operation. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request ContinueDeployApplicationGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ContinueDeployApplicationGroupResponse
+   * Continues deploying an application group when an error occurs for calling the DeployApplicationGroup operation. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - ContinueDeployApplicationGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ContinueDeployApplicationGroupResponse
    */
   async continueDeployApplicationGroupWithOptions(request: ContinueDeployApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<ContinueDeployApplicationGroupResponse> {
     Util.validateModel(request);
@@ -11381,10 +23941,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Continues deploying an application group when an error occurs for calling the DeployApplicationGroup operation. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request ContinueDeployApplicationGroupRequest
-   * @return ContinueDeployApplicationGroupResponse
+   * Continues deploying an application group when an error occurs for calling the DeployApplicationGroup operation. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - ContinueDeployApplicationGroupRequest
+   * @returns ContinueDeployApplicationGroupResponse
    */
   async continueDeployApplicationGroup(request: ContinueDeployApplicationGroupRequest): Promise<ContinueDeployApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11392,11 +23952,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param tmpReq CreateApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateApplicationResponse
+   * Creates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param tmpReq - CreateApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationResponse
    */
   async createApplicationWithOptions(tmpReq: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(tmpReq);
@@ -11461,10 +24021,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request CreateApplicationRequest
-   * @return CreateApplicationResponse
+   * Creates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - CreateApplicationRequest
+   * @returns CreateApplicationResponse
    */
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11472,11 +24032,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request CreateApplicationGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateApplicationGroupResponse
+   * Creates an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - CreateApplicationGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationGroupResponse
    */
   async createApplicationGroupWithOptions(request: CreateApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationGroupResponse> {
     Util.validateModel(request);
@@ -11535,10 +24095,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request CreateApplicationGroupRequest
-   * @return CreateApplicationGroupResponse
+   * Creates an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - CreateApplicationGroupRequest
+   * @returns CreateApplicationGroupResponse
    */
   async createApplicationGroup(request: CreateApplicationGroupRequest): Promise<CreateApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11546,11 +24106,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an O\\\\\\\\\\\\&M Item.
-   *
-   * @param tmpReq CreateOpsItemRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateOpsItemResponse
+   * Creates an O\\\\\\\\\\\\&M Item.
+   * 
+   * @param tmpReq - CreateOpsItemRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOpsItemResponse
    */
   async createOpsItemWithOptions(tmpReq: CreateOpsItemRequest, runtime: $Util.RuntimeOptions): Promise<CreateOpsItemResponse> {
     Util.validateModel(tmpReq);
@@ -11631,10 +24191,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an O\\\\\\\\\\\\&M Item.
-   *
-   * @param request CreateOpsItemRequest
-   * @return CreateOpsItemResponse
+   * Creates an O\\\\\\\\\\\\&M Item.
+   * 
+   * @param request - CreateOpsItemRequest
+   * @returns CreateOpsItemResponse
    */
   async createOpsItem(request: CreateOpsItemRequest): Promise<CreateOpsItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11642,11 +24202,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a common parameter.
-   *
-   * @param tmpReq CreateParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateParameterResponse
+   * Creates a common parameter.
+   * 
+   * @param tmpReq - CreateParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateParameterResponse
    */
   async createParameterWithOptions(tmpReq: CreateParameterRequest, runtime: $Util.RuntimeOptions): Promise<CreateParameterResponse> {
     Util.validateModel(tmpReq);
@@ -11711,10 +24271,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a common parameter.
-   *
-   * @param request CreateParameterRequest
-   * @return CreateParameterResponse
+   * Creates a common parameter.
+   * 
+   * @param request - CreateParameterRequest
+   * @returns CreateParameterResponse
    */
   async createParameter(request: CreateParameterRequest): Promise<CreateParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11722,11 +24282,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a patch baseline.
-   *
-   * @param tmpReq CreatePatchBaselineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePatchBaselineResponse
+   * Creates a patch baseline.
+   * 
+   * @param tmpReq - CreatePatchBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePatchBaselineResponse
    */
   async createPatchBaselineWithOptions(tmpReq: CreatePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<CreatePatchBaselineResponse> {
     Util.validateModel(tmpReq);
@@ -11819,10 +24379,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a patch baseline.
-   *
-   * @param request CreatePatchBaselineRequest
-   * @return CreatePatchBaselineResponse
+   * Creates a patch baseline.
+   * 
+   * @param request - CreatePatchBaselineRequest
+   * @returns CreatePatchBaselineResponse
    */
   async createPatchBaseline(request: CreatePatchBaselineRequest): Promise<CreatePatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11830,11 +24390,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an encryption parameter. Make sure that you have the permissions to call this operation.
-   *
-   * @param tmpReq CreateSecretParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSecretParameterResponse
+   * Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+   * 
+   * @param tmpReq - CreateSecretParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecretParameterResponse
    */
   async createSecretParameterWithOptions(tmpReq: CreateSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<CreateSecretParameterResponse> {
     Util.validateModel(tmpReq);
@@ -11907,10 +24467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an encryption parameter. Make sure that you have the permissions to call this operation.
-   *
-   * @param request CreateSecretParameterRequest
-   * @return CreateSecretParameterResponse
+   * Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+   * 
+   * @param request - CreateSecretParameterRequest
+   * @returns CreateSecretParameterResponse
    */
   async createSecretParameter(request: CreateSecretParameterRequest): Promise<CreateSecretParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -11918,11 +24478,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a desired-state configuration.
-   *
-   * @param tmpReq CreateStateConfigurationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateStateConfigurationResponse
+   * Creates a desired-state configuration.
+   * 
+   * @param tmpReq - CreateStateConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStateConfigurationResponse
    */
   async createStateConfigurationWithOptions(tmpReq: CreateStateConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<CreateStateConfigurationResponse> {
     Util.validateModel(tmpReq);
@@ -11999,10 +24559,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a desired-state configuration.
-   *
-   * @param request CreateStateConfigurationRequest
-   * @return CreateStateConfigurationResponse
+   * Creates a desired-state configuration.
+   * 
+   * @param request - CreateStateConfigurationRequest
+   * @returns CreateStateConfigurationResponse
    */
   async createStateConfiguration(request: CreateStateConfigurationRequest): Promise<CreateStateConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12010,11 +24570,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a template.
-   *
-   * @param tmpReq CreateTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTemplateResponse
+   * Creates a template.
+   * 
+   * @param tmpReq - CreateTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTemplateResponse
    */
   async createTemplateWithOptions(tmpReq: CreateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -12067,10 +24627,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a template.
-   *
-   * @param request CreateTemplateRequest
-   * @return CreateTemplateResponse
+   * Creates a template.
+   * 
+   * @param request - CreateTemplateRequest
+   * @returns CreateTemplateResponse
    */
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12078,11 +24638,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request DeleteApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteApplicationResponse
+   * Deletes an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - DeleteApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationResponse
    */
   async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
     Util.validateModel(request);
@@ -12121,10 +24681,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request DeleteApplicationRequest
-   * @return DeleteApplicationResponse
+   * Deletes an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - DeleteApplicationRequest
+   * @returns DeleteApplicationResponse
    */
   async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12132,11 +24692,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an application group. You can call this operation only for the application groups which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request DeleteApplicationGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteApplicationGroupResponse
+   * Deletes an application group. You can call this operation only for the application groups which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - DeleteApplicationGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationGroupResponse
    */
   async deleteApplicationGroupWithOptions(request: DeleteApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationGroupResponse> {
     Util.validateModel(request);
@@ -12175,10 +24735,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an application group. You can call this operation only for the application groups which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request DeleteApplicationGroupRequest
-   * @return DeleteApplicationGroupResponse
+   * Deletes an application group. You can call this operation only for the application groups which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - DeleteApplicationGroupRequest
+   * @returns DeleteApplicationGroupResponse
    */
   async deleteApplicationGroup(request: DeleteApplicationGroupRequest): Promise<DeleteApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12186,11 +24746,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes multiple executions.
-   *
-   * @param request DeleteExecutionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteExecutionsResponse
+   * Deletes multiple executions.
+   * 
+   * @param request - DeleteExecutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExecutionsResponse
    */
   async deleteExecutionsWithOptions(request: DeleteExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExecutionsResponse> {
     Util.validateModel(request);
@@ -12221,10 +24781,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes multiple executions.
-   *
-   * @param request DeleteExecutionsRequest
-   * @return DeleteExecutionsResponse
+   * Deletes multiple executions.
+   * 
+   * @param request - DeleteExecutionsRequest
+   * @returns DeleteExecutionsResponse
    */
   async deleteExecutions(request: DeleteExecutionsRequest): Promise<DeleteExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12232,11 +24792,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a common parameter.
-   *
-   * @param request DeleteParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteParameterResponse
+   * Deletes a common parameter.
+   * 
+   * @param request - DeleteParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteParameterResponse
    */
   async deleteParameterWithOptions(request: DeleteParameterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteParameterResponse> {
     Util.validateModel(request);
@@ -12267,10 +24827,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a common parameter.
-   *
-   * @param request DeleteParameterRequest
-   * @return DeleteParameterResponse
+   * Deletes a common parameter.
+   * 
+   * @param request - DeleteParameterRequest
+   * @returns DeleteParameterResponse
    */
   async deleteParameter(request: DeleteParameterRequest): Promise<DeleteParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12278,11 +24838,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a patch baseline.
-   *
-   * @param request DeletePatchBaselineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePatchBaselineResponse
+   * Deletes a patch baseline.
+   * 
+   * @param request - DeletePatchBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePatchBaselineResponse
    */
   async deletePatchBaselineWithOptions(request: DeletePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<DeletePatchBaselineResponse> {
     Util.validateModel(request);
@@ -12313,10 +24873,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a patch baseline.
-   *
-   * @param request DeletePatchBaselineRequest
-   * @return DeletePatchBaselineResponse
+   * Deletes a patch baseline.
+   * 
+   * @param request - DeletePatchBaselineRequest
+   * @returns DeletePatchBaselineResponse
    */
   async deletePatchBaseline(request: DeletePatchBaselineRequest): Promise<DeletePatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12324,11 +24884,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
-   *
-   * @param request DeleteSecretParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSecretParameterResponse
+   * Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+   * 
+   * @param request - DeleteSecretParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecretParameterResponse
    */
   async deleteSecretParameterWithOptions(request: DeleteSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecretParameterResponse> {
     Util.validateModel(request);
@@ -12359,10 +24919,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
-   *
-   * @param request DeleteSecretParameterRequest
-   * @return DeleteSecretParameterResponse
+   * Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+   * 
+   * @param request - DeleteSecretParameterRequest
+   * @returns DeleteSecretParameterResponse
    */
   async deleteSecretParameter(request: DeleteSecretParameterRequest): Promise<DeleteSecretParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12370,11 +24930,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes multiple desired-state configurations at a time.
-   *
-   * @param request DeleteStateConfigurationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteStateConfigurationsResponse
+   * Deletes multiple desired-state configurations at a time.
+   * 
+   * @param request - DeleteStateConfigurationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStateConfigurationsResponse
    */
   async deleteStateConfigurationsWithOptions(request: DeleteStateConfigurationsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStateConfigurationsResponse> {
     Util.validateModel(request);
@@ -12409,10 +24969,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes multiple desired-state configurations at a time.
-   *
-   * @param request DeleteStateConfigurationsRequest
-   * @return DeleteStateConfigurationsResponse
+   * Deletes multiple desired-state configurations at a time.
+   * 
+   * @param request - DeleteStateConfigurationsRequest
+   * @returns DeleteStateConfigurationsResponse
    */
   async deleteStateConfigurations(request: DeleteStateConfigurationsRequest): Promise<DeleteStateConfigurationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12420,11 +24980,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a template.
-   *
-   * @param request DeleteTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTemplateResponse
+   * Deletes a template.
+   * 
+   * @param request - DeleteTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTemplateResponse
    */
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
@@ -12459,10 +25019,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a template.
-   *
-   * @param request DeleteTemplateRequest
-   * @return DeleteTemplateResponse
+   * Deletes a template.
+   * 
+   * @param request - DeleteTemplateRequest
+   * @returns DeleteTemplateResponse
    */
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12470,11 +25030,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes multiple templates.
-   *
-   * @param request DeleteTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTemplatesResponse
+   * Deletes multiple templates.
+   * 
+   * @param request - DeleteTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTemplatesResponse
    */
   async deleteTemplatesWithOptions(request: DeleteTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplatesResponse> {
     Util.validateModel(request);
@@ -12509,10 +25069,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes multiple templates.
-   *
-   * @param request DeleteTemplatesRequest
-   * @return DeleteTemplatesResponse
+   * Deletes multiple templates.
+   * 
+   * @param request - DeleteTemplatesRequest
+   * @returns DeleteTemplatesResponse
    */
   async deleteTemplates(request: DeleteTemplatesRequest): Promise<DeleteTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12520,11 +25080,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deploys an application group. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request DeployApplicationGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeployApplicationGroupResponse
+   * Deploys an application group. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - DeployApplicationGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeployApplicationGroupResponse
    */
   async deployApplicationGroupWithOptions(request: DeployApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeployApplicationGroupResponse> {
     Util.validateModel(request);
@@ -12563,10 +25123,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deploys an application group. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request DeployApplicationGroupRequest
-   * @return DeployApplicationGroupResponse
+   * Deploys an application group. You can call this operation only for the applications which reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - DeployApplicationGroupRequest
+   * @returns DeployApplicationGroupResponse
    */
   async deployApplicationGroup(request: DeployApplicationGroupRequest): Promise<DeployApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12574,11 +25134,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询应用分组资源成本
-   *
-   * @param request DescribeApplicationGroupBillRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeApplicationGroupBillResponse
+   * 查询应用分组资源成本
+   * 
+   * @param request - DescribeApplicationGroupBillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationGroupBillResponse
    */
   async describeApplicationGroupBillWithOptions(request: DescribeApplicationGroupBillRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationGroupBillResponse> {
     Util.validateModel(request);
@@ -12629,10 +25189,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询应用分组资源成本
-   *
-   * @param request DescribeApplicationGroupBillRequest
-   * @return DescribeApplicationGroupBillResponse
+   * 查询应用分组资源成本
+   * 
+   * @param request - DescribeApplicationGroupBillRequest
+   * @returns DescribeApplicationGroupBillResponse
    */
   async describeApplicationGroupBill(request: DescribeApplicationGroupBillRequest): Promise<DescribeApplicationGroupBillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12640,11 +25200,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries supported regions.
-   *
-   * @param request DescribeRegionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRegionsResponse
+   * Queries supported regions.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
    */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
@@ -12675,10 +25235,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries supported regions.
-   *
-   * @param request DescribeRegionsRequest
-   * @return DescribeRegionsResponse
+   * Queries supported regions.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12686,11 +25246,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Resource Access Management (RAM) policy required for template execution.
-   *
-   * @param request GenerateExecutionPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GenerateExecutionPolicyResponse
+   * Queries the Resource Access Management (RAM) policy required for template execution.
+   * 
+   * @param request - GenerateExecutionPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateExecutionPolicyResponse
    */
   async generateExecutionPolicyWithOptions(request: GenerateExecutionPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateExecutionPolicyResponse> {
     Util.validateModel(request);
@@ -12733,10 +25293,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Resource Access Management (RAM) policy required for template execution.
-   *
-   * @param request GenerateExecutionPolicyRequest
-   * @return GenerateExecutionPolicyResponse
+   * Queries the Resource Access Management (RAM) policy required for template execution.
+   * 
+   * @param request - GenerateExecutionPolicyRequest
+   * @returns GenerateExecutionPolicyResponse
    */
   async generateExecutionPolicy(request: GenerateExecutionPolicyRequest): Promise<GenerateExecutionPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12744,11 +25304,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request GetApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetApplicationResponse
+   * Queries the information of an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - GetApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationResponse
    */
   async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
     Util.validateModel(request);
@@ -12779,10 +25339,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request GetApplicationRequest
-   * @return GetApplicationResponse
+   * Queries the information of an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - GetApplicationRequest
+   * @returns GetApplicationResponse
    */
   async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12790,11 +25350,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request GetApplicationGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetApplicationGroupResponse
+   * Queries the information about an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - GetApplicationGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationGroupResponse
    */
   async getApplicationGroupWithOptions(request: GetApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationGroupResponse> {
     Util.validateModel(request);
@@ -12829,10 +25389,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request GetApplicationGroupRequest
-   * @return GetApplicationGroupResponse
+   * Queries the information about an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - GetApplicationGroupRequest
+   * @returns GetApplicationGroupResponse
    */
   async getApplicationGroup(request: GetApplicationGroupRequest): Promise<GetApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12840,11 +25400,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the template of an execution, including the content of the template.
-   *
-   * @param request GetExecutionTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetExecutionTemplateResponse
+   * Queries the information about the template of an execution, including the content of the template.
+   * 
+   * @param request - GetExecutionTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetExecutionTemplateResponse
    */
   async getExecutionTemplateWithOptions(request: GetExecutionTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetExecutionTemplateResponse> {
     Util.validateModel(request);
@@ -12875,10 +25435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the template of an execution, including the content of the template.
-   *
-   * @param request GetExecutionTemplateRequest
-   * @return GetExecutionTemplateResponse
+   * Queries the information about the template of an execution, including the content of the template.
+   * 
+   * @param request - GetExecutionTemplateRequest
+   * @returns GetExecutionTemplateResponse
    */
   async getExecutionTemplate(request: GetExecutionTemplateRequest): Promise<GetExecutionTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12886,11 +25446,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the properties of a configuration list.
-   *
-   * @param request GetInventorySchemaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInventorySchemaResponse
+   * Queries the properties of a configuration list.
+   * 
+   * @param request - GetInventorySchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInventorySchemaResponse
    */
   async getInventorySchemaWithOptions(request: GetInventorySchemaRequest, runtime: $Util.RuntimeOptions): Promise<GetInventorySchemaResponse> {
     Util.validateModel(request);
@@ -12933,10 +25493,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the properties of a configuration list.
-   *
-   * @param request GetInventorySchemaRequest
-   * @return GetInventorySchemaResponse
+   * Queries the properties of a configuration list.
+   * 
+   * @param request - GetInventorySchemaRequest
+   * @returns GetInventorySchemaResponse
    */
   async getInventorySchema(request: GetInventorySchemaRequest): Promise<GetInventorySchemaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12944,11 +25504,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an O\\\\\\\\\\\\&M item.
-   *
-   * @param request GetOpsItemRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetOpsItemResponse
+   * Queries the details of an O\\\\\\\\\\\\&M item.
+   * 
+   * @param request - GetOpsItemRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOpsItemResponse
    */
   async getOpsItemWithOptions(request: GetOpsItemRequest, runtime: $Util.RuntimeOptions): Promise<GetOpsItemResponse> {
     Util.validateModel(request);
@@ -12979,10 +25539,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an O\\\\\\\\\\\\&M item.
-   *
-   * @param request GetOpsItemRequest
-   * @return GetOpsItemResponse
+   * Queries the details of an O\\\\\\\\\\\\&M item.
+   * 
+   * @param request - GetOpsItemRequest
+   * @returns GetOpsItemResponse
    */
   async getOpsItem(request: GetOpsItemRequest): Promise<GetOpsItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12990,11 +25550,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a common parameter and its value.
-   *
-   * @param request GetParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetParameterResponse
+   * Queries a common parameter and its value.
+   * 
+   * @param request - GetParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetParameterResponse
    */
   async getParameterWithOptions(request: GetParameterRequest, runtime: $Util.RuntimeOptions): Promise<GetParameterResponse> {
     Util.validateModel(request);
@@ -13033,10 +25593,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a common parameter and its value.
-   *
-   * @param request GetParameterRequest
-   * @return GetParameterResponse
+   * Queries a common parameter and its value.
+   * 
+   * @param request - GetParameterRequest
+   * @returns GetParameterResponse
    */
   async getParameter(request: GetParameterRequest): Promise<GetParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13044,11 +25604,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about one or more parameters.
-   *
-   * @param request GetParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetParametersResponse
+   * Queries the information about one or more parameters.
+   * 
+   * @param request - GetParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetParametersResponse
    */
   async getParametersWithOptions(request: GetParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetParametersResponse> {
     Util.validateModel(request);
@@ -13079,10 +25639,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about one or more parameters.
-   *
-   * @param request GetParametersRequest
-   * @return GetParametersResponse
+   * Queries the information about one or more parameters.
+   * 
+   * @param request - GetParametersRequest
+   * @returns GetParametersResponse
    */
   async getParameters(request: GetParametersRequest): Promise<GetParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13090,11 +25650,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries one or more parameters by path.
-   *
-   * @param request GetParametersByPathRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetParametersByPathResponse
+   * Queries one or more parameters by path.
+   * 
+   * @param request - GetParametersByPathRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetParametersByPathResponse
    */
   async getParametersByPathWithOptions(request: GetParametersByPathRequest, runtime: $Util.RuntimeOptions): Promise<GetParametersByPathResponse> {
     Util.validateModel(request);
@@ -13137,10 +25697,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries one or more parameters by path.
-   *
-   * @param request GetParametersByPathRequest
-   * @return GetParametersByPathResponse
+   * Queries one or more parameters by path.
+   * 
+   * @param request - GetParametersByPathRequest
+   * @returns GetParametersByPathResponse
    */
   async getParametersByPath(request: GetParametersByPathRequest): Promise<GetParametersByPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13148,11 +25708,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of a patch baseline.
-   *
-   * @param request GetPatchBaselineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetPatchBaselineResponse
+   * Queries the information of a patch baseline.
+   * 
+   * @param request - GetPatchBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPatchBaselineResponse
    */
   async getPatchBaselineWithOptions(request: GetPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetPatchBaselineResponse> {
     Util.validateModel(request);
@@ -13183,10 +25743,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information of a patch baseline.
-   *
-   * @param request GetPatchBaselineRequest
-   * @return GetPatchBaselineResponse
+   * Queries the information of a patch baseline.
+   * 
+   * @param request - GetPatchBaselineRequest
+   * @returns GetPatchBaselineResponse
    */
   async getPatchBaseline(request: GetPatchBaselineRequest): Promise<GetPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13194,11 +25754,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
-   *
-   * @param request GetSecretParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSecretParameterResponse
+   * Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * 
+   * @param request - GetSecretParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecretParameterResponse
    */
   async getSecretParameterWithOptions(request: GetSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretParameterResponse> {
     Util.validateModel(request);
@@ -13237,10 +25797,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
-   *
-   * @param request GetSecretParameterRequest
-   * @return GetSecretParameterResponse
+   * Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * 
+   * @param request - GetSecretParameterRequest
+   * @returns GetSecretParameterResponse
    */
   async getSecretParameter(request: GetSecretParameterRequest): Promise<GetSecretParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13248,11 +25808,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
-   *
-   * @param request GetSecretParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSecretParametersResponse
+   * Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * 
+   * @param request - GetSecretParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecretParametersResponse
    */
   async getSecretParametersWithOptions(request: GetSecretParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretParametersResponse> {
     Util.validateModel(request);
@@ -13287,10 +25847,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
-   *
-   * @param request GetSecretParametersRequest
-   * @return GetSecretParametersResponse
+   * Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * 
+   * @param request - GetSecretParametersRequest
+   * @returns GetSecretParametersResponse
    */
   async getSecretParameters(request: GetSecretParametersRequest): Promise<GetSecretParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13298,11 +25858,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
-   *
-   * @param request GetSecretParametersByPathRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSecretParametersByPathResponse
+   * Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * 
+   * @param request - GetSecretParametersByPathRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecretParametersByPathResponse
    */
   async getSecretParametersByPathWithOptions(request: GetSecretParametersByPathRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretParametersByPathResponse> {
     Util.validateModel(request);
@@ -13349,10 +25909,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
-   *
-   * @param request GetSecretParametersByPathRequest
-   * @return GetSecretParametersByPathResponse
+   * Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * 
+   * @param request - GetSecretParametersByPathRequest
+   * @returns GetSecretParametersByPathResponse
    */
   async getSecretParametersByPath(request: GetSecretParametersByPathRequest): Promise<GetSecretParametersByPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13360,11 +25920,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the settings of the delivery feature.
-   *
-   * @param request GetServiceSettingsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetServiceSettingsResponse
+   * Queries the settings of the delivery feature.
+   * 
+   * @param request - GetServiceSettingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceSettingsResponse
    */
   async getServiceSettingsWithOptions(request: GetServiceSettingsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceSettingsResponse> {
     Util.validateModel(request);
@@ -13391,10 +25951,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the settings of the delivery feature.
-   *
-   * @param request GetServiceSettingsRequest
-   * @return GetServiceSettingsResponse
+   * Queries the settings of the delivery feature.
+   * 
+   * @param request - GetServiceSettingsRequest
+   * @returns GetServiceSettingsResponse
    */
   async getServiceSettings(request: GetServiceSettingsRequest): Promise<GetServiceSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13402,11 +25962,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a template, including the content of the template.
-   *
-   * @param request GetTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTemplateResponse
+   * Queries the information about a template, including the content of the template.
+   * 
+   * @param request - GetTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTemplateResponse
    */
   async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
@@ -13441,10 +26001,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a template, including the content of the template.
-   *
-   * @param request GetTemplateRequest
-   * @return GetTemplateResponse
+   * Queries the information about a template, including the content of the template.
+   * 
+   * @param request - GetTemplateRequest
+   * @returns GetTemplateResponse
    */
   async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13452,11 +26012,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the available actions, including atomic actions and cloud product actions.
-   *
-   * @param request ListActionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListActionsResponse
+   * Queries the available actions, including atomic actions and cloud product actions.
+   * 
+   * @param request - ListActionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListActionsResponse
    */
   async listActionsWithOptions(request: ListActionsRequest, runtime: $Util.RuntimeOptions): Promise<ListActionsResponse> {
     Util.validateModel(request);
@@ -13495,10 +26055,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the available actions, including atomic actions and cloud product actions.
-   *
-   * @param request ListActionsRequest
-   * @return ListActionsResponse
+   * Queries the available actions, including atomic actions and cloud product actions.
+   * 
+   * @param request - ListActionsRequest
+   * @returns ListActionsResponse
    */
   async listActions(request: ListActionsRequest): Promise<ListActionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13506,11 +26066,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of application groups. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request ListApplicationGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListApplicationGroupsResponse
+   * Queries a list of application groups. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - ListApplicationGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationGroupsResponse
    */
   async listApplicationGroupsWithOptions(request: ListApplicationGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationGroupsResponse> {
     Util.validateModel(request);
@@ -13565,10 +26125,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of application groups. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request ListApplicationGroupsRequest
-   * @return ListApplicationGroupsResponse
+   * Queries a list of application groups. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - ListApplicationGroupsRequest
+   * @returns ListApplicationGroupsResponse
    */
   async listApplicationGroups(request: ListApplicationGroupsRequest): Promise<ListApplicationGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13576,11 +26136,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of applications. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param tmpReq ListApplicationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListApplicationsResponse
+   * Queries a list of applications. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param tmpReq - ListApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsResponse
    */
   async listApplicationsWithOptions(tmpReq: ListApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
     Util.validateModel(tmpReq);
@@ -13637,10 +26197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of applications. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request ListApplicationsRequest
-   * @return ListApplicationsResponse
+   * Queries a list of applications. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - ListApplicationsRequest
+   * @returns ListApplicationsResponse
    */
   async listApplications(request: ListApplicationsRequest): Promise<ListApplicationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13648,13 +26208,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the logs of an execution.
-   *
-   * @description ****
-   *
-   * @param request ListExecutionLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListExecutionLogsResponse
+   * Queries the logs of an execution.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ListExecutionLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExecutionLogsResponse
    */
   async listExecutionLogsWithOptions(request: ListExecutionLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionLogsResponse> {
     Util.validateModel(request);
@@ -13701,12 +26262,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the logs of an execution.
-   *
-   * @description ****
-   *
-   * @param request ListExecutionLogsRequest
-   * @return ListExecutionLogsResponse
+   * Queries the logs of an execution.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - ListExecutionLogsRequest
+   * @returns ListExecutionLogsResponse
    */
   async listExecutionLogs(request: ListExecutionLogsRequest): Promise<ListExecutionLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13714,11 +26276,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries high-risk tasks in the execution of a template.
-   *
-   * @param request ListExecutionRiskyTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListExecutionRiskyTasksResponse
+   * Queries high-risk tasks in the execution of a template.
+   * 
+   * @param request - ListExecutionRiskyTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExecutionRiskyTasksResponse
    */
   async listExecutionRiskyTasksWithOptions(request: ListExecutionRiskyTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionRiskyTasksResponse> {
     Util.validateModel(request);
@@ -13749,10 +26311,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries high-risk tasks in the execution of a template.
-   *
-   * @param request ListExecutionRiskyTasksRequest
-   * @return ListExecutionRiskyTasksResponse
+   * Queries high-risk tasks in the execution of a template.
+   * 
+   * @param request - ListExecutionRiskyTasksRequest
+   * @returns ListExecutionRiskyTasksResponse
    */
   async listExecutionRiskyTasks(request: ListExecutionRiskyTasksRequest): Promise<ListExecutionRiskyTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13760,11 +26322,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries executions. Multiple methods are supported to filter executions.
-   *
-   * @param tmpReq ListExecutionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListExecutionsResponse
+   * Queries executions. Multiple methods are supported to filter executions.
+   * 
+   * @param tmpReq - ListExecutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExecutionsResponse
    */
   async listExecutionsWithOptions(tmpReq: ListExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionsResponse> {
     Util.validateModel(tmpReq);
@@ -13893,10 +26455,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries executions. Multiple methods are supported to filter executions.
-   *
-   * @param request ListExecutionsRequest
-   * @return ListExecutionsResponse
+   * Queries executions. Multiple methods are supported to filter executions.
+   * 
+   * @param request - ListExecutionsRequest
+   * @returns ListExecutionsResponse
    */
   async listExecutions(request: ListExecutionsRequest): Promise<ListExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13904,11 +26466,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取仓库信息
-   *
-   * @param request ListGitRepositoriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGitRepositoriesResponse
+   * 获取仓库信息
+   * 
+   * @param request - ListGitRepositoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGitRepositoriesResponse
    */
   async listGitRepositoriesWithOptions(request: ListGitRepositoriesRequest, runtime: $Util.RuntimeOptions): Promise<ListGitRepositoriesResponse> {
     Util.validateModel(request);
@@ -13959,10 +26521,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取仓库信息
-   *
-   * @param request ListGitRepositoriesRequest
-   * @return ListGitRepositoriesResponse
+   * 获取仓库信息
+   * 
+   * @param request - ListGitRepositoriesRequest
+   * @returns ListGitRepositoriesResponse
    */
   async listGitRepositories(request: ListGitRepositoriesRequest): Promise<ListGitRepositoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13970,11 +26532,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the patches of an instance.
-   *
-   * @param request ListInstancePatchStatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstancePatchStatesResponse
+   * 列出实例软件包状态
+   * 
+   * @param request - ListInstancePackageStatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancePackageStatesResponse
+   */
+  async listInstancePackageStatesWithOptions(request: ListInstancePackageStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancePackageStatesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateNames)) {
+      query["TemplateNames"] = request.templateNames;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListInstancePackageStates",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstancePackageStatesResponse>(await this.callApi(params, req, runtime), new ListInstancePackageStatesResponse({}));
+  }
+
+  /**
+   * 列出实例软件包状态
+   * 
+   * @param request - ListInstancePackageStatesRequest
+   * @returns ListInstancePackageStatesResponse
+   */
+  async listInstancePackageStates(request: ListInstancePackageStatesRequest): Promise<ListInstancePackageStatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listInstancePackageStatesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about the patches of an instance.
+   * 
+   * @param request - ListInstancePatchStatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancePatchStatesResponse
    */
   async listInstancePatchStatesWithOptions(request: ListInstancePatchStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancePatchStatesResponse> {
     Util.validateModel(request);
@@ -14013,10 +26633,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the patches of an instance.
-   *
-   * @param request ListInstancePatchStatesRequest
-   * @return ListInstancePatchStatesResponse
+   * Queries the information about the patches of an instance.
+   * 
+   * @param request - ListInstancePatchStatesRequest
+   * @returns ListInstancePatchStatesResponse
    */
   async listInstancePatchStates(request: ListInstancePatchStatesRequest): Promise<ListInstancePatchStatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14024,11 +26644,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the patches of an instance.
-   *
-   * @param request ListInstancePatchesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstancePatchesResponse
+   * Queries the information about the patches of an instance.
+   * 
+   * @param request - ListInstancePatchesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancePatchesResponse
    */
   async listInstancePatchesWithOptions(request: ListInstancePatchesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancePatchesResponse> {
     Util.validateModel(request);
@@ -14071,10 +26691,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the patches of an instance.
-   *
-   * @param request ListInstancePatchesRequest
-   * @return ListInstancePatchesResponse
+   * Queries the information about the patches of an instance.
+   * 
+   * @param request - ListInstancePatchesRequest
+   * @returns ListInstancePatchesResponse
    */
   async listInstancePatches(request: ListInstancePatchesRequest): Promise<ListInstancePatchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14082,11 +26702,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of an Elastic Compute Service (ECS) instance.
-   *
-   * @param request ListInventoryEntriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInventoryEntriesResponse
+   * Queries the configurations of an Elastic Compute Service (ECS) instance.
+   * 
+   * @param request - ListInventoryEntriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInventoryEntriesResponse
    */
   async listInventoryEntriesWithOptions(request: ListInventoryEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListInventoryEntriesResponse> {
     Util.validateModel(request);
@@ -14133,10 +26753,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of an Elastic Compute Service (ECS) instance.
-   *
-   * @param request ListInventoryEntriesRequest
-   * @return ListInventoryEntriesResponse
+   * Queries the configurations of an Elastic Compute Service (ECS) instance.
+   * 
+   * @param request - ListInventoryEntriesRequest
+   * @returns ListInventoryEntriesResponse
    */
   async listInventoryEntries(request: ListInventoryEntriesRequest): Promise<ListInventoryEntriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14144,11 +26764,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries O\\&M items.
-   *
-   * @param tmpReq ListOpsItemsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListOpsItemsResponse
+   * Queries O\\&M items.
+   * 
+   * @param tmpReq - ListOpsItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOpsItemsResponse
    */
   async listOpsItemsWithOptions(tmpReq: ListOpsItemsRequest, runtime: $Util.RuntimeOptions): Promise<ListOpsItemsResponse> {
     Util.validateModel(tmpReq);
@@ -14205,10 +26825,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries O\\&M items.
-   *
-   * @param request ListOpsItemsRequest
-   * @return ListOpsItemsResponse
+   * Queries O\\&M items.
+   * 
+   * @param request - ListOpsItemsRequest
+   * @returns ListOpsItemsResponse
    */
   async listOpsItems(request: ListOpsItemsRequest): Promise<ListOpsItemsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14216,11 +26836,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the versions of a common parameter.
-   *
-   * @param request ListParameterVersionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListParameterVersionsResponse
+   * Queries the versions of a common parameter.
+   * 
+   * @param request - ListParameterVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListParameterVersionsResponse
    */
   async listParameterVersionsWithOptions(request: ListParameterVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListParameterVersionsResponse> {
     Util.validateModel(request);
@@ -14263,10 +26883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the versions of a common parameter.
-   *
-   * @param request ListParameterVersionsRequest
-   * @return ListParameterVersionsResponse
+   * Queries the versions of a common parameter.
+   * 
+   * @param request - ListParameterVersionsRequest
+   * @returns ListParameterVersionsResponse
    */
   async listParameterVersions(request: ListParameterVersionsRequest): Promise<ListParameterVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14274,11 +26894,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries common parameters. Multiple methods are supported to filter common parameters.
-   *
-   * @param tmpReq ListParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListParametersResponse
+   * Queries common parameters. Multiple methods are supported to filter common parameters.
+   * 
+   * @param tmpReq - ListParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListParametersResponse
    */
   async listParametersWithOptions(tmpReq: ListParametersRequest, runtime: $Util.RuntimeOptions): Promise<ListParametersResponse> {
     Util.validateModel(tmpReq);
@@ -14355,10 +26975,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries common parameters. Multiple methods are supported to filter common parameters.
-   *
-   * @param request ListParametersRequest
-   * @return ListParametersResponse
+   * Queries common parameters. Multiple methods are supported to filter common parameters.
+   * 
+   * @param request - ListParametersRequest
+   * @returns ListParametersResponse
    */
   async listParameters(request: ListParametersRequest): Promise<ListParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14366,11 +26986,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of patch baselines.
-   *
-   * @param tmpReq ListPatchBaselinesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPatchBaselinesResponse
+   * Queries a list of patch baselines.
+   * 
+   * @param tmpReq - ListPatchBaselinesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPatchBaselinesResponse
    */
   async listPatchBaselinesWithOptions(tmpReq: ListPatchBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListPatchBaselinesResponse> {
     Util.validateModel(tmpReq);
@@ -14451,10 +27071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of patch baselines.
-   *
-   * @param request ListPatchBaselinesRequest
-   * @return ListPatchBaselinesResponse
+   * Queries a list of patch baselines.
+   * 
+   * @param request - ListPatchBaselinesRequest
+   * @returns ListPatchBaselinesResponse
    */
   async listPatchBaselines(request: ListPatchBaselinesRequest): Promise<ListPatchBaselinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14462,11 +27082,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
-   *
-   * @param request ListResourceExecutionStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListResourceExecutionStatusResponse
+   * Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+   * 
+   * @param request - ListResourceExecutionStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceExecutionStatusResponse
    */
   async listResourceExecutionStatusWithOptions(request: ListResourceExecutionStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceExecutionStatusResponse> {
     Util.validateModel(request);
@@ -14505,10 +27125,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
-   *
-   * @param request ListResourceExecutionStatusRequest
-   * @return ListResourceExecutionStatusResponse
+   * Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+   * 
+   * @param request - ListResourceExecutionStatusRequest
+   * @returns ListResourceExecutionStatusResponse
    */
   async listResourceExecutionStatus(request: ListResourceExecutionStatusRequest): Promise<ListResourceExecutionStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14516,11 +27136,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries versions of an encryption parameter.
-   *
-   * @param request ListSecretParameterVersionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSecretParameterVersionsResponse
+   * Queries versions of an encryption parameter.
+   * 
+   * @param request - ListSecretParameterVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecretParameterVersionsResponse
    */
   async listSecretParameterVersionsWithOptions(request: ListSecretParameterVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretParameterVersionsResponse> {
     Util.validateModel(request);
@@ -14567,10 +27187,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries versions of an encryption parameter.
-   *
-   * @param request ListSecretParameterVersionsRequest
-   * @return ListSecretParameterVersionsResponse
+   * Queries versions of an encryption parameter.
+   * 
+   * @param request - ListSecretParameterVersionsRequest
+   * @returns ListSecretParameterVersionsResponse
    */
   async listSecretParameterVersions(request: ListSecretParameterVersionsRequest): Promise<ListSecretParameterVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14578,13 +27198,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries common parameters. Multiple types of queries are supported.
-   *
-   * @description Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
-   *
-   * @param tmpReq ListSecretParametersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSecretParametersResponse
+   * Queries common parameters. Multiple types of queries are supported.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
+   * 
+   * @param tmpReq - ListSecretParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecretParametersResponse
    */
   async listSecretParametersWithOptions(tmpReq: ListSecretParametersRequest, runtime: $Util.RuntimeOptions): Promise<ListSecretParametersResponse> {
     Util.validateModel(tmpReq);
@@ -14653,12 +27274,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries common parameters. Multiple types of queries are supported.
-   *
-   * @description Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
-   *
-   * @param request ListSecretParametersRequest
-   * @return ListSecretParametersResponse
+   * Queries common parameters. Multiple types of queries are supported.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
+   * 
+   * @param request - ListSecretParametersRequest
+   * @returns ListSecretParametersResponse
    */
   async listSecretParameters(request: ListSecretParametersRequest): Promise<ListSecretParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14666,11 +27288,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries desired-state configurations.
-   *
-   * @param tmpReq ListStateConfigurationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListStateConfigurationsResponse
+   * Queries desired-state configurations.
+   * 
+   * @param tmpReq - ListStateConfigurationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStateConfigurationsResponse
    */
   async listStateConfigurationsWithOptions(tmpReq: ListStateConfigurationsRequest, runtime: $Util.RuntimeOptions): Promise<ListStateConfigurationsResponse> {
     Util.validateModel(tmpReq);
@@ -14731,10 +27353,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries desired-state configurations.
-   *
-   * @param request ListStateConfigurationsRequest
-   * @return ListStateConfigurationsResponse
+   * Queries desired-state configurations.
+   * 
+   * @param request - ListStateConfigurationsRequest
+   * @returns ListStateConfigurationsResponse
    */
   async listStateConfigurations(request: ListStateConfigurationsRequest): Promise<ListStateConfigurationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14742,11 +27364,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags.
-   *
-   * @param request ListTagKeysRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagKeysResponse
+   * Queries the tags.
+   * 
+   * @param request - ListTagKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagKeysResponse
    */
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
@@ -14785,10 +27407,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags.
-   *
-   * @param request ListTagKeysRequest
-   * @return ListTagKeysResponse
+   * Queries the tags.
+   * 
+   * @param request - ListTagKeysRequest
+   * @returns ListTagKeysResponse
    */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14796,11 +27418,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags that are added to one or more resources.
-   *
-   * @param tmpReq ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * Queries the tags that are added to one or more resources.
+   * 
+   * @param tmpReq - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(tmpReq);
@@ -14853,10 +27475,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags that are added to one or more resources.
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * Queries the tags that are added to one or more resources.
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14864,11 +27486,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the values of created tags.
-   *
-   * @param request ListTagValuesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagValuesResponse
+   * Queries the values of created tags.
+   * 
+   * @param request - ListTagValuesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagValuesResponse
    */
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
@@ -14911,10 +27533,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the values of created tags.
-   *
-   * @param request ListTagValuesRequest
-   * @return ListTagValuesResponse
+   * Queries the values of created tags.
+   * 
+   * @param request - ListTagValuesRequest
+   * @returns ListTagValuesResponse
    */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14922,11 +27544,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries task executions. Multiple methods are supported to filter task executions.
-   *
-   * @param request ListTaskExecutionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTaskExecutionsResponse
+   * Queries task executions. Multiple methods are supported to filter task executions.
+   * 
+   * @param request - ListTaskExecutionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskExecutionsResponse
    */
   async listTaskExecutionsWithOptions(request: ListTaskExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskExecutionsResponse> {
     Util.validateModel(request);
@@ -15013,10 +27635,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries task executions. Multiple methods are supported to filter task executions.
-   *
-   * @param request ListTaskExecutionsRequest
-   * @return ListTaskExecutionsResponse
+   * Queries task executions. Multiple methods are supported to filter task executions.
+   * 
+   * @param request - ListTaskExecutionsRequest
+   * @returns ListTaskExecutionsResponse
    */
   async listTaskExecutions(request: ListTaskExecutionsRequest): Promise<ListTaskExecutionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15024,11 +27646,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of versions of a template.
-   *
-   * @param request ListTemplateVersionsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTemplateVersionsResponse
+   * Queries a list of versions of a template.
+   * 
+   * @param request - ListTemplateVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTemplateVersionsResponse
    */
   async listTemplateVersionsWithOptions(request: ListTemplateVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateVersionsResponse> {
     Util.validateModel(request);
@@ -15071,10 +27693,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of versions of a template.
-   *
-   * @param request ListTemplateVersionsRequest
-   * @return ListTemplateVersionsResponse
+   * Queries a list of versions of a template.
+   * 
+   * @param request - ListTemplateVersionsRequest
+   * @returns ListTemplateVersionsResponse
    */
   async listTemplateVersions(request: ListTemplateVersionsRequest): Promise<ListTemplateVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15082,11 +27704,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries templates. Multiple methods are supported to filter templates.
-   *
-   * @param tmpReq ListTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTemplatesResponse
+   * Queries templates. Multiple methods are supported to filter templates.
+   * 
+   * @param tmpReq - ListTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTemplatesResponse
    */
   async listTemplatesWithOptions(tmpReq: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(tmpReq);
@@ -15187,10 +27809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries templates. Multiple methods are supported to filter templates.
-   *
-   * @param request ListTemplatesRequest
-   * @return ListTemplatesResponse
+   * Queries templates. Multiple methods are supported to filter templates.
+   * 
+   * @param request - ListTemplatesRequest
+   * @returns ListTemplatesResponse
    */
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15198,16 +27820,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Notifies an execution in the Waiting state of the subsequent operations.
-   *
-   * @description You can call this operation to notify an execution in the following scenarios:
+   * Notifies an execution in the Waiting state of the subsequent operations.
+   * 
+   * @remarks
+   * You can call this operation to notify an execution in the following scenarios:
    * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
    * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
    * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
-   *
-   * @param request NotifyExecutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return NotifyExecutionResponse
+   * 
+   * @param request - NotifyExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns NotifyExecutionResponse
    */
   async notifyExecutionWithOptions(request: NotifyExecutionRequest, runtime: $Util.RuntimeOptions): Promise<NotifyExecutionResponse> {
     Util.validateModel(request);
@@ -15270,15 +27893,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Notifies an execution in the Waiting state of the subsequent operations.
-   *
-   * @description You can call this operation to notify an execution in the following scenarios:
+   * Notifies an execution in the Waiting state of the subsequent operations.
+   * 
+   * @remarks
+   * You can call this operation to notify an execution in the following scenarios:
    * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
    * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
    * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
-   *
-   * @param request NotifyExecutionRequest
-   * @return NotifyExecutionResponse
+   * 
+   * @param request - NotifyExecutionRequest
+   * @returns NotifyExecutionResponse
    */
   async notifyExecution(request: NotifyExecutionRequest): Promise<NotifyExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15286,11 +27910,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Registers the default patch baseline.
-   *
-   * @param request RegisterDefaultPatchBaselineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RegisterDefaultPatchBaselineResponse
+   * Registers the default patch baseline.
+   * 
+   * @param request - RegisterDefaultPatchBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RegisterDefaultPatchBaselineResponse
    */
   async registerDefaultPatchBaselineWithOptions(request: RegisterDefaultPatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDefaultPatchBaselineResponse> {
     Util.validateModel(request);
@@ -15321,10 +27945,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Registers the default patch baseline.
-   *
-   * @param request RegisterDefaultPatchBaselineRequest
-   * @return RegisterDefaultPatchBaselineResponse
+   * Registers the default patch baseline.
+   * 
+   * @param request - RegisterDefaultPatchBaselineRequest
+   * @returns RegisterDefaultPatchBaselineResponse
    */
   async registerDefaultPatchBaseline(request: RegisterDefaultPatchBaselineRequest): Promise<RegisterDefaultPatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15332,11 +27956,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details or aggregate information of a configuration inventory.
-   *
-   * @param request SearchInventoryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchInventoryResponse
+   * Queries the details or aggregate information of a configuration inventory.
+   * 
+   * @param request - SearchInventoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchInventoryResponse
    */
   async searchInventoryWithOptions(request: SearchInventoryRequest, runtime: $Util.RuntimeOptions): Promise<SearchInventoryResponse> {
     Util.validateModel(request);
@@ -15379,10 +28003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details or aggregate information of a configuration inventory.
-   *
-   * @param request SearchInventoryRequest
-   * @return SearchInventoryResponse
+   * Queries the details or aggregate information of a configuration inventory.
+   * 
+   * @param request - SearchInventoryRequest
+   * @returns SearchInventoryResponse
    */
   async searchInventory(request: SearchInventoryRequest): Promise<SearchInventoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15390,11 +28014,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the feature of delivering template execution records and sets the storage location.
-   *
-   * @param request SetServiceSettingsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetServiceSettingsResponse
+   * Enables or disables the feature of delivering template execution records and sets the storage location.
+   * 
+   * @param request - SetServiceSettingsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetServiceSettingsResponse
    */
   async setServiceSettingsWithOptions(request: SetServiceSettingsRequest, runtime: $Util.RuntimeOptions): Promise<SetServiceSettingsResponse> {
     Util.validateModel(request);
@@ -15445,10 +28069,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the feature of delivering template execution records and sets the storage location.
-   *
-   * @param request SetServiceSettingsRequest
-   * @return SetServiceSettingsResponse
+   * Enables or disables the feature of delivering template execution records and sets the storage location.
+   * 
+   * @param request - SetServiceSettingsRequest
+   * @returns SetServiceSettingsResponse
    */
   async setServiceSettings(request: SetServiceSettingsRequest): Promise<SetServiceSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15456,11 +28080,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts an execution.
-   *
-   * @param tmpReq StartExecutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartExecutionResponse
+   * Starts an execution.
+   * 
+   * @param tmpReq - StartExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartExecutionResponse
    */
   async startExecutionWithOptions(tmpReq: StartExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StartExecutionResponse> {
     Util.validateModel(tmpReq);
@@ -15545,10 +28169,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Starts an execution.
-   *
-   * @param request StartExecutionRequest
-   * @return StartExecutionResponse
+   * Starts an execution.
+   * 
+   * @param request - StartExecutionRequest
+   * @returns StartExecutionResponse
    */
   async startExecution(request: StartExecutionRequest): Promise<StartExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15556,11 +28180,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to one or more resources.
-   *
-   * @param tmpReq TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * Adds tags to one or more resources.
+   * 
+   * @param tmpReq - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(tmpReq: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(tmpReq);
@@ -15609,10 +28233,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to one or more resources.
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * Adds tags to one or more resources.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15620,11 +28244,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Debugs a started execution that contains an event trigger task or alert trigger task. If the operation is called, a message body is sent to the event trigger task or alert trigger task. After the trigger task receives the message body, the trigger task generates a new child execution.
-   *
-   * @param request TriggerExecutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TriggerExecutionResponse
+   * Debugs a started execution that contains an event trigger task or alert trigger task. If the operation is called, a message body is sent to the event trigger task or alert trigger task. After the trigger task receives the message body, the trigger task generates a new child execution.
+   * 
+   * @param request - TriggerExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerExecutionResponse
    */
   async triggerExecutionWithOptions(request: TriggerExecutionRequest, runtime: $Util.RuntimeOptions): Promise<TriggerExecutionResponse> {
     Util.validateModel(request);
@@ -15667,10 +28291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Debugs a started execution that contains an event trigger task or alert trigger task. If the operation is called, a message body is sent to the event trigger task or alert trigger task. After the trigger task receives the message body, the trigger task generates a new child execution.
-   *
-   * @param request TriggerExecutionRequest
-   * @return TriggerExecutionResponse
+   * Debugs a started execution that contains an event trigger task or alert trigger task. If the operation is called, a message body is sent to the event trigger task or alert trigger task. After the trigger task receives the message body, the trigger task generates a new child execution.
+   * 
+   * @param request - TriggerExecutionRequest
+   * @returns TriggerExecutionResponse
    */
   async triggerExecution(request: TriggerExecutionRequest): Promise<TriggerExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15678,11 +28302,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from one or more resources.
-   *
-   * @param tmpReq UntagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * Removes tags from one or more resources.
+   * 
+   * @param tmpReq - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(tmpReq);
@@ -15735,10 +28359,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from one or more resources.
-   *
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * Removes tags from one or more resources.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15746,11 +28370,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param tmpReq UpdateApplicationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateApplicationResponse
+   * Updates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param tmpReq - UpdateApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationResponse
    */
   async updateApplicationWithOptions(tmpReq: UpdateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationResponse> {
     Util.validateModel(tmpReq);
@@ -15807,10 +28431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request UpdateApplicationRequest
-   * @return UpdateApplicationResponse
+   * Updates an application. You can call this operation only for the applications that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - UpdateApplicationRequest
+   * @returns UpdateApplicationResponse
    */
   async updateApplication(request: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15818,11 +28442,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the information of an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request UpdateApplicationGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateApplicationGroupResponse
+   * Updates the information of an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - UpdateApplicationGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationGroupResponse
    */
   async updateApplicationGroupWithOptions(request: UpdateApplicationGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationGroupResponse> {
     Util.validateModel(request);
@@ -15861,10 +28485,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the information of an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
-   *
-   * @param request UpdateApplicationGroupRequest
-   * @return UpdateApplicationGroupResponse
+   * Updates the information of an application group. You can call this operation only for the application groups that reside in the China (Hangzhou) region. Use an endpoint of the China (Hangzhou) region.
+   * 
+   * @param request - UpdateApplicationGroupRequest
+   * @returns UpdateApplicationGroupResponse
    */
   async updateApplicationGroup(request: UpdateApplicationGroupRequest): Promise<UpdateApplicationGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15872,11 +28496,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an execution.
-   *
-   * @param request UpdateExecutionRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateExecutionResponse
+   * Updates an execution.
+   * 
+   * @param request - UpdateExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExecutionResponse
    */
   async updateExecutionWithOptions(request: UpdateExecutionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateExecutionResponse> {
     Util.validateModel(request);
@@ -15927,10 +28551,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an execution.
-   *
-   * @param request UpdateExecutionRequest
-   * @return UpdateExecutionResponse
+   * Updates an execution.
+   * 
+   * @param request - UpdateExecutionRequest
+   * @returns UpdateExecutionResponse
    */
   async updateExecution(request: UpdateExecutionRequest): Promise<UpdateExecutionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15938,11 +28562,79 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies an O\\\\\\\\\\\\&M item.
-   *
-   * @param tmpReq UpdateOpsItemRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateOpsItemResponse
+   * 更新实例软件包状态
+   * 
+   * @param tmpReq - UpdateInstancePackageStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstancePackageStateResponse
+   */
+  async updateInstancePackageStateWithOptions(tmpReq: UpdateInstancePackageStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstancePackageStateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateInstancePackageStateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.configureAction)) {
+      query["ConfigureAction"] = request.configureAction;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateInstancePackageState",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateInstancePackageStateResponse>(await this.callApi(params, req, runtime), new UpdateInstancePackageStateResponse({}));
+  }
+
+  /**
+   * 更新实例软件包状态
+   * 
+   * @param request - UpdateInstancePackageStateRequest
+   * @returns UpdateInstancePackageStateResponse
+   */
+  async updateInstancePackageState(request: UpdateInstancePackageStateRequest): Promise<UpdateInstancePackageStateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateInstancePackageStateWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies an O\\\\\\\\\\\\&M item.
+   * 
+   * @param tmpReq - UpdateOpsItemRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOpsItemResponse
    */
   async updateOpsItemWithOptions(tmpReq: UpdateOpsItemRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOpsItemResponse> {
     Util.validateModel(tmpReq);
@@ -16031,10 +28723,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies an O\\\\\\\\\\\\&M item.
-   *
-   * @param request UpdateOpsItemRequest
-   * @return UpdateOpsItemResponse
+   * Modifies an O\\\\\\\\\\\\&M item.
+   * 
+   * @param request - UpdateOpsItemRequest
+   * @returns UpdateOpsItemResponse
    */
   async updateOpsItem(request: UpdateOpsItemRequest): Promise<UpdateOpsItemResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16042,11 +28734,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a common parameter.
-   *
-   * @param request UpdateParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateParameterResponse
+   * Updates a common parameter.
+   * 
+   * @param request - UpdateParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateParameterResponse
    */
   async updateParameterWithOptions(request: UpdateParameterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateParameterResponse> {
     Util.validateModel(request);
@@ -16093,10 +28785,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a common parameter.
-   *
-   * @param request UpdateParameterRequest
-   * @return UpdateParameterResponse
+   * Updates a common parameter.
+   * 
+   * @param request - UpdateParameterRequest
+   * @returns UpdateParameterResponse
    */
   async updateParameter(request: UpdateParameterRequest): Promise<UpdateParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16104,11 +28796,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a patch baseline.
-   *
-   * @param tmpReq UpdatePatchBaselineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePatchBaselineResponse
+   * Updates a patch baseline.
+   * 
+   * @param tmpReq - UpdatePatchBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePatchBaselineResponse
    */
   async updatePatchBaselineWithOptions(tmpReq: UpdatePatchBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePatchBaselineResponse> {
     Util.validateModel(tmpReq);
@@ -16197,10 +28889,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a patch baseline.
-   *
-   * @param request UpdatePatchBaselineRequest
-   * @return UpdatePatchBaselineResponse
+   * Updates a patch baseline.
+   * 
+   * @param request - UpdatePatchBaselineRequest
+   * @returns UpdatePatchBaselineResponse
    */
   async updatePatchBaseline(request: UpdatePatchBaselineRequest): Promise<UpdatePatchBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16208,11 +28900,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an encryption parameter.
-   *
-   * @param tmpReq UpdateSecretParameterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSecretParameterResponse
+   * Updates an encryption parameter.
+   * 
+   * @param tmpReq - UpdateSecretParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecretParameterResponse
    */
   async updateSecretParameterWithOptions(tmpReq: UpdateSecretParameterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSecretParameterResponse> {
     Util.validateModel(tmpReq);
@@ -16265,10 +28957,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates an encryption parameter.
-   *
-   * @param request UpdateSecretParameterRequest
-   * @return UpdateSecretParameterResponse
+   * Updates an encryption parameter.
+   * 
+   * @param request - UpdateSecretParameterRequest
+   * @returns UpdateSecretParameterResponse
    */
   async updateSecretParameter(request: UpdateSecretParameterRequest): Promise<UpdateSecretParameterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16276,11 +28968,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a desired-state configuration.
-   *
-   * @param tmpReq UpdateStateConfigurationRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateStateConfigurationResponse
+   * Updates a desired-state configuration.
+   * 
+   * @param tmpReq - UpdateStateConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStateConfigurationResponse
    */
   async updateStateConfigurationWithOptions(tmpReq: UpdateStateConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStateConfigurationResponse> {
     Util.validateModel(tmpReq);
@@ -16357,10 +29049,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a desired-state configuration.
-   *
-   * @param request UpdateStateConfigurationRequest
-   * @return UpdateStateConfigurationResponse
+   * Updates a desired-state configuration.
+   * 
+   * @param request - UpdateStateConfigurationRequest
+   * @returns UpdateStateConfigurationResponse
    */
   async updateStateConfiguration(request: UpdateStateConfigurationRequest): Promise<UpdateStateConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16368,11 +29060,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the information about an existing template.
-   *
-   * @param tmpReq UpdateTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTemplateResponse
+   * Updates the information about an existing template.
+   * 
+   * @param tmpReq - UpdateTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTemplateResponse
    */
   async updateTemplateWithOptions(tmpReq: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -16425,10 +29117,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the information about an existing template.
-   *
-   * @param request UpdateTemplateRequest
-   * @return UpdateTemplateResponse
+   * Updates the information about an existing template.
+   * 
+   * @param request - UpdateTemplateRequest
+   * @returns UpdateTemplateResponse
    */
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16436,11 +29128,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Check whether a template is valid.
-   *
-   * @param request ValidateTemplateContentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ValidateTemplateContentResponse
+   * Check whether a template is valid.
+   * 
+   * @param request - ValidateTemplateContentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateTemplateContentResponse
    */
   async validateTemplateContentWithOptions(request: ValidateTemplateContentRequest, runtime: $Util.RuntimeOptions): Promise<ValidateTemplateContentResponse> {
     Util.validateModel(request);
@@ -16475,10 +29167,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Check whether a template is valid.
-   *
-   * @param request ValidateTemplateContentRequest
-   * @return ValidateTemplateContentResponse
+   * Check whether a template is valid.
+   * 
+   * @param request - ValidateTemplateContentRequest
+   * @returns ValidateTemplateContentResponse
    */
   async validateTemplateContent(request: ValidateTemplateContentRequest): Promise<ValidateTemplateContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
