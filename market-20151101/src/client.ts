@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,7 +8,18 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ActivateLicenseRequest extends $tea.Model {
+  /**
+   * @example
+   * 129****1111
+   */
   identification?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * APSEDH8TA5CSGK-********_6CNTACBH9EQPOATFXJQL4B2COE7M43VVQ7GUGKAA
+   */
   licenseCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +41,15 @@ export class ActivateLicenseRequest extends $tea.Model {
 }
 
 export class ActivateLicenseResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6EF60BEC-0242-43AF-BB20-270359FB54A7
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -53,9 +71,9 @@ export class ActivateLicenseResponseBody extends $tea.Model {
 }
 
 export class ActivateLicenseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ActivateLicenseResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ActivateLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -80,8 +98,16 @@ export class ActivateLicenseResponse extends $tea.Model {
 export class AutoRenewInstanceRequest extends $tea.Model {
   autoRenewCycle?: string;
   autoRenewDuration?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   orderBizId?: number;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -134,9 +160,9 @@ export class AutoRenewInstanceResponseBody extends $tea.Model {
 }
 
 export class AutoRenewInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AutoRenewInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AutoRenewInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -159,11 +185,44 @@ export class AutoRenewInstanceResponse extends $tea.Model {
 }
 
 export class CreateOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2709c68a-d569-4819-9c5d-1222ed2ee924
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   commodity?: string;
+  /**
+   * @example
+   * abc
+   */
   orderSouce?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE_BUY
+   */
   orderType?: string;
+  /**
+   * @example
+   * 111********11
+   */
   ownerId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * HAND
+   */
   paymentType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -194,7 +253,15 @@ export class CreateOrderRequest extends $tea.Model {
 
 export class CreateOrderResponseBody extends $tea.Model {
   instanceIds?: CreateOrderResponseBodyInstanceIds;
+  /**
+   * @example
+   * 202********0117
+   */
   orderId?: string;
+  /**
+   * @example
+   * 4ca591b5-bc30-4fa7-aeaa-c4d0ec5d24ed
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -218,9 +285,9 @@ export class CreateOrderResponseBody extends $tea.Model {
 }
 
 export class CreateOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -243,6 +310,10 @@ export class CreateOrderResponse extends $tea.Model {
 }
 
 export class CrossAccountVerifyTokenRequest extends $tea.Model {
+  /**
+   * @example
+   * C19D103FEA2D50A584410267CE9FBA56
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -262,10 +333,29 @@ export class CrossAccountVerifyTokenRequest extends $tea.Model {
 }
 
 export class CrossAccountVerifyTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * RequestId
+   * 
+   * @example
+   * C19D103F-EA2D-50A5-8441-0267CE9FBA56
+   */
   requestId?: string;
   result?: CrossAccountVerifyTokenResponseBodyResult;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -293,9 +383,9 @@ export class CrossAccountVerifyTokenResponseBody extends $tea.Model {
 }
 
 export class CrossAccountVerifyTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CrossAccountVerifyTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CrossAccountVerifyTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -318,8 +408,23 @@ export class CrossAccountVerifyTokenResponse extends $tea.Model {
 }
 
 export class DescribeApiMeteringRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * cmapi0004****
+   */
   productCode?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -343,15 +448,50 @@ export class DescribeApiMeteringRequest extends $tea.Model {
 }
 
 export class DescribeApiMeteringResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 100
+   */
   count?: number;
+  /**
+   * @remarks
+   * fatal
+   * 
+   * @example
+   * false
+   */
   fatal?: boolean;
   message?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 62FC432C55A1A63534A6CB34
+   */
   requestId?: string;
   result?: DescribeApiMeteringResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -389,9 +529,9 @@ export class DescribeApiMeteringResponseBody extends $tea.Model {
 }
 
 export class DescribeApiMeteringResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeApiMeteringResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApiMeteringResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -414,6 +554,13 @@ export class DescribeApiMeteringResponse extends $tea.Model {
 }
 
 export class DescribeCurrentNodeInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4****89
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -433,8 +580,16 @@ export class DescribeCurrentNodeInfoRequest extends $tea.Model {
 }
 
 export class DescribeCurrentNodeInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 00eb4de1-6cff-4f56-833e-7b1e070e398d
+   */
   requestId?: string;
   result?: DescribeCurrentNodeInfoResponseBodyResult;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -458,9 +613,9 @@ export class DescribeCurrentNodeInfoResponseBody extends $tea.Model {
 }
 
 export class DescribeCurrentNodeInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeCurrentNodeInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCurrentNodeInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -484,7 +639,21 @@ export class DescribeCurrentNodeInfoResponse extends $tea.Model {
 
 export class DescribeDistributionProductsRequest extends $tea.Model {
   filter?: DescribeDistributionProductsRequestFilter[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -508,10 +677,26 @@ export class DescribeDistributionProductsRequest extends $tea.Model {
 }
 
 export class DescribeDistributionProductsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 5BD09171-MB74-18D8-890E-C70C067527BE
+   */
   requestId?: string;
   results?: DescribeDistributionProductsResponseBodyResults[];
+  /**
+   * @example
+   * 50
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -539,9 +724,9 @@ export class DescribeDistributionProductsResponseBody extends $tea.Model {
 }
 
 export class DescribeDistributionProductsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDistributionProductsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDistributionProductsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -564,6 +749,10 @@ export class DescribeDistributionProductsResponse extends $tea.Model {
 }
 
 export class DescribeDistributionProductsLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   codes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -583,6 +772,10 @@ export class DescribeDistributionProductsLinkRequest extends $tea.Model {
 }
 
 export class DescribeDistributionProductsLinkShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   codesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -602,9 +795,24 @@ export class DescribeDistributionProductsLinkShrinkRequest extends $tea.Model {
 }
 
 export class DescribeDistributionProductsLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5BD09171-BF4D-18D8-890E-C70C067527BE
+   */
   requestId?: string;
   result?: DescribeDistributionProductsLinkResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 50
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -630,9 +838,9 @@ export class DescribeDistributionProductsLinkResponseBody extends $tea.Model {
 }
 
 export class DescribeDistributionProductsLinkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeDistributionProductsLinkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDistributionProductsLinkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -655,7 +863,18 @@ export class DescribeDistributionProductsLinkResponse extends $tea.Model {
 }
 
 export class DescribeInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 155****11
+   */
   instanceId?: string;
+  /**
+   * @example
+   * NEW
+   */
   orderType?: string;
   ownerId?: number;
   static names(): { [key: string]: string } {
@@ -680,28 +899,87 @@ export class DescribeInstanceRequest extends $tea.Model {
 }
 
 export class DescribeInstanceResponseBody extends $tea.Model {
+  activeAddress?: string;
+  /**
+   * @example
+   * {"frontEndUrl":"https://****.aliyundoc.com","password":"Sjtv***","adminUrl":"https://****.aliyundoc.com","username":"aliyun***"}
+   */
   appJson?: string;
   autoRenewal?: string;
+  /**
+   * @example
+   * 1570634021000
+   */
   beganOn?: number;
+  /**
+   * @example
+   * {"package_version":"yuncode000111"}
+   */
   componentJson?: string;
+  /**
+   * @example
+   * {}
+   */
   constraints?: string;
+  /**
+   * @example
+   * 1570634018000
+   */
   createdOn?: number;
+  /**
+   * @example
+   * 1602259200000
+   */
   endOn?: number;
   extendJson?: string;
+  /**
+   * @example
+   * {"password":"***","ip":"118.31.***.41","innerIp":"118.31.***.41","region":"","username":"***","beianInfo":""}
+   */
   hostJson?: string;
+  /**
+   * @example
+   * 1551111111
+   */
   instanceId?: number;
+  /**
+   * @example
+   * true
+   */
   isTrial?: boolean;
+  licenseCode?: string;
   modules?: DescribeInstanceResponseBodyModules;
+  /**
+   * @example
+   * 204211111111111
+   */
   orderId?: number;
+  /**
+   * @example
+   * cmgj00**11
+   */
   productCode?: string;
   productName?: string;
+  /**
+   * @example
+   * cmgj00**11-prepay
+   */
   productSkuCode?: string;
+  /**
+   * @example
+   * APP
+   */
   productType?: string;
   relationalData?: DescribeInstanceResponseBodyRelationalData;
+  /**
+   * @example
+   * OPENED
+   */
   status?: string;
   supplierName?: string;
   static names(): { [key: string]: string } {
     return {
+      activeAddress: 'ActiveAddress',
       appJson: 'AppJson',
       autoRenewal: 'AutoRenewal',
       beganOn: 'BeganOn',
@@ -713,6 +991,7 @@ export class DescribeInstanceResponseBody extends $tea.Model {
       hostJson: 'HostJson',
       instanceId: 'InstanceId',
       isTrial: 'IsTrial',
+      licenseCode: 'LicenseCode',
       modules: 'Modules',
       orderId: 'OrderId',
       productCode: 'ProductCode',
@@ -727,6 +1006,7 @@ export class DescribeInstanceResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activeAddress: 'string',
       appJson: 'string',
       autoRenewal: 'string',
       beganOn: 'number',
@@ -738,6 +1018,7 @@ export class DescribeInstanceResponseBody extends $tea.Model {
       hostJson: 'string',
       instanceId: 'number',
       isTrial: 'boolean',
+      licenseCode: 'string',
       modules: DescribeInstanceResponseBodyModules,
       orderId: 'number',
       productCode: 'string',
@@ -756,9 +1037,9 @@ export class DescribeInstanceResponseBody extends $tea.Model {
 }
 
 export class DescribeInstanceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstanceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -781,10 +1062,36 @@ export class DescribeInstanceResponse extends $tea.Model {
 }
 
 export class DescribeInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * cmgj000112,cmgj000113
+   */
   codes?: string;
+  /**
+   * @example
+   * cmgj000114,cmgj000115
+   */
   exceptCodes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   productType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -813,9 +1120,25 @@ export class DescribeInstancesRequest extends $tea.Model {
 
 export class DescribeInstancesResponseBody extends $tea.Model {
   instanceItems?: DescribeInstancesResponseBodyInstanceItems;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 54C22FB9-0CB1-5629-97A8-653FC7990F00
+   */
   requestId?: string;
+  /**
+   * @example
+   * 55
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -843,9 +1166,9 @@ export class DescribeInstancesResponseBody extends $tea.Model {
 }
 
 export class DescribeInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeInstancesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstancesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -868,6 +1191,13 @@ export class DescribeInstancesResponse extends $tea.Model {
 }
 
 export class DescribeLicenseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxxx
+   */
   licenseCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -888,6 +1218,10 @@ export class DescribeLicenseRequest extends $tea.Model {
 
 export class DescribeLicenseResponseBody extends $tea.Model {
   license?: DescribeLicenseResponseBodyLicense;
+  /**
+   * @example
+   * 6EF60BEC-0242-43AF-BB20-270359FB54A7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -909,9 +1243,9 @@ export class DescribeLicenseResponseBody extends $tea.Model {
 }
 
 export class DescribeLicenseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeLicenseResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLicenseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -934,6 +1268,13 @@ export class DescribeLicenseResponse extends $tea.Model {
 }
 
 export class DescribeOrderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 202*********415
+   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -953,27 +1294,95 @@ export class DescribeOrderRequest extends $tea.Model {
 }
 
 export class DescribeOrderResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   accountQuantity?: number;
+  /**
+   * @example
+   * 190311111111****
+   */
   aliUid?: number;
   components?: { [key: string]: any };
+  /**
+   * @example
+   * 0.0
+   */
   couponPrice?: number;
+  /**
+   * @example
+   * 1531191564000
+   */
   createdOn?: number;
   instanceIds?: DescribeOrderResponseBodyInstanceIds;
+  /**
+   * @example
+   * 202211111111111
+   */
   orderId?: number;
+  /**
+   * @example
+   * NORMAL
+   */
   orderStatus?: string;
+  /**
+   * @example
+   * NEW
+   */
   orderType?: string;
+  /**
+   * @example
+   * 10.0
+   */
   originalPrice?: number;
+  /**
+   * @example
+   * 1531191675000
+   */
   paidOn?: number;
+  /**
+   * @example
+   * PAID
+   */
   payStatus?: string;
+  /**
+   * @example
+   * 0.0
+   */
   paymentPrice?: number;
+  /**
+   * @example
+   * MONTH
+   */
   periodType?: string;
+  /**
+   * @example
+   * cmgj02****
+   */
   productCode?: string;
   productName?: string;
+  /**
+   * @example
+   * cmgj02****-prepay
+   */
   productSkuCode?: string;
+  /**
+   * @example
+   * 1
+   */
   quantity?: number;
+  /**
+   * @example
+   * 6EF60BEC-0242-43AF-BB20-270359FB54A7
+   */
   requestId?: string;
   supplierCompanyName?: string;
   supplierTelephones?: DescribeOrderResponseBodySupplierTelephones;
+  /**
+   * @example
+   * 0.0
+   */
   totalPrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1035,9 +1444,9 @@ export class DescribeOrderResponseBody extends $tea.Model {
 }
 
 export class DescribeOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeOrderResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOrderResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1060,7 +1469,21 @@ export class DescribeOrderResponse extends $tea.Model {
 }
 
 export class DescribePriceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"components":{"package_version":"yuncode12928000016"},"duration":1,"pricingCycle":"YEAR","productCode":"cmgj01**28","quantity":1,"skuCode":"prepay"}
+   */
   commodity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE_BUY
+   */
   orderType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1083,17 +1506,53 @@ export class DescribePriceRequest extends $tea.Model {
 
 export class DescribePriceResponseBody extends $tea.Model {
   coupons?: DescribePriceResponseBodyCoupons;
+  /**
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @example
+   * true
+   */
   cuxiao?: boolean;
+  /**
+   * @example
+   * MONTH
+   */
   cycle?: string;
+  /**
+   * @example
+   * 178.20
+   */
   discountPrice?: number;
+  /**
+   * @example
+   * 1
+   */
   duration?: number;
+  /**
+   * @example
+   * ORDER.NO_REAL_NAME_AUTHENTICATION
+   */
   expressionCode?: string;
   expressionMessage?: string;
   infoTitle?: string;
+  /**
+   * @example
+   * 198.00
+   */
   originalPrice?: number;
+  /**
+   * @example
+   * cmgj01****
+   */
   productCode?: string;
   promotionRules?: DescribePriceResponseBodyPromotionRules;
+  /**
+   * @example
+   * 19.80
+   */
   tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1137,9 +1596,9 @@ export class DescribePriceResponseBody extends $tea.Model {
 }
 
 export class DescribePriceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribePriceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePriceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1162,8 +1621,26 @@ export class DescribePriceResponse extends $tea.Model {
 }
 
 export class DescribeProductRequest extends $tea.Model {
+  /**
+   * @remarks
+   * AliUid
+   * 
+   * @example
+   * 190********569
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cmjj01**45
+   */
   code?: string;
+  /**
+   * @example
+   * false
+   */
   queryDraft?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1188,24 +1665,76 @@ export class DescribeProductRequest extends $tea.Model {
 
 export class DescribeProductResponseBody extends $tea.Model {
   auditFailMsg?: string;
+  /**
+   * @example
+   * function_fail
+   */
   auditStatus?: string;
+  /**
+   * @example
+   * 1581609600000
+   */
   auditTime?: number;
+  /**
+   * @example
+   * cmjj01**45
+   */
   code?: string;
   description?: string;
+  /**
+   * @example
+   * 523617212
+   */
   frontCategoryId?: number;
+  /**
+   * @example
+   * 1578931200000
+   */
   gmtCreated?: number;
+  /**
+   * @example
+   * 1578931200000
+   */
   gmtModified?: number;
   name?: string;
+  /**
+   * @example
+   * https://oss.aliyuncs.com/photogallery/photo/1930532890589852/6245/495d5f19-03e4-4c2e-9c4e-bef9ab6af1e1.png
+   */
   picUrl?: string;
   productExtras?: DescribeProductResponseBodyProductExtras;
   productSkus?: DescribeProductResponseBodyProductSkus;
+  /**
+   * @example
+   * 6EF60BEC-0242-43AF-BB20-270359FB54A7
+   */
   requestId?: string;
+  /**
+   * @example
+   * 5.0
+   */
   score?: number;
   shopInfo?: DescribeProductResponseBodyShopInfo;
   shortDescription?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: string;
+  /**
+   * @example
+   * 1526111111****
+   */
   supplierPk?: number;
+  /**
+   * @example
+   * MIRROR
+   */
   type?: string;
+  /**
+   * @example
+   * 10
+   */
   useCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1263,9 +1792,9 @@ export class DescribeProductResponseBody extends $tea.Model {
 }
 
 export class DescribeProductResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProductResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProductResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1289,7 +1818,15 @@ export class DescribeProductResponse extends $tea.Model {
 
 export class DescribeProductsRequest extends $tea.Model {
   filter?: DescribeProductsRequestFilter[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   searchTerm?: string;
   static names(): { [key: string]: string } {
@@ -1316,10 +1853,26 @@ export class DescribeProductsRequest extends $tea.Model {
 }
 
 export class DescribeProductsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   productItems?: DescribeProductsResponseBodyProductItems;
+  /**
+   * @example
+   * A077D99E-0C4D-421E-A5D4-F533F6657817
+   */
   requestId?: string;
+  /**
+   * @example
+   * 75
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1347,9 +1900,9 @@ export class DescribeProductsResponseBody extends $tea.Model {
 }
 
 export class DescribeProductsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProductsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProductsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1372,6 +1925,13 @@ export class DescribeProductsResponse extends $tea.Model {
 }
 
 export class DescribeProjectAttachmentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4****89
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1391,8 +1951,16 @@ export class DescribeProjectAttachmentsRequest extends $tea.Model {
 }
 
 export class DescribeProjectAttachmentsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * e03a9f78-7b40-4fb3-a015-350913e37e3f
+   */
   requestId?: string;
   result?: DescribeProjectAttachmentsResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1416,9 +1984,9 @@ export class DescribeProjectAttachmentsResponseBody extends $tea.Model {
 }
 
 export class DescribeProjectAttachmentsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProjectAttachmentsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProjectAttachmentsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1441,6 +2009,13 @@ export class DescribeProjectAttachmentsResponse extends $tea.Model {
 }
 
 export class DescribeProjectInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4****89
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1460,8 +2035,16 @@ export class DescribeProjectInfoRequest extends $tea.Model {
 }
 
 export class DescribeProjectInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ee3e1b3b-6c38-4bcf-be40-5a946cfda761
+   */
   requestId?: string;
   result?: DescribeProjectInfoResponseBodyResult;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1485,9 +2068,9 @@ export class DescribeProjectInfoResponseBody extends $tea.Model {
 }
 
 export class DescribeProjectInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProjectInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProjectInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1510,7 +2093,18 @@ export class DescribeProjectInfoResponse extends $tea.Model {
 }
 
 export class DescribeProjectMessagesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4****89
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageIndex?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1532,9 +2126,21 @@ export class DescribeProjectMessagesRequest extends $tea.Model {
 }
 
 export class DescribeProjectMessagesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 00eb4de1-6cff-4f56-833e-7b1e070e398d
+   */
   requestId?: string;
   result?: DescribeProjectMessagesResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 28
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1560,9 +2166,9 @@ export class DescribeProjectMessagesResponseBody extends $tea.Model {
 }
 
 export class DescribeProjectMessagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProjectMessagesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProjectMessagesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1585,6 +2191,13 @@ export class DescribeProjectMessagesResponse extends $tea.Model {
 }
 
 export class DescribeProjectNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4****89
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1604,8 +2217,16 @@ export class DescribeProjectNodesRequest extends $tea.Model {
 }
 
 export class DescribeProjectNodesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 937fee1f-26bb-4b6e-8def-977a6bdaa1e5
+   */
   requestId?: string;
   result?: DescribeProjectNodesResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1629,9 +2250,9 @@ export class DescribeProjectNodesResponseBody extends $tea.Model {
 }
 
 export class DescribeProjectNodesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProjectNodesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProjectNodesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1654,6 +2275,13 @@ export class DescribeProjectNodesResponse extends $tea.Model {
 }
 
 export class DescribeProjectOperateLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4****89
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1673,8 +2301,16 @@ export class DescribeProjectOperateLogsRequest extends $tea.Model {
 }
 
 export class DescribeProjectOperateLogsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * e6037e86-657f-4194-bb6a-7b26973aec8d
+   */
   requestId?: string;
   result?: DescribeProjectOperateLogsResponseBodyResult[];
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1698,9 +2334,9 @@ export class DescribeProjectOperateLogsResponseBody extends $tea.Model {
 }
 
 export class DescribeProjectOperateLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeProjectOperateLogsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeProjectOperateLogsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1723,7 +2359,21 @@ export class DescribeProjectOperateLogsResponse extends $tea.Model {
 }
 
 export class FinishCurrentProjectNodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4****89
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1924
+   */
   nodeId?: number;
   remark?: string;
   templateForm?: string;
@@ -1751,8 +2401,20 @@ export class FinishCurrentProjectNodeRequest extends $tea.Model {
 }
 
 export class FinishCurrentProjectNodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ee69a00f-189b-400f-9fd2-af89749fb50f
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1776,9 +2438,9 @@ export class FinishCurrentProjectNodeResponseBody extends $tea.Model {
 }
 
 export class FinishCurrentProjectNodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FinishCurrentProjectNodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FinishCurrentProjectNodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1801,7 +2463,21 @@ export class FinishCurrentProjectNodeResponse extends $tea.Model {
 }
 
 export class PauseProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4****89
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1922
+   */
   nodeId?: number;
   remark?: string;
   static names(): { [key: string]: string } {
@@ -1826,8 +2502,20 @@ export class PauseProjectRequest extends $tea.Model {
 }
 
 export class PauseProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ee69a00f-189b-400f-9fd2-af89749fb50f
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1851,9 +2539,9 @@ export class PauseProjectResponseBody extends $tea.Model {
 }
 
 export class PauseProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PauseProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PauseProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1876,6 +2564,10 @@ export class PauseProjectResponse extends $tea.Model {
 }
 
 export class PushMeteringDataRequest extends $tea.Model {
+  /**
+   * @example
+   * [{"InstanceId":"1000001","StartTime":"100000000","EndTime":"100000010","Entities":[{"Key":"PeriodMin","Value":"96","meteringAssit":"cmapi00060317-PeriodMin-4"}]}]
+   */
   metering?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1895,7 +2587,15 @@ export class PushMeteringDataRequest extends $tea.Model {
 }
 
 export class PushMeteringDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6EF60BEC-0242-43AF-BB20-270359FB54A7
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1917,9 +2617,9 @@ export class PushMeteringDataResponseBody extends $tea.Model {
 }
 
 export class PushMeteringDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: PushMeteringDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PushMeteringDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1942,7 +2642,21 @@ export class PushMeteringDataResponse extends $tea.Model {
 }
 
 export class ResumeProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4****89
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1922
+   */
   nodeId?: number;
   remark?: string;
   static names(): { [key: string]: string } {
@@ -1967,8 +2681,20 @@ export class ResumeProjectRequest extends $tea.Model {
 }
 
 export class ResumeProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ee69a00f-189b-400f-9fd2-af89749fb50f
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1992,9 +2718,9 @@ export class ResumeProjectResponseBody extends $tea.Model {
 }
 
 export class ResumeProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResumeProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResumeProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2017,7 +2743,21 @@ export class ResumeProjectResponse extends $tea.Model {
 }
 
 export class RollbackCurrentProjectNodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4****89
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1925
+   */
   nodeId?: number;
   remark?: string;
   static names(): { [key: string]: string } {
@@ -2042,8 +2782,20 @@ export class RollbackCurrentProjectNodeRequest extends $tea.Model {
 }
 
 export class RollbackCurrentProjectNodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ee69a00f-189b-400f-9fd2-af89749fb50f
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   result?: boolean;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2067,9 +2819,9 @@ export class RollbackCurrentProjectNodeResponseBody extends $tea.Model {
 }
 
 export class RollbackCurrentProjectNodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RollbackCurrentProjectNodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RollbackCurrentProjectNodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2112,8 +2864,20 @@ export class CreateOrderResponseBodyInstanceIds extends $tea.Model {
 
 export class CrossAccountVerifyTokenResponseBodyResult extends $tea.Model {
   authRoles?: string[];
+  /**
+   * @example
+   * 1676974108866
+   */
   authTime?: number;
+  /**
+   * @example
+   * marketplace_wangxiao_test
+   */
   name?: string;
+  /**
+   * @example
+   * 1744526877246715
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2139,10 +2903,27 @@ export class CrossAccountVerifyTokenResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeApiMeteringResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 102277855749****
+   */
   aliyunPk?: number;
+  /**
+   * @example
+   * cmapi0004****
+   */
   productCode?: string;
   productName?: string;
+  totalCapacity?: number;
+  /**
+   * @example
+   * 98
+   */
   totalQuota?: number;
+  /**
+   * @example
+   * 220
+   */
   totalUsage?: number;
   unit?: string;
   static names(): { [key: string]: string } {
@@ -2150,6 +2931,7 @@ export class DescribeApiMeteringResponseBodyResult extends $tea.Model {
       aliyunPk: 'AliyunPk',
       productCode: 'ProductCode',
       productName: 'ProductName',
+      totalCapacity: 'TotalCapacity',
       totalQuota: 'TotalQuota',
       totalUsage: 'TotalUsage',
       unit: 'Unit',
@@ -2161,6 +2943,7 @@ export class DescribeApiMeteringResponseBodyResult extends $tea.Model {
       aliyunPk: 'number',
       productCode: 'string',
       productName: 'string',
+      totalCapacity: 'number',
       totalQuota: 'number',
       totalUsage: 'number',
       unit: 'string',
@@ -2173,20 +2956,76 @@ export class DescribeApiMeteringResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeCurrentNodeInfoResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   allowRollbackNode?: boolean;
+  /**
+   * @example
+   * false
+   */
   autoFinishNode?: boolean;
+  /**
+   * @example
+   * 4
+   */
   finalStepNo?: number;
+  /**
+   * @example
+   * 1588920725000
+   */
   gmtExpired?: number;
+  /**
+   * @example
+   * 1588920725000
+   */
   gmtFinished?: number;
+  /**
+   * @example
+   * 1588834325000
+   */
   gmtStart?: number;
+  /**
+   * @example
+   * false
+   */
   needAttachment?: boolean;
+  /**
+   * @example
+   * 8473
+   */
   nextNodeId?: number;
+  /**
+   * @example
+   * 8472
+   */
   nodeId?: number;
   nodeName?: string;
+  /**
+   * @example
+   * Starting
+   */
   nodeStatus?: string;
+  /**
+   * @example
+   * Provider
+   */
   operatorRole?: string;
+  /**
+   * @example
+   * 0
+   */
   parentNodeId?: number;
+  /**
+   * @example
+   * 8471
+   */
   previousNodeId?: number;
+  /**
+   * @example
+   * 3
+   */
   stepNo?: number;
   templateForm?: string;
   static names(): { [key: string]: string } {
@@ -2237,7 +3076,21 @@ export class DescribeCurrentNodeInfoResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeDistributionProductsRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * supplierName
+   */
   key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cmj0000000
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2259,19 +3112,51 @@ export class DescribeDistributionProductsRequestFilter extends $tea.Model {
 }
 
 export class DescribeDistributionProductsResponseBodyResults extends $tea.Model {
+  /**
+   * @example
+   * cmap*****
+   */
   code?: string;
   firstCategoryName?: string;
+  /**
+   * @example
+   * //photogallery.oss-cn-hangzhou.aliyuncs.com/photo/1744526877246715/09605255-87fd-44d1-8143-96ebc8019d46.jpeg
+   */
   imageUrl?: string;
   name?: string;
+  /**
+   * @example
+   * 100
+   */
   price?: string;
+  /**
+   * @example
+   * 5
+   */
   score?: string;
   secondCategoryName?: string;
   shortDescription?: string;
+  /**
+   * @example
+   * 30
+   */
   submissionRadio?: string;
   supplierName?: string;
+  /**
+   * @example
+   * 1911534921******
+   */
   supplierUId?: string;
+  /**
+   * @example
+   * 109
+   */
   tradeCount?: string;
   type?: string;
+  /**
+   * @example
+   * 55
+   */
   userCommentCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2342,12 +3227,40 @@ export class DescribeDistributionProductsLinkResponseBodyResult extends $tea.Mod
 }
 
 export class DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   displayName?: string;
+  /**
+   * @example
+   * 12
+   */
   max?: string;
+  /**
+   * @example
+   * 12
+   */
   min?: string;
+  /**
+   * @example
+   * 12
+   */
   remark?: string;
+  /**
+   * @example
+   * 12
+   */
   step?: string;
+  /**
+   * @example
+   * 12
+   */
   type?: string;
+  /**
+   * @example
+   * 12
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2398,10 +3311,26 @@ export class DescribeInstanceResponseBodyModulesModulePropertiesPropertyProperty
 }
 
 export class DescribeInstanceResponseBodyModulesModulePropertiesProperty extends $tea.Model {
+  /**
+   * @example
+   * 12
+   */
   displayUnit?: string;
+  /**
+   * @example
+   * 12
+   */
   key?: string;
+  /**
+   * @example
+   * 12
+   */
   name?: string;
   propertyValues?: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues;
+  /**
+   * @example
+   * 12
+   */
   showType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2448,7 +3377,15 @@ export class DescribeInstanceResponseBodyModulesModuleProperties extends $tea.Mo
 }
 
 export class DescribeInstanceResponseBodyModulesModule extends $tea.Model {
+  /**
+   * @example
+   * package_config
+   */
   code?: string;
+  /**
+   * @example
+   * 101*********026
+   */
   id?: string;
   name?: string;
   properties?: DescribeInstanceResponseBodyModulesModuleProperties;
@@ -2495,6 +3432,10 @@ export class DescribeInstanceResponseBodyModules extends $tea.Model {
 }
 
 export class DescribeInstanceResponseBodyRelationalData extends $tea.Model {
+  /**
+   * @example
+   * STARTED
+   */
   serviceStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2514,21 +3455,77 @@ export class DescribeInstanceResponseBodyRelationalData extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBodyInstanceItemsInstanceItem extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
   apiJson?: string;
+  /**
+   * @example
+   * {"frontEndUrl":"https://***.aliyun.com","password":"Sjtv***","adminUrl":"https://***.aiiyun.com","username":"aliyun***"}
+   */
   appJson?: string;
+  /**
+   * @example
+   * 1570634021000
+   */
   beganOn?: number;
+  /**
+   * @example
+   * 1570634021000
+   */
   createdOn?: number;
+  /**
+   * @example
+   * 1570644021000
+   */
   endOn?: number;
   extendJson?: string;
+  /**
+   * @example
+   * {"password":"***","ip":"118.31.***.41","innerIp":"118.31.***.41","region":"","username":"***","beianInfo":""}
+   */
   hostJson?: string;
+  /**
+   * @example
+   * {}
+   */
   idaasJson?: string;
+  /**
+   * @example
+   * {}
+   */
   imageJson?: string;
+  /**
+   * @example
+   * 1551111111
+   */
   instanceId?: number;
+  /**
+   * @example
+   * 204211111111111
+   */
   orderId?: number;
+  /**
+   * @example
+   * cmgj00**11
+   */
   productCode?: string;
   productName?: string;
+  /**
+   * @example
+   * cmgj00**11-prepay
+   */
   productSkuCode?: string;
+  /**
+   * @example
+   * APP
+   */
   productType?: string;
+  /**
+   * @example
+   * OPENED
+   */
   status?: string;
   supplierName?: string;
   static names(): { [key: string]: string } {
@@ -2600,7 +3597,15 @@ export class DescribeInstancesResponseBodyInstanceItems extends $tea.Model {
 }
 
 export class DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
   code?: string;
+  /**
+   * @example
+   * -
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2641,9 +3646,25 @@ export class DescribeLicenseResponseBodyLicenseExtendArray extends $tea.Model {
 }
 
 export class DescribeLicenseResponseBodyLicenseExtendInfo extends $tea.Model {
+  /**
+   * @example
+   * -
+   */
   accountQuantity?: number;
+  /**
+   * @example
+   * 190311111111****
+   */
   aliUid?: number;
+  /**
+   * @example
+   * id***@**.com
+   */
   email?: string;
+  /**
+   * @example
+   * 129****1111
+   */
   mobile?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2669,16 +3690,48 @@ export class DescribeLicenseResponseBodyLicenseExtendInfo extends $tea.Model {
 }
 
 export class DescribeLicenseResponseBodyLicense extends $tea.Model {
+  /**
+   * @example
+   * 2019-05-25 09:00:00
+   */
   activateTime?: string;
+  /**
+   * @example
+   * 2019-05-25 09:00:00
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2019-06-25 09:00:00
+   */
   expiredTime?: string;
   extendArray?: DescribeLicenseResponseBodyLicenseExtendArray;
   extendInfo?: DescribeLicenseResponseBodyLicenseExtendInfo;
+  /**
+   * @example
+   * 1551111111
+   */
   instanceId?: string;
+  /**
+   * @example
+   * -
+   */
   licenseCode?: string;
+  /**
+   * @example
+   * ACTIVATED
+   */
   licenseStatus?: string;
+  /**
+   * @example
+   * cmgj02****
+   */
   productCode?: string;
   productName?: string;
+  /**
+   * @example
+   * cmgj02****-prepay
+   */
   productSkuId?: string;
   supplierName?: string;
   static names(): { [key: string]: string } {
@@ -2759,11 +3812,27 @@ export class DescribeOrderResponseBodySupplierTelephones extends $tea.Model {
 }
 
 export class DescribePriceResponseBodyCouponsCoupon extends $tea.Model {
+  /**
+   * @example
+   * 100.00
+   */
   canPromFee?: number;
   couponDesc?: string;
   couponName?: string;
+  /**
+   * @example
+   * ActiveCoupon
+   */
   couponOptionCode?: string;
+  /**
+   * @example
+   * 3874923111
+   */
   couponOptionNo?: string;
+  /**
+   * @example
+   * false
+   */
   isSelected?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2813,6 +3882,10 @@ export class DescribePriceResponseBodyCoupons extends $tea.Model {
 
 export class DescribePriceResponseBodyPromotionRulesPromotionRule extends $tea.Model {
   name?: string;
+  /**
+   * @example
+   * 102112
+   */
   ruleId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -2856,9 +3929,21 @@ export class DescribePriceResponseBodyPromotionRules extends $tea.Model {
 }
 
 export class DescribeProductResponseBodyProductExtrasProductExtra extends $tea.Model {
+  /**
+   * @example
+   * product_advantage
+   */
   key?: string;
   label?: string;
+  /**
+   * @example
+   * 0
+   */
   order?: number;
+  /**
+   * @example
+   * HTML
+   */
   type?: string;
   values?: string;
   static names(): { [key: string]: string } {
@@ -2907,11 +3992,35 @@ export class DescribeProductResponseBodyProductExtras extends $tea.Model {
 
 export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue extends $tea.Model {
   displayName?: string;
+  /**
+   * @example
+   * 123
+   */
   max?: string;
+  /**
+   * @example
+   * 11
+   */
   min?: string;
+  /**
+   * @example
+   * abc
+   */
   remark?: string;
+  /**
+   * @example
+   * 1
+   */
   step?: string;
+  /**
+   * @example
+   * single_string
+   */
   type?: string;
+  /**
+   * @example
+   * m-28e213e7t
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2962,10 +4071,22 @@ export class DescribeProductResponseBodyProductSkusProductSkuModulesModuleProper
 }
 
 export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   displayUnit?: string;
+  /**
+   * @example
+   * img_id
+   */
   key?: string;
   name?: string;
   propertyValues?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues;
+  /**
+   * @example
+   * number
+   */
   showType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3012,7 +4133,15 @@ export class DescribeProductResponseBodyProductSkusProductSkuModulesModuleProper
 }
 
 export class DescribeProductResponseBodyProductSkusProductSkuModulesModule extends $tea.Model {
+  /**
+   * @example
+   * img_id
+   */
   code?: string;
+  /**
+   * @example
+   * 248220
+   */
   id?: string;
   name?: string;
   properties?: DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties;
@@ -3060,6 +4189,10 @@ export class DescribeProductResponseBodyProductSkusProductSkuModules extends $te
 
 export class DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod extends $tea.Model {
   name?: string;
+  /**
+   * @example
+   * HOUR
+   */
   periodType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3100,11 +4233,31 @@ export class DescribeProductResponseBodyProductSkusProductSkuOrderPeriods extend
 }
 
 export class DescribeProductResponseBodyProductSkusProductSku extends $tea.Model {
+  /**
+   * @example
+   * PREPAY
+   */
   chargeType?: string;
+  /**
+   * @example
+   * cmjj01****-Package
+   */
   code?: string;
+  /**
+   * @example
+   * {\\"img_id\\":{\\"img_version|img_region\\":{\\"V1.7|cn-shenzhen-st3-a01\\":[\\"m-wz9ho4hmos0lpxcldqoq\\"]}}
+   */
   constraints?: string;
+  /**
+   * @example
+   * true
+   */
   hidden?: boolean;
   modules?: DescribeProductResponseBodyProductSkusProductSkuModules;
+  /**
+   * @example
+   * 21
+   */
   name?: string;
   orderPeriods?: DescribeProductResponseBodyProductSkusProductSkuOrderPeriods;
   static names(): { [key: string]: string } {
@@ -3175,7 +4328,15 @@ export class DescribeProductResponseBodyShopInfoTelephones extends $tea.Model {
 }
 
 export class DescribeProductResponseBodyShopInfoWangWangsWangWang extends $tea.Model {
+  /**
+   * @example
+   * 123
+   */
   remark?: string;
+  /**
+   * @example
+   * ABC
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3216,7 +4377,15 @@ export class DescribeProductResponseBodyShopInfoWangWangs extends $tea.Model {
 }
 
 export class DescribeProductResponseBodyShopInfo extends $tea.Model {
+  /**
+   * @example
+   * 46**41@example.com
+   */
   emails?: string;
+  /**
+   * @example
+   * 123
+   */
   id?: number;
   name?: string;
   telephones?: DescribeProductResponseBodyShopInfoTelephones;
@@ -3247,7 +4416,15 @@ export class DescribeProductResponseBodyShopInfo extends $tea.Model {
 }
 
 export class DescribeProductsRequestFilter extends $tea.Model {
+  /**
+   * @example
+   * categoryId
+   */
   key?: string;
+  /**
+   * @example
+   * 53366009
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3269,20 +4446,52 @@ export class DescribeProductsRequestFilter extends $tea.Model {
 }
 
 export class DescribeProductsResponseBodyProductItemsProductItem extends $tea.Model {
+  /**
+   * @example
+   * 53398003
+   */
   categoryId?: number;
+  /**
+   * @example
+   * cmjj02****
+   */
   code?: string;
   deliveryDate?: string;
   deliveryWay?: string;
+  /**
+   * @example
+   * https://oss.aliyuncs.com/photogallery/photo/1904996544835414/7549/767d6d07-8366-4822-b84e-61f6ea10d146.png
+   */
   imageUrl?: string;
   name?: string;
+  /**
+   * @example
+   * windows
+   */
   operationSystem?: string;
+  /**
+   * @example
+   * {\\"DiscountPrice\\": 0.0, \\"TradePrice\\": 15750.0, \\"Currency\\": \\"CNY\\", \\"OriginalPrice\\": 15750.0, \\"RuleIds\\": {\\"RuleId\\": []}, \\"Coupons\\": {\\"Coupon\\": []}}
+   */
   priceInfo?: string;
+  /**
+   * @example
+   * 5.0
+   */
   score?: string;
   shortDescription?: string;
   suggestedPrice?: string;
+  /**
+   * @example
+   * 228399
+   */
   supplierId?: number;
   supplierName?: string;
   tags?: string;
+  /**
+   * @example
+   * /products/53616009/cmjj02****.html
+   */
   targetUrl?: string;
   warrantyDate?: string;
   static names(): { [key: string]: string } {
@@ -3352,20 +4561,68 @@ export class DescribeProductsResponseBodyProductItems extends $tea.Model {
 }
 
 export class DescribeProjectAttachmentsResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * Mzc4NDAtODQ3MjY4MzI=
+   */
   attachmentToken?: string;
+  /**
+   * @example
+   * File
+   */
   attachmentType?: string;
   content?: string;
+  /**
+   * @example
+   * http://delivery-center.oss-cn-shanghai.aliyuncs.com/6a8****0e2/e0a***f3.jpg?Expires=1589334682&OSSAccessKeyId=wI2r*********&Signature=JWB39pUxs7RCqrcw58qXPEGu6M0%3D
+   */
   fileLink?: string;
+  /**
+   * @example
+   * 1589334682404
+   */
   fileLinkGmtExpired?: number;
+  /**
+   * @example
+   * f8-test-perview.jpeg
+   */
   fileName?: string;
+  /**
+   * @example
+   * 109124
+   */
   fileSize?: number;
+  /**
+   * @example
+   * jpg
+   */
   fileSuffix?: string;
+  /**
+   * @example
+   * 1587968858000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 8472
+   */
   nodeId?: number;
   nodeName?: string;
+  /**
+   * @example
+   * 45261111****
+   */
   operator?: number;
   operatorName?: string;
+  /**
+   * @example
+   * Provider
+   */
   operatorRole?: string;
+  /**
+   * @example
+   * 3
+   */
   stepNo?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3413,22 +4670,82 @@ export class DescribeProjectAttachmentsResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeProjectInfoResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   currentStepNo?: number;
+  /**
+   * @example
+   * 27291111****
+   */
   customerAliUid?: number;
+  /**
+   * @example
+   * 4
+   */
   finalStepNo?: number;
+  /**
+   * @example
+   * null
+   */
   finishType?: string;
+  /**
+   * @example
+   * 1588834324000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1620403200000
+   */
   gmtExpired?: number;
+  /**
+   * @example
+   * 1620403200000
+   */
   gmtFinished?: number;
+  /**
+   * @example
+   * 4****89
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 2059111111111
+   */
   orderId?: number;
+  /**
+   * @example
+   * cmgj***055
+   */
   productCode?: string;
   productName?: string;
+  /**
+   * @example
+   * yuncode****500001
+   */
   productSkuCode?: string;
   productSkuName?: string;
+  /**
+   * @example
+   * Starting
+   */
   projectStatus?: string;
+  /**
+   * @example
+   * 45121111****
+   */
   supplierAliUid?: number;
+  /**
+   * @example
+   * 410
+   */
   templateId?: number;
+  /**
+   * @example
+   * Public
+   */
   templateType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3481,9 +4798,21 @@ export class DescribeProjectInfoResponseBodyResult extends $tea.Model {
 
 export class DescribeProjectMessagesResponseBodyResult extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * 1589015560000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 452611111****
+   */
   operator?: number;
   operatorName?: string;
+  /**
+   * @example
+   * Provider
+   */
   operatorRole?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3511,20 +4840,76 @@ export class DescribeProjectMessagesResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeProjectNodesResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   allowRollbackNode?: boolean;
+  /**
+   * @example
+   * false
+   */
   autoFinishNode?: boolean;
+  /**
+   * @example
+   * 4
+   */
   finalStepNo?: number;
+  /**
+   * @example
+   * 1588834325000
+   */
   gmtExpired?: number;
+  /**
+   * @example
+   * 1588834325000
+   */
   gmtFinished?: number;
+  /**
+   * @example
+   * 1588834325000
+   */
   gmtStart?: number;
+  /**
+   * @example
+   * false
+   */
   needAttachment?: boolean;
+  /**
+   * @example
+   * 8472
+   */
   nextNodeId?: number;
+  /**
+   * @example
+   * 8471
+   */
   nodeId?: number;
   nodeName?: string;
+  /**
+   * @example
+   * Finish
+   */
   nodeStatus?: string;
+  /**
+   * @example
+   * System
+   */
   operatorRole?: string;
+  /**
+   * @example
+   * 0
+   */
   parentNodeId?: number;
+  /**
+   * @example
+   * 8470
+   */
   previousNodeId?: number;
+  /**
+   * @example
+   * 2
+   */
   stepNo?: number;
   templateForm?: string;
   static names(): { [key: string]: string } {
@@ -3576,9 +4961,21 @@ export class DescribeProjectNodesResponseBodyResult extends $tea.Model {
 
 export class DescribeProjectOperateLogsResponseBodyResult extends $tea.Model {
   description?: string;
+  /**
+   * @example
+   * 1587624497000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 0
+   */
   operator?: number;
   operatorName?: string;
+  /**
+   * @example
+   * System
+   */
   operatorRole?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3653,6 +5050,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * 增加STS支持
+   * 
+   * @param request - ActivateLicenseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ActivateLicenseResponse
+   */
   async activateLicenseWithOptions(request: ActivateLicenseRequest, runtime: $Util.RuntimeOptions): Promise<ActivateLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3681,11 +5085,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ActivateLicenseResponse>(await this.callApi(params, req, runtime), new ActivateLicenseResponse({}));
   }
 
+  /**
+   * 增加STS支持
+   * 
+   * @param request - ActivateLicenseRequest
+   * @returns ActivateLicenseResponse
+   */
   async activateLicense(request: ActivateLicenseRequest): Promise<ActivateLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.activateLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - AutoRenewInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AutoRenewInstanceResponse
+   */
   async autoRenewInstanceWithOptions(request: AutoRenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AutoRenewInstanceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3726,11 +5141,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AutoRenewInstanceResponse>(await this.callApi(params, req, runtime), new AutoRenewInstanceResponse({}));
   }
 
+  /**
+   * @param request - AutoRenewInstanceRequest
+   * @returns AutoRenewInstanceResponse
+   */
   async autoRenewInstance(request: AutoRenewInstanceRequest): Promise<AutoRenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.autoRenewInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CreateOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOrderResponse
+   */
   async createOrderWithOptions(request: CreateOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3775,11 +5199,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOrderResponse>(await this.callApi(params, req, runtime), new CreateOrderResponse({}));
   }
 
+  /**
+   * @param request - CreateOrderRequest
+   * @returns CreateOrderResponse
+   */
   async createOrder(request: CreateOrderRequest): Promise<CreateOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CrossAccountVerifyTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CrossAccountVerifyTokenResponse
+   */
   async crossAccountVerifyTokenWithOptions(request: CrossAccountVerifyTokenRequest, runtime: $Util.RuntimeOptions): Promise<CrossAccountVerifyTokenResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -3804,11 +5237,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CrossAccountVerifyTokenResponse>(await this.callApi(params, req, runtime), new CrossAccountVerifyTokenResponse({}));
   }
 
+  /**
+   * @param request - CrossAccountVerifyTokenRequest
+   * @returns CrossAccountVerifyTokenResponse
+   */
   async crossAccountVerifyToken(request: CrossAccountVerifyTokenRequest): Promise<CrossAccountVerifyTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.crossAccountVerifyTokenWithOptions(request, runtime);
   }
 
+  /**
+   * 查询API用量
+   * 
+   * @param request - DescribeApiMeteringRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApiMeteringResponse
+   */
   async describeApiMeteringWithOptions(request: DescribeApiMeteringRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiMeteringResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3829,11 +5273,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApiMeteringResponse>(await this.callApi(params, req, runtime), new DescribeApiMeteringResponse({}));
   }
 
+  /**
+   * 查询API用量
+   * 
+   * @param request - DescribeApiMeteringRequest
+   * @returns DescribeApiMeteringResponse
+   */
   async describeApiMetering(request: DescribeApiMeteringRequest): Promise<DescribeApiMeteringResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApiMeteringWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeCurrentNodeInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCurrentNodeInfoResponse
+   */
   async describeCurrentNodeInfoWithOptions(request: DescribeCurrentNodeInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCurrentNodeInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3858,11 +5313,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeCurrentNodeInfoResponse>(await this.callApi(params, req, runtime), new DescribeCurrentNodeInfoResponse({}));
   }
 
+  /**
+   * @param request - DescribeCurrentNodeInfoRequest
+   * @returns DescribeCurrentNodeInfoResponse
+   */
   async describeCurrentNodeInfo(request: DescribeCurrentNodeInfoRequest): Promise<DescribeCurrentNodeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCurrentNodeInfoWithOptions(request, runtime);
   }
 
+  /**
+   * 分页获取推广商品
+   * 
+   * @param request - DescribeDistributionProductsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDistributionProductsResponse
+   */
   async describeDistributionProductsWithOptions(request: DescribeDistributionProductsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDistributionProductsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -3883,11 +5349,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDistributionProductsResponse>(await this.callApi(params, req, runtime), new DescribeDistributionProductsResponse({}));
   }
 
+  /**
+   * 分页获取推广商品
+   * 
+   * @param request - DescribeDistributionProductsRequest
+   * @returns DescribeDistributionProductsResponse
+   */
   async describeDistributionProducts(request: DescribeDistributionProductsRequest): Promise<DescribeDistributionProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDistributionProductsWithOptions(request, runtime);
   }
 
+  /**
+   * 获取并生成推广商品-链接
+   * 
+   * @param tmpReq - DescribeDistributionProductsLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDistributionProductsLinkResponse
+   */
   async describeDistributionProductsLinkWithOptions(tmpReq: DescribeDistributionProductsLinkRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDistributionProductsLinkResponse> {
     Util.validateModel(tmpReq);
     let request = new DescribeDistributionProductsLinkShrinkRequest({ });
@@ -3918,11 +5397,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeDistributionProductsLinkResponse>(await this.callApi(params, req, runtime), new DescribeDistributionProductsLinkResponse({}));
   }
 
+  /**
+   * 获取并生成推广商品-链接
+   * 
+   * @param request - DescribeDistributionProductsLinkRequest
+   * @returns DescribeDistributionProductsLinkResponse
+   */
   async describeDistributionProductsLink(request: DescribeDistributionProductsLinkRequest): Promise<DescribeDistributionProductsLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDistributionProductsLinkWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceResponse
+   */
   async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -3955,11 +5445,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
   }
 
+  /**
+   * @param request - DescribeInstanceRequest
+   * @returns DescribeInstanceResponse
+   */
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstanceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesResponse
+   */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4000,11 +5499,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
   }
 
+  /**
+   * @param request - DescribeInstancesRequest
+   * @returns DescribeInstancesResponse
+   */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
+  /**
+   * 获取License
+   * 
+   * @param request - DescribeLicenseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLicenseResponse
+   */
   async describeLicenseWithOptions(request: DescribeLicenseRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLicenseResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4029,11 +5539,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeLicenseResponse>(await this.callApi(params, req, runtime), new DescribeLicenseResponse({}));
   }
 
+  /**
+   * 获取License
+   * 
+   * @param request - DescribeLicenseRequest
+   * @returns DescribeLicenseResponse
+   */
   async describeLicense(request: DescribeLicenseRequest): Promise<DescribeLicenseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLicenseWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOrderResponse
+   */
   async describeOrderWithOptions(request: DescribeOrderRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOrderResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4058,11 +5579,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeOrderResponse>(await this.callApi(params, req, runtime), new DescribeOrderResponse({}));
   }
 
+  /**
+   * @param request - DescribeOrderRequest
+   * @returns DescribeOrderResponse
+   */
   async describeOrder(request: DescribeOrderRequest): Promise<DescribeOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOrderWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribePriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePriceResponse
+   */
   async describePriceWithOptions(request: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4091,11 +5621,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribePriceResponse>(await this.callApi(params, req, runtime), new DescribePriceResponse({}));
   }
 
+  /**
+   * @param request - DescribePriceRequest
+   * @returns DescribePriceResponse
+   */
   async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePriceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeProductRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProductResponse
+   */
   async describeProductWithOptions(request: DescribeProductRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProductResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4128,11 +5667,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProductResponse>(await this.callApi(params, req, runtime), new DescribeProductResponse({}));
   }
 
+  /**
+   * @param request - DescribeProductRequest
+   * @returns DescribeProductResponse
+   */
   async describeProduct(request: DescribeProductRequest): Promise<DescribeProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProductWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeProductsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProductsResponse
+   */
   async describeProductsWithOptions(request: DescribeProductsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProductsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4169,11 +5717,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProductsResponse>(await this.callApi(params, req, runtime), new DescribeProductsResponse({}));
   }
 
+  /**
+   * @param request - DescribeProductsRequest
+   * @returns DescribeProductsResponse
+   */
   async describeProducts(request: DescribeProductsRequest): Promise<DescribeProductsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProductsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeProjectAttachmentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectAttachmentsResponse
+   */
   async describeProjectAttachmentsWithOptions(request: DescribeProjectAttachmentsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectAttachmentsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4198,11 +5755,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProjectAttachmentsResponse>(await this.callApi(params, req, runtime), new DescribeProjectAttachmentsResponse({}));
   }
 
+  /**
+   * @param request - DescribeProjectAttachmentsRequest
+   * @returns DescribeProjectAttachmentsResponse
+   */
   async describeProjectAttachments(request: DescribeProjectAttachmentsRequest): Promise<DescribeProjectAttachmentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProjectAttachmentsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeProjectInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectInfoResponse
+   */
   async describeProjectInfoWithOptions(request: DescribeProjectInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectInfoResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4227,11 +5793,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProjectInfoResponse>(await this.callApi(params, req, runtime), new DescribeProjectInfoResponse({}));
   }
 
+  /**
+   * @param request - DescribeProjectInfoRequest
+   * @returns DescribeProjectInfoResponse
+   */
   async describeProjectInfo(request: DescribeProjectInfoRequest): Promise<DescribeProjectInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProjectInfoWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeProjectMessagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectMessagesResponse
+   */
   async describeProjectMessagesWithOptions(request: DescribeProjectMessagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectMessagesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4260,18 +5835,23 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProjectMessagesResponse>(await this.callApi(params, req, runtime), new DescribeProjectMessagesResponse({}));
   }
 
+  /**
+   * @param request - DescribeProjectMessagesRequest
+   * @returns DescribeProjectMessagesResponse
+   */
   async describeProjectMessages(request: DescribeProjectMessagesRequest): Promise<DescribeProjectMessagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProjectMessagesWithOptions(request, runtime);
   }
 
   /**
-    * **
-    * **
-    *
-    * @param request DescribeProjectNodesRequest
-    * @param runtime runtime options for this request RuntimeOptions
-    * @return DescribeProjectNodesResponse
+   * @remarks
+   * *
+   * **
+   * 
+   * @param request - DescribeProjectNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectNodesResponse
    */
   async describeProjectNodesWithOptions(request: DescribeProjectNodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectNodesResponse> {
     Util.validateModel(request);
@@ -4298,17 +5878,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-    * **
-    * **
-    *
-    * @param request DescribeProjectNodesRequest
-    * @return DescribeProjectNodesResponse
+   * @remarks
+   * *
+   * **
+   * 
+   * @param request - DescribeProjectNodesRequest
+   * @returns DescribeProjectNodesResponse
    */
   async describeProjectNodes(request: DescribeProjectNodesRequest): Promise<DescribeProjectNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProjectNodesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeProjectOperateLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeProjectOperateLogsResponse
+   */
   async describeProjectOperateLogsWithOptions(request: DescribeProjectOperateLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectOperateLogsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4333,11 +5919,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeProjectOperateLogsResponse>(await this.callApi(params, req, runtime), new DescribeProjectOperateLogsResponse({}));
   }
 
+  /**
+   * @param request - DescribeProjectOperateLogsRequest
+   * @returns DescribeProjectOperateLogsResponse
+   */
   async describeProjectOperateLogs(request: DescribeProjectOperateLogsRequest): Promise<DescribeProjectOperateLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProjectOperateLogsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - FinishCurrentProjectNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FinishCurrentProjectNodeResponse
+   */
   async finishCurrentProjectNodeWithOptions(request: FinishCurrentProjectNodeRequest, runtime: $Util.RuntimeOptions): Promise<FinishCurrentProjectNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4374,11 +5969,20 @@ export default class Client extends OpenApi {
     return $tea.cast<FinishCurrentProjectNodeResponse>(await this.callApi(params, req, runtime), new FinishCurrentProjectNodeResponse({}));
   }
 
+  /**
+   * @param request - FinishCurrentProjectNodeRequest
+   * @returns FinishCurrentProjectNodeResponse
+   */
   async finishCurrentProjectNode(request: FinishCurrentProjectNodeRequest): Promise<FinishCurrentProjectNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.finishCurrentProjectNodeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - PauseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PauseProjectResponse
+   */
   async pauseProjectWithOptions(request: PauseProjectRequest, runtime: $Util.RuntimeOptions): Promise<PauseProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4411,11 +6015,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PauseProjectResponse>(await this.callApi(params, req, runtime), new PauseProjectResponse({}));
   }
 
+  /**
+   * @param request - PauseProjectRequest
+   * @returns PauseProjectResponse
+   */
   async pauseProject(request: PauseProjectRequest): Promise<PauseProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pauseProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - PushMeteringDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushMeteringDataResponse
+   */
   async pushMeteringDataWithOptions(request: PushMeteringDataRequest, runtime: $Util.RuntimeOptions): Promise<PushMeteringDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4440,11 +6053,20 @@ export default class Client extends OpenApi {
     return $tea.cast<PushMeteringDataResponse>(await this.callApi(params, req, runtime), new PushMeteringDataResponse({}));
   }
 
+  /**
+   * @param request - PushMeteringDataRequest
+   * @returns PushMeteringDataResponse
+   */
   async pushMeteringData(request: PushMeteringDataRequest): Promise<PushMeteringDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushMeteringDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ResumeProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeProjectResponse
+   */
   async resumeProjectWithOptions(request: ResumeProjectRequest, runtime: $Util.RuntimeOptions): Promise<ResumeProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4477,11 +6099,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ResumeProjectResponse>(await this.callApi(params, req, runtime), new ResumeProjectResponse({}));
   }
 
+  /**
+   * @param request - ResumeProjectRequest
+   * @returns ResumeProjectResponse
+   */
   async resumeProject(request: ResumeProjectRequest): Promise<ResumeProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - RollbackCurrentProjectNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackCurrentProjectNodeResponse
+   */
   async rollbackCurrentProjectNodeWithOptions(request: RollbackCurrentProjectNodeRequest, runtime: $Util.RuntimeOptions): Promise<RollbackCurrentProjectNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4514,6 +6145,10 @@ export default class Client extends OpenApi {
     return $tea.cast<RollbackCurrentProjectNodeResponse>(await this.callApi(params, req, runtime), new RollbackCurrentProjectNodeResponse({}));
   }
 
+  /**
+   * @param request - RollbackCurrentProjectNodeRequest
+   * @returns RollbackCurrentProjectNodeResponse
+   */
   async rollbackCurrentProjectNode(request: RollbackCurrentProjectNodeRequest): Promise<RollbackCurrentProjectNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rollbackCurrentProjectNodeWithOptions(request, runtime);
