@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,23 +8,103 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddRecordTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * 0
+   */
   backgroundColor?: number;
   backgrounds?: AddRecordTemplateRequestBackgrounds[];
   clockWidgets?: AddRecordTemplateRequestClockWidgets[];
+  /**
+   * @example
+   * 180
+   */
   delayStopTime?: number;
+  /**
+   * @example
+   * false
+   */
   enableM3u8DateTime?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1800
+   */
   fileSplitInterval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mp4
+   */
   formats?: string[];
+  /**
+   * @example
+   * http://example.com/callback
+   */
   httpCallbackUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   layoutIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   mediaEncode?: number;
+  /**
+   * @example
+   * record-callback-queue
+   */
   mnsQueue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtc-record-oss
+   */
   ossBucket?: string;
   ossEndpoint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * record/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}
+   */
   ossFilePrefix?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4IN_1080P
+   */
   taskProfile?: string;
   watermarks?: AddRecordTemplateRequestWatermarks[];
   static names(): { [key: string]: string } {
@@ -82,7 +161,15 @@ export class AddRecordTemplateRequest extends $tea.Model {
 }
 
 export class AddRecordTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
+  /**
+   * @example
+   * 76dasgb****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -128,8 +215,157 @@ export class AddRecordTemplateResponse extends $tea.Model {
   }
 }
 
-export class CreateAppStreamingOutTemplateRequest extends $tea.Model {
+export class CreateAppRecordTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
   appId?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  recordTemplate?: CreateAppRecordTemplateRequestRecordTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      recordTemplate: 'RecordTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      recordTemplate: CreateAppRecordTemplateRequestRecordTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppRecordTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  recordTemplateShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      recordTemplateShrink: 'RecordTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      recordTemplateShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppRecordTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * lD7muaxx
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppRecordTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAppRecordTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAppRecordTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppStreamingOutTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamingOutTemplate?: CreateAppStreamingOutTemplateRequestStreamingOutTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -151,7 +387,18 @@ export class CreateAppStreamingOutTemplateRequest extends $tea.Model {
 }
 
 export class CreateAppStreamingOutTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamingOutTemplateShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -173,7 +420,18 @@ export class CreateAppStreamingOutTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateAppStreamingOutTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 30D41049-D02D-1C21-86AE-B3E5FD805C27
+   */
   requestId?: string;
+  /**
+   * @example
+   * bc5v****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -220,13 +478,39 @@ export class CreateAppStreamingOutTemplateResponse extends $tea.Model {
 }
 
 export class CreateAutoLiveStreamRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @example
+   * http://example.com/callback
+   */
   callBack?: string;
   channelIdPrefixes?: string[];
   channelIds?: string[];
+  /**
+   * @example
+   * 20
+   */
   mediaEncode?: number;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp://${domain}/${app}/${stream}
+   */
   playDomain?: string;
+  /**
+   * @example
+   * testRule
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -260,7 +544,15 @@ export class CreateAutoLiveStreamRuleRequest extends $tea.Model {
 }
 
 export class CreateAutoLiveStreamRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
+  /**
+   * @example
+   * 12
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -307,14 +599,58 @@ export class CreateAutoLiveStreamRuleResponse extends $tea.Model {
 }
 
 export class CreateEventSubscribeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9qb1****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://****.com/callback
+   */
   callbackUrl?: string;
+  /**
+   * @example
+   * 123333
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ChannelEvent
+   */
   events?: string[];
+  /**
+   * @example
+   * false
+   */
   needCallbackAuth?: boolean;
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   role?: number;
+  /**
+   * @example
+   * user1
+   */
   users?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -350,7 +686,15 @@ export class CreateEventSubscribeRequest extends $tea.Model {
 }
 
 export class CreateEventSubscribeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
+  /**
+   * @example
+   * ad53276431c****
+   */
   subscribeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -397,10 +741,32 @@ export class CreateEventSubscribeResponse extends $tea.Model {
 }
 
 export class CreateMPULayoutRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   audioMixCount?: number;
+  /**
+   * @example
+   * LayoutName
+   */
   name?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   panes?: CreateMPULayoutRequestPanes[];
   static names(): { [key: string]: string } {
     return {
@@ -428,7 +794,15 @@ export class CreateMPULayoutRequest extends $tea.Model {
 }
 
 export class CreateMPULayoutResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   layoutId?: number;
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -474,8 +848,150 @@ export class CreateMPULayoutResponse extends $tea.Model {
   }
 }
 
-export class DeleteAppStreamingOutTemplateRequest extends $tea.Model {
+export class DeleteAppRecordTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
   appId?: string;
+  /**
+   * @example
+   * 53200b81-b761-4c10-842a-a0726d97xxxx
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  template?: DeleteAppRecordTemplateRequestTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      template: 'Template',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      template: DeleteAppRecordTemplateRequestTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppRecordTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 53200b81-b761-4c10-842a-a0726d97xxxx
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  templateShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      templateShrink: 'Template',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      templateShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppRecordTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppRecordTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAppRecordTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAppRecordTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAppStreamingOutTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wv7N****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamingOutTemplate?: DeleteAppStreamingOutTemplateRequestStreamingOutTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -497,7 +1013,18 @@ export class DeleteAppStreamingOutTemplateRequest extends $tea.Model {
 }
 
 export class DeleteAppStreamingOutTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wv7N****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamingOutTemplateShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -519,6 +1046,13 @@ export class DeleteAppStreamingOutTemplateShrinkRequest extends $tea.Model {
 }
 
 export class DeleteAppStreamingOutTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 30D41049-D02D-1C21-86AE-B3E5FD825C17
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -563,8 +1097,22 @@ export class DeleteAppStreamingOutTemplateResponse extends $tea.Model {
 }
 
 export class DeleteAutoLiveStreamRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -588,6 +1136,10 @@ export class DeleteAutoLiveStreamRuleRequest extends $tea.Model {
 }
 
 export class DeleteAutoLiveStreamRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -632,7 +1184,21 @@ export class DeleteAutoLiveStreamRuleResponse extends $tea.Model {
 }
 
 export class DeleteChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
   ownerId?: number;
   static names(): { [key: string]: string } {
@@ -657,6 +1223,10 @@ export class DeleteChannelRequest extends $tea.Model {
 }
 
 export class DeleteChannelResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -701,8 +1271,22 @@ export class DeleteChannelResponse extends $tea.Model {
 }
 
 export class DeleteEventSubscribeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9qb1****
+   */
   appId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ad53276431c****
+   */
   subscribeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -726,6 +1310,10 @@ export class DeleteEventSubscribeRequest extends $tea.Model {
 }
 
 export class DeleteEventSubscribeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -770,7 +1358,21 @@ export class DeleteEventSubscribeResponse extends $tea.Model {
 }
 
 export class DeleteMPULayoutRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   layoutId?: number;
   ownerId?: number;
   static names(): { [key: string]: string } {
@@ -795,6 +1397,10 @@ export class DeleteMPULayoutRequest extends $tea.Model {
 }
 
 export class DeleteMPULayoutResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -839,8 +1445,26 @@ export class DeleteMPULayoutResponse extends $tea.Model {
 }
 
 export class DeleteRecordTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @remarks
+   * 1
+   */
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 76dasgb****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -864,6 +1488,10 @@ export class DeleteRecordTemplateRequest extends $tea.Model {
 }
 
 export class DeleteRecordTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -907,7 +1535,236 @@ export class DeleteRecordTemplateResponse extends $tea.Model {
   }
 }
 
+export class DescribeAllCallbackResponseBody extends $tea.Model {
+  callbacks?: DescribeAllCallbackResponseBodyCallbacks[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callbacks: 'Callbacks',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callbacks: { 'type': 'array', 'itemType': DescribeAllCallbackResponseBodyCallbacks },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllCallbackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAllCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAllCallbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppCallStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223***JQb
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppCallStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 20A6D1E3-1F5F-5440-A4F1-EC7831646FE4
+   */
+  requestId?: string;
+  /**
+   * @example
+   * enable
+   */
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppCallStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAppCallStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppCallStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppCallbackSecretKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9qb1****
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppCallbackSecretKeyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * a656b296a30xxxxxxxxxx1cd4
+   */
+  callbackSecretKey?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callbackSecretKey: 'CallbackSecretKey',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callbackSecretKey: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppCallbackSecretKeyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAppCallbackSecretKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppCallbackSecretKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppKeyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0cho****
+   */
   appId?: string;
   ownerId?: number;
   static names(): { [key: string]: string } {
@@ -930,7 +1787,18 @@ export class DescribeAppKeyRequest extends $tea.Model {
 }
 
 export class DescribeAppKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * AppKey。
+   * 
+   * @example
+   * ba133b2cee4ab9be424674892c33****
+   */
   appKey?: string;
+  /**
+   * @example
+   * 154EF5DE-3D08-1F2C-A482-281F78D74B7C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -976,12 +1844,542 @@ export class DescribeAppKeyResponse extends $tea.Model {
   }
 }
 
-export class DescribeAppRecordingFilesRequest extends $tea.Model {
+export class DescribeAppLayoutsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
   appId?: string;
-  channelId?: string;
-  endTs?: number;
-  pageNo?: number;
+  condition?: DescribeAppLayoutsRequestCondition;
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      condition: 'Condition',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      condition: DescribeAppLayoutsRequestCondition,
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppLayoutsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  conditionShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      conditionShrink: 'Condition',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      conditionShrink: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppLayoutsResponseBody extends $tea.Model {
+  layouts?: DescribeAppLayoutsResponseBodyLayouts[];
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalNum?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      layouts: 'Layouts',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layouts: { 'type': 'array', 'itemType': DescribeAppLayoutsResponseBodyLayouts },
+      requestId: 'string',
+      totalNum: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppLayoutsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAppLayoutsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppLayoutsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppLiveStreamStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppLiveStreamStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * disable
+   */
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppLiveStreamStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAppLiveStreamStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppLiveStreamStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  /**
+   * @example
+   * disable
+   */
+  result?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAppRecordStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppRecordStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  condition?: DescribeAppRecordTemplatesRequestCondition;
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      condition: 'Condition',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      condition: DescribeAppRecordTemplatesRequestCondition,
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordTemplatesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  conditionShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      conditionShrink: 'Condition',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      conditionShrink: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2A7497D0-BEAE-58E7-B13A-751BD8EAE4C6
+   */
+  requestId?: string;
+  templates?: DescribeAppRecordTemplatesResponseBodyTemplates[];
+  /**
+   * @example
+   * 10
+   */
+  totalNum?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templates: 'Templates',
+      totalNum: 'TotalNum',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templates: { 'type': 'array', 'itemType': DescribeAppRecordTemplatesResponseBodyTemplates },
+      totalNum: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordTemplatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAppRecordTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAppRecordTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordingFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
+  appId?: string;
+  /**
+   * @example
+   * 311
+   */
+  channelId?: string;
+  /**
+   * @example
+   * 1712376532000
+   */
+  endTs?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1712376032000
+   */
   startTs?: number;
   taskIds?: string[];
   static names(): { [key: string]: string } {
@@ -1014,11 +2412,40 @@ export class DescribeAppRecordingFilesRequest extends $tea.Model {
 }
 
 export class DescribeAppRecordingFilesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @example
+   * 311
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1712376532000
+   */
   endTs?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1712376032000
+   */
   startTs?: number;
   taskIdsShrink?: string;
   static names(): { [key: string]: string } {
@@ -1052,9 +2479,28 @@ export class DescribeAppRecordingFilesShrinkRequest extends $tea.Model {
 
 export class DescribeAppRecordingFilesResponseBody extends $tea.Model {
   items?: DescribeAppRecordingFilesResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCnt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1107,9 +2553,24 @@ export class DescribeAppRecordingFilesResponse extends $tea.Model {
 }
 
 export class DescribeAppStreamingOutTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ioeh****
+   */
   appId?: string;
   condition?: DescribeAppStreamingOutTemplatesRequestCondition;
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1135,9 +2596,24 @@ export class DescribeAppStreamingOutTemplatesRequest extends $tea.Model {
 }
 
 export class DescribeAppStreamingOutTemplatesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ioeh****
+   */
   appId?: string;
   conditionShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1163,9 +2639,24 @@ export class DescribeAppStreamingOutTemplatesShrinkRequest extends $tea.Model {
 }
 
 export class DescribeAppStreamingOutTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * B0A2FCBC-43A4-428F-BC1D-3F4F85837F76
+   */
   requestId?: string;
   templates?: DescribeAppStreamingOutTemplatesResponseBodyTemplates[];
+  /**
+   * @example
+   * 10
+   */
   totalNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1216,12 +2707,36 @@ export class DescribeAppStreamingOutTemplatesResponse extends $tea.Model {
 }
 
 export class DescribeAppsRequest extends $tea.Model {
+  /**
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * 3.0
+   */
   appVersion?: string;
+  /**
+   * @example
+   * asc
+   */
   order?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1254,8 +2769,20 @@ export class DescribeAppsRequest extends $tea.Model {
 
 export class DescribeAppsResponseBody extends $tea.Model {
   appList?: DescribeAppsResponseBodyAppList;
+  /**
+   * @example
+   * 6159ba01-6687-4fb2-a831-f0cd8d188648
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1306,6 +2833,13 @@ export class DescribeAppsResponse extends $tea.Model {
 }
 
 export class DescribeAutoLiveStreamRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
   ownerId?: number;
   static names(): { [key: string]: string } {
@@ -1328,6 +2862,10 @@ export class DescribeAutoLiveStreamRuleRequest extends $tea.Model {
 }
 
 export class DescribeAutoLiveStreamRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 069BCB66-CD80-11E8-A82B-A70F78BBDC00
+   */
   requestId?: string;
   rules?: DescribeAutoLiveStreamRuleResponseBodyRules[];
   static names(): { [key: string]: string } {
@@ -1375,11 +2913,46 @@ export class DescribeAutoLiveStreamRuleResponse extends $tea.Model {
 }
 
 export class DescribeCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
+  /**
+   * @example
+   * USER_DURATION_STAT
+   */
   extDataType?: string;
+  /**
+   * @example
+   * false
+   */
   queryExpInfo?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1410,6 +2983,10 @@ export class DescribeCallRequest extends $tea.Model {
 
 export class DescribeCallResponseBody extends $tea.Model {
   callInfo?: DescribeCallResponseBodyCallInfo;
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   userDetailList?: DescribeCallResponseBodyUserDetailList[];
   static names(): { [key: string]: string } {
@@ -1459,15 +3036,72 @@ export class DescribeCallResponse extends $tea.Model {
 }
 
 export class DescribeCallListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @example
+   * OUT
+   */
   callStatus?: string;
+  /**
+   * @example
+   * 311
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615892596
+   */
   endTs?: number;
+  /**
+   * @example
+   * BAD_EXP_USER_COUNT_DESC
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ALL
+   */
   queryMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615806196
+   */
   startTs?: number;
+  /**
+   * @example
+   * c906531af5f9****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1506,9 +3140,25 @@ export class DescribeCallListRequest extends $tea.Model {
 
 export class DescribeCallListResponseBody extends $tea.Model {
   callList?: DescribeCallListResponseBodyCallList[];
+  /**
+   * @example
+   * 2
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCnt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1560,8 +3210,102 @@ export class DescribeCallListResponse extends $tea.Model {
   }
 }
 
-export class DescribeChannelRequest extends $tea.Model {
+export class DescribeCallbacksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223***JQb
+   */
   appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallbacksResponseBody extends $tea.Model {
+  callbacks?: DescribeCallbacksResponseBodyCallbacks[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callbacks: 'Callbacks',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callbacks: { 'type': 'array', 'itemType': DescribeCallbacksResponseBodyCallbacks },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCallbacksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCallbacksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCallbacksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1583,8 +3327,16 @@ export class DescribeChannelRequest extends $tea.Model {
 }
 
 export class DescribeChannelResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * channel
+   */
   channel?: DescribeChannelResponseBodyChannel;
   channelExist?: boolean;
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1633,7 +3385,21 @@ export class DescribeChannelResponse extends $tea.Model {
 }
 
 export class DescribeChannelAllUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1656,6 +3422,10 @@ export class DescribeChannelAllUsersRequest extends $tea.Model {
 
 export class DescribeChannelAllUsersResponseBody extends $tea.Model {
   channelExist?: boolean;
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
   users?: DescribeChannelAllUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
@@ -1705,9 +3475,36 @@ export class DescribeChannelAllUsersResponse extends $tea.Model {
 }
 
 export class DescribeChannelAreaDistributionStatDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
   parentArea?: string;
   static names(): { [key: string]: string } {
@@ -1737,6 +3534,10 @@ export class DescribeChannelAreaDistributionStatDataRequest extends $tea.Model {
 
 export class DescribeChannelAreaDistributionStatDataResponseBody extends $tea.Model {
   areaStatList?: DescribeChannelAreaDistributionStatDataResponseBodyAreaStatList[];
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1783,10 +3584,44 @@ export class DescribeChannelAreaDistributionStatDataResponse extends $tea.Model 
 }
 
 export class DescribeChannelDistributionStatDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OS
+   */
   statDim?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1814,6 +3649,10 @@ export class DescribeChannelDistributionStatDataRequest extends $tea.Model {
 }
 
 export class DescribeChannelDistributionStatDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   statList?: DescribeChannelDistributionStatDataResponseBodyStatList[];
   static names(): { [key: string]: string } {
@@ -1861,9 +3700,36 @@ export class DescribeChannelDistributionStatDataResponse extends $tea.Model {
 }
 
 export class DescribeChannelOverallDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615893133
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1615893757
+   */
   destroyedTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1892,6 +3758,10 @@ export class DescribeChannelOverallDataResponseBody extends $tea.Model {
   callInfo?: DescribeChannelOverallDataResponseBodyCallInfo;
   metricDatas?: DescribeChannelOverallDataResponseBodyMetricDatas[];
   overallData?: DescribeChannelOverallDataResponseBodyOverallData;
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1942,11 +3812,37 @@ export class DescribeChannelOverallDataResponse extends $tea.Model {
 }
 
 export class DescribeChannelParticipantsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aec****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testId
+   */
   channelId?: string;
+  /**
+   * @example
+   * asc
+   */
   order?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1976,9 +3872,25 @@ export class DescribeChannelParticipantsRequest extends $tea.Model {
 }
 
 export class DescribeChannelParticipantsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6159ba01-6687-4fb2-a831-f0cd8d188648
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1557909133
+   */
   timestamp?: number;
+  /**
+   * @example
+   * 3
+   */
   totalNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   userList?: DescribeChannelParticipantsResponseBodyUserList;
   static names(): { [key: string]: string } {
@@ -2032,9 +3944,36 @@ export class DescribeChannelParticipantsResponse extends $tea.Model {
 }
 
 export class DescribeChannelTopPubUserListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615893133
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1615893757
+   */
   destroyedTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2060,6 +3999,10 @@ export class DescribeChannelTopPubUserListRequest extends $tea.Model {
 }
 
 export class DescribeChannelTopPubUserListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   topPubUserDetailList?: DescribeChannelTopPubUserListResponseBodyTopPubUserDetailList[];
   static names(): { [key: string]: string } {
@@ -2107,8 +4050,29 @@ export class DescribeChannelTopPubUserListResponse extends $tea.Model {
 }
 
 export class DescribeChannelUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1811****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2134,6 +4098,10 @@ export class DescribeChannelUserRequest extends $tea.Model {
 export class DescribeChannelUserResponseBody extends $tea.Model {
   channelExist?: boolean;
   inChannel?: boolean;
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
   sessions?: DescribeChannelUserResponseBodySessions[];
   static names(): { [key: string]: string } {
@@ -2185,9 +4153,36 @@ export class DescribeChannelUserResponse extends $tea.Model {
 }
 
 export class DescribeChannelUserMetricsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2215,6 +4210,10 @@ export class DescribeChannelUserMetricsRequest extends $tea.Model {
 export class DescribeChannelUserMetricsResponseBody extends $tea.Model {
   metricDatas?: DescribeChannelUserMetricsResponseBodyMetricDatas[];
   overallData?: DescribeChannelUserMetricsResponseBodyOverallData;
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2263,7 +4262,21 @@ export class DescribeChannelUserMetricsResponse extends $tea.Model {
 }
 
 export class DescribeChannelUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a2hz****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testId
+   */
   channelId?: string;
   ownerId?: number;
   static names(): { [key: string]: string } {
@@ -2288,14 +4301,42 @@ export class DescribeChannelUsersRequest extends $tea.Model {
 }
 
 export class DescribeChannelUsersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   channelProfile?: number;
+  /**
+   * @example
+   * 100
+   */
   commTotalNum?: number;
   interactiveUserList?: string[];
+  /**
+   * @example
+   * 0
+   */
   interactiveUserNum?: number;
+  /**
+   * @example
+   * true
+   */
   isChannelExist?: boolean;
   liveUserList?: string[];
+  /**
+   * @example
+   * 0
+   */
   liveUserNum?: number;
+  /**
+   * @example
+   * 6159ba01-6687-4fb2-a831-f0cd8d188648
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1557909133
+   */
   timestamp?: number;
   userList?: string[];
   static names(): { [key: string]: string } {
@@ -2358,11 +4399,157 @@ export class DescribeChannelUsersResponse extends $tea.Model {
   }
 }
 
-export class DescribeEndPointEventListRequest extends $tea.Model {
+export class DescribeChannelsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  records?: string[];
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      records: 'Records',
+      requestId: 'RequestId',
+      totalCnt: 'TotalCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      records: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      totalCnt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeChannelsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeChannelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeChannelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndPointEventListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testuserid1,testuserid2
+   */
   userIdList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2391,6 +4578,10 @@ export class DescribeEndPointEventListRequest extends $tea.Model {
 
 export class DescribeEndPointEventListResponseBody extends $tea.Model {
   nodes?: DescribeEndPointEventListResponseBodyNodes[];
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2437,13 +4628,59 @@ export class DescribeEndPointEventListResponse extends $tea.Model {
 }
 
 export class DescribeEndPointMetricDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * VIDEO_STUCK_CAMERA
+   */
   metrics?: string;
+  /**
+   * @example
+   * testcall1,testcall2
+   */
   pubCallIdList?: string;
+  /**
+   * @example
+   * testuserid
+   */
   pubUserId?: string;
+  /**
+   * @example
+   * testuserid
+   */
   subUserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2478,6 +4715,10 @@ export class DescribeEndPointMetricDataRequest extends $tea.Model {
 
 export class DescribeEndPointMetricDataResponseBody extends $tea.Model {
   pubMetrics?: DescribeEndPointMetricDataResponseBodyPubMetrics[];
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   subMetrics?: DescribeEndPointMetricDataResponseBodySubMetrics[];
   static names(): { [key: string]: string } {
@@ -2527,8 +4768,31 @@ export class DescribeEndPointMetricDataResponse extends $tea.Model {
 }
 
 export class DescribeFaultDiagnosisFactorDistributionStatRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0rbd****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615892596****
+   */
   endTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615892596
+   */
   startTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2552,6 +4816,10 @@ export class DescribeFaultDiagnosisFactorDistributionStatRequest extends $tea.Mo
 }
 
 export class DescribeFaultDiagnosisFactorDistributionStatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   statList?: DescribeFaultDiagnosisFactorDistributionStatResponseBodyStatList[];
   static names(): { [key: string]: string } {
@@ -2599,9 +4867,39 @@ export class DescribeFaultDiagnosisFactorDistributionStatResponse extends $tea.M
 }
 
 export class DescribeFaultDiagnosisOverallDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 4eah****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615910399
+   */
   endTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615824000
+   */
   startTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * JOIN_SLOW_USER
+   */
   statDim?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2629,6 +4927,10 @@ export class DescribeFaultDiagnosisOverallDataRequest extends $tea.Model {
 export class DescribeFaultDiagnosisOverallDataResponseBody extends $tea.Model {
   metricData?: DescribeFaultDiagnosisOverallDataResponseBodyMetricData;
   overallData?: DescribeFaultDiagnosisOverallDataResponseBodyOverallData;
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2677,11 +4979,52 @@ export class DescribeFaultDiagnosisOverallDataResponse extends $tea.Model {
 }
 
 export class DescribeFaultDiagnosisUserDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0rbd****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 311
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615892596
+   */
   createdTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * JOIN_SLOW
+   */
   faultType?: string;
+  /**
+   * @example
+   * true
+   */
   queryCallUserInfo?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c906531af5f9****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2715,6 +5058,10 @@ export class DescribeFaultDiagnosisUserDetailResponseBody extends $tea.Model {
   factorList?: DescribeFaultDiagnosisUserDetailResponseBodyFactorList[];
   faultMetricData?: DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricData;
   networkOperators?: string[];
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   userDetail?: DescribeFaultDiagnosisUserDetailResponseBodyUserDetail;
   static names(): { [key: string]: string } {
@@ -2770,13 +5117,62 @@ export class DescribeFaultDiagnosisUserDetailResponse extends $tea.Model {
 }
 
 export class DescribeFaultDiagnosisUserListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0rbd****
+   */
   appId?: string;
+  /**
+   * @example
+   * 311
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615892596
+   */
   endTs?: number;
+  /**
+   * @example
+   * JOIN_SLOW,AUDIO_STUCK
+   */
   faultTypes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615806196
+   */
   startTs?: number;
+  /**
+   * @example
+   * c906531af5f9****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2810,9 +5206,25 @@ export class DescribeFaultDiagnosisUserListRequest extends $tea.Model {
 }
 
 export class DescribeFaultDiagnosisUserListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCnt?: number;
   userList?: DescribeFaultDiagnosisUserListResponseBodyUserList[];
   static names(): { [key: string]: string } {
@@ -2866,11 +5278,34 @@ export class DescribeFaultDiagnosisUserListResponse extends $tea.Model {
 }
 
 export class DescribeMPULayoutInfoListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * 2
+   */
   layoutId?: number;
+  /**
+   * @example
+   * LayoutName
+   */
   name?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2901,8 +5336,20 @@ export class DescribeMPULayoutInfoListRequest extends $tea.Model {
 
 export class DescribeMPULayoutInfoListResponseBody extends $tea.Model {
   layouts?: DescribeMPULayoutInfoListResponseBodyLayouts;
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2953,10 +5400,44 @@ export class DescribeMPULayoutInfoListResponse extends $tea.Model {
 }
 
 export class DescribePubUserListBySubUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testuserid
+   */
   subUserId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2984,8 +5465,16 @@ export class DescribePubUserListBySubUserRequest extends $tea.Model {
 }
 
 export class DescribePubUserListBySubUserResponseBody extends $tea.Model {
+  /**
+   * @example
+   * IN
+   */
   callStatus?: string;
   pubUserDetailList?: DescribePubUserListBySubUserResponseBodyPubUserDetailList[];
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   subUserDetail?: DescribePubUserListBySubUserResponseBodySubUserDetail;
   static names(): { [key: string]: string } {
@@ -3037,10 +5526,44 @@ export class DescribePubUserListBySubUserResponse extends $tea.Model {
 }
 
 export class DescribeQoeMetricDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testuserid
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3069,6 +5592,10 @@ export class DescribeQoeMetricDataRequest extends $tea.Model {
 
 export class DescribeQoeMetricDataResponseBody extends $tea.Model {
   audioData?: DescribeQoeMetricDataResponseBodyAudioData[];
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   videoData?: DescribeQoeMetricDataResponseBodyVideoData[];
   static names(): { [key: string]: string } {
@@ -3118,9 +5645,36 @@ export class DescribeQoeMetricDataResponse extends $tea.Model {
 }
 
 export class DescribeQualityAreaDistributionStatDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0rbd****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615910399
+   */
   endDate?: number;
+  /**
+   * @example
+   * 中国
+   */
   parentArea?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615824000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3147,6 +5701,10 @@ export class DescribeQualityAreaDistributionStatDataRequest extends $tea.Model {
 
 export class DescribeQualityAreaDistributionStatDataResponseBody extends $tea.Model {
   qualityStatDataList?: DescribeQualityAreaDistributionStatDataResponseBodyQualityStatDataList[];
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3193,9 +5751,39 @@ export class DescribeQualityAreaDistributionStatDataResponse extends $tea.Model 
 }
 
 export class DescribeQualityDistributionStatDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0rbd****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615910399
+   */
   endDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615824000
+   */
   startDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CHANNEL_ONLINE
+   */
   statDim?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3222,6 +5810,10 @@ export class DescribeQualityDistributionStatDataRequest extends $tea.Model {
 
 export class DescribeQualityDistributionStatDataResponseBody extends $tea.Model {
   qualityStatDataList?: DescribeQualityDistributionStatDataResponseBodyQualityStatDataList[];
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3268,8 +5860,31 @@ export class DescribeQualityDistributionStatDataResponse extends $tea.Model {
 }
 
 export class DescribeQualityOsSdkVersionDistributionStatDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0rbd****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615910399
+   */
   endDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615824000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3294,6 +5909,10 @@ export class DescribeQualityOsSdkVersionDistributionStatDataRequest extends $tea
 
 export class DescribeQualityOsSdkVersionDistributionStatDataResponseBody extends $tea.Model {
   qualityOsSdkVersionStatDataList?: DescribeQualityOsSdkVersionDistributionStatDataResponseBodyQualityOsSdkVersionStatDataList[];
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3340,9 +5959,39 @@ export class DescribeQualityOsSdkVersionDistributionStatDataResponse extends $te
 }
 
 export class DescribeQualityOverallDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0rbd****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615910399
+   */
   endDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615824000
+   */
   startDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * JOIN_CHANNEL_SUC_RATE
+   */
   types?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3369,6 +6018,10 @@ export class DescribeQualityOverallDataRequest extends $tea.Model {
 
 export class DescribeQualityOverallDataResponseBody extends $tea.Model {
   qualityOverallData?: DescribeQualityOverallDataResponseBodyQualityOverallData[];
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3415,13 +6068,44 @@ export class DescribeQualityOverallDataResponse extends $tea.Model {
 }
 
 export class DescribeRecordFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * yourChannelId
+   */
   channelId?: string;
+  /**
+   * @example
+   * 2020-11-02T17:36:00Z
+   */
   endTime?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 2020-11-01T17:36:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * yourTaskId
+   */
   taskIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3456,8 +6140,20 @@ export class DescribeRecordFilesRequest extends $tea.Model {
 
 export class DescribeRecordFilesResponseBody extends $tea.Model {
   recordFiles?: DescribeRecordFilesResponseBodyRecordFiles[];
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b****
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3508,10 +6204,33 @@ export class DescribeRecordFilesResponse extends $tea.Model {
 }
 
 export class DescribeRecordTemplatesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @remarks
+   * 1
+   */
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 76dasgb****
+   */
   templateIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3539,9 +6258,21 @@ export class DescribeRecordTemplatesRequest extends $tea.Model {
 }
 
 export class DescribeRecordTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C292B80E-5175-4BA4-8CC292B80E-5175-4BA4-8C1E-2ABEC4D7C2FE1E-2ABEC4D7****
+   */
   requestId?: string;
   templates?: DescribeRecordTemplatesResponseBodyTemplates[];
+  /**
+   * @example
+   * 1
+   */
   totalNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3592,14 +6323,55 @@ export class DescribeRecordTemplatesResponse extends $tea.Model {
 }
 
 export class DescribeRtcChannelListRequest extends $tea.Model {
+  /**
+   * @example
+   * aoe****
+   */
   appId?: string;
+  /**
+   * @example
+   * testChannel
+   */
   channelId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * cn
+   */
   serviceArea?: string;
+  /**
+   * @example
+   * desc
+   */
   sortType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2018-01-29T00:00:00Z
+   */
   timePoint?: string;
+  /**
+   * @example
+   * testUser
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3636,9 +6408,25 @@ export class DescribeRtcChannelListRequest extends $tea.Model {
 
 export class DescribeRtcChannelListResponseBody extends $tea.Model {
   channelList?: DescribeRtcChannelListResponseBodyChannelList;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1000
+   */
   totalCnt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3691,9 +6479,30 @@ export class DescribeRtcChannelListResponse extends $tea.Model {
 }
 
 export class DescribeRtcChannelMetricRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aoe****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testId
+   */
   channelId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2018-01-29T00:00:00Z
+   */
   timePoint?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3720,6 +6529,10 @@ export class DescribeRtcChannelMetricRequest extends $tea.Model {
 
 export class DescribeRtcChannelMetricResponseBody extends $tea.Model {
   channelMetricInfo?: DescribeRtcChannelMetricResponseBodyChannelMetricInfo;
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3766,11 +6579,31 @@ export class DescribeRtcChannelMetricResponse extends $tea.Model {
 }
 
 export class DescribeRtcDurationDataRequest extends $tea.Model {
+  /**
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * 2020-02-04T07:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 3600
+   */
   interval?: string;
   ownerId?: number;
+  /**
+   * @example
+   * CN
+   */
   serviceArea?: string;
+  /**
+   * @example
+   * 2020-02-04T05:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3801,6 +6634,10 @@ export class DescribeRtcDurationDataRequest extends $tea.Model {
 
 export class DescribeRtcDurationDataResponseBody extends $tea.Model {
   durationDataPerInterval?: DescribeRtcDurationDataResponseBodyDurationDataPerInterval;
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3847,11 +6684,31 @@ export class DescribeRtcDurationDataResponse extends $tea.Model {
 }
 
 export class DescribeRtcPeakChannelCntDataRequest extends $tea.Model {
+  /**
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * 2018-01-29T00:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 3600
+   */
   interval?: string;
   ownerId?: number;
+  /**
+   * @example
+   * CN
+   */
   serviceArea?: string;
+  /**
+   * @example
+   * 2018-01-29T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3882,6 +6739,10 @@ export class DescribeRtcPeakChannelCntDataRequest extends $tea.Model {
 
 export class DescribeRtcPeakChannelCntDataResponseBody extends $tea.Model {
   peakChannelCntDataPerInterval?: DescribeRtcPeakChannelCntDataResponseBodyPeakChannelCntDataPerInterval;
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3928,11 +6789,31 @@ export class DescribeRtcPeakChannelCntDataResponse extends $tea.Model {
 }
 
 export class DescribeRtcUserCntDataRequest extends $tea.Model {
+  /**
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * 2018-01-29T01:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 3600
+   */
   interval?: string;
   ownerId?: number;
+  /**
+   * @example
+   * CN
+   */
   serviceArea?: string;
+  /**
+   * @example
+   * 2018-01-29T00:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3962,6 +6843,10 @@ export class DescribeRtcUserCntDataRequest extends $tea.Model {
 }
 
 export class DescribeRtcUserCntDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   userCntDataPerInterval?: DescribeRtcUserCntDataResponseBodyUserCntDataPerInterval;
   static names(): { [key: string]: string } {
@@ -4008,10 +6893,235 @@ export class DescribeRtcUserCntDataResponse extends $tea.Model {
   }
 }
 
-export class DescribeUsageAreaDistributionStatDataRequest extends $tea.Model {
+export class DescribeStreamingOutStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1qaz***x
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testChannel
+   */
+  channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * taskId
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeStreamingOutStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeStreamingOutStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeStreamingOutStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeStreamingOutStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSystemLayoutListRequest extends $tea.Model {
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSystemLayoutListResponseBody extends $tea.Model {
+  layouts?: DescribeSystemLayoutListResponseBodyLayouts;
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 6
+   */
+  totalNum?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      layouts: 'Layouts',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layouts: DescribeSystemLayoutListResponseBodyLayouts,
+      requestId: 'string',
+      totalNum: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSystemLayoutListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSystemLayoutListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSystemLayoutListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageAreaDistributionStatDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0rbd****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615910399
+   */
   endDate?: string;
   parentArea?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615824000
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4037,6 +7147,10 @@ export class DescribeUsageAreaDistributionStatDataRequest extends $tea.Model {
 }
 
 export class DescribeUsageAreaDistributionStatDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   usageAreaStatList?: DescribeUsageAreaDistributionStatDataResponseBodyUsageAreaStatList[];
   static names(): { [key: string]: string } {
@@ -4084,9 +7198,36 @@ export class DescribeUsageAreaDistributionStatDataResponse extends $tea.Model {
 }
 
 export class DescribeUsageDistributionStatDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID
+   * 
+   * This parameter is required.
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615910399
+   */
   endDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615824000
+   */
   startDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CHANNEL_ONLINE
+   */
   statDim?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4112,6 +7253,10 @@ export class DescribeUsageDistributionStatDataRequest extends $tea.Model {
 }
 
 export class DescribeUsageDistributionStatDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   usageStatList?: DescribeUsageDistributionStatDataResponseBodyUsageStatList[];
   static names(): { [key: string]: string } {
@@ -4159,8 +7304,31 @@ export class DescribeUsageDistributionStatDataResponse extends $tea.Model {
 }
 
 export class DescribeUsageOsSdkVersionDistributionStatDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0rbd****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615910399
+   */
   endDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615824000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4184,6 +7352,10 @@ export class DescribeUsageOsSdkVersionDistributionStatDataRequest extends $tea.M
 }
 
 export class DescribeUsageOsSdkVersionDistributionStatDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   usageOsSdkVersionStatList?: DescribeUsageOsSdkVersionDistributionStatDataResponseBodyUsageOsSdkVersionStatList[];
   static names(): { [key: string]: string } {
@@ -4231,9 +7403,39 @@ export class DescribeUsageOsSdkVersionDistributionStatDataResponse extends $tea.
 }
 
 export class DescribeUsageOverallDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a2hz****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615910399
+   */
   endDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1615824000
+   */
   startDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ONLINE_USER_PEAK
+   */
   types?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4259,6 +7461,10 @@ export class DescribeUsageOverallDataRequest extends $tea.Model {
 }
 
 export class DescribeUsageOverallDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
+   */
   requestId?: string;
   usageOverallData?: DescribeUsageOverallDataResponseBodyUsageOverallData[];
   static names(): { [key: string]: string } {
@@ -4306,9 +7512,30 @@ export class DescribeUsageOverallDataResponse extends $tea.Model {
 }
 
 export class DescribeUserInfoInChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4eah****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
   channelId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testId
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4334,10 +7561,26 @@ export class DescribeUserInfoInChannelRequest extends $tea.Model {
 }
 
 export class DescribeUserInfoInChannelResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   isChannelExist?: boolean;
+  /**
+   * @example
+   * true
+   */
   isInChannel?: boolean;
   property?: DescribeUserInfoInChannelResponseBodyProperty[];
+  /**
+   * @example
+   * 6159ba01-6687-4fb2-a831-f0cd8d188648
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1557909133
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4390,8 +7633,22 @@ export class DescribeUserInfoInChannelResponse extends $tea.Model {
 }
 
 export class DisableAutoLiveStreamRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4415,6 +7672,10 @@ export class DisableAutoLiveStreamRuleRequest extends $tea.Model {
 }
 
 export class DisableAutoLiveStreamRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4459,8 +7720,22 @@ export class DisableAutoLiveStreamRuleResponse extends $tea.Model {
 }
 
 export class EnableAutoLiveStreamRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
   ruleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4484,6 +7759,10 @@ export class EnableAutoLiveStreamRuleRequest extends $tea.Model {
 }
 
 export class EnableAutoLiveStreamRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4528,8 +7807,22 @@ export class EnableAutoLiveStreamRuleResponse extends $tea.Model {
 }
 
 export class GetMPUTaskStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourTaskId
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4553,7 +7846,15 @@ export class GetMPUTaskStatusRequest extends $tea.Model {
 }
 
 export class GetMPUTaskStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4600,7 +7901,21 @@ export class GetMPUTaskStatusResponse extends $tea.Model {
 }
 
 export class ModifyAppRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ioeh****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * defaultName
+   */
   appName?: string;
   ownerId?: number;
   static names(): { [key: string]: string } {
@@ -4625,6 +7940,10 @@ export class ModifyAppRequest extends $tea.Model {
 }
 
 export class ModifyAppResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4668,8 +7987,395 @@ export class ModifyAppResponse extends $tea.Model {
   }
 }
 
-export class ModifyAppStreamingOutTemplateRequest extends $tea.Model {
+export class ModifyAppCallbackStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223***JQb
+   */
   appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppCallbackStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F80AAC02-87BD-5D9C-B925-8AB40171BA1A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppCallbackStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppCallbackStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAppCallbackStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppLiveStreamStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 53200b81-b761-4c10-842a-a0726xxxx
+   */
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppLiveStreamStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppLiveStreamStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppLiveStreamStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAppLiveStreamStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppRecordStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 53200b81-b761-4c10-842a-a0726xxxx
+   */
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppRecordStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * D53303DB-AA68-5D09-90C2-A345072DCC5A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppRecordStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppRecordStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAppRecordStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppRecordTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 53200b81-b761-4c10-842a-a0726d97xxxx
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  recordTemplate?: ModifyAppRecordTemplateRequestRecordTemplate;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      recordTemplate: 'RecordTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      recordTemplate: ModifyAppRecordTemplateRequestRecordTemplate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppRecordTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 53200b81-b761-4c10-842a-a0726d97xxxx
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  recordTemplateShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      clientToken: 'ClientToken',
+      recordTemplateShrink: 'RecordTemplate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      clientToken: 'string',
+      recordTemplateShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppRecordTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppRecordTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAppRecordTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAppRecordTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppStreamingOutTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wv7N****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamingOutTemplate?: ModifyAppStreamingOutTemplateRequestStreamingOutTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -4691,7 +8397,18 @@ export class ModifyAppStreamingOutTemplateRequest extends $tea.Model {
 }
 
 export class ModifyAppStreamingOutTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wv7N****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   streamingOutTemplateShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4713,7 +8430,18 @@ export class ModifyAppStreamingOutTemplateShrinkRequest extends $tea.Model {
 }
 
 export class ModifyAppStreamingOutTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 30D41049-D02D-1C21-86AE-B3E5FD805C27
+   */
   requestId?: string;
+  /**
+   * @example
+   * ac7N****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4759,10 +8487,195 @@ export class ModifyAppStreamingOutTemplateResponse extends $tea.Model {
   }
 }
 
-export class ModifyMPULayoutRequest extends $tea.Model {
+export class ModifyCallbackMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223***JQb
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  callback?: ModifyCallbackMetaRequestCallback;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      callback: 'Callback',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      callback: ModifyCallbackMetaRequestCallback,
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCallbackMetaShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223***JQb
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  callbackShrink?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      callbackShrink: 'Callback',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      callbackShrink: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCallbackMetaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * code
+   * 
+   * @example
+   * 0
+   */
+  code?: string;
+  /**
+   * @remarks
+   * httpStatusCode
+   * 
+   * @example
+   * 0
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * message
+   * 
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * success
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCallbackMetaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCallbackMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyCallbackMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyMPULayoutRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
+  appId?: string;
+  /**
+   * @example
+   * 3
+   */
   audioMixCount?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10117
+   */
   layoutId?: number;
+  /**
+   * @example
+   * LayoutName
+   */
   name?: string;
   ownerId?: number;
   panes?: ModifyMPULayoutRequestPanes[];
@@ -4794,6 +8707,10 @@ export class ModifyMPULayoutRequest extends $tea.Model {
 }
 
 export class ModifyMPULayoutResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4838,9 +8755,30 @@ export class ModifyMPULayoutResponse extends $tea.Model {
 }
 
 export class RemoveTerminalsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourChannelId
+   */
   channelId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1811xxxx
+   */
   terminalIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -4866,6 +8804,10 @@ export class RemoveTerminalsRequest extends $tea.Model {
 }
 
 export class RemoveTerminalsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
+   */
   requestId?: string;
   terminals?: RemoveTerminalsResponseBodyTerminals;
   static names(): { [key: string]: string } {
@@ -4913,8 +8855,26 @@ export class RemoveTerminalsResponse extends $tea.Model {
 }
 
 export class RemoveUsersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   users?: RemoveUsersRequestUsers[];
   static names(): { [key: string]: string } {
     return {
@@ -4938,6 +8898,10 @@ export class RemoveUsersRequest extends $tea.Model {
 }
 
 export class RemoveUsersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
   users?: RemoveUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
@@ -4984,15 +8948,180 @@ export class RemoveUsersResponse extends $tea.Model {
   }
 }
 
-export class StartCloudRecordRequest extends $tea.Model {
+export class StartCategoryCallbackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223***JQb
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  callback?: StartCategoryCallbackRequestCallback;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      callback: 'Callback',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      callback: StartCategoryCallbackRequestCallback,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCategoryCallbackShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223***JQb
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  callbackShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      callbackShrink: 'Callback',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      callbackShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCategoryCallbackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCategoryCallbackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartCategoryCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartCategoryCallbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * appId
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * channelName
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
   clockWidgets?: StartCloudRecordRequestClockWidgets[];
+  /**
+   * @example
+   * 2
+   */
   cropMode?: number;
   images?: StartCloudRecordRequestImages[];
+  /**
+   * @remarks
+   * panes
+   */
   panes?: StartCloudRecordRequestPanes[];
+  /**
+   * @remarks
+   * storageConfig
+   * 
+   * This parameter is required.
+   */
   storageConfig?: StartCloudRecordRequestStorageConfig;
+  /**
+   * @remarks
+   * taskId
+   * 
+   * @example
+   * 123
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * templateId
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 567
+   */
   templateId?: string;
   texts?: StartCloudRecordRequestTexts[];
   static names(): { [key: string]: string } {
@@ -5031,7 +9160,21 @@ export class StartCloudRecordRequest extends $tea.Model {
 }
 
 export class StartCloudRecordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * taskId
+   * 
+   * @example
+   * 123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5078,34 +9221,119 @@ export class StartCloudRecordResponse extends $tea.Model {
 }
 
 export class StartMPUTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * 0
+   */
   backgroundColor?: number;
   backgrounds?: StartMPUTaskRequestBackgrounds[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourChannelId
+   */
   channelId?: string;
   clockWidgets?: StartMPUTaskRequestClockWidgets[];
+  /**
+   * @example
+   * 1
+   */
   cropMode?: number;
   enhancedParam?: StartMPUTaskRequestEnhancedParam;
+  /**
+   * @example
+   * 1
+   */
   layoutIds?: number[];
+  /**
+   * @example
+   * 2
+   */
   mediaEncode?: number;
+  /**
+   * @example
+   * 0
+   */
   mixMode?: number;
   ownerId?: number;
+  /**
+   * @example
+   * 0
+   */
   payloadType?: number;
+  /**
+   * @example
+   * 0
+   */
   reportVad?: number;
+  /**
+   * @example
+   * 0
+   */
   rtpExtInfo?: number;
+  /**
+   * @example
+   * camera
+   */
   sourceType?: string;
+  /**
+   * @example
+   * 0
+   */
   streamType?: number;
+  /**
+   * @example
+   * rtmp://example.com/live/stream
+   */
   streamURL?: string;
+  /**
+   * @example
+   * audioUserID
+   */
   subSpecAudioUsers?: string[];
   subSpecCameraUsers?: string[];
   subSpecShareScreenUsers?: string[];
+  /**
+   * @example
+   * userID
+   */
   subSpecUsers?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourTaskId
+   */
   taskId?: string;
+  /**
+   * @example
+   * 0
+   */
   taskType?: number;
+  /**
+   * @example
+   * 15273582735
+   */
   timeStampRef?: number;
   unsubSpecAudioUsers?: string[];
   unsubSpecCameraUsers?: string[];
   unsubSpecShareScreenUsers?: string[];
   userPanes?: StartMPUTaskRequestUserPanes[];
+  /**
+   * @example
+   * 86400
+   */
   vadInterval?: number;
   watermarks?: StartMPUTaskRequestWatermarks[];
   static names(): { [key: string]: string } {
@@ -5184,6 +9412,10 @@ export class StartMPUTaskRequest extends $tea.Model {
 }
 
 export class StartMPUTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5228,24 +9460,108 @@ export class StartMPUTaskResponse extends $tea.Model {
 }
 
 export class StartRecordTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourChannelId
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1
+   */
   cropMode?: number;
+  /**
+   * @example
+   * 1111
+   */
   layoutIds?: number[];
+  /**
+   * @example
+   * 20
+   */
   mediaEncode?: number;
+  /**
+   * @example
+   * 1
+   */
   mixMode?: number;
   ownerId?: number;
+  /**
+   * @example
+   * camera
+   */
   sourceType?: string;
+  /**
+   * @example
+   * 0
+   */
   streamType?: number;
+  /**
+   * @example
+   * 1
+   */
   subSpecAudioUsers?: string[];
+  /**
+   * @example
+   * 1
+   */
   subSpecCameraUsers?: string[];
+  /**
+   * @example
+   * 1
+   */
   subSpecShareScreenUsers?: string[];
+  /**
+   * @example
+   * userID
+   */
   subSpecUsers?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourTaskId
+   */
   taskId?: string;
+  /**
+   * @example
+   * 4IN_1080P
+   */
   taskProfile?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 76dasgb****
+   */
   templateId?: string;
+  /**
+   * @example
+   * 1
+   */
   unsubSpecAudioUsers?: string[];
+  /**
+   * @example
+   * 1
+   */
   unsubSpecCameraUsers?: string[];
+  /**
+   * @example
+   * 1
+   */
   unsubSpecShareScreenUsers?: string[];
   userPanes?: StartRecordTaskRequestUserPanes[];
   static names(): { [key: string]: string } {
@@ -5304,6 +9620,10 @@ export class StartRecordTaskRequest extends $tea.Model {
 }
 
 export class StartRecordTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5348,15 +9668,51 @@ export class StartRecordTaskResponse extends $tea.Model {
 }
 
 export class StartStreamingOutRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
   clockWidgets?: StartStreamingOutRequestClockWidgets[];
+  /**
+   * @example
+   * 2
+   */
   cropMode?: number;
   images?: StartStreamingOutRequestImages[];
   panes?: StartStreamingOutRequestPanes[];
+  /**
+   * @example
+   * 123
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 567
+   */
   templateId?: string;
   texts?: StartStreamingOutRequestTexts[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp://example.com/live/stream
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5394,7 +9750,15 @@ export class StartStreamingOutRequest extends $tea.Model {
 }
 
 export class StartStreamingOutResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
+  /**
+   * @example
+   * 123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5440,8 +9804,139 @@ export class StartStreamingOutResponse extends $tea.Model {
   }
 }
 
-export class StopChannelRequest extends $tea.Model {
+export class StopCategoryCallbackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223***JQb
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  callback?: StopCategoryCallbackRequestCallback;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      callback: 'Callback',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      callback: StopCategoryCallbackRequestCallback,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCategoryCallbackShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223***JQb
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  callbackShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      callbackShrink: 'Callback',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      callbackShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCategoryCallbackResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2DCE8D7E-BE3B-54AB-8DAC-32F34BED0763
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCategoryCallbackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopCategoryCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopCategoryCallbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopChannelRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5463,6 +9958,10 @@ export class StopChannelRequest extends $tea.Model {
 }
 
 export class StopChannelResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5507,8 +10006,29 @@ export class StopChannelResponse extends $tea.Model {
 }
 
 export class StopCloudRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5532,7 +10052,15 @@ export class StopCloudRecordRequest extends $tea.Model {
 }
 
 export class StopCloudRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
+  /**
+   * @example
+   * 123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5579,8 +10107,22 @@ export class StopCloudRecordResponse extends $tea.Model {
 }
 
 export class StopMPUTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourTaskId
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5604,6 +10146,10 @@ export class StopMPUTaskRequest extends $tea.Model {
 }
 
 export class StopMPUTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5648,8 +10194,22 @@ export class StopMPUTaskResponse extends $tea.Model {
 }
 
 export class StopRecordTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourTaskId
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5673,6 +10233,10 @@ export class StopRecordTaskRequest extends $tea.Model {
 }
 
 export class StopRecordTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5717,8 +10281,29 @@ export class StopRecordTaskResponse extends $tea.Model {
 }
 
 export class StopStreamingOutRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5742,7 +10327,15 @@ export class StopStreamingOutRequest extends $tea.Model {
 }
 
 export class StopStreamingOutResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
+  /**
+   * @example
+   * 123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5789,14 +10382,47 @@ export class StopStreamingOutResponse extends $tea.Model {
 }
 
 export class UpdateAutoLiveStreamRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @example
+   * http://example.com/callback
+   */
   callBack?: string;
   channelIdPrefixes?: string[];
   channelIds?: string[];
+  /**
+   * @example
+   * 20
+   */
   mediaEncode?: number;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp://${domain}/${app}/${stream}
+   */
   playDomain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
   ruleId?: number;
+  /**
+   * @example
+   * testRule
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5832,6 +10458,10 @@ export class UpdateAutoLiveStreamRuleRequest extends $tea.Model {
 }
 
 export class UpdateAutoLiveStreamRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5876,12 +10506,40 @@ export class UpdateAutoLiveStreamRuleResponse extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
   clockWidgets?: UpdateCloudRecordRequestClockWidgets[];
   images?: UpdateCloudRecordRequestImages[];
   panes?: UpdateCloudRecordRequestPanes[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 567
+   */
   templateId?: string;
   texts?: UpdateCloudRecordRequestTexts[];
   static names(): { [key: string]: string } {
@@ -5916,7 +10574,15 @@ export class UpdateCloudRecordRequest extends $tea.Model {
 }
 
 export class UpdateCloudRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
+  /**
+   * @example
+   * 123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5963,21 +10629,59 @@ export class UpdateCloudRecordResponse extends $tea.Model {
 }
 
 export class UpdateMPUTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * 0
+   */
   backgroundColor?: number;
   backgrounds?: UpdateMPUTaskRequestBackgrounds[];
   clockWidgets?: UpdateMPUTaskRequestClockWidgets[];
+  /**
+   * @example
+   * 1
+   */
   cropMode?: number;
   layoutIds?: number[];
+  /**
+   * @example
+   * 2
+   */
   mediaEncode?: number;
+  /**
+   * @example
+   * 0
+   */
   mixMode?: number;
   ownerId?: number;
+  /**
+   * @example
+   * camera
+   */
   sourceType?: string;
+  /**
+   * @example
+   * 0
+   */
   streamType?: number;
   subSpecAudioUsers?: string[];
   subSpecCameraUsers?: string[];
   subSpecShareScreenUsers?: string[];
   subSpecUsers?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testId
+   */
   taskId?: string;
   unsubSpecAudioUsers?: string[];
   unsubSpecCameraUsers?: string[];
@@ -6042,6 +10746,10 @@ export class UpdateMPUTaskRequest extends $tea.Model {
 }
 
 export class UpdateMPUTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6086,7 +10794,21 @@ export class UpdateMPUTaskResponse extends $tea.Model {
 }
 
 export class UpdateRecordTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourChannelId
+   */
   channelId?: string;
   cropMode?: number;
   layoutIds?: number[];
@@ -6095,9 +10817,27 @@ export class UpdateRecordTaskRequest extends $tea.Model {
   subSpecAudioUsers?: string[];
   subSpecCameraUsers?: string[];
   subSpecShareScreenUsers?: string[];
+  /**
+   * @example
+   * userID
+   */
   subSpecUsers?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourTaskId
+   */
   taskId?: string;
   taskProfile?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 76dasgb****
+   */
   templateId?: string;
   unsubSpecAudioUsers?: string[];
   unsubSpecCameraUsers?: string[];
@@ -6153,6 +10893,10 @@ export class UpdateRecordTaskRequest extends $tea.Model {
 }
 
 export class UpdateRecordTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6197,24 +10941,111 @@ export class UpdateRecordTaskResponse extends $tea.Model {
 }
 
 export class UpdateRecordTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * 0
+   */
   backgroundColor?: number;
   backgrounds?: UpdateRecordTemplateRequestBackgrounds[];
   clockWidgets?: UpdateRecordTemplateRequestClockWidgets[];
+  /**
+   * @example
+   * 180
+   */
   delayStopTime?: number;
+  /**
+   * @example
+   * false
+   */
   enableM3u8DateTime?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1800
+   */
   fileSplitInterval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mp4
+   */
   formats?: string[];
+  /**
+   * @example
+   * http://example.com/callback
+   */
   httpCallbackUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1111
+   */
   layoutIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   mediaEncode?: number;
+  /**
+   * @example
+   * record-callback-queue
+   */
   mnsQueue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtc-record-pre
+   */
   ossBucket?: string;
   ossEndpoint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * record/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}
+   */
   ossFilePrefix?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 4IN_1080P
+   */
   taskProfile?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 76dasgb****
+   */
   templateId?: string;
   watermarks?: UpdateRecordTemplateRequestWatermarks[];
   static names(): { [key: string]: string } {
@@ -6273,7 +11104,15 @@ export class UpdateRecordTemplateRequest extends $tea.Model {
 }
 
 export class UpdateRecordTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 760bad53276431c499e30dc36f6b26be
+   */
   requestId?: string;
+  /**
+   * @example
+   * 76dasgb****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6320,12 +11159,40 @@ export class UpdateRecordTemplateResponse extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
   channelId?: string;
   clockWidgets?: UpdateStreamingOutRequestClockWidgets[];
   images?: UpdateStreamingOutRequestImages[];
   panes?: UpdateStreamingOutRequestPanes[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 567
+   */
   templateId?: string;
   texts?: UpdateStreamingOutRequestTexts[];
   static names(): { [key: string]: string } {
@@ -6360,7 +11227,15 @@ export class UpdateStreamingOutRequest extends $tea.Model {
 }
 
 export class UpdateStreamingOutResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
   requestId?: string;
+  /**
+   * @example
+   * 123
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6407,12 +11282,40 @@ export class UpdateStreamingOutResponse extends $tea.Model {
 }
 
 export class AddRecordTemplateRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6444,11 +11347,35 @@ export class AddRecordTemplateRequestBackgrounds extends $tea.Model {
 }
 
 export class AddRecordTemplateRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
   fontType?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6478,13 +11405,45 @@ export class AddRecordTemplateRequestClockWidgets extends $tea.Model {
 }
 
 export class AddRecordTemplateRequestWatermarks extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6517,9 +11476,100 @@ export class AddRecordTemplateRequestWatermarks extends $tea.Model {
   }
 }
 
-export class CreateAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
+export class CreateAppRecordTemplateRequestRecordTemplate extends $tea.Model {
+  /**
+   * @example
+   * 180
+   */
+  delayStopTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * record/{AppId}/{ChannelId}_{TaskId}/{EscapedStartTime}_{EscapedEndTime}
+   */
+  filePrefix?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1800
+   */
+  fileSplitInterval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  formats?: string[];
   layoutIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   mediaEncode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 模版
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      delayStopTime: 'DelayStopTime',
+      filePrefix: 'FilePrefix',
+      fileSplitInterval: 'FileSplitInterval',
+      formats: 'Formats',
+      layoutIds: 'LayoutIds',
+      mediaEncode: 'MediaEncode',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      delayStopTime: 'number',
+      filePrefix: 'string',
+      fileSplitInterval: 'number',
+      formats: { 'type': 'array', 'itemType': 'string' },
+      layoutIds: { 'type': 'array', 'itemType': 'string' },
+      mediaEncode: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  layoutIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  mediaEncode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 模版
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6543,12 +11593,40 @@ export class CreateAppStreamingOutTemplateRequestStreamingOutTemplate extends $t
 }
 
 export class CreateMPULayoutRequestPanes extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
   height?: number;
+  /**
+   * @example
+   * 1
+   */
   majorPane?: number;
+  /**
+   * @example
+   * 0
+   */
   paneId?: number;
+  /**
+   * @example
+   * 0.25
+   */
   width?: number;
+  /**
+   * @example
+   * 0.25
+   */
   x?: number;
+  /**
+   * @example
+   * 0.25
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6579,7 +11657,14 @@ export class CreateMPULayoutRequestPanes extends $tea.Model {
   }
 }
 
-export class DeleteAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
+export class DeleteAppRecordTemplateRequestTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2xh6****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6598,16 +11683,374 @@ export class DeleteAppStreamingOutTemplateRequestStreamingOutTemplate extends $t
   }
 }
 
+export class DeleteAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xd4c****
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllCallbackResponseBodyCallbacksSubEvent extends $tea.Model {
+  /**
+   * @example
+   * 2000
+   */
+  event?: number;
+  /**
+   * @example
+   * 录制开始
+   */
+  eventName?: string;
+  /**
+   * @example
+   * 0
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'Event',
+      eventName: 'EventName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: 'number',
+      eventName: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAllCallbackResponseBodyCallbacks extends $tea.Model {
+  /**
+   * @example
+   * RecordEvent
+   */
+  category?: string;
+  /**
+   * @example
+   * 录制回调
+   */
+  name?: string;
+  subEvent?: DescribeAllCallbackResponseBodyCallbacksSubEvent[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      name: 'Name',
+      subEvent: 'SubEvent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      name: 'string',
+      subEvent: { 'type': 'array', 'itemType': DescribeAllCallbackResponseBodyCallbacksSubEvent },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppLayoutsRequestCondition extends $tea.Model {
+  /**
+   * @example
+   * 167466539798442****
+   */
+  layoutId?: string;
+  /**
+   * @example
+   * 测试
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      layoutId: 'LayoutId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layoutId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppLayoutsResponseBodyLayoutsPanes extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  paneId?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  width?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      paneId: 'PaneId',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      paneId: 'number',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppLayoutsResponseBodyLayouts extends $tea.Model {
+  /**
+   * @example
+   * 167466539798442****
+   */
+  layoutId?: string;
+  /**
+   * @example
+   * 测试
+   */
+  name?: string;
+  panes?: DescribeAppLayoutsResponseBodyLayoutsPanes[];
+  static names(): { [key: string]: string } {
+    return {
+      layoutId: 'LayoutId',
+      name: 'Name',
+      panes: 'Panes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layoutId: 'string',
+      name: 'string',
+      panes: { 'type': 'array', 'itemType': DescribeAppLayoutsResponseBodyLayoutsPanes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordTemplatesRequestCondition extends $tea.Model {
+  /**
+   * @example
+   * 测试
+   */
+  name?: string;
+  /**
+   * @example
+   * ac7N****
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppRecordTemplatesResponseBodyTemplates extends $tea.Model {
+  /**
+   * @example
+   * 2020-09-04T06:22:15Z
+   */
+  createTime?: Buffer;
+  /**
+   * @example
+   * 180
+   */
+  delayStopTime?: number;
+  /**
+   * @example
+   * record/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}
+   */
+  filePrefix?: string;
+  /**
+   * @example
+   * 1800
+   */
+  fileSplitInterval?: number;
+  formats?: string[];
+  layoutIds?: number[];
+  /**
+   * @example
+   * 1
+   */
+  mediaEncode?: number;
+  /**
+   * @example
+   * 测试
+   */
+  name?: string;
+  /**
+   * @example
+   * wv7N****
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      delayStopTime: 'DelayStopTime',
+      filePrefix: 'FilePrefix',
+      fileSplitInterval: 'FileSplitInterval',
+      formats: 'Formats',
+      layoutIds: 'LayoutIds',
+      mediaEncode: 'MediaEncode',
+      name: 'Name',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'Buffer',
+      delayStopTime: 'number',
+      filePrefix: 'string',
+      fileSplitInterval: 'number',
+      formats: { 'type': 'array', 'itemType': 'string' },
+      layoutIds: { 'type': 'array', 'itemType': 'number' },
+      mediaEncode: 'number',
+      name: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAppRecordingFilesResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * rtc-bucket
+   */
   bucket?: string;
+  /**
+   * @example
+   * testchannelId
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1712376032000
+   */
   fileCreateTs?: number;
+  /**
+   * @example
+   * 200
+   */
   fileDuration?: number;
+  /**
+   * @example
+   * record/appid/12_task_local1/1712279809158_1712279844691/playlist.mp4
+   */
   filePath?: string;
+  /**
+   * @example
+   * 10000
+   */
   fileSize?: number;
+  /**
+   * @example
+   * 1
+   */
   region?: number;
+  /**
+   * @example
+   * 1712376012000
+   */
   startTs?: number;
+  /**
+   * @example
+   * test001
+   */
   taskId?: string;
+  /**
+   * @example
+   * 1
+   */
   vendor?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6645,7 +12088,15 @@ export class DescribeAppRecordingFilesResponseBodyItems extends $tea.Model {
 }
 
 export class DescribeAppStreamingOutTemplatesRequestCondition extends $tea.Model {
+  /**
+   * @example
+   * 测试
+   */
   name?: string;
+  /**
+   * @example
+   * Bj6D****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6667,10 +12118,26 @@ export class DescribeAppStreamingOutTemplatesRequestCondition extends $tea.Model
 }
 
 export class DescribeAppStreamingOutTemplatesResponseBodyTemplates extends $tea.Model {
+  /**
+   * @example
+   * 2020-09-04T06:22:15Z
+   */
   createTime?: string;
   layoutIds?: string[];
+  /**
+   * @example
+   * 1
+   */
   mediaEncode?: number;
+  /**
+   * @example
+   * 模版名称
+   */
   name?: string;
+  /**
+   * @example
+   * Bj6D****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6717,12 +12184,36 @@ export class DescribeAppsResponseBodyAppListAppServiceAreas extends $tea.Model {
 }
 
 export class DescribeAppsResponseBodyAppListApp extends $tea.Model {
+  /**
+   * @example
+   * rgf1****"
+   */
   appId?: string;
+  /**
+   * @example
+   * Default AppName
+   */
   appName?: string;
+  /**
+   * @example
+   * universal
+   */
   appType?: string;
+  /**
+   * @example
+   * paybyduration
+   */
   billType?: string;
+  /**
+   * @example
+   * 2020-01-09T02:02:29Z
+   */
   createTime?: string;
   serviceAreas?: DescribeAppsResponseBodyAppListAppServiceAreas;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
   version?: string;
   static names(): { [key: string]: string } {
@@ -6776,14 +12267,42 @@ export class DescribeAppsResponseBodyAppList extends $tea.Model {
 }
 
 export class DescribeAutoLiveStreamRuleResponseBodyRules extends $tea.Model {
+  /**
+   * @example
+   * http://example.com/callBack
+   */
   callBack?: string;
   channelIdPrefixes?: string[];
   channelIds?: string[];
+  /**
+   * @example
+   * 2021-08-19T02:53:07Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 20
+   */
   mediaEncode?: number;
+  /**
+   * @example
+   * rtmp://${domain}/${app}/${stream}
+   */
   playDomain?: string;
+  /**
+   * @example
+   * 12
+   */
   ruleId?: number;
+  /**
+   * @example
+   * testRule
+   */
   ruleName?: string;
+  /**
+   * @example
+   * disable
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6819,11 +12338,38 @@ export class DescribeAutoLiveStreamRuleResponseBodyRules extends $tea.Model {
 }
 
 export class DescribeCallResponseBodyCallInfo extends $tea.Model {
+  /**
+   * @remarks
+   * App ID。
+   * 
+   * @example
+   * xxxxxxxx
+   */
   appId?: string;
+  /**
+   * @example
+   * IN
+   */
   callStatus?: string;
+  /**
+   * @example
+   * 123456
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1615860711
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1615860811
+   */
   destroyedTs?: number;
+  /**
+   * @example
+   * 100
+   */
   duration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6853,15 +12399,55 @@ export class DescribeCallResponseBodyCallInfo extends $tea.Model {
 }
 
 export class DescribeCallResponseBodyUserDetailListDurMetricStatData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   pubAudio?: number;
+  /**
+   * @example
+   * 0
+   */
   pubVideo1080?: number;
+  /**
+   * @example
+   * 0
+   */
   pubVideo360?: number;
+  /**
+   * @example
+   * 0
+   */
   pubVideo720?: number;
+  /**
+   * @example
+   * 0
+   */
   pubVideoScreenShare?: number;
+  /**
+   * @example
+   * 0
+   */
   subAudio?: number;
+  /**
+   * @example
+   * 0
+   */
   subVideo1080?: number;
+  /**
+   * @example
+   * 0
+   */
   subVideo360?: number;
+  /**
+   * @example
+   * 0
+   */
   subVideo720?: number;
+  /**
+   * @example
+   * 0
+   */
   subVideoScreenShare?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6899,7 +12485,15 @@ export class DescribeCallResponseBodyUserDetailListDurMetricStatData extends $te
 }
 
 export class DescribeCallResponseBodyUserDetailListOnlinePeriods extends $tea.Model {
+  /**
+   * @example
+   * 1614936817
+   */
   joinTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   leaveTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6921,21 +12515,61 @@ export class DescribeCallResponseBodyUserDetailListOnlinePeriods extends $tea.Mo
 }
 
 export class DescribeCallResponseBodyUserDetailList extends $tea.Model {
+  /**
+   * @example
+   * GOOD
+   */
   callExp?: string;
+  /**
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
   durMetricStatData?: DescribeCallResponseBodyUserDetailListDurMetricStatData;
+  /**
+   * @example
+   * 0
+   */
   duration?: number;
+  /**
+   * @example
+   * 浙江省-杭州市
+   */
   location?: string;
+  /**
+   * @example
+   * 4G
+   */
   network?: string;
   networkList?: string[];
+  /**
+   * @example
+   * 0
+   */
   onlineDuration?: number;
   onlinePeriods?: DescribeCallResponseBodyUserDetailListOnlinePeriods[];
+  /**
+   * @example
+   * iOS
+   */
   os?: string;
   osList?: string[];
   roles?: string[];
+  /**
+   * @example
+   * 1.0.0
+   */
   sdkVersion?: string;
   sdkVersionList?: string[];
+  /**
+   * @example
+   * testuserid
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6985,13 +12619,48 @@ export class DescribeCallResponseBodyUserDetailList extends $tea.Model {
 }
 
 export class DescribeCallListResponseBodyCallList extends $tea.Model {
+  /**
+   * @remarks
+   * App ID。
+   * 
+   * @example
+   * 9qb1****
+   */
   appId?: string;
+  /**
+   * @example
+   * 0
+   */
   badExpUserCnt?: number;
+  /**
+   * @example
+   * OUT
+   */
   callStatus?: string;
+  /**
+   * @example
+   * 904
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
+  /**
+   * @example
+   * 10
+   */
   duration?: number;
+  /**
+   * @example
+   * 5
+   */
   userCnt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7024,8 +12693,77 @@ export class DescribeCallListResponseBodyCallList extends $tea.Model {
   }
 }
 
+export class DescribeCallbacksResponseBodyCallbacks extends $tea.Model {
+  /**
+   * @example
+   * RecordEvent
+   */
+  category?: string;
+  /**
+   * @example
+   * 1
+   */
+  checkStatus?: string;
+  /**
+   * @example
+   * RESPONSE_INVALID
+   */
+  code?: string;
+  /**
+   * @example
+   * https://www.aliyun.com
+   */
+  conf?: string;
+  /**
+   * @example
+   * Success
+   */
+  msg?: string;
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
+  subEvent?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      checkStatus: 'CheckStatus',
+      code: 'Code',
+      conf: 'Conf',
+      msg: 'Msg',
+      status: 'Status',
+      subEvent: 'SubEvent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      checkStatus: 'string',
+      code: 'string',
+      conf: 'string',
+      msg: 'string',
+      status: 'number',
+      subEvent: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeChannelResponseBodyChannel extends $tea.Model {
+  /**
+   * @example
+   * testid
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1557909133
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7047,6 +12785,10 @@ export class DescribeChannelResponseBodyChannel extends $tea.Model {
 }
 
 export class DescribeChannelAllUsersResponseBodyUsers extends $tea.Model {
+  /**
+   * @example
+   * 1811****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7066,10 +12808,30 @@ export class DescribeChannelAllUsersResponseBodyUsers extends $tea.Model {
 }
 
 export class DescribeChannelAreaDistributionStatDataResponseBodyAreaStatList extends $tea.Model {
+  /**
+   * @example
+   * 浙江省
+   */
   areaName?: string;
+  /**
+   * @example
+   * 1
+   */
   callUserCount?: number;
+  /**
+   * @example
+   * 0.9999
+   */
   highQualityTransmissionRate?: string;
+  /**
+   * @example
+   * 1
+   */
   pubUserCount?: number;
+  /**
+   * @example
+   * 1
+   */
   subUserCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7097,8 +12859,20 @@ export class DescribeChannelAreaDistributionStatDataResponseBodyAreaStatList ext
 }
 
 export class DescribeChannelDistributionStatDataResponseBodyStatList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   callUserCount?: number;
+  /**
+   * @example
+   * 1.0000
+   */
   callUserRatio?: string;
+  /**
+   * @example
+   * OS
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7122,11 +12896,35 @@ export class DescribeChannelDistributionStatDataResponseBodyStatList extends $te
 }
 
 export class DescribeChannelOverallDataResponseBodyCallInfo extends $tea.Model {
+  /**
+   * @example
+   * rjdhtnqy
+   */
   appId?: string;
+  /**
+   * @example
+   * IN
+   */
   callStatus?: string;
+  /**
+   * @example
+   * 123456
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1615860711
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1615860811
+   */
   destroyedTs?: number;
+  /**
+   * @example
+   * 100
+   */
   duration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7157,7 +12955,15 @@ export class DescribeChannelOverallDataResponseBodyCallInfo extends $tea.Model {
 
 export class DescribeChannelOverallDataResponseBodyMetricDatasNodes extends $tea.Model {
   ext?: { [key: string]: any };
+  /**
+   * @example
+   * 1612418625
+   */
   x?: string;
+  /**
+   * @example
+   * 123
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7182,6 +12988,10 @@ export class DescribeChannelOverallDataResponseBodyMetricDatasNodes extends $tea
 
 export class DescribeChannelOverallDataResponseBodyMetricDatas extends $tea.Model {
   nodes?: DescribeChannelOverallDataResponseBodyMetricDatasNodes[];
+  /**
+   * @example
+   * CALL_QUALITY
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7203,10 +13013,30 @@ export class DescribeChannelOverallDataResponseBodyMetricDatas extends $tea.Mode
 }
 
 export class DescribeChannelOverallDataResponseBodyOverallData extends $tea.Model {
+  /**
+   * @example
+   * 0.5
+   */
   connAvgTime?: number;
+  /**
+   * @example
+   * 0.91
+   */
   fiveSecJoinRate?: number;
+  /**
+   * @example
+   * 0.02
+   */
   totalAudioStuckRate?: number;
+  /**
+   * @example
+   * 0.02
+   */
   totalVideoStuckRate?: number;
+  /**
+   * @example
+   * 0.02
+   */
   totalVideoVagueRate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7253,7 +13083,15 @@ export class DescribeChannelParticipantsResponseBodyUserList extends $tea.Model 
 }
 
 export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailListOnlinePeriods extends $tea.Model {
+  /**
+   * @example
+   * 1615893327
+   */
   joinTs?: number;
+  /**
+   * @example
+   * 1615893442
+   */
   leaveTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7275,12 +13113,36 @@ export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailListOnline
 }
 
 export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailList extends $tea.Model {
+  /**
+   * @example
+   * 1615893327
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1615893442
+   */
   destroyedTs?: number;
+  /**
+   * @example
+   * 0
+   */
   duration?: number;
+  /**
+   * @example
+   * 浙江省-杭州市
+   */
   location?: string;
+  /**
+   * @example
+   * 0
+   */
   onlineDuration?: number;
   onlinePeriods?: DescribeChannelTopPubUserListResponseBodyTopPubUserDetailListOnlinePeriods[];
+  /**
+   * @example
+   * testuserid
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7312,8 +13174,20 @@ export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailList exten
 }
 
 export class DescribeChannelUserResponseBodySessions extends $tea.Model {
+  /**
+   * @example
+   * 1557909133
+   */
   joined?: number;
+  /**
+   * @example
+   * xa744sxx8rtobgj****
+   */
   sessionId?: string;
+  /**
+   * @example
+   * 1811****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7338,7 +13212,15 @@ export class DescribeChannelUserResponseBodySessions extends $tea.Model {
 
 export class DescribeChannelUserMetricsResponseBodyMetricDatasNodes extends $tea.Model {
   ext?: { [key: string]: any };
+  /**
+   * @example
+   * 1612418625
+   */
   x?: string;
+  /**
+   * @example
+   * 123
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7363,6 +13245,10 @@ export class DescribeChannelUserMetricsResponseBodyMetricDatasNodes extends $tea
 
 export class DescribeChannelUserMetricsResponseBodyMetricDatas extends $tea.Model {
   nodes?: DescribeChannelUserMetricsResponseBodyMetricDatasNodes[];
+  /**
+   * @example
+   * ALL_NUM
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7384,10 +13270,30 @@ export class DescribeChannelUserMetricsResponseBodyMetricDatas extends $tea.Mode
 }
 
 export class DescribeChannelUserMetricsResponseBodyOverallData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   totalBadExpNum?: number;
+  /**
+   * @example
+   * 0
+   */
   totalJoinFailNum?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPubUserNum?: number;
+  /**
+   * @example
+   * 3
+   */
   totalSubUserNum?: number;
+  /**
+   * @example
+   * 5
+   */
   totalUserNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7415,9 +13321,25 @@ export class DescribeChannelUserMetricsResponseBodyOverallData extends $tea.Mode
 }
 
 export class DescribeEndPointEventListResponseBodyNodesEventDataItemsEventList extends $tea.Model {
+  /**
+   * @example
+   * 开始发布
+   */
   eventName?: string;
+  /**
+   * @example
+   * USER
+   */
   eventType?: string;
+  /**
+   * @example
+   * 1614936817
+   */
   ts?: number;
+  /**
+   * @example
+   * 1614936817123
+   */
   tsInMs?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7444,6 +13366,10 @@ export class DescribeEndPointEventListResponseBodyNodesEventDataItemsEventList e
 
 export class DescribeEndPointEventListResponseBodyNodesEventDataItems extends $tea.Model {
   eventList?: DescribeEndPointEventListResponseBodyNodesEventDataItemsEventList[];
+  /**
+   * @example
+   * 1614936817
+   */
   ts?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7466,6 +13392,10 @@ export class DescribeEndPointEventListResponseBodyNodesEventDataItems extends $t
 
 export class DescribeEndPointEventListResponseBodyNodes extends $tea.Model {
   eventDataItems?: DescribeEndPointEventListResponseBodyNodesEventDataItems[];
+  /**
+   * @example
+   * testuserid
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7488,7 +13418,15 @@ export class DescribeEndPointEventListResponseBodyNodes extends $tea.Model {
 
 export class DescribeEndPointMetricDataResponseBodyPubMetricsNodes extends $tea.Model {
   ext?: { [key: string]: any };
+  /**
+   * @example
+   * 1548670257
+   */
   x?: string;
+  /**
+   * @example
+   * 230100
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7513,7 +13451,15 @@ export class DescribeEndPointMetricDataResponseBodyPubMetricsNodes extends $tea.
 
 export class DescribeEndPointMetricDataResponseBodyPubMetrics extends $tea.Model {
   nodes?: DescribeEndPointMetricDataResponseBodyPubMetricsNodes[];
+  /**
+   * @example
+   * VIDEO_STUCK_CAMERA
+   */
   type?: string;
+  /**
+   * @example
+   * testuserid
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7538,7 +13484,15 @@ export class DescribeEndPointMetricDataResponseBodyPubMetrics extends $tea.Model
 
 export class DescribeEndPointMetricDataResponseBodySubMetricsNodes extends $tea.Model {
   ext?: { [key: string]: any };
+  /**
+   * @example
+   * 1548670257
+   */
   x?: string;
+  /**
+   * @example
+   * 230100
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7563,7 +13517,15 @@ export class DescribeEndPointMetricDataResponseBodySubMetricsNodes extends $tea.
 
 export class DescribeEndPointMetricDataResponseBodySubMetrics extends $tea.Model {
   nodes?: DescribeEndPointMetricDataResponseBodySubMetricsNodes[];
+  /**
+   * @example
+   * VIDEO_STUCK_CAMERA
+   */
   type?: string;
+  /**
+   * @example
+   * testuserid
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7587,8 +13549,20 @@ export class DescribeEndPointMetricDataResponseBodySubMetrics extends $tea.Model
 }
 
 export class DescribeFaultDiagnosisFactorDistributionStatResponseBodyStatList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   factorId?: string;
+  /**
+   * @example
+   * 100
+   */
   userCount?: number;
+  /**
+   * @example
+   * 0.9239
+   */
   userRatio?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7613,7 +13587,15 @@ export class DescribeFaultDiagnosisFactorDistributionStatResponseBodyStatList ex
 
 export class DescribeFaultDiagnosisOverallDataResponseBodyMetricDataNodes extends $tea.Model {
   ext?: { [key: string]: any };
+  /**
+   * @example
+   * 1615824000
+   */
   x?: string;
+  /**
+   * @example
+   * 1
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7656,8 +13638,20 @@ export class DescribeFaultDiagnosisOverallDataResponseBodyMetricData extends $te
 }
 
 export class DescribeFaultDiagnosisOverallDataResponseBodyOverallData extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   faultUserCount?: number;
+  /**
+   * @example
+   * 0.1
+   */
   faultUserRatio?: number;
+  /**
+   * @example
+   * 40
+   */
   totalUserCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7681,11 +13675,38 @@ export class DescribeFaultDiagnosisOverallDataResponseBodyOverallData extends $t
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyCallInfo extends $tea.Model {
+  /**
+   * @remarks
+   * App ID。
+   * 
+   * @example
+   * 0rbd****
+   */
   appId?: string;
+  /**
+   * @example
+   * IN
+   */
   callStatus?: string;
+  /**
+   * @example
+   * 311
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1620957905
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1620958150
+   */
   destroyedTs?: number;
+  /**
+   * @example
+   * 100
+   */
   duration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7715,8 +13736,20 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyCallInfo extends $tea.M
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItemsEventList extends $tea.Model {
+  /**
+   * @example
+   * 开始发布
+   */
   eventName?: string;
+  /**
+   * @example
+   * USER
+   */
   eventType?: string;
+  /**
+   * @example
+   * 1614936817
+   */
   ts?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7741,6 +13774,10 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventD
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItems extends $tea.Model {
   eventList?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItemsEventList[];
+  /**
+   * @example
+   * 1614936817
+   */
   ts?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7763,7 +13800,15 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventD
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatas extends $tea.Model {
   eventDataItems?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItems[];
+  /**
+   * @example
+   * SENDER
+   */
   role?: string;
+  /**
+   * @example
+   * 0a497933****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7788,7 +13833,15 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventD
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatasNodes extends $tea.Model {
   ext?: { [key: string]: any };
+  /**
+   * @example
+   * 1615892596
+   */
   x?: string;
+  /**
+   * @example
+   * 20
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7813,8 +13866,20 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetric
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatas extends $tea.Model {
   nodes?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatasNodes[];
+  /**
+   * @example
+   * SENDER
+   */
   role?: string;
+  /**
+   * @example
+   * AUDIO_STUCK
+   */
   type?: string;
+  /**
+   * @example
+   * 0a497933****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7840,7 +13905,15 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetric
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   factorId?: string;
+  /**
+   * @example
+   * LOCAL
+   */
   faultSource?: string;
   relatedEventDatas?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatas[];
   relatedMetricDatas?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatas[];
@@ -7868,7 +13941,15 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorList extends $tea
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricDataNodes extends $tea.Model {
+  /**
+   * @example
+   * 1620957900
+   */
   x?: string;
+  /**
+   * @example
+   * 0.4540
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7909,7 +13990,15 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricData extends
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyUserDetailOnlinePeriods extends $tea.Model {
+  /**
+   * @example
+   * 1620957919
+   */
   joinTs?: number;
+  /**
+   * @example
+   * 1620958150
+   */
   leaveTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7931,15 +14020,51 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyUserDetailOnlinePeriods
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyUserDetail extends $tea.Model {
+  /**
+   * @example
+   * 1620957919
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1620958150
+   */
   destroyedTs?: number;
+  /**
+   * @example
+   * 231
+   */
   duration?: number;
+  /**
+   * @example
+   * 浙江省-杭州市
+   */
   location?: string;
+  /**
+   * @example
+   * 4G
+   */
   network?: string;
+  /**
+   * @example
+   * 231
+   */
   onlineDuration?: number;
   onlinePeriods?: DescribeFaultDiagnosisUserDetailResponseBodyUserDetailOnlinePeriods[];
+  /**
+   * @example
+   * iOS
+   */
   os?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   sdkVersion?: string;
+  /**
+   * @example
+   * 0a497933****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7977,6 +14102,10 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyUserDetail extends $tea
 }
 
 export class DescribeFaultDiagnosisUserListResponseBodyUserListFaultList extends $tea.Model {
+  /**
+   * @example
+   * JOIN_SLOW
+   */
   faultType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7996,11 +14125,31 @@ export class DescribeFaultDiagnosisUserListResponseBodyUserListFaultList extends
 }
 
 export class DescribeFaultDiagnosisUserListResponseBodyUserList extends $tea.Model {
+  /**
+   * @example
+   * 1614936817
+   */
   channelCreatedTs?: number;
+  /**
+   * @example
+   * 904
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
   faultList?: DescribeFaultDiagnosisUserListResponseBodyUserListFaultList[];
+  /**
+   * @example
+   * 123456
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8030,12 +14179,40 @@ export class DescribeFaultDiagnosisUserListResponseBodyUserList extends $tea.Mod
 }
 
 export class DescribeMPULayoutInfoListResponseBodyLayoutsLayoutPanesPanes extends $tea.Model {
+  /**
+   * @example
+   * 0.5
+   */
   height?: number;
+  /**
+   * @example
+   * 0
+   */
   majorPane?: number;
+  /**
+   * @example
+   * 0
+   */
   paneId?: number;
+  /**
+   * @example
+   * 0.5
+   */
   width?: number;
+  /**
+   * @example
+   * 0.5
+   */
   x?: number;
+  /**
+   * @example
+   * 0.5
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8086,8 +14263,20 @@ export class DescribeMPULayoutInfoListResponseBodyLayoutsLayoutPanes extends $te
 }
 
 export class DescribeMPULayoutInfoListResponseBodyLayoutsLayout extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   audioMixCount?: number;
+  /**
+   * @example
+   * 2
+   */
   layoutId?: number;
+  /**
+   * @example
+   * LayoutName
+   */
   name?: string;
   panes?: DescribeMPULayoutInfoListResponseBodyLayoutsLayoutPanes;
   static names(): { [key: string]: string } {
@@ -8133,7 +14322,15 @@ export class DescribeMPULayoutInfoListResponseBodyLayouts extends $tea.Model {
 }
 
 export class DescribePubUserListBySubUserResponseBodyPubUserDetailListOnlinePeriods extends $tea.Model {
+  /**
+   * @example
+   * 1614936817
+   */
   joinTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   leaveTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8156,21 +14353,65 @@ export class DescribePubUserListBySubUserResponseBodyPubUserDetailListOnlinePeri
 
 export class DescribePubUserListBySubUserResponseBodyPubUserDetailList extends $tea.Model {
   callIdList?: string[];
+  /**
+   * @example
+   * NATIVE
+   */
   clientType?: string;
+  /**
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
+  /**
+   * @example
+   * 0
+   */
   duration?: number;
+  /**
+   * @example
+   * 浙江省-杭州市
+   */
   location?: string;
+  /**
+   * @example
+   * 4G
+   */
   network?: string;
   networkList?: string[];
+  /**
+   * @example
+   * 0
+   */
   onlineDuration?: number;
   onlinePeriods?: DescribePubUserListBySubUserResponseBodyPubUserDetailListOnlinePeriods[];
+  /**
+   * @example
+   * iOS
+   */
   os?: string;
   osList?: string[];
   roles?: string[];
+  /**
+   * @example
+   * 1.0.0
+   */
   sdkVersion?: string;
   sdkVersionList?: string[];
+  /**
+   * @example
+   * testuserid
+   */
   userId?: string;
+  /**
+   * @example
+   * 旁路转推
+   */
   userIdAlias?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8222,7 +14463,15 @@ export class DescribePubUserListBySubUserResponseBodyPubUserDetailList extends $
 }
 
 export class DescribePubUserListBySubUserResponseBodySubUserDetailOnlinePeriods extends $tea.Model {
+  /**
+   * @example
+   * 1614936817
+   */
   joinTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   leaveTs?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8244,21 +14493,65 @@ export class DescribePubUserListBySubUserResponseBodySubUserDetailOnlinePeriods 
 }
 
 export class DescribePubUserListBySubUserResponseBodySubUserDetail extends $tea.Model {
+  /**
+   * @example
+   * NATIVE
+   */
   clientType?: string;
+  /**
+   * @example
+   * 1614936817
+   */
   createdTs?: number;
+  /**
+   * @example
+   * 1614936817
+   */
   destroyedTs?: number;
+  /**
+   * @example
+   * 0
+   */
   duration?: number;
+  /**
+   * @example
+   * 浙江省-杭州市
+   */
   location?: string;
+  /**
+   * @example
+   * 4G
+   */
   network?: string;
   networkList?: string[];
+  /**
+   * @example
+   * 0
+   */
   onlineDuration?: number;
   onlinePeriods?: DescribePubUserListBySubUserResponseBodySubUserDetailOnlinePeriods[];
+  /**
+   * @example
+   * iOS
+   */
   os?: string;
   osList?: string[];
   roles?: string[];
+  /**
+   * @example
+   * 1.0.0
+   */
   sdkVersion?: string;
   sdkVersionList?: string[];
+  /**
+   * @example
+   * testuserid
+   */
   userId?: string;
+  /**
+   * @example
+   * 旁路转推
+   */
   userIdAlias?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8308,7 +14601,15 @@ export class DescribePubUserListBySubUserResponseBodySubUserDetail extends $tea.
 }
 
 export class DescribeQoeMetricDataResponseBodyAudioDataNodes extends $tea.Model {
+  /**
+   * @example
+   * 1548670256
+   */
   x?: string;
+  /**
+   * @example
+   * 123
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8331,7 +14632,15 @@ export class DescribeQoeMetricDataResponseBodyAudioDataNodes extends $tea.Model 
 
 export class DescribeQoeMetricDataResponseBodyAudioData extends $tea.Model {
   nodes?: DescribeQoeMetricDataResponseBodyAudioDataNodes[];
+  /**
+   * @example
+   * AUDIO
+   */
   type?: string;
+  /**
+   * @example
+   * testuserid
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8355,7 +14664,15 @@ export class DescribeQoeMetricDataResponseBodyAudioData extends $tea.Model {
 }
 
 export class DescribeQoeMetricDataResponseBodyVideoDataNodes extends $tea.Model {
+  /**
+   * @example
+   * 1548670256
+   */
   x?: string;
+  /**
+   * @example
+   * 123
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8378,7 +14695,15 @@ export class DescribeQoeMetricDataResponseBodyVideoDataNodes extends $tea.Model 
 
 export class DescribeQoeMetricDataResponseBodyVideoData extends $tea.Model {
   nodes?: DescribeQoeMetricDataResponseBodyVideoDataNodes[];
+  /**
+   * @example
+   * VIDEO_CAMERA
+   */
   type?: string;
+  /**
+   * @example
+   * testuserid
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8402,16 +14727,60 @@ export class DescribeQoeMetricDataResponseBodyVideoData extends $tea.Model {
 }
 
 export class DescribeQualityAreaDistributionStatDataResponseBodyQualityStatDataList extends $tea.Model {
+  /**
+   * @example
+   * 347
+   */
   audioDelay?: number;
+  /**
+   * @example
+   * 0.9933
+   */
   audioHighQualityTransmissionRate?: string;
+  /**
+   * @example
+   * 0.0021
+   */
   audioStuckRate?: string;
+  /**
+   * @example
+   * 0.6654
+   */
   callDurationRatio?: string;
+  /**
+   * @example
+   * 0.9338
+   */
   joinChannelSucFiveSecRate?: string;
+  /**
+   * @example
+   * 0.9356
+   */
   joinChannelSucRate?: string;
+  /**
+   * @example
+   * 中国_浙江省
+   */
   name?: string;
+  /**
+   * @example
+   * 291
+   */
   videoDelay?: number;
+  /**
+   * @example
+   * 1363
+   */
   videoFirstPicDuration?: number;
+  /**
+   * @example
+   * 0.9967
+   */
   videoHighQualityTransmissionRate?: string;
+  /**
+   * @example
+   * 0.0058
+   */
   videoStuckRate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8451,16 +14820,60 @@ export class DescribeQualityAreaDistributionStatDataResponseBodyQualityStatDataL
 }
 
 export class DescribeQualityDistributionStatDataResponseBodyQualityStatDataList extends $tea.Model {
+  /**
+   * @example
+   * 554
+   */
   audioDelay?: number;
+  /**
+   * @example
+   * 0.9953
+   */
   audioHighQualityTransmissionRate?: string;
+  /**
+   * @example
+   * 0.0014
+   */
   audioStuckRate?: string;
+  /**
+   * @example
+   * 1.0000
+   */
   callDurationRatio?: string;
+  /**
+   * @example
+   * 0.9560
+   */
   joinChannelSucFiveSecRate?: string;
+  /**
+   * @example
+   * 0.9575
+   */
   joinChannelSucRate?: string;
+  /**
+   * @example
+   * ONE_TO_FIVE
+   */
   name?: string;
+  /**
+   * @example
+   * 517
+   */
   videoDelay?: number;
+  /**
+   * @example
+   * 1299
+   */
   videoFirstPicDuration?: number;
+  /**
+   * @example
+   * 0.9981
+   */
   videoHighQualityTransmissionRate?: string;
+  /**
+   * @example
+   * 0.0264
+   */
   videoStuckRate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8500,17 +14913,65 @@ export class DescribeQualityDistributionStatDataResponseBodyQualityStatDataList 
 }
 
 export class DescribeQualityOsSdkVersionDistributionStatDataResponseBodyQualityOsSdkVersionStatDataList extends $tea.Model {
+  /**
+   * @example
+   * 248
+   */
   audioDelay?: number;
+  /**
+   * @example
+   * 0.9987
+   */
   audioHighQualityTransmissionRate?: string;
+  /**
+   * @example
+   * 0.0011
+   */
   audioStuckRate?: string;
+  /**
+   * @example
+   * 0.0984
+   */
   callDurationRatio?: string;
+  /**
+   * @example
+   * 0.8276
+   */
   joinChannelSucFiveSecRate?: string;
+  /**
+   * @example
+   * 0.8276
+   */
   joinChannelSucRate?: string;
+  /**
+   * @example
+   * 2.1.0.210316.dev--release/rtcsdk_v2.1
+   */
   name?: string;
+  /**
+   * @example
+   * macOS
+   */
   os?: string;
+  /**
+   * @example
+   * 333
+   */
   videoDelay?: number;
+  /**
+   * @example
+   * 5643
+   */
   videoFirstPicDuration?: number;
+  /**
+   * @example
+   * 0.9997
+   */
   videoHighQualityTransmissionRate?: string;
+  /**
+   * @example
+   * 0.0054
+   */
   videoStuckRate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8552,7 +15013,15 @@ export class DescribeQualityOsSdkVersionDistributionStatDataResponseBodyQualityO
 }
 
 export class DescribeQualityOverallDataResponseBodyQualityOverallDataNodes extends $tea.Model {
+  /**
+   * @example
+   * 1615831200
+   */
   x?: string;
+  /**
+   * @example
+   * 1.0000
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8574,8 +15043,16 @@ export class DescribeQualityOverallDataResponseBodyQualityOverallDataNodes exten
 }
 
 export class DescribeQualityOverallDataResponseBodyQualityOverallData extends $tea.Model {
+  /**
+   * @example
+   * 0.9376
+   */
   average?: string;
   nodes?: DescribeQualityOverallDataResponseBodyQualityOverallDataNodes[];
+  /**
+   * @example
+   * JOIN_CHANNEL_SUC_RATE
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8599,12 +15076,40 @@ export class DescribeQualityOverallDataResponseBodyQualityOverallData extends $t
 }
 
 export class DescribeRecordFilesResponseBodyRecordFiles extends $tea.Model {
+  /**
+   * @example
+   * yourAppId
+   */
   appId?: string;
+  /**
+   * @example
+   * yourChannelId
+   */
   channelId?: string;
+  /**
+   * @example
+   * 2020-10-02T17:36:00Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1800
+   */
   duration?: number;
+  /**
+   * @example
+   * 2020-11-01T17:36:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 2020-11-02T17:36:00Z
+   */
   stopTime?: string;
+  /**
+   * @example
+   * yourTaskId
+   */
   taskId?: string;
   url?: string;
   static names(): { [key: string]: string } {
@@ -8639,12 +15144,40 @@ export class DescribeRecordFilesResponseBodyRecordFiles extends $tea.Model {
 }
 
 export class DescribeRecordTemplatesResponseBodyTemplatesBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8676,11 +15209,35 @@ export class DescribeRecordTemplatesResponseBodyTemplatesBackgrounds extends $te
 }
 
 export class DescribeRecordTemplatesResponseBodyTemplatesClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
   fontType?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8710,13 +15267,45 @@ export class DescribeRecordTemplatesResponseBodyTemplatesClockWidgets extends $t
 }
 
 export class DescribeRecordTemplatesResponseBodyTemplatesWatermarks extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8750,22 +15339,70 @@ export class DescribeRecordTemplatesResponseBodyTemplatesWatermarks extends $tea
 }
 
 export class DescribeRecordTemplatesResponseBodyTemplates extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   backgroundColor?: number;
   backgrounds?: DescribeRecordTemplatesResponseBodyTemplatesBackgrounds[];
   clockWidgets?: DescribeRecordTemplatesResponseBodyTemplatesClockWidgets[];
+  /**
+   * @example
+   * 2020-09-04T06:22:15Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 180
+   */
   delayStopTime?: number;
+  /**
+   * @example
+   * false
+   */
   enableM3u8DateTime?: boolean;
+  /**
+   * @example
+   * 1800
+   */
   fileSplitInterval?: number;
   formats?: string[];
+  /**
+   * @example
+   * http://example.com/callback
+   */
   httpCallbackUrl?: string;
   layoutIds?: number[];
+  /**
+   * @example
+   * 50
+   */
   mediaEncode?: number;
+  /**
+   * @example
+   * record-callback-queue
+   */
   mnsQueue?: string;
   name?: string;
+  /**
+   * @example
+   * rtc-record-oss
+   */
   ossBucket?: string;
+  /**
+   * @example
+   * record/pre/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}
+   */
   ossFilePrefix?: string;
+  /**
+   * @example
+   * 4IN_1080P
+   */
   taskProfile?: string;
+  /**
+   * @example
+   * 1ca698e2-57fa-4314-8e11-00d950d4****
+   */
   templateId?: string;
   watermarks?: DescribeRecordTemplatesResponseBodyTemplatesWatermarks[];
   static names(): { [key: string]: string } {
@@ -8840,9 +15477,25 @@ export class DescribeRtcChannelListResponseBodyChannelListChannelListCallArea ex
 
 export class DescribeRtcChannelListResponseBodyChannelListChannelList extends $tea.Model {
   callArea?: DescribeRtcChannelListResponseBodyChannelListChannelListCallArea;
+  /**
+   * @example
+   * testChannel
+   */
   channelId?: string;
+  /**
+   * @example
+   * 2018-01-29T02:00:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 2018-01-29T01:00:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 2
+   */
   totalUserCnt?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8889,11 +15542,35 @@ export class DescribeRtcChannelListResponseBodyChannelList extends $tea.Model {
 }
 
 export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoChannelMetric extends $tea.Model {
+  /**
+   * @example
+   * example_channel
+   */
   channelId?: string;
+  /**
+   * @example
+   * 2019-06-06T18:57:00Z
+   */
   endTime?: string;
+  /**
+   * @example
+   * 10
+   */
   pubUserCount?: number;
+  /**
+   * @example
+   * 2019-06-06T17:57:00Z
+   */
   startTime?: string;
+  /**
+   * @example
+   * 25
+   */
   subUserCount?: number;
+  /**
+   * @example
+   * 30
+   */
   userCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8923,10 +15600,30 @@ export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoChannelMetric 
 }
 
 export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationPubDuration extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   audio?: number;
+  /**
+   * @example
+   * 100
+   */
   content?: number;
+  /**
+   * @example
+   * 100
+   */
   video1080?: number;
+  /**
+   * @example
+   * 100
+   */
   video360?: number;
+  /**
+   * @example
+   * 100
+   */
   video720?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8954,10 +15651,30 @@ export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationPubDur
 }
 
 export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationSubDuration extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
   audio?: number;
+  /**
+   * @example
+   * 100
+   */
   content?: number;
+  /**
+   * @example
+   * 100
+   */
   video1080?: number;
+  /**
+   * @example
+   * 100
+   */
   video360?: number;
+  /**
+   * @example
+   * 100
+   */
   video720?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9029,12 +15746,40 @@ export class DescribeRtcChannelMetricResponseBodyChannelMetricInfo extends $tea.
 }
 
 export class DescribeRtcDurationDataResponseBodyDurationDataPerIntervalDurationModule extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   audioDuration?: number;
+  /**
+   * @example
+   * 200
+   */
   contentDuration?: number;
+  /**
+   * @example
+   * 2020-02-04T05:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @example
+   * 1000
+   */
   totalDuration?: number;
+  /**
+   * @example
+   * 300
+   */
   v1080Duration?: number;
+  /**
+   * @example
+   * 300
+   */
   v360Duration?: number;
+  /**
+   * @example
+   * 200
+   */
   v720Duration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9085,8 +15830,20 @@ export class DescribeRtcDurationDataResponseBodyDurationDataPerInterval extends 
 }
 
 export class DescribeRtcPeakChannelCntDataResponseBodyPeakChannelCntDataPerIntervalPeakChannelCntModule extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   activeChannelPeak?: number;
+  /**
+   * @example
+   * 2018-01-29T00:01:00Z
+   */
   activeChannelPeakTime?: string;
+  /**
+   * @example
+   * 2018-01-29T00:00:00Z
+   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9129,7 +15886,15 @@ export class DescribeRtcPeakChannelCntDataResponseBodyPeakChannelCntDataPerInter
 }
 
 export class DescribeRtcUserCntDataResponseBodyUserCntDataPerIntervalUserCntModule extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   activeUserCnt?: number;
+  /**
+   * @example
+   * 2018-01-29T00:00:00Z
+   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9169,10 +15934,171 @@ export class DescribeRtcUserCntDataResponseBodyUserCntDataPerInterval extends $t
   }
 }
 
-export class DescribeUsageAreaDistributionStatDataResponseBodyUsageAreaStatList extends $tea.Model {
-  audioCallDuration?: number;
+export class DescribeSystemLayoutListResponseBodyLayoutsLayoutPanesPanes extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  height?: number;
+  /**
+   * @remarks
+   * MajorPane。
+   * 
+   * @example
+   * 0
+   */
+  majorPane?: number;
+  /**
+   * @example
+   * 0
+   */
+  paneId?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  width?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  x?: number;
+  /**
+   * @example
+   * 0.25
+   */
+  y?: number;
+  /**
+   * @example
+   * 0
+   */
+  ZOrder?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      majorPane: 'MajorPane',
+      paneId: 'PaneId',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+      ZOrder: 'ZOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      majorPane: 'number',
+      paneId: 'number',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+      ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSystemLayoutListResponseBodyLayoutsLayoutPanes extends $tea.Model {
+  panes?: DescribeSystemLayoutListResponseBodyLayoutsLayoutPanesPanes[];
+  static names(): { [key: string]: string } {
+    return {
+      panes: 'Panes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      panes: { 'type': 'array', 'itemType': DescribeSystemLayoutListResponseBodyLayoutsLayoutPanesPanes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSystemLayoutListResponseBodyLayoutsLayout extends $tea.Model {
+  /**
+   * @remarks
+   * AudioMixCount。
+   * 
+   * @example
+   * 3
+   */
+  audioMixCount?: number;
+  /**
+   * @example
+   * 22
+   */
+  layoutId?: number;
   name?: string;
+  panes?: DescribeSystemLayoutListResponseBodyLayoutsLayoutPanes;
+  static names(): { [key: string]: string } {
+    return {
+      audioMixCount: 'AudioMixCount',
+      layoutId: 'LayoutId',
+      name: 'Name',
+      panes: 'Panes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioMixCount: 'number',
+      layoutId: 'number',
+      name: 'string',
+      panes: DescribeSystemLayoutListResponseBodyLayoutsLayoutPanes,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSystemLayoutListResponseBodyLayouts extends $tea.Model {
+  layout?: DescribeSystemLayoutListResponseBodyLayoutsLayout[];
+  static names(): { [key: string]: string } {
+    return {
+      layout: 'Layout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      layout: { 'type': 'array', 'itemType': DescribeSystemLayoutListResponseBodyLayoutsLayout },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUsageAreaDistributionStatDataResponseBodyUsageAreaStatList extends $tea.Model {
+  /**
+   * @example
+   * 45
+   */
+  audioCallDuration?: number;
+  /**
+   * @example
+   * 中国
+   */
+  name?: string;
+  /**
+   * @example
+   * 4821
+   */
   totalCallDuration?: number;
+  /**
+   * @example
+   * 4776
+   */
   videoCallDuration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9198,10 +16124,30 @@ export class DescribeUsageAreaDistributionStatDataResponseBodyUsageAreaStatList 
 }
 
 export class DescribeUsageDistributionStatDataResponseBodyUsageStatList extends $tea.Model {
+  /**
+   * @example
+   * 51
+   */
   audioCallDuration?: number;
+  /**
+   * @example
+   * 0.9782
+   */
   callDurationRatio?: string;
+  /**
+   * @example
+   * ONE_TO_FIVE
+   */
   name?: string;
+  /**
+   * @example
+   * 10636
+   */
   totalCallDuration?: number;
+  /**
+   * @example
+   * 10585
+   */
   videoCallDuration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9229,11 +16175,35 @@ export class DescribeUsageDistributionStatDataResponseBodyUsageStatList extends 
 }
 
 export class DescribeUsageOsSdkVersionDistributionStatDataResponseBodyUsageOsSdkVersionStatList extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
   audioCallDuration?: number;
+  /**
+   * @example
+   * 0.0984
+   */
   callDurationRatio?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
   name?: string;
+  /**
+   * @example
+   * macOS
+   */
   os?: string;
+  /**
+   * @example
+   * 476
+   */
   totalCallDuration?: number;
+  /**
+   * @example
+   * 473
+   */
   videoCallDuration?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9263,7 +16233,15 @@ export class DescribeUsageOsSdkVersionDistributionStatDataResponseBodyUsageOsSdk
 }
 
 export class DescribeUsageOverallDataResponseBodyUsageOverallDataNodes extends $tea.Model {
+  /**
+   * @example
+   * 1615824000
+   */
   x?: string;
+  /**
+   * @example
+   * 1
+   */
   y?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9286,6 +16264,10 @@ export class DescribeUsageOverallDataResponseBodyUsageOverallDataNodes extends $
 
 export class DescribeUsageOverallDataResponseBodyUsageOverallData extends $tea.Model {
   nodes?: DescribeUsageOverallDataResponseBodyUsageOverallDataNodes[];
+  /**
+   * @example
+   * ONLINE_USER_PEAK
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9307,8 +16289,20 @@ export class DescribeUsageOverallDataResponseBodyUsageOverallData extends $tea.M
 }
 
 export class DescribeUserInfoInChannelResponseBodyProperty extends $tea.Model {
+  /**
+   * @example
+   * 1557909133
+   */
   join?: number;
+  /**
+   * @example
+   * 1
+   */
   role?: number;
+  /**
+   * @example
+   * xa744sxx8rtobgj****
+   */
   session?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9331,10 +16325,122 @@ export class DescribeUserInfoInChannelResponseBodyProperty extends $tea.Model {
   }
 }
 
-export class ModifyAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
+export class ModifyAppRecordTemplateRequestRecordTemplate extends $tea.Model {
+  /**
+   * @example
+   * 180
+   */
+  delayStopTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * record/{AppId}/{ChannelId}_{TaskId}/{EscapedStartTime}_{EscapedEndTime}
+   */
+  filePrefix?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1800
+   */
+  fileSplitInterval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  formats?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   layoutIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   mediaEncode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 模版
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2xh6****
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      delayStopTime: 'DelayStopTime',
+      filePrefix: 'FilePrefix',
+      fileSplitInterval: 'FileSplitInterval',
+      formats: 'Formats',
+      layoutIds: 'LayoutIds',
+      mediaEncode: 'MediaEncode',
+      name: 'Name',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      delayStopTime: 'number',
+      filePrefix: 'string',
+      fileSplitInterval: 'number',
+      formats: { 'type': 'array', 'itemType': 'string' },
+      layoutIds: { 'type': 'array', 'itemType': 'string' },
+      mediaEncode: 'number',
+      name: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppStreamingOutTemplateRequestStreamingOutTemplate extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  layoutIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  mediaEncode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 模版
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ac7N****
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9359,13 +16465,80 @@ export class ModifyAppStreamingOutTemplateRequestStreamingOutTemplate extends $t
   }
 }
 
+export class ModifyCallbackMetaRequestCallback extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RecordEvent
+   */
+  category?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://www.aliyun.com
+   */
+  conf?: string;
+  subEvent?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      conf: 'Conf',
+      subEvent: 'SubEvent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      conf: 'string',
+      subEvent: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyMPULayoutRequestPanes extends $tea.Model {
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * 0
+   */
   majorPane?: number;
+  /**
+   * @example
+   * 0
+   */
   paneId?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9397,8 +16570,20 @@ export class ModifyMPULayoutRequestPanes extends $tea.Model {
 }
 
 export class RemoveTerminalsResponseBodyTerminalsTerminal extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * 1811****
+   */
   id?: string;
+  /**
+   * @example
+   * Success
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9441,6 +16626,13 @@ export class RemoveTerminalsResponseBodyTerminals extends $tea.Model {
 }
 
 export class RemoveUsersRequestUsers extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1811****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9460,8 +16652,20 @@ export class RemoveUsersRequestUsers extends $tea.Model {
 }
 
 export class RemoveUsersResponseBodyUsers extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: number;
+  /**
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @example
+   * 1811****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9484,9 +16688,47 @@ export class RemoveUsersResponseBodyUsers extends $tea.Model {
   }
 }
 
+export class StartCategoryCallbackRequestCallback extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RecordEvent
+   */
+  category?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartCloudRecordRequestClockWidgetsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9510,8 +16752,20 @@ export class StartCloudRecordRequestClockWidgetsBoxColor extends $tea.Model {
 }
 
 export class StartCloudRecordRequestClockWidgetsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9535,17 +16789,59 @@ export class StartCloudRecordRequestClockWidgetsFontColor extends $tea.Model {
 }
 
 export class StartCloudRecordRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: StartCloudRecordRequestClockWidgetsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: StartCloudRecordRequestClockWidgetsFontColor;
+  /**
+   * @example
+   * 30
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
+  /**
+   * @example
+   * 8
+   */
   zone?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9587,13 +16883,60 @@ export class StartCloudRecordRequestClockWidgets extends $tea.Model {
 }
 
 export class StartCloudRecordRequestImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   height?: number;
+  /**
+   * @example
+   * 2
+   */
   imageCropMode?: number;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123xxx.jpg
+   */
   url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.3
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9627,13 +16970,60 @@ export class StartCloudRecordRequestImages extends $tea.Model {
 }
 
 export class StartCloudRecordRequestPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   height?: number;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @example
+   * 2
+   */
   paneImageCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123xx.jpg
+   */
   url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9667,8 +17057,20 @@ export class StartCloudRecordRequestPanesImages extends $tea.Model {
 }
 
 export class StartCloudRecordRequestPanesTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9692,8 +17094,20 @@ export class StartCloudRecordRequestPanesTextsBoxColor extends $tea.Model {
 }
 
 export class StartCloudRecordRequestPanesTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9717,17 +17131,62 @@ export class StartCloudRecordRequestPanesTextsFontColor extends $tea.Model {
 }
 
 export class StartCloudRecordRequestPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: StartCloudRecordRequestPanesTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: StartCloudRecordRequestPanesTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
   texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9770,9 +17229,33 @@ export class StartCloudRecordRequestPanesTexts extends $tea.Model {
 
 export class StartCloudRecordRequestPanes extends $tea.Model {
   images?: StartCloudRecordRequestPanesImages[];
+  /**
+   * @example
+   * 3
+   */
   paneCropMode?: number;
+  /**
+   * @remarks
+   * paneId
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   paneId?: number;
+  /**
+   * @remarks
+   * source
+   */
   source?: string;
+  /**
+   * @remarks
+   * sourceType
+   * 
+   * @example
+   * video
+   */
   sourceType?: string;
   texts?: StartCloudRecordRequestPanesTexts[];
   static names(): { [key: string]: string } {
@@ -9803,10 +17286,55 @@ export class StartCloudRecordRequestPanes extends $tea.Model {
 }
 
 export class StartCloudRecordRequestStorageConfig extends $tea.Model {
+  /**
+   * @remarks
+   * accessKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LTAX***
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * bucket
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-bucket-for-recording
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * region
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   region?: number;
+  /**
+   * @remarks
+   * secretKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * APb6qWYEzKtYxE***
+   */
   secretKey?: string;
+  /**
+   * @remarks
+   * vendor
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   vendor?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9834,8 +17362,20 @@ export class StartCloudRecordRequestStorageConfig extends $tea.Model {
 }
 
 export class StartCloudRecordRequestTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9859,8 +17399,20 @@ export class StartCloudRecordRequestTextsBoxColor extends $tea.Model {
 }
 
 export class StartCloudRecordRequestTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9884,17 +17436,62 @@ export class StartCloudRecordRequestTextsFontColor extends $tea.Model {
 }
 
 export class StartCloudRecordRequestTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.1
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: StartCloudRecordRequestTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: StartCloudRecordRequestTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
   texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9936,12 +17533,40 @@ export class StartCloudRecordRequestTexts extends $tea.Model {
 }
 
 export class StartMPUTaskRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9973,17 +17598,65 @@ export class StartMPUTaskRequestBackgrounds extends $tea.Model {
 }
 
 export class StartMPUTaskRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0
+   */
   borderColor?: number;
+  /**
+   * @example
+   * 1
+   */
   borderWidth?: number;
+  /**
+   * @example
+   * false
+   */
   box?: boolean;
+  /**
+   * @example
+   * 0
+   */
   boxBorderWidth?: number;
+  /**
+   * @example
+   * 0
+   */
   boxColor?: number;
+  /**
+   * @example
+   * 0
+   */
   fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
   fontType?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10025,6 +17698,10 @@ export class StartMPUTaskRequestClockWidgets extends $tea.Model {
 }
 
 export class StartMPUTaskRequestEnhancedParam extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   enablePortraitSegmentation?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10044,12 +17721,40 @@ export class StartMPUTaskRequestEnhancedParam extends $tea.Model {
 }
 
 export class StartMPUTaskRequestUserPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10081,18 +17786,70 @@ export class StartMPUTaskRequestUserPanesImages extends $tea.Model {
 }
 
 export class StartMPUTaskRequestUserPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0
+   */
   borderColor?: number;
+  /**
+   * @example
+   * 1
+   */
   borderWidth?: number;
+  /**
+   * @example
+   * false
+   */
   box?: boolean;
+  /**
+   * @example
+   * 0
+   */
   boxBorderWidth?: number;
+  /**
+   * @example
+   * 0
+   */
   boxColor?: number;
+  /**
+   * @example
+   * 0
+   */
   fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
   fontType?: number;
+  /**
+   * @example
+   * text
+   */
   text?: string;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10137,10 +17894,26 @@ export class StartMPUTaskRequestUserPanesTexts extends $tea.Model {
 
 export class StartMPUTaskRequestUserPanes extends $tea.Model {
   images?: StartMPUTaskRequestUserPanesImages[];
+  /**
+   * @example
+   * 2
+   */
   paneId?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentType?: number;
+  /**
+   * @example
+   * camera
+   */
   sourceType?: string;
   texts?: StartMPUTaskRequestUserPanesTexts[];
+  /**
+   * @example
+   * TestId
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10170,13 +17943,45 @@ export class StartMPUTaskRequestUserPanes extends $tea.Model {
 }
 
 export class StartMPUTaskRequestWatermarks extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10210,12 +18015,40 @@ export class StartMPUTaskRequestWatermarks extends $tea.Model {
 }
 
 export class StartRecordTaskRequestUserPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10247,12 +18080,40 @@ export class StartRecordTaskRequestUserPanesImages extends $tea.Model {
 }
 
 export class StartRecordTaskRequestUserPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
   fontType?: number;
+  /**
+   * @example
+   * text
+   */
   text?: string;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10285,9 +18146,21 @@ export class StartRecordTaskRequestUserPanesTexts extends $tea.Model {
 
 export class StartRecordTaskRequestUserPanes extends $tea.Model {
   images?: StartRecordTaskRequestUserPanesImages[];
+  /**
+   * @example
+   * 2
+   */
   paneId?: number;
+  /**
+   * @example
+   * camera
+   */
   sourceType?: string;
   texts?: StartRecordTaskRequestUserPanesTexts[];
+  /**
+   * @example
+   * TestId
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10315,8 +18188,20 @@ export class StartRecordTaskRequestUserPanes extends $tea.Model {
 }
 
 export class StartStreamingOutRequestClockWidgetsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10340,8 +18225,20 @@ export class StartStreamingOutRequestClockWidgetsBoxColor extends $tea.Model {
 }
 
 export class StartStreamingOutRequestClockWidgetsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10365,17 +18262,59 @@ export class StartStreamingOutRequestClockWidgetsFontColor extends $tea.Model {
 }
 
 export class StartStreamingOutRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: StartStreamingOutRequestClockWidgetsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: StartStreamingOutRequestClockWidgetsFontColor;
+  /**
+   * @example
+   * 30
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
+  /**
+   * @example
+   * 8
+   */
   zone?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10417,13 +18356,60 @@ export class StartStreamingOutRequestClockWidgets extends $tea.Model {
 }
 
 export class StartStreamingOutRequestImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   height?: number;
+  /**
+   * @example
+   * 2
+   */
   imageCropMode?: number;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123xxx.jpg
+   */
   url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10457,13 +18443,60 @@ export class StartStreamingOutRequestImages extends $tea.Model {
 }
 
 export class StartStreamingOutRequestPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   height?: number;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @example
+   * 2
+   */
   paneImageCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123xxx.jpg
+   */
   url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.3
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10497,8 +18530,20 @@ export class StartStreamingOutRequestPanesImages extends $tea.Model {
 }
 
 export class StartStreamingOutRequestPanesTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10522,8 +18567,20 @@ export class StartStreamingOutRequestPanesTextsBoxColor extends $tea.Model {
 }
 
 export class StartStreamingOutRequestPanesTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10547,17 +18604,62 @@ export class StartStreamingOutRequestPanesTextsFontColor extends $tea.Model {
 }
 
 export class StartStreamingOutRequestPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: StartStreamingOutRequestPanesTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: StartStreamingOutRequestPanesTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
   texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10600,9 +18702,28 @@ export class StartStreamingOutRequestPanesTexts extends $tea.Model {
 
 export class StartStreamingOutRequestPanes extends $tea.Model {
   images?: StartStreamingOutRequestPanesImages[];
+  /**
+   * @example
+   * 2
+   */
   paneCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   paneId?: string;
+  /**
+   * @example
+   * 1811****
+   */
   source?: string;
+  /**
+   * @example
+   * Video
+   */
   sourceType?: string;
   texts?: StartStreamingOutRequestPanesTexts[];
   static names(): { [key: string]: string } {
@@ -10633,8 +18754,20 @@ export class StartStreamingOutRequestPanes extends $tea.Model {
 }
 
 export class StartStreamingOutRequestTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10658,8 +18791,20 @@ export class StartStreamingOutRequestTextsBoxColor extends $tea.Model {
 }
 
 export class StartStreamingOutRequestTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10683,17 +18828,62 @@ export class StartStreamingOutRequestTextsFontColor extends $tea.Model {
 }
 
 export class StartStreamingOutRequestTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.1
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: StartStreamingOutRequestTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: StartStreamingOutRequestTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
   texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10734,9 +18924,47 @@ export class StartStreamingOutRequestTexts extends $tea.Model {
   }
 }
 
+export class StopCategoryCallbackRequestCallback extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * RecordEvent
+   */
+  category?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateCloudRecordRequestClockWidgetsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10760,8 +18988,20 @@ export class UpdateCloudRecordRequestClockWidgetsBoxColor extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequestClockWidgetsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10785,17 +19025,59 @@ export class UpdateCloudRecordRequestClockWidgetsFontColor extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: UpdateCloudRecordRequestClockWidgetsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: UpdateCloudRecordRequestClockWidgetsFontColor;
+  /**
+   * @example
+   * 30
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
+  /**
+   * @example
+   * 8
+   */
   zone?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10837,13 +19119,60 @@ export class UpdateCloudRecordRequestClockWidgets extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequestImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   height?: number;
+  /**
+   * @example
+   * 2
+   */
   imageCropMode?: number;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
   url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10877,13 +19206,60 @@ export class UpdateCloudRecordRequestImages extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequestPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   height?: number;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @example
+   * 2
+   */
   paneImageCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123xxx.jpg
+   */
   url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10917,8 +19293,20 @@ export class UpdateCloudRecordRequestPanesImages extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequestPanesTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10942,8 +19330,20 @@ export class UpdateCloudRecordRequestPanesTextsBoxColor extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequestPanesTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10967,17 +19367,62 @@ export class UpdateCloudRecordRequestPanesTextsFontColor extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequestPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: UpdateCloudRecordRequestPanesTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: UpdateCloudRecordRequestPanesTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
   texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11020,9 +19465,28 @@ export class UpdateCloudRecordRequestPanesTexts extends $tea.Model {
 
 export class UpdateCloudRecordRequestPanes extends $tea.Model {
   images?: UpdateCloudRecordRequestPanesImages[];
+  /**
+   * @example
+   * 2
+   */
   paneCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   paneId?: number;
+  /**
+   * @example
+   * 22
+   */
   source?: string;
+  /**
+   * @example
+   * video
+   */
   sourceType?: string;
   texts?: UpdateCloudRecordRequestPanesTexts[];
   static names(): { [key: string]: string } {
@@ -11053,8 +19517,20 @@ export class UpdateCloudRecordRequestPanes extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequestTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11078,8 +19554,20 @@ export class UpdateCloudRecordRequestTextsBoxColor extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequestTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11103,17 +19591,62 @@ export class UpdateCloudRecordRequestTextsFontColor extends $tea.Model {
 }
 
 export class UpdateCloudRecordRequestTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.1
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: UpdateCloudRecordRequestTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: UpdateCloudRecordRequestTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
   texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11155,12 +19688,40 @@ export class UpdateCloudRecordRequestTexts extends $tea.Model {
 }
 
 export class UpdateMPUTaskRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11192,17 +19753,65 @@ export class UpdateMPUTaskRequestBackgrounds extends $tea.Model {
 }
 
 export class UpdateMPUTaskRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0
+   */
   borderColor?: number;
+  /**
+   * @example
+   * 1
+   */
   borderWidth?: number;
+  /**
+   * @example
+   * false
+   */
   box?: boolean;
+  /**
+   * @example
+   * 0
+   */
   boxBorderWidth?: number;
+  /**
+   * @example
+   * 0
+   */
   boxColor?: number;
+  /**
+   * @example
+   * 0
+   */
   fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
   fontType?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11244,12 +19853,40 @@ export class UpdateMPUTaskRequestClockWidgets extends $tea.Model {
 }
 
 export class UpdateMPUTaskRequestUserPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11281,18 +19918,70 @@ export class UpdateMPUTaskRequestUserPanesImages extends $tea.Model {
 }
 
 export class UpdateMPUTaskRequestUserPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0
+   */
   borderColor?: number;
+  /**
+   * @example
+   * 1
+   */
   borderWidth?: number;
+  /**
+   * @example
+   * false
+   */
   box?: boolean;
+  /**
+   * @example
+   * 0
+   */
   boxBorderWidth?: number;
+  /**
+   * @example
+   * 0
+   */
   boxColor?: number;
+  /**
+   * @example
+   * 0
+   */
   fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
   fontType?: number;
+  /**
+   * @example
+   * text
+   */
   text?: string;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11337,10 +20026,26 @@ export class UpdateMPUTaskRequestUserPanesTexts extends $tea.Model {
 
 export class UpdateMPUTaskRequestUserPanes extends $tea.Model {
   images?: UpdateMPUTaskRequestUserPanesImages[];
+  /**
+   * @example
+   * 2
+   */
   paneId?: number;
+  /**
+   * @example
+   * 0
+   */
   segmentType?: number;
+  /**
+   * @example
+   * camera
+   */
   sourceType?: string;
   texts?: UpdateMPUTaskRequestUserPanesTexts[];
+  /**
+   * @example
+   * TestUserID
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11370,13 +20075,45 @@ export class UpdateMPUTaskRequestUserPanes extends $tea.Model {
 }
 
 export class UpdateMPUTaskRequestWatermarks extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   alpha?: number;
+  /**
+   * @example
+   * 1
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11410,12 +20147,40 @@ export class UpdateMPUTaskRequestWatermarks extends $tea.Model {
 }
 
 export class UpdateRecordTaskRequestUserPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11447,12 +20212,40 @@ export class UpdateRecordTaskRequestUserPanesImages extends $tea.Model {
 }
 
 export class UpdateRecordTaskRequestUserPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
   fontType?: number;
+  /**
+   * @example
+   * text
+   */
   text?: string;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11485,9 +20278,21 @@ export class UpdateRecordTaskRequestUserPanesTexts extends $tea.Model {
 
 export class UpdateRecordTaskRequestUserPanes extends $tea.Model {
   images?: UpdateRecordTaskRequestUserPanesImages[];
+  /**
+   * @example
+   * 1
+   */
   paneId?: number;
+  /**
+   * @example
+   * camera
+   */
   sourceType?: string;
   texts?: UpdateRecordTaskRequestUserPanesTexts[];
+  /**
+   * @example
+   * TestId
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11515,12 +20320,40 @@ export class UpdateRecordTaskRequestUserPanes extends $tea.Model {
 }
 
 export class UpdateRecordTemplateRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11552,11 +20385,35 @@ export class UpdateRecordTemplateRequestBackgrounds extends $tea.Model {
 }
 
 export class UpdateRecordTemplateRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   fontColor?: number;
+  /**
+   * @example
+   * 1
+   */
   fontSize?: number;
+  /**
+   * @example
+   * 0
+   */
   fontType?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11586,13 +20443,45 @@ export class UpdateRecordTemplateRequestClockWidgets extends $tea.Model {
 }
 
 export class UpdateRecordTemplateRequestWatermarks extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0
+   */
   display?: number;
+  /**
+   * @example
+   * 0.2456
+   */
   height?: number;
+  /**
+   * @example
+   * https://www.example.com/image.jpg
+   */
   url?: string;
+  /**
+   * @example
+   * 0.2456
+   */
   width?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   x?: number;
+  /**
+   * @example
+   * 0.7576
+   */
   y?: number;
+  /**
+   * @example
+   * 0
+   */
   ZOrder?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11626,8 +20515,20 @@ export class UpdateRecordTemplateRequestWatermarks extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestClockWidgetsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11651,8 +20552,20 @@ export class UpdateStreamingOutRequestClockWidgetsBoxColor extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestClockWidgetsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11676,17 +20589,59 @@ export class UpdateStreamingOutRequestClockWidgetsFontColor extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: UpdateStreamingOutRequestClockWidgetsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: UpdateStreamingOutRequestClockWidgetsFontColor;
+  /**
+   * @example
+   * 30
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
+  /**
+   * @example
+   * 8
+   */
   zone?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11728,13 +20683,60 @@ export class UpdateStreamingOutRequestClockWidgets extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   height?: number;
+  /**
+   * @example
+   * 2
+   */
   imageCropMode?: number;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
   url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11768,13 +20770,60 @@ export class UpdateStreamingOutRequestImages extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   height?: number;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @example
+   * 2
+   */
   paneImageCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
   url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11808,8 +20857,20 @@ export class UpdateStreamingOutRequestPanesImages extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestPanesTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11833,8 +20894,20 @@ export class UpdateStreamingOutRequestPanesTextsBoxColor extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestPanesTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11858,17 +20931,62 @@ export class UpdateStreamingOutRequestPanesTextsFontColor extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: UpdateStreamingOutRequestPanesTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: UpdateStreamingOutRequestPanesTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
   texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11911,9 +21029,25 @@ export class UpdateStreamingOutRequestPanesTexts extends $tea.Model {
 
 export class UpdateStreamingOutRequestPanes extends $tea.Model {
   images?: UpdateStreamingOutRequestPanesImages[];
+  /**
+   * @example
+   * 2
+   */
   paneCropMode?: number;
+  /**
+   * @example
+   * 1
+   */
   paneId?: number;
+  /**
+   * @example
+   * 22
+   */
   source?: string;
+  /**
+   * @example
+   * video
+   */
   sourceType?: string;
   texts?: UpdateStreamingOutRequestPanesTexts[];
   static names(): { [key: string]: string } {
@@ -11944,8 +21078,20 @@ export class UpdateStreamingOutRequestPanes extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11969,8 +21115,20 @@ export class UpdateStreamingOutRequestTextsBoxColor extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
   b?: number;
+  /**
+   * @example
+   * 255
+   */
   g?: number;
+  /**
+   * @example
+   * 255
+   */
   r?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11994,17 +21152,62 @@ export class UpdateStreamingOutRequestTextsFontColor extends $tea.Model {
 }
 
 export class UpdateStreamingOutRequestTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.1
+   */
   alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
   boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
   boxBorderw?: number;
   boxColor?: UpdateStreamingOutRequestTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
   font?: number;
   fontColor?: UpdateStreamingOutRequestTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
   fontSize?: number;
   hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
   layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
   texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
   y?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12069,9 +21272,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddRecordTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddRecordTemplateResponse
+   * @param request - AddRecordTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddRecordTemplateResponse
    */
   async addRecordTemplateWithOptions(request: AddRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddRecordTemplateResponse> {
     Util.validateModel(request);
@@ -12170,8 +21373,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddRecordTemplateRequest
-   * @return AddRecordTemplateResponse
+   * @param request - AddRecordTemplateRequest
+   * @returns AddRecordTemplateResponse
    */
   async addRecordTemplate(request: AddRecordTemplateRequest): Promise<AddRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12179,11 +21382,67 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建应用推流模版
-   *
-   * @param tmpReq CreateAppStreamingOutTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAppStreamingOutTemplateResponse
+   * 增加应用录制模版
+   * 
+   * @param tmpReq - CreateAppRecordTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppRecordTemplateResponse
+   */
+  async createAppRecordTemplateWithOptions(tmpReq: CreateAppRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppRecordTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateAppRecordTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.recordTemplate)) {
+      request.recordTemplateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recordTemplate, "RecordTemplate", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.recordTemplateShrink)) {
+      query["RecordTemplate"] = request.recordTemplateShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAppRecordTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppRecordTemplateResponse>(await this.callApi(params, req, runtime), new CreateAppRecordTemplateResponse({}));
+  }
+
+  /**
+   * 增加应用录制模版
+   * 
+   * @param request - CreateAppRecordTemplateRequest
+   * @returns CreateAppRecordTemplateResponse
+   */
+  async createAppRecordTemplate(request: CreateAppRecordTemplateRequest): Promise<CreateAppRecordTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAppRecordTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建应用推流模版
+   * 
+   * @param tmpReq - CreateAppStreamingOutTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppStreamingOutTemplateResponse
    */
   async createAppStreamingOutTemplateWithOptions(tmpReq: CreateAppStreamingOutTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppStreamingOutTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -12220,10 +21479,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建应用推流模版
-   *
-   * @param request CreateAppStreamingOutTemplateRequest
-   * @return CreateAppStreamingOutTemplateResponse
+   * 创建应用推流模版
+   * 
+   * @param request - CreateAppStreamingOutTemplateRequest
+   * @returns CreateAppStreamingOutTemplateResponse
    */
   async createAppStreamingOutTemplate(request: CreateAppStreamingOutTemplateRequest): Promise<CreateAppStreamingOutTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12231,9 +21490,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAutoLiveStreamRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAutoLiveStreamRuleResponse
+   * @param request - CreateAutoLiveStreamRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAutoLiveStreamRuleResponse
    */
   async createAutoLiveStreamRuleWithOptions(request: CreateAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
@@ -12288,8 +21547,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAutoLiveStreamRuleRequest
-   * @return CreateAutoLiveStreamRuleResponse
+   * @param request - CreateAutoLiveStreamRuleRequest
+   * @returns CreateAutoLiveStreamRuleResponse
    */
   async createAutoLiveStreamRule(request: CreateAutoLiveStreamRuleRequest): Promise<CreateAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12297,9 +21556,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateEventSubscribeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateEventSubscribeResponse
+   * @param request - CreateEventSubscribeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEventSubscribeResponse
    */
   async createEventSubscribeWithOptions(request: CreateEventSubscribeRequest, runtime: $Util.RuntimeOptions): Promise<CreateEventSubscribeResponse> {
     Util.validateModel(request);
@@ -12358,8 +21617,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateEventSubscribeRequest
-   * @return CreateEventSubscribeResponse
+   * @param request - CreateEventSubscribeRequest
+   * @returns CreateEventSubscribeResponse
    */
   async createEventSubscribe(request: CreateEventSubscribeRequest): Promise<CreateEventSubscribeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12367,9 +21626,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateMPULayoutRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMPULayoutResponse
+   * @param request - CreateMPULayoutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMPULayoutResponse
    */
   async createMPULayoutWithOptions(request: CreateMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<CreateMPULayoutResponse> {
     Util.validateModel(request);
@@ -12412,8 +21671,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateMPULayoutRequest
-   * @return CreateMPULayoutResponse
+   * @param request - CreateMPULayoutRequest
+   * @returns CreateMPULayoutResponse
    */
   async createMPULayout(request: CreateMPULayoutRequest): Promise<CreateMPULayoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12421,11 +21680,67 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除应用推流模版
-   *
-   * @param tmpReq DeleteAppStreamingOutTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAppStreamingOutTemplateResponse
+   * 删除应用录制模版
+   * 
+   * @param tmpReq - DeleteAppRecordTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppRecordTemplateResponse
+   */
+  async deleteAppRecordTemplateWithOptions(tmpReq: DeleteAppRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppRecordTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteAppRecordTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.template)) {
+      request.templateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.template, "Template", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.templateShrink)) {
+      query["Template"] = request.templateShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAppRecordTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAppRecordTemplateResponse>(await this.callApi(params, req, runtime), new DeleteAppRecordTemplateResponse({}));
+  }
+
+  /**
+   * 删除应用录制模版
+   * 
+   * @param request - DeleteAppRecordTemplateRequest
+   * @returns DeleteAppRecordTemplateResponse
+   */
+  async deleteAppRecordTemplate(request: DeleteAppRecordTemplateRequest): Promise<DeleteAppRecordTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAppRecordTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除应用推流模版
+   * 
+   * @param tmpReq - DeleteAppStreamingOutTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppStreamingOutTemplateResponse
    */
   async deleteAppStreamingOutTemplateWithOptions(tmpReq: DeleteAppStreamingOutTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppStreamingOutTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -12462,10 +21777,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除应用推流模版
-   *
-   * @param request DeleteAppStreamingOutTemplateRequest
-   * @return DeleteAppStreamingOutTemplateResponse
+   * 删除应用推流模版
+   * 
+   * @param request - DeleteAppStreamingOutTemplateRequest
+   * @returns DeleteAppStreamingOutTemplateResponse
    */
   async deleteAppStreamingOutTemplate(request: DeleteAppStreamingOutTemplateRequest): Promise<DeleteAppStreamingOutTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12473,9 +21788,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteAutoLiveStreamRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAutoLiveStreamRuleResponse
+   * @param request - DeleteAutoLiveStreamRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAutoLiveStreamRuleResponse
    */
   async deleteAutoLiveStreamRuleWithOptions(request: DeleteAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
@@ -12510,8 +21825,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteAutoLiveStreamRuleRequest
-   * @return DeleteAutoLiveStreamRuleResponse
+   * @param request - DeleteAutoLiveStreamRuleRequest
+   * @returns DeleteAutoLiveStreamRuleResponse
    */
   async deleteAutoLiveStreamRule(request: DeleteAutoLiveStreamRuleRequest): Promise<DeleteAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12519,9 +21834,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteChannelResponse
+   * @param request - DeleteChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteChannelResponse
    */
   async deleteChannelWithOptions(request: DeleteChannelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChannelResponse> {
     Util.validateModel(request);
@@ -12556,8 +21871,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteChannelRequest
-   * @return DeleteChannelResponse
+   * @param request - DeleteChannelRequest
+   * @returns DeleteChannelResponse
    */
   async deleteChannel(request: DeleteChannelRequest): Promise<DeleteChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12565,9 +21880,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteEventSubscribeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteEventSubscribeResponse
+   * @param request - DeleteEventSubscribeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEventSubscribeResponse
    */
   async deleteEventSubscribeWithOptions(request: DeleteEventSubscribeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventSubscribeResponse> {
     Util.validateModel(request);
@@ -12602,8 +21917,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteEventSubscribeRequest
-   * @return DeleteEventSubscribeResponse
+   * @param request - DeleteEventSubscribeRequest
+   * @returns DeleteEventSubscribeResponse
    */
   async deleteEventSubscribe(request: DeleteEventSubscribeRequest): Promise<DeleteEventSubscribeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12611,9 +21926,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteMPULayoutRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMPULayoutResponse
+   * @param request - DeleteMPULayoutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMPULayoutResponse
    */
   async deleteMPULayoutWithOptions(request: DeleteMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMPULayoutResponse> {
     Util.validateModel(request);
@@ -12648,8 +21963,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteMPULayoutRequest
-   * @return DeleteMPULayoutResponse
+   * @param request - DeleteMPULayoutRequest
+   * @returns DeleteMPULayoutResponse
    */
   async deleteMPULayout(request: DeleteMPULayoutRequest): Promise<DeleteMPULayoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12657,9 +21972,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteRecordTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRecordTemplateResponse
+   * @param request - DeleteRecordTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRecordTemplateResponse
    */
   async deleteRecordTemplateWithOptions(request: DeleteRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRecordTemplateResponse> {
     Util.validateModel(request);
@@ -12694,8 +22009,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteRecordTemplateRequest
-   * @return DeleteRecordTemplateResponse
+   * @param request - DeleteRecordTemplateRequest
+   * @returns DeleteRecordTemplateResponse
    */
   async deleteRecordTemplate(request: DeleteRecordTemplateRequest): Promise<DeleteRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12703,11 +22018,127 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看AppKey
-   *
-   * @param request DescribeAppKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAppKeyResponse
+   * 列出系统支持的事件回调
+   * 
+   * @param request - DescribeAllCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAllCallbackResponse
+   */
+  async describeAllCallbackWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAllCallbackResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "DescribeAllCallback",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAllCallbackResponse>(await this.callApi(params, req, runtime), new DescribeAllCallbackResponse({}));
+  }
+
+  /**
+   * 列出系统支持的事件回调
+   * @returns DescribeAllCallbackResponse
+   */
+  async describeAllCallback(): Promise<DescribeAllCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAllCallbackWithOptions(runtime);
+  }
+
+  /**
+   * 查看app回调开关
+   * 
+   * @param request - DescribeAppCallStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppCallStatusResponse
+   */
+  async describeAppCallStatusWithOptions(request: DescribeAppCallStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppCallStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppCallStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppCallStatusResponse>(await this.callApi(params, req, runtime), new DescribeAppCallStatusResponse({}));
+  }
+
+  /**
+   * 查看app回调开关
+   * 
+   * @param request - DescribeAppCallStatusRequest
+   * @returns DescribeAppCallStatusResponse
+   */
+  async describeAppCallStatus(request: DescribeAppCallStatusRequest): Promise<DescribeAppCallStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppCallStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取app回调密钥
+   * 
+   * @param request - DescribeAppCallbackSecretKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppCallbackSecretKeyResponse
+   */
+  async describeAppCallbackSecretKeyWithOptions(request: DescribeAppCallbackSecretKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppCallbackSecretKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppCallbackSecretKey",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppCallbackSecretKeyResponse>(await this.callApi(params, req, runtime), new DescribeAppCallbackSecretKeyResponse({}));
+  }
+
+  /**
+   * 获取app回调密钥
+   * 
+   * @param request - DescribeAppCallbackSecretKeyRequest
+   * @returns DescribeAppCallbackSecretKeyResponse
+   */
+  async describeAppCallbackSecretKey(request: DescribeAppCallbackSecretKeyRequest): Promise<DescribeAppCallbackSecretKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppCallbackSecretKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看AppKey
+   * 
+   * @param request - DescribeAppKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppKeyResponse
    */
   async describeAppKeyWithOptions(request: DescribeAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppKeyResponse> {
     Util.validateModel(request);
@@ -12738,10 +22169,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查看AppKey
-   *
-   * @param request DescribeAppKeyRequest
-   * @return DescribeAppKeyResponse
+   * 查看AppKey
+   * 
+   * @param request - DescribeAppKeyRequest
+   * @returns DescribeAppKeyResponse
    */
   async describeAppKey(request: DescribeAppKeyRequest): Promise<DescribeAppKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12749,11 +22180,175 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询录制列表
-   *
-   * @param tmpReq DescribeAppRecordingFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAppRecordingFilesResponse
+   * 查询app自定义布局
+   * 
+   * @param tmpReq - DescribeAppLayoutsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppLayoutsResponse
+   */
+  async describeAppLayoutsWithOptions(tmpReq: DescribeAppLayoutsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppLayoutsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeAppLayoutsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.condition)) {
+      request.conditionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.condition, "Condition", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppLayouts",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppLayoutsResponse>(await this.callApi(params, req, runtime), new DescribeAppLayoutsResponse({}));
+  }
+
+  /**
+   * 查询app自定义布局
+   * 
+   * @param request - DescribeAppLayoutsRequest
+   * @returns DescribeAppLayoutsResponse
+   */
+  async describeAppLayouts(request: DescribeAppLayoutsRequest): Promise<DescribeAppLayoutsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppLayoutsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看应用旁路开关
+   * 
+   * @param request - DescribeAppLiveStreamStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppLiveStreamStatusResponse
+   */
+  async describeAppLiveStreamStatusWithOptions(request: DescribeAppLiveStreamStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppLiveStreamStatusResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppLiveStreamStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppLiveStreamStatusResponse>(await this.callApi(params, req, runtime), new DescribeAppLiveStreamStatusResponse({}));
+  }
+
+  /**
+   * 查看应用旁路开关
+   * 
+   * @param request - DescribeAppLiveStreamStatusRequest
+   * @returns DescribeAppLiveStreamStatusResponse
+   */
+  async describeAppLiveStreamStatus(request: DescribeAppLiveStreamStatusRequest): Promise<DescribeAppLiveStreamStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppLiveStreamStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询应用录制开关
+   * 
+   * @param request - DescribeAppRecordStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppRecordStatusResponse
+   */
+  async describeAppRecordStatusWithOptions(request: DescribeAppRecordStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppRecordStatusResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppRecordStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppRecordStatusResponse>(await this.callApi(params, req, runtime), new DescribeAppRecordStatusResponse({}));
+  }
+
+  /**
+   * 查询应用录制开关
+   * 
+   * @param request - DescribeAppRecordStatusRequest
+   * @returns DescribeAppRecordStatusResponse
+   */
+  async describeAppRecordStatus(request: DescribeAppRecordStatusRequest): Promise<DescribeAppRecordStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppRecordStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 应用录制模版列表
+   * 
+   * @param tmpReq - DescribeAppRecordTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppRecordTemplatesResponse
+   */
+  async describeAppRecordTemplatesWithOptions(tmpReq: DescribeAppRecordTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppRecordTemplatesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeAppRecordTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.condition)) {
+      request.conditionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.condition, "Condition", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAppRecordTemplates",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppRecordTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeAppRecordTemplatesResponse({}));
+  }
+
+  /**
+   * 应用录制模版列表
+   * 
+   * @param request - DescribeAppRecordTemplatesRequest
+   * @returns DescribeAppRecordTemplatesResponse
+   */
+  async describeAppRecordTemplates(request: DescribeAppRecordTemplatesRequest): Promise<DescribeAppRecordTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppRecordTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询录制列表
+   * 
+   * @param tmpReq - DescribeAppRecordingFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppRecordingFilesResponse
    */
   async describeAppRecordingFilesWithOptions(tmpReq: DescribeAppRecordingFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppRecordingFilesResponse> {
     Util.validateModel(tmpReq);
@@ -12782,10 +22377,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询录制列表
-   *
-   * @param request DescribeAppRecordingFilesRequest
-   * @return DescribeAppRecordingFilesResponse
+   * 查询录制列表
+   * 
+   * @param request - DescribeAppRecordingFilesRequest
+   * @returns DescribeAppRecordingFilesResponse
    */
   async describeAppRecordingFiles(request: DescribeAppRecordingFilesRequest): Promise<DescribeAppRecordingFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12793,11 +22388,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用推流模版列表
-   *
-   * @param tmpReq DescribeAppStreamingOutTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAppStreamingOutTemplatesResponse
+   * 应用推流模版列表
+   * 
+   * @param tmpReq - DescribeAppStreamingOutTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppStreamingOutTemplatesResponse
    */
   async describeAppStreamingOutTemplatesWithOptions(tmpReq: DescribeAppStreamingOutTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppStreamingOutTemplatesResponse> {
     Util.validateModel(tmpReq);
@@ -12842,10 +22437,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 应用推流模版列表
-   *
-   * @param request DescribeAppStreamingOutTemplatesRequest
-   * @return DescribeAppStreamingOutTemplatesResponse
+   * 应用推流模版列表
+   * 
+   * @param request - DescribeAppStreamingOutTemplatesRequest
+   * @returns DescribeAppStreamingOutTemplatesResponse
    */
   async describeAppStreamingOutTemplates(request: DescribeAppStreamingOutTemplatesRequest): Promise<DescribeAppStreamingOutTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12853,11 +22448,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary App列表
-   *
-   * @param request DescribeAppsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAppsResponse
+   * App列表
+   * 
+   * @param request - DescribeAppsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAppsResponse
    */
   async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
     Util.validateModel(request);
@@ -12908,10 +22503,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary App列表
-   *
-   * @param request DescribeAppsRequest
-   * @return DescribeAppsResponse
+   * App列表
+   * 
+   * @param request - DescribeAppsRequest
+   * @returns DescribeAppsResponse
    */
   async describeApps(request: DescribeAppsRequest): Promise<DescribeAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12919,9 +22514,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeAutoLiveStreamRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAutoLiveStreamRuleResponse
+   * @param request - DescribeAutoLiveStreamRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAutoLiveStreamRuleResponse
    */
   async describeAutoLiveStreamRuleWithOptions(request: DescribeAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
@@ -12952,8 +22547,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeAutoLiveStreamRuleRequest
-   * @return DescribeAutoLiveStreamRuleResponse
+   * @param request - DescribeAutoLiveStreamRuleRequest
+   * @returns DescribeAutoLiveStreamRuleResponse
    */
   async describeAutoLiveStreamRule(request: DescribeAutoLiveStreamRuleRequest): Promise<DescribeAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12961,11 +22556,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeCall获取单次通信详情。
-   *
-   * @param request DescribeCallRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCallResponse
+   * 调用DescribeCall获取单次通信详情。
+   * 
+   * @param request - DescribeCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCallResponse
    */
   async describeCallWithOptions(request: DescribeCallRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCallResponse> {
     Util.validateModel(request);
@@ -13012,10 +22607,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeCall获取单次通信详情。
-   *
-   * @param request DescribeCallRequest
-   * @return DescribeCallResponse
+   * 调用DescribeCall获取单次通信详情。
+   * 
+   * @param request - DescribeCallRequest
+   * @returns DescribeCallResponse
    */
   async describeCall(request: DescribeCallRequest): Promise<DescribeCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13023,11 +22618,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeCallList分页查询时间范围内创建的通信信息。
-   *
-   * @param request DescribeCallListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCallListResponse
+   * 调用DescribeCallList分页查询时间范围内创建的通信信息。
+   * 
+   * @param request - DescribeCallListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCallListResponse
    */
   async describeCallListWithOptions(request: DescribeCallListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCallListResponse> {
     Util.validateModel(request);
@@ -13090,10 +22685,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeCallList分页查询时间范围内创建的通信信息。
-   *
-   * @param request DescribeCallListRequest
-   * @return DescribeCallListResponse
+   * 调用DescribeCallList分页查询时间范围内创建的通信信息。
+   * 
+   * @param request - DescribeCallListRequest
+   * @returns DescribeCallListResponse
    */
   async describeCallList(request: DescribeCallListRequest): Promise<DescribeCallListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13101,11 +22696,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DescribeChannel
-   *
-   * @param request DescribeChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChannelResponse
+   * app事件回调列表
+   * 
+   * @param request - DescribeCallbacksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCallbacksResponse
+   */
+  async describeCallbacksWithOptions(request: DescribeCallbacksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCallbacksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCallbacks",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCallbacksResponse>(await this.callApi(params, req, runtime), new DescribeCallbacksResponse({}));
+  }
+
+  /**
+   * app事件回调列表
+   * 
+   * @param request - DescribeCallbacksRequest
+   * @returns DescribeCallbacksResponse
+   */
+  async describeCallbacks(request: DescribeCallbacksRequest): Promise<DescribeCallbacksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCallbacksWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeChannel
+   * 
+   * @param request - DescribeChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelResponse
    */
   async describeChannelWithOptions(request: DescribeChannelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelResponse> {
     Util.validateModel(request);
@@ -13136,10 +22773,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DescribeChannel
-   *
-   * @param request DescribeChannelRequest
-   * @return DescribeChannelResponse
+   * DescribeChannel
+   * 
+   * @param request - DescribeChannelRequest
+   * @returns DescribeChannelResponse
    */
   async describeChannel(request: DescribeChannelRequest): Promise<DescribeChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13147,11 +22784,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询频道的所有参会者
-   *
-   * @param request DescribeChannelAllUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChannelAllUsersResponse
+   * 查询频道的所有参会者
+   * 
+   * @param request - DescribeChannelAllUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelAllUsersResponse
    */
   async describeChannelAllUsersWithOptions(request: DescribeChannelAllUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelAllUsersResponse> {
     Util.validateModel(request);
@@ -13182,10 +22819,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询频道的所有参会者
-   *
-   * @param request DescribeChannelAllUsersRequest
-   * @return DescribeChannelAllUsersResponse
+   * 查询频道的所有参会者
+   * 
+   * @param request - DescribeChannelAllUsersRequest
+   * @returns DescribeChannelAllUsersResponse
    */
   async describeChannelAllUsers(request: DescribeChannelAllUsersRequest): Promise<DescribeChannelAllUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13193,11 +22830,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
-   *
-   * @param request DescribeChannelAreaDistributionStatDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChannelAreaDistributionStatDataResponse
+   * 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
+   * 
+   * @param request - DescribeChannelAreaDistributionStatDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelAreaDistributionStatDataResponse
    */
   async describeChannelAreaDistributionStatDataWithOptions(request: DescribeChannelAreaDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelAreaDistributionStatDataResponse> {
     Util.validateModel(request);
@@ -13240,10 +22877,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
-   *
-   * @param request DescribeChannelAreaDistributionStatDataRequest
-   * @return DescribeChannelAreaDistributionStatDataResponse
+   * 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
+   * 
+   * @param request - DescribeChannelAreaDistributionStatDataRequest
+   * @returns DescribeChannelAreaDistributionStatDataResponse
    */
   async describeChannelAreaDistributionStatData(request: DescribeChannelAreaDistributionStatDataRequest): Promise<DescribeChannelAreaDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13251,11 +22888,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeChannelDistributionStatData获取频道分布统计数据。
-   *
-   * @param request DescribeChannelDistributionStatDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChannelDistributionStatDataResponse
+   * 调用DescribeChannelDistributionStatData获取频道分布统计数据。
+   * 
+   * @param request - DescribeChannelDistributionStatDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelDistributionStatDataResponse
    */
   async describeChannelDistributionStatDataWithOptions(request: DescribeChannelDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelDistributionStatDataResponse> {
     Util.validateModel(request);
@@ -13298,10 +22935,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeChannelDistributionStatData获取频道分布统计数据。
-   *
-   * @param request DescribeChannelDistributionStatDataRequest
-   * @return DescribeChannelDistributionStatDataResponse
+   * 调用DescribeChannelDistributionStatData获取频道分布统计数据。
+   * 
+   * @param request - DescribeChannelDistributionStatDataRequest
+   * @returns DescribeChannelDistributionStatDataResponse
    */
   async describeChannelDistributionStatData(request: DescribeChannelDistributionStatDataRequest): Promise<DescribeChannelDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13309,11 +22946,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeChannelOverallData查询频道概览数据。
-   *
-   * @param request DescribeChannelOverallDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChannelOverallDataResponse
+   * 调用DescribeChannelOverallData查询频道概览数据。
+   * 
+   * @param request - DescribeChannelOverallDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelOverallDataResponse
    */
   async describeChannelOverallDataWithOptions(request: DescribeChannelOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelOverallDataResponse> {
     Util.validateModel(request);
@@ -13352,10 +22989,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeChannelOverallData查询频道概览数据。
-   *
-   * @param request DescribeChannelOverallDataRequest
-   * @return DescribeChannelOverallDataResponse
+   * 调用DescribeChannelOverallData查询频道概览数据。
+   * 
+   * @param request - DescribeChannelOverallDataRequest
+   * @returns DescribeChannelOverallDataResponse
    */
   async describeChannelOverallData(request: DescribeChannelOverallDataRequest): Promise<DescribeChannelOverallDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13363,9 +23000,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeChannelParticipantsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChannelParticipantsResponse
+   * @param request - DescribeChannelParticipantsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelParticipantsResponse
    */
   async describeChannelParticipantsWithOptions(request: DescribeChannelParticipantsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelParticipantsResponse> {
     Util.validateModel(request);
@@ -13412,8 +23049,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeChannelParticipantsRequest
-   * @return DescribeChannelParticipantsResponse
+   * @param request - DescribeChannelParticipantsRequest
+   * @returns DescribeChannelParticipantsResponse
    */
   async describeChannelParticipants(request: DescribeChannelParticipantsRequest): Promise<DescribeChannelParticipantsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13421,11 +23058,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
-   *
-   * @param request DescribeChannelTopPubUserListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChannelTopPubUserListResponse
+   * 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
+   * 
+   * @param request - DescribeChannelTopPubUserListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelTopPubUserListResponse
    */
   async describeChannelTopPubUserListWithOptions(request: DescribeChannelTopPubUserListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelTopPubUserListResponse> {
     Util.validateModel(request);
@@ -13464,10 +23101,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
-   *
-   * @param request DescribeChannelTopPubUserListRequest
-   * @return DescribeChannelTopPubUserListResponse
+   * 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
+   * 
+   * @param request - DescribeChannelTopPubUserListRequest
+   * @returns DescribeChannelTopPubUserListResponse
    */
   async describeChannelTopPubUserList(request: DescribeChannelTopPubUserListRequest): Promise<DescribeChannelTopPubUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13475,11 +23112,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DescribeChannelUser
-   *
-   * @param request DescribeChannelUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChannelUserResponse
+   * DescribeChannelUser
+   * 
+   * @param request - DescribeChannelUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelUserResponse
    */
   async describeChannelUserWithOptions(request: DescribeChannelUserRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUserResponse> {
     Util.validateModel(request);
@@ -13514,10 +23151,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DescribeChannelUser
-   *
-   * @param request DescribeChannelUserRequest
-   * @return DescribeChannelUserResponse
+   * DescribeChannelUser
+   * 
+   * @param request - DescribeChannelUserRequest
+   * @returns DescribeChannelUserResponse
    */
   async describeChannelUser(request: DescribeChannelUserRequest): Promise<DescribeChannelUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13525,11 +23162,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
-   *
-   * @param request DescribeChannelUserMetricsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChannelUserMetricsResponse
+   * 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
+   * 
+   * @param request - DescribeChannelUserMetricsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelUserMetricsResponse
    */
   async describeChannelUserMetricsWithOptions(request: DescribeChannelUserMetricsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUserMetricsResponse> {
     Util.validateModel(request);
@@ -13568,10 +23205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
-   *
-   * @param request DescribeChannelUserMetricsRequest
-   * @return DescribeChannelUserMetricsResponse
+   * 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
+   * 
+   * @param request - DescribeChannelUserMetricsRequest
+   * @returns DescribeChannelUserMetricsResponse
    */
   async describeChannelUserMetrics(request: DescribeChannelUserMetricsRequest): Promise<DescribeChannelUserMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13579,9 +23216,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeChannelUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeChannelUsersResponse
+   * @param request - DescribeChannelUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelUsersResponse
    */
   async describeChannelUsersWithOptions(request: DescribeChannelUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUsersResponse> {
     Util.validateModel(request);
@@ -13616,8 +23253,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeChannelUsersRequest
-   * @return DescribeChannelUsersResponse
+   * @param request - DescribeChannelUsersRequest
+   * @returns DescribeChannelUsersResponse
    */
   async describeChannelUsers(request: DescribeChannelUsersRequest): Promise<DescribeChannelUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13625,11 +23262,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeEndPointEventList获取端对端用户事件列表。
-   *
-   * @param request DescribeEndPointEventListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEndPointEventListResponse
+   * 查询在线频道列表
+   * 
+   * @param request - DescribeChannelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChannelsResponse
+   */
+  async describeChannelsWithOptions(request: DescribeChannelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeChannels",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeChannelsResponse>(await this.callApi(params, req, runtime), new DescribeChannelsResponse({}));
+  }
+
+  /**
+   * 查询在线频道列表
+   * 
+   * @param request - DescribeChannelsRequest
+   * @returns DescribeChannelsResponse
+   */
+  async describeChannels(request: DescribeChannelsRequest): Promise<DescribeChannelsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeChannelsWithOptions(request, runtime);
+  }
+
+  /**
+   * 调用DescribeEndPointEventList获取端对端用户事件列表。
+   * 
+   * @param request - DescribeEndPointEventListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEndPointEventListResponse
    */
   async describeEndPointEventListWithOptions(request: DescribeEndPointEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndPointEventListResponse> {
     Util.validateModel(request);
@@ -13672,10 +23347,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeEndPointEventList获取端对端用户事件列表。
-   *
-   * @param request DescribeEndPointEventListRequest
-   * @return DescribeEndPointEventListResponse
+   * 调用DescribeEndPointEventList获取端对端用户事件列表。
+   * 
+   * @param request - DescribeEndPointEventListRequest
+   * @returns DescribeEndPointEventListResponse
    */
   async describeEndPointEventList(request: DescribeEndPointEventListRequest): Promise<DescribeEndPointEventListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13683,11 +23358,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeEndPointMetricData获取端对端指标数据。
-   *
-   * @param request DescribeEndPointMetricDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeEndPointMetricDataResponse
+   * 调用DescribeEndPointMetricData获取端对端指标数据。
+   * 
+   * @param request - DescribeEndPointMetricDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEndPointMetricDataResponse
    */
   async describeEndPointMetricDataWithOptions(request: DescribeEndPointMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndPointMetricDataResponse> {
     Util.validateModel(request);
@@ -13742,10 +23417,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeEndPointMetricData获取端对端指标数据。
-   *
-   * @param request DescribeEndPointMetricDataRequest
-   * @return DescribeEndPointMetricDataResponse
+   * 调用DescribeEndPointMetricData获取端对端指标数据。
+   * 
+   * @param request - DescribeEndPointMetricDataRequest
+   * @returns DescribeEndPointMetricDataResponse
    */
   async describeEndPointMetricData(request: DescribeEndPointMetricDataRequest): Promise<DescribeEndPointMetricDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13753,11 +23428,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异常诊断影响因素分布
-   *
-   * @param request DescribeFaultDiagnosisFactorDistributionStatRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeFaultDiagnosisFactorDistributionStatResponse
+   * 获取异常诊断影响因素分布
+   * 
+   * @param request - DescribeFaultDiagnosisFactorDistributionStatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFaultDiagnosisFactorDistributionStatResponse
    */
   async describeFaultDiagnosisFactorDistributionStatWithOptions(request: DescribeFaultDiagnosisFactorDistributionStatRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisFactorDistributionStatResponse> {
     Util.validateModel(request);
@@ -13792,10 +23467,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异常诊断影响因素分布
-   *
-   * @param request DescribeFaultDiagnosisFactorDistributionStatRequest
-   * @return DescribeFaultDiagnosisFactorDistributionStatResponse
+   * 获取异常诊断影响因素分布
+   * 
+   * @param request - DescribeFaultDiagnosisFactorDistributionStatRequest
+   * @returns DescribeFaultDiagnosisFactorDistributionStatResponse
    */
   async describeFaultDiagnosisFactorDistributionStat(request: DescribeFaultDiagnosisFactorDistributionStatRequest): Promise<DescribeFaultDiagnosisFactorDistributionStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13803,11 +23478,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异常诊断总览数据
-   *
-   * @param request DescribeFaultDiagnosisOverallDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeFaultDiagnosisOverallDataResponse
+   * 获取异常诊断总览数据
+   * 
+   * @param request - DescribeFaultDiagnosisOverallDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFaultDiagnosisOverallDataResponse
    */
   async describeFaultDiagnosisOverallDataWithOptions(request: DescribeFaultDiagnosisOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisOverallDataResponse> {
     Util.validateModel(request);
@@ -13846,10 +23521,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异常诊断总览数据
-   *
-   * @param request DescribeFaultDiagnosisOverallDataRequest
-   * @return DescribeFaultDiagnosisOverallDataResponse
+   * 获取异常诊断总览数据
+   * 
+   * @param request - DescribeFaultDiagnosisOverallDataRequest
+   * @returns DescribeFaultDiagnosisOverallDataResponse
    */
   async describeFaultDiagnosisOverallData(request: DescribeFaultDiagnosisOverallDataRequest): Promise<DescribeFaultDiagnosisOverallDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13857,11 +23532,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异常诊断用户详情
-   *
-   * @param request DescribeFaultDiagnosisUserDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeFaultDiagnosisUserDetailResponse
+   * 获取异常诊断用户详情
+   * 
+   * @param request - DescribeFaultDiagnosisUserDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFaultDiagnosisUserDetailResponse
    */
   async describeFaultDiagnosisUserDetailWithOptions(request: DescribeFaultDiagnosisUserDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisUserDetailResponse> {
     Util.validateModel(request);
@@ -13908,10 +23583,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异常诊断用户详情
-   *
-   * @param request DescribeFaultDiagnosisUserDetailRequest
-   * @return DescribeFaultDiagnosisUserDetailResponse
+   * 获取异常诊断用户详情
+   * 
+   * @param request - DescribeFaultDiagnosisUserDetailRequest
+   * @returns DescribeFaultDiagnosisUserDetailResponse
    */
   async describeFaultDiagnosisUserDetail(request: DescribeFaultDiagnosisUserDetailRequest): Promise<DescribeFaultDiagnosisUserDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13919,11 +23594,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异常诊断用户明细列表
-   *
-   * @param request DescribeFaultDiagnosisUserListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeFaultDiagnosisUserListResponse
+   * 获取异常诊断用户明细列表
+   * 
+   * @param request - DescribeFaultDiagnosisUserListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFaultDiagnosisUserListResponse
    */
   async describeFaultDiagnosisUserListWithOptions(request: DescribeFaultDiagnosisUserListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaultDiagnosisUserListResponse> {
     Util.validateModel(request);
@@ -13978,10 +23653,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取异常诊断用户明细列表
-   *
-   * @param request DescribeFaultDiagnosisUserListRequest
-   * @return DescribeFaultDiagnosisUserListResponse
+   * 获取异常诊断用户明细列表
+   * 
+   * @param request - DescribeFaultDiagnosisUserListRequest
+   * @returns DescribeFaultDiagnosisUserListResponse
    */
   async describeFaultDiagnosisUserList(request: DescribeFaultDiagnosisUserListRequest): Promise<DescribeFaultDiagnosisUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13989,9 +23664,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMPULayoutInfoListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeMPULayoutInfoListResponse
+   * @param request - DescribeMPULayoutInfoListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMPULayoutInfoListResponse
    */
   async describeMPULayoutInfoListWithOptions(request: DescribeMPULayoutInfoListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMPULayoutInfoListResponse> {
     Util.validateModel(request);
@@ -14038,8 +23713,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeMPULayoutInfoListRequest
-   * @return DescribeMPULayoutInfoListResponse
+   * @param request - DescribeMPULayoutInfoListRequest
+   * @returns DescribeMPULayoutInfoListResponse
    */
   async describeMPULayoutInfoList(request: DescribeMPULayoutInfoListRequest): Promise<DescribeMPULayoutInfoListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14047,11 +23722,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
-   *
-   * @param request DescribePubUserListBySubUserRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePubUserListBySubUserResponse
+   * 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
+   * 
+   * @param request - DescribePubUserListBySubUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePubUserListBySubUserResponse
    */
   async describePubUserListBySubUserWithOptions(request: DescribePubUserListBySubUserRequest, runtime: $Util.RuntimeOptions): Promise<DescribePubUserListBySubUserResponse> {
     Util.validateModel(request);
@@ -14094,10 +23769,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
-   *
-   * @param request DescribePubUserListBySubUserRequest
-   * @return DescribePubUserListBySubUserResponse
+   * 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
+   * 
+   * @param request - DescribePubUserListBySubUserRequest
+   * @returns DescribePubUserListBySubUserResponse
    */
   async describePubUserListBySubUser(request: DescribePubUserListBySubUserRequest): Promise<DescribePubUserListBySubUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14105,11 +23780,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
-   *
-   * @param request DescribeQoeMetricDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeQoeMetricDataResponse
+   * 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
+   * 
+   * @param request - DescribeQoeMetricDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeQoeMetricDataResponse
    */
   async describeQoeMetricDataWithOptions(request: DescribeQoeMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQoeMetricDataResponse> {
     Util.validateModel(request);
@@ -14152,10 +23827,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
-   *
-   * @param request DescribeQoeMetricDataRequest
-   * @return DescribeQoeMetricDataResponse
+   * 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
+   * 
+   * @param request - DescribeQoeMetricDataRequest
+   * @returns DescribeQoeMetricDataResponse
    */
   async describeQoeMetricData(request: DescribeQoeMetricDataRequest): Promise<DescribeQoeMetricDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14163,11 +23838,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取质量统计区域分布统计数据
-   *
-   * @param request DescribeQualityAreaDistributionStatDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeQualityAreaDistributionStatDataResponse
+   * 获取质量统计区域分布统计数据
+   * 
+   * @param request - DescribeQualityAreaDistributionStatDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeQualityAreaDistributionStatDataResponse
    */
   async describeQualityAreaDistributionStatDataWithOptions(request: DescribeQualityAreaDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityAreaDistributionStatDataResponse> {
     Util.validateModel(request);
@@ -14206,10 +23881,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取质量统计区域分布统计数据
-   *
-   * @param request DescribeQualityAreaDistributionStatDataRequest
-   * @return DescribeQualityAreaDistributionStatDataResponse
+   * 获取质量统计区域分布统计数据
+   * 
+   * @param request - DescribeQualityAreaDistributionStatDataRequest
+   * @returns DescribeQualityAreaDistributionStatDataResponse
    */
   async describeQualityAreaDistributionStatData(request: DescribeQualityAreaDistributionStatDataRequest): Promise<DescribeQualityAreaDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14217,11 +23892,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取质量统计分布数据
-   *
-   * @param request DescribeQualityDistributionStatDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeQualityDistributionStatDataResponse
+   * 获取质量统计分布数据
+   * 
+   * @param request - DescribeQualityDistributionStatDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeQualityDistributionStatDataResponse
    */
   async describeQualityDistributionStatDataWithOptions(request: DescribeQualityDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityDistributionStatDataResponse> {
     Util.validateModel(request);
@@ -14260,10 +23935,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取质量统计分布数据
-   *
-   * @param request DescribeQualityDistributionStatDataRequest
-   * @return DescribeQualityDistributionStatDataResponse
+   * 获取质量统计分布数据
+   * 
+   * @param request - DescribeQualityDistributionStatDataRequest
+   * @returns DescribeQualityDistributionStatDataResponse
    */
   async describeQualityDistributionStatData(request: DescribeQualityDistributionStatDataRequest): Promise<DescribeQualityDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14271,11 +23946,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取质量统计各操作系统下SDK版本分布数据
-   *
-   * @param request DescribeQualityOsSdkVersionDistributionStatDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeQualityOsSdkVersionDistributionStatDataResponse
+   * 获取质量统计各操作系统下SDK版本分布数据
+   * 
+   * @param request - DescribeQualityOsSdkVersionDistributionStatDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeQualityOsSdkVersionDistributionStatDataResponse
    */
   async describeQualityOsSdkVersionDistributionStatDataWithOptions(request: DescribeQualityOsSdkVersionDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityOsSdkVersionDistributionStatDataResponse> {
     Util.validateModel(request);
@@ -14310,10 +23985,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取质量统计各操作系统下SDK版本分布数据
-   *
-   * @param request DescribeQualityOsSdkVersionDistributionStatDataRequest
-   * @return DescribeQualityOsSdkVersionDistributionStatDataResponse
+   * 获取质量统计各操作系统下SDK版本分布数据
+   * 
+   * @param request - DescribeQualityOsSdkVersionDistributionStatDataRequest
+   * @returns DescribeQualityOsSdkVersionDistributionStatDataResponse
    */
   async describeQualityOsSdkVersionDistributionStatData(request: DescribeQualityOsSdkVersionDistributionStatDataRequest): Promise<DescribeQualityOsSdkVersionDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14321,11 +23996,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取质量统计概览数据
-   *
-   * @param request DescribeQualityOverallDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeQualityOverallDataResponse
+   * 获取质量统计概览数据
+   * 
+   * @param request - DescribeQualityOverallDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeQualityOverallDataResponse
    */
   async describeQualityOverallDataWithOptions(request: DescribeQualityOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQualityOverallDataResponse> {
     Util.validateModel(request);
@@ -14364,10 +24039,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取质量统计概览数据
-   *
-   * @param request DescribeQualityOverallDataRequest
-   * @return DescribeQualityOverallDataResponse
+   * 获取质量统计概览数据
+   * 
+   * @param request - DescribeQualityOverallDataRequest
+   * @returns DescribeQualityOverallDataResponse
    */
   async describeQualityOverallData(request: DescribeQualityOverallDataRequest): Promise<DescribeQualityOverallDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14375,9 +24050,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRecordFilesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRecordFilesResponse
+   * @param request - DescribeRecordFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecordFilesResponse
    */
   async describeRecordFilesWithOptions(request: DescribeRecordFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordFilesResponse> {
     Util.validateModel(request);
@@ -14432,8 +24107,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRecordFilesRequest
-   * @return DescribeRecordFilesResponse
+   * @param request - DescribeRecordFilesRequest
+   * @returns DescribeRecordFilesResponse
    */
   async describeRecordFiles(request: DescribeRecordFilesRequest): Promise<DescribeRecordFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14441,9 +24116,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRecordTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRecordTemplatesResponse
+   * @param request - DescribeRecordTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecordTemplatesResponse
    */
   async describeRecordTemplatesWithOptions(request: DescribeRecordTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordTemplatesResponse> {
     Util.validateModel(request);
@@ -14486,8 +24161,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRecordTemplatesRequest
-   * @return DescribeRecordTemplatesResponse
+   * @param request - DescribeRecordTemplatesRequest
+   * @returns DescribeRecordTemplatesResponse
    */
   async describeRecordTemplates(request: DescribeRecordTemplatesRequest): Promise<DescribeRecordTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14495,9 +24170,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRtcChannelListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRtcChannelListResponse
+   * @param request - DescribeRtcChannelListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRtcChannelListResponse
    */
   async describeRtcChannelListWithOptions(request: DescribeRtcChannelListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcChannelListResponse> {
     Util.validateModel(request);
@@ -14556,8 +24231,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRtcChannelListRequest
-   * @return DescribeRtcChannelListResponse
+   * @param request - DescribeRtcChannelListRequest
+   * @returns DescribeRtcChannelListResponse
    */
   async describeRtcChannelList(request: DescribeRtcChannelListRequest): Promise<DescribeRtcChannelListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14565,9 +24240,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRtcChannelMetricRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRtcChannelMetricResponse
+   * @param request - DescribeRtcChannelMetricRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRtcChannelMetricResponse
    */
   async describeRtcChannelMetricWithOptions(request: DescribeRtcChannelMetricRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcChannelMetricResponse> {
     Util.validateModel(request);
@@ -14606,8 +24281,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRtcChannelMetricRequest
-   * @return DescribeRtcChannelMetricResponse
+   * @param request - DescribeRtcChannelMetricRequest
+   * @returns DescribeRtcChannelMetricResponse
    */
   async describeRtcChannelMetric(request: DescribeRtcChannelMetricRequest): Promise<DescribeRtcChannelMetricResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14615,9 +24290,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRtcDurationDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRtcDurationDataResponse
+   * @param request - DescribeRtcDurationDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRtcDurationDataResponse
    */
   async describeRtcDurationDataWithOptions(request: DescribeRtcDurationDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcDurationDataResponse> {
     Util.validateModel(request);
@@ -14664,8 +24339,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRtcDurationDataRequest
-   * @return DescribeRtcDurationDataResponse
+   * @param request - DescribeRtcDurationDataRequest
+   * @returns DescribeRtcDurationDataResponse
    */
   async describeRtcDurationData(request: DescribeRtcDurationDataRequest): Promise<DescribeRtcDurationDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14673,9 +24348,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRtcPeakChannelCntDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRtcPeakChannelCntDataResponse
+   * @param request - DescribeRtcPeakChannelCntDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRtcPeakChannelCntDataResponse
    */
   async describeRtcPeakChannelCntDataWithOptions(request: DescribeRtcPeakChannelCntDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcPeakChannelCntDataResponse> {
     Util.validateModel(request);
@@ -14722,8 +24397,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRtcPeakChannelCntDataRequest
-   * @return DescribeRtcPeakChannelCntDataResponse
+   * @param request - DescribeRtcPeakChannelCntDataRequest
+   * @returns DescribeRtcPeakChannelCntDataResponse
    */
   async describeRtcPeakChannelCntData(request: DescribeRtcPeakChannelCntDataRequest): Promise<DescribeRtcPeakChannelCntDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14731,9 +24406,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRtcUserCntDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRtcUserCntDataResponse
+   * @param request - DescribeRtcUserCntDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRtcUserCntDataResponse
    */
   async describeRtcUserCntDataWithOptions(request: DescribeRtcUserCntDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcUserCntDataResponse> {
     Util.validateModel(request);
@@ -14780,8 +24455,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeRtcUserCntDataRequest
-   * @return DescribeRtcUserCntDataResponse
+   * @param request - DescribeRtcUserCntDataRequest
+   * @returns DescribeRtcUserCntDataResponse
    */
   async describeRtcUserCntData(request: DescribeRtcUserCntDataRequest): Promise<DescribeRtcUserCntDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14789,11 +24464,111 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用量统计地域分布数据
-   *
-   * @param request DescribeUsageAreaDistributionStatDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUsageAreaDistributionStatDataResponse
+   * 查询旁路推流状态
+   * 
+   * @param request - DescribeStreamingOutStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeStreamingOutStatusResponse
+   */
+  async describeStreamingOutStatusWithOptions(request: DescribeStreamingOutStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStreamingOutStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeStreamingOutStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeStreamingOutStatusResponse>(await this.callApi(params, req, runtime), new DescribeStreamingOutStatusResponse({}));
+  }
+
+  /**
+   * 查询旁路推流状态
+   * 
+   * @param request - DescribeStreamingOutStatusRequest
+   * @returns DescribeStreamingOutStatusResponse
+   */
+  async describeStreamingOutStatus(request: DescribeStreamingOutStatusRequest): Promise<DescribeStreamingOutStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeStreamingOutStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 系统内置布局
+   * 
+   * @param request - DescribeSystemLayoutListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSystemLayoutListResponse
+   */
+  async describeSystemLayoutListWithOptions(request: DescribeSystemLayoutListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSystemLayoutListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSystemLayoutList",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSystemLayoutListResponse>(await this.callApi(params, req, runtime), new DescribeSystemLayoutListResponse({}));
+  }
+
+  /**
+   * 系统内置布局
+   * 
+   * @param request - DescribeSystemLayoutListRequest
+   * @returns DescribeSystemLayoutListResponse
+   */
+  async describeSystemLayoutList(request: DescribeSystemLayoutListRequest): Promise<DescribeSystemLayoutListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSystemLayoutListWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用量统计地域分布数据
+   * 
+   * @param request - DescribeUsageAreaDistributionStatDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUsageAreaDistributionStatDataResponse
    */
   async describeUsageAreaDistributionStatDataWithOptions(request: DescribeUsageAreaDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageAreaDistributionStatDataResponse> {
     Util.validateModel(request);
@@ -14832,10 +24607,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用量统计地域分布数据
-   *
-   * @param request DescribeUsageAreaDistributionStatDataRequest
-   * @return DescribeUsageAreaDistributionStatDataResponse
+   * 获取用量统计地域分布数据
+   * 
+   * @param request - DescribeUsageAreaDistributionStatDataRequest
+   * @returns DescribeUsageAreaDistributionStatDataResponse
    */
   async describeUsageAreaDistributionStatData(request: DescribeUsageAreaDistributionStatDataRequest): Promise<DescribeUsageAreaDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14843,11 +24618,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用量统计分布数据
-   *
-   * @param request DescribeUsageDistributionStatDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUsageDistributionStatDataResponse
+   * 获取用量统计分布数据
+   * 
+   * @param request - DescribeUsageDistributionStatDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUsageDistributionStatDataResponse
    */
   async describeUsageDistributionStatDataWithOptions(request: DescribeUsageDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageDistributionStatDataResponse> {
     Util.validateModel(request);
@@ -14886,10 +24661,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用量统计分布数据
-   *
-   * @param request DescribeUsageDistributionStatDataRequest
-   * @return DescribeUsageDistributionStatDataResponse
+   * 获取用量统计分布数据
+   * 
+   * @param request - DescribeUsageDistributionStatDataRequest
+   * @returns DescribeUsageDistributionStatDataResponse
    */
   async describeUsageDistributionStatData(request: DescribeUsageDistributionStatDataRequest): Promise<DescribeUsageDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14897,11 +24672,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用量统计各操作系统下SDK版本分布数据
-   *
-   * @param request DescribeUsageOsSdkVersionDistributionStatDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
+   * 获取用量统计各操作系统下SDK版本分布数据
+   * 
+   * @param request - DescribeUsageOsSdkVersionDistributionStatDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUsageOsSdkVersionDistributionStatDataResponse
    */
   async describeUsageOsSdkVersionDistributionStatDataWithOptions(request: DescribeUsageOsSdkVersionDistributionStatDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageOsSdkVersionDistributionStatDataResponse> {
     Util.validateModel(request);
@@ -14936,10 +24711,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用量统计各操作系统下SDK版本分布数据
-   *
-   * @param request DescribeUsageOsSdkVersionDistributionStatDataRequest
-   * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
+   * 获取用量统计各操作系统下SDK版本分布数据
+   * 
+   * @param request - DescribeUsageOsSdkVersionDistributionStatDataRequest
+   * @returns DescribeUsageOsSdkVersionDistributionStatDataResponse
    */
   async describeUsageOsSdkVersionDistributionStatData(request: DescribeUsageOsSdkVersionDistributionStatDataRequest): Promise<DescribeUsageOsSdkVersionDistributionStatDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14947,11 +24722,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用量统计概览数据
-   *
-   * @param request DescribeUsageOverallDataRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUsageOverallDataResponse
+   * 获取用量统计概览数据
+   * 
+   * @param request - DescribeUsageOverallDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUsageOverallDataResponse
    */
   async describeUsageOverallDataWithOptions(request: DescribeUsageOverallDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUsageOverallDataResponse> {
     Util.validateModel(request);
@@ -14990,10 +24765,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用量统计概览数据
-   *
-   * @param request DescribeUsageOverallDataRequest
-   * @return DescribeUsageOverallDataResponse
+   * 获取用量统计概览数据
+   * 
+   * @param request - DescribeUsageOverallDataRequest
+   * @returns DescribeUsageOverallDataResponse
    */
   async describeUsageOverallData(request: DescribeUsageOverallDataRequest): Promise<DescribeUsageOverallDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15001,9 +24776,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeUserInfoInChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUserInfoInChannelResponse
+   * @param request - DescribeUserInfoInChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserInfoInChannelResponse
    */
   async describeUserInfoInChannelWithOptions(request: DescribeUserInfoInChannelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserInfoInChannelResponse> {
     Util.validateModel(request);
@@ -15042,8 +24817,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeUserInfoInChannelRequest
-   * @return DescribeUserInfoInChannelResponse
+   * @param request - DescribeUserInfoInChannelRequest
+   * @returns DescribeUserInfoInChannelResponse
    */
   async describeUserInfoInChannel(request: DescribeUserInfoInChannelRequest): Promise<DescribeUserInfoInChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15051,9 +24826,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DisableAutoLiveStreamRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableAutoLiveStreamRuleResponse
+   * @param request - DisableAutoLiveStreamRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableAutoLiveStreamRuleResponse
    */
   async disableAutoLiveStreamRuleWithOptions(request: DisableAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DisableAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
@@ -15088,8 +24863,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DisableAutoLiveStreamRuleRequest
-   * @return DisableAutoLiveStreamRuleResponse
+   * @param request - DisableAutoLiveStreamRuleRequest
+   * @returns DisableAutoLiveStreamRuleResponse
    */
   async disableAutoLiveStreamRule(request: DisableAutoLiveStreamRuleRequest): Promise<DisableAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15097,9 +24872,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EnableAutoLiveStreamRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableAutoLiveStreamRuleResponse
+   * @param request - EnableAutoLiveStreamRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableAutoLiveStreamRuleResponse
    */
   async enableAutoLiveStreamRuleWithOptions(request: EnableAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<EnableAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
@@ -15134,8 +24909,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request EnableAutoLiveStreamRuleRequest
-   * @return EnableAutoLiveStreamRuleResponse
+   * @param request - EnableAutoLiveStreamRuleRequest
+   * @returns EnableAutoLiveStreamRuleResponse
    */
   async enableAutoLiveStreamRule(request: EnableAutoLiveStreamRuleRequest): Promise<EnableAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15143,9 +24918,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetMPUTaskStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMPUTaskStatusResponse
+   * @param request - GetMPUTaskStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMPUTaskStatusResponse
    */
   async getMPUTaskStatusWithOptions(request: GetMPUTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetMPUTaskStatusResponse> {
     Util.validateModel(request);
@@ -15180,8 +24955,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetMPUTaskStatusRequest
-   * @return GetMPUTaskStatusResponse
+   * @param request - GetMPUTaskStatusRequest
+   * @returns GetMPUTaskStatusResponse
    */
   async getMPUTaskStatus(request: GetMPUTaskStatusRequest): Promise<GetMPUTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15189,11 +24964,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改App信息
-   *
-   * @param request ModifyAppRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAppResponse
+   * 修改App信息
+   * 
+   * @param request - ModifyAppRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppResponse
    */
   async modifyAppWithOptions(request: ModifyAppRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppResponse> {
     Util.validateModel(request);
@@ -15228,10 +25003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改App信息
-   *
-   * @param request ModifyAppRequest
-   * @return ModifyAppResponse
+   * 修改App信息
+   * 
+   * @param request - ModifyAppRequest
+   * @returns ModifyAppResponse
    */
   async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15239,11 +25014,201 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新应用推流模版
-   *
-   * @param tmpReq ModifyAppStreamingOutTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAppStreamingOutTemplateResponse
+   * 更新app回调事件开关
+   * 
+   * @param request - ModifyAppCallbackStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppCallbackStatusResponse
+   */
+  async modifyAppCallbackStatusWithOptions(request: ModifyAppCallbackStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppCallbackStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAppCallbackStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAppCallbackStatusResponse>(await this.callApi(params, req, runtime), new ModifyAppCallbackStatusResponse({}));
+  }
+
+  /**
+   * 更新app回调事件开关
+   * 
+   * @param request - ModifyAppCallbackStatusRequest
+   * @returns ModifyAppCallbackStatusResponse
+   */
+  async modifyAppCallbackStatus(request: ModifyAppCallbackStatusRequest): Promise<ModifyAppCallbackStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAppCallbackStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改应用旁路开关
+   * 
+   * @param request - ModifyAppLiveStreamStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppLiveStreamStatusResponse
+   */
+  async modifyAppLiveStreamStatusWithOptions(request: ModifyAppLiveStreamStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppLiveStreamStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAppLiveStreamStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAppLiveStreamStatusResponse>(await this.callApi(params, req, runtime), new ModifyAppLiveStreamStatusResponse({}));
+  }
+
+  /**
+   * 修改应用旁路开关
+   * 
+   * @param request - ModifyAppLiveStreamStatusRequest
+   * @returns ModifyAppLiveStreamStatusResponse
+   */
+  async modifyAppLiveStreamStatus(request: ModifyAppLiveStreamStatusRequest): Promise<ModifyAppLiveStreamStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAppLiveStreamStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改应用录制开关
+   * 
+   * @param request - ModifyAppRecordStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppRecordStatusResponse
+   */
+  async modifyAppRecordStatusWithOptions(request: ModifyAppRecordStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppRecordStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAppRecordStatus",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAppRecordStatusResponse>(await this.callApi(params, req, runtime), new ModifyAppRecordStatusResponse({}));
+  }
+
+  /**
+   * 修改应用录制开关
+   * 
+   * @param request - ModifyAppRecordStatusRequest
+   * @returns ModifyAppRecordStatusResponse
+   */
+  async modifyAppRecordStatus(request: ModifyAppRecordStatusRequest): Promise<ModifyAppRecordStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAppRecordStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改应用录制模版
+   * 
+   * @param tmpReq - ModifyAppRecordTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppRecordTemplateResponse
+   */
+  async modifyAppRecordTemplateWithOptions(tmpReq: ModifyAppRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppRecordTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyAppRecordTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.recordTemplate)) {
+      request.recordTemplateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recordTemplate, "RecordTemplate", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.recordTemplateShrink)) {
+      query["RecordTemplate"] = request.recordTemplateShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAppRecordTemplate",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAppRecordTemplateResponse>(await this.callApi(params, req, runtime), new ModifyAppRecordTemplateResponse({}));
+  }
+
+  /**
+   * 修改应用录制模版
+   * 
+   * @param request - ModifyAppRecordTemplateRequest
+   * @returns ModifyAppRecordTemplateResponse
+   */
+  async modifyAppRecordTemplate(request: ModifyAppRecordTemplateRequest): Promise<ModifyAppRecordTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAppRecordTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新应用推流模版
+   * 
+   * @param tmpReq - ModifyAppStreamingOutTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppStreamingOutTemplateResponse
    */
   async modifyAppStreamingOutTemplateWithOptions(tmpReq: ModifyAppStreamingOutTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppStreamingOutTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -15280,10 +25245,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新应用推流模版
-   *
-   * @param request ModifyAppStreamingOutTemplateRequest
-   * @return ModifyAppStreamingOutTemplateResponse
+   * 更新应用推流模版
+   * 
+   * @param request - ModifyAppStreamingOutTemplateRequest
+   * @returns ModifyAppStreamingOutTemplateResponse
    */
   async modifyAppStreamingOutTemplate(request: ModifyAppStreamingOutTemplateRequest): Promise<ModifyAppStreamingOutTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15291,9 +25256,65 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyMPULayoutRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyMPULayoutResponse
+   * 更新app回调
+   * 
+   * @param tmpReq - ModifyCallbackMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCallbackMetaResponse
+   */
+  async modifyCallbackMetaWithOptions(tmpReq: ModifyCallbackMetaRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCallbackMetaResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ModifyCallbackMetaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.callback)) {
+      request.callbackShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callback, "Callback", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.callbackShrink)) {
+      query["Callback"] = request.callbackShrink;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyCallbackMeta",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCallbackMetaResponse>(await this.callApi(params, req, runtime), new ModifyCallbackMetaResponse({}));
+  }
+
+  /**
+   * 更新app回调
+   * 
+   * @param request - ModifyCallbackMetaRequest
+   * @returns ModifyCallbackMetaResponse
+   */
+  async modifyCallbackMeta(request: ModifyCallbackMetaRequest): Promise<ModifyCallbackMetaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyCallbackMetaWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ModifyMPULayoutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMPULayoutResponse
    */
   async modifyMPULayoutWithOptions(request: ModifyMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMPULayoutResponse> {
     Util.validateModel(request);
@@ -15340,8 +25361,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyMPULayoutRequest
-   * @return ModifyMPULayoutResponse
+   * @param request - ModifyMPULayoutRequest
+   * @returns ModifyMPULayoutResponse
    */
   async modifyMPULayout(request: ModifyMPULayoutRequest): Promise<ModifyMPULayoutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15349,9 +25370,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveTerminalsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveTerminalsResponse
+   * @param request - RemoveTerminalsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveTerminalsResponse
    */
   async removeTerminalsWithOptions(request: RemoveTerminalsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTerminalsResponse> {
     Util.validateModel(request);
@@ -15390,8 +25411,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RemoveTerminalsRequest
-   * @return RemoveTerminalsResponse
+   * @param request - RemoveTerminalsRequest
+   * @returns RemoveTerminalsResponse
    */
   async removeTerminals(request: RemoveTerminalsRequest): Promise<RemoveTerminalsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15399,11 +25420,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary RemoveUsers
-   *
-   * @param request RemoveUsersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveUsersResponse
+   * RemoveUsers
+   * 
+   * @param request - RemoveUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveUsersResponse
    */
   async removeUsersWithOptions(request: RemoveUsersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUsersResponse> {
     Util.validateModel(request);
@@ -15438,10 +25459,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary RemoveUsers
-   *
-   * @param request RemoveUsersRequest
-   * @return RemoveUsersResponse
+   * RemoveUsers
+   * 
+   * @param request - RemoveUsersRequest
+   * @returns RemoveUsersResponse
    */
   async removeUsers(request: RemoveUsersRequest): Promise<RemoveUsersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15449,11 +25470,63 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary StartCloudRecord
-   *
-   * @param request StartCloudRecordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartCloudRecordResponse
+   * 开启某个事件回调
+   * 
+   * @param tmpReq - StartCategoryCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartCategoryCallbackResponse
+   */
+  async startCategoryCallbackWithOptions(tmpReq: StartCategoryCallbackRequest, runtime: $Util.RuntimeOptions): Promise<StartCategoryCallbackResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartCategoryCallbackShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.callback)) {
+      request.callbackShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callback, "Callback", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.callbackShrink)) {
+      query["Callback"] = request.callbackShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartCategoryCallback",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartCategoryCallbackResponse>(await this.callApi(params, req, runtime), new StartCategoryCallbackResponse({}));
+  }
+
+  /**
+   * 开启某个事件回调
+   * 
+   * @param request - StartCategoryCallbackRequest
+   * @returns StartCategoryCallbackResponse
+   */
+  async startCategoryCallback(request: StartCategoryCallbackRequest): Promise<StartCategoryCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startCategoryCallbackWithOptions(request, runtime);
+  }
+
+  /**
+   * StartCloudRecord
+   * 
+   * @param request - StartCloudRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartCloudRecordResponse
    */
   async startCloudRecordWithOptions(request: StartCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<StartCloudRecordResponse> {
     Util.validateModel(request);
@@ -15516,10 +25589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary StartCloudRecord
-   *
-   * @param request StartCloudRecordRequest
-   * @return StartCloudRecordResponse
+   * StartCloudRecord
+   * 
+   * @param request - StartCloudRecordRequest
+   * @returns StartCloudRecordResponse
    */
   async startCloudRecord(request: StartCloudRecordRequest): Promise<StartCloudRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15527,9 +25600,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartMPUTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartMPUTaskResponse
+   * @param request - StartMPUTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartMPUTaskResponse
    */
   async startMPUTaskWithOptions(request: StartMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartMPUTaskResponse> {
     Util.validateModel(request);
@@ -15679,8 +25752,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartMPUTaskRequest
-   * @return StartMPUTaskResponse
+   * @param request - StartMPUTaskRequest
+   * @returns StartMPUTaskResponse
    */
   async startMPUTask(request: StartMPUTaskRequest): Promise<StartMPUTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15688,9 +25761,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartRecordTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartRecordTaskResponse
+   * @param request - StartRecordTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartRecordTaskResponse
    */
   async startRecordTaskWithOptions(request: StartRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartRecordTaskResponse> {
     Util.validateModel(request);
@@ -15793,8 +25866,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StartRecordTaskRequest
-   * @return StartRecordTaskResponse
+   * @param request - StartRecordTaskRequest
+   * @returns StartRecordTaskResponse
    */
   async startRecordTask(request: StartRecordTaskRequest): Promise<StartRecordTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15802,11 +25875,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary StartStreamingOut
-   *
-   * @param request StartStreamingOutRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartStreamingOutResponse
+   * StartStreamingOut
+   * 
+   * @param request - StartStreamingOutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartStreamingOutResponse
    */
   async startStreamingOutWithOptions(request: StartStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<StartStreamingOutResponse> {
     Util.validateModel(request);
@@ -15869,10 +25942,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary StartStreamingOut
-   *
-   * @param request StartStreamingOutRequest
-   * @return StartStreamingOutResponse
+   * StartStreamingOut
+   * 
+   * @param request - StartStreamingOutRequest
+   * @returns StartStreamingOutResponse
    */
   async startStreamingOut(request: StartStreamingOutRequest): Promise<StartStreamingOutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15880,11 +25953,63 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除频道
-   *
-   * @param request StopChannelRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopChannelResponse
+   * 关闭某个事件回调
+   * 
+   * @param tmpReq - StopCategoryCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopCategoryCallbackResponse
+   */
+  async stopCategoryCallbackWithOptions(tmpReq: StopCategoryCallbackRequest, runtime: $Util.RuntimeOptions): Promise<StopCategoryCallbackResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StopCategoryCallbackShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.callback)) {
+      request.callbackShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callback, "Callback", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.callbackShrink)) {
+      query["Callback"] = request.callbackShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopCategoryCallback",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopCategoryCallbackResponse>(await this.callApi(params, req, runtime), new StopCategoryCallbackResponse({}));
+  }
+
+  /**
+   * 关闭某个事件回调
+   * 
+   * @param request - StopCategoryCallbackRequest
+   * @returns StopCategoryCallbackResponse
+   */
+  async stopCategoryCallback(request: StopCategoryCallbackRequest): Promise<StopCategoryCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopCategoryCallbackWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除频道
+   * 
+   * @param request - StopChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopChannelResponse
    */
   async stopChannelWithOptions(request: StopChannelRequest, runtime: $Util.RuntimeOptions): Promise<StopChannelResponse> {
     Util.validateModel(request);
@@ -15915,10 +26040,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除频道
-   *
-   * @param request StopChannelRequest
-   * @return StopChannelResponse
+   * 删除频道
+   * 
+   * @param request - StopChannelRequest
+   * @returns StopChannelResponse
    */
   async stopChannel(request: StopChannelRequest): Promise<StopChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15926,11 +26051,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary StopCloudRecord
-   *
-   * @param request StopCloudRecordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopCloudRecordResponse
+   * StopCloudRecord
+   * 
+   * @param request - StopCloudRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopCloudRecordResponse
    */
   async stopCloudRecordWithOptions(request: StopCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<StopCloudRecordResponse> {
     Util.validateModel(request);
@@ -15965,10 +26090,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary StopCloudRecord
-   *
-   * @param request StopCloudRecordRequest
-   * @return StopCloudRecordResponse
+   * StopCloudRecord
+   * 
+   * @param request - StopCloudRecordRequest
+   * @returns StopCloudRecordResponse
    */
   async stopCloudRecord(request: StopCloudRecordRequest): Promise<StopCloudRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15976,9 +26101,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StopMPUTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopMPUTaskResponse
+   * @param request - StopMPUTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopMPUTaskResponse
    */
   async stopMPUTaskWithOptions(request: StopMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopMPUTaskResponse> {
     Util.validateModel(request);
@@ -16013,8 +26138,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StopMPUTaskRequest
-   * @return StopMPUTaskResponse
+   * @param request - StopMPUTaskRequest
+   * @returns StopMPUTaskResponse
    */
   async stopMPUTask(request: StopMPUTaskRequest): Promise<StopMPUTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16022,9 +26147,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StopRecordTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopRecordTaskResponse
+   * @param request - StopRecordTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopRecordTaskResponse
    */
   async stopRecordTaskWithOptions(request: StopRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopRecordTaskResponse> {
     Util.validateModel(request);
@@ -16059,8 +26184,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request StopRecordTaskRequest
-   * @return StopRecordTaskResponse
+   * @param request - StopRecordTaskRequest
+   * @returns StopRecordTaskResponse
    */
   async stopRecordTask(request: StopRecordTaskRequest): Promise<StopRecordTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16068,11 +26193,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary StopStreamingOut
-   *
-   * @param request StopStreamingOutRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopStreamingOutResponse
+   * StopStreamingOut
+   * 
+   * @param request - StopStreamingOutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopStreamingOutResponse
    */
   async stopStreamingOutWithOptions(request: StopStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<StopStreamingOutResponse> {
     Util.validateModel(request);
@@ -16107,10 +26232,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary StopStreamingOut
-   *
-   * @param request StopStreamingOutRequest
-   * @return StopStreamingOutResponse
+   * StopStreamingOut
+   * 
+   * @param request - StopStreamingOutRequest
+   * @returns StopStreamingOutResponse
    */
   async stopStreamingOut(request: StopStreamingOutRequest): Promise<StopStreamingOutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16118,9 +26243,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateAutoLiveStreamRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAutoLiveStreamRuleResponse
+   * @param request - UpdateAutoLiveStreamRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAutoLiveStreamRuleResponse
    */
   async updateAutoLiveStreamRuleWithOptions(request: UpdateAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
@@ -16179,8 +26304,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateAutoLiveStreamRuleRequest
-   * @return UpdateAutoLiveStreamRuleResponse
+   * @param request - UpdateAutoLiveStreamRuleRequest
+   * @returns UpdateAutoLiveStreamRuleResponse
    */
   async updateAutoLiveStreamRule(request: UpdateAutoLiveStreamRuleRequest): Promise<UpdateAutoLiveStreamRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16188,11 +26313,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新云端录制任务
-   *
-   * @param request UpdateCloudRecordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudRecordResponse
+   * 更新云端录制任务
+   * 
+   * @param request - UpdateCloudRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudRecordResponse
    */
   async updateCloudRecordWithOptions(request: UpdateCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudRecordResponse> {
     Util.validateModel(request);
@@ -16247,10 +26372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新云端录制任务
-   *
-   * @param request UpdateCloudRecordRequest
-   * @return UpdateCloudRecordResponse
+   * 更新云端录制任务
+   * 
+   * @param request - UpdateCloudRecordRequest
+   * @returns UpdateCloudRecordResponse
    */
   async updateCloudRecord(request: UpdateCloudRecordRequest): Promise<UpdateCloudRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16258,9 +26383,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateMPUTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateMPUTaskResponse
+   * @param request - UpdateMPUTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMPUTaskResponse
    */
   async updateMPUTaskWithOptions(request: UpdateMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMPUTaskResponse> {
     Util.validateModel(request);
@@ -16367,8 +26492,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateMPUTaskRequest
-   * @return UpdateMPUTaskResponse
+   * @param request - UpdateMPUTaskRequest
+   * @returns UpdateMPUTaskResponse
    */
   async updateMPUTask(request: UpdateMPUTaskRequest): Promise<UpdateMPUTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16376,9 +26501,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateRecordTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateRecordTaskResponse
+   * @param request - UpdateRecordTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecordTaskResponse
    */
   async updateRecordTaskWithOptions(request: UpdateRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecordTaskResponse> {
     Util.validateModel(request);
@@ -16469,8 +26594,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateRecordTaskRequest
-   * @return UpdateRecordTaskResponse
+   * @param request - UpdateRecordTaskRequest
+   * @returns UpdateRecordTaskResponse
    */
   async updateRecordTask(request: UpdateRecordTaskRequest): Promise<UpdateRecordTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16478,9 +26603,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateRecordTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateRecordTemplateResponse
+   * @param request - UpdateRecordTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRecordTemplateResponse
    */
   async updateRecordTemplateWithOptions(request: UpdateRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecordTemplateResponse> {
     Util.validateModel(request);
@@ -16583,8 +26708,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateRecordTemplateRequest
-   * @return UpdateRecordTemplateResponse
+   * @param request - UpdateRecordTemplateRequest
+   * @returns UpdateRecordTemplateResponse
    */
   async updateRecordTemplate(request: UpdateRecordTemplateRequest): Promise<UpdateRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16592,11 +26717,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新旁路推流任务
-   *
-   * @param request UpdateStreamingOutRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateStreamingOutResponse
+   * 更新旁路推流任务
+   * 
+   * @param request - UpdateStreamingOutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStreamingOutResponse
    */
   async updateStreamingOutWithOptions(request: UpdateStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStreamingOutResponse> {
     Util.validateModel(request);
@@ -16651,10 +26776,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新旁路推流任务
-   *
-   * @param request UpdateStreamingOutRequest
-   * @return UpdateStreamingOutResponse
+   * 更新旁路推流任务
+   * 
+   * @param request - UpdateStreamingOutRequest
+   * @returns UpdateStreamingOutResponse
    */
   async updateStreamingOut(request: UpdateStreamingOutRequest): Promise<UpdateStreamingOutResponse> {
     let runtime = new $Util.RuntimeOptions({ });
