@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,10 +8,25 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * JV1sRTisRMi****
+   */
   appKey?: string;
   input?: CreateTaskRequestInput;
   parameters?: CreateTaskRequestParameters;
+  /**
+   * @example
+   * stop
+   */
   operation?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * offline
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,9 +54,21 @@ export class CreateTaskRequest extends $tea.Model {
 }
 
 export class CreateTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: CreateTaskResponseBodyData;
+  /**
+   * @example
+   * Success.
+   */
   message?: string;
+  /**
+   * @example
+   * 35124E1C-AE99-5D6C-A52E-BD689D8D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,8 +119,26 @@ export class CreateTaskResponse extends $tea.Model {
 }
 
 export class CreateTranscriptionPhrasesRequest extends $tea.Model {
+  /**
+   * @example
+   * custom fruit phrases list
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fruit_phrase
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"苹果":3,"西瓜":3}
+   */
   wordWeights?: string;
   static names(): { [key: string]: string } {
     return {
@@ -118,9 +162,24 @@ export class CreateTranscriptionPhrasesRequest extends $tea.Model {
 }
 
 export class CreateTranscriptionPhrasesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: CreateTranscriptionPhrasesResponseBodyData;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 35124E1C-AE99-5D6C-A52E-BD689D8D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -171,8 +230,20 @@ export class CreateTranscriptionPhrasesResponse extends $tea.Model {
 }
 
 export class DeleteTranscriptionPhrasesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -221,9 +292,21 @@ export class DeleteTranscriptionPhrasesResponse extends $tea.Model {
 }
 
 export class GetTaskInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: GetTaskInfoResponseBodyData;
+  /**
+   * @example
+   * Success.
+   */
   message?: string;
+  /**
+   * @example
+   * 35124E1C-AE99-5D6C-A52E-BD689D8D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -274,9 +357,24 @@ export class GetTaskInfoResponse extends $tea.Model {
 }
 
 export class GetTranscriptionPhrasesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: GetTranscriptionPhrasesResponseBodyData;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 35124E1C-AE99-5D6C-A52E-BD689D8D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -327,9 +425,24 @@ export class GetTranscriptionPhrasesResponse extends $tea.Model {
 }
 
 export class ListTranscriptionPhrasesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: ListTranscriptionPhrasesResponseBodyData;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 35124E1C-AE99-5D6C-A52E-BD689D8D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -380,8 +493,26 @@ export class ListTranscriptionPhrasesResponse extends $tea.Model {
 }
 
 export class UpdateTranscriptionPhrasesRequest extends $tea.Model {
+  /**
+   * @example
+   * custom fruit phrases list
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fruit_phrase
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"苹果":3,"西瓜":3}
+   */
   wordWeights?: string;
   static names(): { [key: string]: string } {
     return {
@@ -405,9 +536,24 @@ export class UpdateTranscriptionPhrasesRequest extends $tea.Model {
 }
 
 export class UpdateTranscriptionPhrasesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   code?: string;
   data?: UpdateTranscriptionPhrasesResponseBodyData;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 35124E1C-AE99-5D6C-A52E-BD689D8D****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -458,14 +604,37 @@ export class UpdateTranscriptionPhrasesResponse extends $tea.Model {
 }
 
 export class CreateTaskRequestInput extends $tea.Model {
+  /**
+   * @example
+   * http://xxx.com/zzz/1.wav
+   */
   fileUrl?: string;
+  /**
+   * @example
+   * pcm
+   */
   format?: string;
   multipleStreamsEnabled?: boolean;
   outputPath?: string;
   progressiveCallbacksEnabled?: boolean;
+  /**
+   * @example
+   * 16000
+   */
   sampleRate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn
+   */
   sourceLanguage?: string;
   taskId?: string;
+  /**
+   * @example
+   * task_tingwu_123
+   */
   taskKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -502,7 +671,15 @@ export class CreateTaskRequestInput extends $tea.Model {
 
 export class CreateTaskRequestParametersCustomPromptContents extends $tea.Model {
   model?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   prompt?: string;
   transType?: string;
   static names(): { [key: string]: string } {
@@ -597,7 +774,61 @@ export class CreateTaskRequestParametersMeetingAssistance extends $tea.Model {
   }
 }
 
+export class CreateTaskRequestParametersServiceInspectionInspectionContents extends $tea.Model {
+  content?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskRequestParametersServiceInspection extends $tea.Model {
+  inspectionContents?: CreateTaskRequestParametersServiceInspectionInspectionContents[];
+  inspectionIntroduction?: string;
+  sceneIntroduction?: string;
+  speakerMap?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      inspectionContents: 'InspectionContents',
+      inspectionIntroduction: 'InspectionIntroduction',
+      sceneIntroduction: 'SceneIntroduction',
+      speakerMap: 'SpeakerMap',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inspectionContents: { 'type': 'array', 'itemType': CreateTaskRequestParametersServiceInspectionInspectionContents },
+      inspectionIntroduction: 'string',
+      sceneIntroduction: 'string',
+      speakerMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTaskRequestParametersSummarization extends $tea.Model {
+  /**
+   * @example
+   * Paragraph
+   */
   types?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -617,9 +848,25 @@ export class CreateTaskRequestParametersSummarization extends $tea.Model {
 }
 
 export class CreateTaskRequestParametersTranscoding extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   spectrumEnabled?: boolean;
+  /**
+   * @example
+   * mp3
+   */
   targetAudioFormat?: string;
+  /**
+   * @example
+   * mp4
+   */
   targetVideoFormat?: string;
+  /**
+   * @example
+   * false
+   */
   videoThumbnailEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -645,6 +892,10 @@ export class CreateTaskRequestParametersTranscoding extends $tea.Model {
 }
 
 export class CreateTaskRequestParametersTranscriptionDiarization extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   speakerCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -665,8 +916,16 @@ export class CreateTaskRequestParametersTranscriptionDiarization extends $tea.Mo
 
 export class CreateTaskRequestParametersTranscription extends $tea.Model {
   additionalStreamOutputLevel?: number;
+  /**
+   * @example
+   * false
+   */
   audioEventDetectionEnabled?: boolean;
   diarization?: CreateTaskRequestParametersTranscriptionDiarization;
+  /**
+   * @example
+   * false
+   */
   diarizationEnabled?: boolean;
   model?: string;
   outputLevel?: number;
@@ -726,19 +985,37 @@ export class CreateTaskRequestParametersTranslation extends $tea.Model {
 }
 
 export class CreateTaskRequestParameters extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   autoChaptersEnabled?: boolean;
   customPrompt?: CreateTaskRequestParametersCustomPrompt;
   customPromptEnabled?: boolean;
   extraParams?: CreateTaskRequestParametersExtraParams;
   meetingAssistance?: CreateTaskRequestParametersMeetingAssistance;
+  /**
+   * @example
+   * false
+   */
   meetingAssistanceEnabled?: boolean;
   pptExtractionEnabled?: boolean;
+  serviceInspection?: CreateTaskRequestParametersServiceInspection;
+  serviceInspectionEnabled?: boolean;
   summarization?: CreateTaskRequestParametersSummarization;
+  /**
+   * @example
+   * false
+   */
   summarizationEnabled?: boolean;
   textPolishEnabled?: boolean;
   transcoding?: CreateTaskRequestParametersTranscoding;
   transcription?: CreateTaskRequestParametersTranscription;
   translation?: CreateTaskRequestParametersTranslation;
+  /**
+   * @example
+   * false
+   */
   translationEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -749,6 +1026,8 @@ export class CreateTaskRequestParameters extends $tea.Model {
       meetingAssistance: 'MeetingAssistance',
       meetingAssistanceEnabled: 'MeetingAssistanceEnabled',
       pptExtractionEnabled: 'PptExtractionEnabled',
+      serviceInspection: 'ServiceInspection',
+      serviceInspectionEnabled: 'ServiceInspectionEnabled',
       summarization: 'Summarization',
       summarizationEnabled: 'SummarizationEnabled',
       textPolishEnabled: 'TextPolishEnabled',
@@ -768,6 +1047,8 @@ export class CreateTaskRequestParameters extends $tea.Model {
       meetingAssistance: CreateTaskRequestParametersMeetingAssistance,
       meetingAssistanceEnabled: 'boolean',
       pptExtractionEnabled: 'boolean',
+      serviceInspection: CreateTaskRequestParametersServiceInspection,
+      serviceInspectionEnabled: 'boolean',
       summarization: CreateTaskRequestParametersSummarization,
       summarizationEnabled: 'boolean',
       textPolishEnabled: 'boolean',
@@ -785,7 +1066,15 @@ export class CreateTaskRequestParameters extends $tea.Model {
 
 export class CreateTaskResponseBodyData extends $tea.Model {
   meetingJoinUrl?: string;
+  /**
+   * @example
+   * c5394c6ee0fb474899d42215a3925c7e
+   */
   taskId?: string;
+  /**
+   * @example
+   * task_tingwu_123
+   */
   taskKey?: string;
   taskStatus?: string;
   static names(): { [key: string]: string } {
@@ -812,9 +1101,25 @@ export class CreateTaskResponseBodyData extends $tea.Model {
 }
 
 export class CreateTranscriptionPhrasesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * a93b91141c0f422fa114af203f8b****
+   */
   phraseId?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -884,8 +1189,20 @@ export class GetTaskInfoResponseBodyData extends $tea.Model {
   outputSpectrumPath?: string;
   outputThumbnailPath?: string;
   result?: GetTaskInfoResponseBodyDataResult;
+  /**
+   * @example
+   * c5394c6ee0fb474899d42215a3925c7e
+   */
   taskId?: string;
+  /**
+   * @example
+   * task_tingwu_123
+   */
   taskKey?: string;
+  /**
+   * @example
+   * COMPLETE
+   */
   taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -923,9 +1240,25 @@ export class GetTaskInfoResponseBodyData extends $tea.Model {
 }
 
 export class GetTranscriptionPhrasesResponseBodyDataPhrases extends $tea.Model {
+  /**
+   * @example
+   * custom fruit phrases list
+   */
   description?: string;
+  /**
+   * @example
+   * fruit_phrase
+   */
   name?: string;
+  /**
+   * @example
+   * a93b91141c0f422fa114af203f8b****
+   */
   phraseId?: string;
+  /**
+   * @example
+   * {"苹果":3,"西瓜":3}
+   */
   wordWeights?: string;
   static names(): { [key: string]: string } {
     return {
@@ -951,9 +1284,21 @@ export class GetTranscriptionPhrasesResponseBodyDataPhrases extends $tea.Model {
 }
 
 export class GetTranscriptionPhrasesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   errorMessage?: string;
   phrases?: GetTranscriptionPhrasesResponseBodyDataPhrases[];
+  /**
+   * @example
+   * SUCCEEDED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -979,8 +1324,20 @@ export class GetTranscriptionPhrasesResponseBodyData extends $tea.Model {
 }
 
 export class ListTranscriptionPhrasesResponseBodyDataPhrases extends $tea.Model {
+  /**
+   * @example
+   * custom fruit phrases list
+   */
   description?: string;
+  /**
+   * @example
+   * fruit_phrase
+   */
   name?: string;
+  /**
+   * @example
+   * a93b91141c0f422fa114af203f8b****
+   */
   phraseId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1004,9 +1361,21 @@ export class ListTranscriptionPhrasesResponseBodyDataPhrases extends $tea.Model 
 }
 
 export class ListTranscriptionPhrasesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * PHS.Exceed
+   */
   errorCode?: string;
+  /**
+   * @example
+   * The num of the phrase exceeds the upper limit.
+   */
   errorMessage?: string;
   phrases?: ListTranscriptionPhrasesResponseBodyDataPhrases[];
+  /**
+   * @example
+   * SUCCEEDED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1032,8 +1401,20 @@ export class ListTranscriptionPhrasesResponseBodyData extends $tea.Model {
 }
 
 export class UpdateTranscriptionPhrasesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   errorCode?: string;
+  /**
+   * @example
+   * success
+   */
   errorMessage?: string;
+  /**
+   * @example
+   * SUCCEEDED
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1080,12 +1461,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建听悟任务
-   *
-   * @param request CreateTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTaskResponse
+   * 创建听悟任务
+   * 
+   * @param request - CreateTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTaskResponse
    */
   async createTaskWithOptions(request: CreateTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
     Util.validateModel(request);
@@ -1131,10 +1512,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建听悟任务
-   *
-   * @param request CreateTaskRequest
-   * @return CreateTaskResponse
+   * 创建听悟任务
+   * 
+   * @param request - CreateTaskRequest
+   * @returns CreateTaskResponse
    */
   async createTask(request: CreateTaskRequest): Promise<CreateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1143,12 +1524,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建热词词表
-   *
-   * @param request CreateTranscriptionPhrasesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTranscriptionPhrasesResponse
+   * 创建热词词表
+   * 
+   * @param request - CreateTranscriptionPhrasesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTranscriptionPhrasesResponse
    */
   async createTranscriptionPhrasesWithOptions(request: CreateTranscriptionPhrasesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTranscriptionPhrasesResponse> {
     Util.validateModel(request);
@@ -1184,10 +1565,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建热词词表
-   *
-   * @param request CreateTranscriptionPhrasesRequest
-   * @return CreateTranscriptionPhrasesResponse
+   * 创建热词词表
+   * 
+   * @param request - CreateTranscriptionPhrasesRequest
+   * @returns CreateTranscriptionPhrasesResponse
    */
   async createTranscriptionPhrases(request: CreateTranscriptionPhrasesRequest): Promise<CreateTranscriptionPhrasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1196,11 +1577,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除词表
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTranscriptionPhrasesResponse
+   * 删除词表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTranscriptionPhrasesResponse
    */
   async deleteTranscriptionPhrasesWithOptions(PhraseId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTranscriptionPhrasesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -1221,9 +1602,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除词表
-   *
-   * @return DeleteTranscriptionPhrasesResponse
+   * 删除词表
+   * @returns DeleteTranscriptionPhrasesResponse
    */
   async deleteTranscriptionPhrases(PhraseId: string): Promise<DeleteTranscriptionPhrasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1232,11 +1612,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询听悟任务信息
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTaskInfoResponse
+   * 查询听悟任务信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskInfoResponse
    */
   async getTaskInfoWithOptions(TaskId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -1257,9 +1637,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询听悟任务信息
-   *
-   * @return GetTaskInfoResponse
+   * 查询听悟任务信息
+   * @returns GetTaskInfoResponse
    */
   async getTaskInfo(TaskId: string): Promise<GetTaskInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1268,11 +1647,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询热词词表信息
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTranscriptionPhrasesResponse
+   * 查询热词词表信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTranscriptionPhrasesResponse
    */
   async getTranscriptionPhrasesWithOptions(PhraseId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTranscriptionPhrasesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -1293,9 +1672,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询热词词表信息
-   *
-   * @return GetTranscriptionPhrasesResponse
+   * 查询热词词表信息
+   * @returns GetTranscriptionPhrasesResponse
    */
   async getTranscriptionPhrases(PhraseId: string): Promise<GetTranscriptionPhrasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1304,11 +1682,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列举用户所有热词词表信息
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTranscriptionPhrasesResponse
+   * 列举用户所有热词词表信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTranscriptionPhrasesResponse
    */
   async listTranscriptionPhrasesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTranscriptionPhrasesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -1329,9 +1707,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列举用户所有热词词表信息
-   *
-   * @return ListTranscriptionPhrasesResponse
+   * 列举用户所有热词词表信息
+   * @returns ListTranscriptionPhrasesResponse
    */
   async listTranscriptionPhrases(): Promise<ListTranscriptionPhrasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1340,12 +1717,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新热词词表
-   *
-   * @param request UpdateTranscriptionPhrasesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateTranscriptionPhrasesResponse
+   * 更新热词词表
+   * 
+   * @param request - UpdateTranscriptionPhrasesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTranscriptionPhrasesResponse
    */
   async updateTranscriptionPhrasesWithOptions(PhraseId: string, request: UpdateTranscriptionPhrasesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTranscriptionPhrasesResponse> {
     Util.validateModel(request);
@@ -1381,10 +1758,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新热词词表
-   *
-   * @param request UpdateTranscriptionPhrasesRequest
-   * @return UpdateTranscriptionPhrasesResponse
+   * 更新热词词表
+   * 
+   * @param request - UpdateTranscriptionPhrasesRequest
+   * @returns UpdateTranscriptionPhrasesResponse
    */
   async updateTranscriptionPhrases(PhraseId: string, request: UpdateTranscriptionPhrasesRequest): Promise<UpdateTranscriptionPhrasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
