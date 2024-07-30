@@ -7,6 +7,128 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddCategoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  categoryName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UNSTRUCTURED
+   */
+  categoryType?: string;
+  /**
+   * @example
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
+   */
+  parentCategoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryName: 'CategoryName',
+      categoryType: 'CategoryType',
+      parentCategoryId: 'ParentCategoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryName: 'string',
+      categoryType: 'string',
+      parentCategoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCategoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  code?: string;
+  data?: AddCategoryResponseBodyData;
+  /**
+   * @example
+   * Requests throttling triggered.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 778C0B3B-03C1-5FC1-A947-36EDD13606AB
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  status?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: AddCategoryResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCategoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddCategoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddCategoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddFileRequest extends $tea.Model {
   /**
    * @remarks
@@ -584,6 +706,92 @@ export class CreateIndexResponse extends $tea.Model {
   }
 }
 
+export class DeleteCategoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  code?: string;
+  /**
+   * @remarks
+   * data
+   */
+  data?: DeleteCategoryResponseBodyData;
+  /**
+   * @example
+   * workspace id is null or invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  status?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DeleteCategoryResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCategoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCategoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCategoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteFileResponseBody extends $tea.Model {
   /**
    * @example
@@ -1105,6 +1313,135 @@ export class GetIndexJobStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetIndexJobStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCategoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UNSTRUCTURED
+   */
+  categoryType?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * AAAAAdH70eOCSCKtacdomNzak4U=
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
+   */
+  parentCategoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryType: 'CategoryType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      parentCategoryId: 'ParentCategoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      parentCategoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCategoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  code?: string;
+  data?: ListCategoryResponseBodyData;
+  /**
+   * @example
+   * workspace id is null or invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 17204B98-xxxx-4F9A-8464-2446A84821CA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  status?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListCategoryResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCategoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCategoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCategoryResponseBody,
     };
   }
 
@@ -2026,6 +2363,32 @@ export class SubmitIndexJobResponse extends $tea.Model {
   }
 }
 
+export class AddCategoryResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
+   */
+  categoryId?: string;
+  categoryName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      categoryName: 'CategoryName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      categoryName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddFileResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -2173,6 +2536,29 @@ export class CreateIndexResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCategoryResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
+   */
+  categoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
     };
   }
 
@@ -2367,6 +2753,100 @@ export class GetIndexJobStatusResponseBodyData extends $tea.Model {
       documents: { 'type': 'array', 'itemType': GetIndexJobStatusResponseBodyDataDocuments },
       jobId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCategoryResponseBodyDataCategoryList extends $tea.Model {
+  /**
+   * @example
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
+   */
+  categoryId?: string;
+  categoryName?: string;
+  /**
+   * @example
+   * UNSTRUCTURED
+   */
+  categoryType?: string;
+  /**
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * cate_addd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
+   */
+  parentCategoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      categoryName: 'CategoryName',
+      categoryType: 'CategoryType',
+      isDefault: 'IsDefault',
+      parentCategoryId: 'ParentCategoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      categoryName: 'string',
+      categoryType: 'string',
+      isDefault: 'boolean',
+      parentCategoryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCategoryResponseBodyData extends $tea.Model {
+  categoryList?: ListCategoryResponseBodyDataCategoryList[];
+  /**
+   * @example
+   * true
+   */
+  hasNext?: boolean;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * AAAAALHWGpGoYCcYMxiFfmlhvh7Z4G8jiXR6IjHYd+M9WQVJ
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categoryList: 'CategoryList',
+      hasNext: 'HasNext',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryList: { 'type': 'array', 'itemType': ListCategoryResponseBodyDataCategoryList },
+      hasNext: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -2869,6 +3349,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - AddCategoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddCategoryResponse
+   */
+  async addCategoryWithOptions(WorkspaceId: string, request: AddCategoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddCategoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryName)) {
+      body["CategoryName"] = request.categoryName;
+    }
+
+    if (!Util.isUnset(request.categoryType)) {
+      body["CategoryType"] = request.categoryType;
+    }
+
+    if (!Util.isUnset(request.parentCategoryId)) {
+      body["ParentCategoryId"] = request.parentCategoryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddCategory",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/datacenter/category/`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddCategoryResponse>(await this.callApi(params, req, runtime), new AddCategoryResponse({}));
+  }
+
+  /**
+   * @param request - AddCategoryRequest
+   * @returns AddCategoryResponse
+   */
+  async addCategory(WorkspaceId: string, request: AddCategoryRequest): Promise<AddCategoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addCategoryWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * 将临时上传的文档导入百炼数据中心，导入成功之后会自动触发文档解析。
    * 
    * @param request - AddFileRequest
@@ -3094,6 +3623,38 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCategoryResponse
+   */
+  async deleteCategoryWithOptions(CategoryId: string, WorkspaceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCategoryResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCategory",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/datacenter/category/${OpenApiUtil.getEncodeParam(CategoryId)}/`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCategoryResponse>(await this.callApi(params, req, runtime), new DeleteCategoryResponse({}));
+  }
+
+  /**
+   * @returns DeleteCategoryResponse
+   */
+  async deleteCategory(CategoryId: string, WorkspaceId: string): Promise<DeleteCategoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteCategoryWithOptions(CategoryId, WorkspaceId, headers, runtime);
+  }
+
+  /**
    * 删除文档
    * 
    * @param headers - map
@@ -3310,6 +3871,63 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getIndexJobStatusWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * ListCategory
+   * 
+   * @param request - ListCategoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCategoryResponse
+   */
+  async listCategoryWithOptions(WorkspaceId: string, request: ListCategoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCategoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryType)) {
+      body["CategoryType"] = request.categoryType;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.parentCategoryId)) {
+      body["ParentCategoryId"] = request.parentCategoryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCategory",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(WorkspaceId)}/datacenter/categories`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCategoryResponse>(await this.callApi(params, req, runtime), new ListCategoryResponse({}));
+  }
+
+  /**
+   * ListCategory
+   * 
+   * @param request - ListCategoryRequest
+   * @returns ListCategoryResponse
+   */
+  async listCategory(WorkspaceId: string, request: ListCategoryRequest): Promise<ListCategoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listCategoryWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**
