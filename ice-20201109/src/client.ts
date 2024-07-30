@@ -17819,6 +17819,94 @@ export class SubmitLiveTranscodeJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitMediaAiAnalysisJobRequest extends $tea.Model {
+  /**
+   * @example
+   * {"nlpParams":{"sourceLanguage":"cn","diarizationEnabled":true,"speakerCount":0,"summarizationEnabled":false,"translationEnabled":false}}
+   */
+  analysisParams?: string;
+  /**
+   * @example
+   * {"MediaType":"video","Media":"https://xxx.com/your_movie.mp4"}
+   */
+  input?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisParams: 'AnalysisParams',
+      input: 'Input',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisParams: 'string',
+      input: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMediaAiAnalysisJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ******b48fb04483915d4f2cd8******
+   */
+  mediaId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitMediaAiAnalysisJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitMediaAiAnalysisJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitMediaAiAnalysisJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitMediaCensorJobRequest extends $tea.Model {
   /**
    * @example
@@ -35642,6 +35730,7 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $tea.M
   desc?: string;
   name?: string;
   remark?: string;
+  supportSampleRate?: string;
   tag?: string;
   /**
    * @example
@@ -35663,6 +35752,7 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $tea.M
       desc: 'Desc',
       name: 'Name',
       remark: 'Remark',
+      supportSampleRate: 'SupportSampleRate',
       tag: 'Tag',
       voice: 'Voice',
       voiceType: 'VoiceType',
@@ -35675,6 +35765,7 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $tea.M
       desc: 'string',
       name: 'string',
       remark: 'string',
+      supportSampleRate: 'string',
       tag: 'string',
       voice: 'string',
       voiceType: 'string',
@@ -56227,6 +56318,52 @@ export default class Client extends OpenApi {
   async submitLiveTranscodeJob(request: SubmitLiveTranscodeJobRequest): Promise<SubmitLiveTranscodeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitLiveTranscodeJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交媒资结构化分析任务
+   * 
+   * @param request - SubmitMediaAiAnalysisJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitMediaAiAnalysisJobResponse
+   */
+  async submitMediaAiAnalysisJobWithOptions(request: SubmitMediaAiAnalysisJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaAiAnalysisJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.analysisParams)) {
+      query["AnalysisParams"] = request.analysisParams;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitMediaAiAnalysisJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitMediaAiAnalysisJobResponse>(await this.callApi(params, req, runtime), new SubmitMediaAiAnalysisJobResponse({}));
+  }
+
+  /**
+   * 提交媒资结构化分析任务
+   * 
+   * @param request - SubmitMediaAiAnalysisJobRequest
+   * @returns SubmitMediaAiAnalysisJobResponse
+   */
+  async submitMediaAiAnalysisJob(request: SubmitMediaAiAnalysisJobRequest): Promise<SubmitMediaAiAnalysisJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitMediaAiAnalysisJobWithOptions(request, runtime);
   }
 
   /**
