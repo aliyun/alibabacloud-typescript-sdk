@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,6 +8,10 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class DescribeAccessControlListRequest extends $tea.Model {
+  /**
+   * @example
+   * c-123xxx
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,12 +31,36 @@ export class DescribeAccessControlListRequest extends $tea.Model {
 }
 
 export class DescribeAccessControlListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
+   */
   accessDeniedDetail?: string;
   data?: DescribeAccessControlListResponseBodyData;
+  /**
+   * @example
+   * Failed to find instance c-123xxx
+   */
   errMessage?: string;
+  /**
+   * @example
+   * Instance.NotFound
+   */
   errorCode?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * ABCD-1234-5678-EFGH
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -90,6 +117,13 @@ export class DescribeAccessControlListResponse extends $tea.Model {
 }
 
 export class DescribeInstanceConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c-123xxx
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,12 +143,40 @@ export class DescribeInstanceConfigsRequest extends $tea.Model {
 }
 
 export class DescribeInstanceConfigsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
+   */
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * dataCoord:\\n  enableCompaction: true
+   */
   data?: Buffer;
+  /**
+   * @example
+   * Instance.NotFound
+   */
   errCode?: string;
+  /**
+   * @example
+   * Failed to find instance c-123xxx.
+   */
   errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * ABCD-1234-5678-EFGH
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -171,6 +233,10 @@ export class DescribeInstanceConfigsResponse extends $tea.Model {
 }
 
 export class GetInstanceDetailRequest extends $tea.Model {
+  /**
+   * @example
+   * c-123xxx
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -190,12 +256,36 @@ export class GetInstanceDetailRequest extends $tea.Model {
 }
 
 export class GetInstanceDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
+   */
   accessDeniedDetail?: string;
   data?: GetInstanceDetailResponseBodyData;
+  /**
+   * @example
+   * Instance.NotFound
+   */
   errCode?: string;
+  /**
+   * @example
+   * Failed to find instance c-123xxx
+   */
   errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * ABCD-1234-5678-EFGH
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -252,10 +342,30 @@ export class GetInstanceDetailResponse extends $tea.Model {
 }
 
 export class ListInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * c-123xxx
+   */
   clusterId?: string;
+  /**
+   * @example
+   * milvus-test
+   */
   clusterName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -283,13 +393,41 @@ export class ListInstancesRequest extends $tea.Model {
 }
 
 export class ListInstancesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
+   */
   accessDeniedDetail?: string;
   data?: ListInstancesResponseBodyData[];
+  /**
+   * @example
+   * Instance.NotFound
+   */
   errCode?: string;
+  /**
+   * @example
+   * Failed to find instance c-123xxx
+   */
   errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * ABCD-1234-5678-EFGH
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * 15
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -348,8 +486,26 @@ export class ListInstancesResponse extends $tea.Model {
 }
 
 export class ModifyInstanceConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c-123xxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * for test
+   */
   reason?: string;
+  /**
+   * @example
+   * dataCoord:\\n  segment:\\n    maxSize: 1024
+   */
   userConfig?: string;
   static names(): { [key: string]: string } {
     return {
@@ -373,12 +529,40 @@ export class ModifyInstanceConfigRequest extends $tea.Model {
 }
 
 export class ModifyInstanceConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
+   */
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * Instance.NotFound
+   */
   errCode?: string;
+  /**
+   * @example
+   * Failed to find instance c-123xxx
+   */
   errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * ABCD-1234-5678-EFGH
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -435,8 +619,20 @@ export class ModifyInstanceConfigResponse extends $tea.Model {
 }
 
 export class UpdateAccessControlListRequest extends $tea.Model {
+  /**
+   * @example
+   * acl-123xxx
+   */
   aclId?: string;
+  /**
+   * @example
+   * 192.168.1.0/24,172.16.0.0/16
+   */
   cidr?: string;
+  /**
+   * @example
+   * c-123xxx
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -460,12 +656,40 @@ export class UpdateAccessControlListRequest extends $tea.Model {
 }
 
 export class UpdateAccessControlListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
+   */
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * The format of cidr is illegal.
+   */
   errMessage?: string;
+  /**
+   * @example
+   * ILLEGAL.MilvusCidrFormat
+   */
   errorCode?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * ABCD-1234-5678-EFGH
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -522,7 +746,21 @@ export class UpdateAccessControlListResponse extends $tea.Model {
 }
 
 export class UpdateInstanceNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * milvus-test
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c-123xxx
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -544,12 +782,40 @@ export class UpdateInstanceNameRequest extends $tea.Model {
 }
 
 export class UpdateInstanceNameResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
+   */
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * Instance.NotFound
+   */
   errCode?: string;
+  /**
+   * @example
+   * Failed to find instance c-123xxx
+   */
   errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * ABCD-1234-5678-EFGH
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -606,9 +872,34 @@ export class UpdateInstanceNameResponse extends $tea.Model {
 }
 
 export class UpdatePublicNetworkStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   cidr?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Proxy
+   */
   componentType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c-123xxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   publicNetworkEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -634,12 +925,40 @@ export class UpdatePublicNetworkStatusRequest extends $tea.Model {
 }
 
 export class UpdatePublicNetworkStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {     "PolicyType": "AccountLevelIdentityBasedPolicy",     "AuthPrincipalOwnerId": "xxxx",     "EncodedDiagnosticMessage": "xxxx",     "AuthPrincipalType": "SubUser",     "AuthPrincipalDisplayName": "xxxx",     "NoPermissionType": "ImplicitDeny",     "AuthAction": "milvus:xxxx" }
+   */
   accessDeniedDetail?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * Failed to find instance
+   */
   errCode?: string;
+  /**
+   * @example
+   * Failed to find instance c-123xxx
+   */
   errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * ABCD-1234-5678-EFGH
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -696,6 +1015,10 @@ export class UpdatePublicNetworkStatusResponse extends $tea.Model {
 }
 
 export class DescribeAccessControlListResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * acl-xxxx
+   */
   aclId?: string;
   cidr?: string[];
   static names(): { [key: string]: string } {
@@ -718,10 +1041,30 @@ export class DescribeAccessControlListResponseBodyData extends $tea.Model {
 }
 
 export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList extends $tea.Model {
+  /**
+   * @example
+   * QueryNode
+   */
   componentType?: string;
+  /**
+   * @example
+   * 8
+   */
   cuNum?: number;
+  /**
+   * @example
+   * 100
+   */
   diskSize?: number;
+  /**
+   * @example
+   * essd
+   */
   diskType?: string;
+  /**
+   * @example
+   * 2
+   */
   replica?: number;
   static names(): { [key: string]: string } {
     return {
@@ -749,14 +1092,46 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
 }
 
 export class GetInstanceDetailResponseBodyDataClusterInfo extends $tea.Model {
+  /**
+   * @example
+   * 3000
+   */
   attuPort?: number;
+  /**
+   * @example
+   * c-123xxx-.milvus.aliyuncs.com
+   */
   internetUrl?: string;
+  /**
+   * @example
+   * c-123xxx-internal.milvus.aliyuncs.com
+   */
   intranetUrl?: string;
   milvusResourceInfoList?: GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList[];
+  /**
+   * @example
+   * 125.15 GB
+   */
   ossStorageSize?: string;
+  /**
+   * @example
+   * 1718604000000
+   */
   ossStorageTimestamp?: number;
+  /**
+   * @example
+   * 19530
+   */
   proxyPort?: number;
+  /**
+   * @example
+   * 24
+   */
   totalCuNum?: number;
+  /**
+   * @example
+   * 500
+   */
   totalDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -792,27 +1167,111 @@ export class GetInstanceDetailResponseBodyDataClusterInfo extends $tea.Model {
 }
 
 export class GetInstanceDetailResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * acl-123xxx
+   */
   aclId?: string;
+  /**
+   * @example
+   * 1716863508000
+   */
   beginTime?: number;
+  /**
+   * @example
+   * milvus-test
+   */
   bucketName?: string;
+  /**
+   * @example
+   * https://oss.console.aliyun.com/bucket/oss-cn-beijing/xxxx/object?spm=a2cug.25127996.0.0.577990370Ebsqt&path=milvus-c-123xxxx
+   */
   bucketPath?: string;
   clusterInfo?: GetInstanceDetailResponseBodyDataClusterInfo;
+  /**
+   * @example
+   * aliyun-test
+   */
   clusterName?: string;
+  /**
+   * @example
+   * 1721664000000
+   */
   expireTime?: number;
+  /**
+   * @example
+   * c-123xxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * running
+   */
   instanceStatus?: string;
+  /**
+   * @example
+   * true
+   */
   openPublicNet?: boolean;
+  /**
+   * @example
+   * standard
+   */
   packageType?: string;
+  /**
+   * @example
+   * 1
+   */
   payType?: number;
+  /**
+   * @example
+   * milvus_milvuspre_public_cn
+   */
   productCode?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * 1743679
+   */
   runningTime?: number;
+  /**
+   * @example
+   * sg-123xxx
+   */
   sgId?: string;
+  /**
+   * @example
+   * 2.4.1-1.0-0.0.1
+   */
   templateVersion?: string;
+  /**
+   * @example
+   * dataCoord:\\n  segment:\\n    maxSize: 1024
+   */
   userConfig?: string;
+  /**
+   * @example
+   * 2.4
+   */
   version?: string;
+  /**
+   * @example
+   * vpc-123xxx
+   */
   vpcId?: string;
+  /**
+   * @example
+   * vsw-123xxx
+   */
   vswId?: string;
+  /**
+   * @example
+   * cn-beijing-g
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -874,10 +1333,30 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList extends $tea.Model {
+  /**
+   * @example
+   * standalone
+   */
   componentType?: string;
+  /**
+   * @example
+   * 16
+   */
   cuNum?: number;
+  /**
+   * @example
+   * 100
+   */
   diskSize?: number;
+  /**
+   * @example
+   * essd
+   */
   diskType?: string;
+  /**
+   * @example
+   * 1
+   */
   replica?: number;
   static names(): { [key: string]: string } {
     return {
@@ -905,12 +1384,36 @@ export class ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList exte
 }
 
 export class ListInstancesResponseBodyDataClusterInfo extends $tea.Model {
+  /**
+   * @example
+   * 3000
+   */
   attuPort?: number;
+  /**
+   * @example
+   * c-123xxx.milvus.aliyuncs.com
+   */
   internetUrl?: string;
+  /**
+   * @example
+   * c-123xxx-internal.milvus.aliyuncs.com
+   */
   intranetUrl?: string;
   milvusResourceInfoList?: ListInstancesResponseBodyDataClusterInfoMilvusResourceInfoList[];
+  /**
+   * @example
+   * 19530
+   */
   proxyPort?: number;
+  /**
+   * @example
+   * 24
+   */
   totalCuNum?: number;
+  /**
+   * @example
+   * 500
+   */
   totalDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -942,21 +1445,81 @@ export class ListInstancesResponseBodyDataClusterInfo extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1718608505000
+   */
   beginTime?: number;
   clusterInfo?: ListInstancesResponseBodyDataClusterInfo;
+  /**
+   * @example
+   * milvus-test
+   */
   clusterName?: string;
+  /**
+   * @example
+   * 1721232000000
+   */
   expireTime?: number;
+  /**
+   * @example
+   * c-123xxx
+   */
   instanceId?: string;
+  /**
+   * @example
+   * running
+   */
   instanceStatus?: string;
+  /**
+   * @example
+   * true
+   */
   openPublicNet?: boolean;
+  /**
+   * @example
+   * trial
+   */
   packageType?: string;
+  /**
+   * @example
+   * 1
+   */
   payType?: number;
+  /**
+   * @example
+   * milvus_milvuspre_public_cn
+   */
   productCode?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * 536611
+   */
   runningTime?: number;
+  /**
+   * @example
+   * sg-123xxx
+   */
   sgId?: string;
+  /**
+   * @example
+   * vpc-123xxx
+   */
   vpcId?: string;
+  /**
+   * @example
+   * vsw-123xxx
+   */
   vswId?: string;
+  /**
+   * @example
+   * cn-beijing-g
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1029,12 +1592,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Milvus公网访问ACL信息
-   *
-   * @param request DescribeAccessControlListRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAccessControlListResponse
+   * 获取Milvus公网访问ACL信息
+   * 
+   * @param request - DescribeAccessControlListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAccessControlListResponse
    */
   async describeAccessControlListWithOptions(request: DescribeAccessControlListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeAccessControlListResponse> {
     Util.validateModel(request);
@@ -1062,10 +1625,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取Milvus公网访问ACL信息
-   *
-   * @param request DescribeAccessControlListRequest
-   * @return DescribeAccessControlListResponse
+   * 获取Milvus公网访问ACL信息
+   * 
+   * @param request - DescribeAccessControlListRequest
+   * @returns DescribeAccessControlListResponse
    */
   async describeAccessControlList(request: DescribeAccessControlListRequest): Promise<DescribeAccessControlListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1074,12 +1637,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询实例用户配置
-   *
-   * @param request DescribeInstanceConfigsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceConfigsResponse
+   * 查询实例用户配置
+   * 
+   * @param request - DescribeInstanceConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceConfigsResponse
    */
   async describeInstanceConfigsWithOptions(request: DescribeInstanceConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceConfigsResponse> {
     Util.validateModel(request);
@@ -1107,10 +1670,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询实例用户配置
-   *
-   * @param request DescribeInstanceConfigsRequest
-   * @return DescribeInstanceConfigsResponse
+   * 查询实例用户配置
+   * 
+   * @param request - DescribeInstanceConfigsRequest
+   * @returns DescribeInstanceConfigsResponse
    */
   async describeInstanceConfigs(request: DescribeInstanceConfigsRequest): Promise<DescribeInstanceConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1119,12 +1682,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据集群ID获取集群的详细信息
-   *
-   * @param request GetInstanceDetailRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceDetailResponse
+   * 根据集群ID获取集群的详细信息
+   * 
+   * @param request - GetInstanceDetailRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceDetailResponse
    */
   async getInstanceDetailWithOptions(request: GetInstanceDetailRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceDetailResponse> {
     Util.validateModel(request);
@@ -1152,10 +1715,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据集群ID获取集群的详细信息
-   *
-   * @param request GetInstanceDetailRequest
-   * @return GetInstanceDetailResponse
+   * 根据集群ID获取集群的详细信息
+   * 
+   * @param request - GetInstanceDetailRequest
+   * @returns GetInstanceDetailResponse
    */
   async getInstanceDetail(request: GetInstanceDetailRequest): Promise<GetInstanceDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1164,12 +1727,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据集群ID或者名称等信息过滤集群
-   *
-   * @param request ListInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstancesResponse
+   * 根据集群ID或者名称等信息过滤集群
+   * 
+   * @param request - ListInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesResponse
    */
   async listInstancesWithOptions(request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
@@ -1213,10 +1776,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 根据集群ID或者名称等信息过滤集群
-   *
-   * @param request ListInstancesRequest
-   * @return ListInstancesResponse
+   * 根据集群ID或者名称等信息过滤集群
+   * 
+   * @param request - ListInstancesRequest
+   * @returns ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1225,12 +1788,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改实例配置
-   *
-   * @param request ModifyInstanceConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceConfigResponse
+   * 修改实例配置
+   * 
+   * @param request - ModifyInstanceConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceConfigResponse
    */
   async modifyInstanceConfigWithOptions(request: ModifyInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceConfigResponse> {
     Util.validateModel(request);
@@ -1266,10 +1829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改实例配置
-   *
-   * @param request ModifyInstanceConfigRequest
-   * @return ModifyInstanceConfigResponse
+   * 修改实例配置
+   * 
+   * @param request - ModifyInstanceConfigRequest
+   * @returns ModifyInstanceConfigResponse
    */
   async modifyInstanceConfig(request: ModifyInstanceConfigRequest): Promise<ModifyInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1278,12 +1841,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新Milvus公网访问ACL信息
-   *
-   * @param request UpdateAccessControlListRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAccessControlListResponse
+   * 更新Milvus公网访问ACL信息
+   * 
+   * @param request - UpdateAccessControlListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAccessControlListResponse
    */
   async updateAccessControlListWithOptions(request: UpdateAccessControlListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAccessControlListResponse> {
     Util.validateModel(request);
@@ -1319,10 +1882,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新Milvus公网访问ACL信息
-   *
-   * @param request UpdateAccessControlListRequest
-   * @return UpdateAccessControlListResponse
+   * 更新Milvus公网访问ACL信息
+   * 
+   * @param request - UpdateAccessControlListRequest
+   * @returns UpdateAccessControlListResponse
    */
   async updateAccessControlList(request: UpdateAccessControlListRequest): Promise<UpdateAccessControlListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1331,12 +1894,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改集群名称
-   *
-   * @param request UpdateInstanceNameRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateInstanceNameResponse
+   * 修改集群名称
+   * 
+   * @param request - UpdateInstanceNameRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceNameResponse
    */
   async updateInstanceNameWithOptions(request: UpdateInstanceNameRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceNameResponse> {
     Util.validateModel(request);
@@ -1368,10 +1931,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改集群名称
-   *
-   * @param request UpdateInstanceNameRequest
-   * @return UpdateInstanceNameResponse
+   * 修改集群名称
+   * 
+   * @param request - UpdateInstanceNameRequest
+   * @returns UpdateInstanceNameResponse
    */
   async updateInstanceName(request: UpdateInstanceNameRequest): Promise<UpdateInstanceNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -1380,12 +1943,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 该接口用于开通/关闭 Proxy的公网SLB。
-   *
-   * @param request UpdatePublicNetworkStatusRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdatePublicNetworkStatusResponse
+   * 该接口用于开通/关闭 Proxy的公网SLB。
+   * 
+   * @param request - UpdatePublicNetworkStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePublicNetworkStatusResponse
    */
   async updatePublicNetworkStatusWithOptions(request: UpdatePublicNetworkStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePublicNetworkStatusResponse> {
     Util.validateModel(request);
@@ -1425,10 +1988,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 该接口用于开通/关闭 Proxy的公网SLB。
-   *
-   * @param request UpdatePublicNetworkStatusRequest
-   * @return UpdatePublicNetworkStatusResponse
+   * 该接口用于开通/关闭 Proxy的公网SLB。
+   * 
+   * @param request - UpdatePublicNetworkStatusRequest
+   * @returns UpdatePublicNetworkStatusResponse
    */
   async updatePublicNetworkStatus(request: UpdatePublicNetworkStatusRequest): Promise<UpdatePublicNetworkStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
