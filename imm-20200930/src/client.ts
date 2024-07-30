@@ -3728,11 +3728,13 @@ export class BatchGetFileMetaRequest extends $tea.Model {
    * This parameter is required.
    */
   URIs?: string[];
+  withFields?: string[];
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       projectName: 'ProjectName',
       URIs: 'URIs',
+      withFields: 'WithFields',
     };
   }
 
@@ -3741,6 +3743,7 @@ export class BatchGetFileMetaRequest extends $tea.Model {
       datasetName: 'string',
       projectName: 'string',
       URIs: { 'type': 'array', 'itemType': 'string' },
+      withFields: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -3765,11 +3768,13 @@ export class BatchGetFileMetaShrinkRequest extends $tea.Model {
    * This parameter is required.
    */
   URIsShrink?: string;
+  withFieldsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       projectName: 'ProjectName',
       URIsShrink: 'URIs',
+      withFieldsShrink: 'WithFields',
     };
   }
 
@@ -3778,6 +3783,7 @@ export class BatchGetFileMetaShrinkRequest extends $tea.Model {
       datasetName: 'string',
       projectName: 'string',
       URIsShrink: 'string',
+      withFieldsShrink: 'string',
     };
   }
 
@@ -13137,11 +13143,13 @@ export class GetFileMetaRequest extends $tea.Model {
    * This parameter is required.
    */
   URI?: string;
+  withFields?: string[];
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       projectName: 'ProjectName',
       URI: 'URI',
+      withFields: 'WithFields',
     };
   }
 
@@ -13150,6 +13158,47 @@ export class GetFileMetaRequest extends $tea.Model {
       datasetName: 'string',
       projectName: 'string',
       URI: 'string',
+      withFields: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileMetaShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  URI?: string;
+  withFieldsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      projectName: 'ProjectName',
+      URI: 'URI',
+      withFieldsShrink: 'WithFields',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      projectName: 'string',
+      URI: 'string',
+      withFieldsShrink: 'string',
     };
   }
 
@@ -21062,6 +21111,10 @@ export default class Client extends OpenApi {
       request.URIsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.URIs, "URIs", "json");
     }
 
+    if (!Util.isUnset(tmpReq.withFields)) {
+      request.withFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.withFields, "WithFields", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
@@ -21073,6 +21126,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.URIsShrink)) {
       query["URIs"] = request.URIsShrink;
+    }
+
+    if (!Util.isUnset(request.withFieldsShrink)) {
+      query["WithFields"] = request.withFieldsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -25138,12 +25195,18 @@ export default class Client extends OpenApi {
   /**
    * 获取文件元信息
    * 
-   * @param request - GetFileMetaRequest
+   * @param tmpReq - GetFileMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFileMetaResponse
    */
-  async getFileMetaWithOptions(request: GetFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetFileMetaResponse> {
-    Util.validateModel(request);
+  async getFileMetaWithOptions(tmpReq: GetFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetFileMetaResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetFileMetaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.withFields)) {
+      request.withFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.withFields, "WithFields", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.datasetName)) {
       query["DatasetName"] = request.datasetName;
@@ -25155,6 +25218,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.URI)) {
       query["URI"] = request.URI;
+    }
+
+    if (!Util.isUnset(request.withFieldsShrink)) {
+      query["WithFields"] = request.withFieldsShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
