@@ -13459,6 +13459,7 @@ export class GetResultResponseBodyDataResultInfoAsrResultAsrResult extends $tea.
    * 0
    */
   end?: number;
+  identity?: string;
   role?: string;
   /**
    * @example
@@ -13475,6 +13476,7 @@ export class GetResultResponseBodyDataResultInfoAsrResultAsrResult extends $tea.
       begin: 'Begin',
       emotionValue: 'EmotionValue',
       end: 'End',
+      identity: 'Identity',
       role: 'Role',
       speechRate: 'SpeechRate',
       words: 'Words',
@@ -13486,6 +13488,7 @@ export class GetResultResponseBodyDataResultInfoAsrResultAsrResult extends $tea.
       begin: 'number',
       emotionValue: 'number',
       end: 'number',
+      identity: 'string',
       role: 'string',
       speechRate: 'number',
       words: 'string',
