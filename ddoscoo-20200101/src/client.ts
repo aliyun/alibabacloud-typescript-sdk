@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,8 +8,29 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddAutoCcBlacklistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"src":"198.51.XX.XX"},{"src":"198.52.XX.XX"}]
+   */
   blacklist?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 300
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,6 +54,10 @@ export class AddAutoCcBlacklistRequest extends $tea.Model {
 }
 
 export class AddAutoCcBlacklistResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,8 +102,39 @@ export class AddAutoCcBlacklistResponse extends $tea.Model {
 }
 
 export class AddAutoCcWhitelistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * > This parameter indicates the validity period of the IP address blacklist. By default, the traffic from the IP addresses that you add to the whitelist is always allowed. You do not need to set this parameter.
+   * 
+   * @example
+   * 0
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The configuration of the IP addresses that you want to add to the whitelist. The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
+   * 
+   * *   **src**: the IP address that you want to add. This parameter is required. Data type: string.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"src":"192.XX.XX.1"},{"src":"192.XX.XX.2"}]
+   */
   whitelist?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,6 +158,13 @@ export class AddAutoCcWhitelistRequest extends $tea.Model {
 }
 
 export class AddAutoCcWhitelistResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AB5025DA-5C52-5207-B6AC-3F198758B678
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -152,8 +214,19 @@ export class AssociateWebCertRequest extends $tea.Model {
   certIdentifier?: string;
   certName?: string;
   certRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domain?: string;
   key?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -187,6 +260,13 @@ export class AssociateWebCertRequest extends $tea.Model {
 }
 
 export class AssociateWebCertResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 40F11005-A75C-4644-95F2-52A4E7D43E91
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -231,8 +311,37 @@ export class AssociateWebCertResponse extends $tea.Model {
 }
 
 export class AttachSceneDefenseObjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the object. Set the value to **Domain**, which indicates a domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Domain
+   */
   objectType?: string;
+  /**
+   * @remarks
+   * The object that you want to add to the policy. Separate multiple objects with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   objects?: string;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * > You can call the [DescribeSceneDefensePolicies](https://help.aliyun.com/document_detail/159382.html) operation to query the IDs of all policies.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 321a-fd31-df51-****
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -256,7 +365,24 @@ export class AttachSceneDefenseObjectRequest extends $tea.Model {
 }
 
 export class AttachSceneDefenseObjectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F65DF043-E0EB-4796-9467-23DDCDF92C1D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -303,8 +429,43 @@ export class AttachSceneDefenseObjectResponse extends $tea.Model {
 }
 
 export class ConfigDomainSecurityProfileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is unavailable.
+   */
   cluster?: string;
+  /**
+   * @remarks
+   * The configurations for the global mitigation policy feature. The configurations include the following fields:
+   * 
+   * *   **global_rule_mode**: optional. The mode for the global mitigation policy feature. Data type: string. Valid values:
+   * 
+   *     *   **weak**: loose.
+   *     *   **default**: normal.
+   *     *   **hard**: strict.
+   * 
+   * *   **global_rule_enable**: optional. Specifies whether to enable the global mitigation policy feature. Data type: string. Valid values:
+   * 
+   *     *   **0**: disabled.
+   *     *   **1**: enabled.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {\\"global_rule_mode\\":\\"hard\\"}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * live.abcde.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -328,6 +489,13 @@ export class ConfigDomainSecurityProfileRequest extends $tea.Model {
 }
 
 export class ConfigDomainSecurityProfileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9728769F-9466-534E-BE12-CAB29A675828
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -372,9 +540,68 @@ export class ConfigDomainSecurityProfileResponse extends $tea.Model {
 }
 
 export class ConfigL7RsPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query the domain names for which forwarding rules are configured.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The back-to-origin policy. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+   * 
+   * *   **ProxyMode**: The load balancing algorithm for back-to-origin traffic. This field is required and must be a string. Valid values:
+   * 
+   *     *   **ip_hash**: the IP hash algorithm. This algorithm is used to redirect requests from the same IP address to the same origin server.
+   *     *   **rr**: the round-robin algorithm. This algorithm is used to redirect requests to origin servers in turn. If you use this algorithm, you can specify a weight for each server based on server performance.
+   *     *   **least_time**: the least response time algorithm. This algorithm is used to minimize the latency when requests are forwarded from the instance to origin servers based on the intelligent DNS resolution feature.
+   * 
+   * *   **Attributes**: the parameters for back-to-origin processing. This field is optional and must be a JSON array. Each element in the array contains the following fields:
+   * 
+   *     *   **RealServer**: the address of the origin server. This field is optional and must be a string.
+   * 
+   *     *   **Attribute**: the parameter for back-to-origin processing. This field is optional and must be a JSON object. Valid values:
+   * 
+   *         *   **Weight**: the weight of the server. This field is optional and must be an integer. This field takes effect only when **ProxyMode** is set to **rr**. Valid values: **1** to **100**. Default value: **100**. An origin server with a higher weight receives more requests.
+   *         *   **ConnectTimeout**: the timeout period for new connections. This field is optional and must be an integer. Valid values: **1** to **10**. Unit: seconds. Default value: **5**.
+   *         *   **FailTimeout**: the period after which a connection is considered to have failed. This field is optional and must be an integer. Valid values: **1** to **3600**. Unit: seconds. Default value: **10**.
+   *         *   **MaxFails**: the maximum number of failures allowed. This field is related to health checks. This field is optional and must be an integer. Valid values: **1** to **10**. Unit: seconds. Default value: **3**.
+   *         *   **Mode**: the primary/secondary attribute flag. This parameter is optional and must be a string. Valid values: **active** (primary) and **backup** (secondary).
+   *         *   **ReadTimeout**: the read timeout period. This field is optional and must be an integer. Valid values: **10** to **300**. Unit: seconds. Default value: **120**.
+   *         *   **SendTimeout**: the write timeout period. This field is optional and must be an integer. Valid values: **10** to **300**. Unit: seconds. Default value: **120**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"ProxyMode":"rr","Attributes":[{"RealServer":"1.***.***.1","Attribute":{"Weight":100}},{"RealServer":"2.***.***.2","Attribute":{"Weight":100}}]}
+   */
   policy?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The retry switch. Valid values:
+   * 
+   * *   **1**: on
+   * *   **0**: off
+   * 
+   * @example
+   * 1
+   */
   upstreamRetry?: number;
   static names(): { [key: string]: string } {
     return {
@@ -400,6 +627,13 @@ export class ConfigL7RsPolicyRequest extends $tea.Model {
 }
 
 export class ConfigL7RsPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -444,7 +678,29 @@ export class ConfigL7RsPolicyResponse extends $tea.Model {
 }
 
 export class ConfigL7UsKeepaliveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The settings for back-to-origin persistent connections. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+   * 
+   * *   **enabled**: the switch for back-to-origin persistent connections. This field is required, and the value is of the Boolean type.
+   * *   **keepalive_requests**: the number of requests that reuse a persistent connection. This field is required, and the value is of the integer type.
+   * *   **keepalive_timeout**: the timeout period for an idle persistent connection. This field is required, and the value is of the integer type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"enabled": true, "keepalive_requests": 1000,"keepalive_timeout": 30}
+   */
   upstreamKeepalive?: string;
   static names(): { [key: string]: string } {
     return {
@@ -466,6 +722,13 @@ export class ConfigL7UsKeepaliveRequest extends $tea.Model {
 }
 
 export class ConfigL7UsKeepaliveResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6D48AED0-41DB-5D9B-B484-3B6AAD312AD1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -510,7 +773,27 @@ export class ConfigL7UsKeepaliveResponse extends $tea.Model {
 }
 
 export class ConfigLayer4RealLimitRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-XXXXX
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies the threshold of the clean bandwidth. Valid values: 0 to 15360. The value 0 indicates that rate limiting is never triggered. Unit: Mbit/s
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   limitValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -532,6 +815,13 @@ export class ConfigLayer4RealLimitRequest extends $tea.Model {
 }
 
 export class ConfigLayer4RealLimitResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CFCF71BD-680E-5A20-8847-174CEC62E67D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -576,6 +866,26 @@ export class ConfigLayer4RealLimitResponse extends $tea.Model {
 }
 
 export class ConfigLayer4RemarkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The port forwarding rule that you want to manage.
+   * 
+   * This parameter is a string that consists of JSON arrays. Each element in a JSON array indicates a port forwarding rule. You can perform this operation only on one port forwarding rule at a time.
+   * 
+   * > You can call the [DescribeNetworkRules](https://help.aliyun.com/document_detail/157484.html) to query existing port forwarding rules.
+   * 
+   * Each port forwarding rule contains the following fields:
+   * 
+   * *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
+   * *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
+   * *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
+   * *   **Remark**: the remarks of the port forwarding rule. This field is required and must be of the STRING type. The value can contain letters, digits, and some special characters, such as `, . + - * / _`. The value can be up to 200 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{\\"InstanceId\\":\\"ddosDip-sg-4hr2b3l****\\",\\"FrontendPort\\":2020,\\"Protocol\\":\\"udp\\",\\"Remark\\":\\"test\\"}]
+   */
   listeners?: string;
   static names(): { [key: string]: string } {
     return {
@@ -595,6 +905,13 @@ export class ConfigLayer4RemarkRequest extends $tea.Model {
 }
 
 export class ConfigLayer4RemarkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6E46CC51-36BE-1100-B14C-DAF8381B8F73
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -639,7 +956,38 @@ export class ConfigLayer4RemarkResponse extends $tea.Model {
 }
 
 export class ConfigLayer4RuleBakModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The mode that you want to use to forward service traffic. Valid values:
+   * 
+   * *   **0**: the default mode. In this mode, Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the origin IP address that you specified when you created the port forwarding rule. You can call the [CreateNetworkRules](https://help.aliyun.com/document_detail/157482.html) operation to create a port forwarding rule.
+   * *   **1**: the origin redundancy mode. In this mode, Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary or secondary origin servers. You can call the [ConfigLayer4RulePolicy](https://help.aliyun.com/document_detail/312684.html) operation to configure IP addresses.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   bakMode?: string;
+  /**
+   * @remarks
+   * The port forwarding rule that you want to manage.
+   * 
+   * This parameter is a string that consists of JSON arrays. Each element in a JSON array indicates a port forwarding rule. You can perform this operation only on one port forwarding rule at a time.
+   * 
+   * > You can call the [DescribeNetworkRules](https://help.aliyun.com/document_detail/157484.html) to query existing port forwarding rules.
+   * 
+   * Each port forwarding rule contains the following fields:
+   * 
+   * *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
+   * *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
+   * *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{\\"InstanceId\\":\\"ddosDip-sg-4hr2b3l****\\",\\"FrontendPort\\":2020,\\"Protocol\\":\\"udp\\"}]
+   */
   listeners?: string;
   static names(): { [key: string]: string } {
     return {
@@ -661,6 +1009,13 @@ export class ConfigLayer4RuleBakModeRequest extends $tea.Model {
 }
 
 export class ConfigLayer4RuleBakModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CC042262-15A3-4A49-ADF0-130968EA47BC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -705,6 +1060,46 @@ export class ConfigLayer4RuleBakModeResponse extends $tea.Model {
 }
 
 export class ConfigLayer4RulePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The port forwarding rule that you want to manage.
+   * 
+   * This parameter is a string that consists of JSON arrays. Each element in a JSON array indicates a port forwarding rule. You can perform this operation only on one port forwarding rule at a time.
+   * 
+   * > You can call the [DescribeNetworkRules](https://help.aliyun.com/document_detail/157484.html) to query existing port forwarding rules.
+   * 
+   * Each port forwarding rule contains the following fields:
+   * 
+   * *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
+   * 
+   * *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
+   * 
+   * *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
+   * 
+   * *   **BackendPort**: the port of the origin server. This field is required and must be of the INTEGER type.
+   * 
+   * *   **PriRealServers**: the IP addresses of the primary origin server. This field is required and must be a JSON array. Each element in a JSON array indicates an IP address of the primary origin server. You can configure a maximum of 20 IP addresses.
+   * 
+   *     Each element in the JSON array contains the following field:
+   * 
+   *     *   **RealServer**: the IP address of the primary origin server. This field is required and must be of the STRING type.
+   * 
+   * *   **SecRealServers**: the IP addresses of the secondary origin server. This field is required and must be a JSON array. Each element in a JSON array indicates an IP address of the secondary origin server. You can configure a maximum of 20 IP addresses.
+   * 
+   *     Each element in the JSON array contains the following field:
+   * 
+   *     *   **RealServer**: the IP address of the secondary origin server. This field is required and must be of the STRING type.
+   * 
+   * *   **CurrentRsIndex**: the origin server that you want to use to receive service traffic. This field is required and must be of the INTEGER type. Valid values:
+   * 
+   *     *   **1**: the primary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary origin server.
+   *     *   **2**: the secondary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the secondary origin server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{\\"InstanceId\\":\\"ddosDip-sg-4hr2b3l****\\",\\"Protocol\\":\\"udp\\",\\"FrontendPort\\":2020,\\"BackendPort\\":2022,\\"PriRealServers\\":[{\\"RealServer\\":\\"192.0.2.1\\"},{\\"RealServer\\":\\"192.0.2.2\\"}],\\"SecRealServers\\":[{\\"RealServer\\":\\"192.0.2.3\\"},{\\"RealServer\\":\\"192.0.2.4\\"}],\\"CurrentRsIndex\\":1}]
+   */
   listeners?: string;
   static names(): { [key: string]: string } {
     return {
@@ -724,6 +1119,13 @@ export class ConfigLayer4RulePolicyRequest extends $tea.Model {
 }
 
 export class ConfigLayer4RulePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CC042262-15A3-4A49-ADF0-130968EA47BC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -768,7 +1170,46 @@ export class ConfigLayer4RulePolicyResponse extends $tea.Model {
 }
 
 export class ConfigNetworkRegionBlockRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the configurations of blocked locations. This parameter is a JSON string. The value consists of the following fields:
+   * 
+   * *   **RegionBlockSwitch**: the status of the location blacklist feature. This field is required and must be of the string type. Valid values:
+   * 
+   *     *   **on**
+   *     *   **off**
+   * 
+   * *   **Countries**: the codes of the countries and areas from which you want to block requests. This field is optional and must be of the array type.
+   * 
+   *     **
+   * 
+   *     **Note** For more information about the codes of countries and areas, see [Location parameters](https://help.aliyun.com/document_detail/167926.html).
+   * 
+   * *   **Provinces**: the codes of the administrative regions in China from which you want to block requests. This field is optional and must be of the array type.
+   * 
+   *     **
+   * 
+   *     **Note** For more information about the codes of administrative regions in China, see [Location parameters](https://help.aliyun.com/document_detail/167926.html).
+   * 
+   *     For example, `[11,12]` specifies Beijing and Tianjin.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"RegionBlockSwitch":"off","Countries":[],"Provinces":[11,12,13,14,15,21,22,23,31,32,33,34,35,36,37,41,42,43,44,45,46,50,51,52,53,54,61,62,63,64,65,71,81,82]}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -790,6 +1231,13 @@ export class ConfigNetworkRegionBlockRequest extends $tea.Model {
 }
 
 export class ConfigNetworkRegionBlockResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -834,6 +1282,23 @@ export class ConfigNetworkRegionBlockResponse extends $tea.Model {
 }
 
 export class ConfigNetworkRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the port forwarding rule. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
+   * *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
+   * *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
+   * *   **BackendPort**: the port of the origin server. This field is required and must be of the INTEGER type.
+   * *   **RealServers**: the IP addresses of the origin server. This field is required and must be a JSON array. You can specify up to 20 IP addresses.
+   * 
+   * > You can modify only the value of **RealServers** when you modify a port forwarding rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"InstanceId":"ddoscoo-cn-mp91j1ao****","Protocol":"tcp","FrontendPort":8080,"BackendPort":8080,"RealServers":["1.1.1.1","2.2.2.2","3.3.3.3"]}]
+   */
   networkRules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -853,6 +1318,13 @@ export class ConfigNetworkRulesRequest extends $tea.Model {
 }
 
 export class ConfigNetworkRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CC042262-15A3-4A49-ADF0-130968EA47BC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -897,8 +1369,57 @@ export class ConfigNetworkRulesResponse extends $tea.Model {
 }
 
 export class ConfigUdpReflectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the filtering policy for UDP reflection attacks.
+   * 
+   * The value is a string that consists of a JSON struct. The JSON struct contains the following field:
+   * 
+   * *   **UdpSports**: the source ports of the UDP traffic that you want to block. This field is required and must be of the ARRAY type. Example: `[17,19]`.
+   * 
+   *     We recommend that you block the following source ports of UDP traffic:
+   * 
+   *     *   UDP 17: QOTD reflection attacks
+   *     *   UDP 19: CharGEN reflection attacks
+   *     *   UDP 69: TFTP reflection attacks
+   *     *   UDP 111: Portmap reflection attacks
+   *     *   UDP 123: NTP reflection attacks
+   *     *   UDP 137: NetBIOS reflection attacks
+   *     *   UDP 161: SNMPv2 reflection attacks
+   *     *   UDP 389: CLDAP reflection attacks
+   *     *   UDP 1194: OpenVPN reflection attacks
+   *     *   UDP 1900: SSDP reflection attacks
+   *     *   UDP 3389: RDP reflection attacks
+   *     *   UDP 11211: memcached reflection attacks
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {\\"UdpSports\\":[17,19]}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-i7m25564****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the Anti-DDoS Proxy instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: indicates an Anti-DDoS Proxy (Chinese Mainland) instance. This is the default value.
+   * *   **ap-southeast-1**: indicates an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -922,6 +1443,13 @@ export class ConfigUdpReflectRequest extends $tea.Model {
 }
 
 export class ConfigUdpReflectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9EC62E89-BD30-4FCD-9CB8-FA53865FF0D7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -966,8 +1494,85 @@ export class ConfigUdpReflectResponse extends $tea.Model {
 }
 
 export class ConfigWebCCRuleV2Request extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   domain?: string;
+  /**
+   * @example
+   * 600
+   */
   expires?: number;
+  /**
+   * @remarks
+   * The frequency control rule. This parameter is a JSON string that contains the following fields:
+   * 
+   * *   **action**: the action that is performed if the rule is matched. This field is required and must be of the string type. Valid values:
+   * 
+   *     *   **block**: The requests that match the rule are blocked.
+   *     *   **challenge**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
+   *     *   **watch**: The requests that match the rule are recorded in logs and allowed.
+   * 
+   * *   **name**: the name of the rule. This field is required and must be of the string type.
+   * 
+   * *   **condition**: the match conditions. This field is required and must be of the map type. This field contains the following parameters:
+   * 
+   *     **
+   * 
+   *     **Note** The AND logical operator is used to evaluate multiple match conditions.
+   * 
+   *     *   **field**: the match field. This field is required and must be of the string type.
+   * 
+   *     *   **match_method**: the logical relation. This field is required and must be of the string type.
+   * 
+   *         **
+   * 
+   *         **Note** For information about the mappings between the **field** and **match_method** parameters, see the "Mappings between the field and match_method parameters" section of this topic.
+   * 
+   *     *   **header_name**: the name of the custom HTTP header. This field is optional and must be of the string type.
+   * 
+   *         **
+   * 
+   *         **Note** This field is required only when **field** is set to **header**.
+   * 
+   *     *   **content**: the match content. This field is required and must be of the string type.
+   * 
+   * *   **ratelimit**: the frequency control field. This field is optional and must be of the string type. The frequency can be measured based on IP addresses or custom headers. This field contains the following parameters:
+   * 
+   *     *   **interval**: the statistical duration. Unit: seconds. This field is required and must be of the integer type.
+   *     *   **ttl**: the period during which the specified action is performed. Unit: seconds. This field is required and must be of the integer type.
+   *     *   **threshold**: the threshold. This field is required and must be of the integer type.
+   *     *   **subkey**: the name of the field. This field is optional and must be of the string type. This field is required only when target is set to header.
+   *     *   **target**: the statistical source. This field is required and must be of the string type. Valid values: ip and header.
+   * 
+   * *   **status_code**: the frequency control field. This field is optional and must be of the string type. Frequency control can be performed based on the quantity or percentage of status codes. This field contains the following parameters:
+   * 
+   *     *   **enabled**: specifies whether to enable status code statistics. This field is required and must be of the Boolean type.
+   *     *   **code**: the status code. This field is required and must be of the integer type. Valid values: **100** to **599**.
+   *     *   **use_ratio**: specifies whether to use a ratio. This field is required and must be of the Boolean type. To use a ratio, set this field to true.
+   *     *   **ratio_threshold**: the ratio of the status code. This field is optional and must be of the integer type. If a ratio is used, the action specified in the rule is performed only when the ratio of the status code reaches **ratio_threshold**. Valid values: **1** to **100**.
+   *     *   **count_threshold**: the quantity of the status code. This field is optional and must be of the integer type. If a ratio is not used, the action specified in the rule is performed only when the quantity of the status code reaches **count_threshold**. Valid values: **2** to **50000**.
+   * 
+   * *   **statistics**: specifies whether deduplication is used for statistics. This field is optional and must be of the string type. By default, deduplication is not used for statistics. This field contains the following parameters:
+   * 
+   *     *   **mode**: specifies whether deduplication is used for status code statistics. This field is required and must be of the string type. Valid values:
+   * 
+   *         *   **count**: Deduplication is not used for statistics.
+   *         *   **distinct**: Deduplication is used for statistics.
+   * 
+   *     *   **field**: the statistical source. This field is required and must be of the string type. Valid values: ip, header, and uri.
+   * 
+   *     *   **header_name**: the name of the header. This field is optional and must be of the string type. This field is required only when field is set to header.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"action":"block","name":"trdsss","ratelimit":{"interval":60,"ttl":300,"threshold":70,"target":"ip"},"condition":[{"field":"ip","match_method":"belong","content":"1.1.1.1"}]}]
+   */
   ruleList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -991,6 +1596,10 @@ export class ConfigWebCCRuleV2Request extends $tea.Model {
 }
 
 export class ConfigWebCCRuleV2ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1035,8 +1644,40 @@ export class ConfigWebCCRuleV2Response extends $tea.Model {
 }
 
 export class ConfigWebCCTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The mode of the Frequency Control policy. Valid values:
+   * 
+   * *   **default**: Normal
+   * *   **gf_under_attack**: Emergency
+   * *   **gf_sos_verify**: Strict
+   * *   **gf_sos_enhance**: Super Strict
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   template?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1060,6 +1701,13 @@ export class ConfigWebCCTemplateRequest extends $tea.Model {
 }
 
 export class ConfigWebCCTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1104,9 +1752,41 @@ export class ConfigWebCCTemplateResponse extends $tea.Model {
 }
 
 export class ConfigWebIpSetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP addresses and CIDR blocks in the blacklist. You can add up to 200 IP addresses or CIDR blocks to the blacklist.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   blackList?: string[];
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The IP addresses and CIDR blocks in the whitelist. You can add up to 200 IP addresses or CIDR blocks to the whitelist.
+   * 
+   * @example
+   * 2.2.2.2/24
+   */
   whiteList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1132,6 +1812,13 @@ export class ConfigWebIpSetRequest extends $tea.Model {
 }
 
 export class ConfigWebIpSetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1176,8 +1863,48 @@ export class ConfigWebIpSetResponse extends $tea.Model {
 }
 
 export class CreateAsyncTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The details of the asynchronous export task. The value is a JSON string. The field in the value varies with **TaskType**.
+   * 
+   * If **TaskType** is set to **1**, **3**, **4**, **5**, or **6**, the following filed is returned:
+   * 
+   * *   **instanceId**: the ID of the instance. This field is required and must be of the STRING type.
+   * 
+   * If **TaskType** is set to **2**, the following field is returned:
+   * 
+   * *   **domain**: the domain name of the website, which must be of the STRING type. If you do not specify this field, the forwarding rules of all websites are exported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"instanceId": "ddoscoo-cn-mp91j1ao****"}
+   */
   taskParams?: string;
+  /**
+   * @remarks
+   * The type of the asynchronous export task that you want to create. Valid values:
+   * 
+   * *   **1**: the task to export the port forwarding rules of an instance
+   * *   **2**: the task to export the forwarding rules of a website protected by an instance
+   * *   **3**: the task to export the session persistence and health check settings of an instance
+   * *   **4**: the task to export the anti-DDoS mitigation policies of an instance
+   * *   **5**: the task to download the blacklist for destination IP addresses of an instance
+   * *   **6**: the task to download the whitelist for destination IP addresses of an instance
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   taskType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1201,6 +1928,13 @@ export class CreateAsyncTaskRequest extends $tea.Model {
 }
 
 export class CreateAsyncTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1245,11 +1979,72 @@ export class CreateAsyncTaskResponse extends $tea.Model {
 }
 
 export class CreateDomainResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website that you want to add to the Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The advanced HTTPS settings. This parameter takes effect only when the value of the **ProxyType** parameter includes **https**. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+   * 
+   * *   **Http2https**: specifies whether to turn on Enforce HTTPS Routing. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enforce HTTPS Routing is turned off. The value 1 indicates that Enforce HTTPS Routing is turned on. The default value is 0.
+   * 
+   *     If your website supports both HTTP and HTTPS, this feature meets your business requirements. If you enable this feature, all HTTP requests to access the website are redirected to HTTPS requests on the standard port 443.
+   * 
+   * *   **Https2http**: specifies whether to turn on Enable HTTP. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP is turned off. The value 1 indicates that Enable HTTP is turned on. The default value is 0.
+   * 
+   *     If your website does not support HTTPS, this feature meets your business requirements If this feature is enabled, all HTTPS requests are redirected to HTTP requests and forwarded to origin servers. This feature can redirect WebSockets requests to WebSocket requests. Requests are redirected over the standard port 80.
+   * 
+   * *   **Http2**: specifies whether to turn on Enable HTTP/2. This field is optional. Data type: integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP/2 is turned off. The value 1 indicates that Enable HTTP/2 is turned on. The default value is 0.
+   * 
+   *     After you turn on the switch, HTTP/2 is used.
+   * 
+   * @example
+   * {"Http2":1,"Http2https":1,"Https2http":1}
+   */
   httpsExt?: string;
+  /**
+   * @remarks
+   * An array consisting of the IDs of instances that you want to associate.
+   * 
+   * This parameter is required.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The details about the protocol type and port number.
+   * 
+   * This parameter is required.
+   */
   proxyTypes?: CreateDomainResourceRequestProxyTypes[];
+  /**
+   * @remarks
+   * An array that consists of the addresses of origin servers.
+   * 
+   * This parameter is required.
+   */
   realServers?: string[];
+  /**
+   * @remarks
+   * The address type of the origin server. Valid values:
+   * 
+   * *   **0**: IP address
+   * 
+   * *   **1**: domain name
+   * 
+   *     This parameter is suitable for scenarios where another proxy service, such as Web Application Firewall (WAF), is deployed between the origin server and Anti-DDoS Pro or Anti-DDoS Premium. The address is the jump address of the proxy service, such as the CNAME address of WAF.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   rsType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1279,6 +2074,13 @@ export class CreateDomainResourceRequest extends $tea.Model {
 }
 
 export class CreateDomainResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1323,6 +2125,21 @@ export class CreateDomainResourceResponse extends $tea.Model {
 }
 
 export class CreateNetworkRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the port forwarding rule. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
+   * *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
+   * *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
+   * *   **BackendPort**: the port of the origin server. This field is required and must be of the INTEGER type.
+   * *   **RealServers**: the IP addresses of the origin server. This field is required and must be a JSON array. You can specify up to 20 IP addresses.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"InstanceId":"ddoscoo-cn-mp91j1ao****","Protocol":"tcp","FrontendPort":8080,"BackendPort":8080,"RealServers":["1.1.1.1","2.2.2.2"]}]
+   */
   networkRules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1342,6 +2159,13 @@ export class CreateNetworkRulesRequest extends $tea.Model {
 }
 
 export class CreateNetworkRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ADCA45A5-D15C-4B7D-9F81-138B0B36D0BD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1386,10 +2210,55 @@ export class CreateNetworkRulesResponse extends $tea.Model {
 }
 
 export class CreatePortRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The port of the origin server. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 55
+   */
   backendPort?: string;
+  /**
+   * @remarks
+   * The forwarding port. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 55
+   */
   frontendPort?: string;
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tcp
+   */
   frontendProtocol?: string;
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance to which the port forwarding rule belongs.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-st21zbyq****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * An array that consists of the IP addresses of origin servers.
+   * 
+   * This parameter is required.
+   */
   realServers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1417,6 +2286,13 @@ export class CreatePortRequest extends $tea.Model {
 }
 
 export class CreatePortResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 4787A9A6-8230-4B4A-8211-AFBF7C416B4D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1461,9 +2337,48 @@ export class CreatePortResponse extends $tea.Model {
 }
 
 export class CreateSceneDefensePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end time of the policy. This value is a UNIX timestamp. Units: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1586016000000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testpolicy
+   */
   name?: string;
+  /**
+   * @remarks
+   * The start time of the policy. This value is a UNIX timestamp. Units: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1585670400000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The template of the policy. Valid values:
+   * 
+   * *   **promotion**: important activity
+   * *   **bypass**: all traffic forwarded
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * promotion
+   */
   template?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1489,7 +2404,24 @@ export class CreateSceneDefensePolicyRequest extends $tea.Model {
 }
 
 export class CreateSceneDefensePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F65DF043-E0EB-4796-9467-23DDCDF92C1D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1536,10 +2468,85 @@ export class CreateSceneDefensePolicyResponse extends $tea.Model {
 }
 
 export class CreateSchedulerRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the CDN interaction rule. This parameter is a JSON string. The following list describes the fields in the value of the parameter:
+   * 
+   * *   **ParamType**: the type of the scheduling rule. This field is required and must be of the string type. Set the value to **cdn**. This indicates that you want to modify a CDN interaction rule.
+   * 
+   * *   **ParamData**: the values of parameters that you want to modify for the CDN interaction rule. This field is required and must be of the map type. ParamData contains the following parameters:
+   * 
+   *     *   **Domain**: the accelerated domain in CDN. This parameter is required and must be of the string type.
+   *     *   **Cname**: the CNAME that is assigned to the accelerated domain. This parameter is required and must be of the string type.
+   *     *   **AccessQps**: the queries per second (QPS) threshold that is used to switch service traffic to Anti-DDoS Pro or Anti-DDoS Premium. This parameter is required and must be of the integer type.
+   *     *   **UpstreamQps**: the QPS threshold that is used to switch service traffic to CDN. This parameter is optional and must be of the integer type.
+   * 
+   * @example
+   * {"ParamType":"cdn","ParamData":{"Domain":"example.aliyundoc.com","Cname":"demo.aliyundoc.com","AccessQps":100,"UpstreamQps":100}}
+   */
   param?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testrule
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * *   **2**: tiered protection
+   * *   **3**: network acceleration
+   * *   **5**: Alibaba Cloud CDN (CDN) interaction
+   * *   **6**: cloud service interaction
+   * *   **8**: secure acceleration
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   ruleType?: number;
+  /**
+   * @remarks
+   * The details of the scheduling rule. This parameter is a JSON string. The following list describes the fields in the value of the parameter:
+   * 
+   * *   **Type**: the address type of the interaction resource that you want to use in the scheduling rule. This field is required and must be of the string type. Valid values:
+   * 
+   *     *   **A**: IP address
+   *     *   **CNAME**: domain name
+   * 
+   * *   **Value**: the address of the interaction resource that you want to use in the scheduling rule. This field is required and must be of the string type.
+   * 
+   * *   **Priority**: the priority of the scheduling rule. This field is required and must be of the integer type. Valid values: **0** to **100**. A larger value indicates a higher priority.
+   * 
+   * *   **ValueType**: the type of the interaction resource that you want to use in the scheduling rule. This field is required and must be of the integer type. Valid values:
+   * 
+   *     *   **1**: the IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance
+   *     *   **2**: the IP address of the interaction resource in the tiered protection scenario
+   *     *   **3**: the IP address that is used to accelerate access in the network acceleration scenario
+   *     *   **5**: the domain name that is configured in Alibaba Cloud CDN (CDN) in the CDN interaction scenario
+   *     *   **6** the IP address of the interaction resource in the cloud service interaction scenario
+   * 
+   * *   **RegionId**: the region where the interaction resource is deployed. This parameter must be specified when **ValueType** is set to **2**. The value must be of the string type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"Type":"A", "Value":"1.1.XX.XX", "Priority":80,"ValueType":2, "RegionId":"cn-hangzhou" },{"Type":"A", "Value":"203.199.XX.XX", "Priority":80,"ValueType":1}]
+   */
   rules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1567,8 +2574,31 @@ export class CreateSchedulerRuleRequest extends $tea.Model {
 }
 
 export class CreateSchedulerRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The CNAME that is assigned by Sec-Traffic Manager for the scheduling rule.
+   * 
+   * > To enable the scheduling rule, you must map the domain name of the service to the CNAME.
+   * 
+   * @example
+   * 48k7b372gpl4****.aliyunddos0001.com
+   */
   cname?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 8DFB602D-1AAC-46C4-90F2-C84086E7A6E4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * testrule
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1617,10 +2647,50 @@ export class CreateSchedulerRuleResponse extends $tea.Model {
 }
 
 export class CreateTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not specify this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the Anti-DDoS Proxy (Chinese Mainland) instances to which you want to add the tag.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the resource to which the tag belongs. Set the value to **INSTANCE**, which indicates an Anti-DDoS Pro instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * An array that consists of the tags to add.
+   */
   tags?: CreateTagResourcesRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -1648,6 +2718,13 @@ export class CreateTagResourcesRequest extends $tea.Model {
 }
 
 export class CreateTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1692,14 +2769,103 @@ export class CreateTagResourcesResponse extends $tea.Model {
 }
 
 export class CreateWebCCRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The action on the requests that trigger the custom frequency control rule. Valid values:
+   * 
+   * *   **close**: blocks the requests.
+   * *   **captcha**: triggers Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * close
+   */
   act?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
   count?: number;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The matching mode. Valid values:
+   * 
+   * *   **prefix**: prefix match.
+   * *   **match**: exact match.
+   * 
+   * >  If the **URI** of the check path contains parameters, you must set this parameter to **prefix**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * prefix
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The name of the rule. The name can be up to 128 characters in length and contain letters, digits, and underscores (_).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testrule
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the Anti-DDoS Proxy instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The blocking duration. Valid values: **60** to **86400**. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
   ttl?: number;
+  /**
+   * @remarks
+   * The check path.
+   * 
+   * >  The URI cannot be modified. The domain name of the website, the check path, and the rule name uniquely identify a rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /abc/a.php
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1735,6 +2901,13 @@ export class CreateWebCCRuleRequest extends $tea.Model {
 }
 
 export class CreateWebCCRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1779,12 +2952,97 @@ export class CreateWebCCRuleResponse extends $tea.Model {
 }
 
 export class CreateWebRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the associated defense. This parameter applies to scenarios in which other cloud services, such as Object Storage Service (OSS), are integrated with Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * > This parameter is in internal preview. Do not use this parameter.
+   * 
+   * For example, if you integrate OSS with Anti-DDoS Pro or Anti-DDoS Premium, Anti-DDoS Pro or Anti-DDoS Premium allocates an IP address pool for the OSS production account. Each IP address corresponds to a unique defense ID. A defense ID is a CNAME, which is automatically resolved to the IP address of the required Anti-DDoS Pro or Anti-DDoS Premium instance. A defense ID can be resolved to the same IP address to facilitate scheduling.
+   * 
+   * > You can specify only one of the following parameters: **InstanceIds** and **DefenseId**.
+   * 
+   * @example
+   * testid
+   */
   defenseId?: string;
+  /**
+   * @remarks
+   * The domain name of the website that you want to add to the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The advanced HTTPS settings. This parameter takes effect only when the value of the **ProxyType** parameter includes **https**. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+   * 
+   * *   **Http2https**: specifies whether to turn on Enforce HTTPS Routing. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enforce HTTPS Routing is turned off. The value 1 indicates that Enforce HTTPS Routing is turned on. The default value is 0.
+   * 
+   *     If your website supports both HTTP and HTTPS, this feature meets your business requirements. If you enable this feature, all HTTP requests to access the website are redirected to HTTPS requests on the standard port 443.
+   * 
+   * *   **Https2http**: specifies whether to turn on Enable HTTP. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP is turned off. The value 1 indicates that Enable HTTP is turned on. The default value is 0.
+   * 
+   *     If your website does not support HTTPS, this feature meets your business requirements If this feature is enabled, all HTTPS requests are redirected to HTTP requests and forwarded to origin servers. This feature can redirect WebSockets requests to WebSocket requests. Requests are redirected over the standard port 80.
+   * 
+   * *   **Http2**: specifies whether to turn on Enable HTTP/2. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP/2 is turned off. The value 1 indicates that Enable HTTP/2 is turned on. The default value is 0.
+   * 
+   *     After you turn on Enable HTTP/2, the protocol type is HTTP/2.
+   * 
+   * @example
+   * {"Http2":1,"Http2https":1,"Https2http":1}
+   */
   httpsExt?: string;
+  /**
+   * @remarks
+   * An array consisting of the IDs of instances that you want to associate.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The address type of the origin server. Valid values:
+   * 
+   * *   **0**: IP address
+   * *   **1**: domain name The domain name of the origin server is returned if you deploy proxies, such as Web Application Firewall (WAF), between the origin server and the instance. In this case, the address of the proxy, such as the CNAME provided by WAF, is returned.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   rsType?: number;
+  /**
+   * @remarks
+   * The details of the forwarding rule. The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
+   * 
+   * *   **ProxyRules**: the information about the origin server. The information includes the port number and IP address. This field is required and must be a JSON array. Each element in a JSON array is a JSON struct that contains the following fields:
+   * 
+   *     *   **ProxyPort**: the port number. This field is required and must be an integer.
+   *     *   **RealServers**: the IP address. This field is required and must be a string array.
+   * 
+   * *   **ProxyType**: the protocol type. This field is required and must be a string. Valid values: **http**, **https**, **websocket**, and **websockets**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"ProxyRules":[{"ProxyPort":443,"RealServers":["192.1.XX.XX"]}],"ProxyType":"https"}]
+   */
   rules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1816,6 +3074,13 @@ export class CreateWebRuleRequest extends $tea.Model {
 }
 
 export class CreateWebRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 9EC62E89-BD30-4FCD-9CB8-FA53865FF0D7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1860,7 +3125,25 @@ export class CreateWebRuleResponse extends $tea.Model {
 }
 
 export class DeleteAsyncTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the task that you want to delete.
+   * 
+   * >  You can call the [DescribeAsyncTasks](~~DescribeAsyncTasks~~) operation to query the IDs of all asynchronous export tasks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1882,6 +3165,13 @@ export class DeleteAsyncTaskRequest extends $tea.Model {
 }
 
 export class DeleteAsyncTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1926,7 +3216,29 @@ export class DeleteAsyncTaskResponse extends $tea.Model {
 }
 
 export class DeleteAutoCcBlacklistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP addresses that you want to manage. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **src**: the IP address. This field is required and must be of the STRING type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"src":"198.51.XX.XX"},{"src":"198.52.XX.XX"}]
+   */
   blacklist?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1948,6 +3260,13 @@ export class DeleteAutoCcBlacklistRequest extends $tea.Model {
 }
 
 export class DeleteAutoCcBlacklistResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1992,7 +3311,29 @@ export class DeleteAutoCcBlacklistResponse extends $tea.Model {
 }
 
 export class DeleteAutoCcWhitelistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP addresses that you want to manage. This parameter is a JSON string. This parameter is a JSON string. The string contains the following field:
+   * 
+   * *   **src**: the IP address. This field is required and must be of the string type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"src":"1.1.1.1"},{"src":"2.2.2.2"}]
+   */
   whitelist?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2014,6 +3355,13 @@ export class DeleteAutoCcWhitelistRequest extends $tea.Model {
 }
 
 export class DeleteAutoCcWhitelistResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2058,6 +3406,15 @@ export class DeleteAutoCcWhitelistResponse extends $tea.Model {
 }
 
 export class DeleteDomainResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name for which the forwarding rule is configured.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2077,6 +3434,13 @@ export class DeleteDomainResourceRequest extends $tea.Model {
 }
 
 export class DeleteDomainResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2121,6 +3485,19 @@ export class DeleteDomainResourceResponse extends $tea.Model {
 }
 
 export class DeleteNetworkRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the information about the port forwarding rule. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
+   * *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
+   * *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"InstanceId":"ddoscoo-cn-mp91j1ao****","Protocol":"tcp","FrontendPort":8080}]
+   */
   networkRule?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2140,6 +3517,13 @@ export class DeleteNetworkRuleRequest extends $tea.Model {
 }
 
 export class DeleteNetworkRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 49AD2F34-694A-4024-9B0E-DDCFC59CCC13
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2184,10 +3568,53 @@ export class DeleteNetworkRuleResponse extends $tea.Model {
 }
 
 export class DeletePortRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The port of the origin server. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 55
+   */
   backendPort?: string;
+  /**
+   * @remarks
+   * The forwarding port. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 55
+   */
   frontendPort?: string;
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tcp
+   */
   frontendProtocol?: string;
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance to which the port forwarding rule belongs.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-st21zbyq****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * An array that consists of the IP addresses of origin servers.
+   */
   realServers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2215,6 +3642,13 @@ export class DeletePortRequest extends $tea.Model {
 }
 
 export class DeletePortResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2259,6 +3693,17 @@ export class DeletePortResponse extends $tea.Model {
 }
 
 export class DeleteSceneDefensePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the policy that you want to delete.
+   * 
+   * > You can call the [DescribeSceneDefensePolicies](https://help.aliyun.com/document_detail/159382.html) operation to query the IDs of all policies.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 321a-fd31-df51-****
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2278,7 +3723,24 @@ export class DeleteSceneDefensePolicyRequest extends $tea.Model {
 }
 
 export class DeleteSceneDefensePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F65DF043-E0EB-4796-9467-23DDCDF92C1D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2325,7 +3787,23 @@ export class DeleteSceneDefensePolicyResponse extends $tea.Model {
 }
 
 export class DeleteSchedulerRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the scheduling rule that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testrule
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2347,6 +3825,13 @@ export class DeleteSchedulerRuleRequest extends $tea.Model {
 }
 
 export class DeleteSchedulerRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2391,11 +3876,64 @@ export class DeleteSchedulerRuleResponse extends $tea.Model {
 }
 
 export class DeleteTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags from the specified resource. Valid values:
+   * 
+   * *   **true**: yes.
+   * *   **false** no. This is the default value.
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * An array consisting of the IDs of instances from which you want to remove tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the resource to which the tag belongs. Set the value to **INSTANCE**, which indicates an Anti-DDoS Pro instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * An array consisting of the keys of the tags that you want to remove.
+   * 
+   * @example
+   * testkey
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2425,6 +3963,13 @@ export class DeleteTagResourcesRequest extends $tea.Model {
 }
 
 export class DeleteTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2469,8 +4014,35 @@ export class DeleteTagResourcesResponse extends $tea.Model {
 }
 
 export class DeleteWebCCRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The name of the custom frequency control rule that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * wq
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2494,6 +4066,13 @@ export class DeleteWebCCRuleRequest extends $tea.Model {
 }
 
 export class DeleteWebCCRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2538,8 +4117,36 @@ export class DeleteWebCCRuleResponse extends $tea.Model {
 }
 
 export class DeleteWebCCRuleV2Request extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The source of the rule. Valid values:
+   * 
+   * *   **manual** (default): manually created.
+   * *   **clover**: automatically created. Specify this value when you want to delete intelligent protection rules.
+   * 
+   * @example
+   * manual
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The names of the rules that you want to delete.
+   * 
+   * @example
+   * [\\"trdsss\\"]
+   */
   ruleNames?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2563,6 +4170,13 @@ export class DeleteWebCCRuleV2Request extends $tea.Model {
 }
 
 export class DeleteWebCCRuleV2ResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6D48AED0-41DB-5D9B-B484-3B6AAD312AD1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2607,8 +4221,37 @@ export class DeleteWebCCRuleV2Response extends $tea.Model {
 }
 
 export class DeleteWebCacheCustomRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name for which you want to delete the custom rules of the Static Page Caching policy.
+   * 
+   * > You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * An array consisting of the names of the rules that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   ruleNames?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2632,6 +4275,13 @@ export class DeleteWebCacheCustomRuleRequest extends $tea.Model {
 }
 
 export class DeleteWebCacheCustomRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2676,8 +4326,35 @@ export class DeleteWebCacheCustomRuleResponse extends $tea.Model {
 }
 
 export class DeleteWebPreciseAccessRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * An array that consists of the names of rules to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testrule
+   */
   ruleNames?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2701,6 +4378,13 @@ export class DeleteWebPreciseAccessRuleRequest extends $tea.Model {
 }
 
 export class DeleteWebPreciseAccessRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2745,7 +4429,27 @@ export class DeleteWebPreciseAccessRuleResponse extends $tea.Model {
 }
 
 export class DeleteWebRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website from which you want to delete the forwarding rule.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query the domain names for which forwarding rules are configured.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2767,6 +4471,13 @@ export class DeleteWebRuleRequest extends $tea.Model {
 }
 
 export class DeleteWebRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 9EC62E89-BD30-4FCD-9CB8-FA53865FF0D7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2811,8 +4522,35 @@ export class DeleteWebRuleResponse extends $tea.Model {
 }
 
 export class DescribeAsyncTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2836,8 +4574,26 @@ export class DescribeAsyncTasksRequest extends $tea.Model {
 }
 
 export class DescribeAsyncTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the details of the asynchronous export tasks.
+   */
   asyncTasks?: DescribeAsyncTasksResponseBodyAsyncTasks[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of asynchronous export tasks that are returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2886,7 +4642,25 @@ export class DescribeAsyncTasksResponse extends $tea.Model {
 }
 
 export class DescribeAttackAnalysisMaxQpsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1619798400
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1622476799
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2908,7 +4682,21 @@ export class DescribeAttackAnalysisMaxQpsRequest extends $tea.Model {
 }
 
 export class DescribeAttackAnalysisMaxQpsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The peak queries per second (QPS) of DDoS attacks. Units: QPS.
+   * 
+   * @example
+   * 41652
+   */
   qps?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8DFB602D-1AAC-46C4-90F2-C84086E7A6E4
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2955,9 +4743,47 @@ export class DescribeAttackAnalysisMaxQpsResponse extends $tea.Model {
 }
 
 export class DescribeAutoCcBlacklistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The keyword for the query. This keyword is used to specify the prefix of the source IP address that you want to query.
+   * 
+   * > The keyword must be greater than three characters in length.
+   * 
+   * @example
+   * 138
+   */
   keyWord?: string;
+  /**
+   * @remarks
+   * The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2983,8 +4809,26 @@ export class DescribeAutoCcBlacklistRequest extends $tea.Model {
 }
 
 export class DescribeAutoCcBlacklistResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the details of the IP addresses in the blacklist of the instance.
+   */
   autoCcBlacklist?: DescribeAutoCcBlacklistResponseBodyAutoCcBlacklist[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * E78C8472-0B15-42D5-AF22-A32A78818AB2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned IP addresses in the blacklist.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3033,7 +4877,28 @@ export class DescribeAutoCcBlacklistResponse extends $tea.Model {
 }
 
 export class DescribeAutoCcListCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the **DescribeInstanceIds** operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The mode of how an IP address is added to the whitelist or blacklist. Valid values:
+   * 
+   * *   **manual**: manually added
+   * *   **auto**: automatically added
+   * 
+   * @example
+   * manual
+   */
   queryType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3055,8 +4920,29 @@ export class DescribeAutoCcListCountRequest extends $tea.Model {
 }
 
 export class DescribeAutoCcListCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of IP addresses in the blacklist.
+   * 
+   * @example
+   * 0
+   */
   blackCount?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5AC3785F-C789-4622-87A4-F58BE7F6B184
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of IP addresses in the whitelist.
+   * 
+   * @example
+   * 2
+   */
   whiteCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3105,9 +4991,47 @@ export class DescribeAutoCcListCountResponse extends $tea.Model {
 }
 
 export class DescribeAutoCcWhitelistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The keyword for the query. This keyword is used to specify the prefix of the source IP address that you want to query.
+   * 
+   * > The keyword must be greater than three characters in length.
+   * 
+   * @example
+   * 138
+   */
   keyWord?: string;
+  /**
+   * @remarks
+   * The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3133,8 +5057,26 @@ export class DescribeAutoCcWhitelistRequest extends $tea.Model {
 }
 
 export class DescribeAutoCcWhitelistResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of details of the IP address in the whitelist of the instance.
+   */
   autoCcWhitelist?: DescribeAutoCcWhitelistResponseBodyAutoCcWhitelist[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F09D085E-5E0F-4FF2-B32E-F4A644049162
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned IP addresses in the whitelist.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3183,8 +5125,32 @@ export class DescribeAutoCcWhitelistResponse extends $tea.Model {
 }
 
 export class DescribeBackSourceCidrRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP version of the back-to-origin CIDR block.
+   * 
+   * *   **Ipv4**
+   * *   **Ipv6**
+   * 
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
+  /**
+   * @remarks
+   * The Internet service provider (ISP) line that you want to query.
+   * 
+   * @example
+   * coop-line-001
+   */
   line?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3208,7 +5174,18 @@ export class DescribeBackSourceCidrRequest extends $tea.Model {
 }
 
 export class DescribeBackSourceCidrResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the back-to-origin CIDR blocks of the instance.
+   */
   cidrs?: string[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3255,6 +5232,17 @@ export class DescribeBackSourceCidrResponse extends $tea.Model {
 }
 
 export class DescribeBlackholeStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -3274,7 +5262,18 @@ export class DescribeBlackholeStatusRequest extends $tea.Model {
 }
 
 export class DescribeBlackholeStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the blackhole filtering status of the instance.
+   */
   blackholeStatus?: DescribeBlackholeStatusResponseBodyBlackholeStatus[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3321,7 +5320,27 @@ export class DescribeBlackholeStatusResponse extends $tea.Model {
 }
 
 export class DescribeBlockStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array consisting of information about the IDs of the instances that you want to query.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3343,7 +5362,18 @@ export class DescribeBlockStatusRequest extends $tea.Model {
 }
 
 export class DescribeBlockStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array that consists of details of the Diversion from Origin Server configurations of the instance.
+   */
   statusList?: DescribeBlockStatusResponseBodyStatusList[];
   static names(): { [key: string]: string } {
     return {
@@ -3390,7 +5420,23 @@ export class DescribeBlockStatusResponse extends $tea.Model {
 }
 
 export class DescribeCertsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3412,7 +5458,18 @@ export class DescribeCertsRequest extends $tea.Model {
 }
 
 export class DescribeCertsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate information about the website.
+   */
   certs?: DescribeCertsResponseBodyCerts[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3459,7 +5516,18 @@ export class DescribeCertsResponse extends $tea.Model {
 }
 
 export class DescribeCnameReusesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domains?: string[];
+  /**
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3482,6 +5550,10 @@ export class DescribeCnameReusesRequest extends $tea.Model {
 
 export class DescribeCnameReusesResponseBody extends $tea.Model {
   cnameReuses?: DescribeCnameReusesResponseBodyCnameReuses[];
+  /**
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3528,11 +5600,67 @@ export class DescribeCnameReusesResponse extends $tea.Model {
 }
 
 export class DescribeDDoSEventsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3562,8 +5690,26 @@ export class DescribeDDoSEventsRequest extends $tea.Model {
 }
 
 export class DescribeDDoSEventsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The DDoS attack events.
+   */
   DDoSEvents?: DescribeDDoSEventsResponseBodyDDoSEvents[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0CA72AF5-1795-4350-8C77-50A448A2F334
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned attack events.
+   * 
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3612,10 +5758,62 @@ export class DescribeDDoSEventsResponse extends $tea.Model {
 }
 
 export class DescribeDDosAllEventListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The DDoS attack events occur before **EndTime** are queried. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1640966399
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The type of the DDoS attack events you want to query. Valid values:
+   * 
+   * *   **web-cc**: resource exhaustion attacks
+   * *   **cc**: connection flood attacks
+   * *   **defense**: DDoS attacks that trigger traffic scrubbing
+   * *   **blackhole**: DDoS attacks that trigger blackhole filtering
+   * 
+   * If you want to query multiple types of DDoS attack events, separate them with commas (,).
+   * 
+   * If you do not configure this parameter, DDoS attack events of all types are queried.
+   * 
+   * @example
+   * defense
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The DDoS attack events occur after **StartTime** are queried. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1609430400
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3643,8 +5841,26 @@ export class DescribeDDosAllEventListRequest extends $tea.Model {
 }
 
 export class DescribeDDosAllEventListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of attack events.
+   */
   attackEvents?: DescribeDDosAllEventListResponseBodyAttackEvents[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 25D83ED5-28CB-5683-9CF7-AECE521F3005
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of DDoS attack events.
+   * 
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3693,9 +5909,41 @@ export class DescribeDDosAllEventListResponse extends $tea.Model {
 }
 
 export class DescribeDDosEventAreaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the attack event that you want to query. Valid values:
+   * 
+   * *   **defense**: attack events that trigger traffic scrubbing
+   * *   **blackhole**: attack events that trigger blackhole filtering
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * defense
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 203.***.***.199
+   */
   ip?: string;
   range?: number;
+  /**
+   * @remarks
+   * The UNIX timestamp when the query starts. Unit: seconds.
+   * 
+   * > You can call the [DescribeDDosAllEventList](https://help.aliyun.com/document_detail/188604.html) operation to query the beginning time of all attack events.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1598948471
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3721,7 +5969,18 @@ export class DescribeDDosEventAreaRequest extends $tea.Model {
 }
 
 export class DescribeDDosEventAreaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the source region from which the volumetric attack was initiated.
+   */
   areas?: DescribeDDosEventAreaResponseBodyAreas[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 11710C9F-BC5E-481A-BEC5-C6D8FBFCA827
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3768,8 +6027,40 @@ export class DescribeDDosEventAreaResponse extends $tea.Model {
 }
 
 export class DescribeDDosEventAttackTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the attack event that you want to query. Valid values:
+   * 
+   * *   **defense**: attack events that trigger traffic scrubbing
+   * *   **blackhole**: attack events that trigger blackhole filtering
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * defense
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 203.***.***.199
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp when the query starts. Unit: seconds.
+   * 
+   * > You can call the [DescribeDDosAllEventList](https://help.aliyun.com/document_detail/188604.html) operation to query the beginning time of all attack events.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1598948471
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3793,7 +6084,18 @@ export class DescribeDDosEventAttackTypeRequest extends $tea.Model {
 }
 
 export class DescribeDDosEventAttackTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the attack types.
+   */
   attackTypes?: DescribeDDosEventAttackTypeResponseBodyAttackTypes[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6F644A6E-40E7-483F-9DBB-CC27E16BB555
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3840,9 +6142,41 @@ export class DescribeDDosEventAttackTypeResponse extends $tea.Model {
 }
 
 export class DescribeDDosEventIspRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the attack event that you want to query. Valid values:
+   * 
+   * *   **defense**: attack events that trigger traffic scrubbing
+   * *   **blackhole**: attack events that trigger blackhole filtering
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * defense
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 203.***.***.199
+   */
   ip?: string;
   range?: number;
+  /**
+   * @remarks
+   * The UNIX timestamp when the query starts. Unit: seconds.
+   * 
+   * > You can call the [DescribeDDosAllEventList](https://help.aliyun.com/document_detail/188604.html) operation to query the beginning time of all attack events.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1598948471
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3868,7 +6202,18 @@ export class DescribeDDosEventIspRequest extends $tea.Model {
 }
 
 export class DescribeDDosEventIspResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ISPs for the volumetric attack.
+   */
   isps?: DescribeDDosEventIspResponseBodyIsps[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C4A3BCD1-4A32-4342-941A-4745AE69508C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3915,7 +6260,25 @@ export class DescribeDDosEventIspResponse extends $tea.Model {
 }
 
 export class DescribeDDosEventMaxRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1604073600
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1598889600
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3937,9 +6300,37 @@ export class DescribeDDosEventMaxRequest extends $tea.Model {
 }
 
 export class DescribeDDosEventMaxResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The peak of connection flood attacks. Unit: connections per seconds (CPS).
+   * 
+   * @example
+   * 1302
+   */
   cps?: number;
+  /**
+   * @remarks
+   * The peak of volumetric attacks. Unit: Mbit/s.
+   * 
+   * @example
+   * 6809
+   */
   mbps?: number;
+  /**
+   * @remarks
+   * The peak of resource exhaustion attacks. Unit: queries per second (QPS).
+   * 
+   * @example
+   * 26314
+   */
   qps?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5AE2FC86-C840-41AE-9F1A-3A2747C7C1DF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3990,9 +6381,50 @@ export class DescribeDDosEventMaxResponse extends $tea.Model {
 }
 
 export class DescribeDDosEventSrcIpRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the attack event that you want to query. Valid values:
+   * 
+   * *   **defense**: attack events that trigger traffic scrubbing
+   * *   **blackhole**: attack events that trigger blackhole filtering
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * defense
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 203.***.***.199
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The number of source IP addresses that you want to return. The source IP addresses are returned in descending order of attack traffic. By default, the top **five** source IP addresses are returned.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   range?: number;
+  /**
+   * @remarks
+   * The UNIX timestamp when the query starts. Unit: seconds.
+   * 
+   * > You can call the [DescribeDDosAllEventList](https://help.aliyun.com/document_detail/188604.html) operation to query the beginning time of all attack events.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1598948471
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4018,7 +6450,18 @@ export class DescribeDDosEventSrcIpRequest extends $tea.Model {
 }
 
 export class DescribeDDosEventSrcIpResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of information about the source IP address of the volumetric attack.
+   */
   ips?: DescribeDDosEventSrcIpResponseBodyIps[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 38A0224E-FDBC-4733-A362-B391827FC1E9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4065,6 +6508,15 @@ export class DescribeDDosEventSrcIpResponse extends $tea.Model {
 }
 
 export class DescribeDefenseCountStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4084,7 +6536,18 @@ export class DescribeDefenseCountStatisticsRequest extends $tea.Model {
 }
 
 export class DescribeDefenseCountStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics on the number of advanced mitigation sessions.
+   */
   defenseCountStatistics?: DescribeDefenseCountStatisticsResponseBodyDefenseCountStatistics;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 310A41FD-0990-5610-92E0-A6A55D7C6444
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4131,11 +6594,67 @@ export class DescribeDefenseCountStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeDefenseRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. This value is a UNIX timestamp. Units: miliseconds.
+   * 
+   * > The time must be in the latest 90 days.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: **50**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. This value is a UNIX timestamp. Units: miliseconds.
+   * 
+   * > The time must be in the latest 90 days.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4165,8 +6684,26 @@ export class DescribeDefenseRecordsRequest extends $tea.Model {
 }
 
 export class DescribeDefenseRecordsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of details of the log of an advanced mitigation session.
+   */
   defenseRecords?: DescribeDefenseRecordsResponseBodyDefenseRecords[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of advanced mitigation sessions.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4215,10 +6752,63 @@ export class DescribeDefenseRecordsResponse extends $tea.Model {
 }
 
 export class DescribeDestinationPortEventRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the attack event that you want to query. Valid values:
+   * 
+   * *   **defense**: attack events that trigger traffic scrubbing.
+   * *   **blackhole**: attack events that trigger blackhole filtering.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * defense
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The IP address of the attacker.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The number of destination ports to return. The ports are sorted in descending order of the number of received request packets. By default, the first **10** ports are returned.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   range?: number;
+  /**
+   * @remarks
+   * The region in which your service is deployed. Valid values:
+   * 
+   * *   **cn**: a region in the Chinese mainland.
+   * *   **cn-hongkong**: a region outside the Chinese mainland.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn
+   */
   region?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1720059000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4246,7 +6836,18 @@ export class DescribeDestinationPortEventRequest extends $tea.Model {
 }
 
 export class DescribeDestinationPortEventResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ports.
+   */
   portList?: DescribeDestinationPortEventResponseBodyPortList[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9E7F6B2C-03F2-462F-9076-B782CF0DD502
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4293,11 +6894,67 @@ export class DescribeDestinationPortEventResponse extends $tea.Model {
 }
 
 export class DescribeDomainAttackEventsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4327,8 +6984,26 @@ export class DescribeDomainAttackEventsRequest extends $tea.Model {
 }
 
 export class DescribeDomainAttackEventsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the details of the DDoS attack event.
+   */
   domainAttackEvents?: DescribeDomainAttackEventsResponseBodyDomainAttackEvents[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned DDoS attack events.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4377,9 +7052,47 @@ export class DescribeDomainAttackEventsResponse extends $tea.Model {
 }
 
 export class DescribeDomainOverviewRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website that you want to query. If you leave this parameter unspecified, the statistics on all domain names are queried.
+   * 
+   * > The domain name must be added to Anti-DDoS Pro or Anti-DDoS Premium. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @example
+   * example.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you leave this parameter unspecified, the current system time is used as the end time.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * @example
+   * 1623427200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1619798400
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4405,8 +7118,29 @@ export class DescribeDomainOverviewRequest extends $tea.Model {
 }
 
 export class DescribeDomainOverviewResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The peak queries per second (QPS) during HTTP traffic scrubbing. Unit: QPS.
+   * 
+   * @example
+   * 41652
+   */
   maxHttp?: number;
+  /**
+   * @remarks
+   * The peak QPS during HTTPS traffic scrubbing. Unit: QPS.
+   * 
+   * @example
+   * 0
+   */
   maxHttps?: number;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4455,10 +7189,57 @@ export class DescribeDomainOverviewResponse extends $tea.Model {
 }
 
 export class DescribeDomainQPSListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website. If you do not specify this parameter, the statistics on the QPS of all domain names are queried.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The interval for returning data. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4486,7 +7267,18 @@ export class DescribeDomainQPSListRequest extends $tea.Model {
 }
 
 export class DescribeDomainQPSListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the statistics on the QPS of the website.
+   */
   domainQPSList?: DescribeDomainQPSListResponseBodyDomainQPSList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 327F2ABB-104D-437A-AAB5-D633E29A8C51
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4533,10 +7325,47 @@ export class DescribeDomainQPSListResponse extends $tea.Model {
 }
 
 export class DescribeDomainResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website that you want to query.
+   * 
+   * @example
+   * www.example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * An array that consists of the IDs of instances to query.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The match mode. Valid values:
+   * 
+   * *   **fuzzy**: fuzzy match. This is the default value.
+   * *   **exact**: exact match.
+   * 
+   * @example
+   * fuzzy
+   */
   queryDomainPattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4564,8 +7393,26 @@ export class DescribeDomainResourceRequest extends $tea.Model {
 }
 
 export class DescribeDomainResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of forwarding rules.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The configurations of the forwarding rule.
+   */
   webRules?: DescribeDomainResourceResponseBodyWebRules[];
   static names(): { [key: string]: string } {
     return {
@@ -4614,6 +7461,17 @@ export class DescribeDomainResourceResponse extends $tea.Model {
 }
 
 export class DescribeDomainSecurityProfileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.aliyundoc.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4633,7 +7491,15 @@ export class DescribeDomainSecurityProfileRequest extends $tea.Model {
 }
 
 export class DescribeDomainSecurityProfileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned results.
+   */
   result?: DescribeDomainSecurityProfileResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -4680,9 +7546,47 @@ export class DescribeDomainSecurityProfileResponse extends $tea.Model {
 }
 
 export class DescribeDomainStatusCodeCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4708,18 +7612,109 @@ export class DescribeDomainStatusCodeCountRequest extends $tea.Model {
 }
 
 export class DescribeDomainStatusCodeCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of 200 status codes within the specified period of time.
+   * 
+   * @example
+   * 951159
+   */
   status200?: number;
+  /**
+   * @remarks
+   * The number of 2xx status codes within the specified period of time.
+   * 
+   * @example
+   * 951472
+   */
   status2XX?: number;
+  /**
+   * @remarks
+   * The number of 3xx status codes within the specified period of time.
+   * 
+   * @example
+   * 133209
+   */
   status3XX?: number;
+  /**
+   * @remarks
+   * The number of 403 status codes within the specified period of time.
+   * 
+   * @example
+   * 0
+   */
   status403?: number;
+  /**
+   * @remarks
+   * The number of 404 status codes within the specified period of time.
+   * 
+   * @example
+   * 897
+   */
   status404?: number;
+  /**
+   * @remarks
+   * The number of 405 status codes within the specified period of time.
+   * 
+   * @example
+   * 0
+   */
   status405?: number;
+  /**
+   * @remarks
+   * The number of 4xx status codes within the specified period of time.
+   * 
+   * @example
+   * 5653
+   */
   status4XX?: number;
+  /**
+   * @remarks
+   * The number of 501 status codes within the specified period of time.
+   * 
+   * @example
+   * 0
+   */
   status501?: number;
+  /**
+   * @remarks
+   * The number of 502 status codes within the specified period of time.
+   * 
+   * @example
+   * 0
+   */
   status502?: number;
+  /**
+   * @remarks
+   * The number of 503 status codes within the specified period of time.
+   * 
+   * @example
+   * 0
+   */
   status503?: number;
+  /**
+   * @remarks
+   * The number of 504 status codes within the specified period of time.
+   * 
+   * @example
+   * 0
+   */
   status504?: number;
+  /**
+   * @remarks
+   * The number of 5xx status codes within the specified period of time.
+   * 
+   * @example
+   * 14
+   */
   status5XX?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4788,11 +7783,68 @@ export class DescribeDomainStatusCodeCountResponse extends $tea.Model {
 }
 
 export class DescribeDomainStatusCodeListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website. If you do not specify this parameter, the statistics on response status codes of all domain names are queried.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The interval for returning data. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The source of the statistics. Valid values:
+   * 
+   * *   **gf**: Anti-DDoS Pro or Anti-DDoS Premium
+   * *   **upstrem**: origin server
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gf
+   */
   queryType?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The start time of the event. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4822,7 +7874,18 @@ export class DescribeDomainStatusCodeListRequest extends $tea.Model {
 }
 
 export class DescribeDomainStatusCodeListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3B63C0DD-8AC5-44B2-95D6-064CA9296B9C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics on response status codes.
+   */
   statusCodeList?: DescribeDomainStatusCodeListResponseBodyStatusCodeList[];
   static names(): { [key: string]: string } {
     return {
@@ -4869,8 +7932,37 @@ export class DescribeDomainStatusCodeListResponse extends $tea.Model {
 }
 
 export class DescribeDomainTopAttackListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4894,7 +7986,18 @@ export class DescribeDomainTopAttackListRequest extends $tea.Model {
 }
 
 export class DescribeDomainTopAttackListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The peak QPS of the website.
+   */
   attackList?: DescribeDomainTopAttackListResponseBodyAttackList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4941,9 +8044,47 @@ export class DescribeDomainTopAttackListResponse extends $tea.Model {
 }
 
 export class DescribeDomainViewSourceCountriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4969,7 +8110,18 @@ export class DescribeDomainViewSourceCountriesRequest extends $tea.Model {
 }
 
 export class DescribeDomainViewSourceCountriesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array consisting of the country or area from which the requests are sent.
+   */
   sourceCountrys?: DescribeDomainViewSourceCountriesResponseBodySourceCountrys[];
   static names(): { [key: string]: string } {
     return {
@@ -5016,9 +8168,47 @@ export class DescribeDomainViewSourceCountriesResponse extends $tea.Model {
 }
 
 export class DescribeDomainViewSourceProvincesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5044,7 +8234,18 @@ export class DescribeDomainViewSourceProvincesRequest extends $tea.Model {
 }
 
 export class DescribeDomainViewSourceProvincesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array consisting of the details of the administrative region in China from which the requests are sent.
+   */
   sourceProvinces?: DescribeDomainViewSourceProvincesResponseBodySourceProvinces[];
   static names(): { [key: string]: string } {
     return {
@@ -5091,10 +8292,57 @@ export class DescribeDomainViewSourceProvincesResponse extends $tea.Model {
 }
 
 export class DescribeDomainViewTopCostTimeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The number of URLs to query. Valid values: **1** to **100**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   top?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5122,7 +8370,18 @@ export class DescribeDomainViewTopCostTimeRequest extends $tea.Model {
 }
 
 export class DescribeDomainViewTopCostTimeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The URLs which require the longest time to respond to requests.
+   */
   urlList?: DescribeDomainViewTopCostTimeResponseBodyUrlList[];
   static names(): { [key: string]: string } {
     return {
@@ -5169,10 +8428,57 @@ export class DescribeDomainViewTopCostTimeResponse extends $tea.Model {
 }
 
 export class DescribeDomainViewTopUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The number of URLs to query. Valid values: **1** to **100**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
   top?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5200,7 +8506,18 @@ export class DescribeDomainViewTopUrlRequest extends $tea.Model {
 }
 
 export class DescribeDomainViewTopUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array consisting of the URLs that receive the most requests.
+   */
   urlList?: DescribeDomainViewTopUrlResponseBodyUrlList[];
   static names(): { [key: string]: string } {
     return {
@@ -5247,7 +8564,25 @@ export class DescribeDomainViewTopUrlResponse extends $tea.Model {
 }
 
 export class DescribeDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance that you want to query.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5269,7 +8604,18 @@ export class DescribeDomainsRequest extends $tea.Model {
 }
 
 export class DescribeDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array consisting of details of the domain name for which the forwarding rules are configured.
+   */
   domains?: string[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F908E959-ADA8-4D7B-8A05-FF2F67F50964
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5316,6 +8662,17 @@ export class DescribeDomainsResponse extends $tea.Model {
 }
 
 export class DescribeElasticBandwidthSpecRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5335,7 +8692,18 @@ export class DescribeElasticBandwidthSpecRequest extends $tea.Model {
 }
 
 export class DescribeElasticBandwidthSpecResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the available burstable protection bandwidths. Unit: Gbit/s.
+   */
   elasticBandwidthSpec?: string[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5382,10 +8750,58 @@ export class DescribeElasticBandwidthSpecResponse extends $tea.Model {
 }
 
 export class DescribeElasticQpsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1684339200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The sampling interval. Unit: seconds. The value must be a multiple of 60. Default value: 60. Unit: seconds. The query result varies depending on the sampling interval.
+   * 
+   * @example
+   * 60
+   */
   interval?: string;
+  /**
+   * @remarks
+   * The IP address of the Anti-DDoS Proxy instance to query.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * *   **cn**: Anti-DDoS Proxy (Chinese Mainland)
+   * *   **cn-hongkong**: Anti-DDoS Proxy (Outside Chinese Mainland)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn
+   */
   region?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1684252800
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5413,7 +8829,18 @@ export class DescribeElasticQpsRequest extends $tea.Model {
 }
 
 export class DescribeElasticQpsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the burstable QPS.
+   */
   elasticQps?: DescribeElasticQpsResponseBodyElasticQps[];
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 2E7F7F7B-39A8-5D92-BAB4-D89D9DCE7D4F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5460,8 +8887,35 @@ export class DescribeElasticQpsResponse extends $tea.Model {
 }
 
 export class DescribeElasticQpsRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a timestamp. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1688140799999
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The IP address of the Anti-DDoS Proxy instance to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a timestamp. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1684252800000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5485,7 +8939,18 @@ export class DescribeElasticQpsRecordRequest extends $tea.Model {
 }
 
 export class DescribeElasticQpsRecordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The QPS information about the instance.
+   */
   elasticQpsList?: DescribeElasticQpsRecordResponseBodyElasticQpsList[];
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * F68B34E2-570C-508D-95FD-DFB6611D518F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5532,7 +8997,25 @@ export class DescribeElasticQpsRecordResponse extends $tea.Model {
 }
 
 export class DescribeHeadersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name that you want to query.
+   * 
+   * > You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-aek3cmuvpia****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5554,7 +9037,18 @@ export class DescribeHeadersRequest extends $tea.Model {
 }
 
 export class DescribeHeadersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the custom header.
+   */
   customHeader?: DescribeHeadersResponseBodyCustomHeader;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 48BC7BA5-69BE-5C31-A080-AFF2431AE48D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5601,6 +9095,19 @@ export class DescribeHeadersResponse extends $tea.Model {
 }
 
 export class DescribeHealthCheckListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the port forwarding rule. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
+   * *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
+   * *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"InstanceId":"ddoscoo-cn-mp91j1ao****","Protocol":"tcp","FrontendPort":8080}]
+   */
   networkRules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5620,7 +9127,18 @@ export class DescribeHealthCheckListRequest extends $tea.Model {
 }
 
 export class DescribeHealthCheckListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of information about the health check configuration.
+   */
   healthCheckList?: DescribeHealthCheckListResponseBodyHealthCheckList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 83B4AF42-E8EE-4DC9-BD73-87B7733A36F9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5667,6 +9185,19 @@ export class DescribeHealthCheckListResponse extends $tea.Model {
 }
 
 export class DescribeHealthCheckStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the details of the port forwarding rule. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
+   * *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
+   * *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"InstanceId":"ddoscoo-cn-mp91j1ao****","Protocol":"tcp","FrontendPort":8080}]
+   */
   networkRules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5686,7 +9217,18 @@ export class DescribeHealthCheckStatusRequest extends $tea.Model {
 }
 
 export class DescribeHealthCheckStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the details of the health status of the origin server.
+   */
   healthCheckStatus?: DescribeHealthCheckStatusResponseBodyHealthCheckStatus[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * DE9FF9E1-569C-4B6C-AB6A-0F6D927BB27C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5733,6 +9275,12 @@ export class DescribeHealthCheckStatusResponse extends $tea.Model {
 }
 
 export class DescribeInstanceDetailsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the IDs of instances to query.
+   * 
+   * This parameter is required.
+   */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5752,7 +9300,18 @@ export class DescribeInstanceDetailsRequest extends $tea.Model {
 }
 
 export class DescribeInstanceDetailsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address and ISP line information about the instance.
+   */
   instanceDetails?: DescribeInstanceDetailsResponseBodyInstanceDetails[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3C814429-21A5-4673-827E-FDD19DC75681
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5799,8 +9358,31 @@ export class DescribeInstanceDetailsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceExtRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * >  You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * @example
+   * ddoscoo-cn-i7m25564****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page. For example, to query the returned results on the first page, set the value to **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5824,8 +9406,26 @@ export class DescribeInstanceExtRequest extends $tea.Model {
 }
 
 export class DescribeInstanceExtResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The extended information about the Anti-DDoS Proxy instance.
+   */
   instanceExtSpecs?: DescribeInstanceExtResponseBodyInstanceExtSpecs[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of queried instances.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5874,8 +9474,32 @@ export class DescribeInstanceExtResponse extends $tea.Model {
 }
 
 export class DescribeInstanceIdsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the instance to query. Valid values:
+   * 
+   * *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
+   * *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
+   * *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
+   * *   **3**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan
+   * *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
+   * 
+   * @example
+   * 9
+   */
   edition?: number;
+  /**
+   * @remarks
+   * The IDs of instances to query.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5899,7 +9523,15 @@ export class DescribeInstanceIdsRequest extends $tea.Model {
 }
 
 export class DescribeInstanceIdsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID, type, description, and IP version of the instance.
+   */
   instanceIds?: DescribeInstanceIdsResponseBodyInstanceIds[];
+  /**
+   * @example
+   * 310A41FD-0990-5610-92E0-A6A55D7C6444
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5946,6 +9578,12 @@ export class DescribeInstanceIdsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceSpecsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the IDs of instances to query.
+   * 
+   * This parameter is required.
+   */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -5965,7 +9603,18 @@ export class DescribeInstanceSpecsRequest extends $tea.Model {
 }
 
 export class DescribeInstanceSpecsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the specifications of the instance.
+   */
   instanceSpecs?: DescribeInstanceSpecsResponseBodyInstanceSpecs[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 4E3A9B5F-5DDB-593D-A1E6-F1F451DB5E0B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6012,6 +9661,17 @@ export class DescribeInstanceSpecsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance that you want to query.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6031,7 +9691,18 @@ export class DescribeInstanceStatisticsRequest extends $tea.Model {
 }
 
 export class DescribeInstanceStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics on the instance.
+   */
   instanceStatistics?: DescribeInstanceStatisticsResponseBodyInstanceStatistics[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 642319A9-D1F2-4459-A447-E57CFC599FDE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6078,7 +9749,30 @@ export class DescribeInstanceStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeInstanceStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Proxy instance to query.
+   * 
+   * >  You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all Anti-DDoS Proxy (Chinese Mainland) or Anti-DDoS Proxy (Outside Chinese Mainland) instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-6ja1y6p5****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The type of the Anti-DDoS Proxy instance to query. Valid values:
+   * 
+   * *   **1**: an Anti-DDoS Proxy (Chinese Mainland) instance
+   * *   **2**: an Anti-DDoS Proxy (Outside Chinese Mainland) instance
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   productType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6100,8 +9794,34 @@ export class DescribeInstanceStatusRequest extends $tea.Model {
 }
 
 export class DescribeInstanceStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-6ja1y6p5****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   **1**: normal
+   * *   **2**: expired
+   * *   **3**: overdue
+   * *   **4**: released
+   * 
+   * @example
+   * 1
+   */
   instanceStatus?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 112777CC-2AD6-46FC-A263-00B931406FCD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6150,17 +9870,106 @@ export class DescribeInstanceStatusResponse extends $tea.Model {
 }
 
 export class DescribeInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The mitigation plan of the instance to query. Valid values:
+   * 
+   * *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
+   * *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
+   * *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
+   * *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
+   * 
+   * @example
+   * 9
+   */
   edition?: number;
+  /**
+   * @remarks
+   * The traffic forwarding status of the instance to query. Valid values:
+   * 
+   * *   **0**: The instance no longer forwards service traffic.
+   * *   **1**: The instance forwards service traffic as expected.
+   * 
+   * @example
+   * 1
+   */
   enabled?: number;
+  /**
+   * @remarks
+   * The end of the time range to query. Instances whose expiration time is earlier than the point in time are queried. This value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1640361700000
+   */
   expireEndTime?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Instances whose expiration time is later than the point in time are queried. This value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1640361500000
+   */
   expireStartTime?: number;
+  /**
+   * @remarks
+   * The IDs of the instances to query. You can specify up to 200 instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The IP address of the instance to query.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The remarks of the instance to query. Fuzzy match is supported.
+   * 
+   * @example
+   * doc-test
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not specify this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The states of the instances to query. You can specify up to two states.
+   */
   status?: number[];
+  /**
+   * @remarks
+   * The tags that are added to the instances to query.
+   */
   tag?: DescribeInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -6202,8 +10011,26 @@ export class DescribeInstancesRequest extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the instances.
+   */
   instances?: DescribeInstancesResponseBodyInstances[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * A0AF40CC-814A-5A86-AEAA-6F19E88B8A39
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of the instances.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6252,8 +10079,35 @@ export class DescribeInstancesResponse extends $tea.Model {
 }
 
 export class DescribeL7RsPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website to query.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query the domain names for which forwarding rules are configured.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * An array that consists of N addresses of origin servers to query. The maximum value of N is 200. You can specify up to 200 addresses.
+   * 
+   * @example
+   * 1.***.***.1
+   */
   realServers?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6277,9 +10131,41 @@ export class DescribeL7RsPolicyRequest extends $tea.Model {
 }
 
 export class DescribeL7RsPolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the parameters for back-to-origin processing.
+   */
   attributes?: DescribeL7RsPolicyResponseBodyAttributes[];
+  /**
+   * @remarks
+   * The scheduling algorithm for back-to-origin traffic. Valid values:
+   * 
+   * *   **ip_hash**: the IP hash algorithm. This algorithm is used to redirect the requests from the same IP address to the same origin server.
+   * *   **rr**: the round-robin algorithm. This algorithm is used to redirect requests to origin servers in turn.
+   * *   **least_time**: the least response time algorithm. This algorithm is used to minimize the latency when requests are forwarded from Anti-DDoS Pro or Anti-DDoS Premium instances to origin servers based on the intelligent DNS resolution feature.
+   * 
+   * @example
+   * rr
+   */
   proxyMode?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 9E7F6B2C-03F2-462F-9076-B782CF0DD502
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The back-to-origin retry switch. Valid values:
+   * 
+   * *   **1**: on
+   * *   **0**: off
+   * 
+   * @example
+   * 1
+   */
   upstreamRetry?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6330,6 +10216,15 @@ export class DescribeL7RsPolicyResponse extends $tea.Model {
 }
 
 export class DescribeL7UsKeepaliveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6349,7 +10244,18 @@ export class DescribeL7UsKeepaliveRequest extends $tea.Model {
 }
 
 export class DescribeL7UsKeepaliveResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The value of the Back-to-origin Persistent Connections parameter.
+   */
   rsKeepalive?: DescribeL7UsKeepaliveResponseBodyRsKeepalive;
   static names(): { [key: string]: string } {
     return {
@@ -6396,6 +10302,25 @@ export class DescribeL7UsKeepaliveResponse extends $tea.Model {
 }
 
 export class DescribeLayer4RulePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The port forwarding rule that you want to query.
+   * 
+   * This parameter is a string that consists of JSON arrays. Each element in a JSON array indicates a port forwarding rule. You can query only one port forwarding rule at a time.
+   * 
+   * > You can call the [DescribeNetworkRules](https://help.aliyun.com/document_detail/157484.html) to query existing port forwarding rules.
+   * 
+   * Each port forwarding rule contains the following fields:
+   * 
+   * *   **InstanceId**: the ID of the instance. This field is required and must be of the string type.
+   * *   **Protocol**: the forwarding protocol. This field is required and must be of the string type. Valid values: **tcp** and **udp**.
+   * *   **FrontendPort**: the forwarding port. This field is required and must be of the integer type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{\\"InstanceId\\":\\"ddosDip-sg-4hr2b3l****\\",\\"FrontendPort\\":2020,\\"Protocol\\":\\"udp\\"}]
+   */
   listeners?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6415,14 +10340,77 @@ export class DescribeLayer4RulePolicyRequest extends $tea.Model {
 }
 
 export class DescribeLayer4RulePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The port of the origin server.
+   * 
+   * @example
+   * 2022
+   */
   backendPort?: number;
+  /**
+   * @remarks
+   * The mode that is used to forward service traffic. Valid values:
+   * 
+   * *   0: the default mode. In this mode, Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the origin IP address that you specified when you created the port forwarding rule. You can call the [CreateNetworkRules](https://help.aliyun.com/document_detail/157482.html) operation to create a port forwarding rule.
+   * *   1: the origin redundancy mode. In this mode, Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary or secondary origin servers. You can call the [ConfigLayer4RulePolicy](https://help.aliyun.com/document_detail/312684.html) operation to configure IP addresses.
+   * 
+   * @example
+   * 1
+   */
   bakMode?: string;
+  /**
+   * @remarks
+   * The origin server that is used to receive service traffic. Valid values:
+   * 
+   * *   **1**: the primary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary origin server.
+   * *   **2**: the secondary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the secondary origin server.
+   * 
+   * @example
+   * 1
+   */
   currentIndex?: number;
+  /**
+   * @remarks
+   * The type of the protocol.
+   * 
+   * @example
+   * udp
+   */
   forwardProtocol?: string;
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * @example
+   * 2020
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddosDip-sg-4hr2b3l****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * An array that consists of the information about the primary origin server, including the IP addresses, forwarding protocol, and forwarding port.
+   */
   priRealServers?: DescribeLayer4RulePolicyResponseBodyPriRealServers[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6E46CC51-36BE-1100-B14C-DAF8381B8F73
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array that consists of the information about the secondary origin server, including the IP addresses, forwarding protocol, and forwarding port.
+   */
   secRealServers?: DescribeLayer4RulePolicyResponseBodySecRealServers[];
   static names(): { [key: string]: string } {
     return {
@@ -6483,6 +10471,13 @@ export class DescribeLayer4RulePolicyResponse extends $tea.Model {
 }
 
 export class DescribeLogStoreExistStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6502,7 +10497,24 @@ export class DescribeLogStoreExistStatusRequest extends $tea.Model {
 }
 
 export class DescribeLogStoreExistStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   existStatus?: boolean;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6549,6 +10561,17 @@ export class DescribeLogStoreExistStatusResponse extends $tea.Model {
 }
 
 export class DescribeNetworkRegionBlockRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6568,7 +10591,18 @@ export class DescribeNetworkRegionBlockRequest extends $tea.Model {
 }
 
 export class DescribeNetworkRegionBlockResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of blocked locations.
+   */
   config?: DescribeNetworkRegionBlockResponseBodyConfig;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6615,6 +10649,19 @@ export class DescribeNetworkRegionBlockResponse extends $tea.Model {
 }
 
 export class DescribeNetworkRuleAttributesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the port forwarding rule. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **InstanceId**: the ID of the instance. This field is required and must be of the STRING type.
+   * *   **Protocol**: the forwarding protocol. This field is required and must be of the STRING type. Valid values: **tcp** and **udp**.
+   * *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"InstanceId":"ddoscoo-cn-mp91j1ao****","Protocol":"tcp","FrontendPort":8080}]
+   */
   networkRules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6634,7 +10681,18 @@ export class DescribeNetworkRuleAttributesRequest extends $tea.Model {
 }
 
 export class DescribeNetworkRuleAttributesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
+   */
   networkRuleAttributes?: DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributes[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F9F2F77D-307C-4F15-8D02-AB5957EEBF97
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6681,10 +10739,56 @@ export class DescribeNetworkRuleAttributesResponse extends $tea.Model {
 }
 
 export class DescribeNetworkRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The forwarding protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * tcp
+   */
   forwardProtocol?: string;
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * @example
+   * 80
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6712,8 +10816,26 @@ export class DescribeNetworkRulesRequest extends $tea.Model {
 }
 
 export class DescribeNetworkRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of a port forwarding rule.
+   */
   networkRules?: DescribeNetworkRulesResponseBodyNetworkRules[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 8597F235-FA5E-4FC7-BAD9-E4C0B01BC771
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned port forwarding rules.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6762,12 +10884,78 @@ export class DescribeNetworkRulesResponse extends $tea.Model {
 }
 
 export class DescribeOpEntitiesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * > The time must be in the latest 30 days.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The operation object that you want to query.
+   * 
+   * @example
+   * 203.***.***.132
+   */
   entityObject?: string;
+  /**
+   * @remarks
+   * The type of the operation object that you want to query. Valid values:
+   * 
+   * *   **1**: the IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance
+   * *   **2**: Anti-DDoS plans
+   * *   **3**: ECS instances
+   * *   **4**: all logs
+   * 
+   * @example
+   * 1
+   */
   entityType?: number;
+  /**
+   * @remarks
+   * The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: **50**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * > The time must be in the latest 30 days.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6799,8 +10987,26 @@ export class DescribeOpEntitiesRequest extends $tea.Model {
 }
 
 export class DescribeOpEntitiesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the details of the operation log.
+   */
   opEntities?: DescribeOpEntitiesResponseBodyOpEntities[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FB24D70C-71F5-4000-8CD8-22CDA0C53CD1
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned operation records.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6849,10 +11055,56 @@ export class DescribeOpEntitiesResponse extends $tea.Model {
 }
 
 export class DescribePortRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The forwarding port to query. Valid values: **0** to **65535**.
+   * 
+   * @example
+   * 55
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The type of the forwarding protocol to query. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * tcp
+   */
   frontendProtocol?: string;
+  /**
+   * @remarks
+   * The ID of the instance to query.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-7e225i41****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. For example, if you want to obtain results on the first page, set the value to **1**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6880,8 +11132,26 @@ export class DescribePortRequest extends $tea.Model {
 }
 
 export class DescribePortResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of port forwarding rules.
+   */
   networkRules?: DescribePortResponseBodyNetworkRules[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of port forwarding rules returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6930,9 +11200,49 @@ export class DescribePortResponse extends $tea.Model {
 }
 
 export class DescribePortAttackMaxFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * An array that consists of the IDs of instances to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6958,8 +11268,29 @@ export class DescribePortAttackMaxFlowRequest extends $tea.Model {
 }
 
 export class DescribePortAttackMaxFlowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The peak bandwidth of attack traffic. Unit: bit/s.
+   * 
+   * @example
+   * 149559
+   */
   bps?: number;
+  /**
+   * @remarks
+   * The peak packet rate of attack traffic . Unit: packets per second (pps).
+   * 
+   * @example
+   * 23
+   */
   pps?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7008,6 +11339,17 @@ export class DescribePortAttackMaxFlowResponse extends $tea.Model {
 }
 
 export class DescribePortAutoCcStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7027,7 +11369,18 @@ export class DescribePortAutoCcStatusRequest extends $tea.Model {
 }
 
 export class DescribePortAutoCcStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the configurations of the Intelligent Protection policy.
+   */
   portAutoCcStatus?: DescribePortAutoCcStatusResponseBodyPortAutoCcStatus[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BC3C6403-F248-4125-B2C9-8733ED94EA85
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7074,9 +11427,43 @@ export class DescribePortAutoCcStatusResponse extends $tea.Model {
 }
 
 export class DescribePortCcAttackTopIPRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * @example
+   * 10
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The attacked port.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6663
+   */
   port?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1678017453
+   */
   startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7102,7 +11489,18 @@ export class DescribePortCcAttackTopIPRequest extends $tea.Model {
 }
 
 export class DescribePortCcAttackTopIPResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 24F36D81-5E2D-52E5-9DB6-A3ED23CF271A
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the source IP address of the attack.
+   */
   topIp?: DescribePortCcAttackTopIPResponseBodyTopIp[];
   static names(): { [key: string]: string } {
     return {
@@ -7149,10 +11547,57 @@ export class DescribePortCcAttackTopIPResponse extends $tea.Model {
 }
 
 export class DescribePortConnsCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * An array that consists of the IDs of instances.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The number of port that you want to query. If you do not specify this parameter, all ports are queried.
+   * 
+   * @example
+   * 80
+   */
   port?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7180,10 +11625,45 @@ export class DescribePortConnsCountRequest extends $tea.Model {
 }
 
 export class DescribePortConnsCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of active connections.
+   * 
+   * @example
+   * 159
+   */
   actConns?: number;
+  /**
+   * @remarks
+   * The number of concurrent connections.
+   * 
+   * @example
+   * 46340
+   */
   conns?: number;
+  /**
+   * @remarks
+   * The number of new connections.
+   * 
+   * @example
+   * 0
+   */
   cps?: number;
+  /**
+   * @remarks
+   * The number of inactive connections.
+   * 
+   * @example
+   * 121
+   */
   inActConns?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 48859E14-A9FB-4100-99FF-AAB75CA46776
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7236,11 +11716,67 @@ export class DescribePortConnsCountResponse extends $tea.Model {
 }
 
 export class DescribePortConnsListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The interval for returning data. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The number of port that you want to query. If you do not specify this parameter, all ports are queried.
+   * 
+   * @example
+   * 80
+   */
   port?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7270,7 +11806,18 @@ export class DescribePortConnsListRequest extends $tea.Model {
 }
 
 export class DescribePortConnsListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details about the connections established over the port.
+   */
   connsList?: DescribePortConnsListResponseBodyConnsList[];
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 6D48AED0-41DB-5D9B-B484-3B6AAD312AD1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7317,10 +11864,70 @@ export class DescribePortConnsListResponse extends $tea.Model {
 }
 
 export class DescribePortFlowListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * **
+   * 
+   * **This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * An array that consists of the IDs of instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The interval for returning data. Unit: seconds. The interval that you can specify varies based on the time range to query. The time range to query is determined by the values of **StartTime** and **EndTime**.
+   * 
+   * *   If the time range to query is no greater than 1 hour, we recommend that you specify the interval from 60 seconds to the time range to query.
+   * *   If the time range to query is greater than 1 hour but no greater than 6 hours, we recommend that you specify the interval from 600 seconds to the time range to query.
+   * *   If the time range to query is greater than 6 hours but no greater than 24 hours, we recommend that you specify the interval from 1,800 seconds to the time range to query.
+   * *   If the time range to query is greater than 24 hours but no greater than 7 days, we recommend that you specify the interval from 3,600 seconds to the time range to query.
+   * *   If the time range to query is greater than 7 days but no greater than 15 days, we recommend that you specify the interval from 14,400 seconds to the time range to query.
+   * *   If the time range to query is greater than 15 days, we recommend that you specify the interval from 43,200 seconds to the time range to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * **
+   * 
+   * **This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7348,7 +11955,18 @@ export class DescribePortFlowListRequest extends $tea.Model {
 }
 
 export class DescribePortFlowListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned traffic data.
+   */
   portFlowList?: DescribePortFlowListResponseBodyPortFlowList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FFC77501-BDF8-4BC8-9BF5-B295FBC3189B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7395,9 +12013,49 @@ export class DescribePortFlowListResponse extends $tea.Model {
 }
 
 export class DescribePortMaxConnsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7423,7 +12081,18 @@ export class DescribePortMaxConnsRequest extends $tea.Model {
 }
 
 export class DescribePortMaxConnsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array consisting of the details of the maximum number of connections that are established over a port of the instance.
+   */
   portMaxConns?: DescribePortMaxConnsResponseBodyPortMaxConns[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 08F79110-2AF5-4FA7-998E-7C5E75EACF9C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7470,9 +12139,49 @@ export class DescribePortMaxConnsResponse extends $tea.Model {
 }
 
 export class DescribePortViewSourceCountriesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * An array that consists of the IDs of instances to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7498,7 +12207,18 @@ export class DescribePortViewSourceCountriesRequest extends $tea.Model {
 }
 
 export class DescribePortViewSourceCountriesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array consisting of countries or areas from which the requests are sent.
+   */
   sourceCountrys?: DescribePortViewSourceCountriesResponseBodySourceCountrys[];
   static names(): { [key: string]: string } {
     return {
@@ -7545,9 +12265,49 @@ export class DescribePortViewSourceCountriesResponse extends $tea.Model {
 }
 
 export class DescribePortViewSourceIspsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * An array that consists of the IDs of instances to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7573,7 +12333,18 @@ export class DescribePortViewSourceIspsRequest extends $tea.Model {
 }
 
 export class DescribePortViewSourceIspsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the details of the ISP.
+   */
   isps?: DescribePortViewSourceIspsResponseBodyIsps[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7620,9 +12391,47 @@ export class DescribePortViewSourceIspsResponse extends $tea.Model {
 }
 
 export class DescribePortViewSourceProvincesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you do not configure this parameter, the current system time is used as the end time.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * @example
+   * 1583683200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The IDs of instances to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1582992000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7648,7 +12457,18 @@ export class DescribePortViewSourceProvincesRequest extends $tea.Model {
 }
 
 export class DescribePortViewSourceProvincesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Details about the administrative region in China from which the requests are sent.
+   */
   sourceProvinces?: DescribePortViewSourceProvincesResponseBodySourceProvinces[];
   static names(): { [key: string]: string } {
     return {
@@ -7695,7 +12515,27 @@ export class DescribePortViewSourceProvincesResponse extends $tea.Model {
 }
 
 export class DescribeSceneDefenseObjectsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the policy that you want to query.
+   * 
+   * > You can call the [DescribeSceneDefensePolicies](https://help.aliyun.com/document_detail/159382.html) operation to query the IDs of all policies.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 47e07ebd-0ba5-4afc-957b-59d15b90****
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7717,8 +12557,29 @@ export class DescribeSceneDefenseObjectsRequest extends $tea.Model {
 }
 
 export class DescribeSceneDefenseObjectsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the protected assets.
+   */
   objects?: DescribeSceneDefenseObjectsResponseBodyObjects[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FE07E73F-F19E-4A51-B62F-AC59E3B962D8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7767,8 +12628,39 @@ export class DescribeSceneDefenseObjectsResponse extends $tea.Model {
 }
 
 export class DescribeSceneDefensePoliciesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: pending enabling
+   * *   **2**: enabled
+   * *   **3**: expired
+   * 
+   * @example
+   * 1
+   */
   status?: string;
+  /**
+   * @remarks
+   * The type of the template that is used to create the policy. Valid values:
+   * 
+   * *   **promotion**: the Important Activity template
+   * *   **bypass**: the Forward All template
+   * 
+   * @example
+   * promotion
+   */
   template?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7792,8 +12684,29 @@ export class DescribeSceneDefensePoliciesRequest extends $tea.Model {
 }
 
 export class DescribeSceneDefensePoliciesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the configurations of the scenario-specific custom policy.
+   */
   policies?: DescribeSceneDefensePoliciesResponseBodyPolicies[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F65DF043-E0EB-4796-9467-23DDCDF92C1D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7842,9 +12755,28 @@ export class DescribeSceneDefensePoliciesResponse extends $tea.Model {
 }
 
 export class DescribeSchedulerRulesRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * testrule
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7870,8 +12802,16 @@ export class DescribeSchedulerRulesRequest extends $tea.Model {
 }
 
 export class DescribeSchedulerRulesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 11C55595-1757-4B17-9ACE-4ACB68C2D989
+   */
   requestId?: string;
   schedulerRules?: DescribeSchedulerRulesResponseBodySchedulerRules[];
+  /**
+   * @example
+   * 1
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7920,11 +12860,66 @@ export class DescribeSchedulerRulesResponse extends $tea.Model {
 }
 
 export class DescribeSlaEventListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3289457398
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the service Valid values:
+   * 
+   * *   **cn**: Anti-DDoS Pro
+   * *   **cn-hongkong**: Anti-DDoS Premium
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn
+   */
   region?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3289457398
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7954,8 +12949,26 @@ export class DescribeSlaEventListRequest extends $tea.Model {
 }
 
 export class DescribeSlaEventListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The destination rate limit events.
+   */
   slaEvent?: DescribeSlaEventListResponseBodySlaEvent[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8004,6 +13017,13 @@ export class DescribeSlaEventListResponse extends $tea.Model {
 }
 
 export class DescribeSlsAuthStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8023,7 +13043,24 @@ export class DescribeSlsAuthStatusRequest extends $tea.Model {
 }
 
 export class DescribeSlsAuthStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   slsAuthStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8070,6 +13107,13 @@ export class DescribeSlsAuthStatusResponse extends $tea.Model {
 }
 
 export class DescribeSlsLogstoreInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8089,11 +13133,55 @@ export class DescribeSlsLogstoreInfoRequest extends $tea.Model {
 }
 
 export class DescribeSlsLogstoreInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @example
+   * ddoscoo-logstore
+   */
   logStore?: string;
+  /**
+   * @remarks
+   * The Logstore project of the Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @example
+   * ddoscoo-project-181071506993****-cn-hangzhou
+   */
   project?: string;
+  /**
+   * @remarks
+   * The available log storage capacity. Unit: bytes.
+   * 
+   * @example
+   * 3298534883328
+   */
   quota?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The log storage duration. Unit: days.
+   * 
+   * @example
+   * 180
+   */
   ttl?: number;
+  /**
+   * @remarks
+   * The used log storage capacity. Unit: bytes.
+   * 
+   * > The statistics on Log Service are delayed for about two hours.
+   * 
+   * @example
+   * 0
+   */
   used?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8148,6 +13236,13 @@ export class DescribeSlsLogstoreInfoResponse extends $tea.Model {
 }
 
 export class DescribeSlsOpenStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8167,7 +13262,24 @@ export class DescribeSlsOpenStatusRequest extends $tea.Model {
 }
 
 export class DescribeSlsOpenStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether Log Service is activated. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   slsOpenStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8214,7 +13326,27 @@ export class DescribeSlsOpenStatusResponse extends $tea.Model {
 }
 
 export class DescribeStsGrantStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the RAM role to query. Set the value to **AliyunDDoSCOODefaultRole**, which indicates the default role of Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * > Anti-DDoS Pro or Anti-DDoS Premium uses the default role to access other cloud services.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AliyunDDoSCOODefaultRole
+   */
   role?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8236,7 +13368,18 @@ export class DescribeStsGrantStatusRequest extends $tea.Model {
 }
 
 export class DescribeStsGrantStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The authorization status of Anti-DDoS Pro or Anti-DDoS Premium.
+   */
   stsGrant?: DescribeStsGrantStatusResponseBodyStsGrant;
   static names(): { [key: string]: string } {
     return {
@@ -8283,11 +13426,65 @@ export class DescribeStsGrantStatusResponse extends $tea.Model {
 }
 
 export class DescribeSystemLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The bills of the burstable clean bandwidth that are issued before this point in time are queried. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1640966400000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * > You can call the [DescribeInstanceDetails](https://help.aliyun.com/document_detail/91490.html) operation to query the IP addresses of all instances.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   entityObject?: string;
+  /**
+   * @remarks
+   * The type of the system log. Set the value to **20**, which indicates the billing logs for the burstable clean bandwidth.
+   * 
+   * > You must specify this parameter. Otherwise, the call fails.
+   * 
+   * @example
+   * 20
+   */
   entityType?: number;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The bills of the burstable clean bandwidth that are issued after this point in time are queried. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1609430400000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8317,8 +13514,26 @@ export class DescribeSystemLogRequest extends $tea.Model {
 }
 
 export class DescribeSystemLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8BC3A33A-F832-58DB-952F-7682A25AD14C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array that consists of details of the billing logs for the burstable clean bandwidth.
+   */
   systemLog?: DescribeSystemLogResponseBodySystemLog[];
+  /**
+   * @remarks
+   * The total number of billing logs for the burstable clean bandwidth.
+   * 
+   * @example
+   * 1
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8367,10 +13582,51 @@ export class DescribeSystemLogResponse extends $tea.Model {
 }
 
 export class DescribeTagKeysRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The type of the resource to which the tag belongs. Set the value to **INSTANCE**, which indicates an Anti-DDoS Pro instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8398,10 +13654,42 @@ export class DescribeTagKeysRequest extends $tea.Model {
 }
 
 export class DescribeTagKeysResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned on each page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details about the tag keys.
+   */
   tagKeys?: DescribeTagKeysResponseBodyTagKeys[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8454,11 +13742,58 @@ export class DescribeTagKeysResponse extends $tea.Model {
 }
 
 export class DescribeTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The query token. Set the value to the value of **NextToken** that is returned in the last call.
+   * 
+   * > You do not need to configure this parameter if you call this operation for the first time.
+   * 
+   * @example
+   * RGuYpqDdKhzXb8C3.D1BwQgc1tMBsoxdGiEKHHUUCf****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the Anti-DDoS Proxy (Chinese Mainland) instances that you want to query.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   resourceIds?: string[];
+  /**
+   * @remarks
+   * The type of the resource to which the tag belongs. Set the value to **INSTANCE**, which indicates an Anti-DDoS Pro instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * An array consisting of tags that you want to query. Each tag consists of a tag **key** and a tag **value**.
+   */
   tags?: DescribeTagResourcesRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -8488,8 +13823,26 @@ export class DescribeTagResourcesRequest extends $tea.Model {
 }
 
 export class DescribeTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The query token that is returned in this call.
+   * 
+   * @example
+   * RGuYpqDdKhzXb8C3.D1BwQgc1tMBsoxdGiEKHHUUCf****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 36E698F7-48A4-48D0-9554-0BB4BAAB99B3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tags that are added to the Anti-DDoS Proxy (Chinese Mainland) instance.
+   */
   tagResources?: DescribeTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {
@@ -8538,9 +13891,44 @@ export class DescribeTagResourcesResponse extends $tea.Model {
 }
 
 export class DescribeTotalAttackMaxFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1659697200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The IDs of the instances. Separate multiple instance IDs with commas (,). Example: InstanceIds.1, InstanceIds.2, InstanceIds.3.
+   * 
+   * This parameter is required.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1669240800
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8566,8 +13954,29 @@ export class DescribeTotalAttackMaxFlowRequest extends $tea.Model {
 }
 
 export class DescribeTotalAttackMaxFlowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The peak bandwidth of attack traffic. Unit: bit/s.
+   * 
+   * @example
+   * 0
+   */
   bps?: number;
+  /**
+   * @remarks
+   * The peak packet rate of attack traffic . Unit: packets per second (pps).
+   * 
+   * @example
+   * 0
+   */
   pps?: number;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 9173A3CB-C40B-559B-96B7-2373830BD06A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8616,7 +14025,28 @@ export class DescribeTotalAttackMaxFlowResponse extends $tea.Model {
 }
 
 export class DescribeUdpReflectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance to query.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-i7m25564****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID of the instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: indicates an Anti-DDoS Proxy (Chinese Mainland) instance. This is the default value.
+   * *   **ap-southeast-1**: indicates an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8638,7 +14068,18 @@ export class DescribeUdpReflectRequest extends $tea.Model {
 }
 
 export class DescribeUdpReflectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F97A8766-FB4D-411A-9CD5-2CFF701B592F
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array consisting of the source ports of the UDP traffic that are filtered out by the filtering policies for UDP reflection attacks.
+   */
   udpSports?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8685,6 +14126,13 @@ export class DescribeUdpReflectResponse extends $tea.Model {
 }
 
 export class DescribeUnBlackholeCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8704,8 +14152,29 @@ export class DescribeUnBlackholeCountRequest extends $tea.Model {
 }
 
 export class DescribeUnBlackholeCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The remaining quota that you can deactivate blackhole filtering.
+   * 
+   * @example
+   * 5
+   */
   remainCount?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 232929FA-40B6-4C53-9476-EE335ABA44CD
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total quota that you can deactivate blackhole filtering.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8754,6 +14223,13 @@ export class DescribeUnBlackholeCountResponse extends $tea.Model {
 }
 
 export class DescribeUnBlockCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8773,8 +14249,29 @@ export class DescribeUnBlockCountRequest extends $tea.Model {
 }
 
 export class DescribeUnBlockCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The remaining quota that you can use the Diversion from Origin Server policy.
+   * 
+   * @example
+   * 7
+   */
   remainCount?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total quota that you can use the Diversion from Origin Server policy.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8823,8 +14320,31 @@ export class DescribeUnBlockCountResponse extends $tea.Model {
 }
 
 export class DescribeWebAccessLogDispatchStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8848,8 +14368,26 @@ export class DescribeWebAccessLogDispatchStatusRequest extends $tea.Model {
 }
 
 export class DescribeWebAccessLogDispatchStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the log analysis feature is enabled for domain names.
+   */
   slsConfigStatus?: DescribeWebAccessLogDispatchStatusResponseBodySlsConfigStatus[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8898,6 +14436,13 @@ export class DescribeWebAccessLogDispatchStatusResponse extends $tea.Model {
 }
 
 export class DescribeWebAccessLogEmptyCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8917,7 +14462,21 @@ export class DescribeWebAccessLogEmptyCountRequest extends $tea.Model {
 }
 
 export class DescribeWebAccessLogEmptyCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The remaining quota that you can clear the Logstore.
+   * 
+   * @example
+   * 10
+   */
   availableCount?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8964,7 +14523,25 @@ export class DescribeWebAccessLogEmptyCountResponse extends $tea.Model {
 }
 
 export class DescribeWebAccessLogStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8986,9 +14563,40 @@ export class DescribeWebAccessLogStatusRequest extends $tea.Model {
 }
 
 export class DescribeWebAccessLogStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The Logstore of the instance.
+   * 
+   * @example
+   * ddoscoo-logstore
+   */
   slsLogstore?: string;
+  /**
+   * @remarks
+   * The Log Service project of the instance.
+   * 
+   * @example
+   * ddoscoo-project-128965410602****-cn-hangzhou
+   */
   slsProject?: string;
+  /**
+   * @remarks
+   * Indicates whether the Log Analysis feature is enabled for the website. Valid values:
+   * 
+   * *   **true**: enabled
+   * *   **false**: disabled
+   * 
+   * @example
+   * true
+   */
   slsStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9039,6 +14647,17 @@ export class DescribeWebAccessLogStatusResponse extends $tea.Model {
 }
 
 export class DescribeWebAccessModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domains?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9058,7 +14677,18 @@ export class DescribeWebAccessModeRequest extends $tea.Model {
 }
 
 export class DescribeWebAccessModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array consisting of the modes in which the website service is added.
+   */
   domainModes?: DescribeWebAccessModeResponseBodyDomainModes[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9105,7 +14735,25 @@ export class DescribeWebAccessModeResponse extends $tea.Model {
 }
 
 export class DescribeWebAreaBlockConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domains?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9127,7 +14775,18 @@ export class DescribeWebAreaBlockConfigsRequest extends $tea.Model {
 }
 
 export class DescribeWebAreaBlockConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the configurations of the Location Blacklist (Domain Names) policy.
+   */
   areaBlockConfigs?: DescribeWebAreaBlockConfigsResponseBodyAreaBlockConfigs[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9174,9 +14833,43 @@ export class DescribeWebAreaBlockConfigsResponse extends $tea.Model {
 }
 
 export class DescribeWebCCRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9202,8 +14895,26 @@ export class DescribeWebCCRulesRequest extends $tea.Model {
 }
 
 export class DescribeWebCCRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EAED912D-909E-45F0-AF74-AC0CCDCAE314
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned custom frequency control rules.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * An array that consists of the details of the custom frequency control rule.
+   */
   webCCRules?: DescribeWebCCRulesResponseBodyWebCCRules[];
   static names(): { [key: string]: string } {
     return {
@@ -9252,9 +14963,40 @@ export class DescribeWebCCRulesResponse extends $tea.Model {
 }
 
 export class DescribeWebCCRulesV2Request extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website that you want to add to the Anti-DDoS Proxy instance for protection.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The number of entries that you want the system to skip before the system returns entries. Default value: **0**.
+   * 
+   * @example
+   * 0
+   */
   offset?: string;
+  /**
+   * @remarks
+   * The method used to create the rule. Valid values:
+   * 
+   * *   **manual** (default): manually created.
+   * *   **clover**: automatically created.
+   * 
+   * @example
+   * manual
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Maximum value: **20**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9280,9 +15022,34 @@ export class DescribeWebCCRulesV2Request extends $tea.Model {
 }
 
 export class DescribeWebCCRulesV2ResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of returned custom frequency control rules.
+   * 
+   * @example
+   * 12
+   */
   totalCount?: string;
+  /**
+   * @remarks
+   * The custom frequency control rules.
+   */
   webCCRules?: DescribeWebCCRulesV2ResponseBodyWebCCRules[];
   static names(): { [key: string]: string } {
     return {
@@ -9333,7 +15100,25 @@ export class DescribeWebCCRulesV2Response extends $tea.Model {
 }
 
 export class DescribeWebCacheConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array consisting of domain names for which you want to query the Static Page Caching configurations.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domains?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9355,7 +15140,18 @@ export class DescribeWebCacheConfigsRequest extends $tea.Model {
 }
 
 export class DescribeWebCacheConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of Static Page Caching configurations.
+   */
   domainCacheConfigs?: DescribeWebCacheConfigsResponseBodyDomainCacheConfigs[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9402,7 +15198,25 @@ export class DescribeWebCacheConfigsResponse extends $tea.Model {
 }
 
 export class DescribeWebCcProtectSwitchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domains?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9424,7 +15238,18 @@ export class DescribeWebCcProtectSwitchRequest extends $tea.Model {
 }
 
 export class DescribeWebCcProtectSwitchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status of each mitigation policy for the website.
+   */
   protectSwitchList?: DescribeWebCcProtectSwitchResponseBodyProtectSwitchList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 3ADD9EED-CA4B-488C-BC82-01B0B899363D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9471,6 +15296,13 @@ export class DescribeWebCcProtectSwitchResponse extends $tea.Model {
 }
 
 export class DescribeWebCustomPortsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9490,7 +15322,18 @@ export class DescribeWebCustomPortsRequest extends $tea.Model {
 }
 
 export class DescribeWebCustomPortsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * An array consisting of information about supported custom ports that are used by a website.
+   */
   webCustomPorts?: DescribeWebCustomPortsResponseBodyWebCustomPorts[];
   static names(): { [key: string]: string } {
     return {
@@ -9537,7 +15380,25 @@ export class DescribeWebCustomPortsResponse extends $tea.Model {
 }
 
 export class DescribeWebInstanceRelationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names of the website. list
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domains?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9559,7 +15420,18 @@ export class DescribeWebInstanceRelationsRequest extends $tea.Model {
 }
 
 export class DescribeWebInstanceRelationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0222382B-5FE5-4FF7-BC9B-97EE31D58818
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the instances to which a website service is added.
+   */
   webInstanceRelations?: DescribeWebInstanceRelationsResponseBodyWebInstanceRelations[];
   static names(): { [key: string]: string } {
     return {
@@ -9606,7 +15478,25 @@ export class DescribeWebInstanceRelationsResponse extends $tea.Model {
 }
 
 export class DescribeWebPreciseAccessRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of the domain names of websites.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domains?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9628,7 +15518,18 @@ export class DescribeWebPreciseAccessRuleRequest extends $tea.Model {
 }
 
 export class DescribeWebPreciseAccessRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the accurate access control rule that is created for the website.
+   */
   preciseAccessConfigList?: DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 209EEFBF-B0C7-441E-8C28-D0945A57A638
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9675,11 +15576,74 @@ export class DescribeWebPreciseAccessRuleResponse extends $tea.Model {
 }
 
 export class DescribeWebReportTopIpRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query the domain names for which forwarding rules are configured.
+   * 
+   * @example
+   * app.bmjqxvb.cn
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1687228200
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The interval at which data is collected. Unit: seconds. Valid values are 300, 3600, and 86400.
+   * 
+   * *   If the time span between StartTime and EndTime is less than 3 days (3 days excluded), valid values are 300, 3600, and 86400.
+   * *   If the time span between StartTime and EndTime is from 3 to 31 days (31 days excluded), valid values are 3600 and 86400.
+   * *   If the time span between StartTime and EndTime is 31 days or longer, the valid value is 86400.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 300
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The source of the statistics. Valid value:
+   * 
+   * *   **visit**: indicates all IP addresses.
+   * *   **block**: indicates blocked IP addresses.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * block
+   */
   queryType?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1680424200
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * @example
+   * 5
+   */
   top?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9709,7 +15673,18 @@ export class DescribeWebReportTopIpRequest extends $tea.Model {
 }
 
 export class DescribeWebReportTopIpResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
   dataList?: DescribeWebReportTopIpResponseBodyDataList[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D21BE0C4-8E83-5E32-86C6-AA6BE9B1B5BD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9756,12 +15731,43 @@ export class DescribeWebReportTopIpResponse extends $tea.Model {
 }
 
 export class DescribeWebRulesRequest extends $tea.Model {
+  /**
+   * @example
+   * kzmk7b8tt351****.aliyunddos1014****
+   */
   cname?: string;
+  /**
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * exact
+   */
   queryDomainPattern?: string;
+  /**
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9793,7 +15799,15 @@ export class DescribeWebRulesRequest extends $tea.Model {
 }
 
 export class DescribeWebRulesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0F5B72DD-96F4-423A-B12B-A5151DD746B8
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   webRules?: DescribeWebRulesResponseBodyWebRules[];
   static names(): { [key: string]: string } {
@@ -9843,8 +15857,35 @@ export class DescribeWebRulesResponse extends $tea.Model {
 }
 
 export class DetachSceneDefenseObjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the object. Set the value to **Domain**, which indicates a domain name.
+   * 
+   * @example
+   * Domain
+   */
   objectType?: string;
+  /**
+   * @remarks
+   * The protection asset that you want to remove from a policy. Separate multiple protection assets with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   objects?: string;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * > You can call the [DescribeSceneDefensePolicies](https://help.aliyun.com/document_detail/159382.html) operation to query the IDs of all policies.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 321a-fd31-df51-****
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9868,7 +15909,24 @@ export class DetachSceneDefenseObjectRequest extends $tea.Model {
 }
 
 export class DetachSceneDefenseObjectResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F65DF043-E0EB-4796-9467-23DDCDF92C1D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9915,6 +15973,17 @@ export class DetachSceneDefenseObjectResponse extends $tea.Model {
 }
 
 export class DisableSceneDefensePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the policy that you want to disable.
+   * 
+   * > You can call the [DescribeSceneDefensePolicies](https://help.aliyun.com/document_detail/159382.html) operation to query the IDs of all policies.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 321a-fd31-df51-****
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9934,7 +16003,24 @@ export class DisableSceneDefensePolicyRequest extends $tea.Model {
 }
 
 export class DisableSceneDefensePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F65DF043-E0EB-4796-9467-23DDCDF92C1D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9981,7 +16067,25 @@ export class DisableSceneDefensePolicyResponse extends $tea.Model {
 }
 
 export class DisableWebAccessLogConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10003,6 +16107,13 @@ export class DisableWebAccessLogConfigRequest extends $tea.Model {
 }
 
 export class DisableWebAccessLogConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10047,7 +16158,25 @@ export class DisableWebAccessLogConfigResponse extends $tea.Model {
 }
 
 export class DisableWebCCRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10069,6 +16198,13 @@ export class DisableWebCCRequest extends $tea.Model {
 }
 
 export class DisableWebCCResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10113,7 +16249,25 @@ export class DisableWebCCResponse extends $tea.Model {
 }
 
 export class DisableWebCCRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10135,6 +16289,13 @@ export class DisableWebCCRuleRequest extends $tea.Model {
 }
 
 export class DisableWebCCRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10179,6 +16340,17 @@ export class DisableWebCCRuleResponse extends $tea.Model {
 }
 
 export class EmptyAutoCcBlacklistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10198,6 +16370,13 @@ export class EmptyAutoCcBlacklistRequest extends $tea.Model {
 }
 
 export class EmptyAutoCcBlacklistResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10242,6 +16421,17 @@ export class EmptyAutoCcBlacklistResponse extends $tea.Model {
 }
 
 export class EmptyAutoCcWhitelistRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10261,6 +16451,13 @@ export class EmptyAutoCcWhitelistRequest extends $tea.Model {
 }
 
 export class EmptyAutoCcWhitelistResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10305,6 +16502,13 @@ export class EmptyAutoCcWhitelistResponse extends $tea.Model {
 }
 
 export class EmptySlsLogstoreRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10324,6 +16528,13 @@ export class EmptySlsLogstoreRequest extends $tea.Model {
 }
 
 export class EmptySlsLogstoreResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10368,6 +16579,17 @@ export class EmptySlsLogstoreResponse extends $tea.Model {
 }
 
 export class EnableSceneDefensePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the policy that you want to enable.
+   * 
+   * > You can call the [DescribeSceneDefensePolicies](https://help.aliyun.com/document_detail/159382.html) operation to query the IDs of all policies.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 321a-fd31-df51-****
+   */
   policyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10387,7 +16609,24 @@ export class EnableSceneDefensePolicyRequest extends $tea.Model {
 }
 
 export class EnableSceneDefensePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F65DF043-E0EB-4796-9467-23DDCDF92C1D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10434,7 +16673,25 @@ export class EnableSceneDefensePolicyResponse extends $tea.Model {
 }
 
 export class EnableWebAccessLogConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10456,6 +16713,13 @@ export class EnableWebAccessLogConfigRequest extends $tea.Model {
 }
 
 export class EnableWebAccessLogConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10500,7 +16764,25 @@ export class EnableWebAccessLogConfigResponse extends $tea.Model {
 }
 
 export class EnableWebCCRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10522,6 +16804,13 @@ export class EnableWebCCRequest extends $tea.Model {
 }
 
 export class EnableWebCCResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10566,7 +16855,25 @@ export class EnableWebCCResponse extends $tea.Model {
 }
 
 export class EnableWebCCRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10588,6 +16895,13 @@ export class EnableWebCCRuleRequest extends $tea.Model {
 }
 
 export class EnableWebCCRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10632,7 +16946,30 @@ export class EnableWebCCRuleResponse extends $tea.Model {
 }
 
 export class ModifyBizBandWidthModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-zvp2ay9b****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The metering method of the burstable clean bandwidth feature. Valid values:
+   * 
+   * *   **month**: the metering method of monthly 95th percentile
+   * *   **day**: the metering method of daily 95th percentile
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
   mode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10654,6 +16991,13 @@ export class ModifyBizBandWidthModeRequest extends $tea.Model {
 }
 
 export class ModifyBizBandWidthModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * CF33B4C3-196E-4015-AADD-5CAD00057B80
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10698,7 +17042,27 @@ export class ModifyBizBandWidthModeResponse extends $tea.Model {
 }
 
 export class ModifyBlackholeStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The action that you want to perform on the instance. Set the value to **undo**, which indicates that you want to deactivate blackhole filtering.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * undo
+   */
   blackholeStatus?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10720,6 +17084,13 @@ export class ModifyBlackholeStatusRequest extends $tea.Model {
 }
 
 export class ModifyBlackholeStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10764,9 +17135,50 @@ export class ModifyBlackholeStatusResponse extends $tea.Model {
 }
 
 export class ModifyBlockStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The blocking period. Valid values: **15** to **43200**. Unit: minutes.
+   * 
+   * > If you set **Status** to **do**, you must also specify this parameter.
+   * 
+   * @example
+   * 60
+   */
   duration?: number;
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Pro instance to manage.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * An array consisting of the Internet service provider (ISP) lines from which traffic is blocked.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ct
+   */
   lines?: string[];
+  /**
+   * @remarks
+   * Specifies the status of the Diversion from Origin Server policy. Valid values:
+   * 
+   * *   **do**: enables the policy.
+   * *   **undo**: disables the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * do
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10792,6 +17204,13 @@ export class ModifyBlockStatusRequest extends $tea.Model {
 }
 
 export class ModifyBlockStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10836,9 +17255,46 @@ export class ModifyBlockStatusResponse extends $tea.Model {
 }
 
 export class ModifyCnameReuseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The CNAME record that you want to reuse for the website.
+   * 
+   * @example
+   * 4o6ep6q217k9****.aliyunddos0004.com
+   */
   cname?: string;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable CNAME reuse. Valid values:
+   * 
+   * *   **0:** disabled
+   * *   **1:** enabled
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   enable?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10864,6 +17320,13 @@ export class ModifyCnameReuseRequest extends $tea.Model {
 }
 
 export class ModifyCnameReuseResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10908,11 +17371,72 @@ export class ModifyCnameReuseResponse extends $tea.Model {
 }
 
 export class ModifyDomainResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name that is added to the Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The advanced HTTPS settings. This parameter takes effect only when the value of the **ProxyType** parameter includes **https**. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+   * 
+   * *   **Http2https**: specifies whether to turn on Enforce HTTPS Routing. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enforce HTTPS Routing is turned off. The value 1 indicates that Enforce HTTPS Routing is turned on. The default value is 0.
+   * 
+   *     If your website supports both HTTP and HTTPS, this feature meets your business requirements. If you enable this feature, all HTTP requests to access the website are redirected to HTTPS requests on the standard port 443.
+   * 
+   * *   **Https2http**: specifies whether to turn on Enable HTTP. This field is optional and must be an integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP is turned off. The value 1 indicates that Enable HTTP is turned on. The default value is 0.
+   * 
+   *     If your website does not support HTTPS, this feature meets your business requirements If this feature is enabled, all HTTPS requests are redirected to HTTP requests and forwarded to origin servers. This feature can redirect WebSockets requests to WebSocket requests. Requests are redirected over the standard port 80.
+   * 
+   * *   **Http2**: specifies whether to turn on Enable HTTP/2. This field is optional. Data type: integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP/2 is turned off. The value 1 indicates that Enable HTTP/2 is turned on. The default value is 0.
+   * 
+   *     After you turn on the switch, HTTP/2 is used.
+   * 
+   * @example
+   * {"Http2":1,"Http2https":1,"Https2http":1}
+   */
   httpsExt?: string;
+  /**
+   * @remarks
+   * An array consisting of the IDs of instances that you want to associate.
+   * 
+   * This parameter is required.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The details about the protocol type and port number.
+   * 
+   * This parameter is required.
+   */
   proxyTypes?: ModifyDomainResourceRequestProxyTypes[];
+  /**
+   * @remarks
+   * An array that consists of the addresses of origin servers.
+   * 
+   * This parameter is required.
+   */
   realServers?: string[];
+  /**
+   * @remarks
+   * The address type of the origin server. Valid values:
+   * 
+   * *   **0**: IP address
+   * 
+   * *   **1**: domain name
+   * 
+   *     If you deploy proxies, such as a Web Application Firewall (WAF) instance, between the origin server and the Anti-DDoS Pro or Anti-DDoS Premium instance, set the value to 1. If you use the domain name, you must enter the address of the proxy, such as the CNAME of WAF.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   rsType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10942,6 +17466,13 @@ export class ModifyDomainResourceRequest extends $tea.Model {
 }
 
 export class ModifyDomainResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10986,7 +17517,29 @@ export class ModifyDomainResourceResponse extends $tea.Model {
 }
 
 export class ModifyElasticBandWidthRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The new burstable protection bandwidth that you want to use. Unit: Gbit/s.
+   * 
+   * > You can call the [DescribeElasticBandwidthSpec](https://help.aliyun.com/document_detail/91502.html) operation to query the available burstable protection bandwidth of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 50
+   */
   elasticBandwidth?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * >  The instance must be in a normal state. You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11008,6 +17561,13 @@ export class ModifyElasticBandWidthRequest extends $tea.Model {
 }
 
 export class ModifyElasticBandWidthResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11052,8 +17612,38 @@ export class ModifyElasticBandWidthResponse extends $tea.Model {
 }
 
 export class ModifyElasticBizBandWidthRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The burstable clean bandwidth. Unit: Mbit/s. The burstable clean bandwidth cannot exceed nine times the clean bandwidth of your Anti-DDoS Pro or Anti-DDoS Premium instance, and the sum of the clean bandwidth and the burstable clean bandwidth cannot exceed the maximum clean bandwidth that is supported by your instance. The value 0 indicates that the burstable clean bandwidth feature is disabled. You can disable the burstable clean bandwidth feature once a month.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   elasticBizBandwidth?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-tl32morr****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The metering method of the burstable clean bandwidth feature. Valid values:
+   * 
+   * *   **month**: the metering method of monthly 95th percentile
+   * *   **day**: the metering method of daily 95th percentile
+   * 
+   * @example
+   * month
+   */
   mode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11077,6 +17667,13 @@ export class ModifyElasticBizBandWidthRequest extends $tea.Model {
 }
 
 export class ModifyElasticBizBandWidthResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * C566BA3A-192F-5D32-8A33-21422F975145
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11121,8 +17718,40 @@ export class ModifyElasticBizBandWidthResponse extends $tea.Model {
 }
 
 export class ModifyElasticBizQpsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Proxy instance.
+   * 
+   * >  You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The metering method for the burstable QPS. Valid values:
+   * 
+   * *   **month**: monthly 95th percentile
+   * *   **day**: daily 95th percentile QPS
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The burstable QPS value.
+   * 
+   * >  The default value is 300,000 for the Chinese mainland and 150,000 for regions outside the Chinese mainland.
+   * 
+   * @example
+   * 300000
+   */
   opsElasticQps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11146,6 +17775,13 @@ export class ModifyElasticBizQpsRequest extends $tea.Model {
 }
 
 export class ModifyElasticBizQpsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11190,7 +17826,23 @@ export class ModifyElasticBizQpsResponse extends $tea.Model {
 }
 
 export class ModifyFullLogTtlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The log storage duration of a website. Valid values: **30** to **180**. Unit: days.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11212,6 +17864,13 @@ export class ModifyFullLogTtlRequest extends $tea.Model {
 }
 
 export class ModifyFullLogTtlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11256,8 +17915,48 @@ export class ModifyFullLogTtlResponse extends $tea.Model {
 }
 
 export class ModifyHeadersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The key-value pair of the custom header. The key specifies the header name, and the value specifies the header value. You can specify up to five key-value pairs. The key-value pairs can be up to 200 characters in length.
+   * 
+   * Take note of the following items:
+   * 
+   * *   Do not use X-Forwarded-ClientSrcPort as a custom header.
+   * *   Do not use a standard HTTP header such as User-Agent. Otherwise, the original header may be overwritten.
+   * 
+   * >  If you specify a key of X-Forwarded-ClientSrcPort, the system obtains the originating port of the client that accesses Anti-DDoS Proxy (a Layer 7 proxy). In this case, the value is an empty string.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {\\"X-Forwarded-ClientSrcPort\\":\\"\\"}
+   */
   customHeaders?: string;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * > 
+   * 
+   * *   You can query resource group IDs in the Anti-DDoS Pro or Anti-DDoS Premium console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * 
+   * *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
+   * 
+   * @example
+   * rg-acfmz6jbof5****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11281,6 +17980,13 @@ export class ModifyHeadersRequest extends $tea.Model {
 }
 
 export class ModifyHeadersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The unique ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * DC38A1D3-C042-5670-8394-8F6B1FA97B5E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11325,9 +18031,74 @@ export class ModifyHeadersResponse extends $tea.Model {
 }
 
 export class ModifyHealthCheckConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The forwarding protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tcp
+   */
   forwardProtocol?: string;
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8080
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The details of the health check configuration. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **Type**: the protocol type. This field is required and must be of the STRING type. Valid values: **tcp** (Layer 4) and **http** (Layer 7).
+   * 
+   * *   **Domain**: the domain name, which must be of the STRING type.
+   * 
+   *     **
+   * 
+   *     **Note**This parameter is returned only when the Layer 7 health check configuration is queried.
+   * 
+   * *   **Uri**: the check path, which must be of the STRING type.
+   * 
+   *     **
+   * 
+   *     **Note**This parameter is returned only when the Layer 7 health check configuration is queried.
+   * 
+   * *   **Timeout**: the response timeout period, which must be of the INTEGER type. Valid values: **1** to **30**. Unit: seconds.
+   * 
+   * *   **Port**: the port on which you want to perform the health check, which must be of the INTEGER type.
+   * 
+   * *   **Interval**: the health check interval, which must be of the INTEGER type. Valid values: **1** to **30**. Unit: seconds.
+   * 
+   * *   **Up**: the number of consecutive successful health checks that must occur before declaring a port healthy, which must be of the INTEGER type. Valid values: **1** to **10**.
+   * 
+   * *   **Down**: the number of consecutive failed health checks that must occur before declaring a port unhealthy, which must be of the INTEGER type. Valid values: **1** to **10**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"Type":"tcp","Timeout":10,"Port":8080,"Interval":10,"Up":10,"Down":40}
+   */
   healthCheck?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11353,6 +18124,13 @@ export class ModifyHealthCheckConfigRequest extends $tea.Model {
 }
 
 export class ModifyHealthCheckConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11397,8 +18175,38 @@ export class ModifyHealthCheckConfigResponse extends $tea.Model {
 }
 
 export class ModifyHttp2EnableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name, and the domain name must be associated with an instance that uses the Enhanced function plan. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable HTTP/2. Valid values:
+   * 
+   * *   **0**: disables HTTP/2.
+   * *   **1**: enables HTTP/2.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   enable?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11422,6 +18230,13 @@ export class ModifyHttp2EnableRequest extends $tea.Model {
 }
 
 export class ModifyHttp2EnableResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11466,7 +18281,29 @@ export class ModifyHttp2EnableResponse extends $tea.Model {
 }
 
 export class ModifyInstanceRemarkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * The value can contain letters, digits, and some special characters, such as`, . + - * / _` The value can be up to 500 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * new-remark
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11488,6 +18325,13 @@ export class ModifyInstanceRemarkRequest extends $tea.Model {
 }
 
 export class ModifyInstanceRemarkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 7EFA2BA6-9C0A-4410-B735-FC337EB634A1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11532,9 +18376,52 @@ export class ModifyInstanceRemarkResponse extends $tea.Model {
 }
 
 export class ModifyNetworkRuleAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The session persistence settings of the port forwarding rule. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **PersistenceTimeout**: The timeout period of session persistence. This field is required and must be of the integer type. Valid values: **30** to **3600**. Unit: seconds. Default value: **0**. A value of 0 indicates that session persistence is disabled.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"PersistenceTimeout":900}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The forwarding protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tcp
+   */
   forwardProtocol?: string;
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8080
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11560,6 +18447,13 @@ export class ModifyNetworkRuleAttributeRequest extends $tea.Model {
 }
 
 export class ModifyNetworkRuleAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11604,7 +18498,27 @@ export class ModifyNetworkRuleAttributeResponse extends $tea.Model {
 }
 
 export class ModifyOcspStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name for which you want to configure the Static Page Caching policy.
+   * 
+   * > You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * click.linktech.cn
+   */
   domain?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the OCSP feature. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * This parameter is required.
+   */
   enable?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11626,6 +18540,13 @@ export class ModifyOcspStatusRequest extends $tea.Model {
 }
 
 export class ModifyOcspStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * D8DDBA8E-8182-5C85-AA41-F17EACFCAE0D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11670,10 +18591,57 @@ export class ModifyOcspStatusResponse extends $tea.Model {
 }
 
 export class ModifyPortRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The port of the origin server. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 55
+   */
   backendPort?: string;
+  /**
+   * @remarks
+   * The forwarding port. Valid values: **0** to **65535**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 55
+   */
   frontendPort?: string;
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tcp
+   */
   frontendProtocol?: string;
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance to which the port forwarding rule belongs.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-st21zbyq****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * An array that consists of the IP addresses of origin servers.
+   * 
+   * This parameter is required.
+   */
   realServers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -11701,6 +18669,13 @@ export class ModifyPortRequest extends $tea.Model {
 }
 
 export class ModifyPortResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11745,8 +18720,44 @@ export class ModifyPortResponse extends $tea.Model {
 }
 
 export class ModifyPortAutoCcStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The mode of the Intelligent Protection policy. Valid values:
+   * 
+   * *   **normal**
+   * *   **loose**
+   * *   **strict**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * normal
+   */
   mode?: string;
+  /**
+   * @remarks
+   * Specifies the status of the Intelligent Protection policy. Valid values:
+   * 
+   * *   **on**: enables the policy.
+   * *   **off**: disables the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * on
+   */
   switch?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11770,6 +18781,13 @@ export class ModifyPortAutoCcStatusRequest extends $tea.Model {
 }
 
 export class ModifyPortAutoCcStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11814,7 +18832,30 @@ export class ModifyPortAutoCcStatusResponse extends $tea.Model {
 }
 
 export class ModifyQpsModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID of the Anti-DDoS Pro instance.
+   * 
+   * >  You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-7e225i41****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The metering method of QPS. Valid values:
+   * 
+   * *   **month**: monthly 95th percentile QPS.
+   * *   **day**: daily 95th percentile QPS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * month
+   */
   mode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11836,6 +18877,13 @@ export class ModifyQpsModeRequest extends $tea.Model {
 }
 
 export class ModifyQpsModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 48859E14-A9FB-4100-99FF-AAB75CA46776
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11880,10 +18928,60 @@ export class ModifyQpsModeResponse extends $tea.Model {
 }
 
 export class ModifySceneDefensePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end time of the policy. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1586016000000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testpolicy
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the policy that you want to modify.
+   * 
+   * > You can call the [DescribeSceneDefensePolicies](https://help.aliyun.com/document_detail/159382.html) operation to query the IDs of all policies.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 321a-fd31-df51-****
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The start time of the policy. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1585670400000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The template of the policy. Valid values:
+   * 
+   * *   **promotion**: important activity
+   * *   **bypass**: all traffic forwarded
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * promotion
+   */
   template?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11911,7 +19009,24 @@ export class ModifySceneDefensePolicyRequest extends $tea.Model {
 }
 
 export class ModifySceneDefensePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F65DF043-E0EB-4796-9467-23DDCDF92C1D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11958,10 +19073,86 @@ export class ModifySceneDefensePolicyResponse extends $tea.Model {
 }
 
 export class ModifySchedulerRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the CDN interaction rule. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **ParamType**: the type of the scheduling rule. This field is required and must be of the string type. Set the value to **cdn**. This indicates that you want to modify a CDN interaction rule.
+   * 
+   * *   **ParamData**: the values of parameters that you want to modify for the CDN interaction rule. This field is required and must be of the map type. The ParamData parameter contains the following parameters:
+   * 
+   *     *   **Domain**: the accelerated domain in CDN. This parameter is required and must be of the string type.
+   *     *   **Cname**: the CNAME that is assigned to the accelerated domain. This parameter is required and must be of the string type.
+   *     *   **AccessQps**: the queries per second (QPS) threshold that is used to switch service traffic to Anti-DDoS Pro or Anti-DDoS Premium. This parameter is required and must be of the integer type.
+   *     *   **UpstreamQps**: the QPS threshold that is used to switch service traffic to CDN. This parameter is optional and must be of the integer type.
+   * 
+   * @example
+   * {"ParamType":"cdn","ParamData":"Domain":"example.aliyundoc.com","Cname":"demo.aliyundoc.com","AccessQps":100,"UpstreamQps":100}}
+   */
   param?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the rule that you want to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testrule
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The type of the scheduling rule. Valid values:
+   * 
+   * *   **2**: tiered protection
+   * *   **3**: network acceleration
+   * *   **5**: CDN interaction
+   * *   **6**: cloud service interaction
+   * *   **8**: secure acceleration
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   ruleType?: number;
+  /**
+   * @remarks
+   * The details of the scheduling rule. This parameter is a JSON string. The following list describes the fields in the value of the parameter:
+   * 
+   * *   **Type**: the address type of the interaction resource that you want to use in the scheduling rule. This field is required and must be of the string type. Valid values:
+   * 
+   *     *   **A**: IP address
+   *     *   **CNAME**: domain name
+   * 
+   * *   **Value**: the address of the interaction resource that you want to use in the scheduling rule. This field is required and must be of the string type.
+   * 
+   * *   **Priority**: the priority of the scheduling rule. This field is required and must be of the integer type. Valid values: **0** to **100**. A larger value indicates a higher priority.
+   * 
+   * *   **ValueType**: the type of the interaction resource that you want to use in the scheduling rule. This field is required and must be of the integer type. Valid values:
+   * 
+   *     *   **1**: the IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance
+   *     *   **2**: the IP address of the interaction resource in the tiered protection scenario
+   *     *   **3**: the IP address that is used to accelerate access in the network acceleration scenario
+   *     *   **5**: the domain name that is configured in Alibaba Cloud CDN (CDN) in the CDN interaction scenario
+   *     *   **6** the IP address of the interaction resource in the cloud service interaction scenario
+   *     *   **8**: the IP address of the Secure Chinese Mainland Acceleration (Sec-CMA) instance in the secure acceleration scenario
+   * 
+   * *   **RegionId**: the region where the interaction resource is deployed. This parameter must be specified when **ValueType** is set to **2**. The value must be of the string type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"Type":"A", "Value":"1.1.XX.XX", "Priority":80,"ValueType":2, "RegionId":"cn-hangzhou" },{"Type":"A", "Value":"203.199.XX.XX", "Priority":80,"ValueType":1}]
+   */
   rules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11989,8 +19180,31 @@ export class ModifySchedulerRuleRequest extends $tea.Model {
 }
 
 export class ModifySchedulerRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The CNAME that is assigned by Sec-Traffic Manager for the scheduling rule.
+   * 
+   * > To enable the scheduling rule, you must map the domain name of the service to the CNAME.
+   * 
+   * @example
+   * 48k7b372gpl4****.aliyunddos0001.com
+   */
   cname?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * FFC77501-BDF8-4BC8-9BF5-B295FBC3189B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * testrule
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12039,8 +19253,48 @@ export class ModifySchedulerRuleResponse extends $tea.Model {
 }
 
 export class ModifyTlsConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the TLS policy. The value is a JSON string that contains the following fields:
+   * 
+   * *   **ssl_protocols**: the version of TLS. This field is required. Data type: string. Valid values:
+   * 
+   *     *   **tls1.0**: TLS 1.0 and later
+   *     *   **tls1.1**: TLS 1.1 and later
+   *     *   **tls1.2**: TLS 1.2 and later
+   * 
+   * *   **ssl_ciphers**: the type of the cipher suite. This field is required. Data type: string. Valid values:
+   * 
+   *     *   **all**: all cipher suites, which include strong and weak cipher suites
+   *     *   **improved**: enhanced cipher suites
+   *     *   **strong**: strong cipher suites
+   *     *   **default**: default cipher suites, which include only strong cipher suites
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"ssl_protocols":"tls1.0","ssl_ciphers":"all"}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12064,6 +19318,13 @@ export class ModifyTlsConfigRequest extends $tea.Model {
 }
 
 export class ModifyTlsConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12108,8 +19369,46 @@ export class ModifyTlsConfigResponse extends $tea.Model {
 }
 
 export class ModifyWebAIProtectModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the Intelligent Protection policy. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **AiTemplate**: the level of the Intelligent Protection policy. This field is required and must be of the STRING type. Valid values:
+   * 
+   *     *   **level30**: the Low level
+   *     *   **level60**: the Normal level
+   *     *   **level90**: the Strict level
+   * 
+   * *   **AiMode**: the mode of the Intelligent Protection policy. This field is required and must be of the string type. Valid values:
+   * 
+   *     *   **watch**: the Warning mode
+   *     *   **defense**: the Defense mode
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"AiTemplate":"level60","AiMode":"defense"}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12133,6 +19432,13 @@ export class ModifyWebAIProtectModeRequest extends $tea.Model {
 }
 
 export class ModifyWebAIProtectModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12177,8 +19483,40 @@ export class ModifyWebAIProtectModeResponse extends $tea.Model {
 }
 
 export class ModifyWebAIProtectSwitchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the Intelligent Protection policy. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **AiRuleEnable**: the status of the Intelligent Protection policy. This field is required and must be of the integer type. Valid values:
+   * 
+   *     *   **0**: disabled
+   *     *   **1**: enabled
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"AiRuleEnable": 1}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12202,6 +19540,13 @@ export class ModifyWebAIProtectSwitchRequest extends $tea.Model {
 }
 
 export class ModifyWebAIProtectSwitchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12246,7 +19591,31 @@ export class ModifyWebAIProtectSwitchResponse extends $tea.Model {
 }
 
 export class ModifyWebAccessModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium. Valid values:
+   * 
+   * *   **0**: A record mode
+   * *   **1**: anti-DDoS mode
+   * *   **2**: origin redundancy mode
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   accessMode?: number;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12268,6 +19637,13 @@ export class ModifyWebAccessModeRequest extends $tea.Model {
 }
 
 export class ModifyWebAccessModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12312,8 +19688,37 @@ export class ModifyWebAccessModeResponse extends $tea.Model {
 }
 
 export class ModifyWebAreaBlockRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name whose configurations you want to modify.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The regions from which you block requests.
+   * 
+   * > If you do not configure this parameter, the Blocked Regions (Domain Names) policy is disabled.
+   * 
+   * @example
+   * CN-SHANGHAI
+   */
   regions?: string[];
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12337,6 +19742,13 @@ export class ModifyWebAreaBlockRequest extends $tea.Model {
 }
 
 export class ModifyWebAreaBlockResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5AA2BD65-E289-4E91-9DD9-3E1FB2140D17
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12381,8 +19793,42 @@ export class ModifyWebAreaBlockResponse extends $tea.Model {
 }
 
 export class ModifyWebAreaBlockSwitchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable or disable the Location Blacklist (Domain Names) policy for a domain name. The value is a string that consists of a JSON struct. The JSON struct contains the following parameters:
+   * 
+   * *   **RegionblockEnable**: the status of the Location Blacklist (Domain Names) policy. This parameter is required and must be of the INTEGER type. Valid values:
+   * 
+   *     *   **1**: enables the policy.
+   *     *   **0**: disables the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"RegionblockEnable": 1}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The domain name for which you want to enable or disable the Location Blacklist policy.
+   * 
+   * > You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12406,6 +19852,13 @@ export class ModifyWebAreaBlockSwitchRequest extends $tea.Model {
 }
 
 export class ModifyWebAreaBlockSwitchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12450,7 +19903,30 @@ export class ModifyWebAreaBlockSwitchResponse extends $tea.Model {
 }
 
 export class ModifyWebCCGlobalSwitchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether the HTTP flood mitigation feature is enabled. Valid values:
+   * 
+   * *   **open**
+   * *   **close**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * open
+   */
   ccGlobalSwitch?: string;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.aliyundoc.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12472,6 +19948,13 @@ export class ModifyWebCCGlobalSwitchRequest extends $tea.Model {
 }
 
 export class ModifyWebCCGlobalSwitchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5AE2FC86-C840-41AE-9F1A-3A2747C7C1DF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12516,14 +19999,80 @@ export class ModifyWebCCGlobalSwitchResponse extends $tea.Model {
 }
 
 export class ModifyWebCCRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * close
+   */
   act?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   count?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   interval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * prefix
+   */
   mode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testrule
+   */
   name?: string;
+  /**
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The blocking duration. Valid values: **60** to **86400**. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
   ttl?: number;
+  /**
+   * @remarks
+   * The check path.
+   * 
+   * >  You cannot modify the Uniform Resource Identifier (URI). The domain name of the website, the check path, and the rule name uniquely identify a rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /abc
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12559,6 +20108,13 @@ export class ModifyWebCCRuleRequest extends $tea.Model {
 }
 
 export class ModifyWebCCRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12603,8 +20159,47 @@ export class ModifyWebCCRuleResponse extends $tea.Model {
 }
 
 export class ModifyWebCacheCustomRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name, and the domain name must be associated with an instance that uses the Enhanced function plan. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The details of the custom rule. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **Name**: the name of the rule. This field is required and must be of the string type.
+   * 
+   * *   **Uri**: the path to the cached page. This field is required and must be of the STRING type.
+   * 
+   * *   **Mode**: the cache mode. This field is required and must be of the STRING type. Valid values:
+   * 
+   *     *   **standard**: uses the standard mode.
+   *     *   **aggressive**: uses the enhanced mode.
+   *     *   **bypass**: No data is cached.
+   * 
+   * *   **CacheTtl**: the expiration time of the page cache. This field is required and must be of the INTEGER type. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"Name": "test","Uri": "/a","Mode": "standard","CacheTtl": 3600}]
+   */
   rules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12628,6 +20223,13 @@ export class ModifyWebCacheCustomRuleRequest extends $tea.Model {
 }
 
 export class ModifyWebCacheCustomRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12672,8 +20274,39 @@ export class ModifyWebCacheCustomRuleResponse extends $tea.Model {
 }
 
 export class ModifyWebCacheModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name, and the domain name must be associated with an instance that uses the Enhanced function plan. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The cache mode of the Static Page Caching policy. Valid values:
+   * 
+   * *   **standard**: uses the standard cache mode.
+   * *   **aggressive**: uses the enhanced cache mode.
+   * *   **bypass**: caches no data.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * standard
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12697,6 +20330,13 @@ export class ModifyWebCacheModeRequest extends $tea.Model {
 }
 
 export class ModifyWebCacheModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12741,8 +20381,40 @@ export class ModifyWebCacheModeResponse extends $tea.Model {
 }
 
 export class ModifyWebCacheSwitchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name for which you want to configure the Static Page Caching policy.
+   * 
+   * > You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable or disable the Static Page Caching policy for a website. Valid values:
+   * 
+   * *   **1**: enables the policy.
+   * *   **0**: disables the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   enable?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management.
+   * 
+   * If you do not configure this parameter, the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12766,6 +20438,13 @@ export class ModifyWebCacheSwitchRequest extends $tea.Model {
 }
 
 export class ModifyWebCacheSwitchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12810,8 +20489,40 @@ export class ModifyWebCacheSwitchResponse extends $tea.Model {
 }
 
 export class ModifyWebIpSetSwitchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the Blacklist/Whitelist (Domain Names) feature. This parameter is a JSON string. The value consists of the following fields:
+   * 
+   * **bwlist_enable**: the status of the Blacklist/Whitelist (Domain Names) feature. This field is required and must be of the integer type. Valid values:
+   * 
+   * *   0: turned off
+   * *   1: turned on
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"BwlistEnable":1}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12835,6 +20546,13 @@ export class ModifyWebIpSetSwitchRequest extends $tea.Model {
 }
 
 export class ModifyWebIpSetSwitchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12879,9 +20597,69 @@ export class ModifyWebIpSetSwitchResponse extends $tea.Model {
 }
 
 export class ModifyWebPreciseAccessRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The validity period of the rule. Unit: seconds. This parameter takes effect only when **action** of a rule is **block**. Access requests that match the rule are blocked within the specified validity period of the rule. If you do not specify this parameter, this rule takes effect all the time.
+   * 
+   * @example
+   * 600
+   */
   expires?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The settings of the accurate access control rule. This parameter is a JSON string. The following list describes the fields in the value of the parameter:
+   * 
+   * *   **action**: the action that is performed if the rule is matched. This field is required and must be of the string type. Valid values:
+   * 
+   *     *   **accept**: allows the requests that match the rule.
+   *     *   **block**: blocks the requests that match the rule.
+   *     *   **challenge**: implements a CAPTCHA for the requests that match the rule.
+   * 
+   * *   **name**: the name of the rule. This field is required and must be of the string type.
+   * 
+   * *   **condition**: the match conditions. This field is required and must be of the map type. A match condition contains the following parameters.
+   * 
+   *     **
+   * 
+   *     **Note**The AND logical operator is used to define the relationship among multiple match conditions.
+   * 
+   *     *   **field**: the match field. This parameter is required and must be of the string type.
+   * 
+   *     *   **match_method**: the logical relation. This parameter is required and must be of the string type.
+   * 
+   *         **
+   * 
+   *         **Note**For information about the mappings between the **field** and **match_method** parameters, see the Mappings between the field and match_method parameters table in this topic.
+   * 
+   *     *   **content**: the match content. This parameter is required and must be of the string type.
+   * 
+   * *   **header_name**: the HTTP header. This parameter is optional and must be of the string type. This parameter takes effect only when **field** is **header**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"action":"block","name":"testrule","condition":[{"field":"uri","match_method":"contain","content":"/test/123"}]}]
+   */
   rules?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12907,6 +20685,13 @@ export class ModifyWebPreciseAccessRuleRequest extends $tea.Model {
 }
 
 export class ModifyWebPreciseAccessRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * F908E959-ADA8-4D7B-8A05-FF2F67F50964
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12951,8 +20736,40 @@ export class ModifyWebPreciseAccessRuleResponse extends $tea.Model {
 }
 
 export class ModifyWebPreciseAccessSwitchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the Accurate Access Control policy. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **PreciseRuleEnable**: the status of the Accurate Access Control policy. This field is required and must be of the INTEGER type. Valid values:
+   * 
+   *     *   **0**: disables the policy.
+   *     *   **1**: enables the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"PreciseRuleEnable":0}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
+   * 
+   * @example
+   * default
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12976,6 +20793,13 @@ export class ModifyWebPreciseAccessSwitchRequest extends $tea.Model {
 }
 
 export class ModifyWebPreciseAccessSwitchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13020,12 +20844,52 @@ export class ModifyWebPreciseAccessSwitchResponse extends $tea.Model {
 }
 
 export class ModifyWebRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @example
+   * {"Http2":1,"Http2https":1,"Https2http":1}
+   */
   httpsExt?: string;
+  /**
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{"ProxyType":"https","ProxyPorts":[443]}]
+   */
   proxyTypes?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1.xxx.xxx.1
+   */
   realServers?: string[];
+  /**
+   * @example
+   * rg-acfm2pz25js****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
   rsType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13057,6 +20921,10 @@ export class ModifyWebRuleRequest extends $tea.Model {
 }
 
 export class ModifyWebRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CB3261D2-7D1B-4ADA-9E98-A200B2CDA2DC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13101,6 +20969,13 @@ export class ModifyWebRuleResponse extends $tea.Model {
 }
 
 export class ReleaseInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13120,6 +20995,10 @@ export class ReleaseInstanceRequest extends $tea.Model {
 }
 
 export class ReleaseInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 06FFAF5F-CD3E-4886-A849-AAB40DFF6515
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13164,8 +21043,54 @@ export class ReleaseInstanceResponse extends $tea.Model {
 }
 
 export class SwitchSchedulerRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the scheduling rule to manage.
+   * 
+   * > You can call the [DescribeSchedulerRules](https://help.aliyun.com/document_detail/157481.html) operation to query the names of all scheduling rules.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testrule
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The type of the scheduling rule. Valid values:
+   * 
+   * *   **2**: tiered protection rule
+   * *   **3**: network acceleration rule
+   * *   **5**: Alibaba Cloud CDN (CDN) interaction rule
+   * *   **6**: cloud service interaction rule
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6
+   */
   ruleType?: number;
+  /**
+   * @remarks
+   * The configuration that is used to switch service traffic. This parameter is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that includes the following parameters:
+   * 
+   * *   **Value**: required. The IP address of the associated resource. Data type: string.
+   * 
+   * *   **State**: required. The operation type. Data type: integer. Valid values:
+   * 
+   *     *   **0**: switches service traffic from the associated resource to your Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing.
+   *     *   **1**: switches service traffic back to the associated cloud resource.
+   * 
+   * *   **Interval**: optional. The waiting time that is required before the service traffic is switched back. Unit: minutes. Data type: integer. Usage notes:
+   * 
+   *     *   If the **State** parameter is set to **0**, you must set this parameter to \\*\\*-1\\*\\*. Otherwise, the call fails.
+   *     *   If the **State** parameter is set to **1**, you do not need to set this parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"Value":"39.104.XX.XX","State":0,"Interval":-1}]
+   */
   switchData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13189,6 +21114,13 @@ export class SwitchSchedulerRuleRequest extends $tea.Model {
 }
 
 export class SwitchSchedulerRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7E3C301F-84BB-50E4-9DB9-2937B2429C1E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13233,7 +21165,25 @@ export class SwitchSchedulerRuleResponse extends $tea.Model {
 }
 
 export class CreateDomainResourceRequestProxyTypes extends $tea.Model {
+  /**
+   * @remarks
+   * The port numbers.
+   * 
+   * This parameter is required.
+   */
   proxyPorts?: number[];
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **http**
+   * *   **https**
+   * *   **websocket**
+   * *   **websockets**
+   * 
+   * @example
+   * http
+   */
   proxyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13255,7 +21205,21 @@ export class CreateDomainResourceRequestProxyTypes extends $tea.Model {
 }
 
 export class CreateTagResourcesRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag to add.
+   * 
+   * @example
+   * testkey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag to add.
+   * 
+   * @example
+   * testvalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13277,12 +21241,91 @@ export class CreateTagResourcesRequestTags extends $tea.Model {
 }
 
 export class DescribeAsyncTasksResponseBodyAsyncTasks extends $tea.Model {
+  /**
+   * @remarks
+   * The end time of the task. This value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 157927362000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The start time of the task. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 156927362000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The ID of the job.
+   * 
+   * @example
+   * 1
+   */
   taskId?: number;
+  /**
+   * @remarks
+   * The task parameter. The value is a JSON string. The returned field in the value varies based on the value of **TaskType**.
+   * 
+   * If **TaskType** is set to **1**, **3**, **4**, **5**, or **6**, the following filed is returned:
+   * 
+   * *   **instanceId**: the ID of the instance. Data type: string.
+   * 
+   * If **TaskType** is set to **2**, the following field is returned:
+   * 
+   * *   **domain**: the domain name of the website. Data type: string.
+   * 
+   * @example
+   * {"instanceId": "ddoscoo-cn-mp91j1ao****"}
+   */
   taskParams?: string;
+  /**
+   * @remarks
+   * The execution result of the task. The value is a JSON string. The returned fields in the value vary based on the value of **TaskType**.
+   * 
+   * If **TaskType** is set to **1**, **3**, **4**, **5**, or **6**, the following fields are returned:
+   * 
+   * *   **instanceId**: the ID of the instance. Data type: string.
+   * *   **url**: the URL to download the exported file from Object Storage Service (OSS). Data type: string.
+   * 
+   * If **TaskType** is set to **2**, the following fields are returned:
+   * 
+   * *   **domain**: the domain name of the website. Data type: string.
+   * *   **url**: the URL to download the exported file from OSS. Data type: string.
+   * 
+   * @example
+   * {"instanceId": "ddoscoo-cn-mp91j1ao****","url": "https://****.oss-cn-beijing.aliyuncs.com/heap.bin?Expires=1584785140&OSSAccessKeyId=TMP.3KfzD82FyRJevJdEkRX6JEFHhbvRBBb75PZJnyJmksA2QkMm47xFAFDgMhEV8Nm6Vxr8xExMfiy9LsUFAcLcTBrN3r****&Signature=Sj8BNcsxJLE8l5qm4cjNlDt8gv****"}
+   */
   taskResult?: string;
+  /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **0**: indicates that the task is being initialized.
+   * *   **1**: indicates that the task is in progress.
+   * *   **2**: indicates that the task is successful.
+   * *   **3**: indicates that the task failed.
+   * 
+   * @example
+   * 2
+   */
   taskStatus?: number;
+  /**
+   * @remarks
+   * The type of the task. Valid values:
+   * 
+   * *   **1**: the task to export the port forwarding rules of an instance
+   * *   **2**: the task to export the forwarding rules of a website protected by an instance
+   * *   **3**: the task to export the sessions and health check settings of an instance
+   * *   **4**: the task to export the mitigation policies of an instance
+   * *   **5**: the task to download the blacklist for destination IP addresses of an instance
+   * *   **6**: the task to download the whitelist for destination IP addresses of an instance
+   * 
+   * @example
+   * 5
+   */
   taskType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13314,9 +21357,40 @@ export class DescribeAsyncTasksResponseBodyAsyncTasks extends $tea.Model {
 }
 
 export class DescribeAutoCcBlacklistResponseBodyAutoCcBlacklist extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 192.0.XX.XX
+   */
   destIp?: string;
+  /**
+   * @remarks
+   * The validity period of the IP address in the blacklist. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1584093569
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The IP address in the blacklist.
+   * 
+   * @example
+   * 47.100.XX.XX
+   */
   sourceIp?: string;
+  /**
+   * @remarks
+   * The mode of how the IP address is added to the blacklist. Valid values:
+   * 
+   * *   **manual**: manually added
+   * *   **auto**: automatically added
+   * 
+   * @example
+   * manual
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13342,9 +21416,40 @@ export class DescribeAutoCcBlacklistResponseBodyAutoCcBlacklist extends $tea.Mod
 }
 
 export class DescribeAutoCcWhitelistResponseBodyAutoCcWhitelist extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 203.***.***.117
+   */
   destIp?: string;
+  /**
+   * @remarks
+   * The validity period of the IP address in the whitelist. Unit: seconds. **0** indicates that the IP address in the whitelist never expires.
+   * 
+   * @example
+   * 0
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The IP addresses that is contained in the IP address whitelist.
+   * 
+   * @example
+   * 2.2.2.2
+   */
   sourceIp?: string;
+  /**
+   * @remarks
+   * The mode of how an IP address is added to the whitelist. Valid values:
+   * 
+   * *   **manual**: manually added
+   * *   **auto**: automatically added
+   * 
+   * @example
+   * manual
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13370,9 +21475,40 @@ export class DescribeAutoCcWhitelistResponseBodyAutoCcWhitelist extends $tea.Mod
 }
 
 export class DescribeBlackholeStatusResponseBodyBlackholeStatus extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether blackhole filtering is triggered for the instance. Valid values:
+   * 
+   * *   **blackhole**: yes
+   * *   **normal**: no
+   * 
+   * @example
+   * blackhole
+   */
   blackStatus?: string;
+  /**
+   * @remarks
+   * The end time of blackhole filtering. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1540196323
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 203.***.***.132
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The start time of blackhole filtering. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1540195323
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13398,9 +21534,43 @@ export class DescribeBlackholeStatusResponseBodyBlackholeStatus extends $tea.Mod
 }
 
 export class DescribeBlockStatusResponseBodyStatusListBlockStatusList extends $tea.Model {
+  /**
+   * @remarks
+   * The blocking status of the network traffic. Valid values:
+   * 
+   * *   **areablock**: Network traffic is blocked.
+   * *   **normal**: Network traffic is not blocked.
+   * 
+   * @example
+   * areablock
+   */
   blockStatus?: string;
+  /**
+   * @remarks
+   * The end time of the blocking. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1540196323
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The Internet service provider (ISP) line from which the traffic is blocked. Valid values:
+   * 
+   * *   **ct**: China Telecom (International)
+   * *   **cut**: China Unicom (International)
+   * 
+   * @example
+   * cut
+   */
   line?: string;
+  /**
+   * @remarks
+   * The start time of the blocking. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1540195323
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13426,7 +21596,18 @@ export class DescribeBlockStatusResponseBodyStatusListBlockStatusList extends $t
 }
 
 export class DescribeBlockStatusResponseBodyStatusList extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of details of the Diversion from Origin Server configuration.
+   */
   blockStatusList?: DescribeBlockStatusResponseBodyStatusListBlockStatusList[];
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 203.XX.XX.88
+   */
   ip?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13448,13 +21629,72 @@ export class DescribeBlockStatusResponseBodyStatusList extends $tea.Model {
 }
 
 export class DescribeCertsResponseBodyCerts extends $tea.Model {
+  /**
+   * @remarks
+   * The global certificate ID, which is in the certificate ID-cn-hangzhou format. If the ID of the certificate is 123, CertIdentifier is 123-cn-hangzhou.
+   * 
+   * @example
+   * 126345-ap-southeast-1
+   */
   certIdentifier?: string;
+  /**
+   * @remarks
+   * The domain name that is associated with the certificate.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   common?: string;
+  /**
+   * @remarks
+   * Indicates whether the certificate is associated with the domain name. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   domainRelated?: boolean;
+  /**
+   * @remarks
+   * The expiration date of the certificate. The value is a string.
+   * 
+   * @example
+   * 2021-09-12
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * 81
+   */
   id?: number;
+  /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
+   * @example
+   * Symantec
+   */
   issuer?: string;
+  /**
+   * @remarks
+   * The name of the certificate.
+   * 
+   * @example
+   * testcert
+   */
   name?: string;
+  /**
+   * @remarks
+   * The issuance date of the certificate. The value is a string.
+   * 
+   * @example
+   * 2019-09-12
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13488,8 +21728,20 @@ export class DescribeCertsResponseBodyCerts extends $tea.Model {
 }
 
 export class DescribeCnameReusesResponseBodyCnameReuses extends $tea.Model {
+  /**
+   * @example
+   * 4o6ep6q217k9****.aliyunddos0004.com
+   */
   cname?: string;
+  /**
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @example
+   * 1
+   */
   enable?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13513,13 +21765,81 @@ export class DescribeCnameReusesResponseBodyCnameReuses extends $tea.Model {
 }
 
 export class DescribeDDoSEventsResponseBodyDDoSEvents extends $tea.Model {
+  /**
+   * @remarks
+   * The bandwidth of attack traffic. Unit: bit/s.
+   * 
+   * @example
+   * 0
+   */
   bps?: number;
+  /**
+   * @remarks
+   * The time when the DDoS attack stopped. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1583933330
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The type of the attack event. Valid values:
+   * 
+   * *   **defense**: traffic scrubbing events
+   * *   **blackhole**: blackhole filtering events
+   * 
+   * @example
+   * blackhole
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The attacked IP address.
+   * 
+   * @example
+   * 203.***.***.132
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The attacked port.
+   * 
+   * @example
+   * 80
+   */
   port?: string;
+  /**
+   * @remarks
+   * The packet forwarding rate of attack traffic. Unit: packets per second (pps).
+   * 
+   * @example
+   * 0
+   */
   pps?: number;
+  /**
+   * @remarks
+   * The region from which the attack was launched. Valid values:
+   * 
+   * *   **cn**: a region in the Chinese mainland
+   * *   **alb-ap-northeast-1-gf-x**: Japan (Tokyo)
+   * *   **alb-ap-southeast-gf-x**: Singapore
+   * *   **alb-cn-hongkong-gf-x**: Hong Kong (China)
+   * *   **alb-eu-central-1-gf-x**: Germany (Frankfurt)
+   * *   **alb-us-west-1-gf-x**: US (Silicon Valley)
+   * 
+   * > The values except **cn** are returned only when **RegionId** is set to **ap-southeast-1**.
+   * 
+   * @example
+   * cn
+   */
   region?: string;
+  /**
+   * @remarks
+   * The time when the DDoS attack started. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1583933277
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13553,13 +21873,90 @@ export class DescribeDDoSEventsResponseBodyDDoSEvents extends $tea.Model {
 }
 
 export class DescribeDDosAllEventListResponseBodyAttackEvents extends $tea.Model {
+  /**
+   * @remarks
+   * The source location or region from which the attack was initiated. Valid values:
+   * 
+   * *   **cn**: Chinese mainland
+   * *   **alb-cn-hongkong-gf-2**: China (Hongkong)
+   * *   **alb-us-west-1-gf-2**: US (Silicon Valley)
+   * *   **alb-ap-northeast-1-gf-1**: Japan (Tokyo)
+   * *   **alb-ap-southeast-gf-1**: Singapore
+   * *   **alb-eu-central-1-gf-1**: Germany (Frankfurt)
+   * *   **alb-eu-central-1-gf-1** or **selb-eu-west-1-gf-1a**: UK (London)
+   * *   **alb-us-east-gf-1**: US (Virginia)
+   * *   **CT-yundi**: China (Hongkong) This value is returned only for Anti-DDoS Premium instances of the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan.
+   * 
+   * @example
+   * cn
+   */
   area?: string;
+  /**
+   * @remarks
+   * The time when the DDoS attack stopped. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1634546030
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The type of the DDoS attack event. Valid values:
+   * 
+   * *   **web-cc**: resource exhaustion attacks
+   * *   **cc**: connection flood attacks
+   * *   **defense**: DDoS attacks that trigger traffic scrubbing
+   * *   **blackhole**: DDoS attacks that trigger blackhole filtering
+   * 
+   * @example
+   * cc
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The attacked object. The attacked object varies based on the attack event type. The following list describes different attacked objects of different attack event types:
+   * 
+   * *   If **EventType** is set to **web-cc**, the value of this parameter indicates the domain name of the attacked website.
+   * *   If **EventType** is set to **cc**, the value of this parameter indicates the IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * *   If **EventType** is set to **defense** or **blackhole**, the value of this parameter indicates the IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The peak bandwidth of the attack traffic. Unit: Mbit/s.
+   * 
+   * @example
+   * 101899
+   */
   mbps?: number;
+  /**
+   * @remarks
+   * The attacked port.
+   * 
+   * > If **EventType** is set to **web-cc**, this parameter is not returned.
+   * 
+   * @example
+   * 80
+   */
   port?: string;
+  /**
+   * @remarks
+   * The peak packet forwarding rate of attack traffic. Unit: packets per second (pps).
+   * 
+   * @example
+   * 9664270
+   */
   pps?: number;
+  /**
+   * @remarks
+   * The time when the DDoS attack started. This value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1634543764
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13593,7 +21990,21 @@ export class DescribeDDosAllEventListResponseBodyAttackEvents extends $tea.Model
 }
 
 export class DescribeDDosEventAreaResponseBodyAreas extends $tea.Model {
+  /**
+   * @remarks
+   * The code or ID of the source region. For more information, see [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html). For example, **110000** indicates Beijing, China, and **us** indicates the United States.
+   * 
+   * @example
+   * 110000
+   */
   area?: string;
+  /**
+   * @remarks
+   * The number of request packets that were sent from the source region.
+   * 
+   * @example
+   * 228
+   */
   inPkts?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13615,7 +22026,63 @@ export class DescribeDDosEventAreaResponseBodyAreas extends $tea.Model {
 }
 
 export class DescribeDDosEventAttackTypeResponseBodyAttackTypes extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the attack Valid values:
+   * 
+   * *   **QOTD-Reflect-Flood**: QOTD reflection attacks
+   * *   **CharGEN-Reflect-Flood**: CHARGEN reflection attacks
+   * *   **DNS-Reflect-Flood**: DNS reflection attacks
+   * *   **TFTP-Reflect-Flood**: TFTP reflection attacks
+   * *   **Portmap-Reflect-Flood**: Portmap reflection attacks
+   * *   **NTP-Reflect-Flood**: NTP reflection attacks
+   * *   **NetBIOS-Reflect-Flood**: NetBIOS reflection attacks
+   * *   **SNMPv2-Reflect-Flood**: SNMPv2 reflection attacks
+   * *   **CLDAP-Reflect-Flood**: CLDAP reflection attacks
+   * *   **Ripv1-Reflect-Flood**: RIPv1 reflection attacks
+   * *   **OpenVPN-Reflect-Flood**: OpenVPN reflection attacks
+   * *   **SSDP-Reflect-Flood**: SSDP reflection attacks
+   * *   **NetAssistant-Reflect-Flood**: NetAssistant reflection attacks
+   * *   **WSDiscovery-Reflect-Flood**: WS-Discovery reflection attacks
+   * *   **Kad-Reflect-Flood**: Kad reflection attacks
+   * *   **mDNS-Reflect-Flood**: mDNS reflection attacks
+   * *   **10001-Reflect-Flood**: reflection attacks over port 10001
+   * *   **Memcached-Reflect-Flood**: Memcached reflection attacks
+   * *   **QNP-Reflect-Flood**: QNP reflection attacks
+   * *   **DVR-Reflect-Flood**: DVR reflection attacks
+   * *   **CoAP-Reflect-Flood**: CoAP reflection attacks
+   * *   **ADDP-Reflect-Flood**: ADDP reflection attacks
+   * *   **Tcp-Syn**: TCP SYN flood attacks
+   * *   **Tcp-Fin**: TCP FIN flood attacks
+   * *   **Tcp-Ack**: TCP ACK flood attacks
+   * *   **Tcp-Rst**: TCP RST flood attacks
+   * *   **Tcp-Pushack**: TCP PSH-ACK flood attacks
+   * *   **Tcp-Synack**: TCP SYN-ACK flood attacks
+   * *   **Udp-None**: UDP attacks
+   * *   **Udp-Ssh**: UDP-based SSH attacks
+   * *   **Udp-Dns**: UDP-based DNS attacks
+   * *   **Udp-Http**: UDP-based HTTP attacks
+   * *   **Udp-Https**: UDP-based HTTPS attacks
+   * *   **Udp-Ntp**: UDP-based NTP attacks
+   * *   **Udp-Ldap**: UDP-based LDAP attacks
+   * *   **Udp-Ssdp**: UDP-based SSDP attacks
+   * *   **Udp-Memcached**: Memcached UDP reflection attacks
+   * *   **Tcp-Other**: other TCP attacks
+   * *   **Icmp**: ICMP flood attacks
+   * *   **Igmp**: IGMP flood attacks
+   * *   **Ipv6**: IPv6 attacks
+   * 
+   * @example
+   * Tcp-Syn
+   */
   attackType?: string;
+  /**
+   * @remarks
+   * The number of request packets of the attack type.
+   * 
+   * @example
+   * 145902
+   */
   inPkts?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13637,7 +22104,40 @@ export class DescribeDDosEventAttackTypeResponseBodyAttackTypes extends $tea.Mod
 }
 
 export class DescribeDDosEventIspResponseBodyIsps extends $tea.Model {
+  /**
+   * @remarks
+   * The number of request packets that were sent from the ISP.
+   * 
+   * @example
+   * 230
+   */
   inPkts?: number;
+  /**
+   * @remarks
+   * The code of the ISP. Valid values:
+   * 
+   * *   **100017**: China Telecom
+   * *   **100026**: China Unicom
+   * *   **100025**: China Mobile
+   * *   **100027**: China Education and Research Network
+   * *   **100020**: China Mobile Tietong
+   * *   **1000143**: Dr.Peng Telecom & Media Group
+   * *   **100080**: Beijing Gehua CATV Network
+   * *   **1000139**: National Radio and Television Administration
+   * *   **100023**: Oriental Cable Network
+   * *   **100063**: Founder Broadband
+   * *   **1000337**: China Internet Exchange
+   * *   **100021**: 21Vianet Group
+   * *   **1000333**: Wasu Media Holding
+   * *   **100093**: Wangsu Science & Technology
+   * *   **1000401**: Tencent
+   * *   **100099**: Baidu
+   * *   **1000323**: Alibaba Cloud
+   * *   **100098**: Alibaba
+   * 
+   * @example
+   * 1000323
+   */
   isp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13659,8 +22159,48 @@ export class DescribeDDosEventIspResponseBodyIsps extends $tea.Model {
 }
 
 export class DescribeDDosEventSrcIpResponseBodyIps extends $tea.Model {
+  /**
+   * @remarks
+   * The code or ID of the source region. For more information, see [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html). For example, **110000** indicates Beijing, China, and **us** indicates the United States.
+   * 
+   * @example
+   * 110000
+   */
   areaId?: string;
+  /**
+   * @remarks
+   * The Internet service provider (ISP) for the volumetric attack. Valid values:
+   * 
+   * *   **100017**: China Telecom
+   * *   **100026**: China Unicom
+   * *   **100025**: China Mobile
+   * *   **100027**: China Education and Research Network
+   * *   **100020**: China Mobile Tietong
+   * *   **1000143**: Dr.Peng Telecom & Media Group
+   * *   **100080**: Beijing Gehua CATV Network
+   * *   **1000139**: National Radio and Television Administration
+   * *   **100023**: Oriental Cable Network
+   * *   **100063**: Founder Broadband
+   * *   **1000337**: China Internet Exchange
+   * *   **100021**: 21Vianet Group
+   * *   **1000333**: Wasu Media Holding
+   * *   **100093**: Wangsu Science & Technology
+   * *   **1000401**: Tencent
+   * *   **100099**: Baidu
+   * *   **1000323**: Alibaba Cloud
+   * *   **100098**: Alibaba
+   * 
+   * @example
+   * 100026
+   */
   isp?: string;
+  /**
+   * @remarks
+   * The source IP address of the volumetric attack.
+   * 
+   * @example
+   * 218.***.***.24
+   */
   srcIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13684,9 +22224,37 @@ export class DescribeDDosEventSrcIpResponseBodyIps extends $tea.Model {
 }
 
 export class DescribeDefenseCountStatisticsResponseBodyDefenseCountStatistics extends $tea.Model {
+  /**
+   * @remarks
+   * The number of advanced mitigation sessions that are used within the current calendar month.
+   * 
+   * @example
+   * 0
+   */
   defenseCountTotalUsageOfCurrentMonth?: number;
+  /**
+   * @remarks
+   * The number of available global advanced mitigation sessions for the Insurance mitigation plan.
+   * 
+   * @example
+   * 0
+   */
   flowPackCountRemain?: number;
+  /**
+   * @remarks
+   * The maximum number of advanced mitigation sessions available for the current calendar month. The advanced mitigation sessions include the advanced mitigation sessions that are provided free of charge and the global advanced mitigation sessions that you purchase.
+   * 
+   * @example
+   * 20
+   */
   maxUsableDefenseCountCurrentMonth?: number;
+  /**
+   * @remarks
+   * The number of available global advanced mitigation sessions for the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan.
+   * 
+   * @example
+   * 0
+   */
   secHighSpeedCountRemain?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13712,11 +22280,56 @@ export class DescribeDefenseCountStatisticsResponseBodyDefenseCountStatistics ex
 }
 
 export class DescribeDefenseRecordsResponseBodyDefenseRecords extends $tea.Model {
+  /**
+   * @remarks
+   * The peak attack traffic. Unit: bit/s.
+   * 
+   * @example
+   * 6584186000
+   */
   attackPeak?: number;
+  /**
+   * @remarks
+   * The end time of the advanced mitigation session. This value is a UNIX timestamp. Units: miliseconds.
+   * 
+   * @example
+   * 1583683200000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The number of attacks.
+   * 
+   * @example
+   * 2
+   */
   eventCount?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The start time of the advanced mitigation session. This value is a UNIX timestamp. Units: miliseconds.
+   * 
+   * @example
+   * 1582992000000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The status of the advanced mitigation session. Valid values:
+   * 
+   * *   **0**: The advanced mitigation session is being used.
+   * *   **1**: The advanced mitigation session is used.
+   * 
+   * @example
+   * 0
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13746,7 +22359,21 @@ export class DescribeDefenseRecordsResponseBodyDefenseRecords extends $tea.Model
 }
 
 export class DescribeDestinationPortEventResponseBodyPortList extends $tea.Model {
+  /**
+   * @remarks
+   * The destination port.
+   * 
+   * @example
+   * 80
+   */
   dstPort?: string;
+  /**
+   * @remarks
+   * The number of request packets received by the destination port.
+   * 
+   * @example
+   * 8760950
+   */
   inPkts?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13768,9 +22395,37 @@ export class DescribeDestinationPortEventResponseBodyPortList extends $tea.Model
 }
 
 export class DescribeDomainAttackEventsResponseBodyDomainAttackEvents extends $tea.Model {
+  /**
+   * @remarks
+   * The attacked domain name.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The time when the DDoS attack stopped. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1560320160
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The peak attack QPS.
+   * 
+   * @example
+   * 1000
+   */
   maxQps?: number;
+  /**
+   * @remarks
+   * The time when the DDoS attack started. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1560312900
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13796,14 +22451,77 @@ export class DescribeDomainAttackEventsResponseBodyDomainAttackEvents extends $t
 }
 
 export class DescribeDomainQPSListResponseBodyDomainQPSList extends $tea.Model {
+  /**
+   * @remarks
+   * The attack QPS.
+   * 
+   * @example
+   * 1
+   */
   attackQps?: number;
+  /**
+   * @remarks
+   * The number of cache hits.
+   * 
+   * @example
+   * 0
+   */
   cacheHits?: number;
+  /**
+   * @remarks
+   * The index number of the returned data.
+   * 
+   * @example
+   * 0
+   */
   index?: number;
+  /**
+   * @remarks
+   * The peak attack QPS.
+   * 
+   * @example
+   * 37
+   */
   maxAttackQps?: number;
+  /**
+   * @remarks
+   * The peak of normal QPS.
+   * 
+   * @example
+   * 93
+   */
   maxNormalQps?: number;
+  /**
+   * @remarks
+   * The peak of total QPS.
+   * 
+   * @example
+   * 130
+   */
   maxQps?: number;
+  /**
+   * @remarks
+   * The time when the data was collected. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1582992000
+   */
   time?: number;
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 20008
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The total QPS.
+   * 
+   * @example
+   * 1
+   */
   totalQps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13839,7 +22557,23 @@ export class DescribeDomainQPSListResponseBodyDomainQPSList extends $tea.Model {
 }
 
 export class DescribeDomainResourceResponseBodyWebRulesProxyTypes extends $tea.Model {
+  /**
+   * @remarks
+   * The port numbers.
+   */
   proxyPorts?: string[];
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **http**
+   * *   **https**
+   * *   **websocket**
+   * *   **websockets**
+   * 
+   * @example
+   * http
+   */
   proxyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13861,30 +22595,243 @@ export class DescribeDomainResourceResponseBodyWebRulesProxyTypes extends $tea.M
 }
 
 export class DescribeDomainResourceResponseBodyWebRules extends $tea.Model {
+  /**
+   * @remarks
+   * The IP addresses that are included in the blacklist of the domain name.
+   */
   blackList?: string[];
+  /**
+   * @remarks
+   * Indicates whether Frequency Control is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   ccEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the Custom Rules switch of Frequency Control is turned on. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   ccRuleEnabled?: boolean;
+  /**
+   * @remarks
+   * The mode of Frequency Control. Valid values:
+   * 
+   * *   **default**: the Normal mode
+   * *   **gf_under_attack**: the Emergency mode
+   * *   **gf_sos_verify**: the Strict mode
+   * *   **gf_sos_verify**: the Super Strict mode
+   * 
+   * @example
+   * default
+   */
   ccTemplate?: string;
+  /**
+   * @remarks
+   * The name of the SSL certificate used by the domain name.
+   * 
+   * @example
+   * 49944XX.pem
+   */
   certName?: string;
+  /**
+   * @remarks
+   * The CNAME provided by the instance to which the domain name is added.
+   * 
+   * @example
+   * 0ekb69x3j9wvXXXX.aliyunddosXXXX.com
+   */
   cname?: string;
+  /**
+   * @remarks
+   * The custom cipher suites.
+   */
   customCiphers?: string[];
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * Indicates whether Enable HTTP/2 is turned on. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   http2Enable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether Enable HTTPS Redirection is turned on. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   http2HttpsEnable?: boolean;
+  /**
+   * @remarks
+   * Indicates whether Enable HTTP Redirection of Back-to-origin Requests is turned on. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   https2HttpEnable?: boolean;
+  /**
+   * @remarks
+   * The advanced HTTPS settings. This parameter takes effect only when the value of the **ProxyType** parameter includes **https**. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+   * 
+   * *   **Http2https**: indicates whether Enable HTTPS Redirection is turned on. Data type: integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTPS Redirection is turned on. The value 1 indicates that Enable HTTPS Redirection is turned off.
+   * *   **Https2http**: indicates whether Enable HTTP Redirection of Back-to-origin Requests is turned on. Data type: integer. Valid values: **0** and **1**. The value 0 indicates that the feature is turned on. The value 1 indicates that the feature is turned off.
+   * *   **Http2**: indicates whether Enable HTTP/2 is turned on. Data type: integer. Valid values: **0** and **1**. The value 0 indicates that Enable HTTP/2 is turned off. The value 1 indicates that Enable HTTP/2 is turned on.
+   * 
+   * @example
+   * {"Https2http":0,"Http2":0,"Http2https":0}
+   */
   httpsExt?: string;
+  /**
+   * @remarks
+   * The IDs of the instances to which the domain name is added.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * Indicates whether the Online Certificate Status Protocol (OCSP) feature is turned on. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   ocspEnabled?: boolean;
+  /**
+   * @remarks
+   * The scheduling algorithm for back-to-origin traffic. Valid values:
+   * 
+   * *   **ip_hash**: the IP hash algorithm. This algorithm is used to redirect the requests from the same IP address to the same origin server.
+   * *   **rr**: the round-robin algorithm. This algorithm is used to redirect requests to origin servers in turn.
+   * *   **least_time**: the least response time algorithm. This algorithm is used to minimize the latency when requests are forwarded from the instance to origin servers based on the intelligent DNS resolution feature.
+   * 
+   * @example
+   * ip_hash
+   */
   policyMode?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance forwards the traffic that is destined for the website. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   proxyEnabled?: boolean;
+  /**
+   * @remarks
+   * The details about the protocol type and port number.
+   */
   proxyTypes?: DescribeDomainResourceResponseBodyWebRulesProxyTypes[];
+  /**
+   * @remarks
+   * The reason why the domain name is invalid. Valid values:
+   * 
+   * *   **1**: No Content Provider (ICP) filing is completed for the domain name.
+   * *   **2**: The business for which you registered the domain name does not meet regulatory requirements.
+   * 
+   * If the two reasons are both involved, the value **2** is returned.
+   * 
+   * @example
+   * 1
+   */
   punishReason?: number;
+  /**
+   * @remarks
+   * Indicates whether the domain name is invalid. Valid values:
+   * 
+   * *   **true**: The domain name is invalid. You can view the specific reasons from the **PunishReason** parameter.
+   * *   **false**: The domain name is valid.
+   * 
+   * @example
+   * false
+   */
   punishStatus?: boolean;
+  /**
+   * @remarks
+   * The addresses of origin servers.
+   */
   realServers?: string[];
+  /**
+   * @remarks
+   * The address type of the origin server. Valid values:
+   * 
+   * *   **0**: IP address
+   * *   **1**: domain name
+   * 
+   * @example
+   * 0
+   */
   rsType?: number;
+  /**
+   * @remarks
+   * Indicates whether TLS 1.3 is supported. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
   ssl13Enabled?: boolean;
+  /**
+   * @remarks
+   * The type of the cipher suite. Valid values:
+   * 
+   * *   **default**: custom cipher suite
+   * *   **all**: all cipher suites
+   * *   **strong**: strong cipher suites
+   * 
+   * @example
+   * default
+   */
   sslCiphers?: string;
+  /**
+   * @remarks
+   * The version of the TLS protocol. Valid values:
+   * 
+   * *   **tls1.0**: TLS 1.0 or later
+   * *   **tls1.1**: TLS 1.1 or later
+   * *   **tls1.2**: TLS 1.2 or later
+   * 
+   * @example
+   * tls1.0
+   */
   sslProtocols?: string;
+  /**
+   * @remarks
+   * The IP addresses that are included in the whitelist of the domain name.
+   */
   whiteList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13952,7 +22899,28 @@ export class DescribeDomainResourceResponseBodyWebRules extends $tea.Model {
 }
 
 export class DescribeDomainSecurityProfileResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the global mitigation policy is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   globalEnable?: boolean;
+  /**
+   * @remarks
+   * The mode of the global mitigation policy. Valid values:
+   * 
+   * *   **weak**: the Low mode
+   * *   **default**: the Normal mode
+   * *   **hard**: the Strict mode
+   * 
+   * @example
+   * default
+   */
   globalMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13974,19 +22942,117 @@ export class DescribeDomainSecurityProfileResponseBodyResult extends $tea.Model 
 }
 
 export class DescribeDomainStatusCodeListResponseBodyStatusCodeList extends $tea.Model {
+  /**
+   * @remarks
+   * The index number of the returned data.
+   * 
+   * @example
+   * 0
+   */
   index?: number;
+  /**
+   * @remarks
+   * The number of 200 status codes.
+   * 
+   * @example
+   * 15520
+   */
   status200?: number;
+  /**
+   * @remarks
+   * The number of 2xx status codes.
+   * 
+   * @example
+   * 15520
+   */
   status2XX?: number;
+  /**
+   * @remarks
+   * The number of 3xx status codes.
+   * 
+   * @example
+   * 0
+   */
   status3XX?: number;
+  /**
+   * @remarks
+   * The number of 403 status codes.
+   * 
+   * @example
+   * 0
+   */
   status403?: number;
+  /**
+   * @remarks
+   * The number of 404 status codes.
+   * 
+   * @example
+   * 0
+   */
   status404?: number;
+  /**
+   * @remarks
+   * The number of 405 status codes.
+   * 
+   * @example
+   * 0
+   */
   status405?: number;
+  /**
+   * @remarks
+   * The number of 4xx status codes.
+   * 
+   * @example
+   * 4486
+   */
   status4XX?: number;
+  /**
+   * @remarks
+   * The number of 501 status codes.
+   * 
+   * @example
+   * 0
+   */
   status501?: number;
+  /**
+   * @remarks
+   * The number of 502 status codes.
+   * 
+   * @example
+   * 0
+   */
   status502?: number;
+  /**
+   * @remarks
+   * The number of 503 status codes.
+   * 
+   * @example
+   * 0
+   */
   status503?: number;
+  /**
+   * @remarks
+   * The number of 504 status codes.
+   * 
+   * @example
+   * 0
+   */
   status504?: number;
+  /**
+   * @remarks
+   * The number of 5xx status codes.
+   * 
+   * @example
+   * 0
+   */
   status5XX?: number;
+  /**
+   * @remarks
+   * The time when the data was collected. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1582992000
+   */
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14032,8 +23098,29 @@ export class DescribeDomainStatusCodeListResponseBodyStatusCodeList extends $tea
 }
 
 export class DescribeDomainTopAttackListResponseBodyAttackList extends $tea.Model {
+  /**
+   * @remarks
+   * The attack QPS. Unit: QPS
+   * 
+   * @example
+   * 0
+   */
   attack?: number;
+  /**
+   * @remarks
+   * The number of all QPS, which includes normal and attack QPS. Unit: QPS.
+   * 
+   * @example
+   * 294
+   */
   count?: number;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14057,7 +23144,21 @@ export class DescribeDomainTopAttackListResponseBodyAttackList extends $tea.Mode
 }
 
 export class DescribeDomainViewSourceCountriesResponseBodySourceCountrys extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 3390671
+   */
   count?: number;
+  /**
+   * @remarks
+   * The abbreviation of the country or area. For more information, see the **Codes of countries and areas** section of the [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html) topic. For example, **cn** indicates China, and **us** indicates the United States.
+   * 
+   * @example
+   * cn
+   */
   countryId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14079,7 +23180,21 @@ export class DescribeDomainViewSourceCountriesResponseBodySourceCountrys extends
 }
 
 export class DescribeDomainViewSourceProvincesResponseBodySourceProvinces extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 3390671
+   */
   count?: number;
+  /**
+   * @remarks
+   * The ID of the region inside China. For more information, see the **Codes of administrative regions in China** section of the [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html) topic. For example, **110000** indicates Beijing, and **120000** indicates Tianjin.
+   * 
+   * @example
+   * 440000
+   */
   provinceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14101,8 +23216,29 @@ export class DescribeDomainViewSourceProvincesResponseBodySourceProvinces extend
 }
 
 export class DescribeDomainViewTopCostTimeResponseBodyUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The response duration. Unit: milliseconds.
+   * 
+   * @example
+   * 3000
+   */
   costTime?: number;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The URL that is Base64-encoded.
+   * 
+   * @example
+   * Lw==
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14126,8 +23262,29 @@ export class DescribeDomainViewTopCostTimeResponseBodyUrlList extends $tea.Model
 }
 
 export class DescribeDomainViewTopUrlResponseBodyUrlList extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 3390671
+   */
   count?: number;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The URL that is Base64-encoded.
+   * 
+   * @example
+   * Lw==
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14151,14 +23308,77 @@ export class DescribeDomainViewTopUrlResponseBodyUrlList extends $tea.Model {
 }
 
 export class DescribeElasticQpsResponseBodyElasticQps extends $tea.Model {
+  /**
+   * @remarks
+   * The index number of the returned data.
+   * 
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @remarks
+   * The peak QPS of the normal service.
+   * 
+   * @example
+   * 23
+   */
   maxNormalQps?: number;
+  /**
+   * @remarks
+   * The peak inbound QPS.
+   * 
+   * @example
+   * 100
+   */
   maxQps?: number;
+  /**
+   * @remarks
+   * The total number of requests during the step size period.
+   * 
+   * @example
+   * 15104
+   */
   pv?: number;
+  /**
+   * @remarks
+   * The total number of HTTP 2xx status codes during the step size period.
+   * 
+   * @example
+   * 455
+   */
   status2?: number;
+  /**
+   * @remarks
+   * The total number of HTTP 3xx status codes during the step size period.
+   * 
+   * @example
+   * 100
+   */
   status3?: number;
+  /**
+   * @remarks
+   * The total number of HTTP 4xx status codes during the step size period.
+   * 
+   * @example
+   * 34
+   */
   status4?: number;
+  /**
+   * @remarks
+   * The total number of HTTP 5xx status codes during the step size period.
+   * 
+   * @example
+   * 0
+   */
   status5?: number;
+  /**
+   * @remarks
+   * The total number of origin requests during the step size period.
+   * 
+   * @example
+   * 1223
+   */
   ups?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14194,14 +23414,81 @@ export class DescribeElasticQpsResponseBodyElasticQps extends $tea.Model {
 }
 
 export class DescribeElasticQpsRecordResponseBodyElasticQpsList extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1688140799999
+   */
   date?: number;
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Proxy instance.
+   * 
+   * @example
+   * ddoscoo-cn-7e225i41****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address of the Anti-DDoS Proxy instance.
+   * 
+   * @example
+   * 203.***.***.199
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The burstable QPS value. A value of 0 indicates that the burstable QPS feature is not enabled.
+   * 
+   * @example
+   * 300000
+   */
   opsElasticQps?: number;
+  /**
+   * @remarks
+   * The service QPS (active).
+   * 
+   * @example
+   * 1345
+   */
   opsQps?: number;
+  /**
+   * @remarks
+   * The service QPS (purchased).
+   * 
+   * @example
+   * 1345
+   */
   originQps?: number;
+  /**
+   * @remarks
+   * The daily peak 95th percentile QPS.
+   * 
+   * @example
+   * 4367
+   */
   qps?: number;
+  /**
+   * @remarks
+   * The daily peak traffic.
+   * 
+   * @example
+   * 122
+   */
   qpsPeak?: number;
+  /**
+   * @remarks
+   * Indicates whether the instance has expired or is released. Valid values:
+   * 
+   * *   **1**: The instance runs as expected.
+   * *   **2**: The instance has expired.
+   * *   **4**: The instance is released.
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14237,7 +23524,21 @@ export class DescribeElasticQpsRecordResponseBodyElasticQpsList extends $tea.Mod
 }
 
 export class DescribeHeadersResponseBodyCustomHeader extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * example.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The header of the response.
+   * 
+   * @example
+   * {"X-Forwarded-ClientSrcPort":"","header1":"hLeLele"}
+   */
   headers?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14259,13 +23560,76 @@ export class DescribeHeadersResponseBodyCustomHeader extends $tea.Model {
 }
 
 export class DescribeHealthCheckListResponseBodyHealthCheckListHealthCheck extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * > This parameter is returned only when the Layer 7 health check configuration is queried.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The number of consecutive failed health checks that must occur before a port is declared unhealthy. Valid values: **1** to **10**.
+   * 
+   * @example
+   * 3
+   */
   down?: number;
+  /**
+   * @remarks
+   * The interval at which checks are performed. Valid values: **1** to **30**. Unit: seconds.
+   * 
+   * @example
+   * 15
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The port that was checked.
+   * 
+   * @example
+   * 8080
+   */
   port?: number;
+  /**
+   * @remarks
+   * The response timeout period. Valid values: **1** to **30**. Unit: seconds.
+   * 
+   * @example
+   * 5
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **tcp**: The Layer 4 health check configuration was queried.
+   * *   **http**: The Layer 7 health check configuration was queried.
+   * 
+   * @example
+   * tcp
+   */
   type?: string;
+  /**
+   * @remarks
+   * The number of consecutive successful health checks that must occur before a port is declared healthy. Valid values: **1** to **10**.
+   * 
+   * @example
+   * 3
+   */
   up?: number;
+  /**
+   * @remarks
+   * The check path.
+   * 
+   * > This parameter is returned only when the Layer 7 health check configuration is queried.
+   * 
+   * @example
+   * /abc
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14299,9 +23663,37 @@ export class DescribeHealthCheckListResponseBodyHealthCheckListHealthCheck exten
 }
 
 export class DescribeHealthCheckListResponseBodyHealthCheckList extends $tea.Model {
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * @example
+   * 8080
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The health check configuration.
+   */
   healthCheck?: DescribeHealthCheckListResponseBodyHealthCheckListHealthCheck;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The forwarding protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * tcp
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14327,7 +23719,24 @@ export class DescribeHealthCheckListResponseBodyHealthCheckList extends $tea.Mod
 }
 
 export class DescribeHealthCheckStatusResponseBodyHealthCheckStatusRealServerStatusList extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address of the origin server.
+   * 
+   * @example
+   * 192.0.XX.XX
+   */
   address?: string;
+  /**
+   * @remarks
+   * The health state of the IP address. Valid values:
+   * 
+   * *   **normal**: healthy
+   * *   **abnormal**: unhealthy
+   * 
+   * @example
+   * abnormal
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14349,10 +23758,48 @@ export class DescribeHealthCheckStatusResponseBodyHealthCheckStatusRealServerSta
 }
 
 export class DescribeHealthCheckStatusResponseBodyHealthCheckStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * @example
+   * 8080
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The forwarding protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * tcp
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * An array that consists of the health states of the IP addresses of the origin server.
+   */
   realServerStatusList?: DescribeHealthCheckStatusResponseBodyHealthCheckStatusRealServerStatusList[];
+  /**
+   * @remarks
+   * The health status of the origin server. Valid values:
+   * 
+   * *   **normal**: healthy
+   * *   **abnormal**: unhealthy
+   * 
+   * @example
+   * normal
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14381,11 +23828,51 @@ export class DescribeHealthCheckStatusResponseBodyHealthCheckStatus extends $tea
 
 export class DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos extends $tea.Model {
   certConfigured?: boolean;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 203.117.XX.XX
+   */
   eip?: string;
   functionVersion?: string;
+  /**
+   * @remarks
+   * The IP address-based forwarding mode of the instance. Valid values:
+   * 
+   * *   **fnat**: Requests from IPv4 addresses are forwarded to origin servers that use IPv4 addresses and requests from IPv6 addresses are forwarded to origin servers that use IPv6 addresses.
+   * *   **v6tov4**: All requests are forwarded to origin servers that use IPv4 addresses.
+   * 
+   * @example
+   * fnat
+   */
   ipMode?: string;
+  /**
+   * @remarks
+   * The IP version of the protocol. Valid values:
+   * 
+   * *   **Ipv4**: IPv4
+   * *   **Ipv6**: IPv6
+   * 
+   * @example
+   * Ipv4
+   */
   ipVersion?: string;
   ssl13Enabled?: boolean;
+  /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   **normal**: indicates that the instance is normal.
+   * *   **expired**: indicates that the instance expired.
+   * *   **defense**: indicates that traffic scrubbing is performed on the asset that is protected by the instance.
+   * *   **blackhole**: indicates that blackhole filtering is triggered for the asset that is protected by the instance.
+   * *   **punished**: indicates that the instance is in penalty.
+   * 
+   * @example
+   * normal
+   */
   status?: string;
   tlsVersion?: string;
   static names(): { [key: string]: string } {
@@ -14420,8 +23907,26 @@ export class DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos extends 
 }
 
 export class DescribeInstanceDetailsResponseBodyInstanceDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the IP address of the instance.
+   */
   eipInfos?: DescribeInstanceDetailsResponseBodyInstanceDetailsEipInfos[];
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-zvp2eibz****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The protection line of the instance.
+   * 
+   * @example
+   * coop-line-001
+   */
   line?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14445,10 +23950,54 @@ export class DescribeInstanceDetailsResponseBodyInstanceDetails extends $tea.Mod
 }
 
 export class DescribeInstanceExtResponseBodyInstanceExtSpecs extends $tea.Model {
+  /**
+   * @remarks
+   * The function plan. Valid values:
+   * 
+   * *   **0**: Standard
+   * *   **1**: Enhanced
+   * 
+   * @example
+   * 0
+   */
   functionVersion?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-i7m25564****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The clean bandwidth. Unit: Mbit/s.
+   * 
+   * @example
+   * 100
+   */
   normalBandwidth?: number;
+  /**
+   * @remarks
+   * The type of the instance. Valid values:
+   * 
+   * *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
+   * *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
+   * *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
+   * *   **3**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan
+   * *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
+   * 
+   * @example
+   * 0
+   */
   productPlan?: number;
+  /**
+   * @remarks
+   * The Internet service provider (ISP) line of the Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * @example
+   * coop-line-001
+   */
   servicePartner?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14476,10 +24025,57 @@ export class DescribeInstanceExtResponseBodyInstanceExtSpecs extends $tea.Model 
 }
 
 export class DescribeInstanceIdsResponseBodyInstanceIds extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the instance. Valid values:
+   * 
+   * *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
+   * *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
+   * *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the CMA mitigation plan
+   * *   **3**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Sec-CMA mitigation plan
+   * *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
+   * 
+   * @example
+   * 9
+   */
   edition?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-zvp2eibz****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address-based forwarding mode of the instance. Valid values:
+   * 
+   * *   **fnat**: Requests from IPv4 addresses are forwarded to origin servers that use IPv4 addresses and requests from IPv6 addresses are forwarded to origin servers that use IPv6 addresses.
+   * *   **v6tov4**: All requests are forwarded to origin servers that use IPv4 addresses.
+   * 
+   * @example
+   * fnat
+   */
   ipMode?: string;
+  /**
+   * @remarks
+   * The IP version of the instance. Valid values:
+   * 
+   * *   **Ipv4**
+   * *   **Ipv6**
+   * 
+   * @example
+   * Ipv4
+   */
   ipVersion?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14507,22 +24103,155 @@ export class DescribeInstanceIdsResponseBodyInstanceIds extends $tea.Model {
 }
 
 export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
+  /**
+   * @remarks
+   * The clean bandwidth. Unit: Mbit/s.
+   * 
+   * @example
+   * 100
+   */
   bandwidthMbps?: number;
+  /**
+   * @remarks
+   * The basic protection bandwidth. Unit: Gbit/s.
+   * 
+   * @example
+   * 30
+   */
   baseBandwidth?: number;
+  /**
+   * @remarks
+   * The specification of concurrent connections of the instance.
+   * 
+   * @example
+   * 100000
+   */
   connLimit?: number;
+  /**
+   * @remarks
+   * The specification of new connections of the instance.
+   * 
+   * @example
+   * 5000
+   */
   cpsLimit?: number;
+  /**
+   * @remarks
+   * The number of available advanced mitigation sessions for this month. **-1**: unlimited
+   * 
+   * >  This parameter is returned only when the request parameter **RegionId** is set to **ap-southeast-1**. If RegionId is set to ap-southeast-1, the specifications of Anti-DDoS Proxy (Outside Chinese Mainland) instances are queried.
+   * 
+   * @example
+   * 2
+   */
   defenseCount?: number;
+  /**
+   * @remarks
+   * The number of domain names that can be protected by the instance.
+   * 
+   * @example
+   * 50
+   */
   domainLimit?: number;
+  /**
+   * @remarks
+   * The burstable protection bandwidth. Unit: Gbit/s.
+   * 
+   * @example
+   * 30
+   */
   elasticBandwidth?: number;
+  /**
+   * @remarks
+   * The burstable clean bandwidth. Unit: Mbit/s.
+   * 
+   * @example
+   * 300
+   */
   elasticBw?: number;
+  /**
+   * @remarks
+   * The metering method of the burstable clean bandwidth. Valid values:
+   * 
+   * *   **day**: the metering method of daily 95th percentile
+   * *   **month**: the metering method of monthly 95th percentile
+   * 
+   * @example
+   * day
+   */
   elasticBwModel?: string;
+  /**
+   * @remarks
+   * The burstable QPS. Unit: QPS
+   * 
+   * @example
+   * 10
+   */
   elasticQps?: number;
+  /**
+   * @remarks
+   * The metering method of the burstable QPS. Valid values:
+   * 
+   * *   **day**: the metering method of daily 95th percentile
+   * *   **month**: the metering method of monthly 95th percentile
+   * 
+   * @example
+   * day
+   */
   elasticQpsMode?: string;
+  /**
+   * @remarks
+   * The function plan of the instance. Valid values:
+   * 
+   * *   **default**: Standard
+   * *   **enhance**: Enhanced
+   * *   **cnhk**: Chinese Mainland Acceleration (CMA)
+   * *   **cnhk_default**: Secure Chinese Mainland Acceleration (Sec-CMA) standard
+   * *   **cnhk_enhance**: Sec-CMA enhanced
+   * 
+   * @example
+   * default
+   */
   functionVersion?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-zvp2eibz****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of ports that can be protected by the instance.
+   * 
+   * @example
+   * 50
+   */
   portLimit?: number;
+  /**
+   * @remarks
+   * The clean QPS.
+   * 
+   * @example
+   * 3000
+   */
   qpsLimit?: number;
+  /**
+   * @remarks
+   * The threshold of the clean bandwidth. Valid values: 0 to 15360. The value 0 indicates that rate limiting is never triggered. Unit: Mbit/s
+   * 
+   * @example
+   * 0
+   */
   realLimitBw?: number;
+  /**
+   * @remarks
+   * The number of sites that can be protected by the instance.
+   * 
+   * @example
+   * 5
+   */
   siteLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14574,10 +24303,47 @@ export class DescribeInstanceSpecsResponseBodyInstanceSpecs extends $tea.Model {
 }
 
 export class DescribeInstanceStatisticsResponseBodyInstanceStatistics extends $tea.Model {
+  /**
+   * @remarks
+   * The number of advanced mitigation sessions that are used in this month.
+   * 
+   * >  This parameter is returned only if Anti-DDoS Proxy (Outside Chinese Mainland) instances are queried.
+   * 
+   * @example
+   * 1
+   */
   defenseCountUsage?: number;
+  /**
+   * @remarks
+   * The number of domain names that are protected by the instance.
+   * 
+   * @example
+   * 1
+   */
   domainUsage?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of ports that are protected by the instance.
+   * 
+   * @example
+   * 2
+   */
   portUsage?: number;
+  /**
+   * @remarks
+   * The number of websites that are protected by the instance.
+   * 
+   * @example
+   * 1
+   */
   siteUsage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14605,7 +24371,31 @@ export class DescribeInstanceStatisticsResponseBodyInstanceStatistics extends $t
 }
 
 export class DescribeInstancesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag that is added to the instance to query. You can specify up to 200 tag keys. When you specify tags, take note of the following rules:
+   * 
+   * *   Each tag consists of a key (**Key**) and a value (**Value**), which are separated with a comma (,).
+   * *   Separate multiple tags with commas (,).
+   * 
+   * >  The tag key (**Key**) and tag value (**Value**) must be specified in pairs.
+   * 
+   * @example
+   * test-key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the instance to query. You can specify up to 200 tag values. When you specify tags, take note of the following rules:
+   * 
+   * *   Each tag consists of a key (**Key**) and a value (**Value**), which are separated with a comma (,).
+   * *   Separate multiple tags with commas (,).
+   * 
+   * >  The tag key (**Key**) and tag value (**Value**) must be specified in pairs.
+   * 
+   * @example
+   * test-value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14627,18 +24417,132 @@ export class DescribeInstancesRequestTag extends $tea.Model {
 }
 
 export class DescribeInstancesResponseBodyInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the instance was created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1637751953000
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The overdue status of the instance. The value is fixed as **0**, which indicates that your Alibaba Cloud account does not have overdue payments. The instance supports only the subscription billing method.
+   * 
+   * @example
+   * 0
+   */
   debtStatus?: number;
+  /**
+   * @remarks
+   * The mitigation plan of the instance. Valid values:
+   * 
+   * *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
+   * *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
+   * *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
+   * *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
+   * 
+   * @example
+   * 9
+   */
   edition?: number;
+  /**
+   * @remarks
+   * The traffic forwarding status of the instance. Valid values:
+   * 
+   * *   **0**: The instance no longer forwards service traffic.
+   * *   **1**: The instance forwards service traffic as expected.
+   * 
+   * @example
+   * 1
+   */
   enabled?: number;
+  /**
+   * @remarks
+   * The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1640361600000
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-7pp2g9ed****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 203.199.XX.XX
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The IP address-based forwarding mode of the instance. Valid values:
+   * 
+   * *   **fnat**: Requests from IPv4 addresses are forwarded to origin servers that use IPv4 addresses and requests from IPv6 addresses are forwarded to origin servers that use IPv6 addresses.
+   * *   **v6tov4**: All requests are forwarded to origin servers that use IPv4 addresses.
+   * 
+   * @example
+   * fnat
+   */
   ipMode?: string;
+  /**
+   * @remarks
+   * The IP version of the instance. Valid values:
+   * 
+   * *   **Ipv4**
+   * *   **Ipv6**
+   * 
+   * @example
+   * Ipv4
+   */
   ipVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether the metering method of the 95th percentile burstable clean bandwidth is enabled for the instance. Valid values:
+   * 
+   * *   0: no
+   * *   1: yes
+   * 
+   * @example
+   * 0
+   */
   isFirstOpenBw?: number;
+  /**
+   * @remarks
+   * Indicates whether the metering method of the 95th percentile burstable QPS is enabled for the instance. Valid values:
+   * 
+   * *   0: no
+   * *   1: yes
+   * 
+   * @example
+   * 0
+   */
   isFirstOpenQps?: number;
+  /**
+   * @remarks
+   * The remarks of the instance.
+   * 
+   * @example
+   * doc-test
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   **1**: normal
+   * *   **2**: expired
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14682,12 +24586,66 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class DescribeL7RsPolicyResponseBodyAttributesAttribute extends $tea.Model {
+  /**
+   * @remarks
+   * The timeout period for a new connection. Valid values: **1** to **10**. Unit: seconds. Default value: **5**.
+   * 
+   * @example
+   * 5
+   */
   connectTimeout?: number;
+  /**
+   * @remarks
+   * The expiration time of a connection, in seconds. If the number of failures at the origin server exceeds the **MaxFails** value, the address of the origin server is set to down and the expiration time is **FailTimeout**. The final value is the maximum value of **ConnectTimeout** and **FailTimeout**. Valid values: **1** to **3600**. Unit: seconds. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
   failTimeout?: number;
+  /**
+   * @remarks
+   * The maximum number of failures. This parameter is related to health check. Valid values: **1** to **10**. Unit: seconds. Default value: **3**.
+   * 
+   * @example
+   * 3
+   */
   maxFails?: number;
+  /**
+   * @remarks
+   * The primary/secondary flag. Valid values:
+   * 
+   * *   **active**: primary
+   * *   **backup**: secondary
+   * 
+   * @example
+   * active
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The timeout period for a read connection. Valid values: **10** to **300**. Unit: seconds. Default value: **120**.
+   * 
+   * @example
+   * 120
+   */
   readTimeout?: number;
+  /**
+   * @remarks
+   * The timeout period for a write connection. Valid values: **10** to **300**. Unit: seconds. Default value: **120**.
+   * 
+   * @example
+   * 120
+   */
   sendTimeout?: number;
+  /**
+   * @remarks
+   * The weight of the origin server. This parameter takes effect only when **ProxyMode** is set to **rr**.
+   * 
+   * Valid values: **1** to **100**. Default value: **100**. A server with a higher weight receives more requests.
+   * 
+   * @example
+   * 100
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14719,8 +24677,29 @@ export class DescribeL7RsPolicyResponseBodyAttributesAttribute extends $tea.Mode
 }
 
 export class DescribeL7RsPolicyResponseBodyAttributes extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter for back-to-origin processing.
+   */
   attribute?: DescribeL7RsPolicyResponseBodyAttributesAttribute;
+  /**
+   * @remarks
+   * The address of the origin server.
+   * 
+   * @example
+   * 1.***.***.1
+   */
   realServer?: string;
+  /**
+   * @remarks
+   * The address type of the origin server. Valid values:
+   * 
+   * *   **0**: IP address
+   * *   **1**: domain name
+   * 
+   * @example
+   * 0
+   */
   rsType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14744,8 +24723,32 @@ export class DescribeL7RsPolicyResponseBodyAttributes extends $tea.Model {
 }
 
 export class DescribeL7UsKeepaliveResponseBodyRsKeepalive extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether Back-to-origin Persistent Connections is turned on. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The number of requests that reuse persistent connections.
+   * 
+   * @example
+   * 1000
+   */
   keepaliveRequests?: number;
+  /**
+   * @remarks
+   * The timeout period of idle persistent connections.
+   * 
+   * @example
+   * 30
+   */
   keepaliveTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14769,11 +24772,56 @@ export class DescribeL7UsKeepaliveResponseBodyRsKeepalive extends $tea.Model {
 }
 
 export class DescribeLayer4RulePolicyResponseBodyPriRealServers extends $tea.Model {
+  /**
+   * @remarks
+   * The origin server that is used to receive service traffic. Valid values:
+   * 
+   * *   **1**: the primary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary origin server.
+   * *   **2**: the secondary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the secondary origin server.
+   * 
+   * @example
+   * 1
+   */
   currentIndex?: number;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   eip?: string;
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * @example
+   * 2020
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddosDip-sg-4hr2b3l****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The type of the protocol.
+   * 
+   * @example
+   * udp
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The IP address of the primary origin server.
+   * 
+   * @example
+   * 192.0.2.1
+   */
   realServer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14803,11 +24851,56 @@ export class DescribeLayer4RulePolicyResponseBodyPriRealServers extends $tea.Mod
 }
 
 export class DescribeLayer4RulePolicyResponseBodySecRealServers extends $tea.Model {
+  /**
+   * @remarks
+   * The origin server that is used to receive service traffic. Valid values:
+   * 
+   * *   **1**: the primary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary origin server.
+   * *   **2**: the secondary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the secondary origin server.
+   * 
+   * @example
+   * 1
+   */
   currentIndex?: number;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   eip?: string;
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * @example
+   * 2020
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddosDip-sg-4hr2b3l****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The type of the protocol.
+   * 
+   * @example
+   * udp
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The IP address of the secondary origin server.
+   * 
+   * @example
+   * 192.0.2.3
+   */
   realServer?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14837,8 +24930,26 @@ export class DescribeLayer4RulePolicyResponseBodySecRealServers extends $tea.Mod
 }
 
 export class DescribeNetworkRegionBlockResponseBodyConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The codes of the countries or areas from which the requests are blocked.
+   */
   countries?: number[];
+  /**
+   * @remarks
+   * The codes of the administrative regions in China from which the requests are blocked.
+   */
   provinces?: number[];
+  /**
+   * @remarks
+   * The status of the Location Blacklist policy. Valid values:
+   * 
+   * *   **on**: enabled
+   * *   **off**: disabled
+   * 
+   * @example
+   * on
+   */
   regionBlockSwitch?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14862,9 +24973,42 @@ export class DescribeNetworkRegionBlockResponseBodyConfig extends $tea.Model {
 }
 
 export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfigCcSblack extends $tea.Model {
+  /**
+   * @remarks
+   * The threshold that the number of connections initiated from a source IP address can exceed the limit. Set the value to **5**. If the number of connections initiated from a source IP address exceeds the limit five times during the check, the source IP address is added to the blacklist.
+   * 
+   * @example
+   * 5
+   */
   cnt?: number;
+  /**
+   * @remarks
+   * The interval at which checks are performed. Set the value to **60**. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   during?: number;
+  /**
+   * @remarks
+   * The validity period of the IP address in the blacklist. Valid values: **60** to **604800**. Unit: seconds.
+   * 
+   * @example
+   * 600
+   */
   expires?: number;
+  /**
+   * @remarks
+   * The type of the limit that causes a source IP address to be added to the blacklist. Valid values:
+   * 
+   * *   **1**: Source New Connection Rate Limit
+   * *   **2**: Source Concurrent Connection Rate Limit
+   * *   **3**: PPS Limit for Source
+   * *   **4**: Bandwidth Limit for Source
+   * 
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14890,6 +25034,10 @@ export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfi
 }
 
 export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfigCc extends $tea.Model {
+  /**
+   * @remarks
+   * The protection policy that a source IP address is added to the blacklist when the number of connections initiated from the IP address frequently exceeds the limit.
+   */
   sblack?: DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfigCcSblack[];
   static names(): { [key: string]: string } {
     return {
@@ -14909,7 +25057,21 @@ export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfi
 }
 
 export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfigPayloadLen extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum length of a packet. Valid values: **0** to **6000**. Unit: bytes.
+   * 
+   * @example
+   * 6000
+   */
   max?: number;
+  /**
+   * @remarks
+   * The minimum length of a packet. Valid values: **0** to **6000**. Unit: bytes.
+   * 
+   * @example
+   * 0
+   */
   min?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14931,9 +25093,43 @@ export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfi
 }
 
 export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfigSla extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of new connections per second that can be established over the port of the destination instance. Valid values: **100** to **100000**.
+   * 
+   * @example
+   * 100000
+   */
   cps?: number;
+  /**
+   * @remarks
+   * The status of the Destination New Connection Rate Limit switch. Valid values:
+   * 
+   * *   **0**: The switch is turned off.
+   * *   **1**: The switch is turned on.
+   * 
+   * @example
+   * 1
+   */
   cpsEnable?: number;
+  /**
+   * @remarks
+   * The maximum number of concurrent connections that can be established over the port of the destination instance. Valid values: **1000** to **1000000**.
+   * 
+   * @example
+   * 1000000
+   */
   maxconn?: number;
+  /**
+   * @remarks
+   * The status of the Destination Concurrent Connection Rate Limit switch. Valid values:
+   * 
+   * *   **0**: The switch is turned off.
+   * *   **1**: The switch is turned on.
+   * 
+   * @example
+   * 0
+   */
   maxconnEnable?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14959,12 +25155,70 @@ export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfi
 }
 
 export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfigSlimit extends $tea.Model {
+  /**
+   * @remarks
+   * The bandwidth limit for a source IP address. Valid values: **1024** to **268435456**. Unit: bytes/s. Default value: **0**, which indicates that the bandwidth for a source IP address is unlimited.
+   * 
+   * @example
+   * 0
+   */
   bps?: number;
+  /**
+   * @remarks
+   * The maximum number of new connections per second that can be initiated from a source IP address. Valid values: **1** to **500000**.
+   * 
+   * @example
+   * 0
+   */
   cps?: number;
+  /**
+   * @remarks
+   * The status of the Source New Connection Rate Limit switch. Valid values:
+   * 
+   * *   **0**: The switch is turned off.
+   * *   **1**: The switch is turned on.
+   * 
+   * @example
+   * 0
+   */
   cpsEnable?: number;
+  /**
+   * @remarks
+   * The mode of the Source New Connection Rate Limit switch. Valid values:
+   * 
+   * *   **1**: the manual mode
+   * *   **2**: the automatic mode
+   * 
+   * @example
+   * 1
+   */
   cpsMode?: number;
+  /**
+   * @remarks
+   * The maximum number of concurrent connections initiated from a source IP address. Valid values: **1** to **500000**.
+   * 
+   * @example
+   * 0
+   */
   maxconn?: number;
+  /**
+   * @remarks
+   * The status of the Source Concurrent Connection Rate Limit switch. Valid values:
+   * 
+   * *   **0**: The switch is turned off.
+   * *   **1**: The switch is turned on.
+   * 
+   * @example
+   * 0
+   */
   maxconnEnable?: number;
+  /**
+   * @remarks
+   * The packets per second (pps) limit for a source IP address. Valid values: **1** to **100000**. Unit: packets/s. Default value: **0**, which indicates that the pps for a source IP address is unlimited.
+   * 
+   * @example
+   * 0
+   */
   pps?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14996,12 +25250,55 @@ export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfi
 }
 
 export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The protection policy applied when the number of connections initiated from a source IP address frequently exceeds the limit.
+   */
   cc?: DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfigCc;
+  /**
+   * @remarks
+   * The status of the Empty Connection switch. Valid values:
+   * 
+   * *   **on**: The switch is turned on.
+   * *   **off**: The switch is turned off.
+   * 
+   * @example
+   * off
+   */
   nodataConn?: string;
+  /**
+   * @remarks
+   * The settings of the Packet Length Limit policy.
+   */
   payloadLen?: DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfigPayloadLen;
+  /**
+   * @remarks
+   * The timeout period of session persistence. Valid values: **30** to **3600**. Unit: seconds. Default value: **0**, which indicates that session persistence is disabled.
+   * 
+   * @example
+   * 0
+   */
   persistenceTimeout?: number;
+  /**
+   * @remarks
+   * The settings of the Speed Limit for Destination policy.
+   */
   sla?: DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfigSla;
+  /**
+   * @remarks
+   * The settings of the Speed Limit for Source policy.
+   */
   slimit?: DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfigSlimit;
+  /**
+   * @remarks
+   * The status of the False Source switch. Valid values:
+   * 
+   * *   **on**: The switch is turned on.
+   * *   **off**: The switch is turned off.
+   * 
+   * @example
+   * off
+   */
   synproxy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15033,9 +25330,37 @@ export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfi
 }
 
 export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributes extends $tea.Model {
+  /**
+   * @remarks
+   * The mitigation settings of the port forwarding rule.
+   */
   config?: DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributesConfig;
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * @example
+   * 8080
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The forwarding protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * tcp
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15061,12 +25386,64 @@ export class DescribeNetworkRuleAttributesResponseBodyNetworkRuleAttributes exte
 }
 
 export class DescribeNetworkRulesResponseBodyNetworkRules extends $tea.Model {
+  /**
+   * @remarks
+   * The port of the origin server.
+   * 
+   * @example
+   * 80
+   */
   backendPort?: number;
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * @example
+   * 80
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-mp91j1ao****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Indicates whether the port forwarding rule is automatically created. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   isAutoCreate?: boolean;
+  /**
+   * @remarks
+   * The forwarding protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * tcp
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The IP addresses of origin servers.
+   */
   realServers?: string[];
+  /**
+   * @remarks
+   * The remarks of the port forwarding rule.
+   * 
+   * @example
+   * Test
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15098,11 +25475,122 @@ export class DescribeNetworkRulesResponseBodyNetworkRules extends $tea.Model {
 }
 
 export class DescribeOpEntitiesResponseBodyOpEntities extends $tea.Model {
+  /**
+   * @remarks
+   * The operation object.
+   * 
+   * @example
+   * 203.***.***.132
+   */
   entityObject?: string;
+  /**
+   * @remarks
+   * The type of the operation object. Valid values:
+   * 
+   * *   **1**: the IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance
+   * *   **2**: Anti-DDoS plans
+   * *   **3**: ECS instances
+   * *   **4**: all logs
+   * 
+   * @example
+   * 1
+   */
   entityType?: number;
+  /**
+   * @remarks
+   * The time when the operation was performed. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1584451769000
+   */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to call the API operation.
+   * 
+   * @example
+   * 128965410602****
+   */
   opAccount?: string;
+  /**
+   * @remarks
+   * The type of the operation. Valid values:
+   * 
+   * *   **1**: configuring burstable protection bandwidth.
+   * *   **5**: using Anti-DDoS plans.
+   * *   **8**: changing IP addresses of ECS instances.
+   * *   **9**: deactivating blackhole filtering.
+   * *   **10**: configuring the Diversion from Origin Server policy.
+   * *   **11**: clearing all logs.
+   * *   **12**: downgrading the specifications of instances. If the instance expires or the account has overdue payments, this operation is performed to downgrade the burstable protection bandwidth.
+   * *   **13**: restoring the specifications of instances. If the instance is renewed or you have paid the overdue payments within your account, this operation is performed to restore the burstable protection bandwidth.
+   * 
+   * @example
+   * 9
+   */
   opAction?: number;
+  /**
+   * @remarks
+   * The details of the operation. This parameter is a JSON string. The string contains the following fields:
+   * 
+   * *   **newEntity**: the values of the parameters after the operation. This field must be of the STRING type.
+   * *   **oldEntity**: the values of the parameters before the operation. This field must be of the STRING type.
+   * 
+   * Both **newEntity** and **oldEntity** are JSON strings. The returned parameters vary with **OpAtion**.
+   * 
+   * If **OpAction** is **1**, **12**, or **13**, the following parameter is returned:
+   * 
+   * *   **elasticBandwidth**: the burstable protection bandwidth. The value is of the INTEGER type.
+   * 
+   *     For example: `{"newEntity":{"elasticBandwidth":300},"oldEntity":{"elasticBandwidth":300}}`
+   * 
+   * If **OpAction** is **5**, the following parameters are returned:
+   * 
+   * *   **bandwidth**: the burstable protection bandwidth. The value is of the INTEGER type. Unit: Gbit/s.
+   * 
+   * *   **count**: the number of Anti-DDoS plans. The value is of the INTEGER type.
+   * 
+   * *   **deductCount**: the number of used Anti-DDoS plans. The value is of the INTEGER type.
+   * 
+   * *   **expireTime**: the expiration time of the Anti-DDoS plans. The value is of the LONG type. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * *   **instanceId**: the ID of the instance. The value is of the STRING type.
+   * 
+   * *   **peakFlow**: the peak throughput on the instance. The value is of the INTEGER type. Unit: bit/s.
+   * 
+   *     For example: `{"newEntity":{"bandwidth":100,"count":4,"deductCount":1,"expireTime":1616299196000,"instanceId":"ddoscoo-cn-v641kpmq****","peakFlow":751427000}}`
+   * 
+   * If **OpAction** is **8**, the following parameter is returned:
+   * 
+   * *   **instanceId**: the ID of the ECS instance whose IP address is changed. The value is of the STRING type.
+   * 
+   *     For example: `{"newEntity":{"instanceId":"i-wz9h6nc313zptbqn****"}}`
+   * 
+   * If **OpAction** is **9**, the following parameter is returned:
+   * 
+   * *   **actionMethod**: the operation method. The value is of the STRING type. Valid value: **undo**, which indicates that you deactivated blackhole filtering.
+   * 
+   *     For example: `{"newEntity":{"actionMethod":"undo"}}`
+   * 
+   * If **OpAction** is **10**, the following parameters are returned:
+   * 
+   * *   **actionMethod**: the operation method. The value is of the STRING type. Valid values:
+   * 
+   *     *   **do**: The Diversion from Origin Server policy is enabled.
+   *     *   **undo**: The Diversion from Origin Server policy is disabled.
+   * 
+   * *   **lines**: The Internet service provider (ISP) line from which the traffic is blocked. Valid values:
+   * 
+   *     *   **ct**: China Telecom (International)
+   *     *   **cut**: China Unicom (International)
+   * 
+   *     For example: `{"newEntity":{"actionMethod":"undo","lines":["ct"]}}`
+   * 
+   * If **OpAction** is **11**, no parameter is returned, and the description is empty.
+   * 
+   * @example
+   * {"newEntity":{"actionMethod":"undo"}}
+   */
   opDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15132,11 +25620,56 @@ export class DescribeOpEntitiesResponseBodyOpEntities extends $tea.Model {
 }
 
 export class DescribePortResponseBodyNetworkRules extends $tea.Model {
+  /**
+   * @remarks
+   * The port of the origin server.
+   * 
+   * @example
+   * 55
+   */
   backendPort?: number;
+  /**
+   * @remarks
+   * The forwarding port.
+   * 
+   * @example
+   * 55
+   */
   frontendPort?: number;
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **tcp**
+   * *   **udp**
+   * 
+   * @example
+   * tcp
+   */
   frontendProtocol?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which the port forwarding rule is applied.
+   * 
+   * @example
+   * ddoscoo-cn-7e225i41****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * Indicates whether the port forwarding rule is automatically created by the instance. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * false
+   */
   isAutoCreate?: boolean;
+  /**
+   * @remarks
+   * An array that consists of IP addresses of origin servers.
+   */
   realServers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15166,9 +25699,51 @@ export class DescribePortResponseBodyNetworkRules extends $tea.Model {
 }
 
 export class DescribePortAutoCcStatusResponseBodyPortAutoCcStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The mode of the Intelligent Protection policy. Valid values:
+   * 
+   * *   **normal**
+   * *   **loose**
+   * *   **strict**
+   * 
+   * @example
+   * normal
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The status of the Intelligent Protection policy. Valid values:
+   * 
+   * *   **on**: enabled
+   * *   **off**: disabled
+   * 
+   * @example
+   * on
+   */
   switch?: string;
+  /**
+   * @remarks
+   * The protection mode for ports 80 and 443. Valid values:
+   * 
+   * *   **normal**
+   * *   **loose**
+   * *   **strict**
+   * 
+   * @example
+   * normal
+   */
   webMode?: string;
+  /**
+   * @remarks
+   * The status of the Intelligent Protection policy for ports 80 and 443. Valid values:
+   * 
+   * *   **on**: enabled
+   * *   **off**: disabled
+   * 
+   * @example
+   * off
+   */
   webSwitch?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15194,8 +25769,29 @@ export class DescribePortAutoCcStatusResponseBodyPortAutoCcStatus extends $tea.M
 }
 
 export class DescribePortCcAttackTopIPResponseBodyTopIp extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the location from which the attack is initiated. For more information, see [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html). For example, **110000** indicates Beijing, China, and **us** indicates the United States.
+   * 
+   * @example
+   * cn-shanghai
+   */
   areaId?: string;
+  /**
+   * @remarks
+   * The number of attacks from the IP address.
+   * 
+   * @example
+   * 33971
+   */
   pv?: number;
+  /**
+   * @remarks
+   * The source IP address of the attack.
+   * 
+   * @example
+   * 172.18.XX.XX
+   */
   srcIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15219,10 +25815,45 @@ export class DescribePortCcAttackTopIPResponseBodyTopIp extends $tea.Model {
 }
 
 export class DescribePortConnsListResponseBodyConnsList extends $tea.Model {
+  /**
+   * @remarks
+   * The number of active connections.
+   * 
+   * @example
+   * 3
+   */
   actConns?: number;
+  /**
+   * @remarks
+   * >  This parameter is in internal preview. Do not use this parameter.
+   * 
+   * @example
+   * 8
+   */
   conns?: number;
+  /**
+   * @remarks
+   * The number of new connections.
+   * 
+   * @example
+   * 0
+   */
   cps?: number;
+  /**
+   * @remarks
+   * The number of inactive connections.
+   * 
+   * @example
+   * 2
+   */
   inActConns?: number;
+  /**
+   * @remarks
+   * The index number of the returned data.
+   * 
+   * @example
+   * 16506
+   */
   index?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15250,13 +25881,78 @@ export class DescribePortConnsListResponseBodyConnsList extends $tea.Model {
 }
 
 export class DescribePortFlowListResponseBodyPortFlowList extends $tea.Model {
+  /**
+   * @remarks
+   * The bandwidth of attack traffic. Unit: bit/s.
+   * 
+   * @example
+   * 0
+   */
   attackBps?: number;
+  /**
+   * @remarks
+   * The packet forwarding rate of attack traffic. Unit: pps.
+   * 
+   * @example
+   * 0
+   */
   attackPps?: number;
+  /**
+   * @remarks
+   * The inbound bandwidth. Unit: bit/s.
+   * 
+   * @example
+   * 2176000
+   */
   inBps?: number;
+  /**
+   * @remarks
+   * The packet forwarding rate of inbound traffic. Unit: packets per second.
+   * 
+   * @example
+   * 2934
+   */
   inPps?: number;
+  /**
+   * @remarks
+   * The index number of the returned data.
+   * 
+   * @example
+   * 0
+   */
   index?: number;
+  /**
+   * @remarks
+   * The outbound bandwidth. Unit: bit/s.
+   * 
+   * @example
+   * 4389
+   */
   outBps?: number;
+  /**
+   * @remarks
+   * The packet forwarding rate of outbound traffic. Unit: packets per second (pps).
+   * 
+   * @example
+   * 5
+   */
   outPps?: number;
+  /**
+   * @remarks
+   * The source region of the traffic. Valid values:
+   * 
+   * *   **cn**: mainland China
+   * *   **alb-ap-northeast-1-gf-x**: Japan (Tokyo)
+   * *   **alb-ap-southeast-gf-x**: Singapore
+   * *   **alb-cn-hongkong-gf-x**: Hong Kong (China)
+   * *   **alb-eu-central-1-gf-x**: Germany (Frankfurt)
+   * *   **alb-us-west-1-gf-x**: US (Silicon Valley)
+   * 
+   * > The values except **cn** are returned only when **RegionId** is set to **ap-southeast-1**.
+   * 
+   * @example
+   * cn
+   */
   region?: string;
   slaBpsDropBps?: number;
   slaBpsDropPps?: number;
@@ -15266,6 +25962,13 @@ export class DescribePortFlowListResponseBodyPortFlowList extends $tea.Model {
   slaCpsDropPps?: number;
   slaPpsDropBps?: number;
   slaPpsDropPps?: number;
+  /**
+   * @remarks
+   * The time when the data was collected. The value is a UNIX timestamp. Unit: seconds.
+   * 
+   * @example
+   * 1582992000
+   */
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15317,8 +26020,29 @@ export class DescribePortFlowListResponseBodyPortFlowList extends $tea.Model {
 }
 
 export class DescribePortMaxConnsResponseBodyPortMaxConns extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of connections per second (CPS).
+   * 
+   * @example
+   * 100
+   */
   cps?: number;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 203.***.***.117
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The port of the instance.
+   * 
+   * @example
+   * 80
+   */
   port?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15342,7 +26066,23 @@ export class DescribePortMaxConnsResponseBodyPortMaxConns extends $tea.Model {
 }
 
 export class DescribePortViewSourceCountriesResponseBodySourceCountrys extends $tea.Model {
+  /**
+   * @remarks
+   * The number of requests.
+   * 
+   * @example
+   * 3390671
+   */
   count?: number;
+  /**
+   * @remarks
+   * The abbreviation of the country or area. For example, **cn** indicates China and **us** indicates the United States.
+   * 
+   * > For more information, see [Location parameters](https://help.aliyun.com/document_detail/167926.html).
+   * 
+   * @example
+   * cn
+   */
   countryId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15364,7 +26104,23 @@ export class DescribePortViewSourceCountriesResponseBodySourceCountrys extends $
 }
 
 export class DescribePortViewSourceIspsResponseBodyIsps extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of requests that are sent from the ISP.
+   * 
+   * > This parameter does not indicate the accurate number of requests. You can use this parameter to calculate the proportion of requests from different ISPs.
+   * 
+   * @example
+   * 3390671
+   */
   count?: number;
+  /**
+   * @remarks
+   * The ID of the ISP. For more information, see the ISP codes table.
+   * 
+   * @example
+   * 100017
+   */
   ispId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15386,7 +26142,25 @@ export class DescribePortViewSourceIspsResponseBodyIsps extends $tea.Model {
 }
 
 export class DescribePortViewSourceProvincesResponseBodySourceProvinces extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of requests that are sent from the ISP.
+   * 
+   * > This parameter does not indicate the accurate number of requests. You can use this parameter to calculate the proportion of requests from different administrative regions in China.
+   * 
+   * @example
+   * 3390671
+   */
   count?: number;
+  /**
+   * @remarks
+   * The ID of the administrative region in China from which the requests are sent. For example, **110000** indicates Beijing, and **120000** indicates Tianjin.
+   * 
+   * > For more information, see [Location parameters](https://help.aliyun.com/document_detail/167926.html).
+   * 
+   * @example
+   * 440000
+   */
   provinceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15408,8 +26182,29 @@ export class DescribePortViewSourceProvincesResponseBodySourceProvinces extends 
 }
 
 export class DescribeSceneDefenseObjectsResponseBodyObjects extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name that is protected by the policy.
+   * 
+   * @example
+   * www.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * @example
+   * 47e07ebd-0ba5-4afc-957b-59d15b90****
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The IP address of the Anti-DDoS Pro or Anti-DDoS Premium instance that is protected by the policy.
+   * 
+   * @example
+   * 203.XX.XX.119
+   */
   vip?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15433,9 +26228,56 @@ export class DescribeSceneDefenseObjectsResponseBodyObjects extends $tea.Model {
 }
 
 export class DescribeSceneDefensePoliciesResponseBodyPoliciesRuntimePolicies extends $tea.Model {
+  /**
+   * @remarks
+   * The protection rule that is applied when the policy takes effect.
+   * 
+   * If you set **PolicyType** to **1**, the value is **{"cc_rule_enable": false }**. The value indicates that the Frequency Control policy is disabled.
+   * 
+   * If you set **PolicyType** to **2**, the value is **{"ai_rule_enable": 0}**. The value indicates that the Intelligent Protection policy is disabled.
+   * 
+   * @example
+   * {"cc_rule_enable": false }
+   */
   newValue?: string;
+  /**
+   * @remarks
+   * The protection policy whose status is changed when the policy takes effect. Valid values:
+   * 
+   * *   **1**: indicates that the Frequency Control policy is changed.
+   * *   **2**: indicates that the Intelligent Protection policy is changed.
+   * 
+   * @example
+   * 1
+   */
   policyType?: number;
+  /**
+   * @remarks
+   * The running status of the policy. Valid values:
+   * 
+   * *   **0**: The policy has not been issued or is restored.
+   * *   **1**: The policy is pending.
+   * *   **2**: The policy is being restored.
+   * *   **3**: The policy takes effect.
+   * *   **4**: The policy fails to take effect.
+   * *   **5**:The policy fails to be restored.
+   * *   **6**: The configurations of the protected objects for the policy does not exist because the configurations may be deleted.
+   * 
+   * @example
+   * 3
+   */
   status?: number;
+  /**
+   * @remarks
+   * The protection rule that is applied before the policy takes effect.
+   * 
+   * If you set **PolicyType** to **1**, the value is **{"cc_rule_enable": true}**. The value indicates that the Frequency Control policy is enabled.
+   * 
+   * If you set **PolicyType** to **2**, the value is **{"ai_rule_enable": 1}**. The value indicates that the Intelligent Protection policy is enabled.
+   * 
+   * @example
+   * {"cc_rule_enable": true}
+   */
   oldValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15461,14 +26303,86 @@ export class DescribeSceneDefensePoliciesResponseBodyPoliciesRuntimePolicies ext
 }
 
 export class DescribeSceneDefensePoliciesResponseBodyPolicies extends $tea.Model {
+  /**
+   * @remarks
+   * The execution status of the policy. Valid values:
+   * 
+   * *   **1**: not executed or execution completed
+   * *   **0**: being executed
+   * *   **-1**: execution failed
+   * 
+   * @example
+   * 1
+   */
   done?: number;
+  /**
+   * @remarks
+   * The time at which the policy expires. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1586016000000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * testpolicy
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of objects that are protected by the policy.
+   * 
+   * @example
+   * 1
+   */
   objectCount?: number;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * @example
+   * 321a-fd31-df51-****
+   */
   policyId?: string;
+  /**
+   * @remarks
+   * The running rules of the policy.
+   */
   runtimePolicies?: DescribeSceneDefensePoliciesResponseBodyPoliciesRuntimePolicies[];
+  /**
+   * @remarks
+   * The time at which the policy takes effect. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1585670400000
+   */
   startTime?: number;
+  /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: pending enabling
+   * *   **2**: enabled
+   * *   **3**: expired
+   * 
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @remarks
+   * The type of the template that is used to create the policy. Valid values:
+   * 
+   * *   **promotion**: the Important Activity template
+   * *   **bypass**: the Forward All template
+   * 
+   * @example
+   * promotion
+   */
   template?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15504,6 +26418,10 @@ export class DescribeSceneDefensePoliciesResponseBodyPolicies extends $tea.Model
 }
 
 export class DescribeSchedulerRulesResponseBodySchedulerRulesParamParamData extends $tea.Model {
+  /**
+   * @example
+   * ga-bp1htlajy5509rc99****
+   */
   cloudInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15524,6 +26442,10 @@ export class DescribeSchedulerRulesResponseBodySchedulerRulesParamParamData exte
 
 export class DescribeSchedulerRulesResponseBodySchedulerRulesParam extends $tea.Model {
   paramData?: DescribeSchedulerRulesResponseBodySchedulerRulesParamParamData;
+  /**
+   * @example
+   * GA
+   */
   paramType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15546,12 +26468,40 @@ export class DescribeSchedulerRulesResponseBodySchedulerRulesParam extends $tea.
 
 export class DescribeSchedulerRulesResponseBodySchedulerRulesRules extends $tea.Model {
   line?: string;
+  /**
+   * @example
+   * 100
+   */
   priority?: number;
+  /**
+   * @example
+   * 1
+   */
   regionId?: string;
+  /**
+   * @example
+   * 60
+   */
   restoreDelay?: number;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * A
+   */
   type?: string;
+  /**
+   * @example
+   * 203.***.***.39
+   */
   value?: string;
+  /**
+   * @example
+   * 1
+   */
   valueType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15585,8 +26535,16 @@ export class DescribeSchedulerRulesResponseBodySchedulerRulesRules extends $tea.
 }
 
 export class DescribeSchedulerRulesResponseBodySchedulerRules extends $tea.Model {
+  /**
+   * @example
+   * 4eru5229a843****.aliyunddos0001.com
+   */
   cname?: string;
   param?: DescribeSchedulerRulesResponseBodySchedulerRulesParam;
+  /**
+   * @example
+   * doctest
+   */
   ruleName?: string;
   ruleType?: string;
   rules?: DescribeSchedulerRulesResponseBodySchedulerRulesRules[];
@@ -15616,9 +26574,40 @@ export class DescribeSchedulerRulesResponseBodySchedulerRules extends $tea.Model
 }
 
 export class DescribeSlaEventListResponseBodySlaEvent extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range. Unit: seconds.
+   * 
+   * @example
+   * 1671886740
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   ip?: string;
+  /**
+   * @remarks
+   * The region to which the destination IP address belongs. Valid values:
+   * 
+   * *   **cn**: a region in the Chinese mainland
+   * *   **cn-hongkong**: China (Hong Kong)
+   * 
+   * @example
+   * cn
+   */
   region?: string;
+  /**
+   * @remarks
+   * The beginning of the time range. Unit: seconds.
+   * 
+   * @example
+   * 1678080840
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15644,6 +26633,16 @@ export class DescribeSlaEventListResponseBodySlaEvent extends $tea.Model {
 }
 
 export class DescribeStsGrantStatusResponseBodyStsGrant extends $tea.Model {
+  /**
+   * @remarks
+   * The authorization status. Valid values:
+   * 
+   * *   **0**: Anti-DDoS Pro or Anti-DDoS Premium is not authorized to access other cloud services.
+   * *   **1**: Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15663,13 +26662,84 @@ export class DescribeStsGrantStatusResponseBodyStsGrant extends $tea.Model {
 }
 
 export class DescribeSystemLogResponseBodySystemLog extends $tea.Model {
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 203.107.XX.XX
+   */
   entityObject?: string;
+  /**
+   * @remarks
+   * The type of the system log. The value is fixed as **20**, which indicates the billing logs for burstable clean bandwidth.
+   * 
+   * @example
+   * 20
+   */
   entityType?: number;
+  /**
+   * @remarks
+   * The time when the bill was generated. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1631793531000
+   */
   gmtCreate?: number;
+  /**
+   * @remarks
+   * The time when the bill was last modified. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1635425407000
+   */
   gmtModified?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the bill belongs.
+   * 
+   * @example
+   * 171986973287****
+   */
   opAccount?: string;
+  /**
+   * @remarks
+   * The operation type. The value is fixed as **100**, which indicates the billing logs for the burstable clean bandwidth that you increased.
+   * 
+   * @example
+   * 100
+   */
   opAction?: number;
+  /**
+   * @remarks
+   * The details of the bill. The value is a string that consists of a JSON struct. The JSON struct contains the following fields:
+   * 
+   * *   **newEntity**: the bill record, which contains the following fields. Data type: object.
+   * 
+   *     *   **billValue**: the usage of the burstable clean bandwidth within a month. Unit: Mbit/s. Data type: integer.
+   *     *   **instanceId**: the ID of the instance. Data type: string.
+   *     *   **ip**: the IP address of the instance. Data type: string.
+   *     *   **maxBw**: the peak service traffic (monthly 95th percentile bandwidth) within a month. Unit: Mbit/s. Data type: string.
+   *     *   **month**: the month in which the bill of the previous calendar month is issued. This value is a UNIX timestamp. Unit: milliseconds. Data type: long.
+   *     *   **overBandwidth**: the peak service traffic minus the clean bandwidth of the instance. Unit: Mbit/s. Data type: integer.
+   *     *   **peakTime**: the time in point of the peak service traffic that is measured for billing. This value is a UNIX timestamp. Unit: seconds. Data type: long.
+   *     *   **startTimestamp**: the beginning of the time range for the peak service traffic range. This value is a UNIX timestamp. Unit: seconds. Data type: long.
+   * 
+   * @example
+   * {"newEntity":{"billValue":"60","instanceId":"ddoscoo-cn-zz121ogz****","ip":"203.107.XX.XX","maxBw":"300","month":1627747200000,"overBandwidth":"120","peakTime":1629871200,"startTimestamp":1629871200}}
+   */
   opDesc?: string;
+  /**
+   * @remarks
+   * The status of the bill. Valid values:
+   * 
+   * *   **0**: to be billed
+   * *   **1**: billed
+   * *   **2**: terminated
+   * 
+   * @example
+   * 1
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15703,7 +26773,21 @@ export class DescribeSystemLogResponseBodySystemLog extends $tea.Model {
 }
 
 export class DescribeTagKeysResponseBodyTagKeys extends $tea.Model {
+  /**
+   * @remarks
+   * The number of Anti-DDoS Proxy (Chinese Mainland) instances to which the tag key is added.
+   * 
+   * @example
+   * 2
+   */
   tagCount?: number;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * aa1
+   */
   tagKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15725,7 +26809,27 @@ export class DescribeTagKeysResponseBodyTagKeys extends $tea.Model {
 }
 
 export class DescribeTagResourcesRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag that you want to query.
+   * 
+   * > 
+   * 
+   * *   You must specify at least one of the **ResourceIds.N** and **Tags.N.Key** parameters.
+   * 
+   * *   You can call the [DescribeTagKeys](https://help.aliyun.com/document_detail/159785.html) operation to query all tag keys.
+   * 
+   * @example
+   * testkey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag that you want to query.
+   * 
+   * @example
+   * testvalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15747,9 +26851,37 @@ export class DescribeTagResourcesRequestTags extends $tea.Model {
 }
 
 export class DescribeTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * @example
+   * ddoscoo-cn-zz121ogz****
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The resource type. The value is fixed as **INSTANCE**, which indicates an Anti-DDoS Proxy instance.
+   * 
+   * @example
+   * INSTANCE
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The key of the tag that is added to the Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * @example
+   * testvalue
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag that is added to the Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * @example
+   * testkey
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15794,7 +26926,24 @@ export class DescribeTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class DescribeWebAccessLogDispatchStatusResponseBodySlsConfigStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * www.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * Indicates whether the log analysis feature is enabled. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15816,7 +26965,25 @@ export class DescribeWebAccessLogDispatchStatusResponseBodySlsConfigStatus exten
 }
 
 export class DescribeWebAccessModeResponseBodyDomainModes extends $tea.Model {
+  /**
+   * @remarks
+   * The mode in which the website service is added. Valid values:
+   * 
+   * *   **0**: A record
+   * *   **1**: anti-DDoS mode
+   * *   **2**: origin redundancy mode
+   * 
+   * @example
+   * 0
+   */
   accessMode?: number;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15838,7 +27005,24 @@ export class DescribeWebAccessModeResponseBodyDomainModes extends $tea.Model {
 }
 
 export class DescribeWebAreaBlockConfigsResponseBodyAreaBlockConfigsRegionList extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the location is blocked. Valid values:
+   * 
+   * *   **0**: yes
+   * *   **1**: no
+   * 
+   * @example
+   * 0
+   */
   block?: number;
+  /**
+   * @remarks
+   * The name of the location.
+   * 
+   * @example
+   * CN-SHANGHAI
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15860,7 +27044,18 @@ export class DescribeWebAreaBlockConfigsResponseBodyAreaBlockConfigsRegionList e
 }
 
 export class DescribeWebAreaBlockConfigsResponseBodyAreaBlockConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The configuration of the blocked locations.
+   */
   regionList?: DescribeWebAreaBlockConfigsResponseBodyAreaBlockConfigsRegionList[];
   static names(): { [key: string]: string } {
     return {
@@ -15882,12 +27077,67 @@ export class DescribeWebAreaBlockConfigsResponseBodyAreaBlockConfigs extends $te
 }
 
 export class DescribeWebCCRulesResponseBodyWebCCRules extends $tea.Model {
+  /**
+   * @remarks
+   * The blocking type. Valid values:
+   * 
+   * *   **close**: blocks requests.
+   * *   **captcha**: enables Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification.
+   * 
+   * @example
+   * close
+   */
   act?: string;
+  /**
+   * @remarks
+   * The number of requests that are allowed from an individual IP address. Valid values: **2** to **2000**.
+   * 
+   * @example
+   * 3
+   */
   count?: number;
+  /**
+   * @remarks
+   * The check intervals. Valid values: **5** to **10800**. Unit: seconds.
+   * 
+   * @example
+   * 5
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The match mode. Valid values:
+   * 
+   * *   **prefix**: prefix match
+   * *   **match**: exact match
+   * 
+   * @example
+   * prefix
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * wq
+   */
   name?: string;
+  /**
+   * @remarks
+   * The blocking duration. Valid values: **1** to **1440**. Unit: minutes.
+   * 
+   * @example
+   * 60
+   */
   ttl?: number;
+  /**
+   * @remarks
+   * The check path.
+   * 
+   * @example
+   * /hello
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15919,13 +27169,45 @@ export class DescribeWebCCRulesResponseBodyWebCCRules extends $tea.Model {
 }
 
 export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition extends $tea.Model {
+  /**
+   * @remarks
+   * The match content.
+   * 
+   * @example
+   * 192.0.XX.XX
+   */
   content?: string;
+  contentList?: string;
+  /**
+   * @remarks
+   * The match field.
+   * 
+   * @example
+   * ip
+   */
   field?: string;
+  /**
+   * @remarks
+   * The custom HTTP request header.
+   * 
+   * >  This parameter takes effect only when **Field** is set to **header**.
+   * 
+   * @example
+   * null
+   */
   headerName?: string;
+  /**
+   * @remarks
+   * The match method.
+   * 
+   * @example
+   * belong
+   */
   matchMethod?: string;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
+      contentList: 'ContentList',
       field: 'Field',
       headerName: 'HeaderName',
       matchMethod: 'MatchMethod',
@@ -15935,6 +27217,7 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition exten
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      contentList: 'string',
       field: 'string',
       headerName: 'string',
       matchMethod: 'string',
@@ -15947,10 +27230,48 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition exten
 }
 
 export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit extends $tea.Model {
+  /**
+   * @remarks
+   * The statistical period. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The name of the field. This parameter is required only when the Target parameter is set to header.
+   * 
+   * @example
+   * action
+   */
   subKey?: string;
+  /**
+   * @remarks
+   * The statistical method. Valid values:
+   * 
+   * *   **ip**
+   * *   **header**
+   * 
+   * @example
+   * ip
+   */
   target?: string;
+  /**
+   * @remarks
+   * The trigger threshold.
+   * 
+   * @example
+   * 20
+   */
   threshold?: number;
+  /**
+   * @remarks
+   * The blocking duration. Unit: seconds.
+   * 
+   * @example
+   * 15
+   */
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15978,8 +27299,36 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit exten
 }
 
 export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics extends $tea.Model {
+  /**
+   * @remarks
+   * The statistical method. Valid values:
+   * 
+   * *   **ip**
+   * *   **header**
+   * *   **uri**
+   * 
+   * @example
+   * uri
+   */
   field?: string;
+  /**
+   * @remarks
+   * The name of the header. This parameter is required only when the Field parameter is set to header.
+   * 
+   * @example
+   * hello
+   */
   headerName?: string;
+  /**
+   * @remarks
+   * Indicates whether the system collects statistics after deduplication. Valid values:
+   * 
+   * *   **count**: The system collects statistics before deduplication.
+   * *   **distinct**: The system collects statistics after deduplication.
+   * 
+   * @example
+   * count
+   */
   mode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16003,10 +27352,54 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics exte
 }
 
 export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode extends $tea.Model {
+  /**
+   * @remarks
+   * The status code. Valid values: **100** to **599**.
+   * 
+   * *   **200**: The request was successful.
+   * *   Other codes: The request failed.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * If a ratio is not used, the handling action is triggered only when the number of requests of the corresponding status code reaches the value of **CountThreshold**. Valid values: **2** to **50000**.
+   * 
+   * @example
+   * 10
+   */
   countThreshold?: number;
+  /**
+   * @remarks
+   * Indicates whether the status code is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * If a ratio is used, the handling action is triggered only when the number of requests of the corresponding status code reaches the value of **RatioThreshold**. Valid values: **1** to **100**.
+   * 
+   * @example
+   * 10
+   */
   ratioThreshold?: number;
+  /**
+   * @remarks
+   * Indicates whether to use a ratio.
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   useRatio?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16034,16 +27427,80 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode exte
 }
 
 export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The action triggered if the rule is matched. Valid values:
+   * 
+   * *   **accept**: The requests that match the rule are allowed.
+   * *   **block**: The requests that match the rule are blocked.
+   * *   **challenge**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
+   * *   **watch**: The requests that match the rule are recorded in logs and allowed.
+   * 
+   * @example
+   * block
+   */
   action?: string;
+  /**
+   * @remarks
+   * The match conditions.
+   */
   condition?: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailCondition[];
+  /**
+   * @remarks
+   * The parameter is deprecated.
+   */
   count?: number;
+  /**
+   * @remarks
+   * The parameter is deprecated.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The parameter is deprecated.
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * ccauto14
+   */
   name?: string;
+  /**
+   * @remarks
+   * The frequency statistics.
+   */
   rateLimit?: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailRateLimit;
+  /**
+   * @remarks
+   * The statistics after deduplication. By default, the system collects statistics before deduplication.
+   */
   statistics?: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatistics;
+  /**
+   * @remarks
+   * The status codes.
+   */
   statusCode?: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetailStatusCode;
+  /**
+   * @remarks
+   * The parameter is deprecated.
+   * 
+   * @example
+   * 300
+   */
   ttl?: number;
+  /**
+   * @remarks
+   * The parameter is deprecated.
+   * 
+   * @example
+   * /p3shijihao
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16083,9 +27540,37 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail extends $tea.M
 }
 
 export class DescribeWebCCRulesV2ResponseBodyWebCCRules extends $tea.Model {
+  /**
+   * @remarks
+   * The validity period of the rule. Unit: seconds. If the Action parameter is set to block, the system blocks the requests that match the rule within the validity period of the rule. The value 0 indicates that the rule is permanently valid.
+   * 
+   * @example
+   * 0
+   */
   expires?: number;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * wq
+   */
   name?: string;
+  /**
+   * @remarks
+   * The method used to create the rule. Valid values:
+   * 
+   * *   **manual** (default): manually created.
+   * *   **clover**: automatically created.
+   * 
+   * @example
+   * manual
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The details of the rule.
+   */
   ruleDetail?: DescribeWebCCRulesV2ResponseBodyWebCCRulesRuleDetail;
   static names(): { [key: string]: string } {
     return {
@@ -16111,9 +27596,41 @@ export class DescribeWebCCRulesV2ResponseBodyWebCCRules extends $tea.Model {
 }
 
 export class DescribeWebCacheConfigsResponseBodyDomainCacheConfigsCustomRules extends $tea.Model {
+  /**
+   * @remarks
+   * The expiration time of the page cache. Unit: seconds.
+   * 
+   * @example
+   * 86400
+   */
   cacheTtl?: number;
+  /**
+   * @remarks
+   * The cache mode. Valid values:
+   * 
+   * *   **standard**: The standard cache mode is used.
+   * *   **aggressive**: The enhanced cache mode is used.
+   * *   **bypass**: No data is cached.
+   * 
+   * @example
+   * standard
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * c1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The path to the cached page.
+   * 
+   * @example
+   * /blog/
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16139,9 +27656,41 @@ export class DescribeWebCacheConfigsResponseBodyDomainCacheConfigsCustomRules ex
 }
 
 export class DescribeWebCacheConfigsResponseBodyDomainCacheConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of custom caching rules.
+   */
   customRules?: DescribeWebCacheConfigsResponseBodyDomainCacheConfigsCustomRules[];
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.aliyundoc.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The status of the Static Page Caching policy. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **0**: disabled
+   * 
+   * @example
+   * 1
+   */
   enable?: number;
+  /**
+   * @remarks
+   * The cache mode. Valid values:
+   * 
+   * *   **standard**: The standard cache mode is used.
+   * *   **aggressive**: The enhanced cache mode is used.
+   * *   **bypass**: No data is cached.
+   * 
+   * @example
+   * bypass
+   */
   mode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16167,16 +27716,116 @@ export class DescribeWebCacheConfigsResponseBodyDomainCacheConfigs extends $tea.
 }
 
 export class DescribeWebCcProtectSwitchResponseBodyProtectSwitchList extends $tea.Model {
+  /**
+   * @remarks
+   * The mode of Intelligent Protection. Valid values:
+   * 
+   * *   **watch**: Warning
+   * *   **defense**: Defense
+   * 
+   * @example
+   * defense
+   */
   aiMode?: string;
+  /**
+   * @remarks
+   * The status of Intelligent Protection. Valid values:
+   * 
+   * *   **0**: turned off
+   * *   **1:** turned on
+   * 
+   * @example
+   * 1
+   */
   aiRuleEnable?: number;
+  /**
+   * @remarks
+   * The level of Intelligent Protection. Valid values:
+   * 
+   * *   **level30**: Loose
+   * *   **level60**: Normal
+   * *   **level90**: Strict
+   * 
+   * @example
+   * level60
+   */
   aiTemplate?: string;
+  /**
+   * @remarks
+   * The status of Blacklist/Whitelist (Domain Names). Valid values:
+   * 
+   * *   **0**: turned off
+   * *   **1:** turned on
+   * 
+   * @example
+   * 1
+   */
   blackWhiteListEnable?: number;
+  /**
+   * @remarks
+   * The status of the Custom Rules switch for Frequency Control. Valid values:
+   * 
+   * *   **0**: turned off
+   * *   **1:** turned on
+   * 
+   * @example
+   * 0
+   */
   ccCustomRuleEnable?: number;
+  /**
+   * @remarks
+   * The status of Frequency Control. Valid values:
+   * 
+   * *   **0**: turned off
+   * *   **1:** turned on
+   * 
+   * @example
+   * 1
+   */
   ccEnable?: number;
   ccGlobalSwitch?: string;
+  /**
+   * @remarks
+   * The mode of Frequency Control. Valid values:
+   * 
+   * *   **default**: Normal
+   * *   **gf_under_attack**: Emergency
+   * *   **gf_sos_verify**: Strict
+   * *   **gf_sos_enhance**: Super Strict
+   * 
+   * @example
+   * default
+   */
   ccTemplate?: string;
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The status of Accurate Access Control. Valid values:
+   * 
+   * *   **0**: turned off
+   * *   **1:** turned on
+   * 
+   * @example
+   * 0
+   */
   preciseRuleEnable?: number;
+  /**
+   * @remarks
+   * The status of Location Blacklist (Domain Names). Valid values:
+   * 
+   * *   **0**: turned off
+   * *   **1:** turned on
+   * 
+   * @example
+   * 0
+   */
   regionBlockEnable?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16216,7 +27865,21 @@ export class DescribeWebCcProtectSwitchResponseBodyProtectSwitchList extends $te
 }
 
 export class DescribeWebCustomPortsResponseBodyWebCustomPorts extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of supported custom ports.
+   */
   proxyPorts?: string[];
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **http**
+   * *   **https**
+   * 
+   * @example
+   * http
+   */
   proxyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16238,8 +27901,29 @@ export class DescribeWebCustomPortsResponseBodyWebCustomPorts extends $tea.Model
 }
 
 export class DescribeWebInstanceRelationsResponseBodyWebInstanceRelationsInstanceDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The IP addresses of the instance.
+   */
   eipList?: string[];
+  /**
+   * @remarks
+   * The function plan of the instance. Valid values:
+   * 
+   * *   **default**: Standard function plan
+   * *   **enhance**: Enhanced function plan
+   * 
+   * @example
+   * enhance
+   */
   functionVersion?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * ddoscoo-cn-0pp163pd****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16263,7 +27947,18 @@ export class DescribeWebInstanceRelationsResponseBodyWebInstanceRelationsInstanc
 }
 
 export class DescribeWebInstanceRelationsResponseBodyWebInstanceRelations extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The information about the instance to which a website service is added.
+   */
   instanceDetails?: DescribeWebInstanceRelationsResponseBodyWebInstanceRelationsInstanceDetails[];
   static names(): { [key: string]: string } {
     return {
@@ -16285,10 +27980,40 @@ export class DescribeWebInstanceRelationsResponseBodyWebInstanceRelations extend
 }
 
 export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRuleListConditionList extends $tea.Model {
+  /**
+   * @remarks
+   * The match content.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   content?: string;
   contentList?: string[];
+  /**
+   * @remarks
+   * The match field.
+   * 
+   * @example
+   * ip
+   */
   field?: string;
+  /**
+   * @remarks
+   * The custom HTTP request header.
+   * 
+   * >  This parameter takes effect only when **Field** is set to **header**.
+   * 
+   * @example
+   * null
+   */
   headerName?: string;
+  /**
+   * @remarks
+   * The logical operator.
+   * 
+   * @example
+   * belong
+   */
   matchMethod?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16316,10 +28041,49 @@ export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRule
 }
 
 export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRuleList extends $tea.Model {
+  /**
+   * @remarks
+   * The action triggered if the rule is matched. Valid values:
+   * 
+   * *   **accept**: The requests that match the rule are allowed.
+   * *   **block**: The requests that match the rule are blocked.
+   * *   **challenge**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
+   * 
+   * @example
+   * accept
+   */
   action?: string;
+  /**
+   * @remarks
+   * The match conditions.
+   */
   conditionList?: DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRuleListConditionList[];
+  /**
+   * @remarks
+   * The validity period of the rule. Unit: seconds. This parameter takes effect only when **action** of a rule is **block**. Access requests that match the rule are blocked within the specified validity period of the rule. The value **0** indicates that the whitelist takes effect all the time.
+   * 
+   * @example
+   * 0
+   */
   expires?: number;
+  /**
+   * @remarks
+   * The name of the scheduling rule.
+   * 
+   * @example
+   * testrule
+   */
   name?: string;
+  /**
+   * @remarks
+   * The source of the rule. Valid values:
+   * 
+   * *   **manual** (default): manually created.
+   * *   **auto**: automatically generated.
+   * 
+   * @example
+   * manual
+   */
   owner?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16347,7 +28111,18 @@ export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRule
 }
 
 export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigList extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name of the website.
+   * 
+   * @example
+   * www.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The scheduling rules.
+   */
   ruleList?: DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRuleList[];
   static names(): { [key: string]: string } {
     return {
@@ -16369,9 +28144,56 @@ export class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigList ext
 }
 
 export class DescribeWebReportTopIpResponseBodyDataList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the location.
+   * 
+   * @example
+   * 90998690
+   */
   areaId?: string;
+  /**
+   * @remarks
+   * The number of entries returned.
+   * 
+   * @example
+   * 5
+   */
   count?: number;
+  /**
+   * @remarks
+   * The Internet service provider (ISP) for the attack. Valid values:
+   * 
+   * *   **100017**: China Telecom
+   * *   **100026**: China Unicom
+   * *   **100025**: China Mobile
+   * *   **100027**: China Education and Research Network
+   * *   **100020**: China Mobile Tietong
+   * *   **1000143**: Dr.Peng Telecom & Media Group
+   * *   **100080**: Beijing Gehua CATV Network
+   * *   **1000139**: National Radio and Television Administration
+   * *   **100023**: Oriental Cable Network
+   * *   **100063**: Founder Broadband
+   * *   **1000337**: China Internet Exchange
+   * *   **100021**: 21Vianet Group
+   * *   **1000333**: Wasu Media Holding
+   * *   **100093**: Wangsu Science & Technology
+   * *   **1000401**: Tencent
+   * *   **100099**: Baidu
+   * *   **1000323**: Alibaba Cloud
+   * *   **100098**: Alibaba
+   * 
+   * @example
+   * 100017
+   */
   isp?: string;
+  /**
+   * @remarks
+   * The source IP address.
+   * 
+   * @example
+   * 117.186.XX.XX
+   */
   sourceIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16397,8 +28219,20 @@ export class DescribeWebReportTopIpResponseBodyDataList extends $tea.Model {
 }
 
 export class DescribeWebRulesResponseBodyWebRulesGmCert extends $tea.Model {
+  /**
+   * @example
+   * 725****
+   */
   certId?: string;
+  /**
+   * @example
+   * 1
+   */
   gmEnable?: number;
+  /**
+   * @example
+   * 1
+   */
   gmOnly?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16423,6 +28257,10 @@ export class DescribeWebRulesResponseBodyWebRulesGmCert extends $tea.Model {
 
 export class DescribeWebRulesResponseBodyWebRulesProxyTypes extends $tea.Model {
   proxyPorts?: string[];
+  /**
+   * @example
+   * https
+   */
   proxyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16444,7 +28282,15 @@ export class DescribeWebRulesResponseBodyWebRulesProxyTypes extends $tea.Model {
 }
 
 export class DescribeWebRulesResponseBodyWebRulesRealServers extends $tea.Model {
+  /**
+   * @example
+   * 192.0.XX.XX
+   */
   realServer?: string;
+  /**
+   * @example
+   * 0
+   */
   rsType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16467,27 +28313,95 @@ export class DescribeWebRulesResponseBodyWebRulesRealServers extends $tea.Model 
 
 export class DescribeWebRulesResponseBodyWebRules extends $tea.Model {
   blackList?: string[];
+  /**
+   * @example
+   * true
+   */
   ccEnabled?: boolean;
+  /**
+   * @example
+   * false
+   */
   ccRuleEnabled?: boolean;
+  /**
+   * @example
+   * default
+   */
   ccTemplate?: string;
+  /**
+   * @example
+   * testcert
+   */
   certName?: string;
   certRegion?: string;
+  /**
+   * @example
+   * kzmk7b8tt351****.aliyunddos1014****
+   */
   cname?: string;
   customCiphers?: string[];
+  /**
+   * @example
+   * example.com
+   */
   domain?: string;
   gmCert?: DescribeWebRulesResponseBodyWebRulesGmCert;
+  /**
+   * @example
+   * true
+   */
   http2Enable?: boolean;
+  /**
+   * @example
+   * true
+   */
   http2HttpsEnable?: boolean;
+  /**
+   * @example
+   * true
+   */
   https2HttpEnable?: boolean;
+  /**
+   * @example
+   * false
+   */
   ocspEnabled?: boolean;
+  /**
+   * @example
+   * ip_hash
+   */
   policyMode?: string;
+  /**
+   * @example
+   * true
+   */
   proxyEnabled?: boolean;
   proxyTypes?: DescribeWebRulesResponseBodyWebRulesProxyTypes[];
+  /**
+   * @example
+   * 1
+   */
   punishReason?: number;
+  /**
+   * @example
+   * true
+   */
   punishStatus?: boolean;
   realServers?: DescribeWebRulesResponseBodyWebRulesRealServers[];
+  /**
+   * @example
+   * false
+   */
   ssl13Enabled?: boolean;
+  /**
+   * @example
+   * default
+   */
   sslCiphers?: string;
+  /**
+   * @example
+   * tls1.1
+   */
   sslProtocols?: string;
   whiteList?: string[];
   static names(): { [key: string]: string } {
@@ -16554,7 +28468,25 @@ export class DescribeWebRulesResponseBodyWebRules extends $tea.Model {
 }
 
 export class ModifyDomainResourceRequestProxyTypes extends $tea.Model {
+  /**
+   * @remarks
+   * The port numbers.
+   * 
+   * This parameter is required.
+   */
   proxyPorts?: number[];
+  /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **http**
+   * *   **https**
+   * *   **websocket**
+   * *   **websockets**
+   * 
+   * @example
+   * https
+   */
   proxyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16599,9 +28531,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddAutoCcBlacklistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddAutoCcBlacklistResponse
+   * @param request - AddAutoCcBlacklistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAutoCcBlacklistResponse
    */
   async addAutoCcBlacklistWithOptions(request: AddAutoCcBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<AddAutoCcBlacklistResponse> {
     Util.validateModel(request);
@@ -16636,8 +28568,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddAutoCcBlacklistRequest
-   * @return AddAutoCcBlacklistResponse
+   * @param request - AddAutoCcBlacklistRequest
+   * @returns AddAutoCcBlacklistResponse
    */
   async addAutoCcBlacklist(request: AddAutoCcBlacklistRequest): Promise<AddAutoCcBlacklistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16645,16 +28577,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @description You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
+   * Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @remarks
+   * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
    * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request AddAutoCcWhitelistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddAutoCcWhitelistResponse
+   * 
+   * @param request - AddAutoCcWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAutoCcWhitelistResponse
    */
   async addAutoCcWhitelistWithOptions(request: AddAutoCcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<AddAutoCcWhitelistResponse> {
     Util.validateModel(request);
@@ -16689,15 +28622,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @description You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
+   * Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @remarks
+   * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
    * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request AddAutoCcWhitelistRequest
-   * @return AddAutoCcWhitelistResponse
+   * 
+   * @param request - AddAutoCcWhitelistRequest
+   * @returns AddAutoCcWhitelistResponse
    */
   async addAutoCcWhitelist(request: AddAutoCcWhitelistRequest): Promise<AddAutoCcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16705,11 +28639,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Associates an SSL certificate with the forwarding rule of a website.
-   *
-   * @param request AssociateWebCertRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AssociateWebCertResponse
+   * Associates an SSL certificate with the forwarding rule of a website.
+   * 
+   * @param request - AssociateWebCertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateWebCertResponse
    */
   async associateWebCertWithOptions(request: AssociateWebCertRequest, runtime: $Util.RuntimeOptions): Promise<AssociateWebCertResponse> {
     Util.validateModel(request);
@@ -16766,10 +28700,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Associates an SSL certificate with the forwarding rule of a website.
-   *
-   * @param request AssociateWebCertRequest
-   * @return AssociateWebCertResponse
+   * Associates an SSL certificate with the forwarding rule of a website.
+   * 
+   * @param request - AssociateWebCertRequest
+   * @returns AssociateWebCertResponse
    */
   async associateWebCert(request: AssociateWebCertRequest): Promise<AssociateWebCertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16777,11 +28711,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds an object to a scenario-specific custom policy for protection.
-   *
-   * @param request AttachSceneDefenseObjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AttachSceneDefenseObjectResponse
+   * Adds an object to a scenario-specific custom policy for protection.
+   * 
+   * @param request - AttachSceneDefenseObjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachSceneDefenseObjectResponse
    */
   async attachSceneDefenseObjectWithOptions(request: AttachSceneDefenseObjectRequest, runtime: $Util.RuntimeOptions): Promise<AttachSceneDefenseObjectResponse> {
     Util.validateModel(request);
@@ -16816,10 +28750,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds an object to a scenario-specific custom policy for protection.
-   *
-   * @param request AttachSceneDefenseObjectRequest
-   * @return AttachSceneDefenseObjectResponse
+   * Adds an object to a scenario-specific custom policy for protection.
+   * 
+   * @param request - AttachSceneDefenseObjectRequest
+   * @returns AttachSceneDefenseObjectResponse
    */
   async attachSceneDefenseObject(request: AttachSceneDefenseObjectRequest): Promise<AttachSceneDefenseObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16827,11 +28761,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the global mitigation policy feature, including the feature status and settings.
-   *
-   * @param request ConfigDomainSecurityProfileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigDomainSecurityProfileResponse
+   * Configures the global mitigation policy feature, including the feature status and settings.
+   * 
+   * @param request - ConfigDomainSecurityProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigDomainSecurityProfileResponse
    */
   async configDomainSecurityProfileWithOptions(request: ConfigDomainSecurityProfileRequest, runtime: $Util.RuntimeOptions): Promise<ConfigDomainSecurityProfileResponse> {
     Util.validateModel(request);
@@ -16866,10 +28800,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the global mitigation policy feature, including the feature status and settings.
-   *
-   * @param request ConfigDomainSecurityProfileRequest
-   * @return ConfigDomainSecurityProfileResponse
+   * Configures the global mitigation policy feature, including the feature status and settings.
+   * 
+   * @param request - ConfigDomainSecurityProfileRequest
+   * @returns ConfigDomainSecurityProfileResponse
    */
   async configDomainSecurityProfile(request: ConfigDomainSecurityProfileRequest): Promise<ConfigDomainSecurityProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16877,13 +28811,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures a back-to-origin policy for the forwarding rule of a website.
-   *
-   * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
-   *
-   * @param request ConfigL7RsPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigL7RsPolicyResponse
+   * Configures a back-to-origin policy for the forwarding rule of a website.
+   * 
+   * @remarks
+   * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+   * 
+   * @param request - ConfigL7RsPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigL7RsPolicyResponse
    */
   async configL7RsPolicyWithOptions(request: ConfigL7RsPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ConfigL7RsPolicyResponse> {
     Util.validateModel(request);
@@ -16922,12 +28857,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures a back-to-origin policy for the forwarding rule of a website.
-   *
-   * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
-   *
-   * @param request ConfigL7RsPolicyRequest
-   * @return ConfigL7RsPolicyResponse
+   * Configures a back-to-origin policy for the forwarding rule of a website.
+   * 
+   * @remarks
+   * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+   * 
+   * @param request - ConfigL7RsPolicyRequest
+   * @returns ConfigL7RsPolicyResponse
    */
   async configL7RsPolicy(request: ConfigL7RsPolicyRequest): Promise<ConfigL7RsPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16935,11 +28871,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the settings for back-to-origin persistent connections for a domain name.
-   *
-   * @param request ConfigL7UsKeepaliveRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigL7UsKeepaliveResponse
+   * Configures the settings for back-to-origin persistent connections for a domain name.
+   * 
+   * @param request - ConfigL7UsKeepaliveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigL7UsKeepaliveResponse
    */
   async configL7UsKeepaliveWithOptions(request: ConfigL7UsKeepaliveRequest, runtime: $Util.RuntimeOptions): Promise<ConfigL7UsKeepaliveResponse> {
     Util.validateModel(request);
@@ -16970,10 +28906,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the settings for back-to-origin persistent connections for a domain name.
-   *
-   * @param request ConfigL7UsKeepaliveRequest
-   * @return ConfigL7UsKeepaliveResponse
+   * Configures the settings for back-to-origin persistent connections for a domain name.
+   * 
+   * @param request - ConfigL7UsKeepaliveRequest
+   * @returns ConfigL7UsKeepaliveResponse
    */
   async configL7UsKeepalive(request: ConfigL7UsKeepaliveRequest): Promise<ConfigL7UsKeepaliveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16981,11 +28917,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
-   *
-   * @param request ConfigLayer4RealLimitRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigLayer4RealLimitResponse
+   * Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
+   * 
+   * @param request - ConfigLayer4RealLimitRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigLayer4RealLimitResponse
    */
   async configLayer4RealLimitWithOptions(request: ConfigLayer4RealLimitRequest, runtime: $Util.RuntimeOptions): Promise<ConfigLayer4RealLimitResponse> {
     Util.validateModel(request);
@@ -17016,10 +28952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
-   *
-   * @param request ConfigLayer4RealLimitRequest
-   * @return ConfigLayer4RealLimitResponse
+   * Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
+   * 
+   * @param request - ConfigLayer4RealLimitRequest
+   * @returns ConfigLayer4RealLimitResponse
    */
   async configLayer4RealLimit(request: ConfigLayer4RealLimitRequest): Promise<ConfigLayer4RealLimitResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17027,11 +28963,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a description to a port forwarding rule.
-   *
-   * @param request ConfigLayer4RemarkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigLayer4RemarkResponse
+   * Adds a description to a port forwarding rule.
+   * 
+   * @param request - ConfigLayer4RemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigLayer4RemarkResponse
    */
   async configLayer4RemarkWithOptions(request: ConfigLayer4RemarkRequest, runtime: $Util.RuntimeOptions): Promise<ConfigLayer4RemarkResponse> {
     Util.validateModel(request);
@@ -17058,10 +28994,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a description to a port forwarding rule.
-   *
-   * @param request ConfigLayer4RemarkRequest
-   * @return ConfigLayer4RemarkResponse
+   * Adds a description to a port forwarding rule.
+   * 
+   * @param request - ConfigLayer4RemarkRequest
+   * @returns ConfigLayer4RemarkResponse
    */
   async configLayer4Remark(request: ConfigLayer4RemarkRequest): Promise<ConfigLayer4RemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17069,11 +29005,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the origin redundancy mode for a port forwarding rule.
-   *
-   * @param request ConfigLayer4RuleBakModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigLayer4RuleBakModeResponse
+   * Enables or disables the origin redundancy mode for a port forwarding rule.
+   * 
+   * @param request - ConfigLayer4RuleBakModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigLayer4RuleBakModeResponse
    */
   async configLayer4RuleBakModeWithOptions(request: ConfigLayer4RuleBakModeRequest, runtime: $Util.RuntimeOptions): Promise<ConfigLayer4RuleBakModeResponse> {
     Util.validateModel(request);
@@ -17104,10 +29040,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the origin redundancy mode for a port forwarding rule.
-   *
-   * @param request ConfigLayer4RuleBakModeRequest
-   * @return ConfigLayer4RuleBakModeResponse
+   * Enables or disables the origin redundancy mode for a port forwarding rule.
+   * 
+   * @param request - ConfigLayer4RuleBakModeRequest
+   * @returns ConfigLayer4RuleBakModeResponse
    */
   async configLayer4RuleBakMode(request: ConfigLayer4RuleBakModeRequest): Promise<ConfigLayer4RuleBakModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17115,11 +29051,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
-   *
-   * @param request ConfigLayer4RulePolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigLayer4RulePolicyResponse
+   * Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
+   * 
+   * @param request - ConfigLayer4RulePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigLayer4RulePolicyResponse
    */
   async configLayer4RulePolicyWithOptions(request: ConfigLayer4RulePolicyRequest, runtime: $Util.RuntimeOptions): Promise<ConfigLayer4RulePolicyResponse> {
     Util.validateModel(request);
@@ -17146,10 +29082,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
-   *
-   * @param request ConfigLayer4RulePolicyRequest
-   * @return ConfigLayer4RulePolicyResponse
+   * Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
+   * 
+   * @param request - ConfigLayer4RulePolicyRequest
+   * @returns ConfigLayer4RulePolicyResponse
    */
   async configLayer4RulePolicy(request: ConfigLayer4RulePolicyRequest): Promise<ConfigLayer4RulePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17157,11 +29093,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures blocked locations for an Anti-DDoS Proxy instance.
-   *
-   * @param request ConfigNetworkRegionBlockRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigNetworkRegionBlockResponse
+   * Configures blocked locations for an Anti-DDoS Proxy instance.
+   * 
+   * @param request - ConfigNetworkRegionBlockRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigNetworkRegionBlockResponse
    */
   async configNetworkRegionBlockWithOptions(request: ConfigNetworkRegionBlockRequest, runtime: $Util.RuntimeOptions): Promise<ConfigNetworkRegionBlockResponse> {
     Util.validateModel(request);
@@ -17192,10 +29128,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures blocked locations for an Anti-DDoS Proxy instance.
-   *
-   * @param request ConfigNetworkRegionBlockRequest
-   * @return ConfigNetworkRegionBlockResponse
+   * Configures blocked locations for an Anti-DDoS Proxy instance.
+   * 
+   * @param request - ConfigNetworkRegionBlockRequest
+   * @returns ConfigNetworkRegionBlockResponse
    */
   async configNetworkRegionBlock(request: ConfigNetworkRegionBlockRequest): Promise<ConfigNetworkRegionBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17203,11 +29139,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
-   *
-   * @param request ConfigNetworkRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigNetworkRulesResponse
+   * Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
+   * 
+   * @param request - ConfigNetworkRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigNetworkRulesResponse
    */
   async configNetworkRulesWithOptions(request: ConfigNetworkRulesRequest, runtime: $Util.RuntimeOptions): Promise<ConfigNetworkRulesResponse> {
     Util.validateModel(request);
@@ -17234,10 +29170,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
-   *
-   * @param request ConfigNetworkRulesRequest
-   * @return ConfigNetworkRulesResponse
+   * Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
+   * 
+   * @param request - ConfigNetworkRulesRequest
+   * @returns ConfigNetworkRulesResponse
    */
   async configNetworkRules(request: ConfigNetworkRulesRequest): Promise<ConfigNetworkRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17245,15 +29181,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
-   *
-   * @description You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
+   * Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
+   * 
+   * @remarks
+   * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ConfigUdpReflectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigUdpReflectResponse
+   * 
+   * @param request - ConfigUdpReflectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigUdpReflectResponse
    */
   async configUdpReflectWithOptions(request: ConfigUdpReflectRequest, runtime: $Util.RuntimeOptions): Promise<ConfigUdpReflectResponse> {
     Util.validateModel(request);
@@ -17288,14 +29225,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
-   *
-   * @description You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
+   * Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
+   * 
+   * @remarks
+   * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ConfigUdpReflectRequest
-   * @return ConfigUdpReflectResponse
+   * 
+   * @param request - ConfigUdpReflectRequest
+   * @returns ConfigUdpReflectResponse
    */
   async configUdpReflect(request: ConfigUdpReflectRequest): Promise<ConfigUdpReflectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17303,11 +29241,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置新版基于匹配条件的cc规则
-   *
-   * @param request ConfigWebCCRuleV2Request
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigWebCCRuleV2Response
+   * 配置新版基于匹配条件的cc规则
+   * 
+   * @param request - ConfigWebCCRuleV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigWebCCRuleV2Response
    */
   async configWebCCRuleV2WithOptions(request: ConfigWebCCRuleV2Request, runtime: $Util.RuntimeOptions): Promise<ConfigWebCCRuleV2Response> {
     Util.validateModel(request);
@@ -17342,10 +29280,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 配置新版基于匹配条件的cc规则
-   *
-   * @param request ConfigWebCCRuleV2Request
-   * @return ConfigWebCCRuleV2Response
+   * 配置新版基于匹配条件的cc规则
+   * 
+   * @param request - ConfigWebCCRuleV2Request
+   * @returns ConfigWebCCRuleV2Response
    */
   async configWebCCRuleV2(request: ConfigWebCCRuleV2Request): Promise<ConfigWebCCRuleV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17353,11 +29291,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the mode of the Frequency Control policy for a website.
-   *
-   * @param request ConfigWebCCTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigWebCCTemplateResponse
+   * Configures the mode of the Frequency Control policy for a website.
+   * 
+   * @param request - ConfigWebCCTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigWebCCTemplateResponse
    */
   async configWebCCTemplateWithOptions(request: ConfigWebCCTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ConfigWebCCTemplateResponse> {
     Util.validateModel(request);
@@ -17392,10 +29330,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the mode of the Frequency Control policy for a website.
-   *
-   * @param request ConfigWebCCTemplateRequest
-   * @return ConfigWebCCTemplateResponse
+   * Configures the mode of the Frequency Control policy for a website.
+   * 
+   * @param request - ConfigWebCCTemplateRequest
+   * @returns ConfigWebCCTemplateResponse
    */
   async configWebCCTemplate(request: ConfigWebCCTemplateRequest): Promise<ConfigWebCCTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17403,11 +29341,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the IP address whitelist and blacklist for a website.
-   *
-   * @param request ConfigWebIpSetRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ConfigWebIpSetResponse
+   * Configures the IP address whitelist and blacklist for a website.
+   * 
+   * @param request - ConfigWebIpSetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigWebIpSetResponse
    */
   async configWebIpSetWithOptions(request: ConfigWebIpSetRequest, runtime: $Util.RuntimeOptions): Promise<ConfigWebIpSetResponse> {
     Util.validateModel(request);
@@ -17446,10 +29384,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the IP address whitelist and blacklist for a website.
-   *
-   * @param request ConfigWebIpSetRequest
-   * @return ConfigWebIpSetResponse
+   * Configures the IP address whitelist and blacklist for a website.
+   * 
+   * @param request - ConfigWebIpSetRequest
+   * @returns ConfigWebIpSetResponse
    */
   async configWebIpSet(request: ConfigWebIpSetRequest): Promise<ConfigWebIpSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17457,11 +29395,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
-   *
-   * @param request CreateAsyncTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAsyncTaskResponse
+   * Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
+   * 
+   * @param request - CreateAsyncTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAsyncTaskResponse
    */
   async createAsyncTaskWithOptions(request: CreateAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateAsyncTaskResponse> {
     Util.validateModel(request);
@@ -17496,10 +29434,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
-   *
-   * @param request CreateAsyncTaskRequest
-   * @return CreateAsyncTaskResponse
+   * Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
+   * 
+   * @param request - CreateAsyncTaskRequest
+   * @returns CreateAsyncTaskResponse
    */
   async createAsyncTask(request: CreateAsyncTaskRequest): Promise<CreateAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17507,11 +29445,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a forwarding rule for a website.
-   *
-   * @param request CreateDomainResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDomainResourceResponse
+   * Creates a forwarding rule for a website.
+   * 
+   * @param request - CreateDomainResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDomainResourceResponse
    */
   async createDomainResourceWithOptions(request: CreateDomainResourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResourceResponse> {
     Util.validateModel(request);
@@ -17558,10 +29496,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a forwarding rule for a website.
-   *
-   * @param request CreateDomainResourceRequest
-   * @return CreateDomainResourceResponse
+   * Creates a forwarding rule for a website.
+   * 
+   * @param request - CreateDomainResourceRequest
+   * @returns CreateDomainResourceResponse
    */
   async createDomainResource(request: CreateDomainResourceRequest): Promise<CreateDomainResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17569,11 +29507,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a port forwarding rule.
-   *
-   * @param request CreateNetworkRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateNetworkRulesResponse
+   * Creates a port forwarding rule.
+   * 
+   * @param request - CreateNetworkRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNetworkRulesResponse
    */
   async createNetworkRulesWithOptions(request: CreateNetworkRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkRulesResponse> {
     Util.validateModel(request);
@@ -17600,10 +29538,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a port forwarding rule.
-   *
-   * @param request CreateNetworkRulesRequest
-   * @return CreateNetworkRulesResponse
+   * Creates a port forwarding rule.
+   * 
+   * @param request - CreateNetworkRulesRequest
+   * @returns CreateNetworkRulesResponse
    */
   async createNetworkRules(request: CreateNetworkRulesRequest): Promise<CreateNetworkRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17611,13 +29549,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a port forwarding rule.
-   *
-   * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-   *
-   * @param request CreatePortRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePortResponse
+   * Creates a port forwarding rule.
+   * 
+   * @remarks
+   * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   * 
+   * @param request - CreatePortRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePortResponse
    */
   async createPortWithOptions(request: CreatePortRequest, runtime: $Util.RuntimeOptions): Promise<CreatePortResponse> {
     Util.validateModel(request);
@@ -17660,12 +29599,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a port forwarding rule.
-   *
-   * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-   *
-   * @param request CreatePortRequest
-   * @return CreatePortResponse
+   * Creates a port forwarding rule.
+   * 
+   * @remarks
+   * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   * 
+   * @param request - CreatePortRequest
+   * @returns CreatePortResponse
    */
   async createPort(request: CreatePortRequest): Promise<CreatePortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17673,11 +29613,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a scenario-specific custom policy.
-   *
-   * @param request CreateSceneDefensePolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSceneDefensePolicyResponse
+   * Creates a scenario-specific custom policy.
+   * 
+   * @param request - CreateSceneDefensePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSceneDefensePolicyResponse
    */
   async createSceneDefensePolicyWithOptions(request: CreateSceneDefensePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateSceneDefensePolicyResponse> {
     Util.validateModel(request);
@@ -17716,10 +29656,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a scenario-specific custom policy.
-   *
-   * @param request CreateSceneDefensePolicyRequest
-   * @return CreateSceneDefensePolicyResponse
+   * Creates a scenario-specific custom policy.
+   * 
+   * @param request - CreateSceneDefensePolicyRequest
+   * @returns CreateSceneDefensePolicyResponse
    */
   async createSceneDefensePolicy(request: CreateSceneDefensePolicyRequest): Promise<CreateSceneDefensePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17727,11 +29667,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a scheduling rule for Sec-Traffic Manager.
-   *
-   * @param request CreateSchedulerRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSchedulerRuleResponse
+   * Creates a scheduling rule for Sec-Traffic Manager.
+   * 
+   * @param request - CreateSchedulerRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSchedulerRuleResponse
    */
   async createSchedulerRuleWithOptions(request: CreateSchedulerRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSchedulerRuleResponse> {
     Util.validateModel(request);
@@ -17774,10 +29714,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a scheduling rule for Sec-Traffic Manager.
-   *
-   * @param request CreateSchedulerRuleRequest
-   * @return CreateSchedulerRuleResponse
+   * Creates a scheduling rule for Sec-Traffic Manager.
+   * 
+   * @param request - CreateSchedulerRuleRequest
+   * @returns CreateSchedulerRuleResponse
    */
   async createSchedulerRule(request: CreateSchedulerRuleRequest): Promise<CreateSchedulerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17785,16 +29725,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
-   *
-   * @description You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
+   * Adds tags to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
+   * 
+   * @remarks
+   * You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
    * >  Anti-DDoS Proxy (Outside Chinese Mainland) does not support the tag feature.
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTagResourcesResponse
+   * 
+   * @param request - CreateTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTagResourcesResponse
    */
   async createTagResourcesWithOptions(request: CreateTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<CreateTagResourcesResponse> {
     Util.validateModel(request);
@@ -17837,15 +29778,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds tags to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
-   *
-   * @description You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
+   * Adds tags to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
+   * 
+   * @remarks
+   * You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
    * >  Anti-DDoS Proxy (Outside Chinese Mainland) does not support the tag feature.
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request CreateTagResourcesRequest
-   * @return CreateTagResourcesResponse
+   * 
+   * @param request - CreateTagResourcesRequest
+   * @returns CreateTagResourcesResponse
    */
   async createTagResources(request: CreateTagResourcesRequest): Promise<CreateTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17853,13 +29795,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a custom frequency control rule for a website.
+   * 
    * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
-   *
-   * @summary Creates a custom frequency control rule for a website.
-   *
-   * @param request CreateWebCCRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWebCCRuleResponse
+   * 
+   * @param request - CreateWebCCRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWebCCRuleResponse
    */
   // Deprecated
   async createWebCCRuleWithOptions(request: CreateWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateWebCCRuleResponse> {
@@ -17919,12 +29861,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a custom frequency control rule for a website.
+   * 
    * @deprecated OpenAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
-   *
-   * @summary Creates a custom frequency control rule for a website.
-   *
-   * @param request CreateWebCCRuleRequest
-   * @return CreateWebCCRuleResponse
+   * 
+   * @param request - CreateWebCCRuleRequest
+   * @returns CreateWebCCRuleResponse
    */
   // Deprecated
   async createWebCCRule(request: CreateWebCCRuleRequest): Promise<CreateWebCCRuleResponse> {
@@ -17933,11 +29875,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a forwarding rule for a website.
-   *
-   * @param request CreateWebRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateWebRuleResponse
+   * Creates a forwarding rule for a website.
+   * 
+   * @param request - CreateWebRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWebRuleResponse
    */
   async createWebRuleWithOptions(request: CreateWebRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateWebRuleResponse> {
     Util.validateModel(request);
@@ -17988,10 +29930,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a forwarding rule for a website.
-   *
-   * @param request CreateWebRuleRequest
-   * @return CreateWebRuleResponse
+   * Creates a forwarding rule for a website.
+   * 
+   * @param request - CreateWebRuleRequest
+   * @returns CreateWebRuleResponse
    */
   async createWebRule(request: CreateWebRuleRequest): Promise<CreateWebRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17999,11 +29941,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an asynchronous export task.
-   *
-   * @param request DeleteAsyncTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAsyncTaskResponse
+   * Deletes an asynchronous export task.
+   * 
+   * @param request - DeleteAsyncTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAsyncTaskResponse
    */
   async deleteAsyncTaskWithOptions(request: DeleteAsyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAsyncTaskResponse> {
     Util.validateModel(request);
@@ -18034,10 +29976,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an asynchronous export task.
-   *
-   * @param request DeleteAsyncTaskRequest
-   * @return DeleteAsyncTaskResponse
+   * Deletes an asynchronous export task.
+   * 
+   * @param request - DeleteAsyncTaskRequest
+   * @returns DeleteAsyncTaskResponse
    */
   async deleteAsyncTask(request: DeleteAsyncTaskRequest): Promise<DeleteAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18045,11 +29987,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DeleteAutoCcBlacklistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAutoCcBlacklistResponse
+   * Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DeleteAutoCcBlacklistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAutoCcBlacklistResponse
    */
   async deleteAutoCcBlacklistWithOptions(request: DeleteAutoCcBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoCcBlacklistResponse> {
     Util.validateModel(request);
@@ -18080,10 +30022,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DeleteAutoCcBlacklistRequest
-   * @return DeleteAutoCcBlacklistResponse
+   * Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DeleteAutoCcBlacklistRequest
+   * @returns DeleteAutoCcBlacklistResponse
    */
   async deleteAutoCcBlacklist(request: DeleteAutoCcBlacklistRequest): Promise<DeleteAutoCcBlacklistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18091,11 +30033,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DeleteAutoCcWhitelistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAutoCcWhitelistResponse
+   * Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DeleteAutoCcWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAutoCcWhitelistResponse
    */
   async deleteAutoCcWhitelistWithOptions(request: DeleteAutoCcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoCcWhitelistResponse> {
     Util.validateModel(request);
@@ -18126,10 +30068,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DeleteAutoCcWhitelistRequest
-   * @return DeleteAutoCcWhitelistResponse
+   * Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DeleteAutoCcWhitelistRequest
+   * @returns DeleteAutoCcWhitelistResponse
    */
   async deleteAutoCcWhitelist(request: DeleteAutoCcWhitelistRequest): Promise<DeleteAutoCcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18137,11 +30079,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a specified forwarding rule of a website.
-   *
-   * @param request DeleteDomainResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDomainResourceResponse
+   * Deletes a specified forwarding rule of a website.
+   * 
+   * @param request - DeleteDomainResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDomainResourceResponse
    */
   async deleteDomainResourceWithOptions(request: DeleteDomainResourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResourceResponse> {
     Util.validateModel(request);
@@ -18168,10 +30110,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a specified forwarding rule of a website.
-   *
-   * @param request DeleteDomainResourceRequest
-   * @return DeleteDomainResourceResponse
+   * Deletes a specified forwarding rule of a website.
+   * 
+   * @param request - DeleteDomainResourceRequest
+   * @returns DeleteDomainResourceResponse
    */
   async deleteDomainResource(request: DeleteDomainResourceRequest): Promise<DeleteDomainResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18179,11 +30121,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
-   *
-   * @param request DeleteNetworkRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteNetworkRuleResponse
+   * Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
+   * 
+   * @param request - DeleteNetworkRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNetworkRuleResponse
    */
   async deleteNetworkRuleWithOptions(request: DeleteNetworkRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkRuleResponse> {
     Util.validateModel(request);
@@ -18210,10 +30152,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
-   *
-   * @param request DeleteNetworkRuleRequest
-   * @return DeleteNetworkRuleResponse
+   * Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
+   * 
+   * @param request - DeleteNetworkRuleRequest
+   * @returns DeleteNetworkRuleResponse
    */
   async deleteNetworkRule(request: DeleteNetworkRuleRequest): Promise<DeleteNetworkRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18221,14 +30163,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the specified port forwarding rule.
-   *
-   * @description After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
+   * Deletes the specified port forwarding rule.
+   * 
+   * @remarks
+   * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
    * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-   *
-   * @param request DeletePortRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePortResponse
+   * 
+   * @param request - DeletePortRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePortResponse
    */
   async deletePortWithOptions(request: DeletePortRequest, runtime: $Util.RuntimeOptions): Promise<DeletePortResponse> {
     Util.validateModel(request);
@@ -18271,13 +30214,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the specified port forwarding rule.
-   *
-   * @description After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
+   * Deletes the specified port forwarding rule.
+   * 
+   * @remarks
+   * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
    * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-   *
-   * @param request DeletePortRequest
-   * @return DeletePortResponse
+   * 
+   * @param request - DeletePortRequest
+   * @returns DeletePortResponse
    */
   async deletePort(request: DeletePortRequest): Promise<DeletePortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18285,11 +30229,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a scenario-specific custom policy.
-   *
-   * @param request DeleteSceneDefensePolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSceneDefensePolicyResponse
+   * Deletes a scenario-specific custom policy.
+   * 
+   * @param request - DeleteSceneDefensePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSceneDefensePolicyResponse
    */
   async deleteSceneDefensePolicyWithOptions(request: DeleteSceneDefensePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSceneDefensePolicyResponse> {
     Util.validateModel(request);
@@ -18316,10 +30260,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a scenario-specific custom policy.
-   *
-   * @param request DeleteSceneDefensePolicyRequest
-   * @return DeleteSceneDefensePolicyResponse
+   * Deletes a scenario-specific custom policy.
+   * 
+   * @param request - DeleteSceneDefensePolicyRequest
+   * @returns DeleteSceneDefensePolicyResponse
    */
   async deleteSceneDefensePolicy(request: DeleteSceneDefensePolicyRequest): Promise<DeleteSceneDefensePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18327,11 +30271,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a scheduling rule of Sec-Traffic Manager.
-   *
-   * @param request DeleteSchedulerRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSchedulerRuleResponse
+   * Deletes a scheduling rule of Sec-Traffic Manager.
+   * 
+   * @param request - DeleteSchedulerRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSchedulerRuleResponse
    */
   async deleteSchedulerRuleWithOptions(request: DeleteSchedulerRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSchedulerRuleResponse> {
     Util.validateModel(request);
@@ -18362,10 +30306,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a scheduling rule of Sec-Traffic Manager.
-   *
-   * @param request DeleteSchedulerRuleRequest
-   * @return DeleteSchedulerRuleResponse
+   * Deletes a scheduling rule of Sec-Traffic Manager.
+   * 
+   * @param request - DeleteSchedulerRuleRequest
+   * @returns DeleteSchedulerRuleResponse
    */
   async deleteSchedulerRule(request: DeleteSchedulerRuleRequest): Promise<DeleteSchedulerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18373,16 +30317,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
-   *
-   * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+   * Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+   * 
+   * @remarks
+   * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
    * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTagResourcesResponse
+   * 
+   * @param request - DeleteTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTagResourcesResponse
    */
   async deleteTagResourcesWithOptions(request: DeleteTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagResourcesResponse> {
     Util.validateModel(request);
@@ -18429,15 +30374,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
-   *
-   * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+   * Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+   * 
+   * @remarks
+   * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
    * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteTagResourcesRequest
-   * @return DeleteTagResourcesResponse
+   * 
+   * @param request - DeleteTagResourcesRequest
+   * @returns DeleteTagResourcesResponse
    */
   async deleteTagResources(request: DeleteTagResourcesRequest): Promise<DeleteTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18445,13 +30391,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes custom frequency control rules of a website.
+   * 
    * @deprecated OpenAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead.
-   *
-   * @summary Deletes custom frequency control rules of a website.
-   *
-   * @param request DeleteWebCCRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWebCCRuleResponse
+   * 
+   * @param request - DeleteWebCCRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebCCRuleResponse
    */
   // Deprecated
   async deleteWebCCRuleWithOptions(request: DeleteWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebCCRuleResponse> {
@@ -18487,12 +30433,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes custom frequency control rules of a website.
+   * 
    * @deprecated OpenAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead.
-   *
-   * @summary Deletes custom frequency control rules of a website.
-   *
-   * @param request DeleteWebCCRuleRequest
-   * @return DeleteWebCCRuleResponse
+   * 
+   * @param request - DeleteWebCCRuleRequest
+   * @returns DeleteWebCCRuleResponse
    */
   // Deprecated
   async deleteWebCCRule(request: DeleteWebCCRuleRequest): Promise<DeleteWebCCRuleResponse> {
@@ -18501,11 +30447,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes custom frequency control rules of a website.
-   *
-   * @param request DeleteWebCCRuleV2Request
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWebCCRuleV2Response
+   * Deletes custom frequency control rules of a website.
+   * 
+   * @param request - DeleteWebCCRuleV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebCCRuleV2Response
    */
   async deleteWebCCRuleV2WithOptions(request: DeleteWebCCRuleV2Request, runtime: $Util.RuntimeOptions): Promise<DeleteWebCCRuleV2Response> {
     Util.validateModel(request);
@@ -18540,10 +30486,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes custom frequency control rules of a website.
-   *
-   * @param request DeleteWebCCRuleV2Request
-   * @return DeleteWebCCRuleV2Response
+   * Deletes custom frequency control rules of a website.
+   * 
+   * @param request - DeleteWebCCRuleV2Request
+   * @returns DeleteWebCCRuleV2Response
    */
   async deleteWebCCRuleV2(request: DeleteWebCCRuleV2Request): Promise<DeleteWebCCRuleV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18551,15 +30497,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the custom rules of the Static Page Caching policy for a website.
-   *
-   * @description You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
+   * Deletes the custom rules of the Static Page Caching policy for a website.
+   * 
+   * @remarks
+   * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteWebCacheCustomRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWebCacheCustomRuleResponse
+   * 
+   * @param request - DeleteWebCacheCustomRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebCacheCustomRuleResponse
    */
   async deleteWebCacheCustomRuleWithOptions(request: DeleteWebCacheCustomRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebCacheCustomRuleResponse> {
     Util.validateModel(request);
@@ -18594,14 +30541,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the custom rules of the Static Page Caching policy for a website.
-   *
-   * @description You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
+   * Deletes the custom rules of the Static Page Caching policy for a website.
+   * 
+   * @remarks
+   * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DeleteWebCacheCustomRuleRequest
-   * @return DeleteWebCacheCustomRuleResponse
+   * 
+   * @param request - DeleteWebCacheCustomRuleRequest
+   * @returns DeleteWebCacheCustomRuleResponse
    */
   async deleteWebCacheCustomRule(request: DeleteWebCacheCustomRuleRequest): Promise<DeleteWebCacheCustomRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18609,11 +30557,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the accurate access control rules that are created for a website.
-   *
-   * @param request DeleteWebPreciseAccessRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWebPreciseAccessRuleResponse
+   * Deletes the accurate access control rules that are created for a website.
+   * 
+   * @param request - DeleteWebPreciseAccessRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebPreciseAccessRuleResponse
    */
   async deleteWebPreciseAccessRuleWithOptions(request: DeleteWebPreciseAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebPreciseAccessRuleResponse> {
     Util.validateModel(request);
@@ -18648,10 +30596,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the accurate access control rules that are created for a website.
-   *
-   * @param request DeleteWebPreciseAccessRuleRequest
-   * @return DeleteWebPreciseAccessRuleResponse
+   * Deletes the accurate access control rules that are created for a website.
+   * 
+   * @param request - DeleteWebPreciseAccessRuleRequest
+   * @returns DeleteWebPreciseAccessRuleResponse
    */
   async deleteWebPreciseAccessRule(request: DeleteWebPreciseAccessRuleRequest): Promise<DeleteWebPreciseAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18659,11 +30607,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a forwarding rule of a website.
-   *
-   * @param request DeleteWebRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteWebRuleResponse
+   * Deletes a forwarding rule of a website.
+   * 
+   * @param request - DeleteWebRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebRuleResponse
    */
   async deleteWebRuleWithOptions(request: DeleteWebRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebRuleResponse> {
     Util.validateModel(request);
@@ -18694,10 +30642,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a forwarding rule of a website.
-   *
-   * @param request DeleteWebRuleRequest
-   * @return DeleteWebRuleResponse
+   * Deletes a forwarding rule of a website.
+   * 
+   * @param request - DeleteWebRuleRequest
+   * @returns DeleteWebRuleResponse
    */
   async deleteWebRule(request: DeleteWebRuleRequest): Promise<DeleteWebRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18705,15 +30653,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-   *
-   * @description You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+   * Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+   * 
+   * @remarks
+   * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeAsyncTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAsyncTasksResponse
+   * 
+   * @param request - DescribeAsyncTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAsyncTasksResponse
    */
   async describeAsyncTasksWithOptions(request: DescribeAsyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAsyncTasksResponse> {
     Util.validateModel(request);
@@ -18748,14 +30697,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-   *
-   * @description You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+   * Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+   * 
+   * @remarks
+   * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeAsyncTasksRequest
-   * @return DescribeAsyncTasksResponse
+   * 
+   * @param request - DescribeAsyncTasksRequest
+   * @returns DescribeAsyncTasksResponse
    */
   async describeAsyncTasks(request: DescribeAsyncTasksRequest): Promise<DescribeAsyncTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18763,11 +30713,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the peak QPS of DDoS attacks within the specific period of time.
-   *
-   * @param request DescribeAttackAnalysisMaxQpsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAttackAnalysisMaxQpsResponse
+   * Queries the peak QPS of DDoS attacks within the specific period of time.
+   * 
+   * @param request - DescribeAttackAnalysisMaxQpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAttackAnalysisMaxQpsResponse
    */
   async describeAttackAnalysisMaxQpsWithOptions(request: DescribeAttackAnalysisMaxQpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAttackAnalysisMaxQpsResponse> {
     Util.validateModel(request);
@@ -18798,10 +30748,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the peak QPS of DDoS attacks within the specific period of time.
-   *
-   * @param request DescribeAttackAnalysisMaxQpsRequest
-   * @return DescribeAttackAnalysisMaxQpsResponse
+   * Queries the peak QPS of DDoS attacks within the specific period of time.
+   * 
+   * @param request - DescribeAttackAnalysisMaxQpsRequest
+   * @returns DescribeAttackAnalysisMaxQpsResponse
    */
   async describeAttackAnalysisMaxQps(request: DescribeAttackAnalysisMaxQpsRequest): Promise<DescribeAttackAnalysisMaxQpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18809,11 +30759,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribeAutoCcBlacklistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAutoCcBlacklistResponse
+   * Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeAutoCcBlacklistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAutoCcBlacklistResponse
    */
   async describeAutoCcBlacklistWithOptions(request: DescribeAutoCcBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoCcBlacklistResponse> {
     Util.validateModel(request);
@@ -18852,10 +30802,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribeAutoCcBlacklistRequest
-   * @return DescribeAutoCcBlacklistResponse
+   * Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeAutoCcBlacklistRequest
+   * @returns DescribeAutoCcBlacklistResponse
    */
   async describeAutoCcBlacklist(request: DescribeAutoCcBlacklistRequest): Promise<DescribeAutoCcBlacklistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18863,11 +30813,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribeAutoCcListCountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAutoCcListCountResponse
+   * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeAutoCcListCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAutoCcListCountResponse
    */
   async describeAutoCcListCountWithOptions(request: DescribeAutoCcListCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoCcListCountResponse> {
     Util.validateModel(request);
@@ -18898,10 +30848,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribeAutoCcListCountRequest
-   * @return DescribeAutoCcListCountResponse
+   * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeAutoCcListCountRequest
+   * @returns DescribeAutoCcListCountResponse
    */
   async describeAutoCcListCount(request: DescribeAutoCcListCountRequest): Promise<DescribeAutoCcListCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18909,11 +30859,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribeAutoCcWhitelistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeAutoCcWhitelistResponse
+   * Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeAutoCcWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAutoCcWhitelistResponse
    */
   async describeAutoCcWhitelistWithOptions(request: DescribeAutoCcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoCcWhitelistResponse> {
     Util.validateModel(request);
@@ -18952,10 +30902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribeAutoCcWhitelistRequest
-   * @return DescribeAutoCcWhitelistResponse
+   * Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeAutoCcWhitelistRequest
+   * @returns DescribeAutoCcWhitelistResponse
    */
   async describeAutoCcWhitelist(request: DescribeAutoCcWhitelistRequest): Promise<DescribeAutoCcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18963,11 +30913,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the back-to-origin CIDR blocks of Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request DescribeBackSourceCidrRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBackSourceCidrResponse
+   * Queries the back-to-origin CIDR blocks of Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - DescribeBackSourceCidrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBackSourceCidrResponse
    */
   async describeBackSourceCidrWithOptions(request: DescribeBackSourceCidrRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackSourceCidrResponse> {
     Util.validateModel(request);
@@ -19002,10 +30952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the back-to-origin CIDR blocks of Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request DescribeBackSourceCidrRequest
-   * @return DescribeBackSourceCidrResponse
+   * Queries the back-to-origin CIDR blocks of Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - DescribeBackSourceCidrRequest
+   * @returns DescribeBackSourceCidrResponse
    */
   async describeBackSourceCidr(request: DescribeBackSourceCidrRequest): Promise<DescribeBackSourceCidrResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19013,11 +30963,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-   *
-   * @param request DescribeBlackholeStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBlackholeStatusResponse
+   * Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * 
+   * @param request - DescribeBlackholeStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBlackholeStatusResponse
    */
   async describeBlackholeStatusWithOptions(request: DescribeBlackholeStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBlackholeStatusResponse> {
     Util.validateModel(request);
@@ -19044,10 +30994,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-   *
-   * @param request DescribeBlackholeStatusRequest
-   * @return DescribeBlackholeStatusResponse
+   * Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * 
+   * @param request - DescribeBlackholeStatusRequest
+   * @returns DescribeBlackholeStatusResponse
    */
   async describeBlackholeStatus(request: DescribeBlackholeStatusRequest): Promise<DescribeBlackholeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19055,16 +31005,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
-   *
-   * @description You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+   * Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+   * 
+   * @remarks
+   * You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
    * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeBlockStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBlockStatusResponse
+   * 
+   * @param request - DescribeBlockStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBlockStatusResponse
    */
   async describeBlockStatusWithOptions(request: DescribeBlockStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBlockStatusResponse> {
     Util.validateModel(request);
@@ -19095,15 +31046,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
-   *
-   * @description You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+   * Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+   * 
+   * @remarks
+   * You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
    * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeBlockStatusRequest
-   * @return DescribeBlockStatusResponse
+   * 
+   * @param request - DescribeBlockStatusRequest
+   * @returns DescribeBlockStatusResponse
    */
   async describeBlockStatus(request: DescribeBlockStatusRequest): Promise<DescribeBlockStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19111,11 +31063,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
-   *
-   * @param request DescribeCertsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCertsResponse
+   * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
+   * 
+   * @param request - DescribeCertsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCertsResponse
    */
   async describeCertsWithOptions(request: DescribeCertsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertsResponse> {
     Util.validateModel(request);
@@ -19146,10 +31098,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
-   *
-   * @param request DescribeCertsRequest
-   * @return DescribeCertsResponse
+   * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
+   * 
+   * @param request - DescribeCertsRequest
+   * @returns DescribeCertsResponse
    */
   async describeCerts(request: DescribeCertsRequest): Promise<DescribeCertsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19157,9 +31109,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCnameReusesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCnameReusesResponse
+   * @param request - DescribeCnameReusesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCnameReusesResponse
    */
   async describeCnameReusesWithOptions(request: DescribeCnameReusesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCnameReusesResponse> {
     Util.validateModel(request);
@@ -19190,8 +31142,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCnameReusesRequest
-   * @return DescribeCnameReusesResponse
+   * @param request - DescribeCnameReusesRequest
+   * @returns DescribeCnameReusesResponse
    */
   async describeCnameReuses(request: DescribeCnameReusesRequest): Promise<DescribeCnameReusesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19199,11 +31151,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the attack events launched against one or more Anti-DDoS Proxy instances.
-   *
-   * @param request DescribeDDoSEventsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDDoSEventsResponse
+   * Queries the attack events launched against one or more Anti-DDoS Proxy instances.
+   * 
+   * @param request - DescribeDDoSEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDDoSEventsResponse
    */
   async describeDDoSEventsWithOptions(request: DescribeDDoSEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDoSEventsResponse> {
     Util.validateModel(request);
@@ -19250,10 +31202,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the attack events launched against one or more Anti-DDoS Proxy instances.
-   *
-   * @param request DescribeDDoSEventsRequest
-   * @return DescribeDDoSEventsResponse
+   * Queries the attack events launched against one or more Anti-DDoS Proxy instances.
+   * 
+   * @param request - DescribeDDoSEventsRequest
+   * @returns DescribeDDoSEventsResponse
    */
   async describeDDoSEvents(request: DescribeDDoSEventsRequest): Promise<DescribeDDoSEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19261,15 +31213,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query DDoS attacks by IP address.
-   *
-   * @description You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
+   * Query DDoS attacks by IP address.
+   * 
+   * @remarks
+   * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDDosAllEventListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDDosAllEventListResponse
+   * 
+   * @param request - DescribeDDosAllEventListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDDosAllEventListResponse
    */
   async describeDDosAllEventListWithOptions(request: DescribeDDosAllEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosAllEventListResponse> {
     Util.validateModel(request);
@@ -19312,14 +31265,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Query DDoS attacks by IP address.
-   *
-   * @description You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
+   * Query DDoS attacks by IP address.
+   * 
+   * @remarks
+   * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDDosAllEventListRequest
-   * @return DescribeDDosAllEventListResponse
+   * 
+   * @param request - DescribeDDosAllEventListRequest
+   * @returns DescribeDDosAllEventListResponse
    */
   async describeDDosAllEventList(request: DescribeDDosAllEventListRequest): Promise<DescribeDDosAllEventListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19327,13 +31281,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the source region from which a volumetric attack is initiated.
-   *
-   * @description > This operation is suitable only for volumetric attacks.
-   *
-   * @param request DescribeDDosEventAreaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDDosEventAreaResponse
+   * Queries the source region from which a volumetric attack is initiated.
+   * 
+   * @remarks
+   * > This operation is suitable only for volumetric attacks.
+   * 
+   * @param request - DescribeDDosEventAreaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDDosEventAreaResponse
    */
   async describeDDosEventAreaWithOptions(request: DescribeDDosEventAreaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventAreaResponse> {
     Util.validateModel(request);
@@ -19372,12 +31327,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the source region from which a volumetric attack is initiated.
-   *
-   * @description > This operation is suitable only for volumetric attacks.
-   *
-   * @param request DescribeDDosEventAreaRequest
-   * @return DescribeDDosEventAreaResponse
+   * Queries the source region from which a volumetric attack is initiated.
+   * 
+   * @remarks
+   * > This operation is suitable only for volumetric attacks.
+   * 
+   * @param request - DescribeDDosEventAreaRequest
+   * @returns DescribeDDosEventAreaResponse
    */
   async describeDDosEventArea(request: DescribeDDosEventAreaRequest): Promise<DescribeDDosEventAreaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19385,13 +31341,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the attack type details of a volumetric attack.
-   *
-   * @description > This operation is suitable only for volumetric attacks.
-   *
-   * @param request DescribeDDosEventAttackTypeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDDosEventAttackTypeResponse
+   * Queries the attack type details of a volumetric attack.
+   * 
+   * @remarks
+   * > This operation is suitable only for volumetric attacks.
+   * 
+   * @param request - DescribeDDosEventAttackTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDDosEventAttackTypeResponse
    */
   async describeDDosEventAttackTypeWithOptions(request: DescribeDDosEventAttackTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventAttackTypeResponse> {
     Util.validateModel(request);
@@ -19426,12 +31383,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the attack type details of a volumetric attack.
-   *
-   * @description > This operation is suitable only for volumetric attacks.
-   *
-   * @param request DescribeDDosEventAttackTypeRequest
-   * @return DescribeDDosEventAttackTypeResponse
+   * Queries the attack type details of a volumetric attack.
+   * 
+   * @remarks
+   * > This operation is suitable only for volumetric attacks.
+   * 
+   * @param request - DescribeDDosEventAttackTypeRequest
+   * @returns DescribeDDosEventAttackTypeResponse
    */
   async describeDDosEventAttackType(request: DescribeDDosEventAttackTypeRequest): Promise<DescribeDDosEventAttackTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19439,13 +31397,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Internet service provider (ISP) information about a volumetric attack.
-   *
-   * @description > This operation is suitable only for volumetric attacks.
-   *
-   * @param request DescribeDDosEventIspRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDDosEventIspResponse
+   * Queries the Internet service provider (ISP) information about a volumetric attack.
+   * 
+   * @remarks
+   * > This operation is suitable only for volumetric attacks.
+   * 
+   * @param request - DescribeDDosEventIspRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDDosEventIspResponse
    */
   async describeDDosEventIspWithOptions(request: DescribeDDosEventIspRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventIspResponse> {
     Util.validateModel(request);
@@ -19484,12 +31443,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Internet service provider (ISP) information about a volumetric attack.
-   *
-   * @description > This operation is suitable only for volumetric attacks.
-   *
-   * @param request DescribeDDosEventIspRequest
-   * @return DescribeDDosEventIspResponse
+   * Queries the Internet service provider (ISP) information about a volumetric attack.
+   * 
+   * @remarks
+   * > This operation is suitable only for volumetric attacks.
+   * 
+   * @param request - DescribeDDosEventIspRequest
+   * @returns DescribeDDosEventIspResponse
    */
   async describeDDosEventIsp(request: DescribeDDosEventIspRequest): Promise<DescribeDDosEventIspResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19497,11 +31457,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
-   *
-   * @param request DescribeDDosEventMaxRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDDosEventMaxResponse
+   * Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
+   * 
+   * @param request - DescribeDDosEventMaxRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDDosEventMaxResponse
    */
   async describeDDosEventMaxWithOptions(request: DescribeDDosEventMaxRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventMaxResponse> {
     Util.validateModel(request);
@@ -19532,10 +31492,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
-   *
-   * @param request DescribeDDosEventMaxRequest
-   * @return DescribeDDosEventMaxResponse
+   * Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
+   * 
+   * @param request - DescribeDDosEventMaxRequest
+   * @returns DescribeDDosEventMaxResponse
    */
   async describeDDosEventMax(request: DescribeDDosEventMaxRequest): Promise<DescribeDDosEventMaxResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19543,13 +31503,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the source IP address from which a volumetric attack is initiated.
-   *
-   * @description > This operation is suitable only for volumetric attacks.
-   *
-   * @param request DescribeDDosEventSrcIpRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDDosEventSrcIpResponse
+   * Queries the source IP address from which a volumetric attack is initiated.
+   * 
+   * @remarks
+   * > This operation is suitable only for volumetric attacks.
+   * 
+   * @param request - DescribeDDosEventSrcIpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDDosEventSrcIpResponse
    */
   async describeDDosEventSrcIpWithOptions(request: DescribeDDosEventSrcIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDDosEventSrcIpResponse> {
     Util.validateModel(request);
@@ -19588,12 +31549,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the source IP address from which a volumetric attack is initiated.
-   *
-   * @description > This operation is suitable only for volumetric attacks.
-   *
-   * @param request DescribeDDosEventSrcIpRequest
-   * @return DescribeDDosEventSrcIpResponse
+   * Queries the source IP address from which a volumetric attack is initiated.
+   * 
+   * @remarks
+   * > This operation is suitable only for volumetric attacks.
+   * 
+   * @param request - DescribeDDosEventSrcIpRequest
+   * @returns DescribeDDosEventSrcIpResponse
    */
   async describeDDosEventSrcIp(request: DescribeDDosEventSrcIpRequest): Promise<DescribeDDosEventSrcIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19601,16 +31563,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
-   *
-   * @description You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
+   * Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
+   * 
+   * @remarks
+   * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
    * >  This operation is suitable only for Anti-DDoS Proxy (Outside Chinese Mainland).
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDefenseCountStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDefenseCountStatisticsResponse
+   * 
+   * @param request - DescribeDefenseCountStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDefenseCountStatisticsResponse
    */
   async describeDefenseCountStatisticsWithOptions(request: DescribeDefenseCountStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseCountStatisticsResponse> {
     Util.validateModel(request);
@@ -19637,15 +31600,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
-   *
-   * @description You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
+   * Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
+   * 
+   * @remarks
+   * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
    * >  This operation is suitable only for Anti-DDoS Proxy (Outside Chinese Mainland).
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDefenseCountStatisticsRequest
-   * @return DescribeDefenseCountStatisticsResponse
+   * 
+   * @param request - DescribeDefenseCountStatisticsRequest
+   * @returns DescribeDefenseCountStatisticsResponse
    */
   async describeDefenseCountStatistics(request: DescribeDefenseCountStatisticsRequest): Promise<DescribeDefenseCountStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19653,13 +31617,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the advanced mitigation logs of Anti-DDoS Premium.
-   *
-   * @description > This operation is suitable only for Anti-DDoS Premium.
-   *
-   * @param request DescribeDefenseRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDefenseRecordsResponse
+   * Queries the advanced mitigation logs of Anti-DDoS Premium.
+   * 
+   * @remarks
+   * > This operation is suitable only for Anti-DDoS Premium.
+   * 
+   * @param request - DescribeDefenseRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDefenseRecordsResponse
    */
   async describeDefenseRecordsWithOptions(request: DescribeDefenseRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDefenseRecordsResponse> {
     Util.validateModel(request);
@@ -19706,12 +31671,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the advanced mitigation logs of Anti-DDoS Premium.
-   *
-   * @description > This operation is suitable only for Anti-DDoS Premium.
-   *
-   * @param request DescribeDefenseRecordsRequest
-   * @return DescribeDefenseRecordsResponse
+   * Queries the advanced mitigation logs of Anti-DDoS Premium.
+   * 
+   * @remarks
+   * > This operation is suitable only for Anti-DDoS Premium.
+   * 
+   * @param request - DescribeDefenseRecordsRequest
+   * @returns DescribeDefenseRecordsResponse
    */
   async describeDefenseRecords(request: DescribeDefenseRecordsRequest): Promise<DescribeDefenseRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19719,11 +31685,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询目的端口事件
-   *
-   * @param request DescribeDestinationPortEventRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDestinationPortEventResponse
+   * Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
+   * 
+   * @param request - DescribeDestinationPortEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDestinationPortEventResponse
    */
   async describeDestinationPortEventWithOptions(request: DescribeDestinationPortEventRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDestinationPortEventResponse> {
     Util.validateModel(request);
@@ -19766,10 +31732,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询目的端口事件
-   *
-   * @param request DescribeDestinationPortEventRequest
-   * @return DescribeDestinationPortEventResponse
+   * Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
+   * 
+   * @param request - DescribeDestinationPortEventRequest
+   * @returns DescribeDestinationPortEventResponse
    */
   async describeDestinationPortEvent(request: DescribeDestinationPortEventRequest): Promise<DescribeDestinationPortEventResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19777,11 +31743,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the attack events launched against a website.
-   *
-   * @param request DescribeDomainAttackEventsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainAttackEventsResponse
+   * Queries the attack events launched against a website.
+   * 
+   * @param request - DescribeDomainAttackEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainAttackEventsResponse
    */
   async describeDomainAttackEventsWithOptions(request: DescribeDomainAttackEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainAttackEventsResponse> {
     Util.validateModel(request);
@@ -19828,10 +31794,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the attack events launched against a website.
-   *
-   * @param request DescribeDomainAttackEventsRequest
-   * @return DescribeDomainAttackEventsResponse
+   * Queries the attack events launched against a website.
+   * 
+   * @param request - DescribeDomainAttackEventsRequest
+   * @returns DescribeDomainAttackEventsResponse
    */
   async describeDomainAttackEvents(request: DescribeDomainAttackEventsRequest): Promise<DescribeDomainAttackEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19839,11 +31805,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
-   *
-   * @param request DescribeDomainOverviewRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainOverviewResponse
+   * Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
+   * 
+   * @param request - DescribeDomainOverviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainOverviewResponse
    */
   async describeDomainOverviewWithOptions(request: DescribeDomainOverviewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainOverviewResponse> {
     Util.validateModel(request);
@@ -19882,10 +31848,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
-   *
-   * @param request DescribeDomainOverviewRequest
-   * @return DescribeDomainOverviewResponse
+   * Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
+   * 
+   * @param request - DescribeDomainOverviewRequest
+   * @returns DescribeDomainOverviewResponse
    */
   async describeDomainOverview(request: DescribeDomainOverviewRequest): Promise<DescribeDomainOverviewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19893,11 +31859,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on the queries per second (QPS) of a website.
-   *
-   * @param request DescribeDomainQPSListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainQPSListResponse
+   * Queries the statistics on the queries per second (QPS) of a website.
+   * 
+   * @param request - DescribeDomainQPSListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainQPSListResponse
    */
   async describeDomainQPSListWithOptions(request: DescribeDomainQPSListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainQPSListResponse> {
     Util.validateModel(request);
@@ -19940,10 +31906,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on the queries per second (QPS) of a website.
-   *
-   * @param request DescribeDomainQPSListRequest
-   * @return DescribeDomainQPSListResponse
+   * Queries the statistics on the queries per second (QPS) of a website.
+   * 
+   * @param request - DescribeDomainQPSListRequest
+   * @returns DescribeDomainQPSListResponse
    */
   async describeDomainQPSList(request: DescribeDomainQPSListRequest): Promise<DescribeDomainQPSListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19951,16 +31917,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of a forwarding rule.
-   *
-   * @description You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
+   * Queries the configurations of a forwarding rule.
+   * 
+   * @remarks
+   * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
    * ### Limits
    * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDomainResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainResourceResponse
+   * 
+   * @param request - DescribeDomainResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainResourceResponse
    */
   async describeDomainResourceWithOptions(request: DescribeDomainResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResourceResponse> {
     Util.validateModel(request);
@@ -20003,15 +31970,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of a forwarding rule.
-   *
-   * @description You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
+   * Queries the configurations of a forwarding rule.
+   * 
+   * @remarks
+   * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
    * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
    * ### Limits
    * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeDomainResourceRequest
-   * @return DescribeDomainResourceResponse
+   * 
+   * @param request - DescribeDomainResourceRequest
+   * @returns DescribeDomainResourceResponse
    */
   async describeDomainResource(request: DescribeDomainResourceRequest): Promise<DescribeDomainResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20019,11 +31987,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the global mitigation policy for a domain name.
-   *
-   * @param request DescribeDomainSecurityProfileRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainSecurityProfileResponse
+   * Queries the global mitigation policy for a domain name.
+   * 
+   * @param request - DescribeDomainSecurityProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainSecurityProfileResponse
    */
   async describeDomainSecurityProfileWithOptions(request: DescribeDomainSecurityProfileRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSecurityProfileResponse> {
     Util.validateModel(request);
@@ -20050,10 +32018,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the global mitigation policy for a domain name.
-   *
-   * @param request DescribeDomainSecurityProfileRequest
-   * @return DescribeDomainSecurityProfileResponse
+   * Queries the global mitigation policy for a domain name.
+   * 
+   * @param request - DescribeDomainSecurityProfileRequest
+   * @returns DescribeDomainSecurityProfileResponse
    */
   async describeDomainSecurityProfile(request: DescribeDomainSecurityProfileRequest): Promise<DescribeDomainSecurityProfileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20061,11 +32029,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on HTTP status codes of a website within a specified period of time.
-   *
-   * @param request DescribeDomainStatusCodeCountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainStatusCodeCountResponse
+   * Queries the statistics on HTTP status codes of a website within a specified period of time.
+   * 
+   * @param request - DescribeDomainStatusCodeCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainStatusCodeCountResponse
    */
   async describeDomainStatusCodeCountWithOptions(request: DescribeDomainStatusCodeCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatusCodeCountResponse> {
     Util.validateModel(request);
@@ -20104,10 +32072,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on HTTP status codes of a website within a specified period of time.
-   *
-   * @param request DescribeDomainStatusCodeCountRequest
-   * @return DescribeDomainStatusCodeCountResponse
+   * Queries the statistics on HTTP status codes of a website within a specified period of time.
+   * 
+   * @param request - DescribeDomainStatusCodeCountRequest
+   * @returns DescribeDomainStatusCodeCountResponse
    */
   async describeDomainStatusCodeCount(request: DescribeDomainStatusCodeCountRequest): Promise<DescribeDomainStatusCodeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20115,11 +32083,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on HTTP status codes of a website.
-   *
-   * @param request DescribeDomainStatusCodeListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainStatusCodeListResponse
+   * Queries the statistics on HTTP status codes of a website.
+   * 
+   * @param request - DescribeDomainStatusCodeListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainStatusCodeListResponse
    */
   async describeDomainStatusCodeListWithOptions(request: DescribeDomainStatusCodeListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatusCodeListResponse> {
     Util.validateModel(request);
@@ -20166,10 +32134,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on HTTP status codes of a website.
-   *
-   * @param request DescribeDomainStatusCodeListRequest
-   * @return DescribeDomainStatusCodeListResponse
+   * Queries the statistics on HTTP status codes of a website.
+   * 
+   * @param request - DescribeDomainStatusCodeListRequest
+   * @returns DescribeDomainStatusCodeListResponse
    */
   async describeDomainStatusCodeList(request: DescribeDomainStatusCodeListRequest): Promise<DescribeDomainStatusCodeListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20177,11 +32145,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
-   *
-   * @param request DescribeDomainTopAttackListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainTopAttackListResponse
+   * Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
+   * 
+   * @param request - DescribeDomainTopAttackListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainTopAttackListResponse
    */
   async describeDomainTopAttackListWithOptions(request: DescribeDomainTopAttackListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopAttackListResponse> {
     Util.validateModel(request);
@@ -20216,10 +32184,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
-   *
-   * @param request DescribeDomainTopAttackListRequest
-   * @return DescribeDomainTopAttackListResponse
+   * Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
+   * 
+   * @param request - DescribeDomainTopAttackListRequest
+   * @returns DescribeDomainTopAttackListResponse
    */
   async describeDomainTopAttackList(request: DescribeDomainTopAttackListRequest): Promise<DescribeDomainTopAttackListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20227,11 +32195,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
-   *
-   * @param request DescribeDomainViewSourceCountriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainViewSourceCountriesResponse
+   * Queries the areas and countries from which requests are sent to a website within a specified period of time.
+   * 
+   * @param request - DescribeDomainViewSourceCountriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainViewSourceCountriesResponse
    */
   async describeDomainViewSourceCountriesWithOptions(request: DescribeDomainViewSourceCountriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainViewSourceCountriesResponse> {
     Util.validateModel(request);
@@ -20270,10 +32238,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
-   *
-   * @param request DescribeDomainViewSourceCountriesRequest
-   * @return DescribeDomainViewSourceCountriesResponse
+   * Queries the areas and countries from which requests are sent to a website within a specified period of time.
+   * 
+   * @param request - DescribeDomainViewSourceCountriesRequest
+   * @returns DescribeDomainViewSourceCountriesResponse
    */
   async describeDomainViewSourceCountries(request: DescribeDomainViewSourceCountriesRequest): Promise<DescribeDomainViewSourceCountriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20281,11 +32249,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
-   *
-   * @param request DescribeDomainViewSourceProvincesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainViewSourceProvincesResponse
+   * Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
+   * 
+   * @param request - DescribeDomainViewSourceProvincesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainViewSourceProvincesResponse
    */
   async describeDomainViewSourceProvincesWithOptions(request: DescribeDomainViewSourceProvincesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainViewSourceProvincesResponse> {
     Util.validateModel(request);
@@ -20324,10 +32292,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
-   *
-   * @param request DescribeDomainViewSourceProvincesRequest
-   * @return DescribeDomainViewSourceProvincesResponse
+   * Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
+   * 
+   * @param request - DescribeDomainViewSourceProvincesRequest
+   * @returns DescribeDomainViewSourceProvincesResponse
    */
   async describeDomainViewSourceProvinces(request: DescribeDomainViewSourceProvincesRequest): Promise<DescribeDomainViewSourceProvincesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20335,11 +32303,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
-   *
-   * @param request DescribeDomainViewTopCostTimeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainViewTopCostTimeResponse
+   * Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
+   * 
+   * @param request - DescribeDomainViewTopCostTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainViewTopCostTimeResponse
    */
   async describeDomainViewTopCostTimeWithOptions(request: DescribeDomainViewTopCostTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainViewTopCostTimeResponse> {
     Util.validateModel(request);
@@ -20382,10 +32350,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
-   *
-   * @param request DescribeDomainViewTopCostTimeRequest
-   * @return DescribeDomainViewTopCostTimeResponse
+   * Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
+   * 
+   * @param request - DescribeDomainViewTopCostTimeRequest
+   * @returns DescribeDomainViewTopCostTimeResponse
    */
   async describeDomainViewTopCostTime(request: DescribeDomainViewTopCostTimeRequest): Promise<DescribeDomainViewTopCostTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20393,11 +32361,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N URLs that receive the most requests within a specified period of time.
-   *
-   * @param request DescribeDomainViewTopUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainViewTopUrlResponse
+   * Queries the top N URLs that receive the most requests within a specified period of time.
+   * 
+   * @param request - DescribeDomainViewTopUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainViewTopUrlResponse
    */
   async describeDomainViewTopUrlWithOptions(request: DescribeDomainViewTopUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainViewTopUrlResponse> {
     Util.validateModel(request);
@@ -20440,10 +32408,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top N URLs that receive the most requests within a specified period of time.
-   *
-   * @param request DescribeDomainViewTopUrlRequest
-   * @return DescribeDomainViewTopUrlResponse
+   * Queries the top N URLs that receive the most requests within a specified period of time.
+   * 
+   * @param request - DescribeDomainViewTopUrlRequest
+   * @returns DescribeDomainViewTopUrlResponse
    */
   async describeDomainViewTopUrl(request: DescribeDomainViewTopUrlRequest): Promise<DescribeDomainViewTopUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20451,11 +32419,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries domain names for which forwarding rules are created.
-   *
-   * @param request DescribeDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainsResponse
+   * Queries domain names for which forwarding rules are created.
+   * 
+   * @param request - DescribeDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainsResponse
    */
   async describeDomainsWithOptions(request: DescribeDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsResponse> {
     Util.validateModel(request);
@@ -20486,10 +32454,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries domain names for which forwarding rules are created.
-   *
-   * @param request DescribeDomainsRequest
-   * @return DescribeDomainsResponse
+   * Queries domain names for which forwarding rules are created.
+   * 
+   * @param request - DescribeDomainsRequest
+   * @returns DescribeDomainsResponse
    */
   async describeDomains(request: DescribeDomainsRequest): Promise<DescribeDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20497,13 +32465,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Pro instance.
-   *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
-   *
-   * @param request DescribeElasticBandwidthSpecRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeElasticBandwidthSpecResponse
+   * Queries the available burstable protection bandwidths of an Anti-DDoS Pro instance.
+   * 
+   * @remarks
+   * > This operation is suitable only for Anti-DDoS Pro.
+   * 
+   * @param request - DescribeElasticBandwidthSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeElasticBandwidthSpecResponse
    */
   async describeElasticBandwidthSpecWithOptions(request: DescribeElasticBandwidthSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticBandwidthSpecResponse> {
     Util.validateModel(request);
@@ -20530,12 +32499,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Pro instance.
-   *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
-   *
-   * @param request DescribeElasticBandwidthSpecRequest
-   * @return DescribeElasticBandwidthSpecResponse
+   * Queries the available burstable protection bandwidths of an Anti-DDoS Pro instance.
+   * 
+   * @remarks
+   * > This operation is suitable only for Anti-DDoS Pro.
+   * 
+   * @param request - DescribeElasticBandwidthSpecRequest
+   * @returns DescribeElasticBandwidthSpecResponse
    */
   async describeElasticBandwidthSpec(request: DescribeElasticBandwidthSpecRequest): Promise<DescribeElasticBandwidthSpecResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20543,11 +32513,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
-   *
-   * @param request DescribeElasticQpsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeElasticQpsResponse
+   * Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
+   * 
+   * @param request - DescribeElasticQpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeElasticQpsResponse
    */
   async describeElasticQpsWithOptions(request: DescribeElasticQpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticQpsResponse> {
     Util.validateModel(request);
@@ -20590,10 +32560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
-   *
-   * @param request DescribeElasticQpsRequest
-   * @return DescribeElasticQpsResponse
+   * Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
+   * 
+   * @param request - DescribeElasticQpsRequest
+   * @returns DescribeElasticQpsResponse
    */
   async describeElasticQps(request: DescribeElasticQpsRequest): Promise<DescribeElasticQpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20601,11 +32571,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the burstable QPS details of an Anti-DDoS Proxy instance.
-   *
-   * @param request DescribeElasticQpsRecordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeElasticQpsRecordResponse
+   * Queries the burstable QPS details of an Anti-DDoS Proxy instance.
+   * 
+   * @param request - DescribeElasticQpsRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeElasticQpsRecordResponse
    */
   async describeElasticQpsRecordWithOptions(request: DescribeElasticQpsRecordRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticQpsRecordResponse> {
     Util.validateModel(request);
@@ -20640,10 +32610,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the burstable QPS details of an Anti-DDoS Proxy instance.
-   *
-   * @param request DescribeElasticQpsRecordRequest
-   * @return DescribeElasticQpsRecordResponse
+   * Queries the burstable QPS details of an Anti-DDoS Proxy instance.
+   * 
+   * @param request - DescribeElasticQpsRecordRequest
+   * @returns DescribeElasticQpsRecordResponse
    */
   async describeElasticQpsRecord(request: DescribeElasticQpsRecordRequest): Promise<DescribeElasticQpsRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20651,11 +32621,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the custom header that is specified for a domain name.
-   *
-   * @param request DescribeHeadersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeHeadersResponse
+   * Queries the custom header that is specified for a domain name.
+   * 
+   * @param request - DescribeHeadersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHeadersResponse
    */
   async describeHeadersWithOptions(request: DescribeHeadersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHeadersResponse> {
     Util.validateModel(request);
@@ -20686,10 +32656,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the custom header that is specified for a domain name.
-   *
-   * @param request DescribeHeadersRequest
-   * @return DescribeHeadersResponse
+   * Queries the custom header that is specified for a domain name.
+   * 
+   * @param request - DescribeHeadersRequest
+   * @returns DescribeHeadersResponse
    */
   async describeHeaders(request: DescribeHeadersRequest): Promise<DescribeHeadersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20697,11 +32667,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
-   *
-   * @param request DescribeHealthCheckListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeHealthCheckListResponse
+   * Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
+   * 
+   * @param request - DescribeHealthCheckListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHealthCheckListResponse
    */
   async describeHealthCheckListWithOptions(request: DescribeHealthCheckListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthCheckListResponse> {
     Util.validateModel(request);
@@ -20728,10 +32698,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
-   *
-   * @param request DescribeHealthCheckListRequest
-   * @return DescribeHealthCheckListResponse
+   * Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
+   * 
+   * @param request - DescribeHealthCheckListRequest
+   * @returns DescribeHealthCheckListResponse
    */
   async describeHealthCheckList(request: DescribeHealthCheckListRequest): Promise<DescribeHealthCheckListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20739,11 +32709,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the health status of an origin server.
-   *
-   * @param request DescribeHealthCheckStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeHealthCheckStatusResponse
+   * Queries the health status of an origin server.
+   * 
+   * @param request - DescribeHealthCheckStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHealthCheckStatusResponse
    */
   async describeHealthCheckStatusWithOptions(request: DescribeHealthCheckStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthCheckStatusResponse> {
     Util.validateModel(request);
@@ -20770,10 +32740,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the health status of an origin server.
-   *
-   * @param request DescribeHealthCheckStatusRequest
-   * @return DescribeHealthCheckStatusResponse
+   * Queries the health status of an origin server.
+   * 
+   * @param request - DescribeHealthCheckStatusRequest
+   * @returns DescribeHealthCheckStatusResponse
    */
   async describeHealthCheckStatus(request: DescribeHealthCheckStatusRequest): Promise<DescribeHealthCheckStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20781,15 +32751,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
-   *
-   * @description You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
+   * Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * 
+   * @remarks
+   * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeInstanceDetailsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceDetailsResponse
+   * 
+   * @param request - DescribeInstanceDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceDetailsResponse
    */
   async describeInstanceDetailsWithOptions(request: DescribeInstanceDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceDetailsResponse> {
     Util.validateModel(request);
@@ -20816,14 +32787,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
-   *
-   * @description You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
+   * Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * 
+   * @remarks
+   * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeInstanceDetailsRequest
-   * @return DescribeInstanceDetailsResponse
+   * 
+   * @param request - DescribeInstanceDetailsRequest
+   * @returns DescribeInstanceDetailsResponse
    */
   async describeInstanceDetails(request: DescribeInstanceDetailsRequest): Promise<DescribeInstanceDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20831,11 +32803,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
-   *
-   * @param request DescribeInstanceExtRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceExtResponse
+   * Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
+   * 
+   * @param request - DescribeInstanceExtRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceExtResponse
    */
   async describeInstanceExtWithOptions(request: DescribeInstanceExtRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceExtResponse> {
     Util.validateModel(request);
@@ -20870,10 +32842,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
-   *
-   * @param request DescribeInstanceExtRequest
-   * @return DescribeInstanceExtResponse
+   * Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
+   * 
+   * @param request - DescribeInstanceExtRequest
+   * @returns DescribeInstanceExtResponse
    */
   async describeInstanceExt(request: DescribeInstanceExtRequest): Promise<DescribeInstanceExtResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20881,11 +32853,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The description of the instance.
-   *
-   * @param request DescribeInstanceIdsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceIdsResponse
+   * The description of the instance.
+   * 
+   * @param request - DescribeInstanceIdsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceIdsResponse
    */
   async describeInstanceIdsWithOptions(request: DescribeInstanceIdsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceIdsResponse> {
     Util.validateModel(request);
@@ -20920,10 +32892,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The description of the instance.
-   *
-   * @param request DescribeInstanceIdsRequest
-   * @return DescribeInstanceIdsResponse
+   * The description of the instance.
+   * 
+   * @param request - DescribeInstanceIdsRequest
+   * @returns DescribeInstanceIdsResponse
    */
   async describeInstanceIds(request: DescribeInstanceIdsRequest): Promise<DescribeInstanceIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20931,15 +32903,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
-   *
-   * @description You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
+   * Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * 
+   * @remarks
+   * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeInstanceSpecsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceSpecsResponse
+   * 
+   * @param request - DescribeInstanceSpecsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceSpecsResponse
    */
   async describeInstanceSpecsWithOptions(request: DescribeInstanceSpecsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecsResponse> {
     Util.validateModel(request);
@@ -20966,14 +32939,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
-   *
-   * @description You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
+   * Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * 
+   * @remarks
+   * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeInstanceSpecsRequest
-   * @return DescribeInstanceSpecsResponse
+   * 
+   * @param request - DescribeInstanceSpecsRequest
+   * @returns DescribeInstanceSpecsResponse
    */
   async describeInstanceSpecs(request: DescribeInstanceSpecsRequest): Promise<DescribeInstanceSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -20981,11 +32955,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
-   *
-   * @param request DescribeInstanceStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceStatisticsResponse
+   * Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
+   * 
+   * @param request - DescribeInstanceStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceStatisticsResponse
    */
   async describeInstanceStatisticsWithOptions(request: DescribeInstanceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceStatisticsResponse> {
     Util.validateModel(request);
@@ -21012,10 +32986,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
-   *
-   * @param request DescribeInstanceStatisticsRequest
-   * @return DescribeInstanceStatisticsResponse
+   * Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
+   * 
+   * @param request - DescribeInstanceStatisticsRequest
+   * @returns DescribeInstanceStatisticsResponse
    */
   async describeInstanceStatistics(request: DescribeInstanceStatisticsRequest): Promise<DescribeInstanceStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21023,11 +32997,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a specified Anti-DDoS Proxy instance.
-   *
-   * @param request DescribeInstanceStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceStatusResponse
+   * Queries the status of a specified Anti-DDoS Proxy instance.
+   * 
+   * @param request - DescribeInstanceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceStatusResponse
    */
   async describeInstanceStatusWithOptions(request: DescribeInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceStatusResponse> {
     Util.validateModel(request);
@@ -21058,10 +33032,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a specified Anti-DDoS Proxy instance.
-   *
-   * @param request DescribeInstanceStatusRequest
-   * @return DescribeInstanceStatusResponse
+   * Queries the status of a specified Anti-DDoS Proxy instance.
+   * 
+   * @param request - DescribeInstanceStatusRequest
+   * @returns DescribeInstanceStatusResponse
    */
   async describeInstanceStatus(request: DescribeInstanceStatusRequest): Promise<DescribeInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21069,11 +33043,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
-   *
-   * @param request DescribeInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstancesResponse
+   * @remarks
+   * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+   * 
+   * @param request - DescribeInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstancesResponse
    */
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
@@ -21144,10 +33119,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
-   *
-   * @param request DescribeInstancesRequest
-   * @return DescribeInstancesResponse
+   * @remarks
+   * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
+   * 
+   * @param request - DescribeInstancesRequest
+   * @returns DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21155,11 +33131,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the back-to-origin policies for the forwarding rule of a website.
-   *
-   * @param request DescribeL7RsPolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeL7RsPolicyResponse
+   * Queries the back-to-origin policies for the forwarding rule of a website.
+   * 
+   * @param request - DescribeL7RsPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeL7RsPolicyResponse
    */
   async describeL7RsPolicyWithOptions(request: DescribeL7RsPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeL7RsPolicyResponse> {
     Util.validateModel(request);
@@ -21194,10 +33170,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the back-to-origin policies for the forwarding rule of a website.
-   *
-   * @param request DescribeL7RsPolicyRequest
-   * @return DescribeL7RsPolicyResponse
+   * Queries the back-to-origin policies for the forwarding rule of a website.
+   * 
+   * @param request - DescribeL7RsPolicyRequest
+   * @returns DescribeL7RsPolicyResponse
    */
   async describeL7RsPolicy(request: DescribeL7RsPolicyRequest): Promise<DescribeL7RsPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21205,11 +33181,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration of back-to-origin persistent connections of a domain name.
-   *
-   * @param request DescribeL7UsKeepaliveRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeL7UsKeepaliveResponse
+   * Queries the configuration of back-to-origin persistent connections of a domain name.
+   * 
+   * @param request - DescribeL7UsKeepaliveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeL7UsKeepaliveResponse
    */
   async describeL7UsKeepaliveWithOptions(request: DescribeL7UsKeepaliveRequest, runtime: $Util.RuntimeOptions): Promise<DescribeL7UsKeepaliveResponse> {
     Util.validateModel(request);
@@ -21236,10 +33212,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration of back-to-origin persistent connections of a domain name.
-   *
-   * @param request DescribeL7UsKeepaliveRequest
-   * @return DescribeL7UsKeepaliveResponse
+   * Queries the configuration of back-to-origin persistent connections of a domain name.
+   * 
+   * @param request - DescribeL7UsKeepaliveRequest
+   * @returns DescribeL7UsKeepaliveResponse
    */
   async describeL7UsKeepalive(request: DescribeL7UsKeepaliveRequest): Promise<DescribeL7UsKeepaliveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21247,11 +33223,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the back-to-origin settings of a port forwarding rule.
-   *
-   * @param request DescribeLayer4RulePolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeLayer4RulePolicyResponse
+   * Queries the back-to-origin settings of a port forwarding rule.
+   * 
+   * @param request - DescribeLayer4RulePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLayer4RulePolicyResponse
    */
   async describeLayer4RulePolicyWithOptions(request: DescribeLayer4RulePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLayer4RulePolicyResponse> {
     Util.validateModel(request);
@@ -21278,10 +33254,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the back-to-origin settings of a port forwarding rule.
-   *
-   * @param request DescribeLayer4RulePolicyRequest
-   * @return DescribeLayer4RulePolicyResponse
+   * Queries the back-to-origin settings of a port forwarding rule.
+   * 
+   * @param request - DescribeLayer4RulePolicyRequest
+   * @returns DescribeLayer4RulePolicyResponse
    */
   async describeLayer4RulePolicy(request: DescribeLayer4RulePolicyRequest): Promise<DescribeLayer4RulePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21289,11 +33265,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request DescribeLogStoreExistStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeLogStoreExistStatusResponse
+   * Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - DescribeLogStoreExistStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLogStoreExistStatusResponse
    */
   async describeLogStoreExistStatusWithOptions(request: DescribeLogStoreExistStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogStoreExistStatusResponse> {
     Util.validateModel(request);
@@ -21320,10 +33296,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request DescribeLogStoreExistStatusRequest
-   * @return DescribeLogStoreExistStatusResponse
+   * Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - DescribeLogStoreExistStatusRequest
+   * @returns DescribeLogStoreExistStatusResponse
    */
   async describeLogStoreExistStatus(request: DescribeLogStoreExistStatusRequest): Promise<DescribeLogStoreExistStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21331,11 +33307,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribeNetworkRegionBlockRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeNetworkRegionBlockResponse
+   * Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeNetworkRegionBlockRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNetworkRegionBlockResponse
    */
   async describeNetworkRegionBlockWithOptions(request: DescribeNetworkRegionBlockRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkRegionBlockResponse> {
     Util.validateModel(request);
@@ -21362,10 +33338,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribeNetworkRegionBlockRequest
-   * @return DescribeNetworkRegionBlockResponse
+   * Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeNetworkRegionBlockRequest
+   * @returns DescribeNetworkRegionBlockResponse
    */
   async describeNetworkRegionBlock(request: DescribeNetworkRegionBlockRequest): Promise<DescribeNetworkRegionBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21373,11 +33349,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
-   *
-   * @param request DescribeNetworkRuleAttributesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeNetworkRuleAttributesResponse
+   * Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
+   * 
+   * @param request - DescribeNetworkRuleAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNetworkRuleAttributesResponse
    */
   async describeNetworkRuleAttributesWithOptions(request: DescribeNetworkRuleAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkRuleAttributesResponse> {
     Util.validateModel(request);
@@ -21404,10 +33380,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
-   *
-   * @param request DescribeNetworkRuleAttributesRequest
-   * @return DescribeNetworkRuleAttributesResponse
+   * Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
+   * 
+   * @param request - DescribeNetworkRuleAttributesRequest
+   * @returns DescribeNetworkRuleAttributesResponse
    */
   async describeNetworkRuleAttributes(request: DescribeNetworkRuleAttributesRequest): Promise<DescribeNetworkRuleAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21415,11 +33391,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries port forwarding rules.
-   *
-   * @param request DescribeNetworkRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeNetworkRulesResponse
+   * Queries port forwarding rules.
+   * 
+   * @param request - DescribeNetworkRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNetworkRulesResponse
    */
   async describeNetworkRulesWithOptions(request: DescribeNetworkRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkRulesResponse> {
     Util.validateModel(request);
@@ -21462,10 +33438,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries port forwarding rules.
-   *
-   * @param request DescribeNetworkRulesRequest
-   * @return DescribeNetworkRulesResponse
+   * Queries port forwarding rules.
+   * 
+   * @param request - DescribeNetworkRulesRequest
+   * @returns DescribeNetworkRulesResponse
    */
   async describeNetworkRules(request: DescribeNetworkRulesRequest): Promise<DescribeNetworkRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21473,14 +33449,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the operation logs of Anti-DDoS Pro.
-   *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
+   * Queries the operation logs of Anti-DDoS Pro.
+   * 
+   * @remarks
+   * > This operation is suitable only for Anti-DDoS Pro.
    * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
-   *
-   * @param request DescribeOpEntitiesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeOpEntitiesResponse
+   * 
+   * @param request - DescribeOpEntitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOpEntitiesResponse
    */
   async describeOpEntitiesWithOptions(request: DescribeOpEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOpEntitiesResponse> {
     Util.validateModel(request);
@@ -21531,13 +33508,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the operation logs of Anti-DDoS Pro.
-   *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
+   * Queries the operation logs of Anti-DDoS Pro.
+   * 
+   * @remarks
+   * > This operation is suitable only for Anti-DDoS Pro.
    * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
-   *
-   * @param request DescribeOpEntitiesRequest
-   * @return DescribeOpEntitiesResponse
+   * 
+   * @param request - DescribeOpEntitiesRequest
+   * @returns DescribeOpEntitiesResponse
    */
   async describeOpEntities(request: DescribeOpEntitiesRequest): Promise<DescribeOpEntitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21545,13 +33523,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-   *
-   * @param request DescribePortRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortResponse
+   * Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @remarks
+   * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   * 
+   * @param request - DescribePortRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortResponse
    */
   async describePortWithOptions(request: DescribePortRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortResponse> {
     Util.validateModel(request);
@@ -21594,12 +33573,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-   *
-   * @param request DescribePortRequest
-   * @return DescribePortResponse
+   * Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @remarks
+   * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   * 
+   * @param request - DescribePortRequest
+   * @returns DescribePortResponse
    */
   async describePort(request: DescribePortRequest): Promise<DescribePortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21607,15 +33587,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-   *
-   * @description You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   * Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
+   * 
+   * @remarks
+   * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribePortAttackMaxFlowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortAttackMaxFlowResponse
+   * 
+   * @param request - DescribePortAttackMaxFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortAttackMaxFlowResponse
    */
   async describePortAttackMaxFlowWithOptions(request: DescribePortAttackMaxFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortAttackMaxFlowResponse> {
     Util.validateModel(request);
@@ -21654,14 +33635,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-   *
-   * @description You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   * Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
+   * 
+   * @remarks
+   * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribePortAttackMaxFlowRequest
-   * @return DescribePortAttackMaxFlowResponse
+   * 
+   * @param request - DescribePortAttackMaxFlowRequest
+   * @returns DescribePortAttackMaxFlowResponse
    */
   async describePortAttackMaxFlow(request: DescribePortAttackMaxFlowRequest): Promise<DescribePortAttackMaxFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21669,11 +33651,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of the Intelligent Protection policy for non-website services.
-   *
-   * @param request DescribePortAutoCcStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortAutoCcStatusResponse
+   * Queries the configurations of the Intelligent Protection policy for non-website services.
+   * 
+   * @param request - DescribePortAutoCcStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortAutoCcStatusResponse
    */
   async describePortAutoCcStatusWithOptions(request: DescribePortAutoCcStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortAutoCcStatusResponse> {
     Util.validateModel(request);
@@ -21700,10 +33682,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of the Intelligent Protection policy for non-website services.
-   *
-   * @param request DescribePortAutoCcStatusRequest
-   * @return DescribePortAutoCcStatusResponse
+   * Queries the configurations of the Intelligent Protection policy for non-website services.
+   * 
+   * @param request - DescribePortAutoCcStatusRequest
+   * @returns DescribePortAutoCcStatusResponse
    */
   async describePortAutoCcStatus(request: DescribePortAutoCcStatusRequest): Promise<DescribePortAutoCcStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21711,11 +33693,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribePortCcAttackTopIPRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortCcAttackTopIPResponse
+   * Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribePortCcAttackTopIPRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortCcAttackTopIPResponse
    */
   async describePortCcAttackTopIPWithOptions(request: DescribePortCcAttackTopIPRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortCcAttackTopIPResponse> {
     Util.validateModel(request);
@@ -21754,10 +33736,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribePortCcAttackTopIPRequest
-   * @return DescribePortCcAttackTopIPResponse
+   * Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribePortCcAttackTopIPRequest
+   * @returns DescribePortCcAttackTopIPResponse
    */
   async describePortCcAttackTopIP(request: DescribePortCcAttackTopIPRequest): Promise<DescribePortCcAttackTopIPResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21765,11 +33747,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
-   *
-   * @param request DescribePortConnsCountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortConnsCountResponse
+   * The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
+   * 
+   * @param request - DescribePortConnsCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortConnsCountResponse
    */
   async describePortConnsCountWithOptions(request: DescribePortConnsCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortConnsCountResponse> {
     Util.validateModel(request);
@@ -21812,10 +33794,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
-   *
-   * @param request DescribePortConnsCountRequest
-   * @return DescribePortConnsCountResponse
+   * The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
+   * 
+   * @param request - DescribePortConnsCountRequest
+   * @returns DescribePortConnsCountResponse
    */
   async describePortConnsCount(request: DescribePortConnsCountRequest): Promise<DescribePortConnsCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21823,11 +33805,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
-   *
-   * @param request DescribePortConnsListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortConnsListResponse
+   * Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
+   * 
+   * @param request - DescribePortConnsListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortConnsListResponse
    */
   async describePortConnsListWithOptions(request: DescribePortConnsListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortConnsListResponse> {
     Util.validateModel(request);
@@ -21874,10 +33856,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
-   *
-   * @param request DescribePortConnsListRequest
-   * @return DescribePortConnsListResponse
+   * Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
+   * 
+   * @param request - DescribePortConnsListRequest
+   * @returns DescribePortConnsListResponse
    */
   async describePortConnsList(request: DescribePortConnsListRequest): Promise<DescribePortConnsListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21885,11 +33867,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-   *
-   * @param request DescribePortFlowListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortFlowListResponse
+   * Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * 
+   * @param request - DescribePortFlowListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortFlowListResponse
    */
   async describePortFlowListWithOptions(request: DescribePortFlowListRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortFlowListResponse> {
     Util.validateModel(request);
@@ -21932,10 +33914,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-   *
-   * @param request DescribePortFlowListRequest
-   * @return DescribePortFlowListResponse
+   * Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * 
+   * @param request - DescribePortFlowListRequest
+   * @returns DescribePortFlowListResponse
    */
   async describePortFlowList(request: DescribePortFlowListRequest): Promise<DescribePortFlowListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21943,11 +33925,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-   *
-   * @param request DescribePortMaxConnsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortMaxConnsResponse
+   * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * 
+   * @param request - DescribePortMaxConnsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortMaxConnsResponse
    */
   async describePortMaxConnsWithOptions(request: DescribePortMaxConnsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortMaxConnsResponse> {
     Util.validateModel(request);
@@ -21986,10 +33968,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-   *
-   * @param request DescribePortMaxConnsRequest
-   * @return DescribePortMaxConnsResponse
+   * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
+   * 
+   * @param request - DescribePortMaxConnsRequest
+   * @returns DescribePortMaxConnsResponse
    */
   async describePortMaxConns(request: DescribePortMaxConnsRequest): Promise<DescribePortMaxConnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -21997,11 +33979,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-   *
-   * @param request DescribePortViewSourceCountriesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortViewSourceCountriesResponse
+   * Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+   * 
+   * @param request - DescribePortViewSourceCountriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortViewSourceCountriesResponse
    */
   async describePortViewSourceCountriesWithOptions(request: DescribePortViewSourceCountriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortViewSourceCountriesResponse> {
     Util.validateModel(request);
@@ -22040,10 +34022,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-   *
-   * @param request DescribePortViewSourceCountriesRequest
-   * @return DescribePortViewSourceCountriesResponse
+   * Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+   * 
+   * @param request - DescribePortViewSourceCountriesRequest
+   * @returns DescribePortViewSourceCountriesResponse
    */
   async describePortViewSourceCountries(request: DescribePortViewSourceCountriesRequest): Promise<DescribePortViewSourceCountriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22051,16 +34033,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-   *
-   * @description You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   * Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+   * 
+   * @remarks
+   * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
    * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribePortViewSourceIspsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortViewSourceIspsResponse
+   * 
+   * @param request - DescribePortViewSourceIspsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortViewSourceIspsResponse
    */
   async describePortViewSourceIspsWithOptions(request: DescribePortViewSourceIspsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortViewSourceIspsResponse> {
     Util.validateModel(request);
@@ -22099,15 +34082,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-   *
-   * @description You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   * Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+   * 
+   * @remarks
+   * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
    * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribePortViewSourceIspsRequest
-   * @return DescribePortViewSourceIspsResponse
+   * 
+   * @param request - DescribePortViewSourceIspsRequest
+   * @returns DescribePortViewSourceIspsResponse
    */
   async describePortViewSourceIsps(request: DescribePortViewSourceIspsRequest): Promise<DescribePortViewSourceIspsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22115,11 +34099,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-   *
-   * @param request DescribePortViewSourceProvincesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePortViewSourceProvincesResponse
+   * Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
+   * 
+   * @param request - DescribePortViewSourceProvincesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePortViewSourceProvincesResponse
    */
   async describePortViewSourceProvincesWithOptions(request: DescribePortViewSourceProvincesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePortViewSourceProvincesResponse> {
     Util.validateModel(request);
@@ -22158,10 +34142,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-   *
-   * @param request DescribePortViewSourceProvincesRequest
-   * @return DescribePortViewSourceProvincesResponse
+   * Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
+   * 
+   * @param request - DescribePortViewSourceProvincesRequest
+   * @returns DescribePortViewSourceProvincesResponse
    */
   async describePortViewSourceProvinces(request: DescribePortViewSourceProvincesRequest): Promise<DescribePortViewSourceProvincesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22169,16 +34153,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the protected objects of a scenario-specific custom policy.
-   *
-   * @description You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
+   * Queries the protected objects of a scenario-specific custom policy.
+   * 
+   * @remarks
+   * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
    * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](https://help.aliyun.com/document_detail/159779.html) operation.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeSceneDefenseObjectsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSceneDefenseObjectsResponse
+   * 
+   * @param request - DescribeSceneDefenseObjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSceneDefenseObjectsResponse
    */
   async describeSceneDefenseObjectsWithOptions(request: DescribeSceneDefenseObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSceneDefenseObjectsResponse> {
     Util.validateModel(request);
@@ -22209,15 +34194,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the protected objects of a scenario-specific custom policy.
-   *
-   * @description You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
+   * Queries the protected objects of a scenario-specific custom policy.
+   * 
+   * @remarks
+   * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
    * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](https://help.aliyun.com/document_detail/159779.html) operation.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeSceneDefenseObjectsRequest
-   * @return DescribeSceneDefenseObjectsResponse
+   * 
+   * @param request - DescribeSceneDefenseObjectsRequest
+   * @returns DescribeSceneDefenseObjectsResponse
    */
   async describeSceneDefenseObjects(request: DescribeSceneDefenseObjectsRequest): Promise<DescribeSceneDefenseObjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22225,15 +34211,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of a scenario-specific custom policy.
-   *
-   * @description You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
+   * Queries the configurations of a scenario-specific custom policy.
+   * 
+   * @remarks
+   * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeSceneDefensePoliciesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSceneDefensePoliciesResponse
+   * 
+   * @param request - DescribeSceneDefensePoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSceneDefensePoliciesResponse
    */
   async describeSceneDefensePoliciesWithOptions(request: DescribeSceneDefensePoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSceneDefensePoliciesResponse> {
     Util.validateModel(request);
@@ -22268,14 +34255,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configurations of a scenario-specific custom policy.
-   *
-   * @description You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
+   * Queries the configurations of a scenario-specific custom policy.
+   * 
+   * @remarks
+   * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeSceneDefensePoliciesRequest
-   * @return DescribeSceneDefensePoliciesResponse
+   * 
+   * @param request - DescribeSceneDefensePoliciesRequest
+   * @returns DescribeSceneDefensePoliciesResponse
    */
   async describeSceneDefensePolicies(request: DescribeSceneDefensePoliciesRequest): Promise<DescribeSceneDefensePoliciesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22283,9 +34271,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeSchedulerRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSchedulerRulesResponse
+   * @param request - DescribeSchedulerRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSchedulerRulesResponse
    */
   async describeSchedulerRulesWithOptions(request: DescribeSchedulerRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSchedulerRulesResponse> {
     Util.validateModel(request);
@@ -22324,8 +34312,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeSchedulerRulesRequest
-   * @return DescribeSchedulerRulesResponse
+   * @param request - DescribeSchedulerRulesRequest
+   * @returns DescribeSchedulerRulesResponse
    */
   async describeSchedulerRules(request: DescribeSchedulerRulesRequest): Promise<DescribeSchedulerRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22333,11 +34321,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the destination rate limit events.
-   *
-   * @param request DescribeSlaEventListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSlaEventListResponse
+   * Queries the destination rate limit events.
+   * 
+   * @param request - DescribeSlaEventListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlaEventListResponse
    */
   async describeSlaEventListWithOptions(request: DescribeSlaEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlaEventListResponse> {
     Util.validateModel(request);
@@ -22384,10 +34372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the destination rate limit events.
-   *
-   * @param request DescribeSlaEventListRequest
-   * @return DescribeSlaEventListResponse
+   * Queries the destination rate limit events.
+   * 
+   * @param request - DescribeSlaEventListRequest
+   * @returns DescribeSlaEventListResponse
    */
   async describeSlaEventList(request: DescribeSlaEventListRequest): Promise<DescribeSlaEventListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22395,11 +34383,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
-   *
-   * @param request DescribeSlsAuthStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSlsAuthStatusResponse
+   * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
+   * 
+   * @param request - DescribeSlsAuthStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlsAuthStatusResponse
    */
   async describeSlsAuthStatusWithOptions(request: DescribeSlsAuthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlsAuthStatusResponse> {
     Util.validateModel(request);
@@ -22426,10 +34414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
-   *
-   * @param request DescribeSlsAuthStatusRequest
-   * @return DescribeSlsAuthStatusResponse
+   * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
+   * 
+   * @param request - DescribeSlsAuthStatusRequest
+   * @returns DescribeSlsAuthStatusResponse
    */
   async describeSlsAuthStatus(request: DescribeSlsAuthStatusRequest): Promise<DescribeSlsAuthStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22437,11 +34425,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
-   *
-   * @param request DescribeSlsLogstoreInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSlsLogstoreInfoResponse
+   * Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
+   * 
+   * @param request - DescribeSlsLogstoreInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlsLogstoreInfoResponse
    */
   async describeSlsLogstoreInfoWithOptions(request: DescribeSlsLogstoreInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlsLogstoreInfoResponse> {
     Util.validateModel(request);
@@ -22468,10 +34456,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
-   *
-   * @param request DescribeSlsLogstoreInfoRequest
-   * @return DescribeSlsLogstoreInfoResponse
+   * Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
+   * 
+   * @param request - DescribeSlsLogstoreInfoRequest
+   * @returns DescribeSlsLogstoreInfoResponse
    */
   async describeSlsLogstoreInfo(request: DescribeSlsLogstoreInfoRequest): Promise<DescribeSlsLogstoreInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22479,11 +34467,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether Log Service is activated.
-   *
-   * @param request DescribeSlsOpenStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSlsOpenStatusResponse
+   * Checks whether Log Service is activated.
+   * 
+   * @param request - DescribeSlsOpenStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlsOpenStatusResponse
    */
   async describeSlsOpenStatusWithOptions(request: DescribeSlsOpenStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlsOpenStatusResponse> {
     Util.validateModel(request);
@@ -22510,10 +34498,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether Log Service is activated.
-   *
-   * @param request DescribeSlsOpenStatusRequest
-   * @return DescribeSlsOpenStatusResponse
+   * Checks whether Log Service is activated.
+   * 
+   * @param request - DescribeSlsOpenStatusRequest
+   * @returns DescribeSlsOpenStatusResponse
    */
   async describeSlsOpenStatus(request: DescribeSlsOpenStatusRequest): Promise<DescribeSlsOpenStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22521,15 +34509,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
-   *
-   * @description You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
+   * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+   * 
+   * @remarks
+   * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeStsGrantStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeStsGrantStatusResponse
+   * 
+   * @param request - DescribeStsGrantStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeStsGrantStatusResponse
    */
   async describeStsGrantStatusWithOptions(request: DescribeStsGrantStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStsGrantStatusResponse> {
     Util.validateModel(request);
@@ -22560,14 +34549,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
-   *
-   * @description You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
+   * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+   * 
+   * @remarks
+   * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeStsGrantStatusRequest
-   * @return DescribeStsGrantStatusResponse
+   * 
+   * @param request - DescribeStsGrantStatusRequest
+   * @returns DescribeStsGrantStatusResponse
    */
   async describeStsGrantStatus(request: DescribeStsGrantStatusRequest): Promise<DescribeStsGrantStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22575,16 +34565,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of the bills for the burstable clean bandwidth.
-   *
-   * @description You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
+   * Queries the details of the bills for the burstable clean bandwidth.
+   * 
+   * @remarks
+   * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
    * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeSystemLogRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSystemLogResponse
+   * 
+   * @param request - DescribeSystemLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSystemLogResponse
    */
   async describeSystemLogWithOptions(request: DescribeSystemLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSystemLogResponse> {
     Util.validateModel(request);
@@ -22631,15 +34622,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of the bills for the burstable clean bandwidth.
-   *
-   * @description You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
+   * Queries the details of the bills for the burstable clean bandwidth.
+   * 
+   * @remarks
+   * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
    * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeSystemLogRequest
-   * @return DescribeSystemLogResponse
+   * 
+   * @param request - DescribeSystemLogRequest
+   * @returns DescribeSystemLogResponse
    */
   async describeSystemLog(request: DescribeSystemLogRequest): Promise<DescribeSystemLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22647,16 +34639,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
-   *
-   * @description You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
+   * Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
+   * 
+   * @remarks
+   * You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
    * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeTagKeysRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTagKeysResponse
+   * 
+   * @param request - DescribeTagKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTagKeysResponse
    */
   async describeTagKeysWithOptions(request: DescribeTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagKeysResponse> {
     Util.validateModel(request);
@@ -22699,15 +34692,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
-   *
-   * @description You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
+   * Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
+   * 
+   * @remarks
+   * You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
    * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeTagKeysRequest
-   * @return DescribeTagKeysResponse
+   * 
+   * @param request - DescribeTagKeysRequest
+   * @returns DescribeTagKeysResponse
    */
   async describeTagKeys(request: DescribeTagKeysRequest): Promise<DescribeTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22715,16 +34709,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
-   *
-   * @description You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * @remarks
+   * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
    * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTagResourcesResponse
+   * 
+   * @param request - DescribeTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTagResourcesResponse
    */
   async describeTagResourcesWithOptions(request: DescribeTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagResourcesResponse> {
     Util.validateModel(request);
@@ -22771,15 +34766,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
-   *
-   * @description You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * @remarks
+   * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
    * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
    * ### [](#qps-)QPS limits
    * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeTagResourcesRequest
-   * @return DescribeTagResourcesResponse
+   * 
+   * @param request - DescribeTagResourcesRequest
+   * @returns DescribeTagResourcesResponse
    */
   async describeTagResources(request: DescribeTagResourcesRequest): Promise<DescribeTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22787,11 +34783,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-   *
-   * @param request DescribeTotalAttackMaxFlowRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTotalAttackMaxFlowResponse
+   * Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   * 
+   * @param request - DescribeTotalAttackMaxFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTotalAttackMaxFlowResponse
    */
   async describeTotalAttackMaxFlowWithOptions(request: DescribeTotalAttackMaxFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTotalAttackMaxFlowResponse> {
     Util.validateModel(request);
@@ -22830,10 +34826,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-   *
-   * @param request DescribeTotalAttackMaxFlowRequest
-   * @return DescribeTotalAttackMaxFlowResponse
+   * Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+   * 
+   * @param request - DescribeTotalAttackMaxFlowRequest
+   * @returns DescribeTotalAttackMaxFlowResponse
    */
   async describeTotalAttackMaxFlow(request: DescribeTotalAttackMaxFlowRequest): Promise<DescribeTotalAttackMaxFlowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22841,11 +34837,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribeUdpReflectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUdpReflectResponse
+   * Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeUdpReflectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUdpReflectResponse
    */
   async describeUdpReflectWithOptions(request: DescribeUdpReflectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUdpReflectResponse> {
     Util.validateModel(request);
@@ -22876,10 +34872,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request DescribeUdpReflectRequest
-   * @return DescribeUdpReflectResponse
+   * Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - DescribeUdpReflectRequest
+   * @returns DescribeUdpReflectResponse
    */
   async describeUdpReflect(request: DescribeUdpReflectRequest): Promise<DescribeUdpReflectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22887,11 +34883,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
-   *
-   * @param request DescribeUnBlackholeCountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUnBlackholeCountResponse
+   * Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
+   * 
+   * @param request - DescribeUnBlackholeCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUnBlackholeCountResponse
    */
   async describeUnBlackholeCountWithOptions(request: DescribeUnBlackholeCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUnBlackholeCountResponse> {
     Util.validateModel(request);
@@ -22918,10 +34914,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
-   *
-   * @param request DescribeUnBlackholeCountRequest
-   * @return DescribeUnBlackholeCountResponse
+   * Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
+   * 
+   * @param request - DescribeUnBlackholeCountRequest
+   * @returns DescribeUnBlackholeCountResponse
    */
   async describeUnBlackholeCount(request: DescribeUnBlackholeCountRequest): Promise<DescribeUnBlackholeCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22929,13 +34925,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the remaining quota that allows you to use the Diversion from Origin Server policy.
-   *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
-   *
-   * @param request DescribeUnBlockCountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeUnBlockCountResponse
+   * Queries the remaining quota that allows you to use the Diversion from Origin Server policy.
+   * 
+   * @remarks
+   * > This operation is suitable only for Anti-DDoS Pro.
+   * 
+   * @param request - DescribeUnBlockCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUnBlockCountResponse
    */
   async describeUnBlockCountWithOptions(request: DescribeUnBlockCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUnBlockCountResponse> {
     Util.validateModel(request);
@@ -22962,12 +34959,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the remaining quota that allows you to use the Diversion from Origin Server policy.
-   *
-   * @description > This operation is suitable only for Anti-DDoS Pro.
-   *
-   * @param request DescribeUnBlockCountRequest
-   * @return DescribeUnBlockCountResponse
+   * Queries the remaining quota that allows you to use the Diversion from Origin Server policy.
+   * 
+   * @remarks
+   * > This operation is suitable only for Anti-DDoS Pro.
+   * 
+   * @param request - DescribeUnBlockCountRequest
+   * @returns DescribeUnBlockCountResponse
    */
   async describeUnBlockCount(request: DescribeUnBlockCountRequest): Promise<DescribeUnBlockCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -22975,15 +34973,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether the log analysis feature is enabled for all domain names.
-   *
-   * @description You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * Checks whether the log analysis feature is enabled for all domain names.
+   * 
+   * @remarks
+   * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeWebAccessLogDispatchStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebAccessLogDispatchStatusResponse
+   * 
+   * @param request - DescribeWebAccessLogDispatchStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebAccessLogDispatchStatusResponse
    */
   async describeWebAccessLogDispatchStatusWithOptions(request: DescribeWebAccessLogDispatchStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAccessLogDispatchStatusResponse> {
     Util.validateModel(request);
@@ -23018,14 +35017,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Checks whether the log analysis feature is enabled for all domain names.
-   *
-   * @description You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * Checks whether the log analysis feature is enabled for all domain names.
+   * 
+   * @remarks
+   * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeWebAccessLogDispatchStatusRequest
-   * @return DescribeWebAccessLogDispatchStatusResponse
+   * 
+   * @param request - DescribeWebAccessLogDispatchStatusRequest
+   * @returns DescribeWebAccessLogDispatchStatusResponse
    */
   async describeWebAccessLogDispatchStatus(request: DescribeWebAccessLogDispatchStatusRequest): Promise<DescribeWebAccessLogDispatchStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23033,11 +35033,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the remaining quota that allows you to clear the Logstore.
-   *
-   * @param request DescribeWebAccessLogEmptyCountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebAccessLogEmptyCountResponse
+   * Queries the remaining quota that allows you to clear the Logstore.
+   * 
+   * @param request - DescribeWebAccessLogEmptyCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebAccessLogEmptyCountResponse
    */
   async describeWebAccessLogEmptyCountWithOptions(request: DescribeWebAccessLogEmptyCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAccessLogEmptyCountResponse> {
     Util.validateModel(request);
@@ -23064,10 +35064,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the remaining quota that allows you to clear the Logstore.
-   *
-   * @param request DescribeWebAccessLogEmptyCountRequest
-   * @return DescribeWebAccessLogEmptyCountResponse
+   * Queries the remaining quota that allows you to clear the Logstore.
+   * 
+   * @param request - DescribeWebAccessLogEmptyCountRequest
+   * @returns DescribeWebAccessLogEmptyCountResponse
    */
   async describeWebAccessLogEmptyCount(request: DescribeWebAccessLogEmptyCountRequest): Promise<DescribeWebAccessLogEmptyCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23075,11 +35075,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
-   *
-   * @param request DescribeWebAccessLogStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebAccessLogStatusResponse
+   * Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
+   * 
+   * @param request - DescribeWebAccessLogStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebAccessLogStatusResponse
    */
   async describeWebAccessLogStatusWithOptions(request: DescribeWebAccessLogStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAccessLogStatusResponse> {
     Util.validateModel(request);
@@ -23110,10 +35110,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
-   *
-   * @param request DescribeWebAccessLogStatusRequest
-   * @return DescribeWebAccessLogStatusResponse
+   * Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
+   * 
+   * @param request - DescribeWebAccessLogStatusRequest
+   * @returns DescribeWebAccessLogStatusResponse
    */
   async describeWebAccessLogStatus(request: DescribeWebAccessLogStatusRequest): Promise<DescribeWebAccessLogStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23121,11 +35121,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request DescribeWebAccessModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebAccessModeResponse
+   * Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - DescribeWebAccessModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebAccessModeResponse
    */
   async describeWebAccessModeWithOptions(request: DescribeWebAccessModeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAccessModeResponse> {
     Util.validateModel(request);
@@ -23152,10 +35152,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request DescribeWebAccessModeRequest
-   * @return DescribeWebAccessModeResponse
+   * Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - DescribeWebAccessModeRequest
+   * @returns DescribeWebAccessModeResponse
    */
   async describeWebAccessMode(request: DescribeWebAccessModeRequest): Promise<DescribeWebAccessModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23163,11 +35163,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Location Blacklist (Domain Names) configurations for websites.
-   *
-   * @param request DescribeWebAreaBlockConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebAreaBlockConfigsResponse
+   * Queries the Location Blacklist (Domain Names) configurations for websites.
+   * 
+   * @param request - DescribeWebAreaBlockConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebAreaBlockConfigsResponse
    */
   async describeWebAreaBlockConfigsWithOptions(request: DescribeWebAreaBlockConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebAreaBlockConfigsResponse> {
     Util.validateModel(request);
@@ -23198,10 +35198,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Location Blacklist (Domain Names) configurations for websites.
-   *
-   * @param request DescribeWebAreaBlockConfigsRequest
-   * @return DescribeWebAreaBlockConfigsResponse
+   * Queries the Location Blacklist (Domain Names) configurations for websites.
+   * 
+   * @param request - DescribeWebAreaBlockConfigsRequest
+   * @returns DescribeWebAreaBlockConfigsResponse
    */
   async describeWebAreaBlockConfigs(request: DescribeWebAreaBlockConfigsRequest): Promise<DescribeWebAreaBlockConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23209,13 +35209,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the custom frequency control rules that are created for a website.
+   * 
    * @deprecated OpenAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
-   *
-   * @summary Queries the custom frequency control rules that are created for a website.
-   *
-   * @param request DescribeWebCCRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebCCRulesResponse
+   * 
+   * @param request - DescribeWebCCRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebCCRulesResponse
    */
   // Deprecated
   async describeWebCCRulesWithOptions(request: DescribeWebCCRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebCCRulesResponse> {
@@ -23255,12 +35255,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the custom frequency control rules that are created for a website.
+   * 
    * @deprecated OpenAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
-   *
-   * @summary Queries the custom frequency control rules that are created for a website.
-   *
-   * @param request DescribeWebCCRulesRequest
-   * @return DescribeWebCCRulesResponse
+   * 
+   * @param request - DescribeWebCCRulesRequest
+   * @returns DescribeWebCCRulesResponse
    */
   // Deprecated
   async describeWebCCRules(request: DescribeWebCCRulesRequest): Promise<DescribeWebCCRulesResponse> {
@@ -23269,11 +35269,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the custom frequency control rules that are created for a website.
-   *
-   * @param request DescribeWebCCRulesV2Request
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebCCRulesV2Response
+   * Queries the custom frequency control rules that are created for a website.
+   * 
+   * @param request - DescribeWebCCRulesV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebCCRulesV2Response
    */
   async describeWebCCRulesV2WithOptions(request: DescribeWebCCRulesV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeWebCCRulesV2Response> {
     Util.validateModel(request);
@@ -23312,10 +35312,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the custom frequency control rules that are created for a website.
-   *
-   * @param request DescribeWebCCRulesV2Request
-   * @return DescribeWebCCRulesV2Response
+   * Queries the custom frequency control rules that are created for a website.
+   * 
+   * @param request - DescribeWebCCRulesV2Request
+   * @returns DescribeWebCCRulesV2Response
    */
   async describeWebCCRulesV2(request: DescribeWebCCRulesV2Request): Promise<DescribeWebCCRulesV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23323,15 +35323,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Static Page Caching configuration of websites.
-   *
-   * @description You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
+   * Queries the Static Page Caching configuration of websites.
+   * 
+   * @remarks
+   * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeWebCacheConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebCacheConfigsResponse
+   * 
+   * @param request - DescribeWebCacheConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebCacheConfigsResponse
    */
   async describeWebCacheConfigsWithOptions(request: DescribeWebCacheConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebCacheConfigsResponse> {
     Util.validateModel(request);
@@ -23362,14 +35363,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Static Page Caching configuration of websites.
-   *
-   * @description You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
+   * Queries the Static Page Caching configuration of websites.
+   * 
+   * @remarks
+   * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request DescribeWebCacheConfigsRequest
-   * @return DescribeWebCacheConfigsResponse
+   * 
+   * @param request - DescribeWebCacheConfigsRequest
+   * @returns DescribeWebCacheConfigsResponse
    */
   async describeWebCacheConfigs(request: DescribeWebCacheConfigsRequest): Promise<DescribeWebCacheConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23377,11 +35379,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of each mitigation policy for a website.
-   *
-   * @param request DescribeWebCcProtectSwitchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebCcProtectSwitchResponse
+   * Queries the status of each mitigation policy for a website.
+   * 
+   * @param request - DescribeWebCcProtectSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebCcProtectSwitchResponse
    */
   async describeWebCcProtectSwitchWithOptions(request: DescribeWebCcProtectSwitchRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebCcProtectSwitchResponse> {
     Util.validateModel(request);
@@ -23412,10 +35414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of each mitigation policy for a website.
-   *
-   * @param request DescribeWebCcProtectSwitchRequest
-   * @return DescribeWebCcProtectSwitchResponse
+   * Queries the status of each mitigation policy for a website.
+   * 
+   * @param request - DescribeWebCcProtectSwitchRequest
+   * @returns DescribeWebCcProtectSwitchResponse
    */
   async describeWebCcProtectSwitch(request: DescribeWebCcProtectSwitchRequest): Promise<DescribeWebCcProtectSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23423,11 +35425,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the supported custom ports of a website.
-   *
-   * @param request DescribeWebCustomPortsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebCustomPortsResponse
+   * Queries the supported custom ports of a website.
+   * 
+   * @param request - DescribeWebCustomPortsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebCustomPortsResponse
    */
   async describeWebCustomPortsWithOptions(request: DescribeWebCustomPortsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebCustomPortsResponse> {
     Util.validateModel(request);
@@ -23454,10 +35456,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the supported custom ports of a website.
-   *
-   * @param request DescribeWebCustomPortsRequest
-   * @return DescribeWebCustomPortsResponse
+   * Queries the supported custom ports of a website.
+   * 
+   * @param request - DescribeWebCustomPortsRequest
+   * @returns DescribeWebCustomPortsResponse
    */
   async describeWebCustomPorts(request: DescribeWebCustomPortsRequest): Promise<DescribeWebCustomPortsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23465,11 +35467,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
-   *
-   * @param request DescribeWebInstanceRelationsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebInstanceRelationsResponse
+   * Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
+   * 
+   * @param request - DescribeWebInstanceRelationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebInstanceRelationsResponse
    */
   async describeWebInstanceRelationsWithOptions(request: DescribeWebInstanceRelationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebInstanceRelationsResponse> {
     Util.validateModel(request);
@@ -23500,10 +35502,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
-   *
-   * @param request DescribeWebInstanceRelationsRequest
-   * @return DescribeWebInstanceRelationsResponse
+   * Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
+   * 
+   * @param request - DescribeWebInstanceRelationsRequest
+   * @returns DescribeWebInstanceRelationsResponse
    */
   async describeWebInstanceRelations(request: DescribeWebInstanceRelationsRequest): Promise<DescribeWebInstanceRelationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23511,11 +35513,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the accurate access control rules that are created for websites.
-   *
-   * @param request DescribeWebPreciseAccessRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebPreciseAccessRuleResponse
+   * Queries the accurate access control rules that are created for websites.
+   * 
+   * @param request - DescribeWebPreciseAccessRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebPreciseAccessRuleResponse
    */
   async describeWebPreciseAccessRuleWithOptions(request: DescribeWebPreciseAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebPreciseAccessRuleResponse> {
     Util.validateModel(request);
@@ -23546,10 +35548,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the accurate access control rules that are created for websites.
-   *
-   * @param request DescribeWebPreciseAccessRuleRequest
-   * @return DescribeWebPreciseAccessRuleResponse
+   * Queries the accurate access control rules that are created for websites.
+   * 
+   * @param request - DescribeWebPreciseAccessRuleRequest
+   * @returns DescribeWebPreciseAccessRuleResponse
    */
   async describeWebPreciseAccessRule(request: DescribeWebPreciseAccessRuleRequest): Promise<DescribeWebPreciseAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23557,11 +35559,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
-   *
-   * @param request DescribeWebReportTopIpRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebReportTopIpResponse
+   * Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
+   * 
+   * @param request - DescribeWebReportTopIpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebReportTopIpResponse
    */
   async describeWebReportTopIpWithOptions(request: DescribeWebReportTopIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebReportTopIpResponse> {
     Util.validateModel(request);
@@ -23608,10 +35610,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
-   *
-   * @param request DescribeWebReportTopIpRequest
-   * @return DescribeWebReportTopIpResponse
+   * Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
+   * 
+   * @param request - DescribeWebReportTopIpRequest
+   * @returns DescribeWebReportTopIpResponse
    */
   async describeWebReportTopIp(request: DescribeWebReportTopIpRequest): Promise<DescribeWebReportTopIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23619,13 +35621,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
+   * Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
    * *   0: no
    * *   1: yes
-   *
-   * @param request DescribeWebRulesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeWebRulesResponse
+   * 
+   * @param request - DescribeWebRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWebRulesResponse
    */
   async describeWebRulesWithOptions(request: DescribeWebRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebRulesResponse> {
     Util.validateModel(request);
@@ -23676,12 +35678,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
+   * Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
    * *   0: no
    * *   1: yes
-   *
-   * @param request DescribeWebRulesRequest
-   * @return DescribeWebRulesResponse
+   * 
+   * @param request - DescribeWebRulesRequest
+   * @returns DescribeWebRulesResponse
    */
   async describeWebRules(request: DescribeWebRulesRequest): Promise<DescribeWebRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23689,11 +35691,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes a protected object from a scenario-specific custom policy.
-   *
-   * @param request DetachSceneDefenseObjectRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DetachSceneDefenseObjectResponse
+   * Removes a protected object from a scenario-specific custom policy.
+   * 
+   * @param request - DetachSceneDefenseObjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachSceneDefenseObjectResponse
    */
   async detachSceneDefenseObjectWithOptions(request: DetachSceneDefenseObjectRequest, runtime: $Util.RuntimeOptions): Promise<DetachSceneDefenseObjectResponse> {
     Util.validateModel(request);
@@ -23728,10 +35730,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes a protected object from a scenario-specific custom policy.
-   *
-   * @param request DetachSceneDefenseObjectRequest
-   * @return DetachSceneDefenseObjectResponse
+   * Removes a protected object from a scenario-specific custom policy.
+   * 
+   * @param request - DetachSceneDefenseObjectRequest
+   * @returns DetachSceneDefenseObjectResponse
    */
   async detachSceneDefenseObject(request: DetachSceneDefenseObjectRequest): Promise<DetachSceneDefenseObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23739,11 +35741,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables a scenario-specific custom policy.
-   *
-   * @param request DisableSceneDefensePolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableSceneDefensePolicyResponse
+   * Disables a scenario-specific custom policy.
+   * 
+   * @param request - DisableSceneDefensePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableSceneDefensePolicyResponse
    */
   async disableSceneDefensePolicyWithOptions(request: DisableSceneDefensePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DisableSceneDefensePolicyResponse> {
     Util.validateModel(request);
@@ -23770,10 +35772,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables a scenario-specific custom policy.
-   *
-   * @param request DisableSceneDefensePolicyRequest
-   * @return DisableSceneDefensePolicyResponse
+   * Disables a scenario-specific custom policy.
+   * 
+   * @param request - DisableSceneDefensePolicyRequest
+   * @returns DisableSceneDefensePolicyResponse
    */
   async disableSceneDefensePolicy(request: DisableSceneDefensePolicyRequest): Promise<DisableSceneDefensePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23781,11 +35783,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the log analysis feature for a website.
-   *
-   * @param request DisableWebAccessLogConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableWebAccessLogConfigResponse
+   * Disables the log analysis feature for a website.
+   * 
+   * @param request - DisableWebAccessLogConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableWebAccessLogConfigResponse
    */
   async disableWebAccessLogConfigWithOptions(request: DisableWebAccessLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DisableWebAccessLogConfigResponse> {
     Util.validateModel(request);
@@ -23816,10 +35818,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the log analysis feature for a website.
-   *
-   * @param request DisableWebAccessLogConfigRequest
-   * @return DisableWebAccessLogConfigResponse
+   * Disables the log analysis feature for a website.
+   * 
+   * @param request - DisableWebAccessLogConfigRequest
+   * @returns DisableWebAccessLogConfigResponse
    */
   async disableWebAccessLogConfig(request: DisableWebAccessLogConfigRequest): Promise<DisableWebAccessLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23827,11 +35829,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the Frequency Control policy for a website.
-   *
-   * @param request DisableWebCCRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableWebCCResponse
+   * Disables the Frequency Control policy for a website.
+   * 
+   * @param request - DisableWebCCRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableWebCCResponse
    */
   async disableWebCCWithOptions(request: DisableWebCCRequest, runtime: $Util.RuntimeOptions): Promise<DisableWebCCResponse> {
     Util.validateModel(request);
@@ -23862,10 +35864,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Disables the Frequency Control policy for a website.
-   *
-   * @param request DisableWebCCRequest
-   * @return DisableWebCCResponse
+   * Disables the Frequency Control policy for a website.
+   * 
+   * @param request - DisableWebCCRequest
+   * @returns DisableWebCCResponse
    */
   async disableWebCC(request: DisableWebCCRequest): Promise<DisableWebCCResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23873,11 +35875,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Turns off the Custom Rule switch of the Frequency Control policy for a website.
-   *
-   * @param request DisableWebCCRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DisableWebCCRuleResponse
+   * Turns off the Custom Rule switch of the Frequency Control policy for a website.
+   * 
+   * @param request - DisableWebCCRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableWebCCRuleResponse
    */
   async disableWebCCRuleWithOptions(request: DisableWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<DisableWebCCRuleResponse> {
     Util.validateModel(request);
@@ -23908,10 +35910,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Turns off the Custom Rule switch of the Frequency Control policy for a website.
-   *
-   * @param request DisableWebCCRuleRequest
-   * @return DisableWebCCRuleResponse
+   * Turns off the Custom Rule switch of the Frequency Control policy for a website.
+   * 
+   * @param request - DisableWebCCRuleRequest
+   * @returns DisableWebCCRuleResponse
    */
   async disableWebCCRule(request: DisableWebCCRuleRequest): Promise<DisableWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23919,11 +35921,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request EmptyAutoCcBlacklistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EmptyAutoCcBlacklistResponse
+   * Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - EmptyAutoCcBlacklistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EmptyAutoCcBlacklistResponse
    */
   async emptyAutoCcBlacklistWithOptions(request: EmptyAutoCcBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<EmptyAutoCcBlacklistResponse> {
     Util.validateModel(request);
@@ -23950,10 +35952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request EmptyAutoCcBlacklistRequest
-   * @return EmptyAutoCcBlacklistResponse
+   * Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - EmptyAutoCcBlacklistRequest
+   * @returns EmptyAutoCcBlacklistResponse
    */
   async emptyAutoCcBlacklist(request: EmptyAutoCcBlacklistRequest): Promise<EmptyAutoCcBlacklistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -23961,11 +35963,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request EmptyAutoCcWhitelistRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EmptyAutoCcWhitelistResponse
+   * Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - EmptyAutoCcWhitelistRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EmptyAutoCcWhitelistResponse
    */
   async emptyAutoCcWhitelistWithOptions(request: EmptyAutoCcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<EmptyAutoCcWhitelistResponse> {
     Util.validateModel(request);
@@ -23992,10 +35994,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request EmptyAutoCcWhitelistRequest
-   * @return EmptyAutoCcWhitelistResponse
+   * Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - EmptyAutoCcWhitelistRequest
+   * @returns EmptyAutoCcWhitelistResponse
    */
   async emptyAutoCcWhitelist(request: EmptyAutoCcWhitelistRequest): Promise<EmptyAutoCcWhitelistResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24003,11 +36005,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request EmptySlsLogstoreRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EmptySlsLogstoreResponse
+   * Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - EmptySlsLogstoreRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EmptySlsLogstoreResponse
    */
   async emptySlsLogstoreWithOptions(request: EmptySlsLogstoreRequest, runtime: $Util.RuntimeOptions): Promise<EmptySlsLogstoreResponse> {
     Util.validateModel(request);
@@ -24034,10 +36036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request EmptySlsLogstoreRequest
-   * @return EmptySlsLogstoreResponse
+   * Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - EmptySlsLogstoreRequest
+   * @returns EmptySlsLogstoreResponse
    */
   async emptySlsLogstore(request: EmptySlsLogstoreRequest): Promise<EmptySlsLogstoreResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24045,11 +36047,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables a scenario-specific custom policy.
-   *
-   * @param request EnableSceneDefensePolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableSceneDefensePolicyResponse
+   * Enables a scenario-specific custom policy.
+   * 
+   * @param request - EnableSceneDefensePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableSceneDefensePolicyResponse
    */
   async enableSceneDefensePolicyWithOptions(request: EnableSceneDefensePolicyRequest, runtime: $Util.RuntimeOptions): Promise<EnableSceneDefensePolicyResponse> {
     Util.validateModel(request);
@@ -24076,10 +36078,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables a scenario-specific custom policy.
-   *
-   * @param request EnableSceneDefensePolicyRequest
-   * @return EnableSceneDefensePolicyResponse
+   * Enables a scenario-specific custom policy.
+   * 
+   * @param request - EnableSceneDefensePolicyRequest
+   * @returns EnableSceneDefensePolicyResponse
    */
   async enableSceneDefensePolicy(request: EnableSceneDefensePolicyRequest): Promise<EnableSceneDefensePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24087,11 +36089,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the log analysis feature for a website.
-   *
-   * @param request EnableWebAccessLogConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableWebAccessLogConfigResponse
+   * Enables the log analysis feature for a website.
+   * 
+   * @param request - EnableWebAccessLogConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableWebAccessLogConfigResponse
    */
   async enableWebAccessLogConfigWithOptions(request: EnableWebAccessLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<EnableWebAccessLogConfigResponse> {
     Util.validateModel(request);
@@ -24122,10 +36124,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the log analysis feature for a website.
-   *
-   * @param request EnableWebAccessLogConfigRequest
-   * @return EnableWebAccessLogConfigResponse
+   * Enables the log analysis feature for a website.
+   * 
+   * @param request - EnableWebAccessLogConfigRequest
+   * @returns EnableWebAccessLogConfigResponse
    */
   async enableWebAccessLogConfig(request: EnableWebAccessLogConfigRequest): Promise<EnableWebAccessLogConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24133,11 +36135,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the Frequency Control policy for a website.
-   *
-   * @param request EnableWebCCRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableWebCCResponse
+   * Enables the Frequency Control policy for a website.
+   * 
+   * @param request - EnableWebCCRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableWebCCResponse
    */
   async enableWebCCWithOptions(request: EnableWebCCRequest, runtime: $Util.RuntimeOptions): Promise<EnableWebCCResponse> {
     Util.validateModel(request);
@@ -24168,10 +36170,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables the Frequency Control policy for a website.
-   *
-   * @param request EnableWebCCRequest
-   * @return EnableWebCCResponse
+   * Enables the Frequency Control policy for a website.
+   * 
+   * @param request - EnableWebCCRequest
+   * @returns EnableWebCCResponse
    */
   async enableWebCC(request: EnableWebCCRequest): Promise<EnableWebCCResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24179,11 +36181,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Turns on the Custom Rule switch of the Frequency Control policy for a website.
-   *
-   * @param request EnableWebCCRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnableWebCCRuleResponse
+   * Turns on the Custom Rule switch of the Frequency Control policy for a website.
+   * 
+   * @param request - EnableWebCCRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableWebCCRuleResponse
    */
   async enableWebCCRuleWithOptions(request: EnableWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<EnableWebCCRuleResponse> {
     Util.validateModel(request);
@@ -24214,10 +36216,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Turns on the Custom Rule switch of the Frequency Control policy for a website.
-   *
-   * @param request EnableWebCCRuleRequest
-   * @return EnableWebCCRuleResponse
+   * Turns on the Custom Rule switch of the Frequency Control policy for a website.
+   * 
+   * @param request - EnableWebCCRuleRequest
+   * @returns EnableWebCCRuleResponse
    */
   async enableWebCCRule(request: EnableWebCCRuleRequest): Promise<EnableWebCCRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24225,13 +36227,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Switches between the metering methods of the burstable clean bandwidth feature.
-   *
-   * @description You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
-   *
-   * @param request ModifyBizBandWidthModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyBizBandWidthModeResponse
+   * Switches between the metering methods of the burstable clean bandwidth feature.
+   * 
+   * @remarks
+   * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+   * 
+   * @param request - ModifyBizBandWidthModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBizBandWidthModeResponse
    */
   async modifyBizBandWidthModeWithOptions(request: ModifyBizBandWidthModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBizBandWidthModeResponse> {
     Util.validateModel(request);
@@ -24262,12 +36265,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Switches between the metering methods of the burstable clean bandwidth feature.
-   *
-   * @description You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
-   *
-   * @param request ModifyBizBandWidthModeRequest
-   * @return ModifyBizBandWidthModeResponse
+   * Switches between the metering methods of the burstable clean bandwidth feature.
+   * 
+   * @remarks
+   * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+   * 
+   * @param request - ModifyBizBandWidthModeRequest
+   * @returns ModifyBizBandWidthModeResponse
    */
   async modifyBizBandWidthMode(request: ModifyBizBandWidthModeRequest): Promise<ModifyBizBandWidthModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24275,11 +36279,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deactivates blackhole filtering that is triggered on an instance.
-   *
-   * @param request ModifyBlackholeStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyBlackholeStatusResponse
+   * Deactivates blackhole filtering that is triggered on an instance.
+   * 
+   * @param request - ModifyBlackholeStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBlackholeStatusResponse
    */
   async modifyBlackholeStatusWithOptions(request: ModifyBlackholeStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBlackholeStatusResponse> {
     Util.validateModel(request);
@@ -24310,10 +36314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deactivates blackhole filtering that is triggered on an instance.
-   *
-   * @param request ModifyBlackholeStatusRequest
-   * @return ModifyBlackholeStatusResponse
+   * Deactivates blackhole filtering that is triggered on an instance.
+   * 
+   * @param request - ModifyBlackholeStatusRequest
+   * @returns ModifyBlackholeStatusResponse
    */
   async modifyBlackholeStatus(request: ModifyBlackholeStatusRequest): Promise<ModifyBlackholeStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24321,13 +36325,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
-   *
-   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-   *
-   * @param request ModifyBlockStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyBlockStatusResponse
+   * Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * @remarks
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+   * 
+   * @param request - ModifyBlockStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBlockStatusResponse
    */
   async modifyBlockStatusWithOptions(request: ModifyBlockStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBlockStatusResponse> {
     Util.validateModel(request);
@@ -24366,12 +36371,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
-   *
-   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-   *
-   * @param request ModifyBlockStatusRequest
-   * @return ModifyBlockStatusResponse
+   * Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * @remarks
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+   * 
+   * @param request - ModifyBlockStatusRequest
+   * @returns ModifyBlockStatusResponse
    */
   async modifyBlockStatus(request: ModifyBlockStatusRequest): Promise<ModifyBlockStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24379,13 +36385,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables CNAME reuse for a website.
-   *
-   * @description > This operation is suitable only for Anti-DDoS Premium.
-   *
-   * @param request ModifyCnameReuseRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyCnameReuseResponse
+   * Enables or disables CNAME reuse for a website.
+   * 
+   * @remarks
+   * > This operation is suitable only for Anti-DDoS Premium.
+   * 
+   * @param request - ModifyCnameReuseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCnameReuseResponse
    */
   async modifyCnameReuseWithOptions(request: ModifyCnameReuseRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCnameReuseResponse> {
     Util.validateModel(request);
@@ -24424,12 +36431,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables CNAME reuse for a website.
-   *
-   * @description > This operation is suitable only for Anti-DDoS Premium.
-   *
-   * @param request ModifyCnameReuseRequest
-   * @return ModifyCnameReuseResponse
+   * Enables or disables CNAME reuse for a website.
+   * 
+   * @remarks
+   * > This operation is suitable only for Anti-DDoS Premium.
+   * 
+   * @param request - ModifyCnameReuseRequest
+   * @returns ModifyCnameReuseResponse
    */
   async modifyCnameReuse(request: ModifyCnameReuseRequest): Promise<ModifyCnameReuseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24437,11 +36445,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the forwarding rule of a website.
-   *
-   * @param request ModifyDomainResourceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDomainResourceResponse
+   * Modifies the forwarding rule of a website.
+   * 
+   * @param request - ModifyDomainResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDomainResourceResponse
    */
   async modifyDomainResourceWithOptions(request: ModifyDomainResourceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainResourceResponse> {
     Util.validateModel(request);
@@ -24488,10 +36496,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the forwarding rule of a website.
-   *
-   * @param request ModifyDomainResourceRequest
-   * @return ModifyDomainResourceResponse
+   * Modifies the forwarding rule of a website.
+   * 
+   * @param request - ModifyDomainResourceRequest
+   * @returns ModifyDomainResourceResponse
    */
   async modifyDomainResource(request: ModifyDomainResourceRequest): Promise<ModifyDomainResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24499,13 +36507,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
-   *
-   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-   *
-   * @param request ModifyElasticBandWidthRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyElasticBandWidthResponse
+   * Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * @remarks
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+   * 
+   * @param request - ModifyElasticBandWidthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyElasticBandWidthResponse
    */
   async modifyElasticBandWidthWithOptions(request: ModifyElasticBandWidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticBandWidthResponse> {
     Util.validateModel(request);
@@ -24536,12 +36545,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
-   *
-   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-   *
-   * @param request ModifyElasticBandWidthRequest
-   * @return ModifyElasticBandWidthResponse
+   * Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
+   * 
+   * @remarks
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+   * 
+   * @param request - ModifyElasticBandWidthRequest
+   * @returns ModifyElasticBandWidthResponse
    */
   async modifyElasticBandWidth(request: ModifyElasticBandWidthRequest): Promise<ModifyElasticBandWidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24549,13 +36559,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @description Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
-   *
-   * @param request ModifyElasticBizBandWidthRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyElasticBizBandWidthResponse
+   * Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+   * 
+   * @param request - ModifyElasticBizBandWidthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyElasticBizBandWidthResponse
    */
   async modifyElasticBizBandWidthWithOptions(request: ModifyElasticBizBandWidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticBizBandWidthResponse> {
     Util.validateModel(request);
@@ -24590,12 +36601,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @description Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
-   *
-   * @param request ModifyElasticBizBandWidthRequest
-   * @return ModifyElasticBizBandWidthResponse
+   * Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+   * 
+   * @param request - ModifyElasticBizBandWidthRequest
+   * @returns ModifyElasticBizBandWidthResponse
    */
   async modifyElasticBizBandWidth(request: ModifyElasticBizBandWidthRequest): Promise<ModifyElasticBizBandWidthResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24603,13 +36615,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
-   *
-   * @description You can enable burstable QPS only for IPv4 instances.
-   *
-   * @param request ModifyElasticBizQpsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyElasticBizQpsResponse
+   * Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
+   * 
+   * @remarks
+   * You can enable burstable QPS only for IPv4 instances.
+   * 
+   * @param request - ModifyElasticBizQpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyElasticBizQpsResponse
    */
   async modifyElasticBizQpsWithOptions(request: ModifyElasticBizQpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticBizQpsResponse> {
     Util.validateModel(request);
@@ -24644,12 +36657,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
-   *
-   * @description You can enable burstable QPS only for IPv4 instances.
-   *
-   * @param request ModifyElasticBizQpsRequest
-   * @return ModifyElasticBizQpsResponse
+   * Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
+   * 
+   * @remarks
+   * You can enable burstable QPS only for IPv4 instances.
+   * 
+   * @param request - ModifyElasticBizQpsRequest
+   * @returns ModifyElasticBizQpsResponse
    */
   async modifyElasticBizQps(request: ModifyElasticBizQpsRequest): Promise<ModifyElasticBizQpsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24657,11 +36671,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the log storage duration for Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request ModifyFullLogTtlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyFullLogTtlResponse
+   * Modifies the log storage duration for Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - ModifyFullLogTtlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyFullLogTtlResponse
    */
   async modifyFullLogTtlWithOptions(request: ModifyFullLogTtlRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFullLogTtlResponse> {
     Util.validateModel(request);
@@ -24692,10 +36706,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the log storage duration for Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request ModifyFullLogTtlRequest
-   * @return ModifyFullLogTtlResponse
+   * Modifies the log storage duration for Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - ModifyFullLogTtlRequest
+   * @returns ModifyFullLogTtlResponse
    */
   async modifyFullLogTtl(request: ModifyFullLogTtlRequest): Promise<ModifyFullLogTtlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24703,11 +36717,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request ModifyHeadersRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyHeadersResponse
+   * Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - ModifyHeadersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHeadersResponse
    */
   async modifyHeadersWithOptions(request: ModifyHeadersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHeadersResponse> {
     Util.validateModel(request);
@@ -24742,10 +36756,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request ModifyHeadersRequest
-   * @return ModifyHeadersResponse
+   * Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - ModifyHeadersRequest
+   * @returns ModifyHeadersResponse
    */
   async modifyHeaders(request: ModifyHeadersRequest): Promise<ModifyHeadersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24753,11 +36767,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
-   *
-   * @param request ModifyHealthCheckConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyHealthCheckConfigResponse
+   * Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
+   * 
+   * @param request - ModifyHealthCheckConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHealthCheckConfigResponse
    */
   async modifyHealthCheckConfigWithOptions(request: ModifyHealthCheckConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHealthCheckConfigResponse> {
     Util.validateModel(request);
@@ -24796,10 +36810,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
-   *
-   * @param request ModifyHealthCheckConfigRequest
-   * @return ModifyHealthCheckConfigResponse
+   * Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
+   * 
+   * @param request - ModifyHealthCheckConfigRequest
+   * @returns ModifyHealthCheckConfigResponse
    */
   async modifyHealthCheckConfig(request: ModifyHealthCheckConfigRequest): Promise<ModifyHealthCheckConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24807,13 +36821,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables HTTP/2 for the forwarding rule of a website.
-   *
-   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-   *
-   * @param request ModifyHttp2EnableRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyHttp2EnableResponse
+   * Enables or disables HTTP/2 for the forwarding rule of a website.
+   * 
+   * @remarks
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+   * 
+   * @param request - ModifyHttp2EnableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHttp2EnableResponse
    */
   async modifyHttp2EnableWithOptions(request: ModifyHttp2EnableRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHttp2EnableResponse> {
     Util.validateModel(request);
@@ -24848,12 +36863,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables HTTP/2 for the forwarding rule of a website.
-   *
-   * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-   *
-   * @param request ModifyHttp2EnableRequest
-   * @return ModifyHttp2EnableResponse
+   * Enables or disables HTTP/2 for the forwarding rule of a website.
+   * 
+   * @remarks
+   * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+   * 
+   * @param request - ModifyHttp2EnableRequest
+   * @returns ModifyHttp2EnableResponse
    */
   async modifyHttp2Enable(request: ModifyHttp2EnableRequest): Promise<ModifyHttp2EnableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24861,11 +36877,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request ModifyInstanceRemarkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyInstanceRemarkResponse
+   * Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - ModifyInstanceRemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceRemarkResponse
    */
   async modifyInstanceRemarkWithOptions(request: ModifyInstanceRemarkRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceRemarkResponse> {
     Util.validateModel(request);
@@ -24896,10 +36912,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-   *
-   * @param request ModifyInstanceRemarkRequest
-   * @return ModifyInstanceRemarkResponse
+   * Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+   * 
+   * @param request - ModifyInstanceRemarkRequest
+   * @returns ModifyInstanceRemarkResponse
    */
   async modifyInstanceRemark(request: ModifyInstanceRemarkRequest): Promise<ModifyInstanceRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24907,11 +36923,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the session persistence settings of a port forwarding rule.
-   *
-   * @param request ModifyNetworkRuleAttributeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyNetworkRuleAttributeResponse
+   * Modifies the session persistence settings of a port forwarding rule.
+   * 
+   * @param request - ModifyNetworkRuleAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyNetworkRuleAttributeResponse
    */
   async modifyNetworkRuleAttributeWithOptions(request: ModifyNetworkRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkRuleAttributeResponse> {
     Util.validateModel(request);
@@ -24950,10 +36966,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the session persistence settings of a port forwarding rule.
-   *
-   * @param request ModifyNetworkRuleAttributeRequest
-   * @return ModifyNetworkRuleAttributeResponse
+   * Modifies the session persistence settings of a port forwarding rule.
+   * 
+   * @param request - ModifyNetworkRuleAttributeRequest
+   * @returns ModifyNetworkRuleAttributeResponse
    */
   async modifyNetworkRuleAttribute(request: ModifyNetworkRuleAttributeRequest): Promise<ModifyNetworkRuleAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -24961,13 +36977,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
-   *
-   * @description This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
-   *
-   * @param request ModifyOcspStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyOcspStatusResponse
+   * Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
+   * 
+   * @remarks
+   * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
+   * 
+   * @param request - ModifyOcspStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyOcspStatusResponse
    */
   async modifyOcspStatusWithOptions(request: ModifyOcspStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOcspStatusResponse> {
     Util.validateModel(request);
@@ -24998,12 +37015,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
-   *
-   * @description This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
-   *
-   * @param request ModifyOcspStatusRequest
-   * @return ModifyOcspStatusResponse
+   * Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
+   * 
+   * @remarks
+   * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
+   * 
+   * @param request - ModifyOcspStatusRequest
+   * @returns ModifyOcspStatusResponse
    */
   async modifyOcspStatus(request: ModifyOcspStatusRequest): Promise<ModifyOcspStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25011,13 +37029,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a port forwarding rule.
-   *
-   * @description You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-   *
-   * @param request ModifyPortRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyPortResponse
+   * Modifies a port forwarding rule.
+   * 
+   * @remarks
+   * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   * 
+   * @param request - ModifyPortRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPortResponse
    */
   async modifyPortWithOptions(request: ModifyPortRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPortResponse> {
     Util.validateModel(request);
@@ -25060,12 +37079,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a port forwarding rule.
-   *
-   * @description You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-   *
-   * @param request ModifyPortRequest
-   * @return ModifyPortResponse
+   * Modifies a port forwarding rule.
+   * 
+   * @remarks
+   * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+   * 
+   * @param request - ModifyPortRequest
+   * @returns ModifyPortResponse
    */
   async modifyPort(request: ModifyPortRequest): Promise<ModifyPortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25073,11 +37093,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the Intelligent Protection configuration of a non-website service.
-   *
-   * @param request ModifyPortAutoCcStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyPortAutoCcStatusResponse
+   * Modifies the Intelligent Protection configuration of a non-website service.
+   * 
+   * @param request - ModifyPortAutoCcStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPortAutoCcStatusResponse
    */
   async modifyPortAutoCcStatusWithOptions(request: ModifyPortAutoCcStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPortAutoCcStatusResponse> {
     Util.validateModel(request);
@@ -25112,10 +37132,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the Intelligent Protection configuration of a non-website service.
-   *
-   * @param request ModifyPortAutoCcStatusRequest
-   * @return ModifyPortAutoCcStatusResponse
+   * Modifies the Intelligent Protection configuration of a non-website service.
+   * 
+   * @param request - ModifyPortAutoCcStatusRequest
+   * @returns ModifyPortAutoCcStatusResponse
    */
   async modifyPortAutoCcStatus(request: ModifyPortAutoCcStatusRequest): Promise<ModifyPortAutoCcStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25123,11 +37143,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Switches between the metering methods of the burstable clean bandwidth feature.
-   *
-   * @param request ModifyQpsModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyQpsModeResponse
+   * Switches between the metering methods of the burstable clean bandwidth feature.
+   * 
+   * @param request - ModifyQpsModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyQpsModeResponse
    */
   async modifyQpsModeWithOptions(request: ModifyQpsModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyQpsModeResponse> {
     Util.validateModel(request);
@@ -25158,10 +37178,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Switches between the metering methods of the burstable clean bandwidth feature.
-   *
-   * @param request ModifyQpsModeRequest
-   * @return ModifyQpsModeResponse
+   * Switches between the metering methods of the burstable clean bandwidth feature.
+   * 
+   * @param request - ModifyQpsModeRequest
+   * @returns ModifyQpsModeResponse
    */
   async modifyQpsMode(request: ModifyQpsModeRequest): Promise<ModifyQpsModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25169,11 +37189,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a scenario-specific custom policy.
-   *
-   * @param request ModifySceneDefensePolicyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifySceneDefensePolicyResponse
+   * Modifies a scenario-specific custom policy.
+   * 
+   * @param request - ModifySceneDefensePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySceneDefensePolicyResponse
    */
   async modifySceneDefensePolicyWithOptions(request: ModifySceneDefensePolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifySceneDefensePolicyResponse> {
     Util.validateModel(request);
@@ -25216,10 +37236,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a scenario-specific custom policy.
-   *
-   * @param request ModifySceneDefensePolicyRequest
-   * @return ModifySceneDefensePolicyResponse
+   * Modifies a scenario-specific custom policy.
+   * 
+   * @param request - ModifySceneDefensePolicyRequest
+   * @returns ModifySceneDefensePolicyResponse
    */
   async modifySceneDefensePolicy(request: ModifySceneDefensePolicyRequest): Promise<ModifySceneDefensePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25227,11 +37247,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the scheduling rule of Sec-Traffic Manager.
-   *
-   * @param request ModifySchedulerRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifySchedulerRuleResponse
+   * Modifies the scheduling rule of Sec-Traffic Manager.
+   * 
+   * @param request - ModifySchedulerRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySchedulerRuleResponse
    */
   async modifySchedulerRuleWithOptions(request: ModifySchedulerRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifySchedulerRuleResponse> {
     Util.validateModel(request);
@@ -25274,10 +37294,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the scheduling rule of Sec-Traffic Manager.
-   *
-   * @param request ModifySchedulerRuleRequest
-   * @return ModifySchedulerRuleResponse
+   * Modifies the scheduling rule of Sec-Traffic Manager.
+   * 
+   * @param request - ModifySchedulerRuleRequest
+   * @returns ModifySchedulerRuleResponse
    */
   async modifySchedulerRule(request: ModifySchedulerRuleRequest): Promise<ModifySchedulerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25285,11 +37305,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
-   *
-   * @param request ModifyTlsConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTlsConfigResponse
+   * Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
+   * 
+   * @param request - ModifyTlsConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTlsConfigResponse
    */
   async modifyTlsConfigWithOptions(request: ModifyTlsConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTlsConfigResponse> {
     Util.validateModel(request);
@@ -25324,10 +37344,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
-   *
-   * @param request ModifyTlsConfigRequest
-   * @return ModifyTlsConfigResponse
+   * Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
+   * 
+   * @param request - ModifyTlsConfigRequest
+   * @returns ModifyTlsConfigResponse
    */
   async modifyTlsConfig(request: ModifyTlsConfigRequest): Promise<ModifyTlsConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25335,11 +37355,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the mode of the Intelligent Protection policy for a website.
-   *
-   * @param request ModifyWebAIProtectModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebAIProtectModeResponse
+   * Changes the mode of the Intelligent Protection policy for a website.
+   * 
+   * @param request - ModifyWebAIProtectModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebAIProtectModeResponse
    */
   async modifyWebAIProtectModeWithOptions(request: ModifyWebAIProtectModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAIProtectModeResponse> {
     Util.validateModel(request);
@@ -25374,10 +37394,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the mode of the Intelligent Protection policy for a website.
-   *
-   * @param request ModifyWebAIProtectModeRequest
-   * @return ModifyWebAIProtectModeResponse
+   * Changes the mode of the Intelligent Protection policy for a website.
+   * 
+   * @param request - ModifyWebAIProtectModeRequest
+   * @returns ModifyWebAIProtectModeResponse
    */
   async modifyWebAIProtectMode(request: ModifyWebAIProtectModeRequest): Promise<ModifyWebAIProtectModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25385,11 +37405,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the Intelligent Protection policy for a website.
-   *
-   * @param request ModifyWebAIProtectSwitchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebAIProtectSwitchResponse
+   * Enables or disables the Intelligent Protection policy for a website.
+   * 
+   * @param request - ModifyWebAIProtectSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebAIProtectSwitchResponse
    */
   async modifyWebAIProtectSwitchWithOptions(request: ModifyWebAIProtectSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAIProtectSwitchResponse> {
     Util.validateModel(request);
@@ -25424,10 +37444,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the Intelligent Protection policy for a website.
-   *
-   * @param request ModifyWebAIProtectSwitchRequest
-   * @return ModifyWebAIProtectSwitchResponse
+   * Enables or disables the Intelligent Protection policy for a website.
+   * 
+   * @param request - ModifyWebAIProtectSwitchRequest
+   * @returns ModifyWebAIProtectSwitchResponse
    */
   async modifyWebAIProtectSwitch(request: ModifyWebAIProtectSwitchRequest): Promise<ModifyWebAIProtectSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25435,11 +37455,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request ModifyWebAccessModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebAccessModeResponse
+   * Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - ModifyWebAccessModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebAccessModeResponse
    */
   async modifyWebAccessModeWithOptions(request: ModifyWebAccessModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAccessModeResponse> {
     Util.validateModel(request);
@@ -25470,10 +37490,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-   *
-   * @param request ModifyWebAccessModeRequest
-   * @return ModifyWebAccessModeResponse
+   * Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
+   * 
+   * @param request - ModifyWebAccessModeRequest
+   * @returns ModifyWebAccessModeResponse
    */
   async modifyWebAccessMode(request: ModifyWebAccessModeRequest): Promise<ModifyWebAccessModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25481,11 +37501,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
-   *
-   * @param request ModifyWebAreaBlockRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebAreaBlockResponse
+   * Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
+   * 
+   * @param request - ModifyWebAreaBlockRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebAreaBlockResponse
    */
   async modifyWebAreaBlockWithOptions(request: ModifyWebAreaBlockRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAreaBlockResponse> {
     Util.validateModel(request);
@@ -25520,10 +37540,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
-   *
-   * @param request ModifyWebAreaBlockRequest
-   * @return ModifyWebAreaBlockResponse
+   * Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
+   * 
+   * @param request - ModifyWebAreaBlockRequest
+   * @returns ModifyWebAreaBlockResponse
    */
   async modifyWebAreaBlock(request: ModifyWebAreaBlockRequest): Promise<ModifyWebAreaBlockResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25531,15 +37551,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
-   *
-   * @description You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
+   * Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
+   * 
+   * @remarks
+   * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyWebAreaBlockSwitchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebAreaBlockSwitchResponse
+   * 
+   * @param request - ModifyWebAreaBlockSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebAreaBlockSwitchResponse
    */
   async modifyWebAreaBlockSwitchWithOptions(request: ModifyWebAreaBlockSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebAreaBlockSwitchResponse> {
     Util.validateModel(request);
@@ -25574,14 +37595,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
-   *
-   * @description You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
+   * Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
+   * 
+   * @remarks
+   * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyWebAreaBlockSwitchRequest
-   * @return ModifyWebAreaBlockSwitchResponse
+   * 
+   * @param request - ModifyWebAreaBlockSwitchRequest
+   * @returns ModifyWebAreaBlockSwitchResponse
    */
   async modifyWebAreaBlockSwitch(request: ModifyWebAreaBlockSwitchRequest): Promise<ModifyWebAreaBlockSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25589,11 +37611,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the HTTP flood mitigation feature for a website.
-   *
-   * @param request ModifyWebCCGlobalSwitchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebCCGlobalSwitchResponse
+   * Enables or disables the HTTP flood mitigation feature for a website.
+   * 
+   * @param request - ModifyWebCCGlobalSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebCCGlobalSwitchResponse
    */
   async modifyWebCCGlobalSwitchWithOptions(request: ModifyWebCCGlobalSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCCGlobalSwitchResponse> {
     Util.validateModel(request);
@@ -25624,10 +37646,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the HTTP flood mitigation feature for a website.
-   *
-   * @param request ModifyWebCCGlobalSwitchRequest
-   * @return ModifyWebCCGlobalSwitchResponse
+   * Enables or disables the HTTP flood mitigation feature for a website.
+   * 
+   * @param request - ModifyWebCCGlobalSwitchRequest
+   * @returns ModifyWebCCGlobalSwitchResponse
    */
   async modifyWebCCGlobalSwitch(request: ModifyWebCCGlobalSwitchRequest): Promise<ModifyWebCCGlobalSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25635,13 +37657,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the custom frequency control rule of a website.
+   * 
    * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
-   *
-   * @summary Modifies the custom frequency control rule of a website.
-   *
-   * @param request ModifyWebCCRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebCCRuleResponse
+   * 
+   * @param request - ModifyWebCCRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebCCRuleResponse
    */
   // Deprecated
   async modifyWebCCRuleWithOptions(request: ModifyWebCCRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCCRuleResponse> {
@@ -25701,12 +37723,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the custom frequency control rule of a website.
+   * 
    * @deprecated OpenAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead.
-   *
-   * @summary Modifies the custom frequency control rule of a website.
-   *
-   * @param request ModifyWebCCRuleRequest
-   * @return ModifyWebCCRuleResponse
+   * 
+   * @param request - ModifyWebCCRuleRequest
+   * @returns ModifyWebCCRuleResponse
    */
   // Deprecated
   async modifyWebCCRule(request: ModifyWebCCRuleRequest): Promise<ModifyWebCCRuleResponse> {
@@ -25715,11 +37737,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the custom rule of the Static Page Caching policy for a website.
-   *
-   * @param request ModifyWebCacheCustomRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebCacheCustomRuleResponse
+   * Modifies the custom rule of the Static Page Caching policy for a website.
+   * 
+   * @param request - ModifyWebCacheCustomRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebCacheCustomRuleResponse
    */
   async modifyWebCacheCustomRuleWithOptions(request: ModifyWebCacheCustomRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCacheCustomRuleResponse> {
     Util.validateModel(request);
@@ -25754,10 +37776,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the custom rule of the Static Page Caching policy for a website.
-   *
-   * @param request ModifyWebCacheCustomRuleRequest
-   * @return ModifyWebCacheCustomRuleResponse
+   * Modifies the custom rule of the Static Page Caching policy for a website.
+   * 
+   * @param request - ModifyWebCacheCustomRuleRequest
+   * @returns ModifyWebCacheCustomRuleResponse
    */
   async modifyWebCacheCustomRule(request: ModifyWebCacheCustomRuleRequest): Promise<ModifyWebCacheCustomRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25765,11 +37787,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the cache mode of the Static Page Caching policy for a website.
-   *
-   * @param request ModifyWebCacheModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebCacheModeResponse
+   * Changes the cache mode of the Static Page Caching policy for a website.
+   * 
+   * @param request - ModifyWebCacheModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebCacheModeResponse
    */
   async modifyWebCacheModeWithOptions(request: ModifyWebCacheModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCacheModeResponse> {
     Util.validateModel(request);
@@ -25804,10 +37826,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the cache mode of the Static Page Caching policy for a website.
-   *
-   * @param request ModifyWebCacheModeRequest
-   * @return ModifyWebCacheModeResponse
+   * Changes the cache mode of the Static Page Caching policy for a website.
+   * 
+   * @param request - ModifyWebCacheModeRequest
+   * @returns ModifyWebCacheModeResponse
    */
   async modifyWebCacheMode(request: ModifyWebCacheModeRequest): Promise<ModifyWebCacheModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25815,15 +37837,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the Static Page Caching policy for a website.
-   *
-   * @description You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
+   * Enables or disables the Static Page Caching policy for a website.
+   * 
+   * @remarks
+   * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyWebCacheSwitchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebCacheSwitchResponse
+   * 
+   * @param request - ModifyWebCacheSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebCacheSwitchResponse
    */
   async modifyWebCacheSwitchWithOptions(request: ModifyWebCacheSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebCacheSwitchResponse> {
     Util.validateModel(request);
@@ -25858,14 +37881,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the Static Page Caching policy for a website.
-   *
-   * @description You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
+   * Enables or disables the Static Page Caching policy for a website.
+   * 
+   * @remarks
+   * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request ModifyWebCacheSwitchRequest
-   * @return ModifyWebCacheSwitchResponse
+   * 
+   * @param request - ModifyWebCacheSwitchRequest
+   * @returns ModifyWebCacheSwitchResponse
    */
   async modifyWebCacheSwitch(request: ModifyWebCacheSwitchRequest): Promise<ModifyWebCacheSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25873,11 +37897,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
-   *
-   * @param request ModifyWebIpSetSwitchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebIpSetSwitchResponse
+   * Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
+   * 
+   * @param request - ModifyWebIpSetSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebIpSetSwitchResponse
    */
   async modifyWebIpSetSwitchWithOptions(request: ModifyWebIpSetSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebIpSetSwitchResponse> {
     Util.validateModel(request);
@@ -25912,10 +37936,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
-   *
-   * @param request ModifyWebIpSetSwitchRequest
-   * @return ModifyWebIpSetSwitchResponse
+   * Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
+   * 
+   * @param request - ModifyWebIpSetSwitchRequest
+   * @returns ModifyWebIpSetSwitchResponse
    */
   async modifyWebIpSetSwitch(request: ModifyWebIpSetSwitchRequest): Promise<ModifyWebIpSetSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25923,11 +37947,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the accurate access control rule of a website.
-   *
-   * @param request ModifyWebPreciseAccessRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebPreciseAccessRuleResponse
+   * Modifies the accurate access control rule of a website.
+   * 
+   * @param request - ModifyWebPreciseAccessRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebPreciseAccessRuleResponse
    */
   async modifyWebPreciseAccessRuleWithOptions(request: ModifyWebPreciseAccessRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebPreciseAccessRuleResponse> {
     Util.validateModel(request);
@@ -25966,10 +37990,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the accurate access control rule of a website.
-   *
-   * @param request ModifyWebPreciseAccessRuleRequest
-   * @return ModifyWebPreciseAccessRuleResponse
+   * Modifies the accurate access control rule of a website.
+   * 
+   * @param request - ModifyWebPreciseAccessRuleRequest
+   * @returns ModifyWebPreciseAccessRuleResponse
    */
   async modifyWebPreciseAccessRule(request: ModifyWebPreciseAccessRuleRequest): Promise<ModifyWebPreciseAccessRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -25977,11 +38001,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the Accurate Access Control policy for a website.
-   *
-   * @param request ModifyWebPreciseAccessSwitchRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebPreciseAccessSwitchResponse
+   * Enables or disables the Accurate Access Control policy for a website.
+   * 
+   * @param request - ModifyWebPreciseAccessSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebPreciseAccessSwitchResponse
    */
   async modifyWebPreciseAccessSwitchWithOptions(request: ModifyWebPreciseAccessSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebPreciseAccessSwitchResponse> {
     Util.validateModel(request);
@@ -26016,10 +38040,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables the Accurate Access Control policy for a website.
-   *
-   * @param request ModifyWebPreciseAccessSwitchRequest
-   * @return ModifyWebPreciseAccessSwitchResponse
+   * Enables or disables the Accurate Access Control policy for a website.
+   * 
+   * @param request - ModifyWebPreciseAccessSwitchRequest
+   * @returns ModifyWebPreciseAccessSwitchResponse
    */
   async modifyWebPreciseAccessSwitch(request: ModifyWebPreciseAccessSwitchRequest): Promise<ModifyWebPreciseAccessSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26027,9 +38051,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyWebRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyWebRuleResponse
+   * @param request - ModifyWebRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWebRuleResponse
    */
   async modifyWebRuleWithOptions(request: ModifyWebRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebRuleResponse> {
     Util.validateModel(request);
@@ -26080,8 +38104,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyWebRuleRequest
-   * @return ModifyWebRuleResponse
+   * @param request - ModifyWebRuleRequest
+   * @returns ModifyWebRuleResponse
    */
   async modifyWebRule(request: ModifyWebRuleRequest): Promise<ModifyWebRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26089,14 +38113,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the instance that you want to release.
+   * The ID of the instance that you want to release.
    * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
-   *
-   * @description The ID of the request, which is used to locate and troubleshoot issues.
-   *
-   * @param request ReleaseInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReleaseInstanceResponse
+   * 
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @param request - ReleaseInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseInstanceResponse
    */
   async releaseInstanceWithOptions(request: ReleaseInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstanceResponse> {
     Util.validateModel(request);
@@ -26123,13 +38148,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary The ID of the instance that you want to release.
+   * The ID of the instance that you want to release.
    * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
-   *
-   * @description The ID of the request, which is used to locate and troubleshoot issues.
-   *
-   * @param request ReleaseInstanceRequest
-   * @return ReleaseInstanceResponse
+   * 
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @param request - ReleaseInstanceRequest
+   * @returns ReleaseInstanceResponse
    */
   async releaseInstance(request: ReleaseInstanceRequest): Promise<ReleaseInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26137,16 +38163,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
-   *
-   * @description You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
+   * Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
+   * 
+   * @remarks
+   * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
    * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](https://help.aliyun.com/document_detail/157479.html) operation.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request SwitchSchedulerRuleRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SwitchSchedulerRuleResponse
+   * 
+   * @param request - SwitchSchedulerRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchSchedulerRuleResponse
    */
   async switchSchedulerRuleWithOptions(request: SwitchSchedulerRuleRequest, runtime: $Util.RuntimeOptions): Promise<SwitchSchedulerRuleResponse> {
     Util.validateModel(request);
@@ -26181,15 +38208,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
-   *
-   * @description You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
+   * Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
+   * 
+   * @remarks
+   * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
    * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](https://help.aliyun.com/document_detail/157479.html) operation.
    * ### Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-   *
-   * @param request SwitchSchedulerRuleRequest
-   * @return SwitchSchedulerRuleResponse
+   * 
+   * @param request - SwitchSchedulerRuleRequest
+   * @returns SwitchSchedulerRuleResponse
    */
   async switchSchedulerRule(request: SwitchSchedulerRuleRequest): Promise<SwitchSchedulerRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
