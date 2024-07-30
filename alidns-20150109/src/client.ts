@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,9 +8,37 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddCustomLineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The CIDR blocks.
+   * 
+   * This parameter is required.
+   */
   ipSegment?: AddCustomLineRequestIpSegment[];
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The name of the custom line.
+   * 
+   * This parameter is required.
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,8 +64,29 @@ export class AddCustomLineRequest extends $tea.Model {
 }
 
 export class AddCustomLineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the custom line.
+   * 
+   * @example
+   * hra0yc-597
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * The unique ID of the custom line.
+   * 
+   * @example
+   * 597
+   */
   lineId?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,14 +135,88 @@ export class AddCustomLineResponse extends $tea.Model {
 }
 
 export class AddDnsCacheDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum TTL period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 86400
+   */
   cacheTtlMax?: number;
+  /**
+   * @remarks
+   * The minimum time-to-live (TTL) period of the cached data retrieved from the origin Domain Name System (DNS) server. Unit: seconds. Valid values: 30 to 86400.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
   cacheTtlMin?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dns.example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The instance ID of the cache-accelerated domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dns-cn-j6666
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The origin DNS servers. A maximum of 10 origin DNS servers are supported.
+   * 
+   * This parameter is required.
+   */
   sourceDnsServer?: AddDnsCacheDomainRequestSourceDnsServer[];
+  /**
+   * @remarks
+   * Specifies whether the origin DNS server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SUPPORT
+   */
   sourceEdns?: string;
+  /**
+   * @remarks
+   * The origin protocol policy. Valid values: TCP and UDP. Default value: UDP.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * UDP
+   */
   sourceProtocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -130,6 +252,13 @@ export class AddDnsCacheDomainRequest extends $tea.Model {
 }
 
 export class AddDnsCacheDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B57C121B-A45F-44D8-A9B2-XXXXXXX
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -174,22 +303,170 @@ export class AddDnsCacheDomainResponse extends $tea.Model {
 }
 
 export class AddDnsGtmAccessStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address pools in the primary address pool set.
+   * 
+   * This parameter is required.
+   */
   defaultAddrPool?: AddDnsGtmAccessStrategyRequestDefaultAddrPool[];
+  /**
+   * @remarks
+   * The type of the primary address pool. Valid values:
+   * 
+   * *   IPV4
+   * *   IPV6
+   * *   DOMAIN
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ipv4
+   */
   defaultAddrPoolType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable DNS resolution with optimal latency for the primary address pool set. Valid values:
+   * 
+   * *   OPEN
+   * *   CLOSE
+   * 
+   * @example
+   * open
+   */
   defaultLatencyOptimization?: string;
+  /**
+   * @remarks
+   * The load balancing policy of the primary address pool set. Valid values:
+   * 
+   * *   ALL_RR: returns all addresses.
+   * *   RATIO: returns addresses by weight.
+   * 
+   * @example
+   * all_rr
+   */
   defaultLbaStrategy?: string;
+  /**
+   * @remarks
+   * The maximum number of addresses returned from the primary address pool set.
+   * 
+   * @example
+   * 3
+   */
   defaultMaxReturnAddrNum?: number;
+  /**
+   * @remarks
+   * The minimum number of available addresses in the primary address pool set.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   defaultMinAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * The address pools in the secondary address pool set. If no address pool exists in the secondary address pool set, set this parameter to EMPTY.
+   */
   failoverAddrPool?: AddDnsGtmAccessStrategyRequestFailoverAddrPool[];
+  /**
+   * @remarks
+   * The type of the secondary address pool. Valid values:
+   * 
+   * *   IPV4
+   * *   IPV6
+   * *   DOMAIN
+   * 
+   * @example
+   * ipv4
+   */
   failoverAddrPoolType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable DNS resolution with optimal latency for the secondary address pool set. Valid values:
+   * 
+   * *   OPEN
+   * *   CLOSE
+   * 
+   * @example
+   * open
+   */
   failoverLatencyOptimization?: string;
+  /**
+   * @remarks
+   * The load balancing policy of the secondary address pool set. Valid values:
+   * 
+   * *   ALL_RR: returns all addresses.
+   * *   RATIO: returns addresses by weight.
+   * 
+   * @example
+   * all_rr
+   */
   failoverLbaStrategy?: string;
+  /**
+   * @remarks
+   * The maximum number of addresses returned from the secondary address pool set.
+   * 
+   * @example
+   * 1
+   */
   failoverMaxReturnAddrNum?: number;
+  /**
+   * @remarks
+   * The minimum number of available addresses in the secondary address pool set.
+   * 
+   * @example
+   * 1
+   */
   failoverMinAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The Domain Name System (DNS) request source. For example: `["default", "drpeng"]` indicates Global and Dr. Peng Group.
+   * 
+   * @example
+   * ["default", "drpeng"]
+   */
   lines?: string;
+  /**
+   * @remarks
+   * The type of the access policy. Valid values:
+   * 
+   * *   GEO: geographical location-based access policy
+   * *   LATENCY: latency-based access policy
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * geo
+   */
   strategyMode?: string;
+  /**
+   * @remarks
+   * The name of the access policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testStrategyName
+   */
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -241,7 +518,21 @@ export class AddDnsGtmAccessStrategyRequest extends $tea.Model {
 }
 
 export class AddDnsGtmAccessStrategyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the access policy.
+   * 
+   * @example
+   * testStrategyId1
+   */
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -288,18 +579,174 @@ export class AddDnsGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class AddDnsGtmAddressPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address pools.
+   * 
+   * This parameter is required.
+   */
   addr?: AddDnsGtmAddressPoolRequestAddr[];
+  /**
+   * @remarks
+   * The number of consecutive failures.
+   * 
+   * @example
+   * 1
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The health check interval. Unit: seconds.
+   * 
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The nodes for monitoring.
+   */
   ispCityNode?: AddDnsGtmAddressPoolRequestIspCityNode[];
+  /**
+   * @remarks
+   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The load balancing policy of the address pool. Valid values:
+   * 
+   * *   ALL_RR: returns all addresses.
+   * *   RATIO: returns addresses by weight.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * all_rr
+   */
   lbaStrategy?: string;
+  /**
+   * @remarks
+   * The extended information. The required parameters vary based on the value of ProtocolType.
+   * 
+   * *   When ProtocolType is set to HTTP or HTTPS:
+   * 
+   *     *   port: the port that you want to check
+   * 
+   *     *   host: the host settings
+   * 
+   *     *   path: the URL path
+   * 
+   *     *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value.
+   * 
+   *     *   failureRate: the failure rate
+   * 
+   *     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
+   * 
+   *         *   true: enables SNI.
+   *         *   other: disables SNI.
+   * 
+   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * *   When ProtocolType is set to PING:
+   * 
+   *     *   failureRate: the failure rate
+   * 
+   *     *   packetNum: the number of ping packets
+   * 
+   *     *   packetLossRate: the loss rate of ping packets
+   * 
+   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * *   When ProtocolType is set to TCP:
+   * 
+   *     *   port: the port that you want to check
+   * 
+   *     *   failureRate: the failure rate
+   * 
+   *     *   nodeType: the type of the node for monitoring when Type is set to DOMAIN. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   monitorExtendInfo?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the health check feature. If you set this parameter to OPEN, the system verifies the health check configurations. If you set this parameter to CLOSE, the system discards the health check configurations. Default value: CLOSE. Valid values:
+   * 
+   * *   OPEN: enables the health check feature.
+   * *   CLOSE: disables the health check feature.
+   * 
+   * @example
+   * open
+   */
   monitorStatus?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The health check protocol. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
+   * *   PING
+   * *   TCP
+   * 
+   * @example
+   * http
+   */
   protocolType?: string;
+  /**
+   * @remarks
+   * The timeout period. Unit: milliseconds.
+   * 
+   * @example
+   * 1
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * The type of the address pool. Valid values:
+   * 
+   * *   IPV4: IPv4 address
+   * *   IPV6: IPv6 address
+   * *   DOMAIN: domain name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ipv4
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -343,8 +790,29 @@ export class AddDnsGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class AddDnsGtmAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * testpool1
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The ID of the health check task.
+   * 
+   * @example
+   * test1
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -393,13 +861,131 @@ export class AddDnsGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class AddDnsGtmMonitorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pool1
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * The health check interval. Unit: seconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The monitored nodes.
+   * 
+   * This parameter is required.
+   */
   ispCityNode?: AddDnsGtmMonitorRequestIspCityNode[];
+  /**
+   * @remarks
+   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+   * 
+   * *   HTTP or HTTPS:
+   * 
+   *     *   port: the port to check.
+   * 
+   *     *   host: the host configuration.
+   * 
+   *     *   path: the health check URL.
+   * 
+   *     *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal.
+   * 
+   *     *   failureRate: the failure rate.
+   * 
+   *     *   sni: specifies whether to enable Server Name Indication (SNI). This parameter is only required for the HTTPS protocol. Valid values:
+   * 
+   *         *   true: enables SNI.
+   *         *   false: disables SNI.
+   * 
+   *     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * *   PING:
+   * 
+   *     *   failureRate: the failure rate.
+   * 
+   *     *   packetNum: the number of ping packets.
+   * 
+   *     *   packetLossRate: the loss rate of ping packets.
+   * 
+   *     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * *   TCP:
+   * 
+   *     *   port: the port to check.
+   * 
+   *     *   failureRate: the failure rate.
+   * 
+   *     *   nodeType: the type of the monitored node when the address pool type is DOMAIN. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   monitorExtendInfo?: string;
+  /**
+   * @remarks
+   * The protocol used for the health check. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
+   * *   PING
+   * *   TCP
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http
+   */
   protocolType?: string;
+  /**
+   * @remarks
+   * The health check timeout period. Unit: milliseconds.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30000
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -433,7 +1019,21 @@ export class AddDnsGtmMonitorRequest extends $tea.Model {
 }
 
 export class AddDnsGtmMonitorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the health check configuration.
+   * 
+   * @example
+   * MonitorConfigId1
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -480,9 +1080,39 @@ export class AddDnsGtmMonitorResponse extends $tea.Model {
 }
 
 export class AddDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dns-example.top
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the group to which the domain name will belong. The default value is the ID of the default group.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-resourcegroupid
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -508,12 +1138,58 @@ export class AddDomainRequest extends $tea.Model {
 }
 
 export class AddDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The Domain Name System (DNS) servers configured for the domain name.
+   */
   dnsServers?: AddDomainResponseBodyDnsServers;
+  /**
+   * @remarks
+   * The ID of the domain name.
+   * 
+   * @example
+   * 00efd71a-770e-4255-b54e-6fe5659baffe
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * dns-example.top
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the domain name group.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the domain name group.
+   * 
+   * @example
+   * MyGroup
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+   * 
+   * @example
+   * xn--fsq270a.com
+   */
   punyCode?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -570,8 +1246,36 @@ export class AddDomainResponse extends $tea.Model {
 }
 
 export class AddDomainBackupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test.aliyun.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The backup cycle. Valid values:
+   * 
+   * *   **DAY**: Backs up data once every day.
+   * *   **HOUR**: Backs up data once every hour.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HOUR
+   */
   periodType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -595,8 +1299,29 @@ export class AddDomainBackupRequest extends $tea.Model {
 }
 
 export class AddDomainBackupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * test.aliyun.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The backup cycle.
+   * 
+   * @example
+   * DAY
+   */
   periodType?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * FD552816-FCC8-4832-B4A2-2DA0C2BA1688
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -645,7 +1370,23 @@ export class AddDomainBackupResponse extends $tea.Model {
 }
 
 export class AddDomainGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the domain name group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyGroup
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -667,8 +1408,29 @@ export class AddDomainGroupRequest extends $tea.Model {
 }
 
 export class AddDomainGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the domain name group.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the domain name group.
+   * 
+   * @example
+   * NewName
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -717,14 +1479,95 @@ export class AddDomainGroupResponse extends $tea.Model {
 }
 
 export class AddDomainRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The DNS resolution line. Default value: **default**. For more information, see
+   * 
+   * [DNS lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
+   * 
+   * @example
+   * default
+   */
   line?: string;
+  /**
+   * @remarks
+   * The priority of the mail exchanger (MX) record. Valid values: `1 to 50`.
+   * 
+   * This parameter must be specified if the type of the DNS record is MX. A smaller value indicates a higher priority.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * For example, if you want to resolve @.example.com, you must set RR to an at sign (@) instead of leaving it empty.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www
+   */
   RR?: string;
+  /**
+   * @remarks
+   * The time-to-live (TTL) of the DNS record. Default value: 600. Unit: seconds. For more information, see
+   * 
+   * [TTL definition](https://www.alibabacloud.com/help/zh/doc-detail/29806.htm).
+   * 
+   * @example
+   * 600
+   */
   TTL?: number;
+  /**
+   * @remarks
+   * The type of the DNS record. For more information, see
+   * 
+   * [DNS record types](https://www.alibabacloud.com/help/zh/doc-detail/29805.htm).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * A
+   */
   type?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.0.2.254
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -760,7 +1603,21 @@ export class AddDomainRecordRequest extends $tea.Model {
 }
 
 export class AddDomainRecordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -807,11 +1664,62 @@ export class AddDomainRecordResponse extends $tea.Model {
 }
 
 export class AddGtmAccessStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The line codes of access regions.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["default", "drpeng"]
+   */
   accessLines?: string;
+  /**
+   * @remarks
+   * The ID of the default address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hrsix
+   */
   defaultAddrPoolId?: string;
+  /**
+   * @remarks
+   * The ID of the failover address pool.
+   * 
+   * If the failover address pool is not set, pass the **Empty** value.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hrsyw
+   */
   failoverAddrPoolId?: string;
+  /**
+   * @remarks
+   * The ID of the GTM instance for which you want to create an access policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The name of the access policy.
+   * 
+   * This parameter is required.
+   */
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -841,7 +1749,21 @@ export class AddGtmAccessStrategyRequest extends $tea.Model {
 }
 
 export class AddGtmAccessStrategyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the access policy created.
+   * 
+   * @example
+   * strategyid
+   */
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -888,18 +1810,143 @@ export class AddGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class AddGtmAddressPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address pools.
+   * 
+   * This parameter is required.
+   */
   addr?: AddGtmAddressPoolRequestAddr[];
+  /**
+   * @remarks
+   * The number of consecutive failures.
+   * 
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * The ID of the GTM instance for which you want to create an address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gtm-cn-xxxxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The health check interval. Unit: seconds. Set the value to 60.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The monitored nodes.
+   */
   ispCityNode?: AddGtmAddressPoolRequestIspCityNode[];
+  /**
+   * @remarks
+   * The language of the values of specific response parameters.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The minimum number of available addresses in the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   minAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * The extended information. The required parameters vary based on the value of ProtocolType.
+   * 
+   * When ProtocolType is set to HTTP or HTTPS:
+   * 
+   * *   port: the port that you want to check
+   * *   failureRate: the failure rate
+   * *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value. Valid values: 400 and 500.
+   * *   host: the host settings
+   * *   path: the URL path
+   * 
+   * When ProtocolType is set to PING:
+   * 
+   * *   packetNum: the number of ping packets
+   * *   packetLossRate: the packet loss rate
+   * *   failureRate: the failure rate
+   * 
+   * When ProtocolType is set to TCP:
+   * 
+   * *   port: the port that you want to check
+   * *   failureRate: the failure rate
+   * 
+   * @example
+   * {"host":"aliyun.com","port":80}
+   */
   monitorExtendInfo?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the health check. Valid values:
+   * 
+   * *   **OPEN**: enables the health check.
+   * *   **CLOSE**: disables the health check. This is the default value.
+   * 
+   * @example
+   * OPEN
+   */
   monitorStatus?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Alibaba Cloud cluster
+   */
   name?: string;
+  /**
+   * @remarks
+   * The health check protocol. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
+   * *   Ping
+   * *   TCP
+   * 
+   * @example
+   * HTTPS
+   */
   protocolType?: string;
+  /**
+   * @remarks
+   * The timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
+   * 
+   * @example
+   * 60
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * The type of the address pool. Valid values:
+   * 
+   * *   **IP**: IPv4 address
+   * *   **DOMAIN**: domain name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * IP
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -943,8 +1990,29 @@ export class AddGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class AddGtmAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool created.
+   * 
+   * @example
+   * hraf3x
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The ID of the health check configuration.
+   * 
+   * @example
+   * hraf14
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -993,13 +2061,104 @@ export class AddGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class AddGtmMonitorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The number of consecutive failures.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * The health check interval. Unit: seconds. Set the value to 60.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The nodes for monitoring.
+   * 
+   * This parameter is required.
+   */
   ispCityNode?: AddGtmMonitorRequestIspCityNode[];
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The extended information. The required parameters vary based on the health check protocol.
+   * 
+   * HTTP or HTTPS
+   * 
+   * *   port: the port that you want to check
+   * *   failureRate: the failure rate
+   * *   code: the return code. The health check result is deemed abnormal if the returned value is greater than the specified value. Valid values: 400 and 500.
+   * *   host: the host settings
+   * *   path: the URL path
+   * 
+   * PING
+   * 
+   * *   packetNum: the number of ping packets
+   * *   packetLossRate: the packet loss rate
+   * *   failureRate: the failure rate
+   * 
+   * TCP
+   * 
+   * *   port: the port that you want to check
+   * *   failureRate: the failure rate
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"/index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   monitorExtendInfo?: string;
+  /**
+   * @remarks
+   * The protocol used for the health check. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
+   * *   PING
+   * *   TCP
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HTTP
+   */
   protocolType?: string;
+  /**
+   * @remarks
+   * The health check timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3000
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1033,7 +2192,21 @@ export class AddGtmMonitorRequest extends $tea.Model {
 }
 
 export class AddGtmMonitorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the health check configuration.
+   * 
+   * @example
+   * 1234abc
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1080,9 +2253,41 @@ export class AddGtmMonitorResponse extends $tea.Model {
 }
 
 export class AddGtmRecoveryPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of IDs of faulty address pools.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["hra0or"]
+   */
   faultAddrPool?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The name of the disaster recovery plan that you want to create.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * name-example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The remarks on the disaster recovery plan.
+   * 
+   * @example
+   * remark
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1108,7 +2313,21 @@ export class AddGtmRecoveryPlanRequest extends $tea.Model {
 }
 
 export class AddGtmRecoveryPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the disaster recovery plan created.
+   * 
+   * @example
+   * 100
+   */
   recoveryPlanId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1155,8 +2374,35 @@ export class AddGtmRecoveryPlanResponse extends $tea.Model {
 }
 
 export class BindInstanceDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names.
+   * 
+   * >  Separate multiple domain names with commas (,). Up to 100 domain names can be entered.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com,example.net
+   */
   domainNames?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sdfasdf
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1180,8 +2426,29 @@ export class BindInstanceDomainsRequest extends $tea.Model {
 }
 
 export class BindInstanceDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of domain names that failed to be bound to the instance.
+   * 
+   * @example
+   * 0
+   */
   failedCount?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of domain names that are bound to the instance.
+   * 
+   * @example
+   * 2
+   */
   successCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1230,8 +2497,36 @@ export class BindInstanceDomainsResponse extends $tea.Model {
 }
 
 export class ChangeDomainGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the destination domain name group.
+   * 
+   * *   If you do not specify GroupId, the domain name is moved to the default group.
+   * *   If you set GroupId to an empty string, the domain name is moved to the default group.
+   * *   If you set GroupId to defaultGroup, the domain name is moved to the default group.
+   * *   If you do not set GroupId to one of the preceding values and set GroupId to an existing group ID, the domain name is moved to the existing group. If you set GroupId to a group ID that does not exist, the domain name remains in the original group.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1255,8 +2550,29 @@ export class ChangeDomainGroupRequest extends $tea.Model {
 }
 
 export class ChangeDomainGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the destination domain name group.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the destination domain name group.
+   * 
+   * @example
+   * MyGroup
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1305,10 +2621,47 @@ export class ChangeDomainGroupResponse extends $tea.Model {
 }
 
 export class ChangeDomainOfDnsProductRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to force bind a domain name to the instance.
+   * 
+   * @example
+   * false
+   */
   force?: boolean;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud DNS instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-7sb
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The domain name that you want to bind to the instance. If you do not specify this parameter, this operation unbinds the original domain name from the instance.
+   * 
+   * @example
+   * newdomain.com
+   */
   newDomain?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1336,7 +2689,21 @@ export class ChangeDomainOfDnsProductRequest extends $tea.Model {
 }
 
 export class ChangeDomainOfDnsProductResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The original domain name that was bound to the instance. If the value of this parameter is empty, the instance is bound with a domain name for the first time.
+   * 
+   * @example
+   * originaldomain.com
+   */
   originalDomain?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1383,9 +2750,43 @@ export class ChangeDomainOfDnsProductResponse extends $tea.Model {
 }
 
 export class CopyGtmConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the object that you want to copy. Only the INSTANCE type is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
   copyType?: string;
+  /**
+   * @remarks
+   * The language that specific response parameters will use.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the source object. Only instance IDs are supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gtm-cn-0pp1j84v60d
+   */
   sourceId?: string;
+  /**
+   * @remarks
+   * The ID of the target object. Only instance IDs are supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gtm-cn-v0h1gaujg06
+   */
   targetId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1411,6 +2812,13 @@ export class CopyGtmConfigRequest extends $tea.Model {
 }
 
 export class CopyGtmConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1455,17 +2863,75 @@ export class CopyGtmConfigResponse extends $tea.Model {
 }
 
 export class CreateCloudGtmAddressRequest extends $tea.Model {
+  /**
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
   attributeInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * auto
+   */
   availableMode?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * p50_ok
+   */
   healthJudgement?: string;
   healthTasks?: CreateCloudGtmAddressRequestHealthTasks[];
+  /**
+   * @example
+   * available
+   */
   manualAvailableStatus?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Address-1
+   */
   name?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IPv4
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1507,17 +2973,75 @@ export class CreateCloudGtmAddressRequest extends $tea.Model {
 }
 
 export class CreateCloudGtmAddressShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
   attributeInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * auto
+   */
   availableMode?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * p50_ok
+   */
   healthJudgement?: string;
   healthTasksShrink?: string;
+  /**
+   * @example
+   * available
+   */
   manualAvailableStatus?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Address-1
+   */
   name?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IPv4
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1559,8 +3083,20 @@ export class CreateCloudGtmAddressShrinkRequest extends $tea.Model {
 }
 
 export class CreateCloudGtmAddressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * addr-8951821811436**192
+   */
   addressId?: string;
+  /**
+   * @example
+   * 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1609,12 +3145,40 @@ export class CreateCloudGtmAddressResponse extends $tea.Model {
 }
 
 export class CreateCloudGtmAddressPoolRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * Address pool-1
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   addressPoolType?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * app
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1646,8 +3210,20 @@ export class CreateCloudGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class CreateCloudGtmAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1696,15 +3272,55 @@ export class CreateCloudGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class CreateCloudGtmInstanceConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * gtm-cn-jmp3qnw**03
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * www
+   */
   scheduleHostname?: string;
+  /**
+   * @example
+   * A
+   */
   scheduleRrType?: string;
+  /**
+   * @example
+   * custom
+   */
   scheduleZoneMode?: string;
+  /**
+   * @example
+   * example.com
+   */
   scheduleZoneName?: string;
+  /**
+   * @example
+   * 30
+   */
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1742,8 +3358,20 @@ export class CreateCloudGtmInstanceConfigRequest extends $tea.Model {
 }
 
 export class CreateCloudGtmInstanceConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * config-000**1
+   */
   configId?: boolean;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1792,16 +3420,81 @@ export class CreateCloudGtmInstanceConfigResponse extends $tea.Model {
 }
 
 export class CreateCloudGtmMonitorTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   extendInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 50
+   */
   failureRate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ispCityNodes?: CreateCloudGtmMonitorTemplateRequestIspCityNodes[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Ping-IPv4
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ping
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5000
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1841,16 +3534,81 @@ export class CreateCloudGtmMonitorTemplateRequest extends $tea.Model {
 }
 
 export class CreateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   extendInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 50
+   */
   failureRate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ispCityNodesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Ping-IPv4
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ping
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5000
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1890,8 +3648,20 @@ export class CreateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateCloudGtmMonitorTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2075,8 +3845,23 @@ export class CreatePdnsUdpIpSegmentResponse extends $tea.Model {
 }
 
 export class DeleteCloudGtmAddressRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * addr-895182181143688192
+   */
   addressId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2100,7 +3885,15 @@ export class DeleteCloudGtmAddressRequest extends $tea.Model {
 }
 
 export class DeleteCloudGtmAddressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2147,8 +3940,20 @@ export class DeleteCloudGtmAddressResponse extends $tea.Model {
 }
 
 export class DeleteCloudGtmAddressPoolRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2172,8 +3977,20 @@ export class DeleteCloudGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class DeleteCloudGtmAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2222,9 +4039,25 @@ export class DeleteCloudGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class DeleteCloudGtmInstanceConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * config-000**1
+   */
   configId?: string;
+  /**
+   * @example
+   * gtm-cn-jmp3qnw**03
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2250,7 +4083,15 @@ export class DeleteCloudGtmInstanceConfigRequest extends $tea.Model {
 }
 
 export class DeleteCloudGtmInstanceConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2297,8 +4138,23 @@ export class DeleteCloudGtmInstanceConfigResponse extends $tea.Model {
 }
 
 export class DeleteCloudGtmMonitorTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2322,7 +4178,15 @@ export class DeleteCloudGtmMonitorTemplateRequest extends $tea.Model {
 }
 
 export class DeleteCloudGtmMonitorTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2369,7 +4233,23 @@ export class DeleteCloudGtmMonitorTemplateResponse extends $tea.Model {
 }
 
 export class DeleteCustomLinesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The unique IDs of the custom lines that you want to delete. Separate the unique IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234,1235
+   */
   lineIds?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2391,6 +4271,13 @@ export class DeleteCustomLinesRequest extends $tea.Model {
 }
 
 export class DeleteCustomLinesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2435,7 +4322,23 @@ export class DeleteCustomLinesResponse extends $tea.Model {
 }
 
 export class DeleteDnsCacheDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dns-example.top
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2457,6 +4360,13 @@ export class DeleteDnsCacheDomainRequest extends $tea.Model {
 }
 
 export class DeleteDnsCacheDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2501,7 +4411,23 @@ export class DeleteDnsCacheDomainResponse extends $tea.Model {
 }
 
 export class DeleteDnsGtmAccessStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the access policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testStrategyId1
+   */
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2523,6 +4449,13 @@ export class DeleteDnsGtmAccessStrategyRequest extends $tea.Model {
 }
 
 export class DeleteDnsGtmAccessStrategyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2567,7 +4500,23 @@ export class DeleteDnsGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class DeleteDnsGtmAddressPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testpool1
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2589,6 +4538,13 @@ export class DeleteDnsGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class DeleteDnsGtmAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2633,7 +4589,23 @@ export class DeleteDnsGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class DeleteDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2655,7 +4627,21 @@ export class DeleteDomainRequest extends $tea.Model {
 }
 
 export class DeleteDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2702,7 +4688,23 @@ export class DeleteDomainResponse extends $tea.Model {
 }
 
 export class DeleteDomainGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the domain name group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2724,7 +4726,21 @@ export class DeleteDomainGroupRequest extends $tea.Model {
 }
 
 export class DeleteDomainGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the domain name group.
+   * 
+   * @example
+   * MyGroup
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2771,8 +4787,33 @@ export class DeleteDomainGroupResponse extends $tea.Model {
 }
 
 export class DeleteDomainRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * This parameter is returned when you add a DNS record or when you query a list of DNS records.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2796,7 +4837,21 @@ export class DeleteDomainRecordRequest extends $tea.Model {
 }
 
 export class DeleteDomainRecordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2843,7 +4898,21 @@ export class DeleteDomainRecordResponse extends $tea.Model {
 }
 
 export class DeleteGtmAccessStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the access policy that you want to delete.
+   * 
+   * @example
+   * hrskc
+   */
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2865,6 +4934,13 @@ export class DeleteGtmAccessStrategyRequest extends $tea.Model {
 }
 
 export class DeleteGtmAccessStrategyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2909,7 +4985,23 @@ export class DeleteGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class DeleteGtmAddressPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2931,6 +5023,13 @@ export class DeleteGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class DeleteGtmAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2975,7 +5074,23 @@ export class DeleteGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class DeleteGtmRecoveryPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the disaster recovery plan that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   recoveryPlanId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2997,6 +5112,13 @@ export class DeleteGtmRecoveryPlanRequest extends $tea.Model {
 }
 
 export class DeleteGtmRecoveryPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3041,10 +5163,53 @@ export class DeleteGtmRecoveryPlanResponse extends $tea.Model {
 }
 
 export class DeleteSubDomainRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The host record.
+   * 
+   * For example, to resolve @.example.com, you must set RR to an at sign (@) instead of leaving it blank.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www
+   */
   RR?: string;
+  /**
+   * @remarks
+   * The type of the DNS record. If you do not specify this parameter, all DNS record types corresponding to the subdomain name are returned.
+   * 
+   * DNS record types include **A, MX, CNAME, TXT, REDIRECT_URL, FORWORD_URL, NS, AAAA, and SRV**. The value is not case-sensitive.
+   * 
+   * @example
+   * A
+   */
   type?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3072,8 +5237,29 @@ export class DeleteSubDomainRecordsRequest extends $tea.Model {
 }
 
 export class DeleteSubDomainRecordsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The host record.
+   * 
+   * @example
+   * www
+   */
   RR?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of deleted DNS records.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3122,8 +5308,36 @@ export class DeleteSubDomainRecordsResponse extends $tea.Model {
 }
 
 export class DescribeBatchResultCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the batch operation. Valid values:
+   * 
+   * *   **DOMAIN_ADD**: adds domain names in batches.
+   * *   **DOMAIN_DEL**: deletes domain names in batches.
+   * *   **RR_ADD**: adds DNS records in batches.
+   * *   **RR_DEL**: deletes DNS records in batches.
+   * 
+   * @example
+   * DOMAIN_ADD
+   */
   batchType?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * If you specify TaskId, the execution result of the specified task is returned. If you do not specify TaskId, the execution result of the last task is returned.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3147,13 +5361,74 @@ export class DescribeBatchResultCountRequest extends $tea.Model {
 }
 
 export class DescribeBatchResultCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the batch operation.
+   * 
+   * @example
+   * DOMAIN_ADD
+   */
   batchType?: string;
+  /**
+   * @remarks
+   * The total number of domain names or DNS records that failed to be processed.
+   * 
+   * @example
+   * 2
+   */
   failedCount?: number;
+  /**
+   * @remarks
+   * The cause of the execution failure.
+   * 
+   * @example
+   * failed_reason
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 75446CC1-FC9A-4595-8D96-089D73D7A63D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the task. Valid values:
+   * 
+   * *   **-1**: No task for importing domain names or DNS records is submitted.
+   * *   **0**: The task is being processed.
+   * *   **1**: The task is completed.
+   * *   **2**: The task failed.
+   * 
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @remarks
+   * The total number of successfully processed domain names or DNS records.
+   * 
+   * @example
+   * 2
+   */
   successCount?: number;
+  /**
+   * @remarks
+   * The ID of the last task.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
+  /**
+   * @remarks
+   * The total number of DNS records that were processed in batches.
+   * 
+   * @example
+   * 4
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3212,11 +5487,58 @@ export class DescribeBatchResultCountResponse extends $tea.Model {
 }
 
 export class DescribeBatchResultDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the batch operation. Valid values:
+   * 
+   * *   **DOMAIN_ADD**: adds domain names in batches.
+   * *   **DOMAIN_DEL**: deletes domain names in batches.
+   * *   **RR_ADD**: adds Domain Name System (DNS) records in batches.
+   * *   **RR_DEL**: deletes DNS records in batches.
+   * 
+   * @example
+   * DOMAIN_ADD
+   */
   batchType?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The execution result. If you do not specify this parameter, all results are returned.
+   * 
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the batch operation task.
+   * 
+   * @example
+   * 83618818
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3246,10 +5568,42 @@ export class DescribeBatchResultDetailRequest extends $tea.Model {
 }
 
 export class DescribeBatchResultDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The detailed results of the batch operation.
+   */
   batchResultDetails?: DescribeBatchResultDetailResponseBodyBatchResultDetails;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 75446CC1-FC9A-4595-8D96-089D73D7A63D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3302,8 +5656,23 @@ export class DescribeBatchResultDetailResponse extends $tea.Model {
 }
 
 export class DescribeCloudGtmAddressRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3327,23 +5696,87 @@ export class DescribeCloudGtmAddressRequest extends $tea.Model {
 }
 
 export class DescribeCloudGtmAddressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
   attributeInfo?: string;
+  /**
+   * @example
+   * auto
+   */
   availableMode?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-23T13:09Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * p50_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
   healthTasks?: DescribeCloudGtmAddressResponseBodyHealthTasks;
+  /**
+   * @example
+   * available
+   */
   manualAvailableStatus?: string;
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * test1
+   */
   remark?: string;
+  /**
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
+  /**
+   * @example
+   * IPv4
+   */
   type?: string;
+  /**
+   * @example
+   * 2024-03-29T13:20Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3422,8 +5855,20 @@ export class DescribeCloudGtmAddressResponse extends $tea.Model {
 }
 
 export class DescribeCloudGtmAddressPoolRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * pool-89564674533755**96
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3447,21 +5892,81 @@ export class DescribeCloudGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class DescribeCloudGtmAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressLbStrategy?: string;
+  /**
+   * @example
+   * pool-89564674533755**96
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * AddressPool-1
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   addressPoolType?: string;
   addresses?: DescribeCloudGtmAddressPoolResponseBodyAddresses;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3536,8 +6041,20 @@ export class DescribeCloudGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class DescribeCloudGtmAddressPoolReferenceRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3561,9 +6078,21 @@ export class DescribeCloudGtmAddressPoolReferenceRequest extends $tea.Model {
 }
 
 export class DescribeCloudGtmAddressPoolReferenceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * app
+   */
   addressPoolName?: string;
   instanceConfigs?: DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigs;
+  /**
+   * @example
+   * 853805EA-3D47-47D5-9A1A-A45C24313ABD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3614,8 +6143,20 @@ export class DescribeCloudGtmAddressPoolReferenceResponse extends $tea.Model {
 }
 
 export class DescribeCloudGtmAddressReferenceRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3639,10 +6180,26 @@ export class DescribeCloudGtmAddressReferenceRequest extends $tea.Model {
 }
 
 export class DescribeCloudGtmAddressReferenceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @example
+   * addr-89564584963974**40
+   */
   addressId?: string;
   addressPools?: DescribeCloudGtmAddressReferenceResponseBodyAddressPools;
+  /**
+   * @example
+   * Address-1
+   */
   name?: string;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3695,7 +6252,15 @@ export class DescribeCloudGtmAddressReferenceResponse extends $tea.Model {
 }
 
 export class DescribeCloudGtmGlobalAlertRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3719,6 +6284,10 @@ export class DescribeCloudGtmGlobalAlertRequest extends $tea.Model {
 export class DescribeCloudGtmGlobalAlertResponseBody extends $tea.Model {
   alertConfig?: DescribeCloudGtmGlobalAlertResponseBodyAlertConfig;
   alertGroup?: DescribeCloudGtmGlobalAlertResponseBodyAlertGroup;
+  /**
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3767,9 +6336,25 @@ export class DescribeCloudGtmGlobalAlertResponse extends $tea.Model {
 }
 
 export class DescribeCloudGtmInstanceConfigAlertRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3797,9 +6382,25 @@ export class DescribeCloudGtmInstanceConfigAlertRequest extends $tea.Model {
 export class DescribeCloudGtmInstanceConfigAlertResponseBody extends $tea.Model {
   alertConfig?: DescribeCloudGtmInstanceConfigAlertResponseBodyAlertConfig;
   alertGroup?: DescribeCloudGtmInstanceConfigAlertResponseBodyAlertGroup;
+  /**
+   * @example
+   * global
+   */
   alertMode?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 0F32959D-417B-4D66-8463-68606605E3E2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3854,9 +6455,25 @@ export class DescribeCloudGtmInstanceConfigAlertResponse extends $tea.Model {
 }
 
 export class DescribeCloudGtmInstanceConfigFullInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3882,30 +6499,122 @@ export class DescribeCloudGtmInstanceConfigFullInfoRequest extends $tea.Model {
 }
 
 export class DescribeCloudGtmInstanceConfigFullInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressPoolLbStrategy?: string;
   addressPools?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPools;
+  /**
+   * @example
+   * [{\\"NoticeType\\":\\"addr_alert\\",\\"SmsNotice\\":true,\\"EmailNotice\\":true,\\"DingtalkNotice\\":true},{\\"NoticeType\\":\\"addr_resume\\",\\"SmsNotice\\":true,\\"EmailNotice\\":true,\\"DingtalkNotice\\":true},{\\"NoticeType\\":\\"addr_pool_unavailable\\",\\"SmsNotice\\":true,\\"EmailNotice\\":true,\\"DingtalkNotice\\":true},{\\"NoticeType\\":\\"addr_pool_available\\",\\"SmsNotice\\":true,\\"EmailNotice\\":true,\\"DingtalkNotice\\":true}]"
+   */
   alertConfig?: string;
   alertGroup?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * dns_gtm_public_cn
+   */
   commodityCode?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
+  /**
+   * @example
+   * www.example.com
+   */
   scheduleDomainName?: string;
+  /**
+   * @example
+   * www
+   */
   scheduleHostname?: string;
+  /**
+   * @example
+   * A
+   */
   scheduleRrType?: string;
+  /**
+   * @example
+   * custom
+   */
   scheduleZoneMode?: string;
+  /**
+   * @example
+   * example.com
+   */
   scheduleZoneName?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 60
+   */
   ttl?: number;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * ultimate
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3998,7 +6707,18 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponse extends $tea.Model {
 }
 
 export class DescribeCloudGtmMonitorTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4020,21 +6740,81 @@ export class DescribeCloudGtmMonitorTemplateRequest extends $tea.Model {
 }
 
 export class DescribeCloudGtmMonitorTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-23T13:09Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   extendInfo?: string;
+  /**
+   * @example
+   * 50
+   */
   failureRate?: number;
+  /**
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
   ispCityNodes?: DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodes;
+  /**
+   * @example
+   * Ping-IPv4
+   */
   name?: string;
+  /**
+   * @example
+   * ping
+   */
   protocol?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
+   */
   requestId?: string;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
+  /**
+   * @example
+   * 5000
+   */
   timeout?: number;
+  /**
+   * @example
+   * 2024-03-29T13:20Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4109,6 +6889,16 @@ export class DescribeCloudGtmMonitorTemplateResponse extends $tea.Model {
 }
 
 export class DescribeCloudGtmSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4128,9 +6918,37 @@ export class DescribeCloudGtmSummaryRequest extends $tea.Model {
 }
 
 export class DescribeCloudGtmSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of instances within the current account.
+   * 
+   * @example
+   * 10
+   */
   instanceTotalCount?: number;
+  /**
+   * @remarks
+   * The total number of configured health check tasks.
+   * 
+   * @example
+   * 20
+   */
   monitorTaskTotalCount?: number;
+  /**
+   * @remarks
+   * The quota on the number of health check tasks.
+   * 
+   * @example
+   * 101
+   */
   monitorTaskTotalQuota?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 199C3699-9A7B-41A1-BB5A-F1E862D3CB38
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4181,6 +6999,10 @@ export class DescribeCloudGtmSummaryResponse extends $tea.Model {
 }
 
 export class DescribeCloudGtmSystemLinesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
+   */
   requestId?: string;
   systemLines?: DescribeCloudGtmSystemLinesResponseBodySystemLines;
   systemLinesTree?: string;
@@ -4231,7 +7053,21 @@ export class DescribeCloudGtmSystemLinesResponse extends $tea.Model {
 }
 
 export class DescribeCustomLineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The unique ID of the custom line.
+   * 
+   * @example
+   * 597
+   */
   lineId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4253,11 +7089,47 @@ export class DescribeCustomLineRequest extends $tea.Model {
 }
 
 export class DescribeCustomLineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the custom line.
+   * 
+   * @example
+   * hra0yc-597
+   */
   code?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the custom line.
+   * 
+   * @example
+   * 597
+   */
   id?: number;
+  /**
+   * @remarks
+   * The CIDR blocks. Separate IP addresses with a hyphen (-). Enter a CIDR block in each row. You can enter 1 to 50 CIDR blocks at a time. If a CIDR block contains only one IP address, enter the IP address in the format of IP1-IP1. Different CIDR blocks cannot be overlapped.
+   */
   ipSegmentList?: DescribeCustomLineResponseBodyIpSegmentList[];
+  /**
+   * @remarks
+   * The name of the custom line.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4312,9 +7184,39 @@ export class DescribeCustomLineResponse extends $tea.Model {
 }
 
 export class DescribeCustomLinesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4340,11 +7242,50 @@ export class DescribeCustomLinesRequest extends $tea.Model {
 }
 
 export class DescribeCustomLinesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The custom lines.
+   */
   customLines?: DescribeCustomLinesResponseBodyCustomLines[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of custom lines.
+   * 
+   * @example
+   * 1
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of returned pages.
+   * 
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4399,11 +7340,55 @@ export class DescribeCustomLinesResponse extends $tea.Model {
 }
 
 export class DescribeDNSSLBSubDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * test
+   */
   rr?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4433,10 +7418,42 @@ export class DescribeDNSSLBSubDomainsRequest extends $tea.Model {
 }
 
 export class DescribeDNSSLBSubDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The subdomains for which weighted round-robin is enabled.
+   */
   slbSubDomains?: DescribeDNSSLBSubDomainsResponseBodySlbSubDomains;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4489,9 +7506,37 @@ export class DescribeDNSSLBSubDomainsResponse extends $tea.Model {
 }
 
 export class DescribeDnsCacheDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+   * 
+   * @example
+   * a\\"\\"
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4517,10 +7562,42 @@ export class DescribeDnsCacheDomainsRequest extends $tea.Model {
 }
 
 export class DescribeDnsCacheDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names.
+   */
   domains?: DescribeDnsCacheDomainsResponseBodyDomains[];
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 57121A9C-CDCF-541F-AD39-275D89099420
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 3
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4573,10 +7650,52 @@ export class DescribeDnsCacheDomainsResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategiesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the access policy. Valid values:
+   * 
+   * *   GEO: geographical location-based
+   * *   LATENCY: latency-based
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * geo
+   */
   strategyMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4604,11 +7723,50 @@ export class DescribeDnsGtmAccessStrategiesRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategiesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0CCC9971-CEC9-4132-824B-4AE611C07623
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The access policies.
+   */
   strategies?: DescribeDnsGtmAccessStrategiesResponseBodyStrategies;
+  /**
+   * @remarks
+   * The total number of entries returned on all pages.
+   * 
+   * @example
+   * 11
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 11
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4663,7 +7821,23 @@ export class DescribeDnsGtmAccessStrategiesResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the access policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * strategyId1
+   */
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4685,31 +7859,240 @@ export class DescribeDnsGtmAccessStrategyRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The primary/secondary switchover policy for address pool groups. Valid values:
+   * 
+   * *   AUTO: performs automatic switchover between the primary and secondary address pool groups upon failures.
+   * *   DEFAULT: uses the primary address pool group.
+   * *   FAILOVER: uses the secondary address pool group.
+   * 
+   * @example
+   * auto
+   */
   accessMode?: string;
+  /**
+   * @remarks
+   * The time when the access policy was created.
+   * 
+   * @example
+   * 2018-08-09T00:10Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the access policy was created.
+   * 
+   * @example
+   * 1533773400000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The status of the primary address pool group. Valid values:
+   * 
+   * *   AVAILABLE: available
+   * *   NOT_AVAILABLE: unavailable
+   * 
+   * @example
+   * AVAILABLE
+   */
   defaultAddrPoolGroupStatus?: string;
+  /**
+   * @remarks
+   * The type of the primary address pool. Valid values:
+   * 
+   * *   IPV4
+   * *   IPV6
+   * *   DOMAIN
+   * 
+   * @example
+   * ipv4
+   */
   defaultAddrPoolType?: string;
+  /**
+   * @remarks
+   * The address pools in the primary address pool group.
+   */
   defaultAddrPools?: DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools;
+  /**
+   * @remarks
+   * The number of available addresses in the primary address pool.
+   * 
+   * @example
+   * 1
+   */
   defaultAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * Indicates whether scheduling optimization for latency resolution was enabled for the primary address pool group. Valid values:
+   * 
+   * *   OPEN: enabled
+   * *   CLOSE: disabled
+   * 
+   * @example
+   * open
+   */
   defaultLatencyOptimization?: string;
+  /**
+   * @remarks
+   * The load balancing policy of the primary address pool group. Valid values:
+   * 
+   * *   ALL_RR: returns all addresses.
+   * *   RATIO: returns addresses by weight.
+   * 
+   * @example
+   * all_rr
+   */
   defaultLbaStrategy?: string;
+  /**
+   * @remarks
+   * The maximum number of addresses returned from the primary address pool group.
+   * 
+   * @example
+   * 1
+   */
   defaultMaxReturnAddrNum?: number;
+  /**
+   * @remarks
+   * The minimum number of available addresses in the primary address pool group.
+   * 
+   * @example
+   * 1
+   */
   defaultMinAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * The type of the active address pool group. Valid values:
+   * 
+   * *   DEFAULT: the primary address pool group
+   * *   FAILOVER: the secondary address pool group
+   * 
+   * @example
+   * DEFAULT
+   */
   effectiveAddrPoolGroupType?: string;
+  /**
+   * @remarks
+   * The status of the secondary address pool group. Valid values:
+   * 
+   * *   AVAILABLE: available
+   * *   NOT_AVAILABLE: unavailable
+   * 
+   * @example
+   * AVAILABLE
+   */
   failoverAddrPoolGroupStatus?: string;
+  /**
+   * @remarks
+   * The type of the secondary address pool. Valid values:
+   * 
+   * *   IPV4
+   * *   IPV6
+   * *   DOMAIN
+   * 
+   * @example
+   * ipv4
+   */
   failoverAddrPoolType?: string;
+  /**
+   * @remarks
+   * The address pools in the secondary address pool group.
+   */
   failoverAddrPools?: DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools;
+  /**
+   * @remarks
+   * The number of available addresses in the secondary address pool.
+   * 
+   * @example
+   * 1
+   */
   failoverAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * Indicates whether scheduling optimization for latency resolution was enabled for the secondary address pool group. Valid values:
+   * 
+   * *   OPEN: enabled
+   * *   CLOSE: disabled
+   * 
+   * @example
+   * open
+   */
   failoverLatencyOptimization?: string;
+  /**
+   * @remarks
+   * The load balancing policy of the secondary address pool group. Valid values:
+   * 
+   * *   ALL_RR: returns all addresses.
+   * *   RATIO: returns addresses by weight.
+   * 
+   * @example
+   * all_rr
+   */
   failoverLbaStrategy?: string;
+  /**
+   * @remarks
+   * The maximum number of addresses returned from the secondary address pool group.
+   * 
+   * @example
+   * 1
+   */
   failoverMaxReturnAddrNum?: number;
+  /**
+   * @remarks
+   * The minimum number of available addresses in the secondary address pool group.
+   * 
+   * @example
+   * 1
+   */
   failoverMinAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * The ID of the associated instance.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The source regions.
+   */
   lines?: DescribeDnsGtmAccessStrategyResponseBodyLines;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BA1608CA-834C-4E63-8682-8AF0B11ED72D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the access policy.
+   * 
+   * @example
+   * strategyId1
+   */
   strategyId?: string;
+  /**
+   * @remarks
+   * The type of the access policy. Valid values:
+   * 
+   * *   GEO: geographical location-based
+   * *   LATENCY: latency-based
+   * 
+   * @example
+   * geo
+   */
   strategyMode?: string;
+  /**
+   * @remarks
+   * The name of the access policy.
+   * 
+   * @example
+   * strategyName1
+   */
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4804,8 +8187,36 @@ export class DescribeDnsGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The type of the access policy. Valid values:
+   * 
+   * *   GEO: geographical location-based
+   * *   LATENCY: latency-based
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * geo
+   */
   strategyMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4829,14 +8240,44 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigRequest extends $tea.Mod
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The available address pools of the domain name type.
+   */
   domainAddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPools;
+  /**
+   * @remarks
+   * The available address pools of the IPv4 type.
+   */
   ipv4AddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPools;
+  /**
+   * @remarks
+   * The available address pools of the IPv6 type.
+   */
   ipv6AddrPools?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPools;
+  /**
+   * @remarks
+   * The source regions.
+   */
   lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLines;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C2851BA9-CE56-49AF-8D12-4FC6A49EE688
+   */
   requestId?: string;
   selectedDomainLines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedDomainLines;
   selectedIpv4Lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv4Lines;
   selectedIpv6Lines?: DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6Lines;
+  /**
+   * @remarks
+   * Indicates whether we recommend that you set the source region to global.
+   * 
+   * @example
+   * true
+   */
   suggestSetDefaultLine?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4897,8 +8338,37 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponse extends $tea.Mo
 }
 
 export class DescribeDnsGtmAddrAttributeInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The addresses whose source regions you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["1.1.1.1"]
+   */
   addrs?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The type of the addresses. Valid values:
+   * 
+   * *   IPV4: IPv4 address
+   * *   IPV6: IPv6 address
+   * *   DOMAIN: domain name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ipv4
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4922,7 +8392,18 @@ export class DescribeDnsGtmAddrAttributeInfoRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmAddrAttributeInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The addresses that were queried.
+   */
   addr?: DescribeDnsGtmAddrAttributeInfoResponseBodyAddr;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4969,7 +8450,23 @@ export class DescribeDnsGtmAddrAttributeInfoResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmAddressPoolAvailableConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4991,7 +8488,18 @@ export class DescribeDnsGtmAddressPoolAvailableConfigRequest extends $tea.Model 
 }
 
 export class DescribeDnsGtmAddressPoolAvailableConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The supported source regions.
+   */
   attributeInfos?: DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfos;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 199C3699-9A7B-41A1-BB5A-F1E862D3CB38
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5038,6 +8546,13 @@ export class DescribeDnsGtmAddressPoolAvailableConfigResponse extends $tea.Model
 }
 
 export class DescribeDnsGtmAvailableAlertGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5057,7 +8572,18 @@ export class DescribeDnsGtmAvailableAlertGroupRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmAvailableAlertGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned available alert groups.
+   */
   availableAlertGroup?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5104,7 +8630,23 @@ export class DescribeDnsGtmAvailableAlertGroupResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance about which you want to query the information.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5126,18 +8668,105 @@ export class DescribeDnsGtmInstanceRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the instance.
+   */
   config?: DescribeDnsGtmInstanceResponseBodyConfig;
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * 2020-10-14T06:58Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp that indicates when the instance was created.
+   * 
+   * @example
+   * 1602656937000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The time when the instance expires.
+   * 
+   * @example
+   * 2020-10-14T06:58Z
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp that indicates when the instance expires.
+   * 
+   * @example
+   * 1602656937000
+   */
   expireTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * instanceid1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The billing method. Valid value:
+   * 
+   * *   Subscription: You can pay in advance for the use of resources.
+   * 
+   * @example
+   * Subscription
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 84314904-D047-4176-A0EC-256D7F68C7F5
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * resourcegroupid1
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The total number of SMS notifications.
+   * 
+   * @example
+   * 100
+   */
   smsQuota?: number;
+  /**
+   * @remarks
+   * The total number of detection tasks.
+   * 
+   * @example
+   * 100
+   */
   taskQuota?: number;
+  /**
+   * @remarks
+   * The used quota.
+   */
   usedQuota?: DescribeDnsGtmInstanceResponseBodyUsedQuota;
+  /**
+   * @remarks
+   * The version of the instance.
+   * 
+   * @example
+   * versioncode1
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5206,7 +8835,23 @@ export class DescribeDnsGtmInstanceResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceAddressPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testpool1
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5228,18 +8873,117 @@ export class DescribeDnsGtmInstanceAddressPoolRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
   addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * testpool1
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The addresses in the address pool.
+   */
   addrs?: DescribeDnsGtmInstanceAddressPoolResponseBodyAddrs;
+  /**
+   * @remarks
+   * The time when the address pool was created.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the time when the address pool was created.
+   * 
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The load balancing policy for the address pool. Valid values:
+   * 
+   * *   ALL_RR: returns all addresses.
+   * *   RATIO: returns addresses by weight.
+   * 
+   * @example
+   * all_rr
+   */
   lbaStrategy?: string;
+  /**
+   * @remarks
+   * The ID of the health check configuration.
+   * 
+   * @example
+   * test1
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * Indicates the status of the health check. Valid values:
+   * 
+   * *   OPEN: The health check is enabled.
+   * *   CLOSE: The health check is disabled.
+   * *   UNCONFIGURED: The health check is not configured.
+   * 
+   * @example
+   * open
+   */
   monitorStatus?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The type of the address pool. Valid values:
+   * 
+   * *   IPV4: IPv4 address
+   * *   IPV6: IPv6 address
+   * *   DOMAIN: domain name
+   * 
+   * @example
+   * ipv4
+   */
   type?: string;
+  /**
+   * @remarks
+   * The time when the address pool was last updated.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the time when the address pool was last updated.
+   * 
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5308,9 +9052,39 @@ export class DescribeDnsGtmInstanceAddressPoolResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceAddressPoolsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5336,11 +9110,50 @@ export class DescribeDnsGtmInstanceAddressPoolsRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceAddressPoolsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned address pools.
+   */
   addrPools?: DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPools;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned on all pages.
+   * 
+   * @example
+   * 1
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5395,7 +9208,23 @@ export class DescribeDnsGtmInstanceAddressPoolsResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5417,11 +9246,53 @@ export class DescribeDnsGtmInstanceStatusRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of available addresses.
+   * 
+   * @example
+   * 1
+   */
   addrAvailableNum?: number;
+  /**
+   * @remarks
+   * The number of unavailable addresses.
+   * 
+   * @example
+   * 1
+   */
   addrNotAvailableNum?: number;
+  /**
+   * @remarks
+   * The number of unavailable address pool groups.
+   * 
+   * @example
+   * 1
+   */
   addrPoolGroupNotAvailableNum?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of access policies that are unavailable in the current active address pool group.
+   * 
+   * @example
+   * 1
+   */
   strategyNotAvailableNum?: number;
+  /**
+   * @remarks
+   * The number of access policies switched to the secondary address pool group.
+   * 
+   * @example
+   * 1
+   */
   switchToFailoverStrategyNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5476,7 +9347,23 @@ export class DescribeDnsGtmInstanceStatusResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceSystemCnameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5498,7 +9385,21 @@ export class DescribeDnsGtmInstanceSystemCnameRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceSystemCnameResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The CNAME domain name assigned by the system.
+   * 
+   * @example
+   * gtminstance.com
+   */
   systemCname?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5545,10 +9446,45 @@ export class DescribeDnsGtmInstanceSystemCnameResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The keyword that you use for query. Fuzzy search by instance ID or instance name is supported.
+   * 
+   * @example
+   * instance1
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group where you want to query instances.
+   * 
+   * @example
+   * rg-testgroupid
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5576,11 +9512,50 @@ export class DescribeDnsGtmInstancesRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned instances.
+   */
   gtmInstances?: DescribeDnsGtmInstancesResponseBodyGtmInstances[];
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 84314904-D047-4176-A0EC-256D7F68C7F5
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned on all pages.
+   * 
+   * @example
+   * 100
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of returned pages.
+   * 
+   * @example
+   * 123
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5635,12 +9610,63 @@ export class DescribeDnsGtmInstancesResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp that specifies the end of the time range to query.
+   * 
+   * @example
+   * 1516779348000
+   */
   endTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+   * 
+   * @example
+   * demo
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The timestamp that specifies the beginning of the time range to query.
+   * 
+   * @example
+   * 1516779348000
+   */
   startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5672,11 +9698,50 @@ export class DescribeDnsGtmLogsRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned logs.
+   */
   logs?: DescribeDnsGtmLogsResponseBodyLogs;
+  /**
+   * @remarks
+   * The number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 1
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 50C60A29-2E93-425A-ABA8-068686E28873
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned on all pages.
+   * 
+   * @example
+   * 1
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5731,6 +9796,13 @@ export class DescribeDnsGtmLogsResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5750,10 +9822,33 @@ export class DescribeDnsGtmMonitorAvailableConfigRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The monitored nodes that can be used to perform health checks on address pools that contain public domain names that are resolved to IPv4 addresses.
+   */
   domainIpv4IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodes;
+  /**
+   * @remarks
+   * The monitored nodes that can be used to perform health checks on address pools that contain public domain names that are resolved to IPv6 addresses.
+   */
   domainIpv6IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodes;
+  /**
+   * @remarks
+   * The monitored nodes that can be used to perform health checks on address pools that contain public IPv4 addresses.
+   */
   ipv4IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodes;
+  /**
+   * @remarks
+   * The monitored nodes that can be used to perform health checks on address pools that contain public IPv6 addresses.
+   */
   ipv6IspCityNodes?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodes;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5806,7 +9901,23 @@ export class DescribeDnsGtmMonitorAvailableConfigResponse extends $tea.Model {
 }
 
 export class DescribeDnsGtmMonitorConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the health check task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MonitorConfigId1
+   */
   monitorConfigId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5828,17 +9939,149 @@ export class DescribeDnsGtmMonitorConfigRequest extends $tea.Model {
 }
 
 export class DescribeDnsGtmMonitorConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the health check task was created.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the health check task was created.
+   * 
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The number of consecutive times of failed health check attempts.
+   * 
+   * @example
+   * 1
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * The interval at which the health check task is executed. Unit: seconds.
+   * 
+   * @example
+   * 1
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The monitored node.
+   */
   ispCityNodes?: DescribeDnsGtmMonitorConfigResponseBodyIspCityNodes;
+  /**
+   * @remarks
+   * The ID of the health check task.
+   * 
+   * @example
+   * MonitorConfigId1
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * The extended information. The following parameters are required for different health check protocols:
+   * 
+   * *   HTTP or HTTPS:
+   * 
+   *     *   port: the check port.
+   * 
+   *     *   host: the host settings.
+   * 
+   *     *   path: the URL path.
+   * 
+   *     *   code: the return code greater than the specified value.
+   * 
+   *     *   failureRate: the failure rate.
+   * 
+   *     *   sni: specifies whether to enable server name indication (SNI). This parameter is used only for the HTTPS protocol. Valid values:
+   * 
+   *         *   true: enable SNI.
+   *         *   false: disable SNI.
+   * 
+   *     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * *   PING:
+   * 
+   *     *   failureRate: the failure rate.
+   * 
+   *     *   packetNum: the number of ping packets.
+   * 
+   *     *   packetLossRate: the loss rate of ping packets.
+   * 
+   *     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * *   TCP:
+   * 
+   *     *   port: the check port.
+   * 
+   *     *   failureRate: the failure rate.
+   * 
+   *     *   nodeType: the type of the node to monitor when the address pool type is DOMAIN. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   monitorExtendInfo?: string;
+  /**
+   * @remarks
+   * The health check protocol. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
+   * *   PING
+   * *   TCP
+   * 
+   * @example
+   * http
+   */
   protocolType?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The timeout period. Unit: milliseconds.
+   * 
+   * @example
+   * 3000
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * The time when the information about the health check task was updated.
+   * 
+   * @example
+   * 2018-01-03T08:57Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the information about the health check task was updated.
+   * 
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5905,8 +10148,31 @@ export class DescribeDnsGtmMonitorConfigResponse extends $tea.Model {
 }
 
 export class DescribeDnsProductInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID. You can call the **DescribeDomainInfo** operation to obtain the instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i-8fxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5930,41 +10196,287 @@ export class DescribeDnsProductInstanceRequest extends $tea.Model {
 }
 
 export class DescribeDnsProductInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The auto-renewal status of the instance. Valid values:
+   * 
+   * *   **true**: Auto-renewal is enabled.
+   * *   **false**: Auto-renewal is disabled.
+   * 
+   * @example
+   * true
+   */
   autoRenewal?: boolean;
+  /**
+   * @remarks
+   * The number of times that you can change the domain names that are bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of the custom edition.
+   * 
+   * @example
+   * 3
+   */
   bindCount?: number;
+  /**
+   * @remarks
+   * The number of domain names that can be bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of Personal Edition, Enterprise Standard Edition, and Enterprise Ultimate Edition.
+   * 
+   * @example
+   * 5
+   */
   bindDomainCount?: number;
+  /**
+   * @remarks
+   * The number of domain names that are bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of Personal Edition, Enterprise Standard Edition, and Enterprise Ultimate Edition.
+   * 
+   * @example
+   * 3
+   */
   bindDomainUsedCount?: number;
+  /**
+   * @remarks
+   * The number of times that you have changed the domain names that are bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of the custom edition.
+   * 
+   * @example
+   * 1
+   */
   bindUsedCount?: number;
+  /**
+   * @remarks
+   * The DDoS protection traffic. Unit: GB.
+   * 
+   * @example
+   * 50
+   */
   DDosDefendFlow?: number;
+  /**
+   * @remarks
+   * The DDoS protection frequency. Unit: 10,000 QPS. This parameter applies to Alibaba Cloud DNS instances of the custom edition.
+   * 
+   * @example
+   * 50
+   */
   DDosDefendQuery?: number;
+  /**
+   * @remarks
+   * The maximum number of IP addresses that are used for load balancing in a single line of a domain name.
+   * 
+   * @example
+   * 15
+   */
   dnsSLBCount?: number;
+  /**
+   * @remarks
+   * The DNS protection level. Valid values:
+   * 
+   * *   **no**: DNS protection is not provided.
+   * *   **basic**: Basic DNS attack defense is provided.
+   * *   **advanced**: Advanced DNS attack defense is provided.
+   * 
+   * @example
+   * advanced
+   */
   dnsSecurity?: string;
+  /**
+   * @remarks
+   * The DNS servers configured for the domain names.
+   */
   dnsServers?: DescribeDnsProductInstanceResponseBodyDnsServers;
+  /**
+   * @remarks
+   * The domain name that is bound to the paid instance.
+   * 
+   * If no value is returned for this parameter, no domain name is bound to the paid instance.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The type of the instance. Valid values:
+   * 
+   * *   PUBLIC: authoritative domain name
+   * *   CACHE: cache-accelerated domain name
+   * 
+   * @example
+   * PUBLIC
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * The time when the instance expired. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-12-12T09:23Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The time when the instance expired. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1474335170000
+   */
   endTimestamp?: number;
+  /**
+   * @remarks
+   * Indicates whether global server load balancing (GSLB) is supported.
+   * 
+   * @example
+   * true
+   */
   gslb?: boolean;
+  /**
+   * @remarks
+   * The Internet service provider (ISP) lines for DNS resolution.
+   */
   ISPLines?: string;
+  /**
+   * @remarks
+   * The regional ISP lines for DNS resolution.
+   */
   ISPRegionLines?: string;
+  /**
+   * @remarks
+   * Indicates whether the Domain Name System (DNS) servers stopped responding to all requests sent to the domain names.
+   * 
+   * @example
+   * false
+   */
   inBlackHole?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the DNS servers stopped responding to abnormal requests sent to the domain names.
+   * 
+   * @example
+   * false
+   */
   inClean?: boolean;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud DNS instance.
+   * 
+   * @example
+   * i-8fxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The interval at which the instance is monitored. Unit: minutes.
+   * 
+   * @example
+   * 50
+   */
   monitorFrequency?: number;
+  /**
+   * @remarks
+   * The number of monitoring nodes.
+   * 
+   * @example
+   * 5
+   */
   monitorNodeCount?: number;
+  /**
+   * @remarks
+   * The number of monitoring tasks.
+   * 
+   * @example
+   * 2
+   */
   monitorTaskCount?: number;
+  /**
+   * @remarks
+   * The DDoS protection traffic outside the Chinese mainland. Unit: GB.
+   * 
+   * @example
+   * 1
+   */
   overseaDDosDefendFlow?: number;
+  /**
+   * @remarks
+   * The line outside the Chinese mainland.
+   */
   overseaLine?: string;
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * @example
+   * Subscription
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * Indicates whether regional lines are supported.
+   * 
+   * @example
+   * true
+   */
   regionLines?: boolean;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The search engine lines for DNS resolution.
+   */
   searchEngineLines?: string;
+  /**
+   * @remarks
+   * The time when the instance was purchased. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-12-12T09:23Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time when the instance was purchased. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1474335170000
+   */
   startTimestamp?: number;
+  /**
+   * @remarks
+   * The number of subdomain name levels.
+   * 
+   * @example
+   * 6
+   */
   subDomainLevel?: number;
+  /**
+   * @remarks
+   * The minimum time-to-live (TTL) period. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   TTLMinValue?: number;
+  /**
+   * @remarks
+   * The number of the forwarded URLs.
+   * 
+   * @example
+   * 20
+   */
   URLForwardCount?: number;
+  /**
+   * @remarks
+   * The version code of Alibaba Cloud DNS.
+   * 
+   * @example
+   * version1
+   */
   versionCode?: string;
+  /**
+   * @remarks
+   * The edition of Alibaba Cloud DNS.
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6079,13 +10591,79 @@ export class DescribeDnsProductInstanceResponse extends $tea.Model {
 }
 
 export class DescribeDnsProductInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Sorting direction. Values:
+   * * **DESC**: Descending (if not specified, the default is descending order)
+   * * **ASC**: Ascending
+   * 
+   * @example
+   * DESC
+   */
   direction?: string;
+  /**
+   * @remarks
+   * The type of the domain name. Valid values:
+   * 
+   * *   PUBLIC (default): hosted public domain name
+   * *   CACHE: cached public domain name
+   * 
+   * @example
+   * PUBLIC
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh** : Chinese
+   * *   **en** (default) : English
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The Sorting parameter. Values:
+   * * createDate: Sort by creation time (if not specified, the default is to sort by creation time)
+   * * expireDate: Sort by expiration time
+   * 
+   * @example
+   * createDate
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
+  /**
+   * @remarks
+   * The version code of the Alibaba Cloud DNS instance.
+   * 
+   * @example
+   * version1
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6119,11 +10697,53 @@ export class DescribeDnsProductInstancesRequest extends $tea.Model {
 }
 
 export class DescribeDnsProductInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of Alibaba Cloud DNS instances obtained by this operation.
+   */
   dnsProducts?: DescribeDnsProductInstancesResponseBodyDnsProducts;
+  /**
+   * @remarks
+   * The type of the domain name. Valid values:
+   * 
+   * *   PUBLIC (default): hosted public domain name
+   * *   CACHE: cached public domain name
+   * 
+   * @example
+   * PUBLIC
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 2
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of domain names.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6178,8 +10798,33 @@ export class DescribeDnsProductInstancesResponse extends $tea.Model {
 }
 
 export class DescribeDohAccountStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * The default value is the day when you perform the operation.
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * You can query only the DNS records of the latest 90 days.`The value of StartDate must be greater than or equal to the difference between the current date and 90`.
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6203,7 +10848,18 @@ export class DescribeDohAccountStatisticsRequest extends $tea.Model {
 }
 
 export class DescribeDohAccountStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0F32959D-417B-4D66-8463-68606605E3E2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics list.
+   */
   statistics?: DescribeDohAccountStatisticsResponseBodyStatistics[];
   static names(): { [key: string]: string } {
     return {
@@ -6250,9 +10906,43 @@ export class DescribeDohAccountStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeDohDomainStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * The default value is the day when you perform the operation.
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * You can query only the DNS records of the latest 90 days. `The value of StartDate must be greater than or equal to the difference between the current date and 90`.
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6278,7 +10968,18 @@ export class DescribeDohDomainStatisticsRequest extends $tea.Model {
 }
 
 export class DescribeDohDomainStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0F32959D-417B-4D66-8463-68606605E3E2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics list.
+   */
   statistics?: DescribeDohDomainStatisticsResponseBodyStatistics[];
   static names(): { [key: string]: string } {
     return {
@@ -6325,11 +11026,57 @@ export class DescribeDohDomainStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeDohDomainStatisticsSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * The default value is the day when you perform the operation.
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * You can query only the DNS records of the last 90 days. `The value of StartDate must be greater than or equal to the difference between the current date and 90`.
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6359,11 +11106,50 @@ export class DescribeDohDomainStatisticsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeDohDomainStatisticsSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0F32959D-417B-4D66-8463-68606605E3E2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics list.
+   */
   statistics?: DescribeDohDomainStatisticsSummaryResponseBodyStatistics[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 300
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 50
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6418,9 +11204,43 @@ export class DescribeDohDomainStatisticsSummaryResponse extends $tea.Model {
 }
 
 export class DescribeDohSubDomainStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * The default value is the day when you perform the operation.
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * You can query only the DNS records of the latest 90 days. `The value of StartDate must be greater than or equal to the difference between the current date and 90`.
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The subdomain whose statistics you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   subDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6446,7 +11266,18 @@ export class DescribeDohSubDomainStatisticsRequest extends $tea.Model {
 }
 
 export class DescribeDohSubDomainStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0F32959D-417B-4D66-8463-68606605E3E2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics list.
+   */
   statistics?: DescribeDohSubDomainStatisticsResponseBodyStatistics[];
   static names(): { [key: string]: string } {
     return {
@@ -6493,12 +11324,65 @@ export class DescribeDohSubDomainStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeDohSubDomainStatisticsSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * The default value is the day when you query the required data.
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * You can query only the DNS records of the last 90 days. `The value of StartDate must be greater than or equal to the difference between the current date and 90`.
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The subdomain.
+   * 
+   * @example
+   * www.example.com
+   */
   subDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6530,11 +11414,50 @@ export class DescribeDohSubDomainStatisticsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeDohSubDomainStatisticsSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0F32959D-417B-4D66-8463-68606605E3E2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics list.
+   */
   statistics?: DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics[];
+  /**
+   * @remarks
+   * Total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * Total number of pages returned.
+   * 
+   * @example
+   * 50
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6589,8 +11512,33 @@ export class DescribeDohSubDomainStatisticsSummaryResponse extends $tea.Model {
 }
 
 export class DescribeDohUserInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end time for the query. Format: YYYY-MM-DD
+   * 
+   * If you do not specify this parameter, the default value is the time when you perform the query.
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The start time for the query. Format: YYYY-MM-DD
+   * 
+   * You can query the user information of the last 90 days only. `Set the parameter to a value no earlier than 90 days from the current time`.
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6614,9 +11562,37 @@ export class DescribeDohUserInfoRequest extends $tea.Model {
 }
 
 export class DescribeDohUserInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of accessed domains.
+   * 
+   * @example
+   * 123
+   */
   domainCount?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud public DNS user.
+   * 
+   * @example
+   * 12345678
+   */
   pdnsId?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0F32959D-417B-4D66-8463-68606605E3E2
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of accessed subdomains.
+   * 
+   * @example
+   * 123
+   */
   subDomainCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6667,7 +11643,23 @@ export class DescribeDohUserInfoResponse extends $tea.Model {
 }
 
 export class DescribeDomainDnssecInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6689,15 +11681,88 @@ export class DescribeDomainDnssecInfoRequest extends $tea.Model {
 }
 
 export class DescribeDomainDnssecInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The algorithm type. This parameter is returned if DNSSEC is enabled.
+   * 
+   * @example
+   * 13
+   */
   algorithm?: string;
+  /**
+   * @remarks
+   * The digest. This parameter is returned if DNSSEC is enabled.
+   * 
+   * @example
+   * C1A0424B97A049F1F9B2EA139CC298533219668164E343BD21203ABC4608C02A
+   */
   digest?: string;
+  /**
+   * @remarks
+   * The digest type. This parameter is returned if DNSSEC is enabled.
+   * 
+   * @example
+   * SHA256
+   */
   digestType?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The delegation signer (DS) record. This parameter is returned if DNSSEC is enabled.
+   * 
+   * @example
+   * example.com. 3600 IN DS 2371 13 2 C1A0424B97A049F1F9B2EA139CC298533219668164E343BD21203ABC4608C02A
+   */
   dsRecord?: string;
+  /**
+   * @remarks
+   * The flag. This parameter is returned if DNSSEC is enabled.
+   * 
+   * @example
+   * 257 (KSK)
+   */
   flags?: string;
+  /**
+   * @remarks
+   * The key tag. This parameter is returned if DNSSEC is enabled.
+   * 
+   * @example
+   * 54931
+   */
   keyTag?: string;
+  /**
+   * @remarks
+   * The public key. This parameter is returned if DNSSEC is enabled.
+   * 
+   * @example
+   * mdsswUyr3DPW132mOi8V9xESWE8jTo0dxCjjnopKl+GqJxpVXckHAeF+KkxLbxILfDLUT0rAK9iUzy1L53eKGQ==
+   */
   publicKey?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The state of the DNSSEC. Valid values:
+   * 
+   * *   ON
+   * *   OFF
+   * 
+   * @example
+   * ON
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6760,9 +11825,37 @@ export class DescribeDomainDnssecInfoResponse extends $tea.Model {
 }
 
 export class DescribeDomainGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The keyword of the domain name group for searches in %KeyWord% mode. The value is not case-sensitive.
+   * 
+   * @example
+   * Group
+   */
   keyWord?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6788,10 +11881,42 @@ export class DescribeDomainGroupsRequest extends $tea.Model {
 }
 
 export class DescribeDomainGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name groups.
+   */
   domainGroups?: DescribeDomainGroupsResponseBodyDomainGroups;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6844,8 +11969,33 @@ export class DescribeDomainGroupsResponse extends $tea.Model {
 }
 
 export class DescribeDomainInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dns-example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * Specifies whether detailed attributes are required. The default value is **false**, which indicates that detailed attributes are not required.
+   * 
+   * If you set this parameter to **true**, the values of the following parameters are returned: LineType, MinTtl, RecordLineTreeJson, RecordLines, LineCode, LineDisplayName, LineName, RegionLines, and SlaveDns.
+   * 
+   * @example
+   * true
+   */
   needDetailAttributes?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6869,30 +12019,189 @@ export class DescribeDomainInfoRequest extends $tea.Model {
 }
 
 export class DescribeDomainInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the domain name was registered in Alibaba Cloud.
+   * 
+   * @example
+   * true
+   */
   aliDomain?: boolean;
+  /**
+   * @remarks
+   * The available time to live (TTL) values that can be configured for the domain name. Available TTL values are not returned by default. If you want to query such information, set NeedDetailAttributes to true.
+   */
   availableTtls?: DescribeDomainInfoResponseBodyAvailableTtls;
+  /**
+   * @remarks
+   * The time when the domain name was created.
+   * 
+   * @example
+   * 2015-12-12T09:23Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The DNS servers that are used to resolve the domain name.
+   */
   dnsServers?: DescribeDomainInfoResponseBodyDnsServers;
+  /**
+   * @remarks
+   * The ID of the domain name.
+   * 
+   * @example
+   * 00efd71a-770e-4255-b54e-6fe5659baffe
+   */
   domainId?: string;
   domainLoggingSwitchStatus?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the domain name group.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the domain name group.
+   * 
+   * @example
+   * mygroup
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * Indicates whether blackhole filtering was triggered.
+   * 
+   * @example
+   * false
+   */
   inBlackHole?: boolean;
+  /**
+   * @remarks
+   * Indicates whether traffic scrubbing was in progress.
+   * 
+   * @example
+   * false
+   */
   inClean?: boolean;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud DNS instance.
+   * 
+   * @example
+   * i-7bg
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The type of the DNS request line.
+   * 
+   * @example
+   * region_province
+   */
   lineType?: string;
+  /**
+   * @remarks
+   * The minimum TTL value.
+   * 
+   * @example
+   * 1
+   */
   minTtl?: number;
+  /**
+   * @remarks
+   * The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+   * 
+   * @example
+   * example.com
+   */
   punyCode?: string;
+  /**
+   * @remarks
+   * The tree-structure DNS request lines.
+   * 
+   * @example
+   * {"default":{},"unicom":{},"telecom":{},"mobile":{},"edu":{},"oversea":{},"baidu":{},"biying":{},"google":{}}
+   */
   recordLineTreeJson?: string;
+  /**
+   * @remarks
+   * The DNS request lines.
+   */
   recordLines?: DescribeDomainInfoResponseBodyRecordLines;
+  /**
+   * @remarks
+   * Indicates whether the DNS request lines are regional lines.
+   * 
+   * @example
+   * false
+   */
   regionLines?: boolean;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * remark
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aek3dj3wvclgcxo
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether secondary DNS is supported.
+   * 
+   * @example
+   * true
+   */
   slaveDns?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the queried domain name is a hosted subdomain name. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   subDomain?: boolean;
+  /**
+   * @remarks
+   * The version ID of Alibaba Cloud DNS.
+   * 
+   * @example
+   * version1
+   */
   versionCode?: string;
+  /**
+   * @remarks
+   * The edition of Alibaba Cloud DNS.
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6985,13 +12294,72 @@ export class DescribeDomainInfoResponse extends $tea.Model {
 }
 
 export class DescribeDomainLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the domain name group.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The keyword for the query in "%KeyWord%" mode. The keyword is not case-sensitive.
+   * 
+   * @example
+   * test
+   */
   keyWord?: string;
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number to return. The page number starts from **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return per page. Maximum value: **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The start time for the query. Format: **YYYY-MM-DD**
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The type of object of which you want to query operation logs. Valid values:
+   * 
+   * *   domain: domain name
+   * *   slavedns: secondary Domain Name System (DNS)
+   * 
+   * @example
+   * domain
+   */
   type?: string;
+  /**
+   * @remarks
+   * The end time for the query. Format: **YYYY-MM-DD**
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7025,10 +12393,42 @@ export class DescribeDomainLogsRequest extends $tea.Model {
 }
 
 export class DescribeDomainLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The operation logs.
+   */
   domainLogs?: DescribeDomainLogsResponseBodyDomainLogs;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 2
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7081,7 +12481,23 @@ export class DescribeDomainLogsResponse extends $tea.Model {
 }
 
 export class DescribeDomainNsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7103,11 +12519,47 @@ export class DescribeDomainNsRequest extends $tea.Model {
 }
 
 export class DescribeDomainNsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether all the name servers are Alibaba Cloud DNS servers.
+   * 
+   * @example
+   * true
+   */
   allAliDns?: boolean;
+  /**
+   * @remarks
+   * The cause code of the detection failure.
+   * 
+   * @example
+   * DnsCheck.Failed
+   */
   detectFailedReasonCode?: string;
+  /**
+   * @remarks
+   * The DNS server names configured for the domain name.
+   */
   dnsServers?: DescribeDomainNsResponseBodyDnsServers;
+  /**
+   * @remarks
+   * The Domain Name System (DNS) server names assigned by Alibaba Cloud DNS.
+   */
   expectDnsServers?: DescribeDomainNsResponseBodyExpectDnsServers;
+  /**
+   * @remarks
+   * Indicates whether the name servers include Alibaba Cloud DNS servers.
+   * 
+   * @example
+   * true
+   */
   includeAliDns?: boolean;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 16C7DC7A-2FA7-4D14-8B12-88A2BB6373DB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7162,8 +12614,33 @@ export class DescribeDomainNsResponse extends $tea.Model {
 }
 
 export class DescribeDomainRecordInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * This parameter is returned when you add a DNS record or when you query a list of DNS records.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7187,21 +12664,133 @@ export class DescribeDomainRecordInfoRequest extends $tea.Model {
 }
 
 export class DescribeDomainRecordInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the domain name.
+   * 
+   * @example
+   * 00efd71a-770e-4255-b54e-6fe5659baffe
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * dns-example.top
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the domain name group.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the domain name group.
+   * 
+   * @example
+   * MyGroup
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The DNS resolution line.
+   * 
+   * @example
+   * default
+   */
   line?: string;
+  /**
+   * @remarks
+   * The lock state of the DNS record. Valid values: **true and false**.
+   * 
+   * @example
+   * true
+   */
   locked?: boolean;
+  /**
+   * @remarks
+   * The priority of the mail exchanger (MX) record.
+   * 
+   * @example
+   * 5
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+   * 
+   * @example
+   * xn--fsq270a.com
+   */
   punyCode?: string;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * @
+   */
   RR?: string;
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The description of your DNS record.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The state of the DNS records. Valid values: **Enable and Disable**.
+   * 
+   * @example
+   * Enable
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time-to-live (TTL) of the DNS record.
+   * 
+   * @example
+   * 600
+   */
   TTL?: number;
+  /**
+   * @remarks
+   * The type of the DNS record.
+   * 
+   * @example
+   * MX
+   */
   type?: string;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * @example
+   * 1.1.XX.XX
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7276,20 +12865,148 @@ export class DescribeDomainRecordInfoResponse extends $tea.Model {
 }
 
 export class DescribeDomainRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The order in which you want to sort the returned DNS records. Valid values: DESC and ASC. Default value: DESC.
+   * 
+   * @example
+   * DESC
+   */
   direction?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the domain name group.
+   * 
+   * *   If you do not specify GroupId, all domain names are queried.
+   * *   If you set GroupId to 0, no value is returned.
+   * *   If you set GroupId to 1, the domain names in the default group are queried.
+   * *   If you set GroupId to -2, all domain names are queried.
+   * *   You can also specify GroupId based on the actual group ID.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: number;
+  /**
+   * @remarks
+   * The keyword.
+   * 
+   * @example
+   * test
+   */
   keyWord?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The resolution line. Default value: **default**.
+   * 
+   * For more information, see
+   * 
+   * [DNS lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
+   * 
+   * @example
+   * cn_mobile_anhui
+   */
   line?: string;
+  /**
+   * @remarks
+   * The method that is used to sort the returned DNS records. By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
+   * 
+   * @example
+   * default
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 500**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The hostname keyword based on which the system queries DNS records. The system queries DNS records based on the value of this parameter in fuzzy match mode. The value is not case-sensitive.
+   * 
+   * @example
+   * www
+   */
   RRKeyWord?: string;
+  /**
+   * @remarks
+   * The search mode. Valid values: **LIKE, EXACT, and ADVANCED**.
+   * 
+   * *   If you set SearchMode to LIKE or EXACT, specify KeyWord. In this case, RRKeyWord, TypeKeyWord, ValueKeyWord, Type, Line, and Status are invalid.
+   * 
+   * *   If you set SearchMode to ADVANCED, specify RRKeyWord, TypeKeyWord, ValueKeyWord, Type, Line, and Status.
+   * 
+   * *   If you do not specify SearchMode, the system determines the search mode based on the following rules:
+   * 
+   *     *   If KeyWord is specified, the system uses the LIKE mode.
+   *     *   If KeyWord is not specified, the system queries DNS records based on values of RRKeyWord and ValueKeyWord in fuzzy match mode, and based on the values of TypeKeyWord, Type, Line, and Status in exact match mode.
+   * 
+   * @example
+   * LIKE
+   */
   searchMode?: string;
+  /**
+   * @remarks
+   * The status of the DNS records to query. Valid values: **Enable and Disable**.
+   * 
+   * @example
+   * Enable
+   */
   status?: string;
+  /**
+   * @remarks
+   * The type of the DNS records to query. For more information, see
+   * 
+   * [DNS record types](https://www.alibabacloud.com/help/zh/doc-detail/29805.htm).
+   * 
+   * @example
+   * A
+   */
   type?: string;
+  /**
+   * @remarks
+   * The type keyword based on which the system queries DNS records. The system queries DNS records based on the value of this parameter in exact match mode. The value is not case-sensitive.
+   * 
+   * @example
+   * MX
+   */
   typeKeyWord?: string;
+  /**
+   * @remarks
+   * The record value keyword based on which the system queries DNS records. The system queries DNS records based on the value of this parameter in fuzzy match mode. The value is not case-sensitive.
+   * 
+   * @example
+   * com
+   */
   valueKeyWord?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7337,10 +13054,42 @@ export class DescribeDomainRecordsRequest extends $tea.Model {
 }
 
 export class DescribeDomainRecordsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned Domain Name System (DNS) records.
+   */
   domainRecords?: DescribeDomainRecordsResponseBodyDomainRecords;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7393,14 +13142,93 @@ export class DescribeDomainRecordsResponse extends $tea.Model {
 }
 
 export class DescribeDomainResolveStatisticsSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The order in which you want to sort the returned entries. Valid values:
+   * 
+   * *   DESC: the descending order
+   * *   ASC: the ascending order
+   * 
+   * @example
+   * DESC
+   */
   direction?: string;
+  /**
+   * @remarks
+   * The end time in the yyyy-MM-dd format, for example, 2023-03-13.
+   * 
+   * @example
+   * 2023-03-01
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The keyword. The Keyword parameter is used together with the SearchMode parameter.
+   * 
+   * @example
+   * test
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The language. Valid values: zh, en, and ja.
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 1000.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The search mode of the keyword. Valid values:
+   * 
+   * *   LIKE (default): fuzzy search
+   * *   EXACT: exact search
+   * 
+   * @example
+   * EXACT
+   */
   searchMode?: string;
+  /**
+   * @remarks
+   * The start time in the yyyy-MM-dd format, for example, 2023-03-01.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-03-01
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The threshold for the number of Domain Name System (DNS) requests. You can query the domain names at the specified quantity level of DNS requests and query the number of DNS requests for each domain name.
+   * 
+   * If you do not specify this parameter, the data about the domain names that have DNS requests is obtained.
+   * 
+   * If you set this parameter to a value less than 0, the data about all domain names is obtained.
+   * 
+   * If you set this parameter to 0, the data about the domain names that do not have DNS requests is obtained.
+   * 
+   * If you set this parameter to a value greater than 0, the data about the domain names whose number of DNS requests is less than or equal to the value of this parameter is obtained.
+   * 
+   * @example
+   * -1
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7436,11 +13264,50 @@ export class DescribeDomainResolveStatisticsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeDomainResolveStatisticsSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Maximum value: **100**. Default value: **20**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics.
+   */
   statistics?: DescribeDomainResolveStatisticsSummaryResponseBodyStatistics[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7495,10 +13362,54 @@ export class DescribeDomainResolveStatisticsSummaryResponse extends $tea.Model {
 }
 
 export class DescribeDomainStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The type of the domain name. Valid values:
+   * 
+   * *   PUBLIC (default): hosted public domain name
+   * *   CACHE: cached public domain name
+   * 
+   * @example
+   * PUBLIC CACHE
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * The end date of the query. Specify the end date in the **YYYY-MM-DD** format.
+   * 
+   * The default value is the day when you query the data.
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
+   * 
+   * You can only query the DNS records within the last 90 days.``
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7526,7 +13437,18 @@ export class DescribeDomainStatisticsRequest extends $tea.Model {
 }
 
 export class DescribeDomainStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics on the Domain Name System (DNS) requests.
+   */
   statistics?: DescribeDomainStatisticsResponseBodyStatistics;
   static names(): { [key: string]: string } {
     return {
@@ -7573,13 +13495,78 @@ export class DescribeDomainStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeDomainStatisticsSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+   * 
+   * The default value is the day when you perform the operation.
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The keyword for searches in %KeyWord% mode. The value is not case-sensitive.
+   * 
+   * @example
+   * test
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: **100**. Minimum value: **1**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The search mode of the keyword. Valid values:
+   * 
+   * *   **LIKE**: fuzzy match (default).
+   * *   **EXACT**: exact match.
+   * 
+   * @example
+   * LIKE
+   */
   searchMode?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the **YYYY-MM-DD** format.
+   * 
+   * You can only query DNS records of the last 90 days.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The threshold of query volume that can be obtained. You can also obtain data about a domain name with the query volume less than or equal to the threshold. For example, if you set this parameter to 100, you can query domain names with less than 100 queries.
+   * 
+   * @example
+   * 12
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7613,11 +13600,50 @@ export class DescribeDomainStatisticsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeDomainStatisticsSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 5
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CC625C21-8832-4683-BF10-C3CFB1A4FA13
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics on the Domain Name System (DNS) requests.
+   */
   statistics?: DescribeDomainStatisticsSummaryResponseBodyStatistics;
+  /**
+   * @remarks
+   * The total number of data records.
+   * 
+   * @example
+   * 68
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of returned pages.
+   * 
+   * @example
+   * 14
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7672,13 +13698,72 @@ export class DescribeDomainStatisticsSummaryResponse extends $tea.Model {
 }
 
 export class DescribeDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the domain name group. If you do not specify this parameter, all domain names are queried by default.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+   * 
+   * @example
+   * com
+   */
   keyWord?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-resourcegroupid01
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The search mode. Valid values:
+   * 
+   * *   **LIKE**: fuzzy match.
+   * *   **EXACT**: exact match.
+   * 
+   * @example
+   * LIKE
+   */
   searchMode?: string;
+  /**
+   * @remarks
+   * Specifies whether to query the starmark of the domain name.
+   * 
+   * @example
+   * true
+   */
   starmark?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7712,10 +13797,42 @@ export class DescribeDomainsRequest extends $tea.Model {
 }
 
 export class DescribeDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names.
+   */
   domains?: DescribeDomainsResponseBodyDomains;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 2
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 68386699-8B9E-4D5B-BC4C-75A28F6C2A00
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of domain names.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7768,9 +13885,37 @@ export class DescribeDomainsResponse extends $tea.Model {
 }
 
 export class DescribeGtmAccessStrategiesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the GTM instance whose access policies you want to query.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7796,11 +13941,50 @@ export class DescribeGtmAccessStrategiesRequest extends $tea.Model {
 }
 
 export class DescribeGtmAccessStrategiesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of the page returned.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0CCC9971-CEC9-4132-824B-4AE611C07623
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned list of access policies of the GTM instance.
+   */
   strategies?: DescribeGtmAccessStrategiesResponseBodyStrategies;
+  /**
+   * @remarks
+   * The total number of entries returned on all pages.
+   * 
+   * @example
+   * 1
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7855,7 +14039,23 @@ export class DescribeGtmAccessStrategiesResponse extends $tea.Model {
 }
 
 export class DescribeGtmAccessStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the access policy that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hra0hs
+   */
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7877,21 +14077,124 @@ export class DescribeGtmAccessStrategyRequest extends $tea.Model {
 }
 
 export class DescribeGtmAccessStrategyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The access policy.
+   * 
+   * @example
+   * AUTO
+   */
   accessMode?: string;
+  /**
+   * @remarks
+   * The access status. Valid values:
+   * 
+   * *   **DEFAULT**: Indicates normal when the default address pool is accessed.
+   * *   **FAILOVER**: Indicates an exception when a failover address pool is accessed.
+   * 
+   * @example
+   * DEFAULT
+   */
   accessStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether health check is enabled for the default address pool.
+   * 
+   * @example
+   * OPEN
+   */
   defaultAddrPoolMonitorStatus?: string;
+  /**
+   * @remarks
+   * The name of the default address pool.
+   */
   defaultAddrPoolName?: string;
+  /**
+   * @remarks
+   * The availability status of the default address pool.
+   * 
+   * @example
+   * AVAILABLE
+   */
   defaultAddrPoolStatus?: string;
+  /**
+   * @remarks
+   * The ID of the default address pool.
+   * 
+   * @example
+   * hra0i1
+   */
   defultAddrPoolId?: string;
+  /**
+   * @remarks
+   * The ID of the failover address pool.
+   * 
+   * @example
+   * hra0i2
+   */
   failoverAddrPoolId?: string;
+  /**
+   * @remarks
+   * Indicates whether health check is enabled for the failover address pool.
+   * 
+   * @example
+   * OPEN
+   */
   failoverAddrPoolMonitorStatus?: string;
+  /**
+   * @remarks
+   * The name of the failover address pool.
+   */
   failoverAddrPoolName?: string;
+  /**
+   * @remarks
+   * The availability status of the failover address pool.
+   * 
+   * @example
+   * AVAILABLE
+   */
   failoverAddrPoolStatus?: string;
+  /**
+   * @remarks
+   * The ID of the GTM instance whose access policy details you want to query.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The returned lines of access regions.
+   */
   lines?: DescribeGtmAccessStrategyResponseBodyLines;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * BA1608CA-834C-4E63-8682-8AF0B11ED72D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the access policy queried.
+   * 
+   * @example
+   * hra0hs
+   */
   strategyId?: string;
+  /**
+   * @remarks
+   * The mode of traffic scheduling.
+   * 
+   * @example
+   * SELF_DEFINED
+   */
   strategyMode?: string;
+  /**
+   * @remarks
+   * The name of the access policy queried.
+   */
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7966,7 +14269,23 @@ export class DescribeGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class DescribeGtmAccessStrategyAvailableConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gtm-cn-xxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7988,9 +14307,31 @@ export class DescribeGtmAccessStrategyAvailableConfigRequest extends $tea.Model 
 }
 
 export class DescribeGtmAccessStrategyAvailableConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The address pools.
+   */
   addrPools?: DescribeGtmAccessStrategyAvailableConfigResponseBodyAddrPools;
+  /**
+   * @remarks
+   * The Domain Name System (DNS) request sources.
+   */
   lines?: DescribeGtmAccessStrategyAvailableConfigResponseBodyLines;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C2851BA9-CE56-49AF-8D12-4FC6A49EE688
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the global line is recommended.
+   * 
+   * @example
+   * True
+   */
   suggestSetDefaultLine?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8041,6 +14382,13 @@ export class DescribeGtmAccessStrategyAvailableConfigResponse extends $tea.Model
 }
 
 export class DescribeGtmAvailableAlertGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8060,7 +14408,18 @@ export class DescribeGtmAvailableAlertGroupRequest extends $tea.Model {
 }
 
 export class DescribeGtmAvailableAlertGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The available alert groups of the GTM instance.
+   */
   availableAlertGroup?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8107,8 +14466,31 @@ export class DescribeGtmAvailableAlertGroupResponse extends $tea.Model {
 }
 
 export class DescribeGtmInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the GTM instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language of the values of specific response parameters.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * Specifies whether additional information is required. Default value: **false**. If the value is **true**, the AccessStrategyNum and AddressPoolNum parameters are returned.
+   * 
+   * @example
+   * false
+   */
   needDetailAttributes?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8132,22 +14514,147 @@ export class DescribeGtmInstanceRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of access policies of the GTM instance.
+   * 
+   * @example
+   * 5
+   */
   accessStrategyNum?: number;
+  /**
+   * @remarks
+   * The number of address pools of the GTM instance.
+   * 
+   * @example
+   * 5
+   */
   addressPoolNum?: number;
+  /**
+   * @remarks
+   * The alert group of the GTM instance.
+   * 
+   * @example
+   * [\\\\"Daily test - R\\&D group\\\\"]
+   */
   alertGroup?: string;
+  /**
+   * @remarks
+   * The domain name of the GTM instance to which the service domain name is mapped by using a CNAME record.
+   * 
+   * @example
+   * instance1.14.com
+   */
   cname?: string;
+  /**
+   * @remarks
+   * Indicates whether the CNAME is a custom domain name or is assigned by the system. Valid values:
+   * 
+   * *   **SYSTEM_ASSIGN**
+   * *   **CUSTOM**
+   * 
+   * @example
+   * SYSTEM_ASSIGN
+   */
   cnameMode?: string;
+  /**
+   * @remarks
+   * The time when the GTM instance was created.
+   * 
+   * @example
+   * 2018-06-06T11:34Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the time when the GTM instance was created.
+   * 
+   * @example
+   * 1528284856000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The time when the GTM instance expires.
+   * 
+   * @example
+   * 2018-06-06T11:34Z
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the time when the GTM instance expires.
+   * 
+   * @example
+   * 1528284856000
+   */
   expireTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the GTM instance.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the GTM instance.
+   * 
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The load balancing policy. Valid values:
+   * 
+   * *   **ALL_RR**: round robin
+   * *   **RATIO**: weighted round-robin
+   * 
+   * @example
+   * RATIO
+   */
   lbaStrategy?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E41AA251-F9BA-48C6-99B2-2B82B26A573A
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-testgroupid
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The global time to live (TTL).
+   * 
+   * @example
+   * 60
+   */
   ttl?: number;
+  /**
+   * @remarks
+   * The domain name of the application.
+   * 
+   * @example
+   * www.example.com
+   */
   userDomainName?: string;
+  /**
+   * @remarks
+   * The version code.
+   * 
+   * @example
+   * biaozhun
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8224,7 +14731,23 @@ export class DescribeGtmInstanceResponse extends $tea.Model {
 }
 
 export class DescribeGtmInstanceAddressPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8246,19 +14769,118 @@ export class DescribeGtmInstanceAddressPoolRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstanceAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool queried.
+   * 
+   * @example
+   * 2
+   */
   addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * 1234abc
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The addresses in the address pool.
+   */
   addrs?: DescribeGtmInstanceAddressPoolResponseBodyAddrs;
+  /**
+   * @remarks
+   * The time when the address pool was created.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The minimum number of available addresses in the address pool.
+   * 
+   * @example
+   * 2
+   */
   minAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * The health check ID of the address pool.
+   * 
+   * @example
+   * 100abc
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * Indicates whether health check was enabled for the address pool. Valid values:
+   * 
+   * *   **OPEN**: Enabled
+   * *   **CLOSE**: Disabled
+   * *   **UNCONFIGURED**: Not configured
+   * 
+   * @example
+   * OPEN
+   */
   monitorStatus?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The availability status of the address pool. Valid values:
+   * 
+   * *   **AVAILABLE**: Available
+   * *   **NOT_AVAILABLE**: Unavailable
+   * 
+   * @example
+   * AVAILABLE
+   */
   status?: string;
+  /**
+   * @remarks
+   * The type of the address pool. Valid values:
+   * 
+   * *   **IP**: IP address
+   * *   **DOMAIN**: Domain name
+   * 
+   * @example
+   * IP
+   */
   type?: string;
+  /**
+   * @remarks
+   * The last time when the address pool was updated.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * A timestamp that indicates the last time the address pool was updated.
+   * 
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8329,9 +14951,39 @@ export class DescribeGtmInstanceAddressPoolResponse extends $tea.Model {
 }
 
 export class DescribeGtmInstanceAddressPoolsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the GTM instance that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gtmtest
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return per page. Maximum value: **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8357,11 +15009,50 @@ export class DescribeGtmInstanceAddressPoolsRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstanceAddressPoolsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned list of address pools of the GTM instance.
+   */
   addrPools?: DescribeGtmInstanceAddressPoolsResponseBodyAddrPools;
+  /**
+   * @remarks
+   * The number of the page returned.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned on all pages.
+   * 
+   * @example
+   * 2
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8416,7 +15107,23 @@ export class DescribeGtmInstanceAddressPoolsResponse extends $tea.Model {
 }
 
 export class DescribeGtmInstanceStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8438,12 +15145,67 @@ export class DescribeGtmInstanceStatusRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstanceStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of unavailable addresses.
+   * 
+   * @example
+   * 10
+   */
   addrNotAvailableNum?: number;
+  /**
+   * @remarks
+   * The number of unavailable address pools.
+   * 
+   * @example
+   * 10
+   */
   addrPoolNotAvailableNum?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   ALLOW: Operations on the instance are allowed.
+   * *   DENY: Operations on the instance are not allowed.
+   * 
+   * @example
+   * ALLOW
+   */
   status?: string;
+  /**
+   * @remarks
+   * List of reasons for an instance status. Valid values:
+   * 
+   * *   INSTANCE_OPERATE_BLACK_LIST: The instance is in the blacklist.
+   * *   BETA_INSTANCE: The instance is in public preview.
+   * 
+   * @example
+   * ["BETA_INSTANCE"]
+   */
   statusReason?: string;
+  /**
+   * @remarks
+   * The number of access policies that are unavailable in the active address pool.
+   * 
+   * @example
+   * 10
+   */
   strategyNotAvailableNum?: number;
+  /**
+   * @remarks
+   * The number of access policies that fail over to the secondary address pool.
+   * 
+   * @example
+   * 10
+   */
   switchToFailoverStrategyNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8500,7 +15262,23 @@ export class DescribeGtmInstanceStatusResponse extends $tea.Model {
 }
 
 export class DescribeGtmInstanceSystemCnameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8522,7 +15300,21 @@ export class DescribeGtmInstanceSystemCnameRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstanceSystemCnameResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The CNAME record assigned by the system.
+   * 
+   * @example
+   * gtm-cn-mp91004xxxx.gtm-a2b4.com
+   */
   systemCname?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8569,11 +15361,53 @@ export class DescribeGtmInstanceSystemCnameResponse extends $tea.Model {
 }
 
 export class DescribeGtmInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The keyword that you use for query. Exact match is supported by instance ID or instance name.
+   * 
+   * @example
+   * test
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * Specifies whether additional information is required. Default value: **false**.
+   * 
+   * @example
+   * false
+   */
   needDetailAttributes?: boolean;
+  /**
+   * @remarks
+   * The page number to return.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-xxxxx
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8603,11 +15437,50 @@ export class DescribeGtmInstancesRequest extends $tea.Model {
 }
 
 export class DescribeGtmInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of queried instances.
+   */
   gtmInstances?: DescribeGtmInstancesResponseBodyGtmInstances;
+  /**
+   * @remarks
+   * The returned page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 193B0163-7F93-42DF-AB05-ACEEB7D22707
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8662,12 +15535,61 @@ export class DescribeGtmInstancesResponse extends $tea.Model {
 }
 
 export class DescribeGtmLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp that specifies the end of the time range to query.
+   * 
+   * @example
+   * 1363453350000
+   */
   endTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the GTM instance whose logs you want to query.
+   * 
+   * @example
+   * gtm-cn-xxxxx
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The keyword for searching logs, in case-insensitive "%Keyword%" format.
+   * 
+   * @example
+   * test
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * @example
+   * 1363453340000
+   */
   startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8699,11 +15621,50 @@ export class DescribeGtmLogsRequest extends $tea.Model {
 }
 
 export class DescribeGtmLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of logs returned.
+   */
   logs?: DescribeGtmLogsResponseBodyLogs;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 50C60A29-2E93-425A-ABA8-068686E28873
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned on all pages.
+   * 
+   * @example
+   * 224
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 224
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8758,6 +15719,13 @@ export class DescribeGtmLogsResponse extends $tea.Model {
 }
 
 export class DescribeGtmMonitorAvailableConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the values of specific response parameters.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8777,7 +15745,18 @@ export class DescribeGtmMonitorAvailableConfigRequest extends $tea.Model {
 }
 
 export class DescribeGtmMonitorAvailableConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The monitored nodes.
+   */
   ispCityNodes?: DescribeGtmMonitorAvailableConfigResponseBodyIspCityNodes;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8824,7 +15803,23 @@ export class DescribeGtmMonitorAvailableConfigResponse extends $tea.Model {
 }
 
 export class DescribeGtmMonitorConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the values of specific response parameters.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the health check configuration.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   monitorConfigId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8846,17 +15841,117 @@ export class DescribeGtmMonitorConfigRequest extends $tea.Model {
 }
 
 export class DescribeGtmMonitorConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the health check configuration was created.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the time when the health check configuration was created.
+   * 
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+   * 
+   * @example
+   * 3
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * The health check interval. Unit: seconds. The value is 60.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The monitored nodes.
+   */
   ispCityNodes?: DescribeGtmMonitorConfigResponseBodyIspCityNodes;
+  /**
+   * @remarks
+   * The ID of the health check configuration.
+   * 
+   * @example
+   * 1234abc
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+   * 
+   * HTTP or HTTPS:
+   * 
+   * *   port: the port to check.
+   * *   failureRate: the failure rate.
+   * *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal. Valid values: 400 and 500.
+   * *   host: the host configuration.
+   * *   path: the health check URL.
+   * 
+   * PING:
+   * 
+   * *   packetNum: the number of ping packets.
+   * *   packetLossRate: the loss rate of ping packets.
+   * *   failureRate: the failure rate.
+   * 
+   * TCP:
+   * 
+   * *   port: the port to check.
+   * *   failureRate: the failure rate.
+   * 
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   monitorExtendInfo?: string;
+  /**
+   * @remarks
+   * The protocol used for the health check.
+   * 
+   * @example
+   * HTTP
+   */
   protocolType?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The health check timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
+   * 
+   * @example
+   * 3000
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * The time when the health check configuration was last updated.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the time when the health check configuration was last updated.
+   * 
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8923,7 +16018,23 @@ export class DescribeGtmMonitorConfigResponse extends $tea.Model {
 }
 
 export class DescribeGtmRecoveryPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the disaster recovery plan that you want to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   recoveryPlanId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8945,20 +16056,119 @@ export class DescribeGtmRecoveryPlanRequest extends $tea.Model {
 }
 
 export class DescribeGtmRecoveryPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the disaster recovery plan was created.
+   * 
+   * @example
+   * 2019-08-11T05:04Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1565499867000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The number of faulty address pools.
+   * 
+   * @example
+   * 2
+   */
   faultAddrPoolNum?: number;
+  /**
+   * @remarks
+   * The list of faulty address pools.
+   */
   faultAddrPools?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPools;
+  /**
+   * @remarks
+   * The last time when the recovery plan was executed.
+   * 
+   * @example
+   * 2019-08-11T05:04Z
+   */
   lastExecuteTime?: string;
+  /**
+   * @remarks
+   * A timestamp that indicates the last time when the recovery plan was executed.
+   * 
+   * @example
+   * 1565505898000
+   */
   lastExecuteTimestamp?: number;
+  /**
+   * @remarks
+   * The last time when the disaster recovery plan was rolled back.
+   * 
+   * @example
+   * 2019-08-11T06:45Z
+   */
   lastRollbackTime?: string;
+  /**
+   * @remarks
+   * A timestamp that indicates the last time when the disaster recovery plan was rolled back.
+   * 
+   * @example
+   * 1565505919000
+   */
   lastRollbackTimestamp?: number;
+  /**
+   * @remarks
+   * The name of the disaster recovery plan queried.
+   * 
+   * @example
+   * name-example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the disaster recovery plan queried.
+   * 
+   * @example
+   * 55
+   */
   recoveryPlanId?: number;
+  /**
+   * @remarks
+   * The remarks on the disaster recovery plan.
+   * 
+   * @example
+   * remark-example
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0A5F4315-D6E8-435E-82DF-24F4C97D6999
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the disaster recovery plan queried.
+   * 
+   * @example
+   * UNEXECUTED
+   */
   status?: string;
+  /**
+   * @remarks
+   * The last time when the disaster recovery plan was updated.
+   * 
+   * @example
+   * 2019-08-11T06:45Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * A timestamp that indicates the last time when the disaster recovery plan was updated.
+   * 
+   * @example
+   * 1565499867000
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9031,6 +16241,13 @@ export class DescribeGtmRecoveryPlanResponse extends $tea.Model {
 }
 
 export class DescribeGtmRecoveryPlanAvailableConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9050,7 +16267,18 @@ export class DescribeGtmRecoveryPlanAvailableConfigRequest extends $tea.Model {
 }
 
 export class DescribeGtmRecoveryPlanAvailableConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of GTM instances involved in the disaster recovery plan.
+   */
   instances?: DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstances;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F8F8EF50-8B7F-4702-B294-97170A423403
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9097,9 +16325,37 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponse extends $tea.Model {
 }
 
 export class DescribeGtmRecoveryPlansRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The keyword for the query. Fuzzy match is supported by disaster recovery plan name.
+   * 
+   * @example
+   * test
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number to return. The page number starts from **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return per page. Maximum value: **100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9125,11 +16381,50 @@ export class DescribeGtmRecoveryPlansRequest extends $tea.Model {
 }
 
 export class DescribeGtmRecoveryPlansResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The details about the queried disaster recovery plans.
+   */
   recoveryPlans?: DescribeGtmRecoveryPlansResponseBodyRecoveryPlans;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2BA072CF-CA21-4A34-B6C2-227BE2C58079
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9184,9 +16479,39 @@ export class DescribeGtmRecoveryPlansResponse extends $tea.Model {
 }
 
 export class DescribeInstanceDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * weriwieru
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 2
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9212,11 +16537,50 @@ export class DescribeInstanceDomainsRequest extends $tea.Model {
 }
 
 export class DescribeInstanceDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names that are bound to the Alibaba Cloud DNS instance.
+   */
   instanceDomains?: DescribeInstanceDomainsResponseBodyInstanceDomains[];
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 2
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 68386699-8B9E-4D5B-BC4C-75A28F6C2A00
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned on all pages.
+   * 
+   * @example
+   * 2
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 2
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9272,13 +16636,45 @@ export class DescribeInstanceDomainsResponse extends $tea.Model {
 
 export class DescribeInternetDnsLogsRequest extends $tea.Model {
   accountId?: number;
+  /**
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @example
+   * 1709196299999
+   */
   endTimestamp?: number;
+  /**
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @example
+   * AUTHORITY
+   */
   module?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * {"sourceIp":"59.82.XX.XX","queryType":"A"}
+   */
   queryCondition?: string;
+  /**
+   * @example
+   * 1709192640000
+   */
   startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9314,12 +16710,36 @@ export class DescribeInternetDnsLogsRequest extends $tea.Model {
 }
 
 export class DescribeInternetDnsLogsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   complete?: boolean;
+  /**
+   * @example
+   * 1
+   */
   curPage?: number;
   logs?: DescribeInternetDnsLogsResponseBodyLogs;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * 5
+   */
   totalPage?: number;
+  /**
+   * @example
+   * 48
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9542,6 +16962,10 @@ export class DescribeIspFlushCacheRemainQuotaResponse extends $tea.Model {
 
 export class DescribeIspFlushCacheTaskRequest extends $tea.Model {
   lang?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10525,6 +17949,7 @@ export class DescribePdnsUdpIpSegmentsResponseBody extends $tea.Model {
   pageSize?: number;
   requestId?: string;
   totalCount?: number;
+  totalPages?: string;
   static names(): { [key: string]: string } {
     return {
       ipSegments: 'IpSegments',
@@ -10532,6 +17957,7 @@ export class DescribePdnsUdpIpSegmentsResponseBody extends $tea.Model {
       pageSize: 'PageSize',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
+      totalPages: 'TotalPages',
     };
   }
 
@@ -10542,6 +17968,7 @@ export class DescribePdnsUdpIpSegmentsResponseBody extends $tea.Model {
       pageSize: 'number',
       requestId: 'string',
       totalCount: 'number',
+      totalPages: 'string',
     };
   }
 
@@ -10642,13 +18069,71 @@ export class DescribePdnsUserInfoResponse extends $tea.Model {
 }
 
 export class DescribeRecordLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+   * 
+   * @example
+   * test
+   */
   keyWord?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
+   * 
+   * @example
+   * 2015-12-12
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   userClientIp?: string;
+  /**
+   * @remarks
+   * The end date of the query. Specify the end date in the **YYYY-MM-DD** format.
+   * 
+   * @example
+   * 2015-12-12
+   */
   endDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10682,10 +18167,42 @@ export class DescribeRecordLogsRequest extends $tea.Model {
 }
 
 export class DescribeRecordLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 2
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The operation logs.
+   */
   recordLogs?: DescribeRecordLogsResponseBodyRecordLogs;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10738,16 +18255,114 @@ export class DescribeRecordLogsResponse extends $tea.Model {
 }
 
 export class DescribeRecordResolveStatisticsSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The order in which the returned entries are sorted. Valid values:
+   * 
+   * *   DESC (default): descending order
+   * *   ASC: ascending order
+   * 
+   * @example
+   * DESC
+   */
   direction?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The type of the domain name. The parameter value is not case-sensitive. Valid values:
+   * 
+   * *   PUBLIC (default): hosted public domain name
+   * *   CACHE: cache-accelerated domain name
+   * 
+   * @example
+   * PUBLIC
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * The end date of the time range to be queried. Specify the time in the yyyy-MM-dd format, such as 2023-03-13.
+   * 
+   * @example
+   * 2023-03-29
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The keyword. Keyword is used together with SearchMode.
+   * 
+   * @example
+   * test
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The language. Valid values: zh, en, and ja.
+   * 
+   * @example
+   * zh
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 1000.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The search mode of the keyword. Valid values:
+   * 
+   * *   LIKE (default): fuzzy search
+   * *   EXACT: exact search
+   * 
+   * @example
+   * LIKE
+   */
   searchMode?: string;
+  /**
+   * @remarks
+   * The start date of the time range to be queried. Specify the time in the yyyy-MM-dd format, such as 2023-03-01.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-03-29
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The threshold for the number of Domain Name System (DNS) requests. You can query the subdomain names at the specified quantity level of DNS requests and query the number of DNS requests for each subdomain name.
+   * 
+   * If you do not specify this parameter, the data about the subdomain names that have DNS requests is obtained.
+   * 
+   * If you set this parameter to a value less than 0, the data about all subdomain names is obtained.
+   * 
+   * If you set this parameter to 0, the data about the subdomain names that do not have DNS requests is obtained.
+   * 
+   * If you set this parameter to a value greater than 0, the data about the subdomain names whose number of DNS requests is less than or equal to the value of this parameter is obtained.
+   * 
+   * @example
+   * -1
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10787,11 +18402,50 @@ export class DescribeRecordResolveStatisticsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeRecordResolveStatisticsSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 500**. Default value: **20**.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 389DFFA3-77A5-4A9E-BF3D-147C6F98A5BA
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics.
+   */
   statistics?: DescribeRecordResolveStatisticsSummaryResponseBodyStatistics[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10846,11 +18500,70 @@ export class DescribeRecordResolveStatisticsSummaryResponse extends $tea.Model {
 }
 
 export class DescribeRecordStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dns-example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The type of the domain name. The parameter value is not case-sensitive. Valid values:
+   * 
+   * *   PUBLIC (default): hosted public domain name
+   * *   CACHE: cache-accelerated domain name
+   * 
+   * @example
+   * PUBLIC
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * The end date of the query. Specify the end date in the **YYYY-MM-DD** format.
+   * 
+   * The default value is the day when you query the data.
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The hostname. If you want to resolve the subdomain name www.dns-exmaple.top, set this parameter to www.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www
+   */
   rr?: string;
+  /**
+   * @remarks
+   * The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
+   * 
+   * You can only query the DNS records within the last 90 days.``
+   * 
+   * If the time range is less than or equal to seven days, data is returned on an hourly basis.````
+   * 
+   * If the time range is greater than seven days, data is returned on a daily basis.````
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10880,7 +18593,18 @@ export class DescribeRecordStatisticsRequest extends $tea.Model {
 }
 
 export class DescribeRecordStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The statistics on the DNS requests.
+   */
   statistics?: DescribeRecordStatisticsResponseBodyStatistics;
   static names(): { [key: string]: string } {
     return {
@@ -10927,15 +18651,99 @@ export class DescribeRecordStatisticsResponse extends $tea.Model {
 }
 
 export class DescribeRecordStatisticsSummaryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dns-example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The type of the domain name. The parameter value is not case-sensitive. Valid values:
+   * 
+   * *   PUBLIC (default): hosted public domain name
+   * *   CACHE: cache-accelerated domain name
+   * 
+   * @example
+   * PUBLIC
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * The end date of the query. Specify the start date in the **YYYY-MM-DD** format.
+   * 
+   * The default value is the day when you query the data.
+   * 
+   * @example
+   * 2019-07-04
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * The keyword for searches in %KeyWord% mode. The value is not case-sensitive.
+   * 
+   * @example
+   * test
+   */
   keyword?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The search mode of the keyword. Valid values:
+   * 
+   * *   **LIKE** (default): fuzzy search
+   * *   **EXACT**: exact search
+   * 
+   * @example
+   * EXACT
+   */
   searchMode?: string;
+  /**
+   * @remarks
+   * The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
+   * 
+   * You can only query the DNS records within the last 90 days.``
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2019-07-04
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * The maximum number of DNS requests that you can obtain. You can obtain data about a domain name with DNS request volume less than or equal to the maximum number. For example, if you set this parameter to 100, you can query domain names with less than 100 DNS requests.
+   * 
+   * @example
+   * 12
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10973,11 +18781,50 @@ export class DescribeRecordStatisticsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeRecordStatisticsSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E49F0023-4A98-486F-8BA3-6003D5664105
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The DNS requests.
+   */
   statistics?: DescribeRecordStatisticsSummaryResponseBodyStatistics;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 3
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11032,13 +18879,75 @@ export class DescribeRecordStatisticsSummaryResponse extends $tea.Model {
 }
 
 export class DescribeSubDomainRecordsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The DNS resolution line.
+   * 
+   * @example
+   * default
+   */
   line?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * If you set SubDomain to `a.www.example.com` and leave
+   * 
+   * DomainName empty, the system returns the DNS records that contain the hostname `a.www` for the domain name example.com. If you set SubDomain to a.www.example.com and set DomainName to www.example.com, the system returns the DNS records that contain the hostname `a` for the domain name www.example.com. If you set SubDomain to a.www.example.com and set DomainName to a.www.example.com, the system returns the DNS records that contain the hostname `@` for the domain name a.www.example.com.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a.www.example.com
+   */
   subDomain?: string;
+  /**
+   * @remarks
+   * The type of DNS records. If you do not specify this parameter, all types of DNS records for the subdomain name are returned.
+   * 
+   * Valid values: **A, MX, CNAME, TXT, REDIRECT_URL, FORWORD_URL, NS, AAAA, and SRV**.
+   * 
+   * @example
+   * MX
+   */
   type?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11072,10 +18981,42 @@ export class DescribeSubDomainRecordsRequest extends $tea.Model {
 }
 
 export class DescribeSubDomainRecordsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned DNS records.
+   */
   domainRecords?: DescribeSubDomainRecordsResponseBodyDomainRecords;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 2
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11128,8 +19069,29 @@ export class DescribeSubDomainRecordsResponse extends $tea.Model {
 }
 
 export class DescribeSupportLinesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 域名名称。
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * 语言。
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * 用户端IP。
+   * 
+   * @example
+   * 1.1.*.*
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11153,7 +19115,18 @@ export class DescribeSupportLinesRequest extends $tea.Model {
 }
 
 export class DescribeSupportLinesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 云解析线路列表。
+   */
   recordLines?: DescribeSupportLinesResponseBodyRecordLines;
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * CFDA0830-7D6E-4C13-8632-B57C7EDCF079
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11200,9 +19173,39 @@ export class DescribeSupportLinesResponse extends $tea.Model {
 }
 
 export class DescribeTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return per page. Default value: 200.
+   * 
+   * @example
+   * 200
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the resources from which you want to query tags. Set the value to DOMAIN.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DOMAIN
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11228,10 +19231,42 @@ export class DescribeTagsRequest extends $tea.Model {
 }
 
 export class DescribeTagsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 200.
+   * 
+   * @example
+   * 200
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 89184F33-48A1-4401-9C0F-40E45DB091AB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tags added to the resource.
+   */
   tags?: DescribeTagsResponseBodyTags[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11284,12 +19319,66 @@ export class DescribeTagsResponse extends $tea.Model {
 }
 
 export class DescribeTransferDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies the domain name for which you want to view the transfer record.
+   * 
+   * @example
+   * alidns.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The user ID from which the domain name was transferred to the current account.
+   * 
+   * @example
+   * 123456
+   */
   fromUserId?: number;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The user ID to which the domain name was transferred from the current account.
+   * 
+   * @example
+   * 123456
+   */
   targetUserId?: number;
+  /**
+   * @remarks
+   * The transfer type. Valid values:
+   * 
+   * *   IN: The domain name was transferred to the current account.
+   * *   OUT: The domain name was transferred from the current account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * IN
+   */
   transferType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11321,10 +19410,42 @@ export class DescribeTransferDomainsRequest extends $tea.Model {
 }
 
 export class DescribeTransferDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names that were transferred between accounts.
+   */
   domainTransfers?: DescribeTransferDomainsResponseBodyDomainTransfers;
+  /**
+   * @remarks
+   * The page number. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11377,7 +19498,23 @@ export class DescribeTransferDomainsResponse extends $tea.Model {
 }
 
 export class ExecuteGtmRecoveryPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the disaster recovery plan that you want to executed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   recoveryPlanId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11399,6 +19536,13 @@ export class ExecuteGtmRecoveryPlanRequest extends $tea.Model {
 }
 
 export class ExecuteGtmRecoveryPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11443,7 +19587,23 @@ export class ExecuteGtmRecoveryPlanResponse extends $tea.Model {
 }
 
 export class GetMainDomainNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The string. The string can be up to 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   inputString?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11465,9 +19625,37 @@ export class GetMainDomainNameRequest extends $tea.Model {
 }
 
 export class GetMainDomainNameResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The level of the entered domain name.
+   * 
+   * @example
+   * 2
+   */
   domainLevel?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * www
+   */
   RR?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11518,8 +19706,34 @@ export class GetMainDomainNameResponse extends $tea.Model {
 }
 
 export class GetTxtRecordForVerifyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The feature verified by using the TXT record. Valid values:
+   * 
+   * *   ADD_SUB_DOMAIN
+   * *   RETRIEVAL
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ADD_SUB_DOMAIN
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11543,10 +19757,42 @@ export class GetTxtRecordForVerifyRequest extends $tea.Model {
 }
 
 export class GetTxtRecordForVerifyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * >  If you do not specify this parameter, it is not returned.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   parentDomainName?: string;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * aliyunRetrieval
+   */
   RR?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9CC0D642-49D4-48DE-A1A5-9F218652E4A7
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * >  The validity period is three days.
+   * 
+   * @example
+   * c99419e6997f41daaa3e*****
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11599,13 +19845,45 @@ export class GetTxtRecordForVerifyResponse extends $tea.Model {
 }
 
 export class ListCloudGtmAddressPoolsRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * AddressPool-1
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   addressPoolType?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11640,10 +19918,30 @@ export class ListCloudGtmAddressPoolsRequest extends $tea.Model {
 
 export class ListCloudGtmAddressPoolsResponseBody extends $tea.Model {
   addressPools?: ListCloudGtmAddressPoolsResponseBodyAddressPools;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * 11
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11698,16 +19996,66 @@ export class ListCloudGtmAddressPoolsResponse extends $tea.Model {
 }
 
 export class ListCloudGtmAddressesRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   monitorTemplateId?: string;
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * IPv4
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11748,10 +20096,30 @@ export class ListCloudGtmAddressesRequest extends $tea.Model {
 
 export class ListCloudGtmAddressesResponseBody extends $tea.Model {
   addresses?: ListCloudGtmAddressesResponseBodyAddresses;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * 30
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 2
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11806,13 +20174,57 @@ export class ListCloudGtmAddressesResponse extends $tea.Model {
 }
 
 export class ListCloudGtmAlertLogsRequest extends $tea.Model {
+  /**
+   * @example
+   * ALERT
+   */
   actionType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1711328826977
+   */
   endTimestamp?: number;
+  /**
+   * @example
+   * GTM_ADDRESS
+   */
   entityType?: string;
+  /**
+   * @example
+   * pool-895280232254422016
+   */
   keyword?: string;
+  /**
+   * @example
+   * zh-CN
+   */
   lang?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1611328826977
+   */
   startTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11847,10 +20259,30 @@ export class ListCloudGtmAlertLogsRequest extends $tea.Model {
 
 export class ListCloudGtmAlertLogsResponseBody extends $tea.Model {
   logs?: ListCloudGtmAlertLogsResponseBodyLogs;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * 15
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11905,6 +20337,10 @@ export class ListCloudGtmAlertLogsResponse extends $tea.Model {
 }
 
 export class ListCloudGtmAvailableAlertGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11925,6 +20361,10 @@ export class ListCloudGtmAvailableAlertGroupsRequest extends $tea.Model {
 
 export class ListCloudGtmAvailableAlertGroupsResponseBody extends $tea.Model {
   alertGroups?: ListCloudGtmAvailableAlertGroupsResponseBodyAlertGroups;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11971,14 +20411,50 @@ export class ListCloudGtmAvailableAlertGroupsResponse extends $tea.Model {
 }
 
 export class ListCloudGtmInstanceConfigsRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * www.example.com
+   */
   scheduleDomainName?: string;
+  /**
+   * @example
+   * example.com
+   */
   scheduleZoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12015,10 +20491,30 @@ export class ListCloudGtmInstanceConfigsRequest extends $tea.Model {
 
 export class ListCloudGtmInstanceConfigsResponseBody extends $tea.Model {
   instanceConfigs?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigs;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12073,11 +20569,35 @@ export class ListCloudGtmInstanceConfigsResponse extends $tea.Model {
 }
 
 export class ListCloudGtmInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * gtm-cn-jmp3qnw**03
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12108,10 +20628,30 @@ export class ListCloudGtmInstancesRequest extends $tea.Model {
 
 export class ListCloudGtmInstancesResponseBody extends $tea.Model {
   instances?: ListCloudGtmInstancesResponseBodyInstances;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * 15
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12166,6 +20706,10 @@ export class ListCloudGtmInstancesResponse extends $tea.Model {
 }
 
 export class ListCloudGtmMonitorNodesRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12187,6 +20731,10 @@ export class ListCloudGtmMonitorNodesRequest extends $tea.Model {
 export class ListCloudGtmMonitorNodesResponseBody extends $tea.Model {
   ipv4IspCityNodes?: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodes;
   ipv6IspCityNodes?: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodes;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12235,11 +20783,41 @@ export class ListCloudGtmMonitorNodesResponse extends $tea.Model {
 }
 
 export class ListCloudGtmMonitorTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
+  /**
+   * @example
+   * IPv4-Ping
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ping
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12269,11 +20847,31 @@ export class ListCloudGtmMonitorTemplatesRequest extends $tea.Model {
 }
 
 export class ListCloudGtmMonitorTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 75446CC1-FC9A-4595-8D96-089D73D7A63D
+   */
   requestId?: string;
   templates?: ListCloudGtmMonitorTemplatesResponseBodyTemplates;
+  /**
+   * @example
+   * 30
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 2
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12328,10 +20926,41 @@ export class ListCloudGtmMonitorTemplatesResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language in which you want some response parameters to be returned.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The token that determines the start point of the query.
+   * 
+   * @example
+   * 4698691
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the resource.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DOMAIN
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * An array of tag key-value pairs.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -12359,8 +20988,26 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The token used to start the next query. If no value is returned for NextToken, no next queries are sent.
+   * 
+   * @example
+   * 4698691
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 61092C8D-6AEB-4310-B74D-C632F89BF4FB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Details of the resource and tags, including the resource ID, the resource type, tag keys, and tag values.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {
     return {
@@ -12409,8 +21056,31 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ModifyHichinaDomainDNSRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language type.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12434,8 +21104,23 @@ export class ModifyHichinaDomainDNSRequest extends $tea.Model {
 }
 
 export class ModifyHichinaDomainDNSResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of DNS servers after the domain name is changed.
+   */
   newDnsServers?: ModifyHichinaDomainDNSResponseBodyNewDnsServers;
+  /**
+   * @remarks
+   * The list of DNS servers before the domain name is changed.
+   */
   originalDnsServers?: ModifyHichinaDomainDNSResponseBodyOriginalDnsServers;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12484,8 +21169,33 @@ export class ModifyHichinaDomainDNSResponse extends $tea.Model {
 }
 
 export class MoveDomainResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the new resource group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-aekzzk7hx3glaoq
+   */
   newResourceGroupId?: string;
+  /**
+   * @remarks
+   * The resource ID. If Tag is left empty, ResourceId is required.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12509,6 +21219,13 @@ export class MoveDomainResourceGroupRequest extends $tea.Model {
 }
 
 export class MoveDomainResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C6F1D541-E7A6-447A-A2B5-9F7A20B2A8FB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12553,8 +21270,26 @@ export class MoveDomainResourceGroupResponse extends $tea.Model {
 }
 
 export class MoveGtmResourceGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AgIDE1MA_XXX
+   */
   newResourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-aekzzk7hx3*****
+   */
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12578,6 +21313,10 @@ export class MoveGtmResourceGroupRequest extends $tea.Model {
 }
 
 export class MoveGtmResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C6F1D541-E7A6-447A-A2B5-9F7A20B2A8FB
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12622,8 +21361,35 @@ export class MoveGtmResourceGroupResponse extends $tea.Model {
 }
 
 export class OperateBatchDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The DNS records. You can submit up to 1000 DNS records.
+   * 
+   * This parameter is required.
+   */
   domainRecordInfo?: OperateBatchDomainRequestDomainRecordInfo[];
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The type of the batch operation. Valid values:
+   * 
+   * *   **DOMAIN_ADD**: adds domain names in batches.
+   * *   **DOMAIN_DEL**: deletes domain names in batches.
+   * *   **RR_ADD**: adds DNS records in batches.
+   * *   **RR_DEL**: deletes DNS records in batches. This operation deletes the DNS records with the specified hostname or record value. If you do not specify the Rr and Value parameters, this operation deletes the DNS records that are added for the specified domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * RR_ADD
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12647,7 +21413,21 @@ export class OperateBatchDomainRequest extends $tea.Model {
 }
 
 export class OperateBatchDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 75446CC1-FC9A-4595-8D96-089D73D7A63D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 345345
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12760,9 +21540,39 @@ export class PausePdnsServiceResponse extends $tea.Model {
 }
 
 export class PreviewGtmRecoveryPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Pages start from page **1**. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on per page. Maximum value: **20**. Default value: **5**.
+   * 
+   * @example
+   * 5
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the disaster recovery plan that you want to preview.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   recoveryPlanId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12788,11 +21598,50 @@ export class PreviewGtmRecoveryPlanRequest extends $tea.Model {
 }
 
 export class PreviewGtmRecoveryPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 5
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The returned preview information of the disaster recovery plan.
+   */
   previews?: PreviewGtmRecoveryPlanResponseBodyPreviews;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 853805EA-3D47-47D5-9A1A-A45C24313ABD
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned on all pages.
+   * 
+   * @example
+   * 15
+   */
   totalItems?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 3
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12979,9 +21828,21 @@ export class RemovePdnsUdpIpSegmentResponse extends $tea.Model {
 }
 
 export class ReplaceCloudGtmAddressPoolAddressRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * pool-89618921167339**24
+   */
   addressPoolId?: string;
   addresses?: ReplaceCloudGtmAddressPoolAddressRequestAddresses[];
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13007,9 +21868,21 @@ export class ReplaceCloudGtmAddressPoolAddressRequest extends $tea.Model {
 }
 
 export class ReplaceCloudGtmAddressPoolAddressShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * pool-89618921167339**24
+   */
   addressPoolId?: string;
   addressesShrink?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13035,8 +21908,20 @@ export class ReplaceCloudGtmAddressPoolAddressShrinkRequest extends $tea.Model {
 }
 
 export class ReplaceCloudGtmAddressPoolAddressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pool-89618921167339**24
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13085,10 +21970,26 @@ export class ReplaceCloudGtmAddressPoolAddressResponse extends $tea.Model {
 }
 
 export class ReplaceCloudGtmInstanceConfigAddressPoolRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
   addressPools?: ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools[];
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13116,10 +22017,26 @@ export class ReplaceCloudGtmInstanceConfigAddressPoolRequest extends $tea.Model 
 }
 
 export class ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
   addressPoolsShrink?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13147,7 +22064,15 @@ export class ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest extends $tea.
 }
 
 export class ReplaceCloudGtmInstanceConfigAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13260,7 +22185,23 @@ export class ResumePdnsServiceResponse extends $tea.Model {
 }
 
 export class RetrieveDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13282,6 +22223,13 @@ export class RetrieveDomainRequest extends $tea.Model {
 }
 
 export class RetrieveDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9CC0D642-49D4-48DE-A1A5-9F218652E4A7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13326,7 +22274,23 @@ export class RetrieveDomainResponse extends $tea.Model {
 }
 
 export class RollbackGtmRecoveryPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the disaster recovery plan that you want to roll back.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   recoveryPlanId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13348,6 +22312,13 @@ export class RollbackGtmRecoveryPlanRequest extends $tea.Model {
 }
 
 export class RollbackGtmRecoveryPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 853805EA-3D47-47D5-9A1A-A45C24313ABD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13392,15 +22363,55 @@ export class RollbackGtmRecoveryPlanResponse extends $tea.Model {
 }
 
 export class SearchCloudGtmAddressPoolsRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * AddressPool-1
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   addressPoolType?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13439,10 +22450,30 @@ export class SearchCloudGtmAddressPoolsRequest extends $tea.Model {
 
 export class SearchCloudGtmAddressPoolsResponseBody extends $tea.Model {
   addressPools?: SearchCloudGtmAddressPoolsResponseBodyAddressPools;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * 11
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13497,19 +22528,73 @@ export class SearchCloudGtmAddressPoolsResponse extends $tea.Model {
 }
 
 export class SearchCloudGtmAddressesRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * Ping-IPv4
+   */
   monitorTemplateName?: string;
+  /**
+   * @example
+   * or
+   */
   nameSearchCondition?: string;
   names?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * or
+   */
   remarkSearchCondition?: string;
   remarks?: string[];
+  /**
+   * @example
+   * IPv4
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13556,10 +22641,30 @@ export class SearchCloudGtmAddressesRequest extends $tea.Model {
 
 export class SearchCloudGtmAddressesResponseBody extends $tea.Model {
   addresses?: SearchCloudGtmAddressesResponseBodyAddresses;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * 15
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13614,16 +22719,60 @@ export class SearchCloudGtmAddressesResponse extends $tea.Model {
 }
 
 export class SearchCloudGtmInstanceConfigsRequest extends $tea.Model {
+  /**
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * www.example.com
+   */
   scheduleDomainName?: string;
+  /**
+   * @example
+   * example.com
+   */
   scheduleZoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13664,10 +22813,30 @@ export class SearchCloudGtmInstanceConfigsRequest extends $tea.Model {
 
 export class SearchCloudGtmInstanceConfigsResponseBody extends $tea.Model {
   instanceConfigs?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigs;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 6AEC7A64-3CB1-4C49-8B35-0B901F1E26BF
+   */
   requestId?: string;
+  /**
+   * @example
+   * 15
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13722,11 +22891,35 @@ export class SearchCloudGtmInstanceConfigsResponse extends $tea.Model {
 }
 
 export class SearchCloudGtmInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13757,10 +22950,30 @@ export class SearchCloudGtmInstancesRequest extends $tea.Model {
 
 export class SearchCloudGtmInstancesResponseBody extends $tea.Model {
   instances?: SearchCloudGtmInstancesResponseBodyInstances;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13815,11 +23028,41 @@ export class SearchCloudGtmInstancesResponse extends $tea.Model {
 }
 
 export class SearchCloudGtmMonitorTemplatesRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
+  /**
+   * @example
+   * IPv4-Ping
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * ping
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13849,11 +23092,31 @@ export class SearchCloudGtmMonitorTemplatesRequest extends $tea.Model {
 }
 
 export class SearchCloudGtmMonitorTemplatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   templates?: SearchCloudGtmMonitorTemplatesResponseBodyTemplates;
+  /**
+   * @example
+   * 1
+   */
   totalItems?: number;
+  /**
+   * @example
+   * 1
+   */
   totalPages?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13908,12 +23171,66 @@ export class SearchCloudGtmMonitorTemplatesResponse extends $tea.Model {
 }
 
 export class SetDNSSLBStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The DNS resolution line. The line can be the default line, China Telecom, and China Mobile.
+   * 
+   * @example
+   * China Mobile.
+   */
   line?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable or disable weighted round-robin. Valid values:
+   * 
+   * *   **true** (default): enables weighted round-robin.
+   * *   **false**: disables weighted round-robin.
+   * 
+   * @example
+   * true
+   */
   open?: boolean;
+  /**
+   * @remarks
+   * The subdomain name for which you want to enable weighted round-robin. Set the parameter to @.example.com instead of example.com.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www.example.com
+   */
   subDomain?: string;
+  /**
+   * @remarks
+   * The type of the Domain Name System (DNS) record. Valid values: A and AAAA. Default value: A.
+   * 
+   * @example
+   * A
+   */
   type?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13945,8 +23262,29 @@ export class SetDNSSLBStatusRequest extends $tea.Model {
 }
 
 export class SetDNSSLBStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether weighted round-robin is enabled for the subdomain name.
+   * 
+   * @example
+   * true
+   */
   open?: boolean;
+  /**
+   * @remarks
+   * The number of A records that are matched.
+   * 
+   * @example
+   * 8
+   */
   recordCount?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13995,8 +23333,37 @@ export class SetDNSSLBStatusResponse extends $tea.Model {
 }
 
 export class SetDnsGtmAccessModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The primary/secondary switchover policy for address pool groups. Valid values:
+   * 
+   * *   AUTO: performs automatic switchover between the primary and secondary address pool groups upon failures.
+   * *   DEFAULT: uses the primary address pool group.
+   * *   FAILOVER: uses the secondary address pool group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * auto
+   */
   accessMode?: string;
+  /**
+   * @remarks
+   * The language to return some response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * strategyId
+   */
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14020,6 +23387,13 @@ export class SetDnsGtmAccessModeRequest extends $tea.Model {
 }
 
 export class SetDnsGtmAccessModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14064,8 +23438,36 @@ export class SetDnsGtmAccessModeResponse extends $tea.Model {
 }
 
 export class SetDnsGtmMonitorStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the health check task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MonitorConfigId1
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the health check feature. Valid values:
+   * 
+   * *   OPEN: enables the health check feature.
+   * *   CLOSE: disables the health check feature.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * open
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14089,6 +23491,13 @@ export class SetDnsGtmMonitorStatusRequest extends $tea.Model {
 }
 
 export class SetDnsGtmMonitorStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14133,8 +23542,36 @@ export class SetDnsGtmMonitorStatusResponse extends $tea.Model {
 }
 
 export class SetDomainDnssecStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name for which you want to set the DNSSEC status.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The DNSSEC status. Valid values:
+   * 
+   * *   ON: enables DNSSEC for the domain name.
+   * *   OFF: disables DNSSEC for the domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ON
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14158,6 +23595,13 @@ export class SetDomainDnssecStatusRequest extends $tea.Model {
 }
 
 export class SetDomainDnssecStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14202,9 +23646,44 @@ export class SetDomainDnssecStatusResponse extends $tea.Model {
 }
 
 export class SetDomainRecordStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The state of the DNS record. Valid values:
+   * 
+   * *   **Enable**: enables the DNS record.
+   * *   **Disable**: disables the DNS record.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Disable
+   */
   status?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14230,8 +23709,29 @@ export class SetDomainRecordStatusRequest extends $tea.Model {
 }
 
 export class SetDomainRecordStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the DNS record.
+   * 
+   * @example
+   * Disable
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14280,8 +23780,37 @@ export class SetDomainRecordStatusResponse extends $tea.Model {
 }
 
 export class SetGtmAccessModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The target access policy of the GTM instance. Valid values:
+   * 
+   * *   **AUTO**: Automatic switch
+   * *   **DEFAULT**: Default address pool
+   * *   **FAILOVER**: Failover address pool
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AUTO
+   */
   accessMode?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the access policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hra0hx
+   */
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14305,6 +23834,13 @@ export class SetGtmAccessModeRequest extends $tea.Model {
 }
 
 export class SetGtmAccessModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14349,8 +23885,36 @@ export class SetGtmAccessModeResponse extends $tea.Model {
 }
 
 export class SetGtmMonitorStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The health check ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * abc1234
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * Specifies whether health check is enabled for the address pool. Valid values:
+   * 
+   * *   **OPEN**: Enabled
+   * *   **CLOSE**: Disabled
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * OPEN
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14374,6 +23938,13 @@ export class SetGtmMonitorStatusRequest extends $tea.Model {
 }
 
 export class SetGtmMonitorStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14418,8 +23989,20 @@ export class SetGtmMonitorStatusResponse extends $tea.Model {
 }
 
 export class SubmitIspFlushCacheTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   isp?: string[];
   lang?: string;
   static names(): { [key: string]: string } {
@@ -14490,8 +24073,36 @@ export class SubmitIspFlushCacheTaskResponse extends $tea.Model {
 }
 
 export class SwitchDnsGtmInstanceStrategyModeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the GTM instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The access policy type. Valid values:
+   * 
+   * *   GEO: geographical location-based
+   * *   LATENCY: latency-based
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * GEO
+   */
   strategyMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14515,6 +24126,13 @@ export class SwitchDnsGtmInstanceStrategyModeRequest extends $tea.Model {
 }
 
 export class SwitchDnsGtmInstanceStrategyModeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14559,9 +24177,40 @@ export class SwitchDnsGtmInstanceStrategyModeResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dns-example.com
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DOMAIN
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tag to add to the resource.
+   * 
+   * This parameter is required.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -14587,6 +24236,13 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 635B0CCD-15A7-48C9-B4D6-628FF57FF4B8
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14631,9 +24287,44 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class TransferDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names. Separate multiple domain names with commas (,). Only domain names registered with Alibaba Cloud are supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test1.com,test2.com
+   */
   domainNames?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh**. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The description of the domain name.
+   * 
+   * @example
+   * test domain transfer
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The destination user ID. The domain names and their Domain Name System (DNS) records are transferred to the destination user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345678
+   */
   targetUserId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14659,7 +24350,21 @@ export class TransferDomainRequest extends $tea.Model {
 }
 
 export class TransferDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 112233
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14706,8 +24411,35 @@ export class TransferDomainResponse extends $tea.Model {
 }
 
 export class UnbindInstanceDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names.
+   * 
+   * Separate multiple domain names with commas (,). Up to 100 domain names can be entered.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com,example.net
+   */
   domainNames?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14731,8 +24463,29 @@ export class UnbindInstanceDomainsRequest extends $tea.Model {
 }
 
 export class UnbindInstanceDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of domain names that failed to be unbound from the instance.
+   * 
+   * @example
+   * 0
+   */
   failedCount?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 123
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of domain names that are unbound from the instance.
+   * 
+   * @example
+   * 2
+   */
   successCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14781,10 +24534,49 @@ export class UnbindInstanceDomainsResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags. Default value: false. This parameter is valid only when TagKey is left empty. Valid values: true and false.
+   * 
+   * @example
+   * false
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * The type of the resource.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DOMAIN
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The tags added to the resource.
+   * 
+   * @example
+   * The domain name.
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -14812,6 +24604,13 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F152A869-DF77-4DF1-9A00-4E06978FE6A1
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14925,13 +24724,40 @@ export class UpdateAppKeyStateResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
   attributeInfo?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * p50_ok
+   */
   healthJudgement?: string;
   healthTasks?: UpdateCloudGtmAddressRequestHealthTasks[];
+  /**
+   * @example
+   * Address-1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14965,13 +24791,40 @@ export class UpdateCloudGtmAddressRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
   attributeInfo?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * p50_ok
+   */
   healthJudgement?: string;
   healthTasksShrink?: string;
+  /**
+   * @example
+   * Address-1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15005,7 +24858,15 @@ export class UpdateCloudGtmAddressShrinkRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15052,9 +24913,31 @@ export class UpdateCloudGtmAddressResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressEnableStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * enable
+   */
   enableStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15080,7 +24963,15 @@ export class UpdateCloudGtmAddressEnableStatusRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressEnableStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15127,10 +25018,33 @@ export class UpdateCloudGtmAddressEnableStatusResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressManualAvailableStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
+  /**
+   * @example
+   * manual
+   */
   availableMode?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * available
+   */
   manualAvailableStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15158,7 +25072,15 @@ export class UpdateCloudGtmAddressManualAvailableStatusRequest extends $tea.Mode
 }
 
 export class UpdateCloudGtmAddressManualAvailableStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0F32959D-417B-4D66-8463-68606605E3E2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15205,10 +25127,30 @@ export class UpdateCloudGtmAddressManualAvailableStatusResponse extends $tea.Mod
 }
 
 export class UpdateCloudGtmAddressPoolBasicConfigRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * app
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15236,8 +25178,20 @@ export class UpdateCloudGtmAddressPoolBasicConfigRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressPoolBasicConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15286,9 +25240,25 @@ export class UpdateCloudGtmAddressPoolBasicConfigResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressPoolEnableStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15314,8 +25284,20 @@ export class UpdateCloudGtmAddressPoolEnableStatusRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressPoolEnableStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 89184F33-48A1-4401-9C0F-40E45DB091AB
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15364,10 +25346,30 @@ export class UpdateCloudGtmAddressPoolEnableStatusResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressPoolLbStrategyRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * sequence
+   */
   addressLbStrategy?: string;
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15395,8 +25397,20 @@ export class UpdateCloudGtmAddressPoolLbStrategyRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressPoolLbStrategyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15445,9 +25459,25 @@ export class UpdateCloudGtmAddressPoolLbStrategyResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressPoolRemarkRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15473,8 +25503,20 @@ export class UpdateCloudGtmAddressPoolRemarkRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressPoolRemarkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15523,9 +25565,28 @@ export class UpdateCloudGtmAddressPoolRemarkResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressRemarkRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15551,7 +25612,15 @@ export class UpdateCloudGtmAddressRemarkRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressRemarkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15598,9 +25667,17 @@ export class UpdateCloudGtmAddressRemarkResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmGlobalAlertRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
   alertConfig?: UpdateCloudGtmGlobalAlertRequestAlertConfig[];
   alertGroup?: string[];
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15626,9 +25703,17 @@ export class UpdateCloudGtmGlobalAlertRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmGlobalAlertShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
   alertConfigShrink?: string;
   alertGroupShrink?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15654,7 +25739,15 @@ export class UpdateCloudGtmGlobalAlertShrinkRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmGlobalAlertResponseBody extends $tea.Model {
+  /**
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15701,12 +25794,61 @@ export class UpdateCloudGtmGlobalAlertResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceConfigAlertRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The alert configurations.
+   */
   alertConfig?: UpdateCloudGtmInstanceConfigAlertRequestAlertConfig[];
+  /**
+   * @remarks
+   * The alert contact groups.
+   */
   alertGroup?: string[];
+  /**
+   * @remarks
+   * The alert configuration mode of the instance. Valid values:
+   * 
+   * *   global: global alert configuration
+   * *   instance_config: custom alert configuration
+   * 
+   * @example
+   * global
+   */
   alertMode?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when an A record and an AAAA record are configured for the access domain name that is bound to the GTM instance. This ID uniquely identifies a configuration.
+   * 
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) 3.0 instance.
+   * 
+   * @example
+   * gtm-cn-zz11t58**0s
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15738,12 +25880,61 @@ export class UpdateCloudGtmInstanceConfigAlertRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceConfigAlertShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The alert configurations.
+   */
   alertConfigShrink?: string;
+  /**
+   * @remarks
+   * The alert contact groups.
+   */
   alertGroupShrink?: string;
+  /**
+   * @remarks
+   * The alert configuration mode of the instance. Valid values:
+   * 
+   * *   global: global alert configuration
+   * *   instance_config: custom alert configuration
+   * 
+   * @example
+   * global
+   */
   alertMode?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The configuration ID of the access domain name. Two configuration IDs exist when an A record and an AAAA record are configured for the access domain name that is bound to the GTM instance. This ID uniquely identifies a configuration.
+   * 
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @remarks
+   * The ID of the Global Traffic Manager (GTM) 3.0 instance.
+   * 
+   * @example
+   * gtm-cn-zz11t58**0s
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15775,7 +25966,24 @@ export class UpdateCloudGtmInstanceConfigAlertShrinkRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceConfigAlertResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15822,11 +26030,35 @@ export class UpdateCloudGtmInstanceConfigAlertResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceConfigBasicRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
+  /**
+   * @example
+   * www
+   */
   scheduleHostname?: string;
+  /**
+   * @example
+   * example.com
+   */
   scheduleZoneName?: string;
   ttl?: number;
   static names(): { [key: string]: string } {
@@ -15859,7 +26091,15 @@ export class UpdateCloudGtmInstanceConfigBasicRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceConfigBasicResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15906,10 +26146,30 @@ export class UpdateCloudGtmInstanceConfigBasicResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceConfigEnableStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * zh-CN
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15937,7 +26197,15 @@ export class UpdateCloudGtmInstanceConfigEnableStatusRequest extends $tea.Model 
 }
 
 export class UpdateCloudGtmInstanceConfigEnableStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -15984,11 +26252,35 @@ export class UpdateCloudGtmInstanceConfigEnableStatusResponse extends $tea.Model
 }
 
 export class UpdateCloudGtmInstanceConfigLbStrategyRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * sequence
+   */
   addressPoolLbStrategy?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16018,7 +26310,15 @@ export class UpdateCloudGtmInstanceConfigLbStrategyRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceConfigLbStrategyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0F32959D-417B-4D66-8463-68606605E3E2
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16065,10 +26365,30 @@ export class UpdateCloudGtmInstanceConfigLbStrategyResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceConfigRemarkRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
+  /**
+   * @example
+   * API
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16096,7 +26416,15 @@ export class UpdateCloudGtmInstanceConfigRemarkRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceConfigRemarkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16143,9 +26471,25 @@ export class UpdateCloudGtmInstanceConfigRemarkResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceNameRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * gtm-cn-jmp3qnw**03
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16171,7 +26515,15 @@ export class UpdateCloudGtmInstanceNameRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceNameResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16218,15 +26570,54 @@ export class UpdateCloudGtmInstanceNameResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmMonitorTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   extendInfo?: string;
+  /**
+   * @example
+   * 50
+   */
   failureRate?: number;
+  /**
+   * @example
+   * 60
+   */
   interval?: number;
   ispCityNodes?: UpdateCloudGtmMonitorTemplateRequestIspCityNodes[];
+  /**
+   * @example
+   * Ping-IPv4
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
+  /**
+   * @example
+   * 5000
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16264,15 +26655,54 @@ export class UpdateCloudGtmMonitorTemplateRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   extendInfo?: string;
+  /**
+   * @example
+   * 50
+   */
   failureRate?: number;
+  /**
+   * @example
+   * 60
+   */
   interval?: number;
   ispCityNodesShrink?: string;
+  /**
+   * @example
+   * Ping-IPv4
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
+  /**
+   * @example
+   * 5000
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16310,7 +26740,15 @@ export class UpdateCloudGtmMonitorTemplateShrinkRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmMonitorTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16357,9 +26795,28 @@ export class UpdateCloudGtmMonitorTemplateResponse extends $tea.Model {
 }
 
 export class UpdateCloudGtmMonitorTemplateRemarkRequest extends $tea.Model {
+  /**
+   * @example
+   * en-US
+   */
   acceptLanguage?: string;
+  /**
+   * @example
+   * 1ae05db4-10e7-11ef-b126-00163e24**22
+   */
   clientToken?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mtp-89518052455928**00
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16385,7 +26842,15 @@ export class UpdateCloudGtmMonitorTemplateRemarkRequest extends $tea.Model {
 }
 
 export class UpdateCloudGtmMonitorTemplateRemarkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -16432,9 +26897,33 @@ export class UpdateCloudGtmMonitorTemplateRemarkResponse extends $tea.Model {
 }
 
 export class UpdateCustomLineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The CIDR blocks. Separate IP addresses with a hyphen (-). Enter a CIDR block in each row. You can enter 1 to 50 CIDR blocks at a time. If a CIDR block contains only one IP address, enter the IP address in the format of IP1-IP1. Different CIDR blocks cannot be overlapped.
+   */
   ipSegment?: UpdateCustomLineRequestIpSegment[];
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The unique ID of the custom line.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
   lineId?: number;
+  /**
+   * @remarks
+   * The name of the custom line. The name must be 1 to 20 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16460,6 +26949,13 @@ export class UpdateCustomLineRequest extends $tea.Model {
 }
 
 export class UpdateCustomLineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B57C121B-A45F-44D8-A9B2-13E5A5044195
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16504,9 +27000,41 @@ export class UpdateCustomLineResponse extends $tea.Model {
 }
 
 export class UpdateDNSSLBWeightRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   userClientIp?: string;
+  /**
+   * @remarks
+   * The weight of the DNS record that you want to specify. Valid values: `1 to 100`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16532,8 +27060,29 @@ export class UpdateDNSSLBWeightRequest extends $tea.Model {
 }
 
 export class UpdateDNSSLBWeightResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The updated weight.
+   * 
+   * @example
+   * 2
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16582,13 +27131,68 @@ export class UpdateDNSSLBWeightResponse extends $tea.Model {
 }
 
 export class UpdateDnsCacheDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum TTL period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+   * 
+   * @example
+   * 86400
+   */
   cacheTtlMax?: number;
+  /**
+   * @remarks
+   * The minimum time-to-live (TTL) period of the cached data retrieved from the origin Domain Name System (DNS) server. Unit: seconds. Valid values: 30 to 86400.
+   * 
+   * @example
+   * 30
+   */
   cacheTtlMin?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dns.example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The instance ID of the cache-accelerated domain name.
+   * 
+   * @example
+   * dns-sg-l9u2ux1fw01
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The origin DNS servers. A maximum of 10 origin DNS servers are supported.
+   */
   sourceDnsServer?: UpdateDnsCacheDomainRequestSourceDnsServer[];
+  /**
+   * @remarks
+   * Specifies whether the origin DNS server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
+   * 
+   * @example
+   * SUPPORT
+   */
   sourceEdns?: string;
+  /**
+   * @remarks
+   * The origin protocol policy. Valid values: TCP and UDP. Default value: UDP.
+   * 
+   * @example
+   * UDP
+   */
   sourceProtocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16622,6 +27226,13 @@ export class UpdateDnsCacheDomainRequest extends $tea.Model {
 }
 
 export class UpdateDnsCacheDomainResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16666,8 +27277,31 @@ export class UpdateDnsCacheDomainResponse extends $tea.Model {
 }
 
 export class UpdateDnsCacheDomainRemarkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dns-example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The remarks. The remarks can be up to 50 characters in length and can contain only letters, digits, periods (.), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * test
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16691,6 +27325,13 @@ export class UpdateDnsCacheDomainRemarkRequest extends $tea.Model {
 }
 
 export class UpdateDnsCacheDomainRemarkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16735,22 +27376,169 @@ export class UpdateDnsCacheDomainRemarkResponse extends $tea.Model {
 }
 
 export class UpdateDnsGtmAccessStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The primary/secondary switchover policy for address pool sets. Valid values:
+   * 
+   * *   AUTO: performs automatic switchover between the primary and secondary address pool sets upon failures.
+   * *   DEFAULT: the primary address pool set
+   * *   FAILOVER: the secondary address pool set
+   * 
+   * @example
+   * DEFAULT
+   */
   accessMode?: string;
+  /**
+   * @remarks
+   * The address pools in the primary address pool set.
+   * 
+   * This parameter is required.
+   */
   defaultAddrPool?: UpdateDnsGtmAccessStrategyRequestDefaultAddrPool[];
+  /**
+   * @remarks
+   * The type of the primary address pool. Valid values:
+   * 
+   * *   IPV4
+   * *   IPV6
+   * *   DOMAIN
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ipv4
+   */
   defaultAddrPoolType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable Domain Name System (DNS) resolution with optimal latency for the primary address pool set. Valid values:
+   * 
+   * *   OPEN
+   * *   CLOSE
+   * 
+   * @example
+   * open
+   */
   defaultLatencyOptimization?: string;
+  /**
+   * @remarks
+   * The load balancing policy of the primary address pool set. Valid values:
+   * 
+   * *   ALL_RR: returns all addresses.
+   * *   RATIO: returns addresses by weight.
+   * 
+   * @example
+   * all_rr
+   */
   defaultLbaStrategy?: string;
+  /**
+   * @remarks
+   * The maximum number of addresses returned from the primary address pool set.
+   * 
+   * @example
+   * 1
+   */
   defaultMaxReturnAddrNum?: number;
+  /**
+   * @remarks
+   * The minimum number of available addresses in the primary address pool set.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   defaultMinAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * The address pools in the secondary address pool set. If no address pool exists in the secondary address pool set, set this parameter to EMPTY.
+   */
   failoverAddrPool?: UpdateDnsGtmAccessStrategyRequestFailoverAddrPool[];
+  /**
+   * @remarks
+   * The type of the secondary address pool. Valid values:
+   * 
+   * *   IPV4
+   * *   IPV6
+   * *   DOMAIN
+   * 
+   * @example
+   * ipv4
+   */
   failoverAddrPoolType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable DNS resolution with optimal latency for the secondary address pool set. Valid values:
+   * 
+   * *   OPEN
+   * *   CLOSE
+   * 
+   * @example
+   * open
+   */
   failoverLatencyOptimization?: string;
+  /**
+   * @remarks
+   * The load balancing policy of the secondary address pool set. Valid values:
+   * 
+   * *   ALL_RR: returns all addresses.
+   * *   RATIO: returns addresses by weight.
+   * 
+   * @example
+   * all_rr
+   */
   failoverLbaStrategy?: string;
+  /**
+   * @remarks
+   * The maximum number of addresses returned from the secondary address pool set.
+   * 
+   * @example
+   * 1
+   */
   failoverMaxReturnAddrNum?: number;
+  /**
+   * @remarks
+   * The minimum number of available addresses in the secondary address pool set.
+   * 
+   * @example
+   * 1
+   */
   failoverMinAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The line codes of the source regions. Example: `["default", "drpeng"]`, which indicates the global line and Dr. Peng Group line.
+   * 
+   * @example
+   * ["default", "drpeng"]
+   */
   lines?: string;
+  /**
+   * @remarks
+   * The ID of the access policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * StrategyId1
+   */
   strategyId?: string;
+  /**
+   * @remarks
+   * The name of the access policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * StrategyName1
+   */
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16802,7 +27590,21 @@ export class UpdateDnsGtmAccessStrategyRequest extends $tea.Model {
 }
 
 export class UpdateDnsGtmAccessStrategyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the access policy.
+   * 
+   * @example
+   * testStrategyId1
+   */
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16849,10 +27651,51 @@ export class UpdateDnsGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class UpdateDnsGtmAddressPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The address pools.
+   * 
+   * This parameter is required.
+   */
   addr?: UpdateDnsGtmAddressPoolRequestAddr[];
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testpool1
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The load balancing policy of the address pool. Valid values:
+   * 
+   * *   ALL_RR: returns all addresses.
+   * *   RATIO: returns addresses by weight.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * all_rr
+   */
   lbaStrategy?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * testpoolname
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16880,6 +27723,13 @@ export class UpdateDnsGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class UpdateDnsGtmAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16925,16 +27775,105 @@ export class UpdateDnsGtmAddressPoolResponse extends $tea.Model {
 
 export class UpdateDnsGtmInstanceGlobalConfigRequest extends $tea.Model {
   alertConfig?: UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig[];
+  /**
+   * @remarks
+   * The name of the alert group in the JSON format.
+   * 
+   * @example
+   * alertGroup1
+   */
   alertGroup?: string;
+  /**
+   * @remarks
+   * The type of the canonical name (CNAME).
+   * 
+   * *   Set the value to PUBLIC.
+   * 
+   * @example
+   * public
+   */
   cnameType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable force updates. Valid values:
+   * 
+   * *   true: enables force update without a conflict alert.
+   * *   false: disables force update. If a conflict occurs, the system displays an alert. null: This valid value of ForceUpdate provides the same information as the false value.
+   * 
+   * @example
+   * true
+   */
   forceUpdate?: boolean;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the instance. This parameter is required only for the first update.
+   * 
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a custom CNAME domain name or a CNAME domain name assigned by the system to access the instance over the Internet. Valid values:
+   * 
+   * *   SYSTEM_ASSIGN: a CNAME domain name assigned by the system
+   * *   CUSTOM: a custom CNAME domain name
+   * 
+   * @example
+   * custom
+   */
   publicCnameMode?: string;
+  /**
+   * @remarks
+   * The hostname corresponding to the CNAME domain name that is used to access the instance over the Internet.
+   * 
+   * @example
+   * test.rr
+   */
   publicRr?: string;
+  /**
+   * @remarks
+   * The service domain name that is used over the Internet.
+   * 
+   * @example
+   * example.com
+   */
   publicUserDomainName?: string;
+  /**
+   * @remarks
+   * The CNAME domain name that is used to access the instance over the Internet, which is the primary domain name. This parameter is required when the PublicCnameMode parameter is set to CUSTOM.
+   * 
+   * >  You must use the primary domain name. Do not include the hostname specified by the PublicRr parameter.
+   * 
+   * @example
+   * gtm-003.com
+   */
   publicZoneName?: string;
+  /**
+   * @remarks
+   * The global time to live (TTL).
+   * 
+   * @example
+   * 1
+   */
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16976,6 +27915,13 @@ export class UpdateDnsGtmInstanceGlobalConfigRequest extends $tea.Model {
 }
 
 export class UpdateDnsGtmInstanceGlobalConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17020,13 +27966,125 @@ export class UpdateDnsGtmInstanceGlobalConfigResponse extends $tea.Model {
 }
 
 export class UpdateDnsGtmMonitorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+   * 
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * The health check interval. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The monitored nodes.
+   * 
+   * This parameter is required.
+   */
   ispCityNode?: UpdateDnsGtmMonitorRequestIspCityNode[];
+  /**
+   * @remarks
+   * The language of the values of specific response parameters. Default value: en. Valid values: en, zh, and ja.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the health check configuration.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MonitorConfigId1
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * The extended information. The required parameters vary based on the health check protocol.
+   * 
+   * *   HTTP or HTTPS
+   * 
+   *     *   port: the port that you want to check
+   * 
+   *     *   host: the host settings
+   * 
+   *     *   path: the URL path
+   * 
+   *     *   code: the return code. If the return value of code is greater than the specified value, the health check result is deemed abnormal. For example, if code is set to 400 and the code 404 is returned, the health check result is deemed abnormal.
+   * 
+   *     *   failureRate: the failure rate
+   * 
+   *     *   sni: specifies whether to enable server name indication (SNI). This parameter is available only when ProtocolType is set to HTTPS. Valid values:
+   * 
+   *         *   true: enables SNI.
+   *         *   false: disables SNI.
+   * 
+   *     *   nodeType: the type of the monitoring node when the address pool type is domain name. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * *   PING
+   * 
+   *     *   failureRate: the failure rate
+   * 
+   *     *   packetNum: the number of ping packets
+   * 
+   *     *   packetLossRate: the loss rate of ping packets
+   * 
+   *     *   nodeType: the type of the monitoring node when the address pool type is domain name. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * *   TCP
+   * 
+   *     *   port: the port that you want to check
+   * 
+   *     *   failureRate: the failure rate
+   * 
+   *     *   nodeType: the type of the monitoring node when the address pool type is domain name. Valid values:
+   * 
+   *         *   IPV4
+   *         *   IPV6
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   monitorExtendInfo?: string;
+  /**
+   * @remarks
+   * The protocol used for the health check. Valid values:
+   * 
+   * *   HTTP
+   * *   HTTPS
+   * *   PING
+   * *   TCP
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http
+   */
   protocolType?: string;
+  /**
+   * @remarks
+   * The health check timeout period. Unit: milliseconds.
+   * 
+   * @example
+   * 3000
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17060,6 +28118,13 @@ export class UpdateDnsGtmMonitorRequest extends $tea.Model {
 }
 
 export class UpdateDnsGtmMonitorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17104,8 +28169,33 @@ export class UpdateDnsGtmMonitorResponse extends $tea.Model {
 }
 
 export class UpdateDomainGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the domain name group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The new name of the domain name group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * NewName
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17129,8 +28219,29 @@ export class UpdateDomainGroupRequest extends $tea.Model {
 }
 
 export class UpdateDomainGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the domain name group.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The new name of the domain name group.
+   * 
+   * @example
+   * NewName
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17179,14 +28290,99 @@ export class UpdateDomainGroupResponse extends $tea.Model {
 }
 
 export class UpdateDomainRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The DNS resolution line. Default value: **default**.
+   * 
+   * For more information, see
+   * 
+   * [DNS lines](https://www.alibabacloud.com/help/zh/doc-detail/29807.htm).
+   * 
+   * @example
+   * default
+   */
   line?: string;
+  /**
+   * @remarks
+   * The priority of the mail exchanger (MX) record. Valid values: `1 to 50`.
+   * 
+   * This parameter must be specified if the type of the DNS record is MX.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * For example, if you want to resolve @.example.com, you must set RR to an at sign (@) instead of leaving it empty.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * www
+   */
   RR?: string;
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The time-to-live (TTL) of the DNS record. Default value: 600. Unit: seconds.
+   * 
+   * For more information, see
+   * 
+   * [TTL definition](https://www.alibabacloud.com/help/zh/doc-detail/29806.htm).
+   * 
+   * @example
+   * 600
+   */
   TTL?: number;
+  /**
+   * @remarks
+   * The type of the DNS record. For more information, see
+   * 
+   * [DNS record types](https://www.alibabacloud.com/help/zh/doc-detail/29805.htm).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * A
+   */
   type?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.0.2.254
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17222,7 +28418,21 @@ export class UpdateDomainRecordRequest extends $tea.Model {
 }
 
 export class UpdateDomainRecordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17269,9 +28479,36 @@ export class UpdateDomainRecordResponse extends $tea.Model {
 }
 
 export class UpdateDomainRecordRemarkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345678
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The description of the DNS record.
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The IP address of the client.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17297,6 +28534,13 @@ export class UpdateDomainRecordRemarkRequest extends $tea.Model {
 }
 
 export class UpdateDomainRecordRemarkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17341,8 +28585,28 @@ export class UpdateDomainRecordRemarkResponse extends $tea.Model {
 }
 
 export class UpdateDomainRemarkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name that already exists in Alibaba Cloud DNS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mydomain.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * cn
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The description of your domain name.
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17366,6 +28630,13 @@ export class UpdateDomainRemarkRequest extends $tea.Model {
 }
 
 export class UpdateDomainRemarkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 536E9CAD-DB30-4647-AC87-AA5CC38C5382
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17410,11 +28681,52 @@ export class UpdateDomainRemarkResponse extends $tea.Model {
 }
 
 export class UpdateGtmAccessStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The line codes of access regions.
+   * 
+   * @example
+   * ["default", "mobile"]
+   */
   accessLines?: string;
+  /**
+   * @remarks
+   * The ID of the default address pool.
+   * 
+   * @example
+   * hrsix
+   */
   defaultAddrPoolId?: string;
+  /**
+   * @remarks
+   * The ID of the failover address pool.
+   * 
+   * @example
+   * hrsyw
+   */
   failoverAddrPoolId?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the access policy that you want to query for the GTM instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hrmxc
+   */
   strategyId?: string;
+  /**
+   * @remarks
+   * The name of the access policy.
+   */
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17444,6 +28756,13 @@ export class UpdateGtmAccessStrategyRequest extends $tea.Model {
 }
 
 export class UpdateGtmAccessStrategyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17488,11 +28807,51 @@ export class UpdateGtmAccessStrategyResponse extends $tea.Model {
 }
 
 export class UpdateGtmAddressPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   addr?: UpdateGtmAddressPoolRequestAddr[];
+  /**
+   * @remarks
+   * The ID of the address pool that you want to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234abc
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The language used by the user.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The minimum number of available addresses in the address pool.
+   * 
+   * @example
+   * 2
+   */
   minAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * The name of the address pool that you want to modify.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the address pool that you want to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * IP
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17522,6 +28881,13 @@ export class UpdateGtmAddressPoolRequest extends $tea.Model {
 }
 
 export class UpdateGtmAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17566,14 +28932,87 @@ export class UpdateGtmAddressPoolResponse extends $tea.Model {
 }
 
 export class UpdateGtmInstanceGlobalConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The alert group. Only one alert group is supported.
+   * 
+   * >  This parameter is required only for the first modification.
+   */
   alertGroup?: string;
+  /**
+   * @remarks
+   * If you set **CnameMode** to **CUSTOM**, you must specify the CnameCustomDomainName parameter, which must be set to a primary domain name.
+   * 
+   * @example
+   * www.example.com
+   */
   cnameCustomDomainName?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a system-assigned canonical name (CNAME) or a custom CNAME to access GTM. Valid values:
+   * 
+   * *   **SYSTEM_ASSIGN**: system-assigned CNAME
+   * *   **CUSTOM**: custom CNAME
+   * 
+   * @example
+   * SYSTEM_ASSIGN
+   */
   cnameMode?: string;
+  /**
+   * @remarks
+   * The ID of the GTM instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the GTM instance.
+   * 
+   * >  This parameter is required only for the first modification.
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The balancing policy. Valid values:
+   * 
+   * *   **ALL_RR**: load balancing
+   * *   **RATIO**: weighted round-robin
+   * 
+   * >  This parameter is required only for the first modification.
+   * 
+   * @example
+   * RATIO
+   */
   lbaStrategy?: string;
+  /**
+   * @remarks
+   * The global time-to-live (TTL).
+   * 
+   * @example
+   * 60
+   */
   ttl?: number;
+  /**
+   * @remarks
+   * The primary domain name.
+   * 
+   * >  This parameter is required only for the first modification.
+   * 
+   * @example
+   * www.example.com
+   */
   userDomainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17609,6 +29048,13 @@ export class UpdateGtmInstanceGlobalConfigRequest extends $tea.Model {
 }
 
 export class UpdateGtmInstanceGlobalConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 29D0F8F8-5499-4F6C-9FDC-1EE13BF55925
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17653,13 +29099,93 @@ export class UpdateGtmInstanceGlobalConfigResponse extends $tea.Model {
 }
 
 export class UpdateGtmMonitorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
+   * 
+   * @example
+   * 3
+   */
   evaluationCount?: number;
+  /**
+   * @remarks
+   * The health check interval. Unit: seconds. Set the value to 60.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The monitored nodes.
+   * 
+   * This parameter is required.
+   */
   ispCityNode?: UpdateGtmMonitorRequestIspCityNode[];
+  /**
+   * @remarks
+   * The language of the values of specific response parameters.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The ID of the health check configuration.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234abc
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * The extended information, that is, the parameters required for the protocol. Different protocols require different parameters:
+   * 
+   * HTTP or HTTPS:
+   * 
+   * *   port: the port to check.
+   * *   failureRate: the failure rate.
+   * *   code: the status code threshold. If the returned status code is greater than the specified threshold, the application service is deemed abnormal. Valid values: 400 and 500.
+   * *   host: the host configuration.
+   * *   path: the health check URL.
+   * 
+   * PING:
+   * 
+   * *   packetNum: the number of ping packets.
+   * *   packetLossRate: the loss rate of ping packets.
+   * *   failureRate: the failure rate.
+   * 
+   * TCP:
+   * 
+   * *   port: the port to check.
+   * *   failureRate: the failure rate.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   monitorExtendInfo?: string;
+  /**
+   * @remarks
+   * The protocol used for the health check.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * HTTP
+   */
   protocolType?: string;
+  /**
+   * @remarks
+   * The health check timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
+   * 
+   * @example
+   * 3000
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17693,6 +29219,13 @@ export class UpdateGtmMonitorRequest extends $tea.Model {
 }
 
 export class UpdateGtmMonitorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17737,10 +29270,47 @@ export class UpdateGtmMonitorResponse extends $tea.Model {
 }
 
 export class UpdateGtmRecoveryPlanRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of faulty address pools.
+   * 
+   * @example
+   * ["hra0or"]
+   */
   faultAddrPool?: string;
+  /**
+   * @remarks
+   * The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
+   * 
+   * @example
+   * en
+   */
   lang?: string;
+  /**
+   * @remarks
+   * The name of the disaster recovery plan.
+   * 
+   * @example
+   * abc
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the disaster recovery plan.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
   recoveryPlanId?: number;
+  /**
+   * @remarks
+   * The remarks about the disaster recovery plan.
+   * 
+   * @example
+   * remark
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17768,6 +29338,13 @@ export class UpdateGtmRecoveryPlanRequest extends $tea.Model {
 }
 
 export class UpdateGtmRecoveryPlanResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 6856BCF6-11D6-4D7E-AC53-FD579933522B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17812,7 +29389,15 @@ export class UpdateGtmRecoveryPlanResponse extends $tea.Model {
 }
 
 export class UpdateIspFlushCacheInstanceConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceName?: string;
   lang?: string;
   static names(): { [key: string]: string } {
@@ -17881,10 +29466,30 @@ export class UpdateIspFlushCacheInstanceConfigResponse extends $tea.Model {
 }
 
 export class ValidateDnsGtmCnameRrCanUseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   cnameMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   cnameRr?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   cnameType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   cnameZone?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   lang?: string;
   static names(): { [key: string]: string } {
@@ -18025,7 +29630,21 @@ export class ValidatePdnsUdpIpSegmentResponse extends $tea.Model {
 }
 
 export class AddCustomLineRequestIpSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The end IP address of the CIDR block.
+   * 
+   * @example
+   * 192.0.2.254
+   */
   endIp?: string;
+  /**
+   * @remarks
+   * The start IP address of the CIDR block.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   startIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18047,7 +29666,25 @@ export class AddCustomLineRequestIpSegment extends $tea.Model {
 }
 
 export class AddDnsCacheDomainRequestSourceDnsServer extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name or IP address of the origin DNS server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 192.0.0.0
+   */
   host?: string;
+  /**
+   * @remarks
+   * The port of the origin DNS server.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 53
+   */
   port?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18069,7 +29706,21 @@ export class AddDnsCacheDomainRequestSourceDnsServer extends $tea.Model {
 }
 
 export class AddDnsGtmAccessStrategyRequestDefaultAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool in the primary address pool set.
+   * 
+   * @example
+   * pool1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The weight of the address pool in the primary address pool set.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18091,7 +29742,21 @@ export class AddDnsGtmAccessStrategyRequestDefaultAddrPool extends $tea.Model {
 }
 
 export class AddDnsGtmAccessStrategyRequestFailoverAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool in the secondary address pool set.
+   * 
+   * @example
+   * pool1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The weight of the address pool in the secondary address pool set.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18113,10 +29778,63 @@ export class AddDnsGtmAccessStrategyRequestFailoverAddrPool extends $tea.Model {
 }
 
 export class AddDnsGtmAddressPoolRequestAddr extends $tea.Model {
+  /**
+   * @remarks
+   * The address in the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   addr?: string;
+  /**
+   * @remarks
+   * The information about the source region of the address. The value of this parameter is a JSON string. Valid values:
+   * 
+   * *   LineCode: the line code of the source region for the address
+   * 
+   * *   lineCodeRectifyType: the rectification type of the line code. Default value: AUTO. Valid values:
+   * 
+   *     *   NO_NEED: no need for rectification
+   *     *   RECTIFIED: rectified
+   *     *   AUTO: automatic rectification
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   attributeInfo?: string;
+  /**
+   * @remarks
+   * The weight of the address pool.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
+  /**
+   * @remarks
+   * The return mode of the addresses: Valid values:
+   * 
+   * *   SMART: smart return
+   * *   ONLINE: always online
+   * *   OFFLINE: always offline
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * online
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18144,7 +29862,25 @@ export class AddDnsGtmAddressPoolRequestAddr extends $tea.Model {
 }
 
 export class AddDnsGtmAddressPoolRequestIspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The city code.
+   * 
+   * Specify the parameter according to the value of CityCode returned by the DescribeGtmMonitorAvailableConfig operation.
+   * 
+   * @example
+   * 503
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * *   The Internet service provider (ISP) node. Specify the parameter according to the value of IspCode returned by the DescribeGtmMonitorAvailableConfig operation.
+   * *   If the returned value of GroupType for the DescribeGtmMonitorAvailableConfig operation is BGP or Overseas, IspCode is not required and is set to 465 by default.
+   * *   If the returned value of GroupType for the DescribeGtmMonitorAvailableConfig operation is not BGP or Overseas, IspCode is required. When IspCode is specified, CityCode is required.
+   * 
+   * @example
+   * 465
+   */
   ispCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18166,7 +29902,21 @@ export class AddDnsGtmAddressPoolRequestIspCityNode extends $tea.Model {
 }
 
 export class AddDnsGtmMonitorRequestIspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed.
+   * 
+   * @example
+   * 123
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * The code of the Internet service provider (ISP) to which the monitored node belongs.
+   * 
+   * @example
+   * 123
+   */
   ispCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18207,8 +29957,33 @@ export class AddDomainResponseBodyDnsServers extends $tea.Model {
 }
 
 export class AddGtmAddressPoolRequestAddr extends $tea.Model {
+  /**
+   * @remarks
+   * The weight of the address pool.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
+  /**
+   * @remarks
+   * The mode of the address pool. Valid values:
+   * 
+   * *   **SMART**: smart return
+   * *   **ONLINE**: always online
+   * *   **OFFLINE**: always offline
+   * 
+   * @example
+   * SMART
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The address in the address pool.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18232,7 +30007,23 @@ export class AddGtmAddressPoolRequestAddr extends $tea.Model {
 }
 
 export class AddGtmAddressPoolRequestIspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
+   * 
+   * @example
+   * 546
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * *   The code of the Internet service provider (ISP) to which the monitored node belongs. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
+   * *   If the value of the GroupType parameter is BGP or OVERSEAS, IspCode is optional. The default value is 465.
+   * *   If the value of the GroupType parameter is not BGP or OVERSEAS, IspCode is required and is used together with CityCode.
+   * 
+   * @example
+   * 465
+   */
   ispCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18254,7 +30045,26 @@ export class AddGtmAddressPoolRequestIspCityNode extends $tea.Model {
 }
 
 export class AddGtmMonitorRequestIspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The city code.
+   * 
+   * Specify the parameter according to the value of CityCode returned by the DescribeGtmMonitorAvailableConfig operation.
+   * 
+   * @example
+   * 503
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * The Internet service provider (ISP) node. Specify the parameter according to the value of IspCode returned by the DescribeGtmMonitorAvailableConfig operation.
+   * 
+   * *   If the return value of GroupType for the DescribeGtmMonitorAvailableConfig operation is BGP or Overseas, IspCode is not required and is set to 465 by default.
+   * *   If the return value of GroupType for the DescribeGtmMonitorAvailableConfig operation is not BGP or Overseas, IspCode is required. When IspCode is specified, CityCode is required.
+   * 
+   * @example
+   * 465
+   */
   ispCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18276,7 +30086,15 @@ export class AddGtmMonitorRequestIspCityNode extends $tea.Model {
 }
 
 export class CreateCloudGtmAddressRequestHealthTasks extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18298,7 +30116,15 @@ export class CreateCloudGtmAddressRequestHealthTasks extends $tea.Model {
 }
 
 export class CreateCloudGtmMonitorTemplateRequestIspCityNodes extends $tea.Model {
+  /**
+   * @example
+   * 503
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 465
+   */
   ispCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18320,21 +30146,133 @@ export class CreateCloudGtmMonitorTemplateRequestIspCityNodes extends $tea.Model
 }
 
 export class DescribeBatchResultDetailResponseBodyBatchResultDetailsBatchResultDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the batch operation.
+   * 
+   * @example
+   * DOMAIN_ADD
+   */
   batchType?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The line code.
+   * 
+   * @example
+   * default
+   */
   line?: string;
+  /**
+   * @remarks
+   * The new hostname.
+   * 
+   * @example
+   * demo-batch-7
+   */
   newRr?: string;
+  /**
+   * @remarks
+   * The new record value.
+   * 
+   * @example
+   * 192.0.2.254
+   */
   newValue?: string;
+  /**
+   * @remarks
+   * The time when the operation was performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-08-22 18:02:58
+   */
   operateDateStr?: string;
+  /**
+   * @remarks
+   * The priority of the mail exchanger (MX) record.
+   * 
+   * @example
+   * 10
+   */
   priority?: string;
+  /**
+   * @remarks
+   * The cause of the execution failure.
+   * 
+   * @example
+   * Task lock fail
+   */
   reason?: string;
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * @example
+   * 123456789
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The description of the DNS record.
+   * 
+   * @example
+   * remark
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * www
+   */
   rr?: string;
+  /**
+   * @remarks
+   * The status of the DNS record.
+   * 
+   * @example
+   * stop
+   */
   rrStatus?: string;
+  /**
+   * @remarks
+   * The execution result of the batch operation. Valid values: **true**: The operation succeeded. **false**: The operation failed.
+   * 
+   * @example
+   * true
+   */
   status?: boolean;
+  /**
+   * @remarks
+   * The time-to-live (TTL) of the DNS record.
+   * 
+   * @example
+   * 600
+   */
   ttl?: string;
+  /**
+   * @remarks
+   * The type of the DNS record.
+   * 
+   * @example
+   * A
+   */
   type?: string;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * @example
+   * 192.0.2.0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18403,9 +30341,25 @@ export class DescribeBatchResultDetailResponseBodyBatchResultDetails extends $te
 }
 
 export class DescribeCloudGtmAddressResponseBodyHealthTasksHealthTask extends $tea.Model {
+  /**
+   * @example
+   * ok
+   */
   monitorStatus?: string;
+  /**
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
+  /**
+   * @example
+   * Ping-IPv4
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18450,8 +30404,20 @@ export class DescribeCloudGtmAddressResponseBodyHealthTasks extends $tea.Model {
 }
 
 export class DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasksHealthTask extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
+  /**
+   * @example
+   * IPv4-Ping
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18513,26 +30479,98 @@ export class DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSourc
 }
 
 export class DescribeCloudGtmAddressPoolResponseBodyAddressesAddress extends $tea.Model {
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
   attributeInfo?: string;
+  /**
+   * @example
+   * auto
+   */
   availableMode?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
   healthTasks?: DescribeCloudGtmAddressPoolResponseBodyAddressesAddressHealthTasks;
+  /**
+   * @example
+   * available
+   */
   manualAvailableStatus?: string;
+  /**
+   * @example
+   * Address-1
+   */
   name?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
   requestSource?: DescribeCloudGtmAddressPoolResponseBodyAddressesAddressRequestSource;
+  /**
+   * @example
+   * false
+   */
   seqNonPreemptiveSchedule?: boolean;
+  /**
+   * @example
+   * 1
+   */
   serialNumber?: number;
+  /**
+   * @example
+   * IPv4
+   */
   type?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * 1
+   */
   weightValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18611,20 +30649,80 @@ export class DescribeCloudGtmAddressPoolResponseBodyAddresses extends $tea.Model
 }
 
 export class DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigsInstanceConfig extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressPoolLbStrategy?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * config-000**1
+   */
   configId?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * gtm-cn-jmp3qnw**03
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * www.example.com
+   */
   scheduleDomainName?: string;
+  /**
+   * @example
+   * www
+   */
   scheduleHostname?: string;
+  /**
+   * @example
+   * A
+   */
   scheduleRrType?: string;
+  /**
+   * @example
+   * example.com
+   */
   scheduleZoneName?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 30
+   */
   ttl?: number;
+  /**
+   * @example
+   * ultimate
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18691,20 +30789,80 @@ export class DescribeCloudGtmAddressPoolReferenceResponseBodyInstanceConfigs ext
 }
 
 export class DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPoolInstanceConfigsInstanceConfig extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressPoolLbStrategy?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * config-00**01
+   */
   configId?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * gtm-cn-zz11t58**0k
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * www.example.com
+   */
   scheduleDomainName?: string;
+  /**
+   * @example
+   * www
+   */
   scheduleHostname?: string;
+  /**
+   * @example
+   * A
+   */
   scheduleRrType?: string;
+  /**
+   * @example
+   * example.com
+   */
   scheduleZoneName?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 30
+   */
   ttl?: number;
+  /**
+   * @example
+   * ultimate
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18771,16 +30929,56 @@ export class DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPool
 }
 
 export class DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPool extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressLbStrategy?: string;
+  /**
+   * @example
+   * pool-895280232254422016
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * AddressPool-1
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   addressPoolType?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
   instanceConfigs?: DescribeCloudGtmAddressReferenceResponseBodyAddressPoolsAddressPoolInstanceConfigs;
+  /**
+   * @example
+   * pool-1
+   */
   remark?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18839,9 +31037,25 @@ export class DescribeCloudGtmAddressReferenceResponseBodyAddressPools extends $t
 }
 
 export class DescribeCloudGtmGlobalAlertResponseBodyAlertConfigAlertConfig extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   dingtalkNotice?: boolean;
+  /**
+   * @example
+   * true
+   */
   emailNotice?: boolean;
+  /**
+   * @example
+   * addr_alert
+   */
   noticeType?: string;
+  /**
+   * @example
+   * true
+   */
   smsNotice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -18905,9 +31119,25 @@ export class DescribeCloudGtmGlobalAlertResponseBodyAlertGroup extends $tea.Mode
 }
 
 export class DescribeCloudGtmInstanceConfigAlertResponseBodyAlertConfigAlertConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   dingtalkNotice?: boolean;
+  /**
+   * @example
+   * true
+   */
   emailNotice?: boolean;
+  /**
+   * @example
+   * addr_alert
+   */
   noticeType?: string;
+  /**
+   * @example
+   * true
+   */
   smsNotice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -18990,25 +31220,97 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddre
 }
 
 export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddressesAddress extends $tea.Model {
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @example
+   * addr-89564712295703**96
+   */
   addressId?: string;
   attributeInfo?: string;
+  /**
+   * @example
+   * auto
+   */
   availableMode?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * available
+   */
   manualAvailableStatus?: string;
+  /**
+   * @example
+   * Address-1
+   */
   name?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
   requestSource?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddressesAddressRequestSource;
+  /**
+   * @example
+   * false
+   */
   seqNonPreemptiveSchedule?: boolean;
+  /**
+   * @example
+   * 1
+   */
   serialNumber?: number;
+  /**
+   * @example
+   * IPv4
+   */
   type?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * 1
+   */
   weightValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19104,23 +31406,87 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddre
 }
 
 export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPool extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressLbStrategy?: string;
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * AddressPool-1
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   addressPoolType?: string;
   addresses?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolAddresses;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
   requestSource?: DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPoolsAddressPoolRequestSource;
+  /**
+   * @example
+   * false
+   */
   seqNonPreemptiveSchedule?: boolean;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 1
+   */
   serialNumber?: number;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * 1
+   */
   weightValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19193,12 +31559,28 @@ export class DescribeCloudGtmInstanceConfigFullInfoResponseBodyAddressPools exte
 }
 
 export class DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodesIspCityNode extends $tea.Model {
+  /**
+   * @example
+   * 503
+   */
   cityCode?: string;
   cityName?: string;
+  /**
+   * @example
+   * 001
+   */
   countryCode?: string;
   countryName?: string;
   groupName?: string;
+  /**
+   * @example
+   * BGP
+   */
   groupType?: string;
+  /**
+   * @example
+   * 465
+   */
   ispCode?: string;
   ispName?: string;
   static names(): { [key: string]: string } {
@@ -19252,10 +31634,22 @@ export class DescribeCloudGtmMonitorTemplateResponseBodyIspCityNodes extends $te
 }
 
 export class DescribeCloudGtmSystemLinesResponseBodySystemLinesSystemLine extends $tea.Model {
+  /**
+   * @example
+   * aliyun_r_ap-south-1
+   */
   code?: string;
   displayName?: string;
+  /**
+   * @example
+   * true
+   */
   isAvailable?: boolean;
   name?: string;
+  /**
+   * @example
+   * String	aliyun
+   */
   parentCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19302,7 +31696,21 @@ export class DescribeCloudGtmSystemLinesResponseBodySystemLines extends $tea.Mod
 }
 
 export class DescribeCustomLineResponseBodyIpSegmentList extends $tea.Model {
+  /**
+   * @remarks
+   * The end IP address of the CIDR block.
+   * 
+   * @example
+   * 11.1.1.3
+   */
   endIp?: string;
+  /**
+   * @remarks
+   * The start IP address of the CIDR block.
+   * 
+   * @example
+   * 11.1.1.2
+   */
   startIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19324,8 +31732,29 @@ export class DescribeCustomLineResponseBodyIpSegmentList extends $tea.Model {
 }
 
 export class DescribeCustomLinesResponseBodyCustomLines extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the custom line.
+   * 
+   * @example
+   * hra0yc-597
+   */
   code?: string;
+  /**
+   * @remarks
+   * The unique ID of the custom line.
+   * 
+   * @example
+   * 597
+   */
   id?: number;
+  /**
+   * @remarks
+   * The name of the custom line.
+   * 
+   * @example
+   * hra0yd-597
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19349,7 +31778,24 @@ export class DescribeCustomLinesResponseBodyCustomLines extends $tea.Model {
 }
 
 export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithmsLineAlgorithm extends $tea.Model {
+  /**
+   * @remarks
+   * The DNS resolution line. The line can be China Telecom, China Mobile, and China Unicom.
+   * 
+   * @example
+   * default
+   */
   line?: string;
+  /**
+   * @remarks
+   * Indicates whether weighted round-robin is enabled for the line. Valid values:
+   * 
+   * *   **true** (default): Weighted round-robin is enabled.
+   * *   **false**: Weighted round-robin is disabled.
+   * 
+   * @example
+   * true
+   */
   open?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -19390,10 +31836,42 @@ export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAl
 }
 
 export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomain extends $tea.Model {
+  /**
+   * @remarks
+   * The lines for which weighted round-robin is enabled.
+   */
   lineAlgorithms?: DescribeDNSSLBSubDomainsResponseBodySlbSubDomainsSlbSubDomainLineAlgorithms;
+  /**
+   * @remarks
+   * Indicates whether weighted round-robin is enabled for the subdomain.
+   * 
+   * @example
+   * true
+   */
   open?: boolean;
+  /**
+   * @remarks
+   * The number of DNS records added for the subdomain.
+   * 
+   * @example
+   * 3
+   */
   recordCount?: number;
+  /**
+   * @remarks
+   * The subdomain name.
+   * 
+   * @example
+   * www.example.com
+   */
   subDomain?: string;
+  /**
+   * @remarks
+   * The type of the Domain Name System (DNS) record that supports weighted round-robin. Valid values: A, AAAA, and CNAME.
+   * 
+   * @example
+   * A
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19440,7 +31918,21 @@ export class DescribeDNSSLBSubDomainsResponseBodySlbSubDomains extends $tea.Mode
 }
 
 export class DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name or IP address of the origin DNS server.
+   * 
+   * @example
+   * ns8.alidns.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The port of the origin DNS server.
+   * 
+   * @example
+   * 53
+   */
   port?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19462,21 +31954,130 @@ export class DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers extends 
 }
 
 export class DescribeDnsCacheDomainsResponseBodyDomains extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum time-to-live (TTL) period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+   * 
+   * @example
+   * 86400
+   */
   cacheTtlMax?: number;
+  /**
+   * @remarks
+   * The minimum TTL period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+   * 
+   * @example
+   * 30
+   */
   cacheTtlMin?: number;
+  /**
+   * @remarks
+   * The time when the domain name was added. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-10-17T06:13Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The time when the domain name was added. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1660546144000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the cache-accelerated domain name.
+   * 
+   * @example
+   * 00efd71a-770e-4255-b54e-6fe5659baffe
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The cache-accelerated domain name.
+   * 
+   * @example
+   * dns-example.top
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The time when the instance expires. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-12-02T16:00Z
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * The time when the instance expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1692374400000
+   */
   expireTimestamp?: number;
+  /**
+   * @remarks
+   * The instance ID of the cache-accelerated domain name.
+   * 
+   * @example
+   * i-7bg
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The description of the domain name.
+   * 
+   * @example
+   * remark
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The origin DNS servers.
+   */
   sourceDnsServers?: DescribeDnsCacheDomainsResponseBodyDomainsSourceDnsServers[];
+  /**
+   * @remarks
+   * Specifies whether the origin Domain Name System (DNS) server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
+   * 
+   * @example
+   * SUPPORT
+   */
   sourceEdns?: string;
+  /**
+   * @remarks
+   * The origin protocol policy. Valid values: TCP and UDP. Default value: UDP.
+   * 
+   * @example
+   * UDP
+   */
   sourceProtocol?: string;
+  /**
+   * @remarks
+   * The time when the configurations of the domain name were updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2023-05-22T03:40Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The time when the configurations of the domain name were updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1671690491000
+   */
   updateTimestamp?: number;
+  /**
+   * @remarks
+   * The edition code of Alibaba Cloud DNS.
+   * 
+   * @example
+   * ultimate
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19526,9 +32127,37 @@ export class DescribeDnsCacheDomainsResponseBodyDomains extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPoolsEffectiveAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 3
+   */
   addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The weight of the address pool.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19573,9 +32202,37 @@ export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffecti
 }
 
 export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLinesLine extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the source region group.
+   * 
+   * @example
+   * default
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * The name of the source region group.
+   * 
+   * @example
+   * global
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The line code of the source region.
+   * 
+   * @example
+   * default
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * The line name of the source region.
+   * 
+   * @example
+   * global
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19620,14 +32277,81 @@ export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLines e
 }
 
 export class DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategy extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the access policy was created.
+   * 
+   * @example
+   * 2018-08-09T00:10Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the access policy was created.
+   * 
+   * @example
+   * 1533773400000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The type of the active address pool group. Valid values:
+   * 
+   * *   DEFAULT: the primary address pool group
+   * *   FAILOVER: the secondary address pool group
+   * 
+   * @example
+   * default
+   */
   effectiveAddrPoolGroupType?: string;
+  /**
+   * @remarks
+   * The type of the active address pools. Valid values:
+   * 
+   * *   IPV4
+   * *   IPV6
+   * *   DOMAIN
+   * 
+   * @example
+   * ipv4
+   */
   effectiveAddrPoolType?: string;
+  /**
+   * @remarks
+   * The active address pool groups.
+   */
   effectiveAddrPools?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyEffectiveAddrPools;
+  /**
+   * @remarks
+   * The load balancing policy of the active address pool group. Data is returned when StrategyMode is set to GEO. Valid values: 
+   * 
+   * - ALL_RR: returns all addresses.
+   * - RATIO: returns addresses by weight.
+   * 
+   * @example
+   * all_rr
+   */
   effectiveLbaStrategy?: string;
+  /**
+   * @remarks
+   * The source regions. Data is returned when StrategyMode is set to GEO. Valid values:
+   */
   lines?: DescribeDnsGtmAccessStrategiesResponseBodyStrategiesStrategyLines;
+  /**
+   * @remarks
+   * The ID of the access policy.
+   * 
+   * @example
+   * strategyid1
+   */
   strategyId?: string;
+  /**
+   * @remarks
+   * The name of the access policy.
+   * 
+   * @example
+   * strategname1
+   */
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19682,9 +32406,37 @@ export class DescribeDnsGtmAccessStrategiesResponseBodyStrategies extends $tea.M
 }
 
 export class DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPoolsDefaultAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
   addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The weight of the address pool.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19729,9 +32481,37 @@ export class DescribeDnsGtmAccessStrategyResponseBodyDefaultAddrPools extends $t
 }
 
 export class DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPoolsFailoverAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
   addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The weight of the address pool.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19776,9 +32556,37 @@ export class DescribeDnsGtmAccessStrategyResponseBodyFailoverAddrPools extends $
 }
 
 export class DescribeDnsGtmAccessStrategyResponseBodyLinesLine extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the source region group.
+   * 
+   * @example
+   * default
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * The name of the source region group.
+   * 
+   * @example
+   * global
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The line code of the source region.
+   * 
+   * @example
+   * default
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * The line name of the source region.
+   * 
+   * @example
+   * global
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19823,8 +32631,29 @@ export class DescribeDnsGtmAccessStrategyResponseBodyLines extends $tea.Model {
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPoolsDomainAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
   addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * testpool
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19867,8 +32696,29 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyDomainAddrPo
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPoolsIpv4AddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
   addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * testpool
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19911,8 +32761,29 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv4AddrPool
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPoolsIpv6AddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
   addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * testpool
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19955,10 +32826,45 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyIpv6AddrPool
 }
 
 export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodyLinesLine extends $tea.Model {
+  /**
+   * @remarks
+   * The parent line code of the source region. Leave it blank if no parent line exists.
+   * 
+   * @example
+   * telecom
+   */
   fatherCode?: string;
+  /**
+   * @remarks
+   * The line name of the source region.
+   * 
+   * @example
+   * default
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * The name of the source region group.
+   * 
+   * @example
+   * global
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The line code of the source region.
+   * 
+   * @example
+   * default
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * The code of the source region group.
+   * 
+   * @example
+   * global
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20062,10 +32968,45 @@ export class DescribeDnsGtmAccessStrategyAvailableConfigResponseBodySelectedIpv6
 }
 
 export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The parent line code of the source region.
+   * 
+   * @example
+   * telecom
+   */
   fatherCode?: string;
+  /**
+   * @remarks
+   * The code of the source region group.
+   * 
+   * @example
+   * DEFAULT
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * The name of the source region group.
+   * 
+   * @example
+   * Global
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The line code of the source region.
+   * 
+   * @example
+   * default
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * The line name of the source region.
+   * 
+   * @example
+   * Global
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20093,7 +33034,18 @@ export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo ex
 }
 
 export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddr extends $tea.Model {
+  /**
+   * @remarks
+   * The address that was queried.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   addr?: string;
+  /**
+   * @remarks
+   * The source region of the address.
+   */
   attributeInfo?: DescribeDnsGtmAddrAttributeInfoResponseBodyAddrAddrAttributeInfo;
   static names(): { [key: string]: string } {
     return {
@@ -20134,10 +33086,45 @@ export class DescribeDnsGtmAddrAttributeInfoResponseBodyAddr extends $tea.Model 
 }
 
 export class DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfosAttributeInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The parent line code of the source region.
+   * 
+   * @example
+   * telecom
+   */
   fatherCode?: string;
+  /**
+   * @remarks
+   * The code of the source region group.
+   * 
+   * @example
+   * default
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * The name of the request source group.
+   * 
+   * @example
+   * global
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The line code of the source region.
+   * 
+   * @example
+   * default
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * The line name of the source region.
+   * 
+   * @example
+   * global
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20185,8 +33172,42 @@ export class DescribeDnsGtmAddressPoolAvailableConfigResponseBodyAttributeInfos 
 
 export class DescribeDnsGtmInstanceResponseBodyConfigAlertConfigAlertConfig extends $tea.Model {
   dingtalkNotice?: boolean;
+  /**
+   * @remarks
+   * Indicates whether email notification is configured. Valid values:
+   * 
+   * *   true: Email notification is configured.
+   * *   false: Email notification is not configured. null: Email notification is not configured.
+   * 
+   * @example
+   * true
+   */
   emailNotice?: boolean;
+  /**
+   * @remarks
+   * The type of the alert event. Valid values:
+   * 
+   * *   ADDR_ALERT: The address is unavailable.
+   * *   ADDR_RESUME: The address is restored and becomes available.
+   * *   ADDR_POOL_GROUP_UNAVAILABLE: The address pool group is unavailable.
+   * *   ADDR_POOL_GROUP_AVAILABLE: The address pool group is restored and becomes available.
+   * *   ACCESS_STRATEGY_POOL_GROUP_SWITCH: Switchover is triggered between the primary and secondary address pools.
+   * *   MONITOR_NODE_IP_CHANGE: The IP address of the monitoring node has changed.
+   * 
+   * @example
+   * ADDR_ALERT
+   */
   noticeType?: string;
+  /**
+   * @remarks
+   * Indicates whether SMS notification is configured. Valid values:
+   * 
+   * *   true: SMS notification is configured.
+   * *   false: SMS notification is not configured. null: SMS notification is not configured.
+   * 
+   * @example
+   * true
+   */
   smsNotice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -20231,15 +33252,90 @@ export class DescribeDnsGtmInstanceResponseBodyConfigAlertConfig extends $tea.Mo
 }
 
 export class DescribeDnsGtmInstanceResponseBodyConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The alert notification method.
+   */
   alertConfig?: DescribeDnsGtmInstanceResponseBodyConfigAlertConfig;
+  /**
+   * @remarks
+   * The name of the alert group.
+   * 
+   * @example
+   * alertgroup1
+   */
   alertGroup?: string;
+  /**
+   * @remarks
+   * The type of the CNAME domain name that is used to access the instance. Valid value:
+   * 
+   * *   PUBLIC: The CNAME domain name is used to access the instance over the Internet.
+   * 
+   * @example
+   * public
+   */
   cnameType?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * instancetest1
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The domain name that is used to access the instance over the Internet.
+   * 
+   * @example
+   * test.rr.gtm-003.com
+   */
   pubicZoneName?: string;
+  /**
+   * @remarks
+   * Indicates whether a custom CNAME domain name or a CNAME domain name assigned by the system is used to access the instance over the Internet. Valid values:
+   * 
+   * *   CUSTOM: A custom CNAME domain name is used.
+   * *   SYSTEM_ASSIGN: A CNAME domain name assigned by the system is used.
+   * 
+   * @example
+   * custom
+   */
   publicCnameMode?: string;
+  /**
+   * @remarks
+   * The hostname corresponding to the CNAME domain name that is used to access the instance over the Internet.
+   * 
+   * @example
+   * test.rr
+   */
   publicRr?: string;
+  /**
+   * @remarks
+   * The service domain name that is used over the Internet.
+   * 
+   * @example
+   * example.com
+   */
   publicUserDomainName?: string;
+  /**
+   * @remarks
+   * The type of the access policy. Valid values:
+   * 
+   * *   LATENCY: Latency-based
+   * *   GEO: Geographical location-based
+   * 
+   * @example
+   * GEO
+   */
   strategyMode?: string;
+  /**
+   * @remarks
+   * The global time to live (TTL).
+   * 
+   * @example
+   * 1
+   */
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20278,8 +33374,29 @@ export class DescribeDnsGtmInstanceResponseBodyConfig extends $tea.Model {
 
 export class DescribeDnsGtmInstanceResponseBodyUsedQuota extends $tea.Model {
   dingtalkUsedCount?: number;
+  /**
+   * @remarks
+   * The total number of emails that were sent.
+   * 
+   * @example
+   * 123
+   */
   emailUsedCount?: number;
+  /**
+   * @remarks
+   * The total number of short messages that were sent.
+   * 
+   * @example
+   * 123
+   */
   smsUsedCount?: number;
+  /**
+   * @remarks
+   * The number of detection tasks that were created.
+   * 
+   * @example
+   * 123
+   */
   taskUsedCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20305,15 +33422,96 @@ export class DescribeDnsGtmInstanceResponseBodyUsedQuota extends $tea.Model {
 }
 
 export class DescribeDnsGtmInstanceAddressPoolResponseBodyAddrsAddr extends $tea.Model {
+  /**
+   * @remarks
+   * The address.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   addr?: string;
+  /**
+   * @remarks
+   * The status of the last health check on the address. Valid values:
+   * 
+   * *   OK: No active alerts are triggered.
+   * *   ALERT: Alerts are triggered based on the alert rules.
+   * 
+   * @example
+   * ok
+   */
   alertStatus?: string;
+  /**
+   * @remarks
+   * The source region of the address.
+   * 
+   * *   lineCode: the line code of the source region of the address. This parameter is deprecated, and lineCodes prevails.
+   * *   lineName: the line name of the source region of the address. This parameter is deprecated.
+   * *   lineCodes: the line codes of the source regions of the address.
+   * 
+   * @example
+   * "lineCode":"aliyun_r_cn-zhangjiakou", "lineName": "Alibaba Cloud_China (Zhangjiakou)", "lineCodes": ["aliyun_r_cn-zhangjiakou"]
+   */
   attributeInfo?: string;
+  /**
+   * @remarks
+   * The time when the address was added into the address pool.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the time when the address was added into the address pool.
+   * 
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The weight of the address.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
+  /**
+   * @remarks
+   * The mode of the address. Valid values:
+   * 
+   * *   SMART: smart return
+   * *   ONLINE: always online
+   * *   OFFLINE: always offline
+   * 
+   * @example
+   * online
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The description of the address.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The time when the address was last updated.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates the time when the address was last updated.
+   * 
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20370,16 +33568,104 @@ export class DescribeDnsGtmInstanceAddressPoolResponseBodyAddrs extends $tea.Mod
 }
 
 export class DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPoolsAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 1
+   */
   addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * pool-1
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The time when the address pool was created.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the address pool was created.
+   * 
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The load balancing policy of the address pool. Valid values:
+   * 
+   * *   ALL_RR: returns all addresses.
+   * *   RATIO: returns addresses by weight.
+   * 
+   * @example
+   * all_rr
+   */
   lbaStrategy?: string;
+  /**
+   * @remarks
+   * The ID of the health check task.
+   * 
+   * @example
+   * abc123
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * Indicates whether health checks are configured. Valid values:
+   * 
+   * *   OPEN: enabled
+   * *   CLOSE: disabled
+   * *   UNCONFIGURED: not configured
+   * 
+   * @example
+   * open
+   */
   monitorStatus?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * testpool
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the address pool. Valid values:
+   * 
+   * *   IPV4: IPv4 address
+   * *   IPV6: IPv6 address
+   * *   DOMAIN: domain name
+   * 
+   * @example
+   * ipv4
+   */
   type?: string;
+  /**
+   * @remarks
+   * The time when the address pool was updated.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the address pool was updated.
+   * 
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20439,8 +33725,41 @@ export class DescribeDnsGtmInstanceAddressPoolsResponseBodyAddrPools extends $te
 
 export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig extends $tea.Model {
   dingtalkNotice?: string;
+  /**
+   * @remarks
+   * Indicates whether email notifications were configured. Valid values:
+   * 
+   * *   true: configured
+   * *   false | null: not configured
+   * 
+   * @example
+   * true
+   */
   emailNotice?: string;
+  /**
+   * @remarks
+   * The type of the alert event. Valid values:
+   * 
+   * *   ADDR_ALERT: The address is unavailable.
+   * *   ADDR_RESUME: The address is restored and becomes available.
+   * *   ADDR_POOL_GROUP_UNAVAILABLE: The address pool group is unavailable.
+   * *   ADDR_POOL_GROUP_AVAILABLE: The address pool group is restored and becomes available.
+   * *   ACCESS_STRATEGY_POOL_GROUP_SWITCH: Switchover is triggered between the primary and secondary address pools.
+   * 
+   * @example
+   * ADDR_ALERT
+   */
   noticeType?: string;
+  /**
+   * @remarks
+   * Indicates whether SMS notifications were configured. Valid values:
+   * 
+   * *   true: configured
+   * *   false | null: not configured
+   * 
+   * @example
+   * true
+   */
   smsNotice?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20466,15 +33785,87 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig ex
 }
 
 export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The alert notification methods.
+   */
   alertConfig?: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfigAlertConfig[];
+  /**
+   * @remarks
+   * The alert group.
+   * 
+   * @example
+   * testgroup
+   */
   alertGroup?: string;
+  /**
+   * @remarks
+   * The access type of the CNAME domain name.
+   * 
+   * *   The value was set to PUBLIC, which indicates Internet access.
+   * 
+   * @example
+   * public
+   */
   cnameType?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * instanceTest
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * Indicates whether a custom CNAME domain name or a CNAME domain name assigned by the system is used to access GTM over the Internet. Valid values:
+   * 
+   * *   CUSTOM: a custom CNAME domain name
+   * *   SYSTEM_ASSIGN: a CNAME domain name assigned by the system
+   * 
+   * @example
+   * custom
+   */
   publicCnameMode?: string;
+  /**
+   * @example
+   * test.rr
+   */
   publicRr?: string;
+  /**
+   * @remarks
+   * The website domain name that the user uses on the Internet.
+   * 
+   * @example
+   * example.com
+   */
   publicUserDomainName?: string;
+  /**
+   * @remarks
+   * The domain name that is used to access GTM over the Internet.
+   * 
+   * @example
+   * test.rr.gtm-003.com
+   */
   publicZoneName?: string;
+  /**
+   * @remarks
+   * The type of the access policy. Valid values:
+   * 
+   * *   LATENCY: latency-based
+   * *   GEO: geographical location-based
+   * 
+   * @example
+   * geo
+   */
   strategyMode?: string;
+  /**
+   * @remarks
+   * The global time to live (TTL).
+   * 
+   * @example
+   * 1
+   */
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20513,8 +33904,29 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig extends $tea.
 
 export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $tea.Model {
   dingtalkUsedCount?: number;
+  /**
+   * @remarks
+   * The total number of email notifications that were sent.
+   * 
+   * @example
+   * 100
+   */
   emailUsedCount?: number;
+  /**
+   * @remarks
+   * The total number of SMS notifications that were sent.
+   * 
+   * @example
+   * 100
+   */
   smsUsedCount?: number;
+  /**
+   * @remarks
+   * The number of detection tasks that were created.
+   * 
+   * @example
+   * 100
+   */
   taskUsedCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20540,17 +33952,97 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota extends $t
 }
 
 export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the instance.
+   */
   config?: DescribeDnsGtmInstancesResponseBodyGtmInstancesConfig;
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * 2020-10-14T06:58Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the instance was created.
+   * 
+   * @example
+   * 1602658709000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The time when the instance expires.
+   * 
+   * @example
+   * 2020-10-14T06:58Z
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * The timestamp that indicates when the instance expires.
+   * 
+   * @example
+   * 1602658709000
+   */
   expireTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The billing method of the instance.
+   * 
+   * *   The value is set to Subscription.
+   * 
+   * @example
+   * Subscription
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * resourceGroupid123
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The total number of SMS notifications.
+   * 
+   * @example
+   * 1
+   */
   smsQuota?: number;
+  /**
+   * @remarks
+   * The total number of detection tasks.
+   * 
+   * @example
+   * 1
+   */
   taskQuota?: number;
+  /**
+   * @remarks
+   * The used quota.
+   */
   usedQuota?: DescribeDnsGtmInstancesResponseBodyGtmInstancesUsedQuota;
+  /**
+   * @remarks
+   * The version of the instance.
+   * 
+   * @example
+   * testVersion1
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20592,13 +34084,63 @@ export class DescribeDnsGtmInstancesResponseBodyGtmInstances extends $tea.Model 
 }
 
 export class DescribeDnsGtmLogsResponseBodyLogsLog extends $tea.Model {
+  /**
+   * @remarks
+   * The formatted message content.
+   * 
+   * @example
+   * addtest-pool-1
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the object on which the operation was performed.
+   * 
+   * @example
+   * 121212
+   */
   entityId?: string;
+  /**
+   * @remarks
+   * The name of the object on which the operation was performed.
+   * 
+   * @example
+   * test-pool-1
+   */
   entityName?: string;
+  /**
+   * @remarks
+   * The type of the object on which the operation was performed.
+   */
   entityType?: string;
+  /**
+   * @remarks
+   * The ID of the record.
+   * 
+   * @example
+   * 6726
+   */
   id?: number;
+  /**
+   * @remarks
+   * The operation performed.
+   */
   operAction?: string;
+  /**
+   * @remarks
+   * The time when the operation was performed.
+   * 
+   * @example
+   * 2018-01-24T07:35Z
+   */
   operTime?: string;
+  /**
+   * @remarks
+   * The timestamp of the operation.
+   * 
+   * @example
+   * 1516779348000
+   */
   operTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -20670,13 +34212,66 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNo
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed.
+   * 
+   * @example
+   * 503
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * The display name of the city where the monitored node is deployed.
+   * 
+   * @example
+   * Zhangjiakou
+   */
   cityName?: string;
+  /**
+   * @remarks
+   * Indicates whether the monitored node is selected for the health check by default.
+   * 
+   * @example
+   * true
+   */
   defaultSelected?: boolean;
+  /**
+   * @remarks
+   * The name of the group to which the monitored node belongs.
+   * 
+   * @example
+   * BGP Nodes
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The type of the group to which the monitored node belongs. Valid values:
+   * 
+   * *   BGP: BGP nodes
+   * *   OVERSEAS: nodes outside the Chinese mainland
+   * *   ISP: ISP nodes
+   * 
+   * @example
+   * BGP
+   */
   groupType?: string;
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv4IspCityNodesDomainIpv4IspCityNodeIps;
+  /**
+   * @remarks
+   * The code of the ISP to which the monitored node belongs.
+   * 
+   * @example
+   * 465
+   */
   ispCode?: string;
+  /**
+   * @remarks
+   * The display name of the ISP to which the monitored node belongs.
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20748,13 +34343,66 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNo
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed.
+   * 
+   * @example
+   * 503
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * The display name of the city where the monitored node is deployed.
+   * 
+   * @example
+   * Zhangjiakou
+   */
   cityName?: string;
+  /**
+   * @remarks
+   * Indicates whether the monitored node is selected for the health check by default.
+   * 
+   * @example
+   * false
+   */
   defaultSelected?: boolean;
+  /**
+   * @remarks
+   * The name of the group to which the monitored node belongs.
+   * 
+   * @example
+   * BGP Nodes
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The type of the group to which the monitored node belongs. Valid values:
+   * 
+   * *   BGP: BGP nodes
+   * *   OVERSEAS: nodes outside the Chinese mainland
+   * *   ISP: ISP nodes
+   * 
+   * @example
+   * BGP
+   */
   groupType?: string;
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyDomainIpv6IspCityNodesDomainIpv6IspCityNodeIps;
+  /**
+   * @remarks
+   * The code of the ISP to which the monitored node belongs.
+   * 
+   * @example
+   * 465
+   */
   ispCode?: string;
+  /**
+   * @remarks
+   * The display name of the ISP to which the monitored node belongs.
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20826,13 +34474,66 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed.
+   * 
+   * @example
+   * 503
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * The display name of the city where the monitored node is deployed.
+   * 
+   * @example
+   * Zhangjiakou
+   */
   cityName?: string;
+  /**
+   * @remarks
+   * Indicates whether the monitored node is selected for the health check by default.
+   * 
+   * @example
+   * true
+   */
   defaultSelected?: boolean;
+  /**
+   * @remarks
+   * The name of the group to which the monitored node belongs.
+   * 
+   * @example
+   * BGP Nodes
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The type of the group to which the monitored node belongs. Valid values:
+   * 
+   * *   BGP: Border Gateway Protocol (BGP) nodes
+   * *   OVERSEAS: nodes outside the Chinese mainland
+   * *   ISP: ISP nodes
+   * 
+   * @example
+   * BGP
+   */
   groupType?: string;
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps;
+  /**
+   * @remarks
+   * The code of the Internet service provider (ISP) to which the monitored node belongs.
+   * 
+   * @example
+   * 465
+   */
   ispCode?: string;
+  /**
+   * @remarks
+   * The display name of the ISP to which the monitored node belongs.
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20904,13 +34605,66 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv
 }
 
 export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed.
+   * 
+   * @example
+   * 503
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * The display name of the city where the monitored node is deployed.
+   * 
+   * @example
+   * Zhangjiakou
+   */
   cityName?: string;
+  /**
+   * @remarks
+   * Indicates whether the monitored node is selected for the health check by default.
+   * 
+   * @example
+   * true
+   */
   defaultSelected?: boolean;
+  /**
+   * @remarks
+   * The name of the group to which the monitored node belongs.
+   * 
+   * @example
+   * BGP Nodes
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The type of the group to which the monitored node belongs. Valid values:
+   * 
+   * *   BGP: BGP nodes
+   * *   OVERSEAS: nodes outside the Chinese mainland
+   * *   ISP: ISP nodes
+   * 
+   * @example
+   * BGP
+   */
   groupType?: string;
   ips?: DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps;
+  /**
+   * @remarks
+   * The code of the ISP to which the monitored node belongs.
+   * 
+   * @example
+   * 465
+   */
   ispCode?: string;
+  /**
+   * @remarks
+   * The display name of the ISP to which the monitored node belongs.
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20963,11 +34717,53 @@ export class DescribeDnsGtmMonitorAvailableConfigResponseBodyIpv6IspCityNodes ex
 }
 
 export class DescribeDnsGtmMonitorConfigResponseBodyIspCityNodesIspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the monitored city node.
+   * 
+   * @example
+   * 572
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * The display name of the monitored city node.
+   * 
+   * @example
+   * Qingdao
+   */
   cityName?: string;
+  /**
+   * @remarks
+   * The code of the country or region.
+   * 
+   * @example
+   * 001
+   */
   countryCode?: string;
+  /**
+   * @remarks
+   * The display name of the country or region.
+   * 
+   * @example
+   * China
+   */
   countryName?: string;
+  /**
+   * @remarks
+   * The code of the monitored Internet service provider (ISP) node.
+   * 
+   * @example
+   * 123
+   */
   ispCode?: string;
+  /**
+   * @remarks
+   * The name of the ISP.
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21035,38 +34831,280 @@ export class DescribeDnsProductInstanceResponseBodyDnsServers extends $tea.Model
 }
 
 export class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether auto-renewal is enabled for the extra internal bandwidth that you purchased. Valid values:
+   * 
+   * *   **true**: Auto-renewal is enabled.
+   * *   **false**: Auto-renewal is disabled.
+   * 
+   * > If no extra internal bandwidth is purchased, this parameter is not returned.
+   * 
+   * @example
+   * true
+   */
   autoRenewal?: boolean;
+  /**
+   * @remarks
+   * The number of times you can change domain names that are bound to the DNS instance. It can be specified by the user who uses Alibaba Cloud DNS of the custom version.
+   * 
+   * @example
+   * 3
+   */
   bindCount?: number;
+  /**
+   * @remarks
+   * The number of domain names that can be bound to the DNS instance.
+   * 
+   * @example
+   * 5
+   */
   bindDomainCount?: number;
+  /**
+   * @remarks
+   * The number of domain names that have been bound to the DNS instance.
+   * 
+   * @example
+   * 3
+   */
   bindDomainUsedCount?: number;
+  /**
+   * @remarks
+   * The number of times you have changed domain names that are bound to the DNS instance. It can be specified by the user who uses Alibaba Cloud DNS of the custom version.
+   * 
+   * @example
+   * 1
+   */
   bindUsedCount?: number;
+  /**
+   * @remarks
+   * The DDoS protection traffic. Unit: GB.
+   * 
+   * @example
+   * 50
+   */
   DDosDefendFlow?: number;
+  /**
+   * @remarks
+   * The DDoS protection frequency. Unit: 10,000 QPS.
+   * 
+   * @example
+   * 50
+   */
   DDosDefendQuery?: number;
+  /**
+   * @remarks
+   * The number of IP addresses supported by a domain name or line.
+   * 
+   * @example
+   * 15
+   */
   dnsSLBCount?: number;
+  /**
+   * @remarks
+   * The DNS security policy. Valid values:
+   * 
+   * *   **no**: not required.
+   * *   **basic**: anti-DDoS basic.
+   * *   **advanced**: anti-DDoS advanced.
+   * 
+   * @example
+   * no
+   */
   dnsSecurity?: string;
+  /**
+   * @remarks
+   * The bound domain name.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The time at which the instance expired.
+   * 
+   * @example
+   * 2015-12-12T00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp representing the expiration time of the instance.
+   * 
+   * @example
+   * 1474335170000
+   */
   endTimestamp?: number;
+  /**
+   * @remarks
+   * Indicates whether global server load balancing (GSLB) was allowed.
+   * 
+   * @example
+   * true
+   */
   gslb?: boolean;
+  /**
+   * @remarks
+   * The list of ISP lines.
+   * 
+   * @example
+   * China Mobile,China Unicom,China Telecom,China Edu
+   */
   ISPLines?: string;
+  /**
+   * @remarks
+   * The list of ISP line subdivisions.
+   * 
+   * @example
+   * Telecom (Province), Mobile (Province), Unicom (Province), Education Network (Province)
+   */
   ISPRegionLines?: string;
+  /**
+   * @remarks
+   * Indicates whether the request for domain name resolution was in the black hole.
+   * 
+   * @example
+   * false
+   */
   inBlackHole?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the request for domain name resolution was being cleared.
+   * 
+   * @example
+   * false
+   */
   inClean?: boolean;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud DNS instance.
+   * 
+   * @example
+   * i-8fj
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The monitoring frequency. Unit: minutes.
+   * 
+   * @example
+   * 50
+   */
   monitorFrequency?: number;
+  /**
+   * @remarks
+   * The number of monitored nodes.
+   * 
+   * @example
+   * 5
+   */
   monitorNodeCount?: number;
+  /**
+   * @remarks
+   * The number of monitoring tasks.
+   * 
+   * @example
+   * 2
+   */
   monitorTaskCount?: number;
+  /**
+   * @remarks
+   * DDoS protection traffic outside China. Unit: GB.
+   * 
+   * @example
+   * 1
+   */
   overseaDDosDefendFlow?: number;
+  /**
+   * @remarks
+   * The type of the overseas line.
+   * 
+   * @example
+   * Countries
+   */
   overseaLine?: string;
+  /**
+   * @remarks
+   * The billing method. Valid value:
+   * 
+   * *   Subscription: You can pay in advance for the use of resources.
+   * 
+   * @example
+   * Subscription
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * Indicates whether regional lines were allowed.
+   * 
+   * @example
+   * true
+   */
   regionLines?: boolean;
+  /**
+   * @remarks
+   * The list of search engine lines.
+   * 
+   * @example
+   * Search Engine Robots,Google Robots,Baidu Robots,Bing Robots
+   */
   searchEngineLines?: string;
+  /**
+   * @remarks
+   * The time when the DNS instance was purchased.
+   * 
+   * @example
+   * 2015-11-12T09:23Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp representing when the DNS instance was purchased.
+   * 
+   * @example
+   * 1474335170000
+   */
   startTimestamp?: number;
+  /**
+   * @remarks
+   * The number of subdomain name levels.
+   * 
+   * @example
+   * 6
+   */
   subDomainLevel?: number;
+  /**
+   * @remarks
+   * The minimum TTL. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   TTLMinValue?: number;
+  /**
+   * @remarks
+   * The URL forwarding quantity.
+   * 
+   * @example
+   * 20
+   */
   URLForwardCount?: number;
+  /**
+   * @remarks
+   * The version code of the Alibaba Cloud DNS instance.
+   * 
+   * @example
+   * version1
+   */
   versionCode?: string;
+  /**
+   * @remarks
+   * The version name of the Alibaba Cloud DNS instance.
+   * 
+   * @example
+   * Alibaba Cloud DNS
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21169,11 +35207,53 @@ export class DescribeDnsProductInstancesResponseBodyDnsProducts extends $tea.Mod
 }
 
 export class DescribeDohAccountStatisticsResponseBodyStatistics extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp.
+   * 
+   * @example
+   * 1544976000000
+   */
   timestamp?: number;
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 3141592653
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The number of IPv4-based HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v4HttpCount?: number;
+  /**
+   * @remarks
+   * The number of IPv4-based HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v4HttpsCount?: number;
+  /**
+   * @remarks
+   * The number of IPv6-based HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v6HttpCount?: number;
+  /**
+   * @remarks
+   * The number of IPv6-based HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v6HttpsCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21203,11 +35283,53 @@ export class DescribeDohAccountStatisticsResponseBodyStatistics extends $tea.Mod
 }
 
 export class DescribeDohDomainStatisticsResponseBodyStatistics extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp.
+   * 
+   * @example
+   * 1544976000000
+   */
   timestamp?: number;
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 3141592653
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The number of IPv4-based HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v4HttpCount?: number;
+  /**
+   * @remarks
+   * The number of IPv4-based HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v4HttpsCount?: number;
+  /**
+   * @remarks
+   * The number of IPv6-based HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v6HttpCount?: number;
+  /**
+   * @remarks
+   * The number of IPv6-based HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v6HttpsCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21237,14 +35359,77 @@ export class DescribeDohDomainStatisticsResponseBodyStatistics extends $tea.Mode
 }
 
 export class DescribeDohDomainStatisticsSummaryResponseBodyStatistics extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The number of HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   httpCount?: number;
+  /**
+   * @remarks
+   * The number of HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   httpsCount?: number;
+  /**
+   * @remarks
+   * The number of IP addresses.
+   * 
+   * @example
+   * 20
+   */
   ipCount?: number;
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 14141592653
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The number of IPv4-based HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v4HttpCount?: number;
+  /**
+   * @remarks
+   * The number of IPv4-based HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v4HttpsCount?: number;
+  /**
+   * @remarks
+   * The number of IPv6-based HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v6HttpCount?: number;
+  /**
+   * @remarks
+   * The number of IPv6-based HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v6HttpsCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21280,11 +35465,53 @@ export class DescribeDohDomainStatisticsSummaryResponseBodyStatistics extends $t
 }
 
 export class DescribeDohSubDomainStatisticsResponseBodyStatistics extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp.
+   * 
+   * @example
+   * 1544976000000
+   */
   timestamp?: number;
+  /**
+   * @remarks
+   * The total number of requests.
+   * 
+   * @example
+   * 3141592653
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The number of IPv4-based HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v4HttpCount?: number;
+  /**
+   * @remarks
+   * The number of IPv4-based HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v4HttpsCount?: number;
+  /**
+   * @remarks
+   * The number of IPv6-based HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v6HttpCount?: number;
+  /**
+   * @remarks
+   * The number of IPv6-based HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v6HttpsCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21314,14 +35541,77 @@ export class DescribeDohSubDomainStatisticsResponseBodyStatistics extends $tea.M
 }
 
 export class DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics extends $tea.Model {
+  /**
+   * @remarks
+   * The number of HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   httpCount?: number;
+  /**
+   * @remarks
+   * The number of HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   httpsCount?: number;
+  /**
+   * @remarks
+   * The number of IP addresses.
+   * 
+   * @example
+   * 20
+   */
   ipCount?: number;
+  /**
+   * @remarks
+   * The subdomain.
+   * 
+   * @example
+   * www.example.com
+   */
   subDomain?: string;
+  /**
+   * @remarks
+   * Total number of requests.
+   * 
+   * @example
+   * 14141592653
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The number of IPv4-based HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v4HttpCount?: number;
+  /**
+   * @remarks
+   * The number of IPv4-based HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v4HttpsCount?: number;
+  /**
+   * @remarks
+   * The number of IPv6-based HTTP requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v6HttpCount?: number;
+  /**
+   * @remarks
+   * The number of IPv6-based HTTPS requests.
+   * 
+   * @example
+   * 3141592653
+   */
   v6HttpsCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21357,8 +35647,32 @@ export class DescribeDohSubDomainStatisticsSummaryResponseBodyStatistics extends
 }
 
 export class DescribeDomainGroupsResponseBodyDomainGroupsDomainGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The number of domain name groups.
+   * 
+   * @example
+   * 2
+   */
   domainCount?: number;
+  /**
+   * @remarks
+   * The ID of the domain name group. Valid values:
+   * 
+   * *   defaultGroup: the default group
+   * *   If an empty string is returned, it indicates the group that contains all domain names.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the domain name group.
+   * 
+   * @example
+   * MyGroup
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21439,9 +35753,31 @@ export class DescribeDomainInfoResponseBodyDnsServers extends $tea.Model {
 }
 
 export class DescribeDomainInfoResponseBodyRecordLinesRecordLine extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the parent line. This parameter is not returned if the line has no parent line.
+   * 
+   * @example
+   * internal
+   */
   fatherCode?: string;
+  /**
+   * @remarks
+   * The code of the line.
+   * 
+   * @example
+   * cn_region_xibei
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * The name of the parent line.
+   */
   lineDisplayName?: string;
+  /**
+   * @remarks
+   * The name of the line.
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21486,12 +35822,61 @@ export class DescribeDomainInfoResponseBodyRecordLines extends $tea.Model {
 }
 
 export class DescribeDomainLogsResponseBodyDomainLogsDomainLog extends $tea.Model {
+  /**
+   * @remarks
+   * The operation.
+   * 
+   * @example
+   * Add
+   */
   action?: string;
+  /**
+   * @remarks
+   * The time when the operation is performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2015-12-12T09:23Z
+   */
   actionTime?: string;
+  /**
+   * @remarks
+   * The time when the operation was performed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 143562300000
+   */
   actionTimestamp?: number;
+  /**
+   * @remarks
+   * The IP address of the operator.
+   * 
+   * @example
+   * 182.92.253.20
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * abc.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The message for the operation.
+   * 
+   * @example
+   * To the DNS record list
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the private zone.
+   * 
+   * @example
+   * cxfd345sd234
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21580,19 +35965,117 @@ export class DescribeDomainNsResponseBodyExpectDnsServers extends $tea.Model {
 }
 
 export class DescribeDomainRecordsResponseBodyDomainRecordsRecord extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the DNS record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+   * 
+   * @example
+   * 1666501957000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The resolution line.
+   * 
+   * @example
+   * default
+   */
   line?: string;
+  /**
+   * @remarks
+   * Indicates whether the DNS record is locked.
+   * 
+   * @example
+   * false
+   */
   locked?: boolean;
+  /**
+   * @remarks
+   * The priority of the mail exchanger (MX) record.
+   * 
+   * @example
+   * 5
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * www
+   */
   RR?: string;
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The description of the DNS record.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The status of the DNS record.
+   * 
+   * @example
+   * Enable
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time-to-live (TTL) of the cached DNS record. Unit: seconds.
+   * 
+   * @example
+   * 600
+   */
   TTL?: number;
+  /**
+   * @remarks
+   * The type of the DNS record.
+   * 
+   * @example
+   * MX
+   */
   type?: string;
+  /**
+   * @remarks
+   * The time when the DNS record was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+   * 
+   * @example
+   * 1676872961000
+   */
   updateTimestamp?: number;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * @example
+   * mail1.hichina.com
+   */
   value?: string;
+  /**
+   * @remarks
+   * The weight of the DNS record.
+   * 
+   * @example
+   * 2
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21657,8 +36140,32 @@ export class DescribeDomainRecordsResponseBodyDomainRecords extends $tea.Model {
 }
 
 export class DescribeDomainResolveStatisticsSummaryResponseBodyStatistics extends $tea.Model {
+  /**
+   * @remarks
+   * The number of DNS requests.
+   * 
+   * @example
+   * 35509014
+   */
   count?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The type of the domain name. Valid values:
+   * 
+   * *   PUBLIC: hosted public domain name
+   * *   CACHE: cache-accelerated domain name
+   * 
+   * @example
+   * CACHE
+   */
   domainType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21682,8 +36189,29 @@ export class DescribeDomainResolveStatisticsSummaryResponseBodyStatistics extend
 }
 
 export class DescribeDomainStatisticsResponseBodyStatisticsStatistic extends $tea.Model {
+  /**
+   * @remarks
+   * The number of DNS requests.
+   * 
+   * @example
+   * 15292887
+   */
   count?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The statistical timestamp. Unit: milliseconds. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1556640000000
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -21726,9 +36254,44 @@ export class DescribeDomainStatisticsResponseBodyStatistics extends $tea.Model {
 }
 
 export class DescribeDomainStatisticsSummaryResponseBodyStatisticsStatistic extends $tea.Model {
+  /**
+   * @remarks
+   * The number of DNS requests.
+   * 
+   * @example
+   * 35509014
+   */
   count?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * ali-gslb.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The type of the domain name. The parameter value is not case-sensitive. Valid values:
+   * 
+   * PUBLIC (default): hosted public domain name
+   * 
+   * CACHE: cache-accelerated domain name
+   * 
+   * @example
+   * PUBLIC
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * Indicates whether the DNS traffic analysis feature is enabled for the domain name. Valid values:
+   * 
+   * *   OPEN
+   * *   CLOSE
+   * 
+   * @example
+   * OPEN
+   */
   resolveAnalysisStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21792,7 +36355,15 @@ export class DescribeDomainsResponseBodyDomainsDomainDnsServers extends $tea.Mod
 }
 
 export class DescribeDomainsResponseBodyDomainsDomainTagsTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag added to the resource.
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag added to the resource.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21833,26 +36404,157 @@ export class DescribeDomainsResponseBodyDomainsDomainTags extends $tea.Model {
 }
 
 export class DescribeDomainsResponseBodyDomainsDomain extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the domain name was registered in Alibaba Cloud.
+   * 
+   * @example
+   * true
+   */
   aliDomain?: boolean;
+  /**
+   * @remarks
+   * The time when the domain name was added.
+   * 
+   * @example
+   * 2019-01-30T05:25Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The time when the domain name was added. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1660546144000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The names of the DNS servers configured for the domain name.
+   */
   dnsServers?: DescribeDomainsResponseBodyDomainsDomainDnsServers;
+  /**
+   * @remarks
+   * The ID of the domain name.
+   * 
+   * @example
+   * 00efd71a-770e-4255-b54e-6fe5659baffe
+   */
   domainId?: string;
   domainLoggingSwitchStatus?: string;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * abc.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The ID of the domain name group.
+   * 
+   * @example
+   * 2223
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the domain name group.
+   * 
+   * @example
+   * mygroup
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The time when the Alibaba Cloud DNS instance expires.
+   * 
+   * @example
+   * 2020-03-14T16:00Z
+   */
   instanceEndTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the Alibaba Cloud DNS instance expires.
+   * 
+   * @example
+   * false
+   */
   instanceExpired?: boolean;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud DNS instance.
+   * 
+   * @example
+   * i-7bg
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The Punycode for the domain name. This parameter is returned only for Chinese domain names.
+   * 
+   * @example
+   * abc.com
+   */
   punyCode?: string;
+  /**
+   * @remarks
+   * The number of Domain Name System (DNS) records added for the domain name.
+   * 
+   * @example
+   * 100
+   */
   recordCount?: number;
+  /**
+   * @remarks
+   * The email address of the registrant.
+   * 
+   * @example
+   * test@example.com
+   */
   registrantEmail?: string;
+  /**
+   * @remarks
+   * The description of the domain name.
+   * 
+   * @example
+   * remark
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the domain name belongs.
+   * 
+   * @example
+   * rg-acf
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether the domain name was added to favorites.
+   * 
+   * @example
+   * true
+   */
   starmark?: boolean;
+  /**
+   * @remarks
+   * The tags added to the resource.
+   */
   tags?: DescribeDomainsResponseBodyDomainsDomainTags;
+  /**
+   * @remarks
+   * The edition code of Alibaba Cloud DNS.
+   * 
+   * @example
+   * version_enterprise_basic
+   */
   versionCode?: string;
+  /**
+   * @remarks
+   * The edition of Alibaba Cloud DNS.
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21931,9 +36633,31 @@ export class DescribeDomainsResponseBodyDomains extends $tea.Model {
 }
 
 export class DescribeGtmAccessStrategiesResponseBodyStrategiesStrategyLinesLine extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the access region group.
+   * 
+   * @example
+   * DEFAULT
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * The name of the access region group.
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The code for the line of the access region.
+   * 
+   * @example
+   * default
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * The name for the line of the access region.
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21978,22 +36702,140 @@ export class DescribeGtmAccessStrategiesResponseBodyStrategiesStrategyLines exte
 }
 
 export class DescribeGtmAccessStrategiesResponseBodyStrategiesStrategy extends $tea.Model {
+  /**
+   * @remarks
+   * The access policy. Valid values:
+   * 
+   * *   **AUTO**: Automatic switch
+   * *   **DEFAULT**: Default address pool
+   * *   **FAILOVER**: Failover address pool
+   * 
+   * @example
+   * DEFAULT
+   */
   accessMode?: string;
+  /**
+   * @remarks
+   * The access status. Valid values:
+   * 
+   * *   **DEFAULT**: The default address pool is currently accessed.
+   * *   **FAILOVER**: The failover address pool is currently accessed.
+   * 
+   * @example
+   * DEFAULT
+   */
   accessStatus?: string;
+  /**
+   * @remarks
+   * The time when the access policy was created.
+   * 
+   * @example
+   * 2018-08-09T00:10Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1533773400000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the default address pool.
+   * 
+   * @example
+   * hra0i1
+   */
   defaultAddrPoolId?: string;
+  /**
+   * @remarks
+   * Indicates whether health check was enabled for the default address pool. Valid values:
+   * 
+   * *   **OPEN**: Enabled
+   * *   **CLOSE**: Disabled
+   * *   **UNCONFIGURED**: Not configured
+   * 
+   * @example
+   * OPEN
+   */
   defaultAddrPoolMonitorStatus?: string;
+  /**
+   * @remarks
+   * The name of the default address pool.
+   */
   defaultAddrPoolName?: string;
+  /**
+   * @remarks
+   * The availability status of the default address pool. Valid values:
+   * 
+   * *   **AVAILABLE**: Available
+   * *   **NOT_AVAILABLE**: Unavailable
+   * 
+   * @example
+   * AVAILABLE
+   */
   defaultAddrPoolStatus?: string;
+  /**
+   * @remarks
+   * The ID of the failover address pool.
+   * 
+   * @example
+   * hra0i2
+   */
   failoverAddrPoolId?: string;
+  /**
+   * @remarks
+   * Indicates whether health check was enabled for the failover address pool.
+   * 
+   * @example
+   * OPEN
+   */
   failoverAddrPoolMonitorStatus?: string;
+  /**
+   * @remarks
+   * The name of the failover address pool.
+   */
   failoverAddrPoolName?: string;
+  /**
+   * @remarks
+   * The availability status of the failover address pool.
+   * 
+   * @example
+   * AVAILABLE
+   */
   failoverAddrPoolStatus?: string;
+  /**
+   * @remarks
+   * The ID of the GTM instance whose access policies you want to query.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The returned lines of access regions.
+   */
   lines?: DescribeGtmAccessStrategiesResponseBodyStrategiesStrategyLines;
+  /**
+   * @remarks
+   * The ID of the access policy.
+   * 
+   * @example
+   * hra0hs
+   */
   strategyId?: string;
+  /**
+   * @remarks
+   * The mode of the access policy. **SELF_DEFINED** indicates that the access policy is user-defined.
+   * 
+   * @example
+   * SELF_DEFINED
+   */
   strategyMode?: string;
+  /**
+   * @remarks
+   * The name of the access policy.
+   */
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22064,9 +36906,37 @@ export class DescribeGtmAccessStrategiesResponseBodyStrategies extends $tea.Mode
 }
 
 export class DescribeGtmAccessStrategyResponseBodyLinesLine extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the access region group.
+   * 
+   * @example
+   * DEFAULT
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * The name of the access region group.
+   * 
+   * @example
+   * Global
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The code for the line of the access region.
+   * 
+   * @example
+   * default
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * The name for the line of the access region.
+   * 
+   * @example
+   * Global
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22111,7 +36981,21 @@ export class DescribeGtmAccessStrategyResponseBodyLines extends $tea.Model {
 }
 
 export class DescribeGtmAccessStrategyAvailableConfigResponseBodyAddrPoolsAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * hra0ix
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * test
+   */
   addrPoolName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22152,11 +37036,56 @@ export class DescribeGtmAccessStrategyAvailableConfigResponseBodyAddrPools exten
 }
 
 export class DescribeGtmAccessStrategyAvailableConfigResponseBodyLinesLine extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the parent line. No value is returned if no parent line exists.
+   * 
+   * @example
+   * telecom
+   */
   fatherCode?: string;
+  /**
+   * @remarks
+   * The group number of the DNS request source.
+   * 
+   * @example
+   * ISP
+   */
   groupCode?: string;
+  /**
+   * @remarks
+   * The group name of the DNS request source.
+   * 
+   * @example
+   * Mainland China
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The code of the DNS request source.
+   * 
+   * @example
+   * cn_telecom_hubei
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * The name of the DNS request source.
+   * 
+   * @example
+   * South China
+   */
   lineName?: string;
+  /**
+   * @remarks
+   * The state of the line. Valid values:
+   * 
+   * *   **FORBIDDEN**: The line is unavailable.
+   * *   **OPTIONAL**: The line is available.
+   * 
+   * @example
+   * FORBIDDEN
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22205,14 +37134,81 @@ export class DescribeGtmAccessStrategyAvailableConfigResponseBodyLines extends $
 }
 
 export class DescribeGtmInstanceAddressPoolResponseBodyAddrsAddr extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address.
+   * 
+   * @example
+   * 123
+   */
   addrId?: number;
+  /**
+   * @remarks
+   * Indicates whether health check was enabled for the address. Valid values:
+   * 
+   * *   **OK**: Normal
+   * *   **ALERT**: Alert
+   * 
+   * @example
+   * OK
+   */
   alertStatus?: string;
+  /**
+   * @remarks
+   * The time when the address pool was created.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The weight of the address.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
+  /**
+   * @remarks
+   * The mode of the address. Valid values:
+   * 
+   * *   **SMART**: Intelligent return
+   * *   **ONLINE**: Always online
+   * *   **OFFLINE**: Always offline
+   * 
+   * @example
+   * SMART
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The last time when the address was updated.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * A timestamp that indicates the last time when the address was updated.
+   * 
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @remarks
+   * The address.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22267,17 +37263,105 @@ export class DescribeGtmInstanceAddressPoolResponseBodyAddrs extends $tea.Model 
 }
 
 export class DescribeGtmInstanceAddressPoolsResponseBodyAddrPoolsAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The number of addresses in the address pool.
+   * 
+   * @example
+   * 2
+   */
   addrCount?: number;
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * 1234abc
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The time when this address pool was created.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The minimum number of available addresses in the address pool.
+   * 
+   * @example
+   * 2
+   */
   minAvailableAddrNum?: number;
+  /**
+   * @remarks
+   * The health check ID of the address pool.
+   * 
+   * @example
+   * 100abc
+   */
   monitorConfigId?: string;
+  /**
+   * @remarks
+   * Indicates whether health check was enabled for the address pool. Valid values:
+   * 
+   * *   **OPEN**: Enabled
+   * *   **CLOSE**: Disabled
+   * *   **UNCONFIGURED**: Not configured
+   * 
+   * @example
+   * OPEN
+   */
   monitorStatus?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The availability status of the address pool. Valid values:
+   * 
+   * *   **AVAILABLE**: Available
+   * *   **NOT_AVAILABLE**: Unavailable
+   * 
+   * @example
+   * AVAILABLE
+   */
   status?: string;
+  /**
+   * @remarks
+   * The type of the address pool. Valid values:
+   * 
+   * *   **IP**: IP address
+   * *   **DOMAIN**: Domain name
+   * 
+   * @example
+   * IP
+   */
   type?: string;
+  /**
+   * @remarks
+   * The last time when the address pool was updated.
+   * 
+   * @example
+   * 2017-12-28T13:08Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * A timestamp that indicates the last time the address pool was updated.
+   * 
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22338,21 +37422,139 @@ export class DescribeGtmInstanceAddressPoolsResponseBodyAddrPools extends $tea.M
 }
 
 export class DescribeGtmInstancesResponseBodyGtmInstancesGtmInstance extends $tea.Model {
+  /**
+   * @remarks
+   * The number of access policies.
+   * 
+   * @example
+   * 5
+   */
   accessStrategyNum?: number;
+  /**
+   * @remarks
+   * The number of address pools.
+   * 
+   * @example
+   * 5
+   */
   addressPoolNum?: number;
+  /**
+   * @remarks
+   * The name of the alert group.
+   * 
+   * @example
+   * [\\\\"R\\&D group\\\\"]
+   */
   alertGroup?: string;
+  /**
+   * @remarks
+   * The CNAME domain name that is used to access the instance.
+   * 
+   * @example
+   * instance1.14.com
+   */
   cname?: string;
+  /**
+   * @remarks
+   * The CNAME domain name used to access the instance. Valid values:
+   * 
+   * *   **SYSTEM_ASSIGN**: A CNAME domain name assigned by the system is used.
+   * *   **CUSTOM**: A custom CNAME domain name is used.
+   * 
+   * @example
+   * SYSTEM_ASSIGN
+   */
   cnameMode?: string;
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * 2018-06-06T11:34Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp that indicates when the instance was created.
+   * 
+   * @example
+   * 1528284856000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The time when the instance expires.
+   * 
+   * @example
+   * 2018-06-06T11:34Z
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp that indicates when the instance expires.
+   * 
+   * @example
+   * 1528284856000
+   */
   expireTimestamp?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * instance1
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @remarks
+   * The load balancing policy that is used. Valid values:
+   * 
+   * *   **ALL_RR**: Load balancing
+   * *   **RATIO**: Weighted round-robin
+   * 
+   * @example
+   * RATIO
+   */
   lbaStrategy?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-acfm2q2jqpjh***
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The global time to live (TTL).
+   * 
+   * @example
+   * 60
+   */
   ttl?: number;
+  /**
+   * @remarks
+   * The domain name of the user.
+   * 
+   * @example
+   * www.example.com
+   */
   userDomainName?: string;
+  /**
+   * @remarks
+   * The version code of the instance.
+   * 
+   * @example
+   * biaozhun
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22421,14 +37623,77 @@ export class DescribeGtmInstancesResponseBodyGtmInstances extends $tea.Model {
 }
 
 export class DescribeGtmLogsResponseBodyLogsLog extends $tea.Model {
+  /**
+   * @remarks
+   * The formatted message content.
+   * 
+   * @example
+   * addtest-pool-1
+   */
   content?: string;
+  /**
+   * @remarks
+   * The ID of the object that was operated on.
+   * 
+   * @example
+   * 121212
+   */
   entityId?: string;
+  /**
+   * @remarks
+   * The name of the object that was operated on.
+   * 
+   * @example
+   * test-pool-1
+   */
   entityName?: string;
+  /**
+   * @remarks
+   * The type of the object that was operated on.
+   * 
+   * @example
+   * POOL
+   */
   entityType?: string;
+  /**
+   * @remarks
+   * The ID of the log record.
+   * 
+   * @example
+   * 6726
+   */
   id?: number;
+  /**
+   * @remarks
+   * The operation performed.
+   * 
+   * @example
+   * add
+   */
   operAction?: string;
+  /**
+   * @remarks
+   * The IP address subject to the operation.
+   * 
+   * @example
+   * 106.11.34.X
+   */
   operIp?: string;
+  /**
+   * @remarks
+   * The time when the operation was performed.
+   * 
+   * @example
+   * 2018-01-24T07:35Z
+   */
   operTime?: string;
+  /**
+   * @remarks
+   * A timestamp that indicates the time when the operation was performed.
+   * 
+   * @example
+   * 1516779348000
+   */
   operTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22483,13 +37748,76 @@ export class DescribeGtmLogsResponseBodyLogs extends $tea.Model {
 }
 
 export class DescribeGtmMonitorAvailableConfigResponseBodyIspCityNodesIspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed.
+   * 
+   * @example
+   * 503
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * The display name of the city where the monitored node is deployed.
+   * 
+   * @example
+   * Zhangjiakou
+   */
   cityName?: string;
+  /**
+   * @remarks
+   * Indicates whether the monitored node is selected for the health check by default.
+   * 
+   * @example
+   * true
+   */
   defaultSelected?: boolean;
+  /**
+   * @remarks
+   * The name of the group to which the monitored node belongs.
+   * 
+   * Valid values: Overseas Nodes, BGP Nodes, and ISP Nodes.
+   * 
+   * @example
+   * Overseas Nodes
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The type of the group to which the monitored node belongs.
+   * 
+   * Valid values: BGP, OVERSEAS, and ISP.
+   * 
+   * @example
+   * OVERSEAS
+   */
   groupType?: string;
+  /**
+   * @remarks
+   * The code of the Internet service provider (ISP) to which the monitored node belongs.
+   * 
+   * *   If the value of the GroupType parameter is BGP or OVERSEAS, the value of IspCode is 465 by default.
+   * *   If the value of the GroupType parameter is not BGP or OVERSEAS, valid values of IspCode are 232, 132, and 5. and is used together with CityCode.
+   * 
+   * @example
+   * 465
+   */
   ispCode?: string;
+  /**
+   * @remarks
+   * The display name of the ISP to which the monitored node belongs.
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
+  /**
+   * @remarks
+   * Indicates whether the monitored node is deployed in the Chinese mainland.
+   * 
+   * @example
+   * true
+   */
   mainland?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -22542,11 +37870,53 @@ export class DescribeGtmMonitorAvailableConfigResponseBodyIspCityNodes extends $
 }
 
 export class DescribeGtmMonitorConfigResponseBodyIspCityNodesIspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed.
+   * 
+   * @example
+   * 503
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * The display name of the city where the monitored node is deployed.
+   * 
+   * @example
+   * Zhangjiakou
+   */
   cityName?: string;
+  /**
+   * @remarks
+   * The code of the country where the monitored node is deployed.
+   * 
+   * @example
+   * 001
+   */
   countryCode?: string;
+  /**
+   * @remarks
+   * The display name of the country where the monitored node is deployed.
+   * 
+   * @example
+   * China
+   */
   countryName?: string;
+  /**
+   * @remarks
+   * The code of the Internet service provider (ISP) to which the monitored node belongs.
+   * 
+   * @example
+   * 465
+   */
   ispCode?: string;
+  /**
+   * @remarks
+   * The display name of the ISP to which the monitored node belongs.
+   * 
+   * @example
+   * Alibaba
+   */
   ispName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22595,8 +37965,29 @@ export class DescribeGtmMonitorConfigResponseBodyIspCityNodes extends $tea.Model
 }
 
 export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrsAddr extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address.
+   * 
+   * @example
+   * 739
+   */
   id?: number;
+  /**
+   * @remarks
+   * The address work mode. It is the mode that was set for the IP address to work.
+   * 
+   * @example
+   * OFFLINE
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The address value.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22639,9 +38030,31 @@ export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs
 }
 
 export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool.
+   * 
+   * @example
+   * hra0oq
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   */
   addrPoolName?: string;
+  /**
+   * @remarks
+   * The list of addresses in the address pool.
+   */
   addrs?: DescribeGtmRecoveryPlanResponseBodyFaultAddrPoolsFaultAddrPoolAddrs;
+  /**
+   * @remarks
+   * The ID of the GTM instance.
+   * 
+   * @example
+   * instance-zwy-38
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22686,7 +38099,18 @@ export class DescribeGtmRecoveryPlanResponseBodyFaultAddrPools extends $tea.Mode
 }
 
 export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstanceAddrPoolsAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool.
+   */
   addrPoolId?: string;
+  /**
+   * @remarks
+   * The name of the address pool.
+   * 
+   * @example
+   * hra0i9
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22727,8 +38151,26 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstance
 }
 
 export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstance extends $tea.Model {
+  /**
+   * @remarks
+   * The list of address pools for the GTM instance.
+   */
   addrPools?: DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstancesInstanceAddrPools;
+  /**
+   * @remarks
+   * The ID of the GTM instance.
+   * 
+   * @example
+   * instance-example
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the GTM instance.
+   * 
+   * @example
+   * instance-name-example
+   */
   instanceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22771,18 +38213,113 @@ export class DescribeGtmRecoveryPlanAvailableConfigResponseBodyInstances extends
 }
 
 export class DescribeGtmRecoveryPlansResponseBodyRecoveryPlansRecoveryPlan extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the disaster recovery plan was created.
+   * 
+   * @example
+   * 2019-08-11T06:45Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp that indicates when the disaster recovery plan was created.
+   * 
+   * @example
+   * 1565499867000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The number of faulty address pools.
+   * 
+   * @example
+   * 0
+   */
   faultAddrPoolNum?: number;
+  /**
+   * @remarks
+   * The last time when the disaster recovery plan was executed.
+   * 
+   * @example
+   * 2019-08-11T06:44Z
+   */
   lastExecuteTime?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp that indicates the last time when the disaster recovery plan was executed.
+   * 
+   * @example
+   * 1565505898000
+   */
   lastExecuteTimestamp?: number;
+  /**
+   * @remarks
+   * The last time when the disaster recovery plan was rolled back.
+   * 
+   * @example
+   * 2019-08-11T06:45Z
+   */
   lastRollbackTime?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp that indicates the last time when the disaster recovery plan was rolled back.
+   * 
+   * @example
+   * 1565505919000
+   */
   lastRollbackTimestamp?: number;
+  /**
+   * @remarks
+   * The name of the disaster recovery plan.
+   * 
+   * @example
+   * name-example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The ID of the disaster recovery plan.
+   * 
+   * @example
+   * 55
+   */
   recoveryPlanId?: number;
+  /**
+   * @remarks
+   * The remarks about the disaster recovery plan.
+   * 
+   * @example
+   * remark-example
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The status of the disaster recovery plan. Valid values:
+   * 
+   * *   **UNEXECUTED**: The plan is not executed.
+   * *   **EXECUTED**: The plan is executed.
+   * *   **ROLLED_BACK**: The plan is rolled back.
+   * 
+   * @example
+   * UNEXECUTED
+   */
   status?: string;
+  /**
+   * @remarks
+   * The last time when the disaster recovery plan was updated.
+   * 
+   * @example
+   * 2019-08-11T06:45Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * The UNIX timestamp that indicates the last time when the disaster recovery plan was updated.
+   * 
+   * @example
+   * 1565505919000
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -22845,8 +38382,29 @@ export class DescribeGtmRecoveryPlansResponseBodyRecoveryPlans extends $tea.Mode
 }
 
 export class DescribeInstanceDomainsResponseBodyInstanceDomains extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the instance was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2020-03-09T02:15Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The time when the instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1583720154000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22889,14 +38447,50 @@ export class DescribeInternetDnsLogsResponseBodyLogsLogValue extends $tea.Model 
 }
 
 export class DescribeInternetDnsLogsResponseBodyLogsLog extends $tea.Model {
+  /**
+   * @example
+   * 3583
+   */
   dnsMsgId?: string;
+  /**
+   * @example
+   * 1709196249000
+   */
   logTime?: number;
+  /**
+   * @example
+   * example.com
+   */
   queryName?: string;
+  /**
+   * @example
+   * A
+   */
   queryType?: string;
+  /**
+   * @example
+   * 0
+   */
   rt?: number;
+  /**
+   * @example
+   * 140.205.XX.XX
+   */
   serverIp?: string;
+  /**
+   * @example
+   * 59.82.XX.XX
+   */
   sourceIp?: string;
+  /**
+   * @example
+   * NOERROR
+   */
   status?: string;
+  /**
+   * @example
+   * 170.33.XX.XX
+   */
   subnetIp?: string;
   value?: DescribeInternetDnsLogsResponseBodyLogsLogValue;
   zoneName?: string;
@@ -23587,10 +39181,39 @@ export class DescribePdnsUserInfoResponseBodyUserInfo extends $tea.Model {
 }
 
 export class DescribeRecordLogsResponseBodyRecordLogsRecordLog extends $tea.Model {
+  /**
+   * @remarks
+   * The operation that you performed.
+   */
   action?: string;
+  /**
+   * @remarks
+   * The time when you performed the operation.
+   * 
+   * @example
+   * 2015-12-12T09:23Z
+   */
   actionTime?: string;
+  /**
+   * @remarks
+   * The time when you performed the operation. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 134514540000
+   */
   actionTimestamp?: number;
+  /**
+   * @remarks
+   * The IP address of the operator.
+   * 
+   * @example
+   * 182.92.253.XX
+   */
   clientIp?: string;
+  /**
+   * @remarks
+   * The operation message.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23637,9 +39260,40 @@ export class DescribeRecordLogsResponseBodyRecordLogs extends $tea.Model {
 }
 
 export class DescribeRecordResolveStatisticsSummaryResponseBodyStatistics extends $tea.Model {
+  /**
+   * @remarks
+   * The number of DNS requests.
+   * 
+   * @example
+   * 330
+   */
   count?: string;
+  /**
+   * @remarks
+   * The subdomain name.
+   * 
+   * @example
+   * tes.example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The type of the domain name. The parameter value is not case-sensitive. Valid values:
+   * 
+   * *   PUBLIC (default): hosted public domain name
+   * *   CACHE: cache-accelerated domain name
+   * 
+   * @example
+   * PUBLIC
+   */
   domainType?: string;
+  /**
+   * @remarks
+   * The subdomain.
+   * 
+   * @example
+   * test.example.com
+   */
   subDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23665,7 +39319,21 @@ export class DescribeRecordResolveStatisticsSummaryResponseBodyStatistics extend
 }
 
 export class DescribeRecordStatisticsResponseBodyStatisticsStatistic extends $tea.Model {
+  /**
+   * @remarks
+   * The number of DNS requests.
+   * 
+   * @example
+   * 15292887
+   */
   count?: number;
+  /**
+   * @remarks
+   * The statistical timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1556640000000
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23706,7 +39374,21 @@ export class DescribeRecordStatisticsResponseBodyStatistics extends $tea.Model {
 }
 
 export class DescribeRecordStatisticsSummaryResponseBodyStatisticsStatistic extends $tea.Model {
+  /**
+   * @remarks
+   * The number of DNS requests.
+   * 
+   * @example
+   * 838711553
+   */
   count?: number;
+  /**
+   * @remarks
+   * The subdomain.
+   * 
+   * @example
+   * t1.alitest2.com
+   */
   subDomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23747,17 +39429,101 @@ export class DescribeRecordStatisticsSummaryResponseBodyStatistics extends $tea.
 }
 
 export class DescribeSubDomainRecordsResponseBodyDomainRecordsRecord extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * example.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The DNS resolution line.
+   * 
+   * @example
+   * default
+   */
   line?: string;
+  /**
+   * @remarks
+   * The lock status of the DNS record.
+   * 
+   * @example
+   * false
+   */
   locked?: boolean;
+  /**
+   * @remarks
+   * The priority of the mail exchanger (MX) record.
+   * 
+   * @example
+   * 2
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * www
+   */
   RR?: string;
+  /**
+   * @remarks
+   * The ID of the DNS record.
+   * 
+   * @example
+   * 9999985
+   */
   recordId?: string;
+  /**
+   * @remarks
+   * The description of the DNS record.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @remarks
+   * The status of the DNS record.
+   * 
+   * @example
+   * Enable
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time-to-live (TTL) of the DNS record.
+   * 
+   * @example
+   * 600
+   */
   TTL?: number;
+  /**
+   * @remarks
+   * The type of the DNS record.
+   * 
+   * @example
+   * CNAME
+   */
   type?: string;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * @example
+   * example.net
+   */
   value?: string;
+  /**
+   * @remarks
+   * The weight of the DNS record.
+   * 
+   * @example
+   * 10
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23818,9 +39584,37 @@ export class DescribeSubDomainRecordsResponseBodyDomainRecords extends $tea.Mode
 }
 
 export class DescribeSupportLinesResponseBodyRecordLinesRecordLine extends $tea.Model {
+  /**
+   * @remarks
+   * 2021-12-06T02:47:26.000+0000
+   * 
+   * @example
+   * unicom
+   */
   fatherCode?: string;
+  /**
+   * @remarks
+   * 子线路Code。
+   * 
+   * @example
+   * cn_unicom_shanxi
+   */
   lineCode?: string;
+  /**
+   * @remarks
+   * 父线路展示名称。
+   * 
+   * @example
+   * 联通
+   */
   lineDisplayName?: string;
+  /**
+   * @remarks
+   * 子线路展示名称。
+   * 
+   * @example
+   * 联通_山西
+   */
   lineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23865,7 +39659,18 @@ export class DescribeSupportLinesResponseBodyRecordLines extends $tea.Model {
 }
 
 export class DescribeTagsResponseBodyTags extends $tea.Model {
+  /**
+   * @remarks
+   * The key of tag N added to the resource.
+   * 
+   * @example
+   * abc
+   */
   key?: string;
+  /**
+   * @remarks
+   * The values of tags added to the resource.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -23887,11 +39692,53 @@ export class DescribeTagsResponseBodyTags extends $tea.Model {
 }
 
 export class DescribeTransferDomainsResponseBodyDomainTransfersDomainTransfer extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the domain name was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2019-10-30T07:16Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The time when the domain name was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1572419764000
+   */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * test.com
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The user ID from which the domain name was transferred.
+   * 
+   * @example
+   * 2222
+   */
   fromUserId?: number;
+  /**
+   * @remarks
+   * The ID of the domain name that was transferred.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The user ID to which the domain name was transferred.
+   * 
+   * @example
+   * 111111
+   */
   targetUserId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23940,8 +39787,20 @@ export class DescribeTransferDomainsResponseBodyDomainTransfers extends $tea.Mod
 }
 
 export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @example
+   * mtp-895180524251002880
+   */
   templateId?: string;
+  /**
+   * @example
+   * IPv4-Ping
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24003,26 +39862,94 @@ export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresse
 }
 
 export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddress extends $tea.Model {
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @example
+   * addr-895182181143688192
+   */
   addressId?: string;
   attributeInfo?: string;
+  /**
+   * @example
+   * auto
+   */
   availableMode?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
   healthTasks?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasks;
+  /**
+   * @example
+   * available
+   */
   manualAvailableStatus?: string;
+  /**
+   * @example
+   * Address-1
+   */
   name?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
   requestSource?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressRequestSource;
   seqNonPreemptiveSchedule?: boolean;
+  /**
+   * @example
+   * 1
+   */
   serialNumber?: number;
+  /**
+   * @example
+   * IPv4
+   */
   type?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * 1
+   */
   weightValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24101,20 +40028,76 @@ export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresse
 }
 
 export class ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPool extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressLbStrategy?: string;
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * AddressPool-1
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   addressPoolType?: string;
   addresses?: ListCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresses;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24181,9 +40164,25 @@ export class ListCloudGtmAddressPoolsResponseBodyAddressPools extends $tea.Model
 }
 
 export class ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasksHealthTask extends $tea.Model {
+  /**
+   * @example
+   * ok
+   */
   monitorStatus?: string;
+  /**
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
+  /**
+   * @example
+   * Ping-IPv4
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24228,22 +40227,82 @@ export class ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasks extend
 }
 
 export class ListCloudGtmAddressesResponseBodyAddressesAddress extends $tea.Model {
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
   attributeInfo?: string;
+  /**
+   * @example
+   * auto
+   */
   availableMode?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-23T13:09Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * p50_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
   healthTasks?: ListCloudGtmAddressesResponseBodyAddressesAddressHealthTasks;
+  /**
+   * @example
+   * available
+   */
   manualAvailableStatus?: string;
+  /**
+   * @example
+   * Address-1
+   */
   name?: string;
+  /**
+   * @example
+   * app
+   */
   remark?: string;
+  /**
+   * @example
+   * IPv4
+   */
   type?: string;
+  /**
+   * @example
+   * 2024-03-29T13:20Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690824357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24314,9 +40373,21 @@ export class ListCloudGtmAddressesResponseBodyAddresses extends $tea.Model {
 }
 
 export class ListCloudGtmAlertLogsResponseBodyLogsLog extends $tea.Model {
+  /**
+   * @example
+   * ALERT
+   */
   actionType?: string;
   content?: string;
+  /**
+   * @example
+   * GTM_ADDRESS
+   */
   entityType?: string;
+  /**
+   * @example
+   * 1711328826977
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24418,22 +40489,82 @@ export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfi
 }
 
 export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPool extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressLbStrategy?: string;
+  /**
+   * @example
+   * pool-89528023225442**16
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * AddressPool-1
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   addressPoolType?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
   requestSource?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPoolRequestSource;
   seqNonPreemptiveSchedule?: boolean;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 1
+   */
   serialNumber?: number;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * 1
+   */
   weightValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24504,26 +40635,106 @@ export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfi
 }
 
 export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfig extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressPoolLbStrategy?: string;
   addressPools?: ListCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPools;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * dns_gtm_public_cn
+   */
   commodityCode?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * www.example.com
+   */
   scheduleDomainName?: string;
+  /**
+   * @example
+   * www
+   */
   scheduleHostname?: string;
+  /**
+   * @example
+   * A
+   */
   scheduleRrType?: string;
+  /**
+   * @example
+   * custom
+   */
   scheduleZoneMode?: string;
+  /**
+   * @example
+   * example.com
+   */
   scheduleZoneName?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 60
+   */
   ttl?: number;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * ultimate
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24602,21 +40813,85 @@ export class ListCloudGtmInstanceConfigsResponseBodyInstanceConfigs extends $tea
 }
 
 export class ListCloudGtmInstancesResponseBodyInstancesInstance extends $tea.Model {
+  /**
+   * @example
+   * dns_gtm_public_cn
+   */
   commodityCode?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1231298343343
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   expireTime?: string;
+  /**
+   * @example
+   * 1231298343343
+   */
   expireTimestamp?: number;
+  /**
+   * @example
+   * gtm-cn-jmp3qnw**03
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * 100
+   */
   monitorTaskQuota?: number;
+  /**
+   * @example
+   * 50
+   */
   monthlyEmailUsed?: number;
+  /**
+   * @example
+   * 1000
+   */
   monthlySmsQuota?: number;
+  /**
+   * @example
+   * 100
+   */
   monthlySmsUsed?: number;
+  /**
+   * @example
+   * 80
+   */
   monthlyWebhookUsed?: number;
+  /**
+   * @example
+   * www.example.com
+   */
   scheduleDomainName?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1231298343343
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * ultimate
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24704,16 +40979,40 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode
 }
 
 export class ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNode extends $tea.Model {
+  /**
+   * @example
+   * 503
+   */
   cityCode?: string;
   cityName?: string;
+  /**
+   * @example
+   * 001
+   */
   countryCode?: string;
   countryName?: string;
+  /**
+   * @example
+   * true
+   */
   defaultSelected?: boolean;
   groupName?: string;
+  /**
+   * @example
+   * BGP
+   */
   groupType?: string;
   ips?: ListCloudGtmMonitorNodesResponseBodyIpv4IspCityNodesIpv4IspCityNodeIps;
+  /**
+   * @example
+   * 465
+   */
   ispCode?: string;
   ispName?: string;
+  /**
+   * @example
+   * node-ewze1bysndy4gf**j8
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24791,16 +41090,40 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode
 }
 
 export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNode extends $tea.Model {
+  /**
+   * @example
+   * 503
+   */
   cityCode?: string;
   cityName?: string;
+  /**
+   * @example
+   * 001
+   */
   countryCode?: string;
   countryName?: string;
+  /**
+   * @example
+   * true
+   */
   defaultSelected?: boolean;
   groupName?: string;
+  /**
+   * @example
+   * BGP
+   */
   groupType?: string;
   ips?: ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodesIpv6IspCityNodeIps;
+  /**
+   * @example
+   * 465
+   */
   ispCode?: string;
   ispName?: string;
+  /**
+   * @example
+   * node-ewze1bysndy4gf**j8
+   */
   nodeId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24859,12 +41182,28 @@ export class ListCloudGtmMonitorNodesResponseBodyIpv6IspCityNodes extends $tea.M
 }
 
 export class ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodesIspCityNode extends $tea.Model {
+  /**
+   * @example
+   * 503
+   */
   cityCode?: string;
   cityName?: string;
+  /**
+   * @example
+   * 001
+   */
   countryCode?: string;
   countryName?: string;
   groupName?: string;
+  /**
+   * @example
+   * BGP
+   */
   groupType?: string;
+  /**
+   * @example
+   * 465
+   */
   ispCode?: string;
   ispName?: string;
   static names(): { [key: string]: string } {
@@ -24918,20 +41257,76 @@ export class ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNod
 }
 
 export class ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-23T13:09Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   extendInfo?: string;
+  /**
+   * @example
+   * 50
+   */
   failureRate?: number;
+  /**
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
   ispCityNodes?: ListCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes;
+  /**
+   * @example
+   * IPv4-Ping
+   */
   name?: string;
+  /**
+   * @example
+   * ping
+   */
   protocol?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
+  /**
+   * @example
+   * 5000
+   */
   timeout?: number;
+  /**
+   * @example
+   * 2024-03-29T13:20Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24998,7 +41393,21 @@ export class ListCloudGtmMonitorTemplatesResponseBodyTemplates extends $tea.Mode
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * abcd
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * abcd
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25020,9 +41429,37 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * dns-example.com
+   */
   resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Only DOMAIN is returned.
+   * 
+   * @example
+   * DOMAIN
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * abcd
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * abcd
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25086,15 +41523,88 @@ export class ModifyHichinaDomainDNSResponseBodyOriginalDnsServers extends $tea.M
 }
 
 export class OperateBatchDomainRequestDomainRecordInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * >  You can submit 1 to 1,000 domain names. Due to the limit on the length of HTTP request headers, excessive domain names are ignored. Do not enter more than 1,000 domain names.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The resolution line. Default value: default.
+   * 
+   * @example
+   * default
+   */
   line?: string;
+  /**
+   * @example
+   * mail
+   */
   newRr?: string;
+  /**
+   * @example
+   * AAAA
+   */
   newType?: string;
+  /**
+   * @example
+   * 114.92.XX.XX
+   */
   newValue?: string;
+  /**
+   * @remarks
+   * The priority of the mail exchanger (MX) record.
+   * 
+   * This parameter is required if the type of the DNS record is MX. Default value: 10.
+   * 
+   * @example
+   * 5
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * >  This parameter is required if you set Type to **RR_ADD** or **RR_DEL**.
+   * 
+   * @example
+   * zhaohui
+   */
   rr?: string;
+  /**
+   * @remarks
+   * The time-to-live (TTL) value of the cached DNS record. Unit: seconds. Default value: ***600***.
+   * 
+   * @example
+   * 600
+   */
   ttl?: number;
+  /**
+   * @remarks
+   * The type of the DNS record. Valid values: A, AAAA, TXT, MX, and CNAME.
+   * 
+   * >  This parameter is required if you set Type to **RR_ADD** or **RR_DEL**.
+   * 
+   * @example
+   * MX
+   */
   type?: string;
+  /**
+   * @remarks
+   * The record value.
+   * 
+   * >  This parameter is required if you set Type to **RR_ADD** or **RR_DEL**.
+   * 
+   * @example
+   * fd87da3c4528844d45af39200155a905
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25132,7 +41642,18 @@ export class OperateBatchDomainRequestDomainRecordInfo extends $tea.Model {
 }
 
 export class PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfosSwitchInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The formatted message content.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The name of the switching policy for address pools.
+   * 
+   * @example
+   * strategy-name-example-1
+   */
   strategyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25173,9 +41694,34 @@ export class PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfos extend
 }
 
 export class PreviewGtmRecoveryPlanResponseBodyPreviewsPreview extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the GTM instance to which the previewed disaster recovery plan belongs.
+   * 
+   * @example
+   * instance-example
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the GTM instance to which the previewed disaster recovery plan belongs.
+   * 
+   * @example
+   * name-example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The returned information of the switching policies for address pools.
+   */
   switchInfos?: PreviewGtmRecoveryPlanResponseBodyPreviewsPreviewSwitchInfos;
+  /**
+   * @remarks
+   * The user\\"s domain name or domain name list.
+   * 
+   * @example
+   * 30.yyy.com
+   */
   userDomainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25220,9 +41766,21 @@ export class PreviewGtmRecoveryPlanResponseBodyPreviews extends $tea.Model {
 }
 
 export class ReplaceCloudGtmAddressPoolAddressRequestAddresses extends $tea.Model {
+  /**
+   * @example
+   * addr-89636516932803**44
+   */
   addressId?: string;
   requestSource?: string[];
+  /**
+   * @example
+   * 1
+   */
   serialNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   weightValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25248,9 +41806,21 @@ export class ReplaceCloudGtmAddressPoolAddressRequestAddresses extends $tea.Mode
 }
 
 export class ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools extends $tea.Model {
+  /**
+   * @example
+   * pool-89564542105737**12
+   */
   addressPoolId?: string;
   requestSource?: string[];
+  /**
+   * @example
+   * 1
+   */
   serialNumber?: number;
+  /**
+   * @example
+   * 1
+   */
   weightValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25276,8 +41846,20 @@ export class ReplaceCloudGtmInstanceConfigAddressPoolRequestAddressPools extends
 }
 
 export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasksHealthTask extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
+  /**
+   * @example
+   * IPv4-Ping
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25320,25 +41902,97 @@ export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddres
 }
 
 export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddress extends $tea.Model {
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @example
+   * addr-895182181143688192
+   */
   addressId?: string;
   attributeInfo?: string;
+  /**
+   * @example
+   * auto
+   */
   availableMode?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
   healthTasks?: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddressesAddressHealthTasks;
+  /**
+   * @example
+   * available
+   */
   manualAvailableStatus?: string;
+  /**
+   * @example
+   * Address-1
+   */
   name?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * default
+   */
   requestSource?: string;
+  /**
+   * @example
+   * 1
+   */
   serialNumber?: number;
+  /**
+   * @example
+   * IPv4
+   */
   type?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * 1
+   */
   weightValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25415,20 +42069,76 @@ export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddres
 }
 
 export class SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPool extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressLbStrategy?: string;
+  /**
+   * @example
+   * pool-895280232254422016
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * AddressPool-1
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   addressPoolType?: string;
   addresses?: SearchCloudGtmAddressPoolsResponseBodyAddressPoolsAddressPoolAddresses;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25495,9 +42205,25 @@ export class SearchCloudGtmAddressPoolsResponseBodyAddressPools extends $tea.Mod
 }
 
 export class SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasksHealthTask extends $tea.Model {
+  /**
+   * @example
+   * ok
+   */
   monitorStatus?: string;
+  /**
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @example
+   * mtp-895180524251002880
+   */
   templateId?: string;
+  /**
+   * @example
+   * IPv4-Ping
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25542,22 +42268,82 @@ export class SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasks exte
 }
 
 export class SearchCloudGtmAddressesResponseBodyAddressesAddress extends $tea.Model {
+  /**
+   * @example
+   * 223.5.XX.XX
+   */
   address?: string;
+  /**
+   * @example
+   * addr-89518218114368**92
+   */
   addressId?: string;
   attributeInfo?: string;
+  /**
+   * @example
+   * auto
+   */
   availableMode?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-23T13:09Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * p50_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
   healthTasks?: SearchCloudGtmAddressesResponseBodyAddressesAddressHealthTasks;
+  /**
+   * @example
+   * available
+   */
   manualAvailableStatus?: string;
+  /**
+   * @example
+   * Address-1
+   */
   name?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * IPv4
+   */
   type?: string;
+  /**
+   * @example
+   * 2024-03-29T13:20Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25647,22 +42433,86 @@ export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceCon
 }
 
 export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPool extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressLbStrategy?: string;
+  /**
+   * @example
+   * pool-89564504435014**60
+   */
   addressPoolId?: string;
+  /**
+   * @example
+   * AddressPool-1
+   */
   addressPoolName?: string;
+  /**
+   * @example
+   * IPv4
+   */
   addressPoolType?: string;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * any_ok
+   */
   healthJudgement?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
   requestSource?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPoolsAddressPoolRequestSource;
+  /**
+   * @example
+   * false
+   */
   seqNonPreemptiveSchedule?: boolean;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 1
+   */
   serialNumber?: number;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * 1
+   */
   weightValue?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25733,26 +42583,106 @@ export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceCon
 }
 
 export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfig extends $tea.Model {
+  /**
+   * @example
+   * round_robin
+   */
   addressPoolLbStrategy?: string;
   addressPools?: SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigsInstanceConfigAddressPools;
+  /**
+   * @example
+   * available
+   */
   availableStatus?: string;
+  /**
+   * @example
+   * dns_gtm_public_cn
+   */
   commodityCode?: string;
+  /**
+   * @example
+   * Config-000**11
+   */
   configId?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * enable
+   */
   enableStatus?: string;
+  /**
+   * @example
+   * ok
+   */
   healthStatus?: string;
+  /**
+   * @example
+   * gtm-cn-x0r38e0**03
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * www.example.com
+   */
   scheduleDomainName?: string;
+  /**
+   * @example
+   * www
+   */
   scheduleHostname?: string;
+  /**
+   * @example
+   * A
+   */
   scheduleRrType?: string;
+  /**
+   * @example
+   * custom
+   */
   scheduleZoneMode?: string;
+  /**
+   * @example
+   * example.com
+   */
   scheduleZoneName?: string;
+  /**
+   * @example
+   * preemptive
+   */
   sequenceLbStrategyMode?: string;
+  /**
+   * @example
+   * 60
+   */
   ttl?: number;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * ultimate
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25831,21 +42761,85 @@ export class SearchCloudGtmInstanceConfigsResponseBodyInstanceConfigs extends $t
 }
 
 export class SearchCloudGtmInstancesResponseBodyInstancesInstance extends $tea.Model {
+  /**
+   * @example
+   * dns_gtm_public_cn
+   */
   commodityCode?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1710467214858
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * 2024-09-05T16:00Z
+   */
   expireTime?: number;
+  /**
+   * @example
+   * 1725552000000
+   */
   expireTimestamp?: string;
+  /**
+   * @example
+   * gtm-cn-wwo3a3hbz**
+   */
   instanceId?: string;
+  /**
+   * @example
+   * test
+   */
   instanceName?: string;
+  /**
+   * @example
+   * 100
+   */
   monitorTaskQuota?: number;
+  /**
+   * @example
+   * 200
+   */
   monthlyEmailUsed?: number;
+  /**
+   * @example
+   * 2000
+   */
   monthlySmsQuota?: number;
+  /**
+   * @example
+   * 200
+   */
   monthlySmsUsed?: number;
+  /**
+   * @example
+   * 100
+   */
   monthlyWebhookUsed?: number;
+  /**
+   * @example
+   * www.example.com
+   */
   scheduleDomainName?: string;
+  /**
+   * @example
+   * 2024-03-15T01:46Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1710467214858
+   */
   updateTimestamp?: number;
+  /**
+   * @example
+   * ultimate
+   */
   versionCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25914,12 +42908,32 @@ export class SearchCloudGtmInstancesResponseBodyInstances extends $tea.Model {
 }
 
 export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodesIspCityNode extends $tea.Model {
+  /**
+   * @example
+   * 503
+   */
   cityCode?: string;
   cityName?: string;
+  /**
+   * @example
+   * 001
+   */
   countryCode?: string;
   countryName?: string;
+  /**
+   * @example
+   * BGP
+   */
   groupName?: string;
+  /**
+   * @example
+   * BGP
+   */
   groupType?: string;
+  /**
+   * @example
+   * 465
+   */
   ispCode?: string;
   ispName?: string;
   static names(): { [key: string]: string } {
@@ -25973,20 +42987,76 @@ export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityN
 }
 
 export class SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplate extends $tea.Model {
+  /**
+   * @example
+   * 2024-03-23T13:09Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   createTimestamp?: number;
+  /**
+   * @example
+   * 2
+   */
   evaluationCount?: number;
+  /**
+   * @example
+   * {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
+   */
   extendInfo?: string;
+  /**
+   * @example
+   * 50
+   */
   failureRate?: number;
+  /**
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @example
+   * IPv4
+   */
   ipVersion?: string;
   ispCityNodes?: SearchCloudGtmMonitorTemplatesResponseBodyTemplatesTemplateIspCityNodes;
+  /**
+   * @example
+   * IPv4-Ping
+   */
   name?: string;
+  /**
+   * @example
+   * ping
+   */
   protocol?: string;
+  /**
+   * @example
+   * test
+   */
   remark?: string;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
+  /**
+   * @example
+   * 5000
+   */
   timeout?: number;
+  /**
+   * @example
+   * 2024-03-29T13:20Z
+   */
   updateTime?: string;
+  /**
+   * @example
+   * 1527690629357
+   */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26053,7 +43123,21 @@ export class SearchCloudGtmMonitorTemplatesResponseBodyTemplates extends $tea.Mo
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of tag N to add to the resource. The tag key can be up to 20 characters in length and cannot start with acs: or aliyun.
+   * 
+   * @example
+   * abcd
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of tag N to add to the resource. The tag value can be up to 20 characters in length.
+   * 
+   * @example
+   * abcd
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26075,7 +43159,15 @@ export class TagResourcesRequestTag extends $tea.Model {
 }
 
 export class UpdateCloudGtmAddressRequestHealthTasks extends $tea.Model {
+  /**
+   * @example
+   * 80
+   */
   port?: number;
+  /**
+   * @example
+   * mtp-89518052425100**80
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26097,9 +43189,25 @@ export class UpdateCloudGtmAddressRequestHealthTasks extends $tea.Model {
 }
 
 export class UpdateCloudGtmGlobalAlertRequestAlertConfig extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
   dingtalkNotice?: boolean;
+  /**
+   * @example
+   * true
+   */
   emailNotice?: boolean;
+  /**
+   * @example
+   * addr_alert
+   */
   noticeType?: string;
+  /**
+   * @example
+   * true
+   */
   smsNotice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26125,9 +43233,53 @@ export class UpdateCloudGtmGlobalAlertRequestAlertConfig extends $tea.Model {
 }
 
 export class UpdateCloudGtmInstanceConfigAlertRequestAlertConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to configure DingTalk notifications. Valid values:
+   * 
+   * *   true: DingTalk notifications are configured. DingTalk notifications are sent when alerts are triggered.
+   * *   false: DingTalk notifications are not configured.
+   * 
+   * @example
+   * true
+   */
   dingtalkNotice?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to configure email notifications. Valid values:
+   * 
+   * *   true: Email notifications are configured. Emails are sent when alerts are triggered.
+   * *   false: Email notifications are not configured.
+   * 
+   * @example
+   * true
+   */
   emailNotice?: boolean;
+  /**
+   * @remarks
+   * The type of the alert event. Valid values:
+   * 
+   * *   addr_alert: The address is unavailable.
+   * *   addr_resume: The address becomes available.
+   * *   addr_pool_unavailable: The address pool is unavailable.
+   * *   addr_pool_available: The address pool becomes available.
+   * 
+   * @example
+   * addr_alert
+   */
   noticeType?: string;
+  /**
+   * @remarks
+   * Specifies whether to configure text message notifications. Valid values:
+   * 
+   * *   true: Text message notifications are configured. Text messages are sent when alerts are triggered.
+   * *   false: Text message notifications are not configured.
+   * 
+   * Only the China site (aliyun.com) supports text message notifications.
+   * 
+   * @example
+   * true
+   */
   smsNotice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26153,7 +43305,15 @@ export class UpdateCloudGtmInstanceConfigAlertRequestAlertConfig extends $tea.Mo
 }
 
 export class UpdateCloudGtmMonitorTemplateRequestIspCityNodes extends $tea.Model {
+  /**
+   * @example
+   * 503
+   */
   cityCode?: string;
+  /**
+   * @example
+   * 465
+   */
   ispCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26175,7 +43335,21 @@ export class UpdateCloudGtmMonitorTemplateRequestIspCityNodes extends $tea.Model
 }
 
 export class UpdateCustomLineRequestIpSegment extends $tea.Model {
+  /**
+   * @remarks
+   * The end IP address of the CIDR block.
+   * 
+   * @example
+   * 2.2.2.2
+   */
   endIp?: string;
+  /**
+   * @remarks
+   * The start IP address of the CIDR block.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   startIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26197,7 +43371,21 @@ export class UpdateCustomLineRequestIpSegment extends $tea.Model {
 }
 
 export class UpdateDnsCacheDomainRequestSourceDnsServer extends $tea.Model {
+  /**
+   * @remarks
+   * The domain name or IP address of the origin DNS server.
+   * 
+   * @example
+   * 223.5.5.5
+   */
   host?: string;
+  /**
+   * @remarks
+   * The port of the origin DNS server.
+   * 
+   * @example
+   * 53
+   */
   port?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26219,7 +43407,21 @@ export class UpdateDnsCacheDomainRequestSourceDnsServer extends $tea.Model {
 }
 
 export class UpdateDnsGtmAccessStrategyRequestDefaultAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool in the primary address pool set.
+   * 
+   * @example
+   * pool1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The weight of the address pool in the primary address pool set.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26241,7 +43443,21 @@ export class UpdateDnsGtmAccessStrategyRequestDefaultAddrPool extends $tea.Model
 }
 
 export class UpdateDnsGtmAccessStrategyRequestFailoverAddrPool extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the address pool in the secondary address pool set.
+   * 
+   * @example
+   * pool1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The weight of the address pool in the secondary address pool set.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26263,10 +43479,63 @@ export class UpdateDnsGtmAccessStrategyRequestFailoverAddrPool extends $tea.Mode
 }
 
 export class UpdateDnsGtmAddressPoolRequestAddr extends $tea.Model {
+  /**
+   * @remarks
+   * The address in the address pool.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   addr?: string;
+  /**
+   * @remarks
+   * The source region of the address, in JSON-formatted string.
+   * 
+   * *   LineCode: the line code of the source region of the address. The LineCode field is deprecated, and the lineCodes field is used as a substitute.
+   * 
+   * *   LineCodes: the line code list of the source regions of addresses.
+   * 
+   * *   lineCodeRectifyType: the rectification type of the line codes. Default value: AUTO. Valid values:
+   * 
+   *     *   NO_NEED: no need for rectification.
+   *     *   RECTIFIED: rectified.
+   *     *   AUTO: automatic rectification.
+   * 
+   * @example
+   * Linecode:default,lineCodes:["default"],lineCodeRectifyType:"NO_NEED"
+   */
   attributeInfo?: string;
+  /**
+   * @remarks
+   * The weight of the address.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
+  /**
+   * @remarks
+   * The response mode: Valid values:
+   * 
+   * *   SMART: smart return.
+   * *   ONLINE: always online.
+   * *   OFFLINE: always offline.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * online
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The additional information about the address.
+   * 
+   * @example
+   * test
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26294,9 +43563,25 @@ export class UpdateDnsGtmAddressPoolRequestAddr extends $tea.Model {
 }
 
 export class UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   dingtalkNotice?: boolean;
+  /**
+   * @example
+   * true
+   */
   emailNotice?: boolean;
+  /**
+   * @example
+   * ADDR_ALERT
+   */
   noticeType?: string;
+  /**
+   * @example
+   * true
+   */
   smsNotice?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26322,7 +43607,21 @@ export class UpdateDnsGtmInstanceGlobalConfigRequestAlertConfig extends $tea.Mod
 }
 
 export class UpdateDnsGtmMonitorRequestIspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed.
+   * 
+   * @example
+   * 123
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * The code of the Internet service provider (ISP) to which the monitored node belongs.
+   * 
+   * @example
+   * 123
+   */
   ispCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26344,8 +43643,33 @@ export class UpdateDnsGtmMonitorRequestIspCityNode extends $tea.Model {
 }
 
 export class UpdateGtmAddressPoolRequestAddr extends $tea.Model {
+  /**
+   * @remarks
+   * The weight of the address pool that you want to modify.
+   * 
+   * @example
+   * 1
+   */
   lbaWeight?: number;
+  /**
+   * @remarks
+   * The mode of the address pool that you want to modify.
+   * 
+   * *   **SMART**: Intelligent return
+   * *   **ONLINE**: Always online
+   * *   **OFFLINE**: Always offline
+   * 
+   * @example
+   * SMART
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The addresses in the address pool.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26369,7 +43693,23 @@ export class UpdateGtmAddressPoolRequestAddr extends $tea.Model {
 }
 
 export class UpdateGtmMonitorRequestIspCityNode extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the city where the monitored node is deployed.
+   * 
+   * @example
+   * 572
+   */
   cityCode?: string;
+  /**
+   * @remarks
+   * *   The code of the Internet service provider (ISP) to which the monitored node belongs. For more information about specific values, see the response parameters of DescribeGtmMonitorAvailableConfig.
+   * *   If the value of the GroupType parameter is BGP or OVERSEAS, IspCode is optional. The default value is 465.
+   * *   If the value of the GroupType parameter is not BGP or OVERSEAS, IspCode is required and is used together with CityCode.
+   * 
+   * @example
+   * 465
+   */
   ispCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26414,14 +43754,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a custom line.
-   *
-   * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+   * Adds a custom line.
+   * 
+   * @remarks
+   * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
    * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-   *
-   * @param request AddCustomLineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddCustomLineResponse
+   * 
+   * @param request - AddCustomLineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddCustomLineResponse
    */
   async addCustomLineWithOptions(request: AddCustomLineRequest, runtime: $Util.RuntimeOptions): Promise<AddCustomLineResponse> {
     Util.validateModel(request);
@@ -26460,13 +43801,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a custom line.
-   *
-   * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+   * Adds a custom line.
+   * 
+   * @remarks
+   * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
    * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-   *
-   * @param request AddCustomLineRequest
-   * @return AddCustomLineResponse
+   * 
+   * @param request - AddCustomLineRequest
+   * @returns AddCustomLineResponse
    */
   async addCustomLine(request: AddCustomLineRequest): Promise<AddCustomLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26474,9 +43816,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddDnsCacheDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddDnsCacheDomainResponse
+   * @param request - AddDnsCacheDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDnsCacheDomainResponse
    */
   async addDnsCacheDomainWithOptions(request: AddDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsCacheDomainResponse> {
     Util.validateModel(request);
@@ -26535,8 +43877,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddDnsCacheDomainRequest
-   * @return AddDnsCacheDomainResponse
+   * @param request - AddDnsCacheDomainRequest
+   * @returns AddDnsCacheDomainResponse
    */
   async addDnsCacheDomain(request: AddDnsCacheDomainRequest): Promise<AddDnsCacheDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26544,11 +43886,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an access policy.
-   *
-   * @param request AddDnsGtmAccessStrategyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddDnsGtmAccessStrategyResponse
+   * Creates an access policy.
+   * 
+   * @param request - AddDnsGtmAccessStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDnsGtmAccessStrategyResponse
    */
   async addDnsGtmAccessStrategyWithOptions(request: AddDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
@@ -26639,10 +43981,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an access policy.
-   *
-   * @param request AddDnsGtmAccessStrategyRequest
-   * @return AddDnsGtmAccessStrategyResponse
+   * Creates an access policy.
+   * 
+   * @param request - AddDnsGtmAccessStrategyRequest
+   * @returns AddDnsGtmAccessStrategyResponse
    */
   async addDnsGtmAccessStrategy(request: AddDnsGtmAccessStrategyRequest): Promise<AddDnsGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26650,11 +43992,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an address pool.
-   *
-   * @param request AddDnsGtmAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddDnsGtmAddressPoolResponse
+   * Creates an address pool.
+   * 
+   * @param request - AddDnsGtmAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDnsGtmAddressPoolResponse
    */
   async addDnsGtmAddressPoolWithOptions(request: AddDnsGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsGtmAddressPoolResponse> {
     Util.validateModel(request);
@@ -26729,10 +44071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an address pool.
-   *
-   * @param request AddDnsGtmAddressPoolRequest
-   * @return AddDnsGtmAddressPoolResponse
+   * Creates an address pool.
+   * 
+   * @param request - AddDnsGtmAddressPoolRequest
+   * @returns AddDnsGtmAddressPoolResponse
    */
   async addDnsGtmAddressPool(request: AddDnsGtmAddressPoolRequest): Promise<AddDnsGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26740,13 +44082,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a health check task.
-   *
-   * @description ***
-   *
-   * @param request AddDnsGtmMonitorRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddDnsGtmMonitorResponse
+   * Creates a health check task.
+   * 
+   * @remarks
+   * **
+   * 
+   * @param request - AddDnsGtmMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDnsGtmMonitorResponse
    */
   async addDnsGtmMonitorWithOptions(request: AddDnsGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<AddDnsGtmMonitorResponse> {
     Util.validateModel(request);
@@ -26801,12 +44144,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a health check task.
-   *
-   * @description ***
-   *
-   * @param request AddDnsGtmMonitorRequest
-   * @return AddDnsGtmMonitorResponse
+   * Creates a health check task.
+   * 
+   * @remarks
+   * **
+   * 
+   * @param request - AddDnsGtmMonitorRequest
+   * @returns AddDnsGtmMonitorResponse
    */
   async addDnsGtmMonitor(request: AddDnsGtmMonitorRequest): Promise<AddDnsGtmMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26814,14 +44158,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a domain name based on the specified parameters.
-   *
-   * @description For more information about how to check whether a domain name is valid, see
+   * Adds a domain name based on the specified parameters.
+   * 
+   * @remarks
+   * For more information about how to check whether a domain name is valid, see
    * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
-   *
-   * @param request AddDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddDomainResponse
+   * 
+   * @param request - AddDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDomainResponse
    */
   async addDomainWithOptions(request: AddDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainResponse> {
     Util.validateModel(request);
@@ -26860,13 +44205,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a domain name based on the specified parameters.
-   *
-   * @description For more information about how to check whether a domain name is valid, see
+   * Adds a domain name based on the specified parameters.
+   * 
+   * @remarks
+   * For more information about how to check whether a domain name is valid, see
    * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
-   *
-   * @param request AddDomainRequest
-   * @return AddDomainResponse
+   * 
+   * @param request - AddDomainRequest
+   * @returns AddDomainResponse
    */
   async addDomain(request: AddDomainRequest): Promise<AddDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26874,11 +44220,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a backup task for a domain name.
-   *
-   * @param request AddDomainBackupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddDomainBackupResponse
+   * Creates a backup task for a domain name.
+   * 
+   * @param request - AddDomainBackupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDomainBackupResponse
    */
   async addDomainBackupWithOptions(request: AddDomainBackupRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainBackupResponse> {
     Util.validateModel(request);
@@ -26913,10 +44259,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a backup task for a domain name.
-   *
-   * @param request AddDomainBackupRequest
-   * @return AddDomainBackupResponse
+   * Creates a backup task for a domain name.
+   * 
+   * @param request - AddDomainBackupRequest
+   * @returns AddDomainBackupResponse
    */
   async addDomainBackup(request: AddDomainBackupRequest): Promise<AddDomainBackupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26924,11 +44270,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a domain name group based on the specified parameters.
-   *
-   * @param request AddDomainGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddDomainGroupResponse
+   * Creates a domain name group based on the specified parameters.
+   * 
+   * @param request - AddDomainGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDomainGroupResponse
    */
   async addDomainGroupWithOptions(request: AddDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainGroupResponse> {
     Util.validateModel(request);
@@ -26959,10 +44305,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a domain name group based on the specified parameters.
-   *
-   * @param request AddDomainGroupRequest
-   * @return AddDomainGroupResponse
+   * Creates a domain name group based on the specified parameters.
+   * 
+   * @param request - AddDomainGroupRequest
+   * @returns AddDomainGroupResponse
    */
   async addDomainGroup(request: AddDomainGroupRequest): Promise<AddDomainGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -26970,11 +44316,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request AddDomainRecordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddDomainRecordResponse
+   * Adds a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - AddDomainRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDomainRecordResponse
    */
   async addDomainRecordWithOptions(request: AddDomainRecordRequest, runtime: $Util.RuntimeOptions): Promise<AddDomainRecordResponse> {
     Util.validateModel(request);
@@ -27033,10 +44379,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request AddDomainRecordRequest
-   * @return AddDomainRecordResponse
+   * Adds a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - AddDomainRecordRequest
+   * @returns AddDomainRecordResponse
    */
   async addDomainRecord(request: AddDomainRecordRequest): Promise<AddDomainRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27044,9 +44390,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddGtmAccessStrategyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddGtmAccessStrategyResponse
+   * @param request - AddGtmAccessStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddGtmAccessStrategyResponse
    */
   async addGtmAccessStrategyWithOptions(request: AddGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmAccessStrategyResponse> {
     Util.validateModel(request);
@@ -27093,8 +44439,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddGtmAccessStrategyRequest
-   * @return AddGtmAccessStrategyResponse
+   * @param request - AddGtmAccessStrategyRequest
+   * @returns AddGtmAccessStrategyResponse
    */
   async addGtmAccessStrategy(request: AddGtmAccessStrategyRequest): Promise<AddGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27102,11 +44448,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an address pool.
-   *
-   * @param request AddGtmAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddGtmAddressPoolResponse
+   * Creates an address pool.
+   * 
+   * @param request - AddGtmAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddGtmAddressPoolResponse
    */
   async addGtmAddressPoolWithOptions(request: AddGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmAddressPoolResponse> {
     Util.validateModel(request);
@@ -27181,10 +44527,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an address pool.
-   *
-   * @param request AddGtmAddressPoolRequest
-   * @return AddGtmAddressPoolResponse
+   * Creates an address pool.
+   * 
+   * @param request - AddGtmAddressPoolRequest
+   * @returns AddGtmAddressPoolResponse
    */
   async addGtmAddressPool(request: AddGtmAddressPoolRequest): Promise<AddGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27192,11 +44538,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a health check task.
-   *
-   * @param request AddGtmMonitorRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddGtmMonitorResponse
+   * Creates a health check task.
+   * 
+   * @param request - AddGtmMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddGtmMonitorResponse
    */
   async addGtmMonitorWithOptions(request: AddGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmMonitorResponse> {
     Util.validateModel(request);
@@ -27251,10 +44597,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a health check task.
-   *
-   * @param request AddGtmMonitorRequest
-   * @return AddGtmMonitorResponse
+   * Creates a health check task.
+   * 
+   * @param request - AddGtmMonitorRequest
+   * @returns AddGtmMonitorResponse
    */
   async addGtmMonitor(request: AddGtmMonitorRequest): Promise<AddGtmMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27262,9 +44608,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddGtmRecoveryPlanRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddGtmRecoveryPlanResponse
+   * @param request - AddGtmRecoveryPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddGtmRecoveryPlanResponse
    */
   async addGtmRecoveryPlanWithOptions(request: AddGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<AddGtmRecoveryPlanResponse> {
     Util.validateModel(request);
@@ -27303,8 +44649,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request AddGtmRecoveryPlanRequest
-   * @return AddGtmRecoveryPlanResponse
+   * @param request - AddGtmRecoveryPlanRequest
+   * @returns AddGtmRecoveryPlanResponse
    */
   async addGtmRecoveryPlan(request: AddGtmRecoveryPlanRequest): Promise<AddGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27312,14 +44658,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Binds one or more domain names to a paid Alibaba Cloud DNS instance.
-   *
-   * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+   * Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+   * 
+   * @remarks
+   * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
-   *
-   * @param request BindInstanceDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BindInstanceDomainsResponse
+   * 
+   * @param request - BindInstanceDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindInstanceDomainsResponse
    */
   async bindInstanceDomainsWithOptions(request: BindInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<BindInstanceDomainsResponse> {
     Util.validateModel(request);
@@ -27354,13 +44701,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Binds one or more domain names to a paid Alibaba Cloud DNS instance.
-   *
-   * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+   * Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+   * 
+   * @remarks
+   * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
-   *
-   * @param request BindInstanceDomainsRequest
-   * @return BindInstanceDomainsResponse
+   * 
+   * @param request - BindInstanceDomainsRequest
+   * @returns BindInstanceDomainsResponse
    */
   async bindInstanceDomains(request: BindInstanceDomainsRequest): Promise<BindInstanceDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27368,13 +44716,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Moves a domain name from the original group to the new group based on the specified parameters.
-   *
-   * @description You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
-   *
-   * @param request ChangeDomainGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeDomainGroupResponse
+   * Moves a domain name from the original group to the new group based on the specified parameters.
+   * 
+   * @remarks
+   * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+   * 
+   * @param request - ChangeDomainGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeDomainGroupResponse
    */
   async changeDomainGroupWithOptions(request: ChangeDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeDomainGroupResponse> {
     Util.validateModel(request);
@@ -27409,12 +44758,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Moves a domain name from the original group to the new group based on the specified parameters.
-   *
-   * @description You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
-   *
-   * @param request ChangeDomainGroupRequest
-   * @return ChangeDomainGroupResponse
+   * Moves a domain name from the original group to the new group based on the specified parameters.
+   * 
+   * @remarks
+   * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+   * 
+   * @param request - ChangeDomainGroupRequest
+   * @returns ChangeDomainGroupResponse
    */
   async changeDomainGroup(request: ChangeDomainGroupRequest): Promise<ChangeDomainGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27422,13 +44772,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the domain name bound to an Alibaba Cloud DNS instance.
-   *
-   * @description >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
-   *
-   * @param request ChangeDomainOfDnsProductRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeDomainOfDnsProductResponse
+   * Changes the domain name bound to an Alibaba Cloud DNS instance.
+   * 
+   * @remarks
+   * >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
+   * 
+   * @param request - ChangeDomainOfDnsProductRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeDomainOfDnsProductResponse
    */
   async changeDomainOfDnsProductWithOptions(request: ChangeDomainOfDnsProductRequest, runtime: $Util.RuntimeOptions): Promise<ChangeDomainOfDnsProductResponse> {
     Util.validateModel(request);
@@ -27471,12 +44822,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the domain name bound to an Alibaba Cloud DNS instance.
-   *
-   * @description >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
-   *
-   * @param request ChangeDomainOfDnsProductRequest
-   * @return ChangeDomainOfDnsProductResponse
+   * Changes the domain name bound to an Alibaba Cloud DNS instance.
+   * 
+   * @remarks
+   * >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
+   * 
+   * @param request - ChangeDomainOfDnsProductRequest
+   * @returns ChangeDomainOfDnsProductResponse
    */
   async changeDomainOfDnsProduct(request: ChangeDomainOfDnsProductRequest): Promise<ChangeDomainOfDnsProductResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27484,9 +44836,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CopyGtmConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CopyGtmConfigResponse
+   * @param request - CopyGtmConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CopyGtmConfigResponse
    */
   async copyGtmConfigWithOptions(request: CopyGtmConfigRequest, runtime: $Util.RuntimeOptions): Promise<CopyGtmConfigResponse> {
     Util.validateModel(request);
@@ -27525,8 +44877,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CopyGtmConfigRequest
-   * @return CopyGtmConfigResponse
+   * @param request - CopyGtmConfigRequest
+   * @returns CopyGtmConfigResponse
    */
   async copyGtmConfig(request: CopyGtmConfigRequest): Promise<CopyGtmConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27534,9 +44886,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq CreateCloudGtmAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCloudGtmAddressResponse
+   * @param tmpReq - CreateCloudGtmAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudGtmAddressResponse
    */
   async createCloudGtmAddressWithOptions(tmpReq: CreateCloudGtmAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudGtmAddressResponse> {
     Util.validateModel(tmpReq);
@@ -27613,8 +44965,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateCloudGtmAddressRequest
-   * @return CreateCloudGtmAddressResponse
+   * @param request - CreateCloudGtmAddressRequest
+   * @returns CreateCloudGtmAddressResponse
    */
   async createCloudGtmAddress(request: CreateCloudGtmAddressRequest): Promise<CreateCloudGtmAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27622,9 +44974,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateCloudGtmAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCloudGtmAddressPoolResponse
+   * @param request - CreateCloudGtmAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudGtmAddressPoolResponse
    */
   async createCloudGtmAddressPoolWithOptions(request: CreateCloudGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudGtmAddressPoolResponse> {
     Util.validateModel(request);
@@ -27675,8 +45027,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateCloudGtmAddressPoolRequest
-   * @return CreateCloudGtmAddressPoolResponse
+   * @param request - CreateCloudGtmAddressPoolRequest
+   * @returns CreateCloudGtmAddressPoolResponse
    */
   async createCloudGtmAddressPool(request: CreateCloudGtmAddressPoolRequest): Promise<CreateCloudGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27684,9 +45036,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateCloudGtmInstanceConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCloudGtmInstanceConfigResponse
+   * @param request - CreateCloudGtmInstanceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudGtmInstanceConfigResponse
    */
   async createCloudGtmInstanceConfigWithOptions(request: CreateCloudGtmInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudGtmInstanceConfigResponse> {
     Util.validateModel(request);
@@ -27749,8 +45101,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateCloudGtmInstanceConfigRequest
-   * @return CreateCloudGtmInstanceConfigResponse
+   * @param request - CreateCloudGtmInstanceConfigRequest
+   * @returns CreateCloudGtmInstanceConfigResponse
    */
   async createCloudGtmInstanceConfig(request: CreateCloudGtmInstanceConfigRequest): Promise<CreateCloudGtmInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27758,9 +45110,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq CreateCloudGtmMonitorTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCloudGtmMonitorTemplateResponse
+   * @param tmpReq - CreateCloudGtmMonitorTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloudGtmMonitorTemplateResponse
    */
   async createCloudGtmMonitorTemplateWithOptions(tmpReq: CreateCloudGtmMonitorTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudGtmMonitorTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -27833,8 +45185,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateCloudGtmMonitorTemplateRequest
-   * @return CreateCloudGtmMonitorTemplateResponse
+   * @param request - CreateCloudGtmMonitorTemplateRequest
+   * @returns CreateCloudGtmMonitorTemplateResponse
    */
   async createCloudGtmMonitorTemplate(request: CreateCloudGtmMonitorTemplateRequest): Promise<CreateCloudGtmMonitorTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27842,11 +45194,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建公共DNS AppKey
-   *
-   * @param request CreatePdnsAppKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePdnsAppKeyResponse
+   * 创建公共DNS AppKey
+   * 
+   * @param request - CreatePdnsAppKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePdnsAppKeyResponse
    */
   async createPdnsAppKeyWithOptions(request: CreatePdnsAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePdnsAppKeyResponse> {
     Util.validateModel(request);
@@ -27873,10 +45225,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建公共DNS AppKey
-   *
-   * @param request CreatePdnsAppKeyRequest
-   * @return CreatePdnsAppKeyResponse
+   * 创建公共DNS AppKey
+   * 
+   * @param request - CreatePdnsAppKeyRequest
+   * @returns CreatePdnsAppKeyResponse
    */
   async createPdnsAppKey(request: CreatePdnsAppKeyRequest): Promise<CreatePdnsAppKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27884,11 +45236,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建公共DNS Udp Ip地址段
-   *
-   * @param request CreatePdnsUdpIpSegmentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePdnsUdpIpSegmentResponse
+   * 创建公共DNS Udp Ip地址段
+   * 
+   * @param request - CreatePdnsUdpIpSegmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePdnsUdpIpSegmentResponse
    */
   async createPdnsUdpIpSegmentWithOptions(request: CreatePdnsUdpIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<CreatePdnsUdpIpSegmentResponse> {
     Util.validateModel(request);
@@ -27923,10 +45275,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建公共DNS Udp Ip地址段
-   *
-   * @param request CreatePdnsUdpIpSegmentRequest
-   * @return CreatePdnsUdpIpSegmentResponse
+   * 创建公共DNS Udp Ip地址段
+   * 
+   * @param request - CreatePdnsUdpIpSegmentRequest
+   * @returns CreatePdnsUdpIpSegmentResponse
    */
   async createPdnsUdpIpSegment(request: CreatePdnsUdpIpSegmentRequest): Promise<CreatePdnsUdpIpSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27934,9 +45286,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteCloudGtmAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCloudGtmAddressResponse
+   * @param request - DeleteCloudGtmAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudGtmAddressResponse
    */
   async deleteCloudGtmAddressWithOptions(request: DeleteCloudGtmAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCloudGtmAddressResponse> {
     Util.validateModel(request);
@@ -27971,8 +45323,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteCloudGtmAddressRequest
-   * @return DeleteCloudGtmAddressResponse
+   * @param request - DeleteCloudGtmAddressRequest
+   * @returns DeleteCloudGtmAddressResponse
    */
   async deleteCloudGtmAddress(request: DeleteCloudGtmAddressRequest): Promise<DeleteCloudGtmAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -27980,9 +45332,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteCloudGtmAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCloudGtmAddressPoolResponse
+   * @param request - DeleteCloudGtmAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudGtmAddressPoolResponse
    */
   async deleteCloudGtmAddressPoolWithOptions(request: DeleteCloudGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCloudGtmAddressPoolResponse> {
     Util.validateModel(request);
@@ -28017,8 +45369,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteCloudGtmAddressPoolRequest
-   * @return DeleteCloudGtmAddressPoolResponse
+   * @param request - DeleteCloudGtmAddressPoolRequest
+   * @returns DeleteCloudGtmAddressPoolResponse
    */
   async deleteCloudGtmAddressPool(request: DeleteCloudGtmAddressPoolRequest): Promise<DeleteCloudGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28026,9 +45378,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteCloudGtmInstanceConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCloudGtmInstanceConfigResponse
+   * @param request - DeleteCloudGtmInstanceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudGtmInstanceConfigResponse
    */
   async deleteCloudGtmInstanceConfigWithOptions(request: DeleteCloudGtmInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCloudGtmInstanceConfigResponse> {
     Util.validateModel(request);
@@ -28067,8 +45419,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteCloudGtmInstanceConfigRequest
-   * @return DeleteCloudGtmInstanceConfigResponse
+   * @param request - DeleteCloudGtmInstanceConfigRequest
+   * @returns DeleteCloudGtmInstanceConfigResponse
    */
   async deleteCloudGtmInstanceConfig(request: DeleteCloudGtmInstanceConfigRequest): Promise<DeleteCloudGtmInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28076,9 +45428,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteCloudGtmMonitorTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCloudGtmMonitorTemplateResponse
+   * @param request - DeleteCloudGtmMonitorTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloudGtmMonitorTemplateResponse
    */
   async deleteCloudGtmMonitorTemplateWithOptions(request: DeleteCloudGtmMonitorTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCloudGtmMonitorTemplateResponse> {
     Util.validateModel(request);
@@ -28113,8 +45465,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteCloudGtmMonitorTemplateRequest
-   * @return DeleteCloudGtmMonitorTemplateResponse
+   * @param request - DeleteCloudGtmMonitorTemplateRequest
+   * @returns DeleteCloudGtmMonitorTemplateResponse
    */
   async deleteCloudGtmMonitorTemplate(request: DeleteCloudGtmMonitorTemplateRequest): Promise<DeleteCloudGtmMonitorTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28122,11 +45474,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes multiple custom lines at a time.
-   *
-   * @param request DeleteCustomLinesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteCustomLinesResponse
+   * Deletes multiple custom lines at a time.
+   * 
+   * @param request - DeleteCustomLinesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomLinesResponse
    */
   async deleteCustomLinesWithOptions(request: DeleteCustomLinesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomLinesResponse> {
     Util.validateModel(request);
@@ -28157,10 +45509,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes multiple custom lines at a time.
-   *
-   * @param request DeleteCustomLinesRequest
-   * @return DeleteCustomLinesResponse
+   * Deletes multiple custom lines at a time.
+   * 
+   * @param request - DeleteCustomLinesRequest
+   * @returns DeleteCustomLinesResponse
    */
   async deleteCustomLines(request: DeleteCustomLinesRequest): Promise<DeleteCustomLinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28168,9 +45520,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDnsCacheDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDnsCacheDomainResponse
+   * @param request - DeleteDnsCacheDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDnsCacheDomainResponse
    */
   async deleteDnsCacheDomainWithOptions(request: DeleteDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsCacheDomainResponse> {
     Util.validateModel(request);
@@ -28201,8 +45553,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDnsCacheDomainRequest
-   * @return DeleteDnsCacheDomainResponse
+   * @param request - DeleteDnsCacheDomainRequest
+   * @returns DeleteDnsCacheDomainResponse
    */
   async deleteDnsCacheDomain(request: DeleteDnsCacheDomainRequest): Promise<DeleteDnsCacheDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28210,9 +45562,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDnsGtmAccessStrategyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDnsGtmAccessStrategyResponse
+   * @param request - DeleteDnsGtmAccessStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDnsGtmAccessStrategyResponse
    */
   async deleteDnsGtmAccessStrategyWithOptions(request: DeleteDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
@@ -28243,8 +45595,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDnsGtmAccessStrategyRequest
-   * @return DeleteDnsGtmAccessStrategyResponse
+   * @param request - DeleteDnsGtmAccessStrategyRequest
+   * @returns DeleteDnsGtmAccessStrategyResponse
    */
   async deleteDnsGtmAccessStrategy(request: DeleteDnsGtmAccessStrategyRequest): Promise<DeleteDnsGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28252,9 +45604,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDnsGtmAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDnsGtmAddressPoolResponse
+   * @param request - DeleteDnsGtmAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDnsGtmAddressPoolResponse
    */
   async deleteDnsGtmAddressPoolWithOptions(request: DeleteDnsGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDnsGtmAddressPoolResponse> {
     Util.validateModel(request);
@@ -28285,8 +45637,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDnsGtmAddressPoolRequest
-   * @return DeleteDnsGtmAddressPoolResponse
+   * @param request - DeleteDnsGtmAddressPoolRequest
+   * @returns DeleteDnsGtmAddressPoolResponse
    */
   async deleteDnsGtmAddressPool(request: DeleteDnsGtmAddressPoolRequest): Promise<DeleteDnsGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28294,11 +45646,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a domain name based on the specified parameters.
-   *
-   * @param request DeleteDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDomainResponse
+   * Deletes a domain name based on the specified parameters.
+   * 
+   * @param request - DeleteDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDomainResponse
    */
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
@@ -28329,10 +45681,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a domain name based on the specified parameters.
-   *
-   * @param request DeleteDomainRequest
-   * @return DeleteDomainResponse
+   * Deletes a domain name based on the specified parameters.
+   * 
+   * @param request - DeleteDomainRequest
+   * @returns DeleteDomainResponse
    */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28340,13 +45692,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
-   *
-   * @description >  The default group cannot be deleted.
-   *
-   * @param request DeleteDomainGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDomainGroupResponse
+   * Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+   * 
+   * @remarks
+   * >  The default group cannot be deleted.
+   * 
+   * @param request - DeleteDomainGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDomainGroupResponse
    */
   async deleteDomainGroupWithOptions(request: DeleteDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainGroupResponse> {
     Util.validateModel(request);
@@ -28377,12 +45730,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
-   *
-   * @description >  The default group cannot be deleted.
-   *
-   * @param request DeleteDomainGroupRequest
-   * @return DeleteDomainGroupResponse
+   * Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+   * 
+   * @remarks
+   * >  The default group cannot be deleted.
+   * 
+   * @param request - DeleteDomainGroupRequest
+   * @returns DeleteDomainGroupResponse
    */
   async deleteDomainGroup(request: DeleteDomainGroupRequest): Promise<DeleteDomainGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28390,11 +45744,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request DeleteDomainRecordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDomainRecordResponse
+   * Deletes a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - DeleteDomainRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDomainRecordResponse
    */
   async deleteDomainRecordWithOptions(request: DeleteDomainRecordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainRecordResponse> {
     Util.validateModel(request);
@@ -28429,10 +45783,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request DeleteDomainRecordRequest
-   * @return DeleteDomainRecordResponse
+   * Deletes a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - DeleteDomainRecordRequest
+   * @returns DeleteDomainRecordResponse
    */
   async deleteDomainRecord(request: DeleteDomainRecordRequest): Promise<DeleteDomainRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28440,9 +45794,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteGtmAccessStrategyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGtmAccessStrategyResponse
+   * @param request - DeleteGtmAccessStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGtmAccessStrategyResponse
    */
   async deleteGtmAccessStrategyWithOptions(request: DeleteGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGtmAccessStrategyResponse> {
     Util.validateModel(request);
@@ -28473,8 +45827,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteGtmAccessStrategyRequest
-   * @return DeleteGtmAccessStrategyResponse
+   * @param request - DeleteGtmAccessStrategyRequest
+   * @returns DeleteGtmAccessStrategyResponse
    */
   async deleteGtmAccessStrategy(request: DeleteGtmAccessStrategyRequest): Promise<DeleteGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28482,9 +45836,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteGtmAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGtmAddressPoolResponse
+   * @param request - DeleteGtmAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGtmAddressPoolResponse
    */
   async deleteGtmAddressPoolWithOptions(request: DeleteGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGtmAddressPoolResponse> {
     Util.validateModel(request);
@@ -28515,8 +45869,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteGtmAddressPoolRequest
-   * @return DeleteGtmAddressPoolResponse
+   * @param request - DeleteGtmAddressPoolRequest
+   * @returns DeleteGtmAddressPoolResponse
    */
   async deleteGtmAddressPool(request: DeleteGtmAddressPoolRequest): Promise<DeleteGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28524,9 +45878,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteGtmRecoveryPlanRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGtmRecoveryPlanResponse
+   * @param request - DeleteGtmRecoveryPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGtmRecoveryPlanResponse
    */
   async deleteGtmRecoveryPlanWithOptions(request: DeleteGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGtmRecoveryPlanResponse> {
     Util.validateModel(request);
@@ -28557,8 +45911,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteGtmRecoveryPlanRequest
-   * @return DeleteGtmRecoveryPlanResponse
+   * @param request - DeleteGtmRecoveryPlanRequest
+   * @returns DeleteGtmRecoveryPlanResponse
    */
   async deleteGtmRecoveryPlan(request: DeleteGtmRecoveryPlanRequest): Promise<DeleteGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28566,11 +45920,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
-   *
-   * @param request DeleteSubDomainRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSubDomainRecordsResponse
+   * @remarks
+   * If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
+   * 
+   * @param request - DeleteSubDomainRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSubDomainRecordsResponse
    */
   async deleteSubDomainRecordsWithOptions(request: DeleteSubDomainRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubDomainRecordsResponse> {
     Util.validateModel(request);
@@ -28613,10 +45968,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
-   *
-   * @param request DeleteSubDomainRecordsRequest
-   * @return DeleteSubDomainRecordsResponse
+   * @remarks
+   * If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
+   * 
+   * @param request - DeleteSubDomainRecordsRequest
+   * @returns DeleteSubDomainRecordsResponse
    */
   async deleteSubDomainRecords(request: DeleteSubDomainRecordsRequest): Promise<DeleteSubDomainRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28624,9 +45980,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBatchResultCountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBatchResultCountResponse
+   * @param request - DescribeBatchResultCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBatchResultCountResponse
    */
   async describeBatchResultCountWithOptions(request: DescribeBatchResultCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBatchResultCountResponse> {
     Util.validateModel(request);
@@ -28661,8 +46017,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeBatchResultCountRequest
-   * @return DescribeBatchResultCountResponse
+   * @param request - DescribeBatchResultCountRequest
+   * @returns DescribeBatchResultCountResponse
    */
   async describeBatchResultCount(request: DescribeBatchResultCountRequest): Promise<DescribeBatchResultCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28670,13 +46026,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the detailed results of a batch operation task.
-   *
-   * @description Before you call this operation, make sure that the batch operation task is complete.
-   *
-   * @param request DescribeBatchResultDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeBatchResultDetailResponse
+   * Queries the detailed results of a batch operation task.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the batch operation task is complete.
+   * 
+   * @param request - DescribeBatchResultDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBatchResultDetailResponse
    */
   async describeBatchResultDetailWithOptions(request: DescribeBatchResultDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBatchResultDetailResponse> {
     Util.validateModel(request);
@@ -28723,12 +46080,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the detailed results of a batch operation task.
-   *
-   * @description Before you call this operation, make sure that the batch operation task is complete.
-   *
-   * @param request DescribeBatchResultDetailRequest
-   * @return DescribeBatchResultDetailResponse
+   * Queries the detailed results of a batch operation task.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that the batch operation task is complete.
+   * 
+   * @param request - DescribeBatchResultDetailRequest
+   * @returns DescribeBatchResultDetailResponse
    */
   async describeBatchResultDetail(request: DescribeBatchResultDetailRequest): Promise<DescribeBatchResultDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28736,9 +46094,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCloudGtmAddressResponse
+   * @param request - DescribeCloudGtmAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudGtmAddressResponse
    */
   async describeCloudGtmAddressWithOptions(request: DescribeCloudGtmAddressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmAddressResponse> {
     Util.validateModel(request);
@@ -28773,8 +46131,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmAddressRequest
-   * @return DescribeCloudGtmAddressResponse
+   * @param request - DescribeCloudGtmAddressRequest
+   * @returns DescribeCloudGtmAddressResponse
    */
   async describeCloudGtmAddress(request: DescribeCloudGtmAddressRequest): Promise<DescribeCloudGtmAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28782,9 +46140,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCloudGtmAddressPoolResponse
+   * @param request - DescribeCloudGtmAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudGtmAddressPoolResponse
    */
   async describeCloudGtmAddressPoolWithOptions(request: DescribeCloudGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmAddressPoolResponse> {
     Util.validateModel(request);
@@ -28819,8 +46177,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmAddressPoolRequest
-   * @return DescribeCloudGtmAddressPoolResponse
+   * @param request - DescribeCloudGtmAddressPoolRequest
+   * @returns DescribeCloudGtmAddressPoolResponse
    */
   async describeCloudGtmAddressPool(request: DescribeCloudGtmAddressPoolRequest): Promise<DescribeCloudGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28828,9 +46186,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmAddressPoolReferenceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCloudGtmAddressPoolReferenceResponse
+   * @param request - DescribeCloudGtmAddressPoolReferenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudGtmAddressPoolReferenceResponse
    */
   async describeCloudGtmAddressPoolReferenceWithOptions(request: DescribeCloudGtmAddressPoolReferenceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmAddressPoolReferenceResponse> {
     Util.validateModel(request);
@@ -28865,8 +46223,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmAddressPoolReferenceRequest
-   * @return DescribeCloudGtmAddressPoolReferenceResponse
+   * @param request - DescribeCloudGtmAddressPoolReferenceRequest
+   * @returns DescribeCloudGtmAddressPoolReferenceResponse
    */
   async describeCloudGtmAddressPoolReference(request: DescribeCloudGtmAddressPoolReferenceRequest): Promise<DescribeCloudGtmAddressPoolReferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28874,9 +46232,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmAddressReferenceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCloudGtmAddressReferenceResponse
+   * @param request - DescribeCloudGtmAddressReferenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudGtmAddressReferenceResponse
    */
   async describeCloudGtmAddressReferenceWithOptions(request: DescribeCloudGtmAddressReferenceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmAddressReferenceResponse> {
     Util.validateModel(request);
@@ -28911,8 +46269,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmAddressReferenceRequest
-   * @return DescribeCloudGtmAddressReferenceResponse
+   * @param request - DescribeCloudGtmAddressReferenceRequest
+   * @returns DescribeCloudGtmAddressReferenceResponse
    */
   async describeCloudGtmAddressReference(request: DescribeCloudGtmAddressReferenceRequest): Promise<DescribeCloudGtmAddressReferenceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28920,9 +46278,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmGlobalAlertRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCloudGtmGlobalAlertResponse
+   * @param request - DescribeCloudGtmGlobalAlertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudGtmGlobalAlertResponse
    */
   async describeCloudGtmGlobalAlertWithOptions(request: DescribeCloudGtmGlobalAlertRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmGlobalAlertResponse> {
     Util.validateModel(request);
@@ -28953,8 +46311,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmGlobalAlertRequest
-   * @return DescribeCloudGtmGlobalAlertResponse
+   * @param request - DescribeCloudGtmGlobalAlertRequest
+   * @returns DescribeCloudGtmGlobalAlertResponse
    */
   async describeCloudGtmGlobalAlert(request: DescribeCloudGtmGlobalAlertRequest): Promise<DescribeCloudGtmGlobalAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -28962,9 +46320,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmInstanceConfigAlertRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCloudGtmInstanceConfigAlertResponse
+   * @param request - DescribeCloudGtmInstanceConfigAlertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudGtmInstanceConfigAlertResponse
    */
   async describeCloudGtmInstanceConfigAlertWithOptions(request: DescribeCloudGtmInstanceConfigAlertRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmInstanceConfigAlertResponse> {
     Util.validateModel(request);
@@ -29003,8 +46361,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmInstanceConfigAlertRequest
-   * @return DescribeCloudGtmInstanceConfigAlertResponse
+   * @param request - DescribeCloudGtmInstanceConfigAlertRequest
+   * @returns DescribeCloudGtmInstanceConfigAlertResponse
    */
   async describeCloudGtmInstanceConfigAlert(request: DescribeCloudGtmInstanceConfigAlertRequest): Promise<DescribeCloudGtmInstanceConfigAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29012,9 +46370,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmInstanceConfigFullInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCloudGtmInstanceConfigFullInfoResponse
+   * @param request - DescribeCloudGtmInstanceConfigFullInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudGtmInstanceConfigFullInfoResponse
    */
   async describeCloudGtmInstanceConfigFullInfoWithOptions(request: DescribeCloudGtmInstanceConfigFullInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmInstanceConfigFullInfoResponse> {
     Util.validateModel(request);
@@ -29053,8 +46411,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmInstanceConfigFullInfoRequest
-   * @return DescribeCloudGtmInstanceConfigFullInfoResponse
+   * @param request - DescribeCloudGtmInstanceConfigFullInfoRequest
+   * @returns DescribeCloudGtmInstanceConfigFullInfoResponse
    */
   async describeCloudGtmInstanceConfigFullInfo(request: DescribeCloudGtmInstanceConfigFullInfoRequest): Promise<DescribeCloudGtmInstanceConfigFullInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29062,9 +46420,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmMonitorTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCloudGtmMonitorTemplateResponse
+   * @param request - DescribeCloudGtmMonitorTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudGtmMonitorTemplateResponse
    */
   async describeCloudGtmMonitorTemplateWithOptions(request: DescribeCloudGtmMonitorTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmMonitorTemplateResponse> {
     Util.validateModel(request);
@@ -29095,8 +46453,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmMonitorTemplateRequest
-   * @return DescribeCloudGtmMonitorTemplateResponse
+   * @param request - DescribeCloudGtmMonitorTemplateRequest
+   * @returns DescribeCloudGtmMonitorTemplateResponse
    */
   async describeCloudGtmMonitorTemplate(request: DescribeCloudGtmMonitorTemplateRequest): Promise<DescribeCloudGtmMonitorTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29104,9 +46462,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCloudGtmSummaryResponse
+   * @param request - DescribeCloudGtmSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudGtmSummaryResponse
    */
   async describeCloudGtmSummaryWithOptions(request: DescribeCloudGtmSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmSummaryResponse> {
     Util.validateModel(request);
@@ -29133,8 +46491,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmSummaryRequest
-   * @return DescribeCloudGtmSummaryResponse
+   * @param request - DescribeCloudGtmSummaryRequest
+   * @returns DescribeCloudGtmSummaryResponse
    */
   async describeCloudGtmSummary(request: DescribeCloudGtmSummaryRequest): Promise<DescribeCloudGtmSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29142,9 +46500,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeCloudGtmSystemLinesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCloudGtmSystemLinesResponse
+   * @param request - DescribeCloudGtmSystemLinesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudGtmSystemLinesResponse
    */
   async describeCloudGtmSystemLinesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCloudGtmSystemLinesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
@@ -29163,7 +46521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return DescribeCloudGtmSystemLinesResponse
+   * @returns DescribeCloudGtmSystemLinesResponse
    */
   async describeCloudGtmSystemLines(): Promise<DescribeCloudGtmSystemLinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29171,11 +46529,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a custom line.
-   *
-   * @param request DescribeCustomLineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCustomLineResponse
+   * Queries a custom line.
+   * 
+   * @param request - DescribeCustomLineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCustomLineResponse
    */
   async describeCustomLineWithOptions(request: DescribeCustomLineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomLineResponse> {
     Util.validateModel(request);
@@ -29206,10 +46564,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a custom line.
-   *
-   * @param request DescribeCustomLineRequest
-   * @return DescribeCustomLineResponse
+   * Queries a custom line.
+   * 
+   * @param request - DescribeCustomLineRequest
+   * @returns DescribeCustomLineResponse
    */
   async describeCustomLine(request: DescribeCustomLineRequest): Promise<DescribeCustomLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29217,11 +46575,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries custom lines.
-   *
-   * @param request DescribeCustomLinesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeCustomLinesResponse
+   * Queries custom lines.
+   * 
+   * @param request - DescribeCustomLinesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCustomLinesResponse
    */
   async describeCustomLinesWithOptions(request: DescribeCustomLinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomLinesResponse> {
     Util.validateModel(request);
@@ -29260,10 +46618,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries custom lines.
-   *
-   * @param request DescribeCustomLinesRequest
-   * @return DescribeCustomLinesResponse
+   * Queries custom lines.
+   * 
+   * @param request - DescribeCustomLinesRequest
+   * @returns DescribeCustomLinesResponse
    */
   async describeCustomLines(request: DescribeCustomLinesRequest): Promise<DescribeCustomLinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29271,11 +46629,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
-   *
-   * @param request DescribeDNSSLBSubDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDNSSLBSubDomainsResponse
+   * Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+   * 
+   * @param request - DescribeDNSSLBSubDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDNSSLBSubDomainsResponse
    */
   async describeDNSSLBSubDomainsWithOptions(request: DescribeDNSSLBSubDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDNSSLBSubDomainsResponse> {
     Util.validateModel(request);
@@ -29322,10 +46680,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
-   *
-   * @param request DescribeDNSSLBSubDomainsRequest
-   * @return DescribeDNSSLBSubDomainsResponse
+   * Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+   * 
+   * @param request - DescribeDNSSLBSubDomainsRequest
+   * @returns DescribeDNSSLBSubDomainsResponse
    */
   async describeDNSSLBSubDomains(request: DescribeDNSSLBSubDomainsRequest): Promise<DescribeDNSSLBSubDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29333,9 +46691,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDnsCacheDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsCacheDomainsResponse
+   * @param request - DescribeDnsCacheDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsCacheDomainsResponse
    */
   async describeDnsCacheDomainsWithOptions(request: DescribeDnsCacheDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsCacheDomainsResponse> {
     Util.validateModel(request);
@@ -29374,8 +46732,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDnsCacheDomainsRequest
-   * @return DescribeDnsCacheDomainsResponse
+   * @param request - DescribeDnsCacheDomainsRequest
+   * @returns DescribeDnsCacheDomainsResponse
    */
   async describeDnsCacheDomains(request: DescribeDnsCacheDomainsRequest): Promise<DescribeDnsCacheDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29383,11 +46741,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmAccessStrategiesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmAccessStrategiesResponse
+   * Queries access policies of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmAccessStrategiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmAccessStrategiesResponse
    */
   async describeDnsGtmAccessStrategiesWithOptions(request: DescribeDnsGtmAccessStrategiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAccessStrategiesResponse> {
     Util.validateModel(request);
@@ -29430,10 +46788,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmAccessStrategiesRequest
-   * @return DescribeDnsGtmAccessStrategiesResponse
+   * Queries access policies of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmAccessStrategiesRequest
+   * @returns DescribeDnsGtmAccessStrategiesResponse
    */
   async describeDnsGtmAccessStrategies(request: DescribeDnsGtmAccessStrategiesRequest): Promise<DescribeDnsGtmAccessStrategiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29441,11 +46799,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmAccessStrategyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmAccessStrategyResponse
+   * Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmAccessStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmAccessStrategyResponse
    */
   async describeDnsGtmAccessStrategyWithOptions(request: DescribeDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
@@ -29476,10 +46834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmAccessStrategyRequest
-   * @return DescribeDnsGtmAccessStrategyResponse
+   * Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmAccessStrategyRequest
+   * @returns DescribeDnsGtmAccessStrategyResponse
    */
   async describeDnsGtmAccessStrategy(request: DescribeDnsGtmAccessStrategyRequest): Promise<DescribeDnsGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29487,11 +46845,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmAccessStrategyAvailableConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse
+   * Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmAccessStrategyAvailableConfigResponse
    */
   async describeDnsGtmAccessStrategyAvailableConfigWithOptions(request: DescribeDnsGtmAccessStrategyAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAccessStrategyAvailableConfigResponse> {
     Util.validateModel(request);
@@ -29526,10 +46884,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmAccessStrategyAvailableConfigRequest
-   * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse
+   * Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
+   * @returns DescribeDnsGtmAccessStrategyAvailableConfigResponse
    */
   async describeDnsGtmAccessStrategyAvailableConfig(request: DescribeDnsGtmAccessStrategyAvailableConfigRequest): Promise<DescribeDnsGtmAccessStrategyAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29537,9 +46895,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDnsGtmAddrAttributeInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmAddrAttributeInfoResponse
+   * @param request - DescribeDnsGtmAddrAttributeInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmAddrAttributeInfoResponse
    */
   async describeDnsGtmAddrAttributeInfoWithOptions(request: DescribeDnsGtmAddrAttributeInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAddrAttributeInfoResponse> {
     Util.validateModel(request);
@@ -29574,8 +46932,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDnsGtmAddrAttributeInfoRequest
-   * @return DescribeDnsGtmAddrAttributeInfoResponse
+   * @param request - DescribeDnsGtmAddrAttributeInfoRequest
+   * @returns DescribeDnsGtmAddrAttributeInfoResponse
    */
   async describeDnsGtmAddrAttributeInfo(request: DescribeDnsGtmAddrAttributeInfoRequest): Promise<DescribeDnsGtmAddrAttributeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29583,11 +46941,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmAddressPoolAvailableConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmAddressPoolAvailableConfigResponse
+   * Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmAddressPoolAvailableConfigResponse
    */
   async describeDnsGtmAddressPoolAvailableConfigWithOptions(request: DescribeDnsGtmAddressPoolAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAddressPoolAvailableConfigResponse> {
     Util.validateModel(request);
@@ -29618,10 +46976,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmAddressPoolAvailableConfigRequest
-   * @return DescribeDnsGtmAddressPoolAvailableConfigResponse
+   * Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
+   * @returns DescribeDnsGtmAddressPoolAvailableConfigResponse
    */
   async describeDnsGtmAddressPoolAvailableConfig(request: DescribeDnsGtmAddressPoolAvailableConfigRequest): Promise<DescribeDnsGtmAddressPoolAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29629,9 +46987,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDnsGtmAvailableAlertGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmAvailableAlertGroupResponse
+   * @param request - DescribeDnsGtmAvailableAlertGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmAvailableAlertGroupResponse
    */
   async describeDnsGtmAvailableAlertGroupWithOptions(request: DescribeDnsGtmAvailableAlertGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmAvailableAlertGroupResponse> {
     Util.validateModel(request);
@@ -29658,8 +47016,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDnsGtmAvailableAlertGroupRequest
-   * @return DescribeDnsGtmAvailableAlertGroupResponse
+   * @param request - DescribeDnsGtmAvailableAlertGroupRequest
+   * @returns DescribeDnsGtmAvailableAlertGroupResponse
    */
   async describeDnsGtmAvailableAlertGroup(request: DescribeDnsGtmAvailableAlertGroupRequest): Promise<DescribeDnsGtmAvailableAlertGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29667,11 +47025,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmInstanceResponse
+   * Queries detailed information about a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmInstanceResponse
    */
   async describeDnsGtmInstanceWithOptions(request: DescribeDnsGtmInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceResponse> {
     Util.validateModel(request);
@@ -29702,10 +47060,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmInstanceRequest
-   * @return DescribeDnsGtmInstanceResponse
+   * Queries detailed information about a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmInstanceRequest
+   * @returns DescribeDnsGtmInstanceResponse
    */
   async describeDnsGtmInstance(request: DescribeDnsGtmInstanceRequest): Promise<DescribeDnsGtmInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29713,11 +47071,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmInstanceAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmInstanceAddressPoolResponse
+   * Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmInstanceAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmInstanceAddressPoolResponse
    */
   async describeDnsGtmInstanceAddressPoolWithOptions(request: DescribeDnsGtmInstanceAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceAddressPoolResponse> {
     Util.validateModel(request);
@@ -29748,10 +47106,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmInstanceAddressPoolRequest
-   * @return DescribeDnsGtmInstanceAddressPoolResponse
+   * Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmInstanceAddressPoolRequest
+   * @returns DescribeDnsGtmInstanceAddressPoolResponse
    */
   async describeDnsGtmInstanceAddressPool(request: DescribeDnsGtmInstanceAddressPoolRequest): Promise<DescribeDnsGtmInstanceAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29759,11 +47117,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmInstanceAddressPoolsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmInstanceAddressPoolsResponse
+   * Queries the address pools of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmInstanceAddressPoolsResponse
    */
   async describeDnsGtmInstanceAddressPoolsWithOptions(request: DescribeDnsGtmInstanceAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceAddressPoolsResponse> {
     Util.validateModel(request);
@@ -29802,10 +47160,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmInstanceAddressPoolsRequest
-   * @return DescribeDnsGtmInstanceAddressPoolsResponse
+   * Queries the address pools of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
+   * @returns DescribeDnsGtmInstanceAddressPoolsResponse
    */
   async describeDnsGtmInstanceAddressPools(request: DescribeDnsGtmInstanceAddressPoolsRequest): Promise<DescribeDnsGtmInstanceAddressPoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29813,11 +47171,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmInstanceStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmInstanceStatusResponse
+   * Queries the status of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmInstanceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmInstanceStatusResponse
    */
   async describeDnsGtmInstanceStatusWithOptions(request: DescribeDnsGtmInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceStatusResponse> {
     Util.validateModel(request);
@@ -29848,10 +47206,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmInstanceStatusRequest
-   * @return DescribeDnsGtmInstanceStatusResponse
+   * Queries the status of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmInstanceStatusRequest
+   * @returns DescribeDnsGtmInstanceStatusResponse
    */
   async describeDnsGtmInstanceStatus(request: DescribeDnsGtmInstanceStatusRequest): Promise<DescribeDnsGtmInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29859,11 +47217,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmInstanceSystemCnameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmInstanceSystemCnameResponse
+   * Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmInstanceSystemCnameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmInstanceSystemCnameResponse
    */
   async describeDnsGtmInstanceSystemCnameWithOptions(request: DescribeDnsGtmInstanceSystemCnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstanceSystemCnameResponse> {
     Util.validateModel(request);
@@ -29894,10 +47252,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmInstanceSystemCnameRequest
-   * @return DescribeDnsGtmInstanceSystemCnameResponse
+   * Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmInstanceSystemCnameRequest
+   * @returns DescribeDnsGtmInstanceSystemCnameResponse
    */
   async describeDnsGtmInstanceSystemCname(request: DescribeDnsGtmInstanceSystemCnameRequest): Promise<DescribeDnsGtmInstanceSystemCnameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29905,9 +47263,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDnsGtmInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmInstancesResponse
+   * @param request - DescribeDnsGtmInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmInstancesResponse
    */
   async describeDnsGtmInstancesWithOptions(request: DescribeDnsGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmInstancesResponse> {
     Util.validateModel(request);
@@ -29950,8 +47308,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDnsGtmInstancesRequest
-   * @return DescribeDnsGtmInstancesResponse
+   * @param request - DescribeDnsGtmInstancesRequest
+   * @returns DescribeDnsGtmInstancesResponse
    */
   async describeDnsGtmInstances(request: DescribeDnsGtmInstancesRequest): Promise<DescribeDnsGtmInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -29959,11 +47317,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmLogsResponse
+   * Queries operation logs of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmLogsResponse
    */
   async describeDnsGtmLogsWithOptions(request: DescribeDnsGtmLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmLogsResponse> {
     Util.validateModel(request);
@@ -30014,10 +47372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmLogsRequest
-   * @return DescribeDnsGtmLogsResponse
+   * Queries operation logs of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmLogsRequest
+   * @returns DescribeDnsGtmLogsResponse
    */
   async describeDnsGtmLogs(request: DescribeDnsGtmLogsRequest): Promise<DescribeDnsGtmLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30025,11 +47383,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries available monitored nodes.
-   *
-   * @param request DescribeDnsGtmMonitorAvailableConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmMonitorAvailableConfigResponse
+   * Queries available monitored nodes.
+   * 
+   * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmMonitorAvailableConfigResponse
    */
   async describeDnsGtmMonitorAvailableConfigWithOptions(request: DescribeDnsGtmMonitorAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmMonitorAvailableConfigResponse> {
     Util.validateModel(request);
@@ -30056,10 +47414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries available monitored nodes.
-   *
-   * @param request DescribeDnsGtmMonitorAvailableConfigRequest
-   * @return DescribeDnsGtmMonitorAvailableConfigResponse
+   * Queries available monitored nodes.
+   * 
+   * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
+   * @returns DescribeDnsGtmMonitorAvailableConfigResponse
    */
   async describeDnsGtmMonitorAvailableConfig(request: DescribeDnsGtmMonitorAvailableConfigRequest): Promise<DescribeDnsGtmMonitorAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30067,11 +47425,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the health check configurations of an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmMonitorConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsGtmMonitorConfigResponse
+   * Queries the health check configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmMonitorConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsGtmMonitorConfigResponse
    */
   async describeDnsGtmMonitorConfigWithOptions(request: DescribeDnsGtmMonitorConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsGtmMonitorConfigResponse> {
     Util.validateModel(request);
@@ -30102,10 +47460,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the health check configurations of an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeDnsGtmMonitorConfigRequest
-   * @return DescribeDnsGtmMonitorConfigResponse
+   * Queries the health check configurations of an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeDnsGtmMonitorConfigRequest
+   * @returns DescribeDnsGtmMonitorConfigResponse
    */
   async describeDnsGtmMonitorConfig(request: DescribeDnsGtmMonitorConfigRequest): Promise<DescribeDnsGtmMonitorConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30113,11 +47471,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
-   *
-   * @param request DescribeDnsProductInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsProductInstanceResponse
+   * Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+   * 
+   * @param request - DescribeDnsProductInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsProductInstanceResponse
    */
   async describeDnsProductInstanceWithOptions(request: DescribeDnsProductInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsProductInstanceResponse> {
     Util.validateModel(request);
@@ -30152,10 +47510,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
-   *
-   * @param request DescribeDnsProductInstanceRequest
-   * @return DescribeDnsProductInstanceResponse
+   * Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+   * 
+   * @param request - DescribeDnsProductInstanceRequest
+   * @returns DescribeDnsProductInstanceResponse
    */
   async describeDnsProductInstance(request: DescribeDnsProductInstanceRequest): Promise<DescribeDnsProductInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30163,13 +47521,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
-   *
-   * @description >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
-   *
-   * @param request DescribeDnsProductInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDnsProductInstancesResponse
+   * Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+   * 
+   * @remarks
+   * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+   * 
+   * @param request - DescribeDnsProductInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDnsProductInstancesResponse
    */
   async describeDnsProductInstancesWithOptions(request: DescribeDnsProductInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDnsProductInstancesResponse> {
     Util.validateModel(request);
@@ -30224,12 +47583,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
-   *
-   * @description >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
-   *
-   * @param request DescribeDnsProductInstancesRequest
-   * @return DescribeDnsProductInstancesResponse
+   * Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+   * 
+   * @remarks
+   * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+   * 
+   * @param request - DescribeDnsProductInstancesRequest
+   * @returns DescribeDnsProductInstancesResponse
    */
   async describeDnsProductInstances(request: DescribeDnsProductInstancesRequest): Promise<DescribeDnsProductInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30237,9 +47597,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDohAccountStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDohAccountStatisticsResponse
+   * @param request - DescribeDohAccountStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDohAccountStatisticsResponse
    */
   async describeDohAccountStatisticsWithOptions(request: DescribeDohAccountStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohAccountStatisticsResponse> {
     Util.validateModel(request);
@@ -30274,8 +47634,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDohAccountStatisticsRequest
-   * @return DescribeDohAccountStatisticsResponse
+   * @param request - DescribeDohAccountStatisticsRequest
+   * @returns DescribeDohAccountStatisticsResponse
    */
   async describeDohAccountStatistics(request: DescribeDohAccountStatisticsRequest): Promise<DescribeDohAccountStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30283,9 +47643,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDohDomainStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDohDomainStatisticsResponse
+   * @param request - DescribeDohDomainStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDohDomainStatisticsResponse
    */
   async describeDohDomainStatisticsWithOptions(request: DescribeDohDomainStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohDomainStatisticsResponse> {
     Util.validateModel(request);
@@ -30324,8 +47684,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDohDomainStatisticsRequest
-   * @return DescribeDohDomainStatisticsResponse
+   * @param request - DescribeDohDomainStatisticsRequest
+   * @returns DescribeDohDomainStatisticsResponse
    */
   async describeDohDomainStatistics(request: DescribeDohDomainStatisticsRequest): Promise<DescribeDohDomainStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30333,9 +47693,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDohDomainStatisticsSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDohDomainStatisticsSummaryResponse
+   * @param request - DescribeDohDomainStatisticsSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDohDomainStatisticsSummaryResponse
    */
   async describeDohDomainStatisticsSummaryWithOptions(request: DescribeDohDomainStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohDomainStatisticsSummaryResponse> {
     Util.validateModel(request);
@@ -30382,8 +47742,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDohDomainStatisticsSummaryRequest
-   * @return DescribeDohDomainStatisticsSummaryResponse
+   * @param request - DescribeDohDomainStatisticsSummaryRequest
+   * @returns DescribeDohDomainStatisticsSummaryResponse
    */
   async describeDohDomainStatisticsSummary(request: DescribeDohDomainStatisticsSummaryRequest): Promise<DescribeDohDomainStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30391,9 +47751,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDohSubDomainStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDohSubDomainStatisticsResponse
+   * @param request - DescribeDohSubDomainStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDohSubDomainStatisticsResponse
    */
   async describeDohSubDomainStatisticsWithOptions(request: DescribeDohSubDomainStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohSubDomainStatisticsResponse> {
     Util.validateModel(request);
@@ -30432,8 +47792,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDohSubDomainStatisticsRequest
-   * @return DescribeDohSubDomainStatisticsResponse
+   * @param request - DescribeDohSubDomainStatisticsRequest
+   * @returns DescribeDohSubDomainStatisticsResponse
    */
   async describeDohSubDomainStatistics(request: DescribeDohSubDomainStatisticsRequest): Promise<DescribeDohSubDomainStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30441,9 +47801,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDohSubDomainStatisticsSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDohSubDomainStatisticsSummaryResponse
+   * @param request - DescribeDohSubDomainStatisticsSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDohSubDomainStatisticsSummaryResponse
    */
   async describeDohSubDomainStatisticsSummaryWithOptions(request: DescribeDohSubDomainStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohSubDomainStatisticsSummaryResponse> {
     Util.validateModel(request);
@@ -30494,8 +47854,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeDohSubDomainStatisticsSummaryRequest
-   * @return DescribeDohSubDomainStatisticsSummaryResponse
+   * @param request - DescribeDohSubDomainStatisticsSummaryRequest
+   * @returns DescribeDohSubDomainStatisticsSummaryResponse
    */
   async describeDohSubDomainStatisticsSummary(request: DescribeDohSubDomainStatisticsSummaryRequest): Promise<DescribeDohSubDomainStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30503,11 +47863,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
-   *
-   * @param request DescribeDohUserInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDohUserInfoResponse
+   * Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+   * 
+   * @param request - DescribeDohUserInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDohUserInfoResponse
    */
   async describeDohUserInfoWithOptions(request: DescribeDohUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDohUserInfoResponse> {
     Util.validateModel(request);
@@ -30542,10 +47902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
-   *
-   * @param request DescribeDohUserInfoRequest
-   * @return DescribeDohUserInfoResponse
+   * Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+   * 
+   * @param request - DescribeDohUserInfoRequest
+   * @returns DescribeDohUserInfoResponse
    */
   async describeDohUserInfo(request: DescribeDohUserInfoRequest): Promise<DescribeDohUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30553,11 +47913,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
-   *
-   * @param request DescribeDomainDnssecInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainDnssecInfoResponse
+   * Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+   * 
+   * @param request - DescribeDomainDnssecInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainDnssecInfoResponse
    */
   async describeDomainDnssecInfoWithOptions(request: DescribeDomainDnssecInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainDnssecInfoResponse> {
     Util.validateModel(request);
@@ -30588,10 +47948,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
-   *
-   * @param request DescribeDomainDnssecInfoRequest
-   * @return DescribeDomainDnssecInfoResponse
+   * Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+   * 
+   * @param request - DescribeDomainDnssecInfoRequest
+   * @returns DescribeDomainDnssecInfoResponse
    */
   async describeDomainDnssecInfo(request: DescribeDomainDnssecInfoRequest): Promise<DescribeDomainDnssecInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30599,11 +47959,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all domain name groups based on the specified parameters.
-   *
-   * @param request DescribeDomainGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainGroupsResponse
+   * Queries all domain name groups based on the specified parameters.
+   * 
+   * @param request - DescribeDomainGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainGroupsResponse
    */
   async describeDomainGroupsWithOptions(request: DescribeDomainGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainGroupsResponse> {
     Util.validateModel(request);
@@ -30642,10 +48002,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all domain name groups based on the specified parameters.
-   *
-   * @param request DescribeDomainGroupsRequest
-   * @return DescribeDomainGroupsResponse
+   * Queries all domain name groups based on the specified parameters.
+   * 
+   * @param request - DescribeDomainGroupsRequest
+   * @returns DescribeDomainGroupsResponse
    */
   async describeDomainGroups(request: DescribeDomainGroupsRequest): Promise<DescribeDomainGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30653,13 +48013,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a domain name based on specified parameters.
-   *
-   * @description In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
-   *
-   * @param request DescribeDomainInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainInfoResponse
+   * Queries the information about a domain name based on specified parameters.
+   * 
+   * @remarks
+   * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+   * 
+   * @param request - DescribeDomainInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainInfoResponse
    */
   async describeDomainInfoWithOptions(request: DescribeDomainInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainInfoResponse> {
     Util.validateModel(request);
@@ -30694,12 +48055,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a domain name based on specified parameters.
-   *
-   * @description In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
-   *
-   * @param request DescribeDomainInfoRequest
-   * @return DescribeDomainInfoResponse
+   * Queries the information about a domain name based on specified parameters.
+   * 
+   * @remarks
+   * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+   * 
+   * @param request - DescribeDomainInfoRequest
+   * @returns DescribeDomainInfoResponse
    */
   async describeDomainInfo(request: DescribeDomainInfoRequest): Promise<DescribeDomainInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30707,11 +48069,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the operation logs of domain names based on the specified parameters.
-   *
-   * @param request DescribeDomainLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainLogsResponse
+   * Queries the operation logs of domain names based on the specified parameters.
+   * 
+   * @param request - DescribeDomainLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainLogsResponse
    */
   async describeDomainLogsWithOptions(request: DescribeDomainLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainLogsResponse> {
     Util.validateModel(request);
@@ -30766,10 +48128,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the operation logs of domain names based on the specified parameters.
-   *
-   * @param request DescribeDomainLogsRequest
-   * @return DescribeDomainLogsResponse
+   * Queries the operation logs of domain names based on the specified parameters.
+   * 
+   * @param request - DescribeDomainLogsRequest
+   * @returns DescribeDomainLogsResponse
    */
   async describeDomainLogs(request: DescribeDomainLogsRequest): Promise<DescribeDomainLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30777,13 +48139,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
-   *
-   * @description >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
-   *
-   * @param request DescribeDomainNsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainNsResponse
+   * Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+   * 
+   * @remarks
+   * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+   * 
+   * @param request - DescribeDomainNsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainNsResponse
    */
   async describeDomainNsWithOptions(request: DescribeDomainNsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNsResponse> {
     Util.validateModel(request);
@@ -30814,12 +48177,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
-   *
-   * @description >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
-   *
-   * @param request DescribeDomainNsRequest
-   * @return DescribeDomainNsResponse
+   * Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+   * 
+   * @remarks
+   * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+   * 
+   * @param request - DescribeDomainNsRequest
+   * @returns DescribeDomainNsResponse
    */
   async describeDomainNs(request: DescribeDomainNsRequest): Promise<DescribeDomainNsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30827,14 +48191,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a Domain Name System (DNS) record.
-   *
-   * @description ## Debugging
+   * Queries the information about a Domain Name System (DNS) record.
+   * 
+   * @remarks
+   * ## Debugging
    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
-   *
-   * @param request DescribeDomainRecordInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRecordInfoResponse
+   * 
+   * @param request - DescribeDomainRecordInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRecordInfoResponse
    */
   async describeDomainRecordInfoWithOptions(request: DescribeDomainRecordInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRecordInfoResponse> {
     Util.validateModel(request);
@@ -30869,13 +48234,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a Domain Name System (DNS) record.
-   *
-   * @description ## Debugging
+   * Queries the information about a Domain Name System (DNS) record.
+   * 
+   * @remarks
+   * ## Debugging
    * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
-   *
-   * @param request DescribeDomainRecordInfoRequest
-   * @return DescribeDomainRecordInfoResponse
+   * 
+   * @param request - DescribeDomainRecordInfoRequest
+   * @returns DescribeDomainRecordInfoResponse
    */
   async describeDomainRecordInfo(request: DescribeDomainRecordInfoRequest): Promise<DescribeDomainRecordInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30883,16 +48249,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
-   *
-   * @description *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
+   * Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+   * 
+   * @remarks
+   *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
    * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
    * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
    * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
-   *
-   * @param request DescribeDomainRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainRecordsResponse
+   * 
+   * @param request - DescribeDomainRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainRecordsResponse
    */
   async describeDomainRecordsWithOptions(request: DescribeDomainRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRecordsResponse> {
     Util.validateModel(request);
@@ -30975,15 +48342,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
-   *
-   * @description *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
+   * Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+   * 
+   * @remarks
+   *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
    * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
    * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
    * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
-   *
-   * @param request DescribeDomainRecordsRequest
-   * @return DescribeDomainRecordsResponse
+   * 
+   * @param request - DescribeDomainRecordsRequest
+   * @returns DescribeDomainRecordsResponse
    */
   async describeDomainRecords(request: DescribeDomainRecordsRequest): Promise<DescribeDomainRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -30991,11 +48359,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resolution requests of all paid domain names within your account.
-   *
-   * @param request DescribeDomainResolveStatisticsSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainResolveStatisticsSummaryResponse
+   * Queries the resolution requests of all paid domain names within your account.
+   * 
+   * @param request - DescribeDomainResolveStatisticsSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainResolveStatisticsSummaryResponse
    */
   async describeDomainResolveStatisticsSummaryWithOptions(request: DescribeDomainResolveStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResolveStatisticsSummaryResponse> {
     Util.validateModel(request);
@@ -31054,10 +48422,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the resolution requests of all paid domain names within your account.
-   *
-   * @param request DescribeDomainResolveStatisticsSummaryRequest
-   * @return DescribeDomainResolveStatisticsSummaryResponse
+   * Queries the resolution requests of all paid domain names within your account.
+   * 
+   * @param request - DescribeDomainResolveStatisticsSummaryRequest
+   * @returns DescribeDomainResolveStatisticsSummaryResponse
    */
   async describeDomainResolveStatisticsSummary(request: DescribeDomainResolveStatisticsSummaryRequest): Promise<DescribeDomainResolveStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31065,13 +48433,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
-   *
-   * @description Real-time data is collected per hour.
-   *
-   * @param request DescribeDomainStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainStatisticsResponse
+   * Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+   * 
+   * @remarks
+   * Real-time data is collected per hour.
+   * 
+   * @param request - DescribeDomainStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainStatisticsResponse
    */
   async describeDomainStatisticsWithOptions(request: DescribeDomainStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatisticsResponse> {
     Util.validateModel(request);
@@ -31114,12 +48483,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
-   *
-   * @description Real-time data is collected per hour.
-   *
-   * @param request DescribeDomainStatisticsRequest
-   * @return DescribeDomainStatisticsResponse
+   * Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+   * 
+   * @remarks
+   * Real-time data is collected per hour.
+   * 
+   * @param request - DescribeDomainStatisticsRequest
+   * @returns DescribeDomainStatisticsResponse
    */
   async describeDomainStatistics(request: DescribeDomainStatisticsRequest): Promise<DescribeDomainStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31127,11 +48497,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
-   *
-   * @param request DescribeDomainStatisticsSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainStatisticsSummaryResponse
+   * Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+   * 
+   * @param request - DescribeDomainStatisticsSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainStatisticsSummaryResponse
    */
   async describeDomainStatisticsSummaryWithOptions(request: DescribeDomainStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainStatisticsSummaryResponse> {
     Util.validateModel(request);
@@ -31186,10 +48556,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
-   *
-   * @param request DescribeDomainStatisticsSummaryRequest
-   * @return DescribeDomainStatisticsSummaryResponse
+   * Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+   * 
+   * @param request - DescribeDomainStatisticsSummaryRequest
+   * @returns DescribeDomainStatisticsSummaryResponse
    */
   async describeDomainStatisticsSummary(request: DescribeDomainStatisticsSummaryRequest): Promise<DescribeDomainStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31197,16 +48567,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Calls the DescribeDomains operation to query domain names of a user based on input parameters.
-   *
-   * @description *   You can specify the PageNumber and PageSize parameters to query domain names.
+   * Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+   * 
+   * @remarks
+   *   You can specify the PageNumber and PageSize parameters to query domain names.
    * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
    * *   By default, the domain names in a list are sorted in descending order of the time they were added.
    * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
-   *
-   * @param request DescribeDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeDomainsResponse
+   * 
+   * @param request - DescribeDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDomainsResponse
    */
   async describeDomainsWithOptions(request: DescribeDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsResponse> {
     Util.validateModel(request);
@@ -31261,15 +48632,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Calls the DescribeDomains operation to query domain names of a user based on input parameters.
-   *
-   * @description *   You can specify the PageNumber and PageSize parameters to query domain names.
+   * Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+   * 
+   * @remarks
+   *   You can specify the PageNumber and PageSize parameters to query domain names.
    * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
    * *   By default, the domain names in a list are sorted in descending order of the time they were added.
    * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
-   *
-   * @param request DescribeDomainsRequest
-   * @return DescribeDomainsResponse
+   * 
+   * @param request - DescribeDomainsRequest
+   * @returns DescribeDomainsResponse
    */
   async describeDomains(request: DescribeDomainsRequest): Promise<DescribeDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31277,11 +48649,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmAccessStrategiesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmAccessStrategiesResponse
+   * You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmAccessStrategiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmAccessStrategiesResponse
    */
   async describeGtmAccessStrategiesWithOptions(request: DescribeGtmAccessStrategiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAccessStrategiesResponse> {
     Util.validateModel(request);
@@ -31320,10 +48692,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmAccessStrategiesRequest
-   * @return DescribeGtmAccessStrategiesResponse
+   * You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmAccessStrategiesRequest
+   * @returns DescribeGtmAccessStrategiesResponse
    */
   async describeGtmAccessStrategies(request: DescribeGtmAccessStrategiesRequest): Promise<DescribeGtmAccessStrategiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31331,11 +48703,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
-   *
-   * @param request DescribeGtmAccessStrategyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmAccessStrategyResponse
+   * You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+   * 
+   * @param request - DescribeGtmAccessStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmAccessStrategyResponse
    */
   async describeGtmAccessStrategyWithOptions(request: DescribeGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAccessStrategyResponse> {
     Util.validateModel(request);
@@ -31366,10 +48738,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
-   *
-   * @param request DescribeGtmAccessStrategyRequest
-   * @return DescribeGtmAccessStrategyResponse
+   * You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+   * 
+   * @param request - DescribeGtmAccessStrategyRequest
+   * @returns DescribeGtmAccessStrategyResponse
    */
   async describeGtmAccessStrategy(request: DescribeGtmAccessStrategyRequest): Promise<DescribeGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31377,11 +48749,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration items that can be set for an access policy.
-   *
-   * @param request DescribeGtmAccessStrategyAvailableConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmAccessStrategyAvailableConfigResponse
+   * Queries the configuration items that can be set for an access policy.
+   * 
+   * @param request - DescribeGtmAccessStrategyAvailableConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmAccessStrategyAvailableConfigResponse
    */
   async describeGtmAccessStrategyAvailableConfigWithOptions(request: DescribeGtmAccessStrategyAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAccessStrategyAvailableConfigResponse> {
     Util.validateModel(request);
@@ -31412,10 +48784,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the configuration items that can be set for an access policy.
-   *
-   * @param request DescribeGtmAccessStrategyAvailableConfigRequest
-   * @return DescribeGtmAccessStrategyAvailableConfigResponse
+   * Queries the configuration items that can be set for an access policy.
+   * 
+   * @param request - DescribeGtmAccessStrategyAvailableConfigRequest
+   * @returns DescribeGtmAccessStrategyAvailableConfigResponse
    */
   async describeGtmAccessStrategyAvailableConfig(request: DescribeGtmAccessStrategyAvailableConfigRequest): Promise<DescribeGtmAccessStrategyAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31423,9 +48795,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeGtmAvailableAlertGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmAvailableAlertGroupResponse
+   * @param request - DescribeGtmAvailableAlertGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmAvailableAlertGroupResponse
    */
   async describeGtmAvailableAlertGroupWithOptions(request: DescribeGtmAvailableAlertGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmAvailableAlertGroupResponse> {
     Util.validateModel(request);
@@ -31452,8 +48824,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeGtmAvailableAlertGroupRequest
-   * @return DescribeGtmAvailableAlertGroupResponse
+   * @param request - DescribeGtmAvailableAlertGroupRequest
+   * @returns DescribeGtmAvailableAlertGroupResponse
    */
   async describeGtmAvailableAlertGroup(request: DescribeGtmAvailableAlertGroupRequest): Promise<DescribeGtmAvailableAlertGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31461,11 +48833,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmInstanceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmInstanceResponse
+   * Queries the details about a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmInstanceResponse
    */
   async describeGtmInstanceWithOptions(request: DescribeGtmInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceResponse> {
     Util.validateModel(request);
@@ -31500,10 +48872,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmInstanceRequest
-   * @return DescribeGtmInstanceResponse
+   * Queries the details about a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmInstanceRequest
+   * @returns DescribeGtmInstanceResponse
    */
   async describeGtmInstance(request: DescribeGtmInstanceRequest): Promise<DescribeGtmInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31511,11 +48883,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmInstanceAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmInstanceAddressPoolResponse
+   * You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmInstanceAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmInstanceAddressPoolResponse
    */
   async describeGtmInstanceAddressPoolWithOptions(request: DescribeGtmInstanceAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceAddressPoolResponse> {
     Util.validateModel(request);
@@ -31546,10 +48918,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmInstanceAddressPoolRequest
-   * @return DescribeGtmInstanceAddressPoolResponse
+   * You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmInstanceAddressPoolRequest
+   * @returns DescribeGtmInstanceAddressPoolResponse
    */
   async describeGtmInstanceAddressPool(request: DescribeGtmInstanceAddressPoolRequest): Promise<DescribeGtmInstanceAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31557,11 +48929,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmInstanceAddressPoolsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmInstanceAddressPoolsResponse
+   * You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmInstanceAddressPoolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmInstanceAddressPoolsResponse
    */
   async describeGtmInstanceAddressPoolsWithOptions(request: DescribeGtmInstanceAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceAddressPoolsResponse> {
     Util.validateModel(request);
@@ -31600,10 +48972,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmInstanceAddressPoolsRequest
-   * @return DescribeGtmInstanceAddressPoolsResponse
+   * You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmInstanceAddressPoolsRequest
+   * @returns DescribeGtmInstanceAddressPoolsResponse
    */
   async describeGtmInstanceAddressPools(request: DescribeGtmInstanceAddressPoolsRequest): Promise<DescribeGtmInstanceAddressPoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31611,11 +48983,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the current status of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmInstanceStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmInstanceStatusResponse
+   * Queries the current status of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmInstanceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmInstanceStatusResponse
    */
   async describeGtmInstanceStatusWithOptions(request: DescribeGtmInstanceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceStatusResponse> {
     Util.validateModel(request);
@@ -31646,10 +49018,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the current status of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmInstanceStatusRequest
-   * @return DescribeGtmInstanceStatusResponse
+   * Queries the current status of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmInstanceStatusRequest
+   * @returns DescribeGtmInstanceStatusResponse
    */
   async describeGtmInstanceStatus(request: DescribeGtmInstanceStatusRequest): Promise<DescribeGtmInstanceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31657,9 +49029,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeGtmInstanceSystemCnameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmInstanceSystemCnameResponse
+   * @param request - DescribeGtmInstanceSystemCnameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmInstanceSystemCnameResponse
    */
   async describeGtmInstanceSystemCnameWithOptions(request: DescribeGtmInstanceSystemCnameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstanceSystemCnameResponse> {
     Util.validateModel(request);
@@ -31690,8 +49062,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeGtmInstanceSystemCnameRequest
-   * @return DescribeGtmInstanceSystemCnameResponse
+   * @param request - DescribeGtmInstanceSystemCnameRequest
+   * @returns DescribeGtmInstanceSystemCnameResponse
    */
   async describeGtmInstanceSystemCname(request: DescribeGtmInstanceSystemCnameRequest): Promise<DescribeGtmInstanceSystemCnameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31699,11 +49071,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Global Traffic Manager (GTM) instances under your account.
-   *
-   * @param request DescribeGtmInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmInstancesResponse
+   * Queries the Global Traffic Manager (GTM) instances under your account.
+   * 
+   * @param request - DescribeGtmInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmInstancesResponse
    */
   async describeGtmInstancesWithOptions(request: DescribeGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmInstancesResponse> {
     Util.validateModel(request);
@@ -31750,10 +49122,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the Global Traffic Manager (GTM) instances under your account.
-   *
-   * @param request DescribeGtmInstancesRequest
-   * @return DescribeGtmInstancesResponse
+   * Queries the Global Traffic Manager (GTM) instances under your account.
+   * 
+   * @param request - DescribeGtmInstancesRequest
+   * @returns DescribeGtmInstancesResponse
    */
   async describeGtmInstances(request: DescribeGtmInstancesRequest): Promise<DescribeGtmInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31761,11 +49133,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmLogsResponse
+   * You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmLogsResponse
    */
   async describeGtmLogsWithOptions(request: DescribeGtmLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmLogsResponse> {
     Util.validateModel(request);
@@ -31816,10 +49188,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmLogsRequest
-   * @return DescribeGtmLogsResponse
+   * You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmLogsRequest
+   * @returns DescribeGtmLogsResponse
    */
   async describeGtmLogs(request: DescribeGtmLogsRequest): Promise<DescribeGtmLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31827,11 +49199,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries available monitored nodes.
-   *
-   * @param request DescribeGtmMonitorAvailableConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmMonitorAvailableConfigResponse
+   * Queries available monitored nodes.
+   * 
+   * @param request - DescribeGtmMonitorAvailableConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmMonitorAvailableConfigResponse
    */
   async describeGtmMonitorAvailableConfigWithOptions(request: DescribeGtmMonitorAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmMonitorAvailableConfigResponse> {
     Util.validateModel(request);
@@ -31858,10 +49230,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries available monitored nodes.
-   *
-   * @param request DescribeGtmMonitorAvailableConfigRequest
-   * @return DescribeGtmMonitorAvailableConfigResponse
+   * Queries available monitored nodes.
+   * 
+   * @param request - DescribeGtmMonitorAvailableConfigRequest
+   * @returns DescribeGtmMonitorAvailableConfigResponse
    */
   async describeGtmMonitorAvailableConfig(request: DescribeGtmMonitorAvailableConfigRequest): Promise<DescribeGtmMonitorAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31869,11 +49241,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmMonitorConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmMonitorConfigResponse
+   * Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmMonitorConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmMonitorConfigResponse
    */
   async describeGtmMonitorConfigWithOptions(request: DescribeGtmMonitorConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmMonitorConfigResponse> {
     Util.validateModel(request);
@@ -31904,10 +49276,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmMonitorConfigRequest
-   * @return DescribeGtmMonitorConfigResponse
+   * Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmMonitorConfigRequest
+   * @returns DescribeGtmMonitorConfigResponse
    */
   async describeGtmMonitorConfig(request: DescribeGtmMonitorConfigRequest): Promise<DescribeGtmMonitorConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31915,11 +49287,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the detailed information of a disaster recovery plan for a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmRecoveryPlanRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmRecoveryPlanResponse
+   * You can call this operation to query the detailed information of a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmRecoveryPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmRecoveryPlanResponse
    */
   async describeGtmRecoveryPlanWithOptions(request: DescribeGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmRecoveryPlanResponse> {
     Util.validateModel(request);
@@ -31950,10 +49322,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the detailed information of a disaster recovery plan for a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmRecoveryPlanRequest
-   * @return DescribeGtmRecoveryPlanResponse
+   * You can call this operation to query the detailed information of a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmRecoveryPlanRequest
+   * @returns DescribeGtmRecoveryPlanResponse
    */
   async describeGtmRecoveryPlan(request: DescribeGtmRecoveryPlanRequest): Promise<DescribeGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -31961,11 +49333,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the available configurations of a disaster recovery plan of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmRecoveryPlanAvailableConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmRecoveryPlanAvailableConfigResponse
+   * You can call this operation to query the available configurations of a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmRecoveryPlanAvailableConfigResponse
    */
   async describeGtmRecoveryPlanAvailableConfigWithOptions(request: DescribeGtmRecoveryPlanAvailableConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmRecoveryPlanAvailableConfigResponse> {
     Util.validateModel(request);
@@ -31992,10 +49364,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to query the available configurations of a disaster recovery plan of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmRecoveryPlanAvailableConfigRequest
-   * @return DescribeGtmRecoveryPlanAvailableConfigResponse
+   * You can call this operation to query the available configurations of a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
+   * @returns DescribeGtmRecoveryPlanAvailableConfigResponse
    */
   async describeGtmRecoveryPlanAvailableConfig(request: DescribeGtmRecoveryPlanAvailableConfigRequest): Promise<DescribeGtmRecoveryPlanAvailableConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32003,11 +49375,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmRecoveryPlansRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeGtmRecoveryPlansResponse
+   * Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmRecoveryPlansRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGtmRecoveryPlansResponse
    */
   async describeGtmRecoveryPlansWithOptions(request: DescribeGtmRecoveryPlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGtmRecoveryPlansResponse> {
     Util.validateModel(request);
@@ -32046,10 +49418,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
-   *
-   * @param request DescribeGtmRecoveryPlansRequest
-   * @return DescribeGtmRecoveryPlansResponse
+   * Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - DescribeGtmRecoveryPlansRequest
+   * @returns DescribeGtmRecoveryPlansResponse
    */
   async describeGtmRecoveryPlans(request: DescribeGtmRecoveryPlansRequest): Promise<DescribeGtmRecoveryPlansResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32057,11 +49429,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the domain names that are bound to an Alibaba Cloud DNS instance.
-   *
-   * @param request DescribeInstanceDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInstanceDomainsResponse
+   * Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+   * 
+   * @param request - DescribeInstanceDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceDomainsResponse
    */
   async describeInstanceDomainsWithOptions(request: DescribeInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceDomainsResponse> {
     Util.validateModel(request);
@@ -32100,10 +49472,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the domain names that are bound to an Alibaba Cloud DNS instance.
-   *
-   * @param request DescribeInstanceDomainsRequest
-   * @return DescribeInstanceDomainsResponse
+   * Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+   * 
+   * @param request - DescribeInstanceDomainsRequest
+   * @returns DescribeInstanceDomainsResponse
    */
   async describeInstanceDomains(request: DescribeInstanceDomainsRequest): Promise<DescribeInstanceDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32111,9 +49483,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeInternetDnsLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeInternetDnsLogsResponse
+   * @param request - DescribeInternetDnsLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInternetDnsLogsResponse
    */
   async describeInternetDnsLogsWithOptions(request: DescribeInternetDnsLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInternetDnsLogsResponse> {
     Util.validateModel(request);
@@ -32172,8 +49544,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescribeInternetDnsLogsRequest
-   * @return DescribeInternetDnsLogsResponse
+   * @param request - DescribeInternetDnsLogsRequest
+   * @returns DescribeInternetDnsLogsResponse
    */
   async describeInternetDnsLogs(request: DescribeInternetDnsLogsRequest): Promise<DescribeInternetDnsLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32181,11 +49553,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取缓存刷新套餐包列表
-   *
-   * @param request DescribeIspFlushCacheInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeIspFlushCacheInstancesResponse
+   * 获取缓存刷新套餐包列表
+   * 
+   * @param request - DescribeIspFlushCacheInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIspFlushCacheInstancesResponse
    */
   async describeIspFlushCacheInstancesWithOptions(request: DescribeIspFlushCacheInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheInstancesResponse> {
     Util.validateModel(request);
@@ -32240,10 +49612,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取缓存刷新套餐包列表
-   *
-   * @param request DescribeIspFlushCacheInstancesRequest
-   * @return DescribeIspFlushCacheInstancesResponse
+   * 获取缓存刷新套餐包列表
+   * 
+   * @param request - DescribeIspFlushCacheInstancesRequest
+   * @returns DescribeIspFlushCacheInstancesResponse
    */
   async describeIspFlushCacheInstances(request: DescribeIspFlushCacheInstancesRequest): Promise<DescribeIspFlushCacheInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32251,11 +49623,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取剩余可缓存刷新次数
-   *
-   * @param request DescribeIspFlushCacheRemainQuotaRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeIspFlushCacheRemainQuotaResponse
+   * 获取剩余可缓存刷新次数
+   * 
+   * @param request - DescribeIspFlushCacheRemainQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIspFlushCacheRemainQuotaResponse
    */
   async describeIspFlushCacheRemainQuotaWithOptions(request: DescribeIspFlushCacheRemainQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheRemainQuotaResponse> {
     Util.validateModel(request);
@@ -32282,10 +49654,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取剩余可缓存刷新次数
-   *
-   * @param request DescribeIspFlushCacheRemainQuotaRequest
-   * @return DescribeIspFlushCacheRemainQuotaResponse
+   * 获取剩余可缓存刷新次数
+   * 
+   * @param request - DescribeIspFlushCacheRemainQuotaRequest
+   * @returns DescribeIspFlushCacheRemainQuotaResponse
    */
   async describeIspFlushCacheRemainQuota(request: DescribeIspFlushCacheRemainQuotaRequest): Promise<DescribeIspFlushCacheRemainQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32293,11 +49665,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取缓存刷新任务详情
-   *
-   * @param request DescribeIspFlushCacheTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeIspFlushCacheTaskResponse
+   * 获取缓存刷新任务详情
+   * 
+   * @param request - DescribeIspFlushCacheTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIspFlushCacheTaskResponse
    */
   async describeIspFlushCacheTaskWithOptions(request: DescribeIspFlushCacheTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheTaskResponse> {
     Util.validateModel(request);
@@ -32328,10 +49700,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取缓存刷新任务详情
-   *
-   * @param request DescribeIspFlushCacheTaskRequest
-   * @return DescribeIspFlushCacheTaskResponse
+   * 获取缓存刷新任务详情
+   * 
+   * @param request - DescribeIspFlushCacheTaskRequest
+   * @returns DescribeIspFlushCacheTaskResponse
    */
   async describeIspFlushCacheTask(request: DescribeIspFlushCacheTaskRequest): Promise<DescribeIspFlushCacheTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32339,11 +49711,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取缓存刷新任务列表
-   *
-   * @param request DescribeIspFlushCacheTasksRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeIspFlushCacheTasksResponse
+   * 获取缓存刷新任务列表
+   * 
+   * @param request - DescribeIspFlushCacheTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIspFlushCacheTasksResponse
    */
   async describeIspFlushCacheTasksWithOptions(request: DescribeIspFlushCacheTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIspFlushCacheTasksResponse> {
     Util.validateModel(request);
@@ -32398,10 +49770,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取缓存刷新任务列表
-   *
-   * @param request DescribeIspFlushCacheTasksRequest
-   * @return DescribeIspFlushCacheTasksResponse
+   * 获取缓存刷新任务列表
+   * 
+   * @param request - DescribeIspFlushCacheTasksRequest
+   * @returns DescribeIspFlushCacheTasksResponse
    */
   async describeIspFlushCacheTasks(request: DescribeIspFlushCacheTasksRequest): Promise<DescribeIspFlushCacheTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32409,11 +49781,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS用户数据概览
-   *
-   * @param request DescribePdnsAccountSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsAccountSummaryResponse
+   * 获取公共DNS用户数据概览
+   * 
+   * @param request - DescribePdnsAccountSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsAccountSummaryResponse
    */
   async describePdnsAccountSummaryWithOptions(request: DescribePdnsAccountSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsAccountSummaryResponse> {
     Util.validateModel(request);
@@ -32448,10 +49820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS用户数据概览
-   *
-   * @param request DescribePdnsAccountSummaryRequest
-   * @return DescribePdnsAccountSummaryResponse
+   * 获取公共DNS用户数据概览
+   * 
+   * @param request - DescribePdnsAccountSummaryRequest
+   * @returns DescribePdnsAccountSummaryResponse
    */
   async describePdnsAccountSummary(request: DescribePdnsAccountSummaryRequest): Promise<DescribePdnsAccountSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32459,11 +49831,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS AppKey 详情
-   *
-   * @param request DescribePdnsAppKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsAppKeyResponse
+   * 获取公共DNS AppKey 详情
+   * 
+   * @param request - DescribePdnsAppKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsAppKeyResponse
    */
   async describePdnsAppKeyWithOptions(request: DescribePdnsAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsAppKeyResponse> {
     Util.validateModel(request);
@@ -32498,10 +49870,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS AppKey 详情
-   *
-   * @param request DescribePdnsAppKeyRequest
-   * @return DescribePdnsAppKeyResponse
+   * 获取公共DNS AppKey 详情
+   * 
+   * @param request - DescribePdnsAppKeyRequest
+   * @returns DescribePdnsAppKeyResponse
    */
   async describePdnsAppKey(request: DescribePdnsAppKeyRequest): Promise<DescribePdnsAppKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32509,11 +49881,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS AppKey 列表
-   *
-   * @param request DescribePdnsAppKeysRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsAppKeysResponse
+   * 获取公共DNS AppKey 列表
+   * 
+   * @param request - DescribePdnsAppKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsAppKeysResponse
    */
   async describePdnsAppKeysWithOptions(request: DescribePdnsAppKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsAppKeysResponse> {
     Util.validateModel(request);
@@ -32540,10 +49912,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS AppKey 列表
-   *
-   * @param request DescribePdnsAppKeysRequest
-   * @return DescribePdnsAppKeysResponse
+   * 获取公共DNS AppKey 列表
+   * 
+   * @param request - DescribePdnsAppKeysRequest
+   * @returns DescribePdnsAppKeysResponse
    */
   async describePdnsAppKeys(request: DescribePdnsAppKeysRequest): Promise<DescribePdnsAppKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32551,11 +49923,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 操作日志列表
-   *
-   * @param request DescribePdnsOperateLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsOperateLogsResponse
+   * 获取公共DNS 操作日志列表
+   * 
+   * @param request - DescribePdnsOperateLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsOperateLogsResponse
    */
   async describePdnsOperateLogsWithOptions(request: DescribePdnsOperateLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsOperateLogsResponse> {
     Util.validateModel(request);
@@ -32606,10 +49978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 操作日志列表
-   *
-   * @param request DescribePdnsOperateLogsRequest
-   * @return DescribePdnsOperateLogsResponse
+   * 获取公共DNS 操作日志列表
+   * 
+   * @param request - DescribePdnsOperateLogsRequest
+   * @returns DescribePdnsOperateLogsResponse
    */
   async describePdnsOperateLogs(request: DescribePdnsOperateLogsRequest): Promise<DescribePdnsOperateLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32617,11 +49989,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 请求统计
-   *
-   * @param request DescribePdnsRequestStatisticRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsRequestStatisticResponse
+   * 获取公共DNS 请求统计
+   * 
+   * @param request - DescribePdnsRequestStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsRequestStatisticResponse
    */
   async describePdnsRequestStatisticWithOptions(request: DescribePdnsRequestStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsRequestStatisticResponse> {
     Util.validateModel(request);
@@ -32664,10 +50036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 请求统计
-   *
-   * @param request DescribePdnsRequestStatisticRequest
-   * @return DescribePdnsRequestStatisticResponse
+   * 获取公共DNS 请求统计
+   * 
+   * @param request - DescribePdnsRequestStatisticRequest
+   * @returns DescribePdnsRequestStatisticResponse
    */
   async describePdnsRequestStatistic(request: DescribePdnsRequestStatisticRequest): Promise<DescribePdnsRequestStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32675,11 +50047,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 请求统计列表
-   *
-   * @param request DescribePdnsRequestStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsRequestStatisticsResponse
+   * 获取公共DNS 请求统计列表
+   * 
+   * @param request - DescribePdnsRequestStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsRequestStatisticsResponse
    */
   async describePdnsRequestStatisticsWithOptions(request: DescribePdnsRequestStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsRequestStatisticsResponse> {
     Util.validateModel(request);
@@ -32734,10 +50106,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 请求统计列表
-   *
-   * @param request DescribePdnsRequestStatisticsRequest
-   * @return DescribePdnsRequestStatisticsResponse
+   * 获取公共DNS 请求统计列表
+   * 
+   * @param request - DescribePdnsRequestStatisticsRequest
+   * @returns DescribePdnsRequestStatisticsResponse
    */
   async describePdnsRequestStatistics(request: DescribePdnsRequestStatisticsRequest): Promise<DescribePdnsRequestStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32745,11 +50117,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 威胁日志列表
-   *
-   * @param request DescribePdnsThreatLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsThreatLogsResponse
+   * 获取公共DNS 威胁日志列表
+   * 
+   * @param request - DescribePdnsThreatLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsThreatLogsResponse
    */
   async describePdnsThreatLogsWithOptions(request: DescribePdnsThreatLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsThreatLogsResponse> {
     Util.validateModel(request);
@@ -32808,10 +50180,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 威胁日志列表
-   *
-   * @param request DescribePdnsThreatLogsRequest
-   * @return DescribePdnsThreatLogsResponse
+   * 获取公共DNS 威胁日志列表
+   * 
+   * @param request - DescribePdnsThreatLogsRequest
+   * @returns DescribePdnsThreatLogsResponse
    */
   async describePdnsThreatLogs(request: DescribePdnsThreatLogsRequest): Promise<DescribePdnsThreatLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32819,11 +50191,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 威胁统计
-   *
-   * @param request DescribePdnsThreatStatisticRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsThreatStatisticResponse
+   * 获取公共DNS 威胁统计
+   * 
+   * @param request - DescribePdnsThreatStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsThreatStatisticResponse
    */
   async describePdnsThreatStatisticWithOptions(request: DescribePdnsThreatStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsThreatStatisticResponse> {
     Util.validateModel(request);
@@ -32862,10 +50234,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 威胁统计
-   *
-   * @param request DescribePdnsThreatStatisticRequest
-   * @return DescribePdnsThreatStatisticResponse
+   * 获取公共DNS 威胁统计
+   * 
+   * @param request - DescribePdnsThreatStatisticRequest
+   * @returns DescribePdnsThreatStatisticResponse
    */
   async describePdnsThreatStatistic(request: DescribePdnsThreatStatisticRequest): Promise<DescribePdnsThreatStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32873,11 +50245,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 威胁统计列表
-   *
-   * @param request DescribePdnsThreatStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsThreatStatisticsResponse
+   * 获取公共DNS 威胁统计列表
+   * 
+   * @param request - DescribePdnsThreatStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsThreatStatisticsResponse
    */
   async describePdnsThreatStatisticsWithOptions(request: DescribePdnsThreatStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsThreatStatisticsResponse> {
     Util.validateModel(request);
@@ -32952,10 +50324,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS 威胁统计列表
-   *
-   * @param request DescribePdnsThreatStatisticsRequest
-   * @return DescribePdnsThreatStatisticsResponse
+   * 获取公共DNS 威胁统计列表
+   * 
+   * @param request - DescribePdnsThreatStatisticsRequest
+   * @returns DescribePdnsThreatStatisticsResponse
    */
   async describePdnsThreatStatistics(request: DescribePdnsThreatStatisticsRequest): Promise<DescribePdnsThreatStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -32963,11 +50335,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS Udp IP段列表
-   *
-   * @param request DescribePdnsUdpIpSegmentsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsUdpIpSegmentsResponse
+   * 获取公共DNS Udp IP段列表
+   * 
+   * @param request - DescribePdnsUdpIpSegmentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsUdpIpSegmentsResponse
    */
   async describePdnsUdpIpSegmentsWithOptions(request: DescribePdnsUdpIpSegmentsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsUdpIpSegmentsResponse> {
     Util.validateModel(request);
@@ -33002,10 +50374,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS Udp IP段列表
-   *
-   * @param request DescribePdnsUdpIpSegmentsRequest
-   * @return DescribePdnsUdpIpSegmentsResponse
+   * 获取公共DNS Udp IP段列表
+   * 
+   * @param request - DescribePdnsUdpIpSegmentsRequest
+   * @returns DescribePdnsUdpIpSegmentsResponse
    */
   async describePdnsUdpIpSegments(request: DescribePdnsUdpIpSegmentsRequest): Promise<DescribePdnsUdpIpSegmentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33013,11 +50385,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS用户信息
-   *
-   * @param request DescribePdnsUserInfoRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribePdnsUserInfoResponse
+   * 获取公共DNS用户信息
+   * 
+   * @param request - DescribePdnsUserInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePdnsUserInfoResponse
    */
   async describePdnsUserInfoWithOptions(request: DescribePdnsUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribePdnsUserInfoResponse> {
     Util.validateModel(request);
@@ -33044,10 +50416,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取公共DNS用户信息
-   *
-   * @param request DescribePdnsUserInfoRequest
-   * @return DescribePdnsUserInfoResponse
+   * 获取公共DNS用户信息
+   * 
+   * @param request - DescribePdnsUserInfoRequest
+   * @returns DescribePdnsUserInfoResponse
    */
   async describePdnsUserInfo(request: DescribePdnsUserInfoRequest): Promise<DescribePdnsUserInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33055,11 +50427,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the operation logs of a domain name based on the specified parameters.
-   *
-   * @param request DescribeRecordLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRecordLogsResponse
+   * Queries the operation logs of a domain name based on the specified parameters.
+   * 
+   * @param request - DescribeRecordLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecordLogsResponse
    */
   async describeRecordLogsWithOptions(request: DescribeRecordLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordLogsResponse> {
     Util.validateModel(request);
@@ -33114,10 +50486,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the operation logs of a domain name based on the specified parameters.
-   *
-   * @param request DescribeRecordLogsRequest
-   * @return DescribeRecordLogsResponse
+   * Queries the operation logs of a domain name based on the specified parameters.
+   * 
+   * @param request - DescribeRecordLogsRequest
+   * @returns DescribeRecordLogsResponse
    */
   async describeRecordLogs(request: DescribeRecordLogsRequest): Promise<DescribeRecordLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33125,11 +50497,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of resolution requests for all subdomain names of a specified domain name.
-   *
-   * @param request DescribeRecordResolveStatisticsSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRecordResolveStatisticsSummaryResponse
+   * Queries the number of resolution requests for all subdomain names of a specified domain name.
+   * 
+   * @param request - DescribeRecordResolveStatisticsSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecordResolveStatisticsSummaryResponse
    */
   async describeRecordResolveStatisticsSummaryWithOptions(request: DescribeRecordResolveStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordResolveStatisticsSummaryResponse> {
     Util.validateModel(request);
@@ -33196,10 +50568,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of resolution requests for all subdomain names of a specified domain name.
-   *
-   * @param request DescribeRecordResolveStatisticsSummaryRequest
-   * @return DescribeRecordResolveStatisticsSummaryResponse
+   * Queries the number of resolution requests for all subdomain names of a specified domain name.
+   * 
+   * @param request - DescribeRecordResolveStatisticsSummaryRequest
+   * @returns DescribeRecordResolveStatisticsSummaryResponse
    */
   async describeRecordResolveStatisticsSummary(request: DescribeRecordResolveStatisticsSummaryRequest): Promise<DescribeRecordResolveStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33207,13 +50579,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
-   *
-   * @description Real-time data is collected per hour.
-   *
-   * @param request DescribeRecordStatisticsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRecordStatisticsResponse
+   * Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+   * 
+   * @remarks
+   * Real-time data is collected per hour.
+   * 
+   * @param request - DescribeRecordStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecordStatisticsResponse
    */
   async describeRecordStatisticsWithOptions(request: DescribeRecordStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordStatisticsResponse> {
     Util.validateModel(request);
@@ -33260,12 +50633,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
-   *
-   * @description Real-time data is collected per hour.
-   *
-   * @param request DescribeRecordStatisticsRequest
-   * @return DescribeRecordStatisticsResponse
+   * Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+   * 
+   * @remarks
+   * Real-time data is collected per hour.
+   * 
+   * @param request - DescribeRecordStatisticsRequest
+   * @returns DescribeRecordStatisticsResponse
    */
   async describeRecordStatistics(request: DescribeRecordStatisticsRequest): Promise<DescribeRecordStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33273,11 +50647,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
-   *
-   * @param request DescribeRecordStatisticsSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRecordStatisticsSummaryResponse
+   * Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+   * 
+   * @param request - DescribeRecordStatisticsSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecordStatisticsSummaryResponse
    */
   async describeRecordStatisticsSummaryWithOptions(request: DescribeRecordStatisticsSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordStatisticsSummaryResponse> {
     Util.validateModel(request);
@@ -33340,10 +50714,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
-   *
-   * @param request DescribeRecordStatisticsSummaryRequest
-   * @return DescribeRecordStatisticsSummaryResponse
+   * Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+   * 
+   * @param request - DescribeRecordStatisticsSummaryRequest
+   * @returns DescribeRecordStatisticsSummaryResponse
    */
   async describeRecordStatisticsSummary(request: DescribeRecordStatisticsSummaryRequest): Promise<DescribeRecordStatisticsSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33351,11 +50725,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
-   *
-   * @param request DescribeSubDomainRecordsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSubDomainRecordsResponse
+   * Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+   * 
+   * @param request - DescribeSubDomainRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSubDomainRecordsResponse
    */
   async describeSubDomainRecordsWithOptions(request: DescribeSubDomainRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSubDomainRecordsResponse> {
     Util.validateModel(request);
@@ -33410,10 +50784,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
-   *
-   * @param request DescribeSubDomainRecordsRequest
-   * @return DescribeSubDomainRecordsResponse
+   * Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+   * 
+   * @param request - DescribeSubDomainRecordsRequest
+   * @returns DescribeSubDomainRecordsResponse
    */
   async describeSubDomainRecords(request: DescribeSubDomainRecordsRequest): Promise<DescribeSubDomainRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33421,11 +50795,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询云解析支持的所有线路列表。
-   *
-   * @param request DescribeSupportLinesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeSupportLinesResponse
+   * 查询云解析支持的所有线路列表。
+   * 
+   * @param request - DescribeSupportLinesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSupportLinesResponse
    */
   async describeSupportLinesWithOptions(request: DescribeSupportLinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportLinesResponse> {
     Util.validateModel(request);
@@ -33460,10 +50834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询云解析支持的所有线路列表。
-   *
-   * @param request DescribeSupportLinesRequest
-   * @return DescribeSupportLinesResponse
+   * 查询云解析支持的所有线路列表。
+   * 
+   * @param request - DescribeSupportLinesRequest
+   * @returns DescribeSupportLinesResponse
    */
   async describeSupportLines(request: DescribeSupportLinesRequest): Promise<DescribeSupportLinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33471,11 +50845,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries existing tags.
-   *
-   * @param request DescribeTagsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTagsResponse
+   * Queries existing tags.
+   * 
+   * @param request - DescribeTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTagsResponse
    */
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
@@ -33514,10 +50888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries existing tags.
-   *
-   * @param request DescribeTagsRequest
-   * @return DescribeTagsResponse
+   * Queries existing tags.
+   * 
+   * @param request - DescribeTagsRequest
+   * @returns DescribeTagsResponse
    */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33525,11 +50899,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the domain names that were transferred between the current account and another account based on the specified parameters.
-   *
-   * @param request DescribeTransferDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeTransferDomainsResponse
+   * Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+   * 
+   * @param request - DescribeTransferDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTransferDomainsResponse
    */
   async describeTransferDomainsWithOptions(request: DescribeTransferDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTransferDomainsResponse> {
     Util.validateModel(request);
@@ -33580,10 +50954,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the domain names that were transferred between the current account and another account based on the specified parameters.
-   *
-   * @param request DescribeTransferDomainsRequest
-   * @return DescribeTransferDomainsResponse
+   * Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+   * 
+   * @param request - DescribeTransferDomainsRequest
+   * @returns DescribeTransferDomainsResponse
    */
   async describeTransferDomains(request: DescribeTransferDomainsRequest): Promise<DescribeTransferDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33591,9 +50965,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ExecuteGtmRecoveryPlanRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExecuteGtmRecoveryPlanResponse
+   * @param request - ExecuteGtmRecoveryPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteGtmRecoveryPlanResponse
    */
   async executeGtmRecoveryPlanWithOptions(request: ExecuteGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteGtmRecoveryPlanResponse> {
     Util.validateModel(request);
@@ -33624,8 +50998,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ExecuteGtmRecoveryPlanRequest
-   * @return ExecuteGtmRecoveryPlanResponse
+   * @param request - ExecuteGtmRecoveryPlanRequest
+   * @returns ExecuteGtmRecoveryPlanResponse
    */
   async executeGtmRecoveryPlan(request: ExecuteGtmRecoveryPlanRequest): Promise<ExecuteGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33633,14 +51007,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a primary domain name based on the specified parameters.
-   *
-   * @description For more information about the difference between primary domain names and subdomain names, see
+   * Queries a primary domain name based on the specified parameters.
+   * 
+   * @remarks
+   * For more information about the difference between primary domain names and subdomain names, see
    * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
-   *
-   * @param request GetMainDomainNameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMainDomainNameResponse
+   * 
+   * @param request - GetMainDomainNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMainDomainNameResponse
    */
   async getMainDomainNameWithOptions(request: GetMainDomainNameRequest, runtime: $Util.RuntimeOptions): Promise<GetMainDomainNameResponse> {
     Util.validateModel(request);
@@ -33671,13 +51046,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a primary domain name based on the specified parameters.
-   *
-   * @description For more information about the difference between primary domain names and subdomain names, see
+   * Queries a primary domain name based on the specified parameters.
+   * 
+   * @remarks
+   * For more information about the difference between primary domain names and subdomain names, see
    * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
-   *
-   * @param request GetMainDomainNameRequest
-   * @return GetMainDomainNameResponse
+   * 
+   * @param request - GetMainDomainNameRequest
+   * @returns GetMainDomainNameResponse
    */
   async getMainDomainName(request: GetMainDomainNameRequest): Promise<GetMainDomainNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33685,11 +51061,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
-   *
-   * @param request GetTxtRecordForVerifyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTxtRecordForVerifyResponse
+   * Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+   * 
+   * @param request - GetTxtRecordForVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTxtRecordForVerifyResponse
    */
   async getTxtRecordForVerifyWithOptions(request: GetTxtRecordForVerifyRequest, runtime: $Util.RuntimeOptions): Promise<GetTxtRecordForVerifyResponse> {
     Util.validateModel(request);
@@ -33724,10 +51100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
-   *
-   * @param request GetTxtRecordForVerifyRequest
-   * @return GetTxtRecordForVerifyResponse
+   * Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+   * 
+   * @param request - GetTxtRecordForVerifyRequest
+   * @returns GetTxtRecordForVerifyResponse
    */
   async getTxtRecordForVerify(request: GetTxtRecordForVerifyRequest): Promise<GetTxtRecordForVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33735,9 +51111,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmAddressPoolsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCloudGtmAddressPoolsResponse
+   * @param request - ListCloudGtmAddressPoolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudGtmAddressPoolsResponse
    */
   async listCloudGtmAddressPoolsWithOptions(request: ListCloudGtmAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmAddressPoolsResponse> {
     Util.validateModel(request);
@@ -33792,8 +51168,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmAddressPoolsRequest
-   * @return ListCloudGtmAddressPoolsResponse
+   * @param request - ListCloudGtmAddressPoolsRequest
+   * @returns ListCloudGtmAddressPoolsResponse
    */
   async listCloudGtmAddressPools(request: ListCloudGtmAddressPoolsRequest): Promise<ListCloudGtmAddressPoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33801,9 +51177,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmAddressesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCloudGtmAddressesResponse
+   * @param request - ListCloudGtmAddressesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudGtmAddressesResponse
    */
   async listCloudGtmAddressesWithOptions(request: ListCloudGtmAddressesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmAddressesResponse> {
     Util.validateModel(request);
@@ -33870,8 +51246,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmAddressesRequest
-   * @return ListCloudGtmAddressesResponse
+   * @param request - ListCloudGtmAddressesRequest
+   * @returns ListCloudGtmAddressesResponse
    */
   async listCloudGtmAddresses(request: ListCloudGtmAddressesRequest): Promise<ListCloudGtmAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33879,9 +51255,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmAlertLogsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCloudGtmAlertLogsResponse
+   * @param request - ListCloudGtmAlertLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudGtmAlertLogsResponse
    */
   async listCloudGtmAlertLogsWithOptions(request: ListCloudGtmAlertLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmAlertLogsResponse> {
     Util.validateModel(request);
@@ -33936,8 +51312,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmAlertLogsRequest
-   * @return ListCloudGtmAlertLogsResponse
+   * @param request - ListCloudGtmAlertLogsRequest
+   * @returns ListCloudGtmAlertLogsResponse
    */
   async listCloudGtmAlertLogs(request: ListCloudGtmAlertLogsRequest): Promise<ListCloudGtmAlertLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33945,9 +51321,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmAvailableAlertGroupsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCloudGtmAvailableAlertGroupsResponse
+   * @param request - ListCloudGtmAvailableAlertGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudGtmAvailableAlertGroupsResponse
    */
   async listCloudGtmAvailableAlertGroupsWithOptions(request: ListCloudGtmAvailableAlertGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmAvailableAlertGroupsResponse> {
     Util.validateModel(request);
@@ -33974,8 +51350,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmAvailableAlertGroupsRequest
-   * @return ListCloudGtmAvailableAlertGroupsResponse
+   * @param request - ListCloudGtmAvailableAlertGroupsRequest
+   * @returns ListCloudGtmAvailableAlertGroupsResponse
    */
   async listCloudGtmAvailableAlertGroups(request: ListCloudGtmAvailableAlertGroupsRequest): Promise<ListCloudGtmAvailableAlertGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -33983,9 +51359,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmInstanceConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCloudGtmInstanceConfigsResponse
+   * @param request - ListCloudGtmInstanceConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudGtmInstanceConfigsResponse
    */
   async listCloudGtmInstanceConfigsWithOptions(request: ListCloudGtmInstanceConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmInstanceConfigsResponse> {
     Util.validateModel(request);
@@ -34044,8 +51420,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmInstanceConfigsRequest
-   * @return ListCloudGtmInstanceConfigsResponse
+   * @param request - ListCloudGtmInstanceConfigsRequest
+   * @returns ListCloudGtmInstanceConfigsResponse
    */
   async listCloudGtmInstanceConfigs(request: ListCloudGtmInstanceConfigsRequest): Promise<ListCloudGtmInstanceConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34053,9 +51429,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCloudGtmInstancesResponse
+   * @param request - ListCloudGtmInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudGtmInstancesResponse
    */
   async listCloudGtmInstancesWithOptions(request: ListCloudGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmInstancesResponse> {
     Util.validateModel(request);
@@ -34102,8 +51478,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmInstancesRequest
-   * @return ListCloudGtmInstancesResponse
+   * @param request - ListCloudGtmInstancesRequest
+   * @returns ListCloudGtmInstancesResponse
    */
   async listCloudGtmInstances(request: ListCloudGtmInstancesRequest): Promise<ListCloudGtmInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34111,9 +51487,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmMonitorNodesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCloudGtmMonitorNodesResponse
+   * @param request - ListCloudGtmMonitorNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudGtmMonitorNodesResponse
    */
   async listCloudGtmMonitorNodesWithOptions(request: ListCloudGtmMonitorNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmMonitorNodesResponse> {
     Util.validateModel(request);
@@ -34140,8 +51516,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmMonitorNodesRequest
-   * @return ListCloudGtmMonitorNodesResponse
+   * @param request - ListCloudGtmMonitorNodesRequest
+   * @returns ListCloudGtmMonitorNodesResponse
    */
   async listCloudGtmMonitorNodes(request: ListCloudGtmMonitorNodesRequest): Promise<ListCloudGtmMonitorNodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34149,9 +51525,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmMonitorTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListCloudGtmMonitorTemplatesResponse
+   * @param request - ListCloudGtmMonitorTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudGtmMonitorTemplatesResponse
    */
   async listCloudGtmMonitorTemplatesWithOptions(request: ListCloudGtmMonitorTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListCloudGtmMonitorTemplatesResponse> {
     Util.validateModel(request);
@@ -34198,8 +51574,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListCloudGtmMonitorTemplatesRequest
-   * @return ListCloudGtmMonitorTemplatesResponse
+   * @param request - ListCloudGtmMonitorTemplatesRequest
+   * @returns ListCloudGtmMonitorTemplatesResponse
    */
   async listCloudGtmMonitorTemplates(request: ListCloudGtmMonitorTemplatesRequest): Promise<ListCloudGtmMonitorTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34207,16 +51583,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags that are added to a specified resource.
-   *
-   * @description *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+   * Queries the tags that are added to a specified resource.
+   * 
+   * @remarks
+   *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
    * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
    * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-   *
-   * @param request ListTagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
@@ -34259,15 +51636,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the tags that are added to a specified resource.
-   *
-   * @description *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+   * Queries the tags that are added to a specified resource.
+   * 
+   * @remarks
+   *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
    * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
    * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
    * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34275,14 +51653,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Calls the ModifyHichinaDomainDNS operation to change the name of a DNS server based on input parameters.
-   *
-   * @description If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
+   * Calls the ModifyHichinaDomainDNS operation to change the name of a DNS server based on input parameters.
+   * 
+   * @remarks
+   * If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
    * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
-   *
-   * @param request ModifyHichinaDomainDNSRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyHichinaDomainDNSResponse
+   * 
+   * @param request - ModifyHichinaDomainDNSRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHichinaDomainDNSResponse
    */
   async modifyHichinaDomainDNSWithOptions(request: ModifyHichinaDomainDNSRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHichinaDomainDNSResponse> {
     Util.validateModel(request);
@@ -34317,13 +51696,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Calls the ModifyHichinaDomainDNS operation to change the name of a DNS server based on input parameters.
-   *
-   * @description If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
+   * Calls the ModifyHichinaDomainDNS operation to change the name of a DNS server based on input parameters.
+   * 
+   * @remarks
+   * If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
    * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
-   *
-   * @param request ModifyHichinaDomainDNSRequest
-   * @return ModifyHichinaDomainDNSResponse
+   * 
+   * @param request - ModifyHichinaDomainDNSRequest
+   * @returns ModifyHichinaDomainDNSResponse
    */
   async modifyHichinaDomainDNS(request: ModifyHichinaDomainDNSRequest): Promise<ModifyHichinaDomainDNSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34331,11 +51711,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Moves a domain name to another resource group.
-   *
-   * @param request MoveDomainResourceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MoveDomainResourceGroupResponse
+   * Moves a domain name to another resource group.
+   * 
+   * @param request - MoveDomainResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveDomainResourceGroupResponse
    */
   async moveDomainResourceGroupWithOptions(request: MoveDomainResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveDomainResourceGroupResponse> {
     Util.validateModel(request);
@@ -34370,10 +51750,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Moves a domain name to another resource group.
-   *
-   * @param request MoveDomainResourceGroupRequest
-   * @return MoveDomainResourceGroupResponse
+   * Moves a domain name to another resource group.
+   * 
+   * @param request - MoveDomainResourceGroupRequest
+   * @returns MoveDomainResourceGroupResponse
    */
   async moveDomainResourceGroup(request: MoveDomainResourceGroupRequest): Promise<MoveDomainResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34381,9 +51761,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MoveGtmResourceGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MoveGtmResourceGroupResponse
+   * @param request - MoveGtmResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveGtmResourceGroupResponse
    */
   async moveGtmResourceGroupWithOptions(request: MoveGtmResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveGtmResourceGroupResponse> {
     Util.validateModel(request);
@@ -34418,8 +51798,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request MoveGtmResourceGroupRequest
-   * @return MoveGtmResourceGroupResponse
+   * @param request - MoveGtmResourceGroupRequest
+   * @returns MoveGtmResourceGroupResponse
    */
   async moveGtmResourceGroup(request: MoveGtmResourceGroupRequest): Promise<MoveGtmResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34427,13 +51807,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a batch operation task to add or delete multiple domain names or multiple Domain Name System (DNS) records at a time.
-   *
-   * @description Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
-   *
-   * @param request OperateBatchDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return OperateBatchDomainResponse
+   * Submits a batch operation task to add or delete multiple domain names or multiple Domain Name System (DNS) records at a time.
+   * 
+   * @remarks
+   * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+   * 
+   * @param request - OperateBatchDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateBatchDomainResponse
    */
   async operateBatchDomainWithOptions(request: OperateBatchDomainRequest, runtime: $Util.RuntimeOptions): Promise<OperateBatchDomainResponse> {
     Util.validateModel(request);
@@ -34468,12 +51849,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Submits a batch operation task to add or delete multiple domain names or multiple Domain Name System (DNS) records at a time.
-   *
-   * @description Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
-   *
-   * @param request OperateBatchDomainRequest
-   * @return OperateBatchDomainResponse
+   * Submits a batch operation task to add or delete multiple domain names or multiple Domain Name System (DNS) records at a time.
+   * 
+   * @remarks
+   * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+   * 
+   * @param request - OperateBatchDomainRequest
+   * @returns OperateBatchDomainResponse
    */
   async operateBatchDomain(request: OperateBatchDomainRequest): Promise<OperateBatchDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34481,11 +51863,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 暂停公共DNS服务
-   *
-   * @param request PausePdnsServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PausePdnsServiceResponse
+   * 暂停公共DNS服务
+   * 
+   * @param request - PausePdnsServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PausePdnsServiceResponse
    */
   async pausePdnsServiceWithOptions(request: PausePdnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<PausePdnsServiceResponse> {
     Util.validateModel(request);
@@ -34516,10 +51898,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 暂停公共DNS服务
-   *
-   * @param request PausePdnsServiceRequest
-   * @return PausePdnsServiceResponse
+   * 暂停公共DNS服务
+   * 
+   * @param request - PausePdnsServiceRequest
+   * @returns PausePdnsServiceResponse
    */
   async pausePdnsService(request: PausePdnsServiceRequest): Promise<PausePdnsServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34527,11 +51909,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request PreviewGtmRecoveryPlanRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PreviewGtmRecoveryPlanResponse
+   * You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - PreviewGtmRecoveryPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PreviewGtmRecoveryPlanResponse
    */
   async previewGtmRecoveryPlanWithOptions(request: PreviewGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<PreviewGtmRecoveryPlanResponse> {
     Util.validateModel(request);
@@ -34570,10 +51952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request PreviewGtmRecoveryPlanRequest
-   * @return PreviewGtmRecoveryPlanResponse
+   * You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - PreviewGtmRecoveryPlanRequest
+   * @returns PreviewGtmRecoveryPlanResponse
    */
   async previewGtmRecoveryPlan(request: PreviewGtmRecoveryPlanRequest): Promise<PreviewGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34581,11 +51963,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除公共DNS AppKey
-   *
-   * @param request RemovePdnsAppKeyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemovePdnsAppKeyResponse
+   * 删除公共DNS AppKey
+   * 
+   * @param request - RemovePdnsAppKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemovePdnsAppKeyResponse
    */
   async removePdnsAppKeyWithOptions(request: RemovePdnsAppKeyRequest, runtime: $Util.RuntimeOptions): Promise<RemovePdnsAppKeyResponse> {
     Util.validateModel(request);
@@ -34616,10 +51998,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除公共DNS AppKey
-   *
-   * @param request RemovePdnsAppKeyRequest
-   * @return RemovePdnsAppKeyResponse
+   * 删除公共DNS AppKey
+   * 
+   * @param request - RemovePdnsAppKeyRequest
+   * @returns RemovePdnsAppKeyResponse
    */
   async removePdnsAppKey(request: RemovePdnsAppKeyRequest): Promise<RemovePdnsAppKeyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34627,11 +52009,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除公共DNS Udp Ip地址段
-   *
-   * @param request RemovePdnsUdpIpSegmentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemovePdnsUdpIpSegmentResponse
+   * 删除公共DNS Udp Ip地址段
+   * 
+   * @param request - RemovePdnsUdpIpSegmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemovePdnsUdpIpSegmentResponse
    */
   async removePdnsUdpIpSegmentWithOptions(request: RemovePdnsUdpIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<RemovePdnsUdpIpSegmentResponse> {
     Util.validateModel(request);
@@ -34662,10 +52044,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除公共DNS Udp Ip地址段
-   *
-   * @param request RemovePdnsUdpIpSegmentRequest
-   * @return RemovePdnsUdpIpSegmentResponse
+   * 删除公共DNS Udp Ip地址段
+   * 
+   * @param request - RemovePdnsUdpIpSegmentRequest
+   * @returns RemovePdnsUdpIpSegmentResponse
    */
   async removePdnsUdpIpSegment(request: RemovePdnsUdpIpSegmentRequest): Promise<RemovePdnsUdpIpSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34673,9 +52055,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq ReplaceCloudGtmAddressPoolAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReplaceCloudGtmAddressPoolAddressResponse
+   * @param tmpReq - ReplaceCloudGtmAddressPoolAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReplaceCloudGtmAddressPoolAddressResponse
    */
   async replaceCloudGtmAddressPoolAddressWithOptions(tmpReq: ReplaceCloudGtmAddressPoolAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceCloudGtmAddressPoolAddressResponse> {
     Util.validateModel(tmpReq);
@@ -34720,8 +52102,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReplaceCloudGtmAddressPoolAddressRequest
-   * @return ReplaceCloudGtmAddressPoolAddressResponse
+   * @param request - ReplaceCloudGtmAddressPoolAddressRequest
+   * @returns ReplaceCloudGtmAddressPoolAddressResponse
    */
   async replaceCloudGtmAddressPoolAddress(request: ReplaceCloudGtmAddressPoolAddressRequest): Promise<ReplaceCloudGtmAddressPoolAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34729,9 +52111,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq ReplaceCloudGtmInstanceConfigAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse
+   * @param tmpReq - ReplaceCloudGtmInstanceConfigAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReplaceCloudGtmInstanceConfigAddressPoolResponse
    */
   async replaceCloudGtmInstanceConfigAddressPoolWithOptions(tmpReq: ReplaceCloudGtmInstanceConfigAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceCloudGtmInstanceConfigAddressPoolResponse> {
     Util.validateModel(tmpReq);
@@ -34780,8 +52162,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ReplaceCloudGtmInstanceConfigAddressPoolRequest
-   * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse
+   * @param request - ReplaceCloudGtmInstanceConfigAddressPoolRequest
+   * @returns ReplaceCloudGtmInstanceConfigAddressPoolResponse
    */
   async replaceCloudGtmInstanceConfigAddressPool(request: ReplaceCloudGtmInstanceConfigAddressPoolRequest): Promise<ReplaceCloudGtmInstanceConfigAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34789,11 +52171,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恢复公共DNS服务
-   *
-   * @param request ResumePdnsServiceRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ResumePdnsServiceResponse
+   * 恢复公共DNS服务
+   * 
+   * @param request - ResumePdnsServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumePdnsServiceResponse
    */
   async resumePdnsServiceWithOptions(request: ResumePdnsServiceRequest, runtime: $Util.RuntimeOptions): Promise<ResumePdnsServiceResponse> {
     Util.validateModel(request);
@@ -34824,10 +52206,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 恢复公共DNS服务
-   *
-   * @param request ResumePdnsServiceRequest
-   * @return ResumePdnsServiceResponse
+   * 恢复公共DNS服务
+   * 
+   * @param request - ResumePdnsServiceRequest
+   * @returns ResumePdnsServiceResponse
    */
   async resumePdnsService(request: ResumePdnsServiceRequest): Promise<ResumePdnsServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34835,13 +52217,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Retrieves a domain name.
-   *
-   * @description To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
-   *
-   * @param request RetrieveDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RetrieveDomainResponse
+   * Retrieves a domain name.
+   * 
+   * @remarks
+   * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+   * 
+   * @param request - RetrieveDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetrieveDomainResponse
    */
   async retrieveDomainWithOptions(request: RetrieveDomainRequest, runtime: $Util.RuntimeOptions): Promise<RetrieveDomainResponse> {
     Util.validateModel(request);
@@ -34872,12 +52255,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Retrieves a domain name.
-   *
-   * @description To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
-   *
-   * @param request RetrieveDomainRequest
-   * @return RetrieveDomainResponse
+   * Retrieves a domain name.
+   * 
+   * @remarks
+   * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+   * 
+   * @param request - RetrieveDomainRequest
+   * @returns RetrieveDomainResponse
    */
   async retrieveDomain(request: RetrieveDomainRequest): Promise<RetrieveDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34885,9 +52269,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RollbackGtmRecoveryPlanRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RollbackGtmRecoveryPlanResponse
+   * @param request - RollbackGtmRecoveryPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackGtmRecoveryPlanResponse
    */
   async rollbackGtmRecoveryPlanWithOptions(request: RollbackGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<RollbackGtmRecoveryPlanResponse> {
     Util.validateModel(request);
@@ -34918,8 +52302,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RollbackGtmRecoveryPlanRequest
-   * @return RollbackGtmRecoveryPlanResponse
+   * @param request - RollbackGtmRecoveryPlanRequest
+   * @returns RollbackGtmRecoveryPlanResponse
    */
   async rollbackGtmRecoveryPlan(request: RollbackGtmRecoveryPlanRequest): Promise<RollbackGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -34927,9 +52311,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchCloudGtmAddressPoolsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchCloudGtmAddressPoolsResponse
+   * @param request - SearchCloudGtmAddressPoolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchCloudGtmAddressPoolsResponse
    */
   async searchCloudGtmAddressPoolsWithOptions(request: SearchCloudGtmAddressPoolsRequest, runtime: $Util.RuntimeOptions): Promise<SearchCloudGtmAddressPoolsResponse> {
     Util.validateModel(request);
@@ -34992,8 +52376,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchCloudGtmAddressPoolsRequest
-   * @return SearchCloudGtmAddressPoolsResponse
+   * @param request - SearchCloudGtmAddressPoolsRequest
+   * @returns SearchCloudGtmAddressPoolsResponse
    */
   async searchCloudGtmAddressPools(request: SearchCloudGtmAddressPoolsRequest): Promise<SearchCloudGtmAddressPoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35001,9 +52385,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchCloudGtmAddressesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchCloudGtmAddressesResponse
+   * @param request - SearchCloudGtmAddressesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchCloudGtmAddressesResponse
    */
   async searchCloudGtmAddressesWithOptions(request: SearchCloudGtmAddressesRequest, runtime: $Util.RuntimeOptions): Promise<SearchCloudGtmAddressesResponse> {
     Util.validateModel(request);
@@ -35082,8 +52466,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchCloudGtmAddressesRequest
-   * @return SearchCloudGtmAddressesResponse
+   * @param request - SearchCloudGtmAddressesRequest
+   * @returns SearchCloudGtmAddressesResponse
    */
   async searchCloudGtmAddresses(request: SearchCloudGtmAddressesRequest): Promise<SearchCloudGtmAddressesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35091,9 +52475,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchCloudGtmInstanceConfigsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchCloudGtmInstanceConfigsResponse
+   * @param request - SearchCloudGtmInstanceConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchCloudGtmInstanceConfigsResponse
    */
   async searchCloudGtmInstanceConfigsWithOptions(request: SearchCloudGtmInstanceConfigsRequest, runtime: $Util.RuntimeOptions): Promise<SearchCloudGtmInstanceConfigsResponse> {
     Util.validateModel(request);
@@ -35160,8 +52544,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchCloudGtmInstanceConfigsRequest
-   * @return SearchCloudGtmInstanceConfigsResponse
+   * @param request - SearchCloudGtmInstanceConfigsRequest
+   * @returns SearchCloudGtmInstanceConfigsResponse
    */
   async searchCloudGtmInstanceConfigs(request: SearchCloudGtmInstanceConfigsRequest): Promise<SearchCloudGtmInstanceConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35169,9 +52553,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchCloudGtmInstancesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchCloudGtmInstancesResponse
+   * @param request - SearchCloudGtmInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchCloudGtmInstancesResponse
    */
   async searchCloudGtmInstancesWithOptions(request: SearchCloudGtmInstancesRequest, runtime: $Util.RuntimeOptions): Promise<SearchCloudGtmInstancesResponse> {
     Util.validateModel(request);
@@ -35218,8 +52602,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchCloudGtmInstancesRequest
-   * @return SearchCloudGtmInstancesResponse
+   * @param request - SearchCloudGtmInstancesRequest
+   * @returns SearchCloudGtmInstancesResponse
    */
   async searchCloudGtmInstances(request: SearchCloudGtmInstancesRequest): Promise<SearchCloudGtmInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35227,9 +52611,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchCloudGtmMonitorTemplatesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchCloudGtmMonitorTemplatesResponse
+   * @param request - SearchCloudGtmMonitorTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchCloudGtmMonitorTemplatesResponse
    */
   async searchCloudGtmMonitorTemplatesWithOptions(request: SearchCloudGtmMonitorTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<SearchCloudGtmMonitorTemplatesResponse> {
     Util.validateModel(request);
@@ -35276,8 +52660,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SearchCloudGtmMonitorTemplatesRequest
-   * @return SearchCloudGtmMonitorTemplatesResponse
+   * @param request - SearchCloudGtmMonitorTemplatesRequest
+   * @returns SearchCloudGtmMonitorTemplatesResponse
    */
   async searchCloudGtmMonitorTemplates(request: SearchCloudGtmMonitorTemplatesRequest): Promise<SearchCloudGtmMonitorTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35285,11 +52669,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables weighted round-robin based on the specified parameters.
-   *
-   * @param request SetDNSSLBStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetDNSSLBStatusResponse
+   * Enables or disables weighted round-robin based on the specified parameters.
+   * 
+   * @param request - SetDNSSLBStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetDNSSLBStatusResponse
    */
   async setDNSSLBStatusWithOptions(request: SetDNSSLBStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDNSSLBStatusResponse> {
     Util.validateModel(request);
@@ -35340,10 +52724,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enables or disables weighted round-robin based on the specified parameters.
-   *
-   * @param request SetDNSSLBStatusRequest
-   * @return SetDNSSLBStatusResponse
+   * Enables or disables weighted round-robin based on the specified parameters.
+   * 
+   * @param request - SetDNSSLBStatusRequest
+   * @returns SetDNSSLBStatusResponse
    */
   async setDNSSLBStatus(request: SetDNSSLBStatusRequest): Promise<SetDNSSLBStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35351,11 +52735,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description ****
-   *
-   * @param request SetDnsGtmAccessModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetDnsGtmAccessModeResponse
+   * @remarks
+   * ***
+   * 
+   * @param request - SetDnsGtmAccessModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetDnsGtmAccessModeResponse
    */
   async setDnsGtmAccessModeWithOptions(request: SetDnsGtmAccessModeRequest, runtime: $Util.RuntimeOptions): Promise<SetDnsGtmAccessModeResponse> {
     Util.validateModel(request);
@@ -35390,10 +52775,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @description ****
-   *
-   * @param request SetDnsGtmAccessModeRequest
-   * @return SetDnsGtmAccessModeResponse
+   * @remarks
+   * ***
+   * 
+   * @param request - SetDnsGtmAccessModeRequest
+   * @returns SetDnsGtmAccessModeResponse
    */
   async setDnsGtmAccessMode(request: SetDnsGtmAccessModeRequest): Promise<SetDnsGtmAccessModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35401,11 +52787,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Specifies the health check status of an address pool.
-   *
-   * @param request SetDnsGtmMonitorStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetDnsGtmMonitorStatusResponse
+   * Specifies the health check status of an address pool.
+   * 
+   * @param request - SetDnsGtmMonitorStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetDnsGtmMonitorStatusResponse
    */
   async setDnsGtmMonitorStatusWithOptions(request: SetDnsGtmMonitorStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDnsGtmMonitorStatusResponse> {
     Util.validateModel(request);
@@ -35440,10 +52826,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Specifies the health check status of an address pool.
-   *
-   * @param request SetDnsGtmMonitorStatusRequest
-   * @return SetDnsGtmMonitorStatusResponse
+   * Specifies the health check status of an address pool.
+   * 
+   * @param request - SetDnsGtmMonitorStatusRequest
+   * @returns SetDnsGtmMonitorStatusResponse
    */
   async setDnsGtmMonitorStatus(request: SetDnsGtmMonitorStatusRequest): Promise<SetDnsGtmMonitorStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35451,11 +52837,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sets the Domain Name System Security Extensions (DNSSEC) status of a domain name.
-   *
-   * @param request SetDomainDnssecStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetDomainDnssecStatusResponse
+   * Sets the Domain Name System Security Extensions (DNSSEC) status of a domain name.
+   * 
+   * @param request - SetDomainDnssecStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetDomainDnssecStatusResponse
    */
   async setDomainDnssecStatusWithOptions(request: SetDomainDnssecStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainDnssecStatusResponse> {
     Util.validateModel(request);
@@ -35490,10 +52876,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Sets the Domain Name System Security Extensions (DNSSEC) status of a domain name.
-   *
-   * @param request SetDomainDnssecStatusRequest
-   * @return SetDomainDnssecStatusResponse
+   * Sets the Domain Name System Security Extensions (DNSSEC) status of a domain name.
+   * 
+   * @param request - SetDomainDnssecStatusRequest
+   * @returns SetDomainDnssecStatusResponse
    */
   async setDomainDnssecStatus(request: SetDomainDnssecStatusRequest): Promise<SetDomainDnssecStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35501,11 +52887,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Specifies the status of a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request SetDomainRecordStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetDomainRecordStatusResponse
+   * Specifies the status of a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - SetDomainRecordStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetDomainRecordStatusResponse
    */
   async setDomainRecordStatusWithOptions(request: SetDomainRecordStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainRecordStatusResponse> {
     Util.validateModel(request);
@@ -35544,10 +52930,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Specifies the status of a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request SetDomainRecordStatusRequest
-   * @return SetDomainRecordStatusResponse
+   * Specifies the status of a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - SetDomainRecordStatusRequest
+   * @returns SetDomainRecordStatusResponse
    */
   async setDomainRecordStatus(request: SetDomainRecordStatusRequest): Promise<SetDomainRecordStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35555,9 +52941,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetGtmAccessModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetGtmAccessModeResponse
+   * @param request - SetGtmAccessModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetGtmAccessModeResponse
    */
   async setGtmAccessModeWithOptions(request: SetGtmAccessModeRequest, runtime: $Util.RuntimeOptions): Promise<SetGtmAccessModeResponse> {
     Util.validateModel(request);
@@ -35592,8 +52978,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetGtmAccessModeRequest
-   * @return SetGtmAccessModeResponse
+   * @param request - SetGtmAccessModeRequest
+   * @returns SetGtmAccessModeResponse
    */
   async setGtmAccessMode(request: SetGtmAccessModeRequest): Promise<SetGtmAccessModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35601,9 +52987,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetGtmMonitorStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetGtmMonitorStatusResponse
+   * @param request - SetGtmMonitorStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetGtmMonitorStatusResponse
    */
   async setGtmMonitorStatusWithOptions(request: SetGtmMonitorStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetGtmMonitorStatusResponse> {
     Util.validateModel(request);
@@ -35638,8 +53024,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SetGtmMonitorStatusRequest
-   * @return SetGtmMonitorStatusResponse
+   * @param request - SetGtmMonitorStatusRequest
+   * @returns SetGtmMonitorStatusResponse
    */
   async setGtmMonitorStatus(request: SetGtmMonitorStatusRequest): Promise<SetGtmMonitorStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35647,11 +53033,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交缓存刷新任务
-   *
-   * @param request SubmitIspFlushCacheTaskRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubmitIspFlushCacheTaskResponse
+   * 提交缓存刷新任务
+   * 
+   * @param request - SubmitIspFlushCacheTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitIspFlushCacheTaskResponse
    */
   async submitIspFlushCacheTaskWithOptions(request: SubmitIspFlushCacheTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitIspFlushCacheTaskResponse> {
     Util.validateModel(request);
@@ -35690,10 +53076,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 提交缓存刷新任务
-   *
-   * @param request SubmitIspFlushCacheTaskRequest
-   * @return SubmitIspFlushCacheTaskResponse
+   * 提交缓存刷新任务
+   * 
+   * @param request - SubmitIspFlushCacheTaskRequest
+   * @returns SubmitIspFlushCacheTaskResponse
    */
   async submitIspFlushCacheTask(request: SubmitIspFlushCacheTaskRequest): Promise<SubmitIspFlushCacheTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35701,11 +53087,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
-   *
-   * @param request SwitchDnsGtmInstanceStrategyModeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SwitchDnsGtmInstanceStrategyModeResponse
+   * Changes the access policy type for a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - SwitchDnsGtmInstanceStrategyModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchDnsGtmInstanceStrategyModeResponse
    */
   async switchDnsGtmInstanceStrategyModeWithOptions(request: SwitchDnsGtmInstanceStrategyModeRequest, runtime: $Util.RuntimeOptions): Promise<SwitchDnsGtmInstanceStrategyModeResponse> {
     Util.validateModel(request);
@@ -35740,10 +53126,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
-   *
-   * @param request SwitchDnsGtmInstanceStrategyModeRequest
-   * @return SwitchDnsGtmInstanceStrategyModeResponse
+   * Changes the access policy type for a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - SwitchDnsGtmInstanceStrategyModeRequest
+   * @returns SwitchDnsGtmInstanceStrategyModeResponse
    */
   async switchDnsGtmInstanceStrategyMode(request: SwitchDnsGtmInstanceStrategyModeRequest): Promise<SwitchDnsGtmInstanceStrategyModeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35751,11 +53137,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds and modifies a tag for a resource.
-   *
-   * @param request TagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * Adds and modifies a tag for a resource.
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -35794,10 +53180,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds and modifies a tag for a resource.
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * Adds and modifies a tag for a resource.
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35805,11 +53191,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Transfers multiple domain names from the current account to another account at a time.
-   *
-   * @param request TransferDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TransferDomainResponse
+   * Transfers multiple domain names from the current account to another account at a time.
+   * 
+   * @param request - TransferDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferDomainResponse
    */
   async transferDomainWithOptions(request: TransferDomainRequest, runtime: $Util.RuntimeOptions): Promise<TransferDomainResponse> {
     Util.validateModel(request);
@@ -35848,10 +53234,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Transfers multiple domain names from the current account to another account at a time.
-   *
-   * @param request TransferDomainRequest
-   * @return TransferDomainResponse
+   * Transfers multiple domain names from the current account to another account at a time.
+   * 
+   * @param request - TransferDomainRequest
+   * @returns TransferDomainResponse
    */
   async transferDomain(request: TransferDomainRequest): Promise<TransferDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35859,14 +53245,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
-   *
-   * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+   * Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+   * 
+   * @remarks
+   * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
-   *
-   * @param request UnbindInstanceDomainsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnbindInstanceDomainsResponse
+   * 
+   * @param request - UnbindInstanceDomainsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnbindInstanceDomainsResponse
    */
   async unbindInstanceDomainsWithOptions(request: UnbindInstanceDomainsRequest, runtime: $Util.RuntimeOptions): Promise<UnbindInstanceDomainsResponse> {
     Util.validateModel(request);
@@ -35901,13 +53288,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
-   *
-   * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+   * Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+   * 
+   * @remarks
+   * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
    * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
-   *
-   * @param request UnbindInstanceDomainsRequest
-   * @return UnbindInstanceDomainsResponse
+   * 
+   * @param request - UnbindInstanceDomainsRequest
+   * @returns UnbindInstanceDomainsResponse
    */
   async unbindInstanceDomains(request: UnbindInstanceDomainsRequest): Promise<UnbindInstanceDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35915,11 +53303,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from resources.
-   *
-   * @param request UntagResourcesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * Removes tags from resources.
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
@@ -35962,10 +53350,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes tags from resources.
-   *
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * Removes tags from resources.
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -35973,11 +53361,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改 AppKey 状态
-   *
-   * @param request UpdateAppKeyStateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateAppKeyStateResponse
+   * 修改 AppKey 状态
+   * 
+   * @param request - UpdateAppKeyStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAppKeyStateResponse
    */
   async updateAppKeyStateWithOptions(request: UpdateAppKeyStateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppKeyStateResponse> {
     Util.validateModel(request);
@@ -36012,10 +53400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改 AppKey 状态
-   *
-   * @param request UpdateAppKeyStateRequest
-   * @return UpdateAppKeyStateResponse
+   * 修改 AppKey 状态
+   * 
+   * @param request - UpdateAppKeyStateRequest
+   * @returns UpdateAppKeyStateResponse
    */
   async updateAppKeyState(request: UpdateAppKeyStateRequest): Promise<UpdateAppKeyStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36023,9 +53411,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq UpdateCloudGtmAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmAddressResponse
+   * @param tmpReq - UpdateCloudGtmAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmAddressResponse
    */
   async updateCloudGtmAddressWithOptions(tmpReq: UpdateCloudGtmAddressRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressResponse> {
     Util.validateModel(tmpReq);
@@ -36086,8 +53474,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressRequest
-   * @return UpdateCloudGtmAddressResponse
+   * @param request - UpdateCloudGtmAddressRequest
+   * @returns UpdateCloudGtmAddressResponse
    */
   async updateCloudGtmAddress(request: UpdateCloudGtmAddressRequest): Promise<UpdateCloudGtmAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36095,9 +53483,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressEnableStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmAddressEnableStatusResponse
+   * @param request - UpdateCloudGtmAddressEnableStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmAddressEnableStatusResponse
    */
   async updateCloudGtmAddressEnableStatusWithOptions(request: UpdateCloudGtmAddressEnableStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressEnableStatusResponse> {
     Util.validateModel(request);
@@ -36136,8 +53524,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressEnableStatusRequest
-   * @return UpdateCloudGtmAddressEnableStatusResponse
+   * @param request - UpdateCloudGtmAddressEnableStatusRequest
+   * @returns UpdateCloudGtmAddressEnableStatusResponse
    */
   async updateCloudGtmAddressEnableStatus(request: UpdateCloudGtmAddressEnableStatusRequest): Promise<UpdateCloudGtmAddressEnableStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36145,9 +53533,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressManualAvailableStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmAddressManualAvailableStatusResponse
+   * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmAddressManualAvailableStatusResponse
    */
   async updateCloudGtmAddressManualAvailableStatusWithOptions(request: UpdateCloudGtmAddressManualAvailableStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressManualAvailableStatusResponse> {
     Util.validateModel(request);
@@ -36190,8 +53578,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressManualAvailableStatusRequest
-   * @return UpdateCloudGtmAddressManualAvailableStatusResponse
+   * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
+   * @returns UpdateCloudGtmAddressManualAvailableStatusResponse
    */
   async updateCloudGtmAddressManualAvailableStatus(request: UpdateCloudGtmAddressManualAvailableStatusRequest): Promise<UpdateCloudGtmAddressManualAvailableStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36199,9 +53587,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressPoolBasicConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmAddressPoolBasicConfigResponse
+   * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmAddressPoolBasicConfigResponse
    */
   async updateCloudGtmAddressPoolBasicConfigWithOptions(request: UpdateCloudGtmAddressPoolBasicConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressPoolBasicConfigResponse> {
     Util.validateModel(request);
@@ -36244,8 +53632,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressPoolBasicConfigRequest
-   * @return UpdateCloudGtmAddressPoolBasicConfigResponse
+   * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
+   * @returns UpdateCloudGtmAddressPoolBasicConfigResponse
    */
   async updateCloudGtmAddressPoolBasicConfig(request: UpdateCloudGtmAddressPoolBasicConfigRequest): Promise<UpdateCloudGtmAddressPoolBasicConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36253,9 +53641,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressPoolEnableStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmAddressPoolEnableStatusResponse
+   * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmAddressPoolEnableStatusResponse
    */
   async updateCloudGtmAddressPoolEnableStatusWithOptions(request: UpdateCloudGtmAddressPoolEnableStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressPoolEnableStatusResponse> {
     Util.validateModel(request);
@@ -36294,8 +53682,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressPoolEnableStatusRequest
-   * @return UpdateCloudGtmAddressPoolEnableStatusResponse
+   * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
+   * @returns UpdateCloudGtmAddressPoolEnableStatusResponse
    */
   async updateCloudGtmAddressPoolEnableStatus(request: UpdateCloudGtmAddressPoolEnableStatusRequest): Promise<UpdateCloudGtmAddressPoolEnableStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36303,9 +53691,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressPoolLbStrategyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmAddressPoolLbStrategyResponse
+   * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmAddressPoolLbStrategyResponse
    */
   async updateCloudGtmAddressPoolLbStrategyWithOptions(request: UpdateCloudGtmAddressPoolLbStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressPoolLbStrategyResponse> {
     Util.validateModel(request);
@@ -36348,8 +53736,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressPoolLbStrategyRequest
-   * @return UpdateCloudGtmAddressPoolLbStrategyResponse
+   * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
+   * @returns UpdateCloudGtmAddressPoolLbStrategyResponse
    */
   async updateCloudGtmAddressPoolLbStrategy(request: UpdateCloudGtmAddressPoolLbStrategyRequest): Promise<UpdateCloudGtmAddressPoolLbStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36357,9 +53745,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressPoolRemarkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmAddressPoolRemarkResponse
+   * @param request - UpdateCloudGtmAddressPoolRemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmAddressPoolRemarkResponse
    */
   async updateCloudGtmAddressPoolRemarkWithOptions(request: UpdateCloudGtmAddressPoolRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressPoolRemarkResponse> {
     Util.validateModel(request);
@@ -36398,8 +53786,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressPoolRemarkRequest
-   * @return UpdateCloudGtmAddressPoolRemarkResponse
+   * @param request - UpdateCloudGtmAddressPoolRemarkRequest
+   * @returns UpdateCloudGtmAddressPoolRemarkResponse
    */
   async updateCloudGtmAddressPoolRemark(request: UpdateCloudGtmAddressPoolRemarkRequest): Promise<UpdateCloudGtmAddressPoolRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36407,9 +53795,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressRemarkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmAddressRemarkResponse
+   * @param request - UpdateCloudGtmAddressRemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmAddressRemarkResponse
    */
   async updateCloudGtmAddressRemarkWithOptions(request: UpdateCloudGtmAddressRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmAddressRemarkResponse> {
     Util.validateModel(request);
@@ -36448,8 +53836,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmAddressRemarkRequest
-   * @return UpdateCloudGtmAddressRemarkResponse
+   * @param request - UpdateCloudGtmAddressRemarkRequest
+   * @returns UpdateCloudGtmAddressRemarkResponse
    */
   async updateCloudGtmAddressRemark(request: UpdateCloudGtmAddressRemarkRequest): Promise<UpdateCloudGtmAddressRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36457,9 +53845,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq UpdateCloudGtmGlobalAlertRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmGlobalAlertResponse
+   * @param tmpReq - UpdateCloudGtmGlobalAlertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmGlobalAlertResponse
    */
   async updateCloudGtmGlobalAlertWithOptions(tmpReq: UpdateCloudGtmGlobalAlertRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmGlobalAlertResponse> {
     Util.validateModel(tmpReq);
@@ -36508,8 +53896,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmGlobalAlertRequest
-   * @return UpdateCloudGtmGlobalAlertResponse
+   * @param request - UpdateCloudGtmGlobalAlertRequest
+   * @returns UpdateCloudGtmGlobalAlertResponse
    */
   async updateCloudGtmGlobalAlert(request: UpdateCloudGtmGlobalAlertRequest): Promise<UpdateCloudGtmGlobalAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36517,9 +53905,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq UpdateCloudGtmInstanceConfigAlertRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmInstanceConfigAlertResponse
+   * @param tmpReq - UpdateCloudGtmInstanceConfigAlertRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmInstanceConfigAlertResponse
    */
   async updateCloudGtmInstanceConfigAlertWithOptions(tmpReq: UpdateCloudGtmInstanceConfigAlertRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceConfigAlertResponse> {
     Util.validateModel(tmpReq);
@@ -36580,8 +53968,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceConfigAlertRequest
-   * @return UpdateCloudGtmInstanceConfigAlertResponse
+   * @param request - UpdateCloudGtmInstanceConfigAlertRequest
+   * @returns UpdateCloudGtmInstanceConfigAlertResponse
    */
   async updateCloudGtmInstanceConfigAlert(request: UpdateCloudGtmInstanceConfigAlertRequest): Promise<UpdateCloudGtmInstanceConfigAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36589,9 +53977,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceConfigBasicRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmInstanceConfigBasicResponse
+   * @param request - UpdateCloudGtmInstanceConfigBasicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmInstanceConfigBasicResponse
    */
   async updateCloudGtmInstanceConfigBasicWithOptions(request: UpdateCloudGtmInstanceConfigBasicRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceConfigBasicResponse> {
     Util.validateModel(request);
@@ -36642,8 +54030,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceConfigBasicRequest
-   * @return UpdateCloudGtmInstanceConfigBasicResponse
+   * @param request - UpdateCloudGtmInstanceConfigBasicRequest
+   * @returns UpdateCloudGtmInstanceConfigBasicResponse
    */
   async updateCloudGtmInstanceConfigBasic(request: UpdateCloudGtmInstanceConfigBasicRequest): Promise<UpdateCloudGtmInstanceConfigBasicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36651,9 +54039,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceConfigEnableStatusRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmInstanceConfigEnableStatusResponse
+   * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmInstanceConfigEnableStatusResponse
    */
   async updateCloudGtmInstanceConfigEnableStatusWithOptions(request: UpdateCloudGtmInstanceConfigEnableStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceConfigEnableStatusResponse> {
     Util.validateModel(request);
@@ -36696,8 +54084,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceConfigEnableStatusRequest
-   * @return UpdateCloudGtmInstanceConfigEnableStatusResponse
+   * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
+   * @returns UpdateCloudGtmInstanceConfigEnableStatusResponse
    */
   async updateCloudGtmInstanceConfigEnableStatus(request: UpdateCloudGtmInstanceConfigEnableStatusRequest): Promise<UpdateCloudGtmInstanceConfigEnableStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36705,9 +54093,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceConfigLbStrategyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmInstanceConfigLbStrategyResponse
+   * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmInstanceConfigLbStrategyResponse
    */
   async updateCloudGtmInstanceConfigLbStrategyWithOptions(request: UpdateCloudGtmInstanceConfigLbStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceConfigLbStrategyResponse> {
     Util.validateModel(request);
@@ -36754,8 +54142,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceConfigLbStrategyRequest
-   * @return UpdateCloudGtmInstanceConfigLbStrategyResponse
+   * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
+   * @returns UpdateCloudGtmInstanceConfigLbStrategyResponse
    */
   async updateCloudGtmInstanceConfigLbStrategy(request: UpdateCloudGtmInstanceConfigLbStrategyRequest): Promise<UpdateCloudGtmInstanceConfigLbStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36763,9 +54151,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceConfigRemarkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmInstanceConfigRemarkResponse
+   * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmInstanceConfigRemarkResponse
    */
   async updateCloudGtmInstanceConfigRemarkWithOptions(request: UpdateCloudGtmInstanceConfigRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceConfigRemarkResponse> {
     Util.validateModel(request);
@@ -36808,8 +54196,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceConfigRemarkRequest
-   * @return UpdateCloudGtmInstanceConfigRemarkResponse
+   * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
+   * @returns UpdateCloudGtmInstanceConfigRemarkResponse
    */
   async updateCloudGtmInstanceConfigRemark(request: UpdateCloudGtmInstanceConfigRemarkRequest): Promise<UpdateCloudGtmInstanceConfigRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36817,9 +54205,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceNameRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmInstanceNameResponse
+   * @param request - UpdateCloudGtmInstanceNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmInstanceNameResponse
    */
   async updateCloudGtmInstanceNameWithOptions(request: UpdateCloudGtmInstanceNameRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmInstanceNameResponse> {
     Util.validateModel(request);
@@ -36858,8 +54246,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmInstanceNameRequest
-   * @return UpdateCloudGtmInstanceNameResponse
+   * @param request - UpdateCloudGtmInstanceNameRequest
+   * @returns UpdateCloudGtmInstanceNameResponse
    */
   async updateCloudGtmInstanceName(request: UpdateCloudGtmInstanceNameRequest): Promise<UpdateCloudGtmInstanceNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36867,9 +54255,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param tmpReq UpdateCloudGtmMonitorTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmMonitorTemplateResponse
+   * @param tmpReq - UpdateCloudGtmMonitorTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmMonitorTemplateResponse
    */
   async updateCloudGtmMonitorTemplateWithOptions(tmpReq: UpdateCloudGtmMonitorTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmMonitorTemplateResponse> {
     Util.validateModel(tmpReq);
@@ -36938,8 +54326,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmMonitorTemplateRequest
-   * @return UpdateCloudGtmMonitorTemplateResponse
+   * @param request - UpdateCloudGtmMonitorTemplateRequest
+   * @returns UpdateCloudGtmMonitorTemplateResponse
    */
   async updateCloudGtmMonitorTemplate(request: UpdateCloudGtmMonitorTemplateRequest): Promise<UpdateCloudGtmMonitorTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36947,9 +54335,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmMonitorTemplateRemarkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCloudGtmMonitorTemplateRemarkResponse
+   * @param request - UpdateCloudGtmMonitorTemplateRemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloudGtmMonitorTemplateRemarkResponse
    */
   async updateCloudGtmMonitorTemplateRemarkWithOptions(request: UpdateCloudGtmMonitorTemplateRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudGtmMonitorTemplateRemarkResponse> {
     Util.validateModel(request);
@@ -36988,8 +54376,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateCloudGtmMonitorTemplateRemarkRequest
-   * @return UpdateCloudGtmMonitorTemplateRemarkResponse
+   * @param request - UpdateCloudGtmMonitorTemplateRemarkRequest
+   * @returns UpdateCloudGtmMonitorTemplateRemarkResponse
    */
   async updateCloudGtmMonitorTemplateRemark(request: UpdateCloudGtmMonitorTemplateRemarkRequest): Promise<UpdateCloudGtmMonitorTemplateRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -36997,14 +54385,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a custom line.
-   *
-   * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+   * Modifies a custom line.
+   * 
+   * @remarks
+   * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
    * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-   *
-   * @param request UpdateCustomLineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateCustomLineResponse
+   * 
+   * @param request - UpdateCustomLineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomLineResponse
    */
   async updateCustomLineWithOptions(request: UpdateCustomLineRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCustomLineResponse> {
     Util.validateModel(request);
@@ -37043,13 +54432,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a custom line.
-   *
-   * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+   * Modifies a custom line.
+   * 
+   * @remarks
+   * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
    * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-   *
-   * @param request UpdateCustomLineRequest
-   * @return UpdateCustomLineResponse
+   * 
+   * @param request - UpdateCustomLineRequest
+   * @returns UpdateCustomLineResponse
    */
   async updateCustomLine(request: UpdateCustomLineRequest): Promise<UpdateCustomLineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37057,11 +54447,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request UpdateDNSSLBWeightRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDNSSLBWeightResponse
+   * Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - UpdateDNSSLBWeightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDNSSLBWeightResponse
    */
   async updateDNSSLBWeightWithOptions(request: UpdateDNSSLBWeightRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDNSSLBWeightResponse> {
     Util.validateModel(request);
@@ -37100,10 +54490,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request UpdateDNSSLBWeightRequest
-   * @return UpdateDNSSLBWeightResponse
+   * Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - UpdateDNSSLBWeightRequest
+   * @returns UpdateDNSSLBWeightResponse
    */
   async updateDNSSLBWeight(request: UpdateDNSSLBWeightRequest): Promise<UpdateDNSSLBWeightResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37111,9 +54501,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateDnsCacheDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDnsCacheDomainResponse
+   * @param request - UpdateDnsCacheDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDnsCacheDomainResponse
    */
   async updateDnsCacheDomainWithOptions(request: UpdateDnsCacheDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsCacheDomainResponse> {
     Util.validateModel(request);
@@ -37168,8 +54558,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateDnsCacheDomainRequest
-   * @return UpdateDnsCacheDomainResponse
+   * @param request - UpdateDnsCacheDomainRequest
+   * @returns UpdateDnsCacheDomainResponse
    */
   async updateDnsCacheDomain(request: UpdateDnsCacheDomainRequest): Promise<UpdateDnsCacheDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37177,9 +54567,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateDnsCacheDomainRemarkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDnsCacheDomainRemarkResponse
+   * @param request - UpdateDnsCacheDomainRemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDnsCacheDomainRemarkResponse
    */
   async updateDnsCacheDomainRemarkWithOptions(request: UpdateDnsCacheDomainRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsCacheDomainRemarkResponse> {
     Util.validateModel(request);
@@ -37214,8 +54604,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateDnsCacheDomainRemarkRequest
-   * @return UpdateDnsCacheDomainRemarkResponse
+   * @param request - UpdateDnsCacheDomainRemarkRequest
+   * @returns UpdateDnsCacheDomainRemarkResponse
    */
   async updateDnsCacheDomainRemark(request: UpdateDnsCacheDomainRemarkRequest): Promise<UpdateDnsCacheDomainRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37223,11 +54613,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies an access policy.
-   *
-   * @param request UpdateDnsGtmAccessStrategyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDnsGtmAccessStrategyResponse
+   * Modifies an access policy.
+   * 
+   * @param request - UpdateDnsGtmAccessStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDnsGtmAccessStrategyResponse
    */
   async updateDnsGtmAccessStrategyWithOptions(request: UpdateDnsGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmAccessStrategyResponse> {
     Util.validateModel(request);
@@ -37318,10 +54708,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies an access policy.
-   *
-   * @param request UpdateDnsGtmAccessStrategyRequest
-   * @return UpdateDnsGtmAccessStrategyResponse
+   * Modifies an access policy.
+   * 
+   * @param request - UpdateDnsGtmAccessStrategyRequest
+   * @returns UpdateDnsGtmAccessStrategyResponse
    */
   async updateDnsGtmAccessStrategy(request: UpdateDnsGtmAccessStrategyRequest): Promise<UpdateDnsGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37329,11 +54719,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of address pools for a GTM instance.
-   *
-   * @param request UpdateDnsGtmAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDnsGtmAddressPoolResponse
+   * Modifies the configurations of address pools for a GTM instance.
+   * 
+   * @param request - UpdateDnsGtmAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDnsGtmAddressPoolResponse
    */
   async updateDnsGtmAddressPoolWithOptions(request: UpdateDnsGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmAddressPoolResponse> {
     Util.validateModel(request);
@@ -37376,10 +54766,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of address pools for a GTM instance.
-   *
-   * @param request UpdateDnsGtmAddressPoolRequest
-   * @return UpdateDnsGtmAddressPoolResponse
+   * Modifies the configurations of address pools for a GTM instance.
+   * 
+   * @param request - UpdateDnsGtmAddressPoolRequest
+   * @returns UpdateDnsGtmAddressPoolResponse
    */
   async updateDnsGtmAddressPool(request: UpdateDnsGtmAddressPoolRequest): Promise<UpdateDnsGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37387,11 +54777,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request UpdateDnsGtmInstanceGlobalConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDnsGtmInstanceGlobalConfigResponse
+   * Modifies the configurations of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDnsGtmInstanceGlobalConfigResponse
    */
   async updateDnsGtmInstanceGlobalConfigWithOptions(request: UpdateDnsGtmInstanceGlobalConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmInstanceGlobalConfigResponse> {
     Util.validateModel(request);
@@ -37462,10 +54852,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request UpdateDnsGtmInstanceGlobalConfigRequest
-   * @return UpdateDnsGtmInstanceGlobalConfigResponse
+   * Modifies the configurations of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
+   * @returns UpdateDnsGtmInstanceGlobalConfigResponse
    */
   async updateDnsGtmInstanceGlobalConfig(request: UpdateDnsGtmInstanceGlobalConfigRequest): Promise<UpdateDnsGtmInstanceGlobalConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37473,11 +54863,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a health check task.
-   *
-   * @param request UpdateDnsGtmMonitorRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDnsGtmMonitorResponse
+   * Modifies a health check task.
+   * 
+   * @param request - UpdateDnsGtmMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDnsGtmMonitorResponse
    */
   async updateDnsGtmMonitorWithOptions(request: UpdateDnsGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDnsGtmMonitorResponse> {
     Util.validateModel(request);
@@ -37532,10 +54922,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a health check task.
-   *
-   * @param request UpdateDnsGtmMonitorRequest
-   * @return UpdateDnsGtmMonitorResponse
+   * Modifies a health check task.
+   * 
+   * @param request - UpdateDnsGtmMonitorRequest
+   * @returns UpdateDnsGtmMonitorResponse
    */
   async updateDnsGtmMonitor(request: UpdateDnsGtmMonitorRequest): Promise<UpdateDnsGtmMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37543,11 +54933,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the name of a domain name group based on the specified parameters.
-   *
-   * @param request UpdateDomainGroupRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDomainGroupResponse
+   * Modifies the name of a domain name group based on the specified parameters.
+   * 
+   * @param request - UpdateDomainGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDomainGroupResponse
    */
   async updateDomainGroupWithOptions(request: UpdateDomainGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainGroupResponse> {
     Util.validateModel(request);
@@ -37582,10 +54972,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the name of a domain name group based on the specified parameters.
-   *
-   * @param request UpdateDomainGroupRequest
-   * @return UpdateDomainGroupResponse
+   * Modifies the name of a domain name group based on the specified parameters.
+   * 
+   * @param request - UpdateDomainGroupRequest
+   * @returns UpdateDomainGroupResponse
    */
   async updateDomainGroup(request: UpdateDomainGroupRequest): Promise<UpdateDomainGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37593,11 +54983,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request UpdateDomainRecordRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDomainRecordResponse
+   * Modifies a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - UpdateDomainRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDomainRecordResponse
    */
   async updateDomainRecordWithOptions(request: UpdateDomainRecordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainRecordResponse> {
     Util.validateModel(request);
@@ -37656,10 +55046,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request UpdateDomainRecordRequest
-   * @return UpdateDomainRecordResponse
+   * Modifies a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - UpdateDomainRecordRequest
+   * @returns UpdateDomainRecordResponse
    */
   async updateDomainRecord(request: UpdateDomainRecordRequest): Promise<UpdateDomainRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37667,11 +55057,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request UpdateDomainRecordRemarkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDomainRecordRemarkResponse
+   * Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - UpdateDomainRecordRemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDomainRecordRemarkResponse
    */
   async updateDomainRecordRemarkWithOptions(request: UpdateDomainRecordRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainRecordRemarkResponse> {
     Util.validateModel(request);
@@ -37710,10 +55100,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
-   *
-   * @param request UpdateDomainRecordRemarkRequest
-   * @return UpdateDomainRecordRemarkResponse
+   * Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+   * 
+   * @param request - UpdateDomainRecordRemarkRequest
+   * @returns UpdateDomainRecordRemarkResponse
    */
   async updateDomainRecordRemark(request: UpdateDomainRecordRemarkRequest): Promise<UpdateDomainRecordRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37721,11 +55111,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of a domain name based on the specified parameters.
-   *
-   * @param request UpdateDomainRemarkRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDomainRemarkResponse
+   * Modifies the description of a domain name based on the specified parameters.
+   * 
+   * @param request - UpdateDomainRemarkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDomainRemarkResponse
    */
   async updateDomainRemarkWithOptions(request: UpdateDomainRemarkRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDomainRemarkResponse> {
     Util.validateModel(request);
@@ -37760,10 +55150,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of a domain name based on the specified parameters.
-   *
-   * @param request UpdateDomainRemarkRequest
-   * @return UpdateDomainRemarkResponse
+   * Modifies the description of a domain name based on the specified parameters.
+   * 
+   * @param request - UpdateDomainRemarkRequest
+   * @returns UpdateDomainRemarkResponse
    */
   async updateDomainRemark(request: UpdateDomainRemarkRequest): Promise<UpdateDomainRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37771,9 +55161,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateGtmAccessStrategyRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateGtmAccessStrategyResponse
+   * @param request - UpdateGtmAccessStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGtmAccessStrategyResponse
    */
   async updateGtmAccessStrategyWithOptions(request: UpdateGtmAccessStrategyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmAccessStrategyResponse> {
     Util.validateModel(request);
@@ -37820,8 +55210,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateGtmAccessStrategyRequest
-   * @return UpdateGtmAccessStrategyResponse
+   * @param request - UpdateGtmAccessStrategyRequest
+   * @returns UpdateGtmAccessStrategyResponse
    */
   async updateGtmAccessStrategy(request: UpdateGtmAccessStrategyRequest): Promise<UpdateGtmAccessStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37829,9 +55219,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateGtmAddressPoolRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateGtmAddressPoolResponse
+   * @param request - UpdateGtmAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGtmAddressPoolResponse
    */
   async updateGtmAddressPoolWithOptions(request: UpdateGtmAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmAddressPoolResponse> {
     Util.validateModel(request);
@@ -37878,8 +55268,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateGtmAddressPoolRequest
-   * @return UpdateGtmAddressPoolResponse
+   * @param request - UpdateGtmAddressPoolRequest
+   * @returns UpdateGtmAddressPoolResponse
    */
   async updateGtmAddressPool(request: UpdateGtmAddressPoolRequest): Promise<UpdateGtmAddressPoolResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37887,11 +55277,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
-   *
-   * @param request UpdateGtmInstanceGlobalConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateGtmInstanceGlobalConfigResponse
+   * Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+   * 
+   * @param request - UpdateGtmInstanceGlobalConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGtmInstanceGlobalConfigResponse
    */
   async updateGtmInstanceGlobalConfigWithOptions(request: UpdateGtmInstanceGlobalConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmInstanceGlobalConfigResponse> {
     Util.validateModel(request);
@@ -37950,10 +55340,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
-   *
-   * @param request UpdateGtmInstanceGlobalConfigRequest
-   * @return UpdateGtmInstanceGlobalConfigResponse
+   * Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+   * 
+   * @param request - UpdateGtmInstanceGlobalConfigRequest
+   * @returns UpdateGtmInstanceGlobalConfigResponse
    */
   async updateGtmInstanceGlobalConfig(request: UpdateGtmInstanceGlobalConfigRequest): Promise<UpdateGtmInstanceGlobalConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -37961,11 +55351,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request UpdateGtmMonitorRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateGtmMonitorResponse
+   * Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - UpdateGtmMonitorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGtmMonitorResponse
    */
   async updateGtmMonitorWithOptions(request: UpdateGtmMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmMonitorResponse> {
     Util.validateModel(request);
@@ -38020,10 +55410,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
-   *
-   * @param request UpdateGtmMonitorRequest
-   * @return UpdateGtmMonitorResponse
+   * Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - UpdateGtmMonitorRequest
+   * @returns UpdateGtmMonitorResponse
    */
   async updateGtmMonitor(request: UpdateGtmMonitorRequest): Promise<UpdateGtmMonitorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38031,11 +55421,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a disaster recovery plan for a Global Traffic Manager (GTM) instance.
-   *
-   * @param request UpdateGtmRecoveryPlanRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateGtmRecoveryPlanResponse
+   * Modifies a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - UpdateGtmRecoveryPlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGtmRecoveryPlanResponse
    */
   async updateGtmRecoveryPlanWithOptions(request: UpdateGtmRecoveryPlanRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGtmRecoveryPlanResponse> {
     Util.validateModel(request);
@@ -38078,10 +55468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a disaster recovery plan for a Global Traffic Manager (GTM) instance.
-   *
-   * @param request UpdateGtmRecoveryPlanRequest
-   * @return UpdateGtmRecoveryPlanResponse
+   * Modifies a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+   * 
+   * @param request - UpdateGtmRecoveryPlanRequest
+   * @returns UpdateGtmRecoveryPlanResponse
    */
   async updateGtmRecoveryPlan(request: UpdateGtmRecoveryPlanRequest): Promise<UpdateGtmRecoveryPlanResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38089,11 +55479,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改缓存刷新套餐包配置
-   *
-   * @param request UpdateIspFlushCacheInstanceConfigRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateIspFlushCacheInstanceConfigResponse
+   * 修改缓存刷新套餐包配置
+   * 
+   * @param request - UpdateIspFlushCacheInstanceConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIspFlushCacheInstanceConfigResponse
    */
   async updateIspFlushCacheInstanceConfigWithOptions(request: UpdateIspFlushCacheInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIspFlushCacheInstanceConfigResponse> {
     Util.validateModel(request);
@@ -38128,10 +55518,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改缓存刷新套餐包配置
-   *
-   * @param request UpdateIspFlushCacheInstanceConfigRequest
-   * @return UpdateIspFlushCacheInstanceConfigResponse
+   * 修改缓存刷新套餐包配置
+   * 
+   * @param request - UpdateIspFlushCacheInstanceConfigRequest
+   * @returns UpdateIspFlushCacheInstanceConfigResponse
    */
   async updateIspFlushCacheInstanceConfig(request: UpdateIspFlushCacheInstanceConfigRequest): Promise<UpdateIspFlushCacheInstanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38139,11 +55529,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检查实例主机名是否可添加
-   *
-   * @param request ValidateDnsGtmCnameRrCanUseRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ValidateDnsGtmCnameRrCanUseResponse
+   * 检查实例主机名是否可添加
+   * 
+   * @param request - ValidateDnsGtmCnameRrCanUseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateDnsGtmCnameRrCanUseResponse
    */
   async validateDnsGtmCnameRrCanUseWithOptions(request: ValidateDnsGtmCnameRrCanUseRequest, runtime: $Util.RuntimeOptions): Promise<ValidateDnsGtmCnameRrCanUseResponse> {
     Util.validateModel(request);
@@ -38190,10 +55580,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 检查实例主机名是否可添加
-   *
-   * @param request ValidateDnsGtmCnameRrCanUseRequest
-   * @return ValidateDnsGtmCnameRrCanUseResponse
+   * 检查实例主机名是否可添加
+   * 
+   * @param request - ValidateDnsGtmCnameRrCanUseRequest
+   * @returns ValidateDnsGtmCnameRrCanUseResponse
    */
   async validateDnsGtmCnameRrCanUse(request: ValidateDnsGtmCnameRrCanUseRequest): Promise<ValidateDnsGtmCnameRrCanUseResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -38201,11 +55591,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 验证公共DNS Udp Ip地址段
-   *
-   * @param request ValidatePdnsUdpIpSegmentRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ValidatePdnsUdpIpSegmentResponse
+   * 验证公共DNS Udp Ip地址段
+   * 
+   * @param request - ValidatePdnsUdpIpSegmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidatePdnsUdpIpSegmentResponse
    */
   async validatePdnsUdpIpSegmentWithOptions(request: ValidatePdnsUdpIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<ValidatePdnsUdpIpSegmentResponse> {
     Util.validateModel(request);
@@ -38236,10 +55626,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 验证公共DNS Udp Ip地址段
-   *
-   * @param request ValidatePdnsUdpIpSegmentRequest
-   * @return ValidatePdnsUdpIpSegmentResponse
+   * 验证公共DNS Udp Ip地址段
+   * 
+   * @param request - ValidatePdnsUdpIpSegmentRequest
+   * @returns ValidatePdnsUdpIpSegmentResponse
    */
   async validatePdnsUdpIpSegment(request: ValidatePdnsUdpIpSegmentRequest): Promise<ValidatePdnsUdpIpSegmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
