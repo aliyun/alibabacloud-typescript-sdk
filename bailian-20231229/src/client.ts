@@ -376,6 +376,121 @@ export class ApplyFileUploadLeaseResponse extends $tea.Model {
   }
 }
 
+export class CreateAndPulishAgentRequest extends $tea.Model {
+  applicationConfig?: CreateAndPulishAgentRequestApplicationConfig;
+  instructions?: string;
+  modelId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfig: 'applicationConfig',
+      instructions: 'instructions',
+      modelId: 'modelId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfig: CreateAndPulishAgentRequestApplicationConfig,
+      instructions: 'string',
+      modelId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentShrinkRequest extends $tea.Model {
+  applicationConfigShrink?: string;
+  instructions?: string;
+  modelId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfigShrink: 'applicationConfig',
+      instructions: 'instructions',
+      modelId: 'modelId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfigShrink: 'string',
+      instructions: 'string',
+      modelId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAndPulishAgentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAndPulishAgentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIndexRequest extends $tea.Model {
   categoryIds?: string[];
   /**
@@ -698,6 +813,65 @@ export class CreateIndexResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAgentResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAgentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAgentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAgentResponseBody,
     };
   }
 
@@ -1321,6 +1495,65 @@ export class GetIndexJobStatusResponse extends $tea.Model {
   }
 }
 
+export class GetPublishedAgentResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetPublishedAgentResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetPublishedAgentResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublishedAgentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPublishedAgentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPublishedAgentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCategoryRequest extends $tea.Model {
   /**
    * @remarks
@@ -1825,6 +2058,87 @@ export class ListIndicesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListIndicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentRequest extends $tea.Model {
+  pageNo?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'pageNo',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListPublishedAgentResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListPublishedAgentResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPublishedAgentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPublishedAgentResponseBody,
     };
   }
 
@@ -2363,6 +2677,121 @@ export class SubmitIndexJobResponse extends $tea.Model {
   }
 }
 
+export class UpdateAndPublishAgentRequest extends $tea.Model {
+  applicationConfig?: UpdateAndPublishAgentRequestApplicationConfig;
+  instructions?: string;
+  modelId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfig: 'applicationConfig',
+      instructions: 'instructions',
+      modelId: 'modelId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfig: UpdateAndPublishAgentRequestApplicationConfig,
+      instructions: 'string',
+      modelId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentShrinkRequest extends $tea.Model {
+  applicationConfigShrink?: string;
+  instructions?: string;
+  modelId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfigShrink: 'applicationConfig',
+      instructions: 'instructions',
+      modelId: 'modelId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfigShrink: 'string',
+      instructions: 'string',
+      modelId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAndPublishAgentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAndPublishAgentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddCategoryResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -2482,6 +2911,203 @@ export class ApplyFileUploadLeaseResponseBodyData extends $tea.Model {
       fileUploadLeaseId: 'string',
       param: ApplyFileUploadLeaseResponseBodyDataParam,
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentRequestApplicationConfigHistoryConfig extends $tea.Model {
+  enableAdbRecord?: boolean;
+  enableRecord?: boolean;
+  instanceId?: string;
+  region?: string;
+  storeCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableAdbRecord: 'enableAdbRecord',
+      enableRecord: 'enableRecord',
+      instanceId: 'instanceId',
+      region: 'region',
+      storeCode: 'storeCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableAdbRecord: 'boolean',
+      enableRecord: 'boolean',
+      instanceId: 'string',
+      region: 'string',
+      storeCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentRequestApplicationConfigLongTermMemory extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentRequestApplicationConfigParameters extends $tea.Model {
+  dialogRound?: number;
+  maxTokens?: number;
+  temperature?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dialogRound: 'dialogRound',
+      maxTokens: 'maxTokens',
+      temperature: 'temperature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogRound: 'number',
+      maxTokens: 'number',
+      temperature: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentRequestApplicationConfigRagConfig extends $tea.Model {
+  enableCitation?: boolean;
+  enableSearch?: boolean;
+  knowledgeBaseCodeList?: string[];
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableCitation: 'enableCitation',
+      enableSearch: 'enableSearch',
+      knowledgeBaseCodeList: 'knowledgeBaseCodeList',
+      topK: 'topK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableCitation: 'boolean',
+      enableSearch: 'boolean',
+      knowledgeBaseCodeList: { 'type': 'array', 'itemType': 'string' },
+      topK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentRequestApplicationConfigSecurityConfig extends $tea.Model {
+  processingStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processingStrategy: 'processingStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processingStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentRequestApplicationConfigTools extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentRequestApplicationConfigWorkFlows extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentRequestApplicationConfig extends $tea.Model {
+  historyConfig?: CreateAndPulishAgentRequestApplicationConfigHistoryConfig;
+  longTermMemory?: CreateAndPulishAgentRequestApplicationConfigLongTermMemory;
+  parameters?: CreateAndPulishAgentRequestApplicationConfigParameters;
+  ragConfig?: CreateAndPulishAgentRequestApplicationConfigRagConfig;
+  securityConfig?: CreateAndPulishAgentRequestApplicationConfigSecurityConfig;
+  tools?: CreateAndPulishAgentRequestApplicationConfigTools[];
+  workFlows?: CreateAndPulishAgentRequestApplicationConfigWorkFlows[];
+  static names(): { [key: string]: string } {
+    return {
+      historyConfig: 'historyConfig',
+      longTermMemory: 'longTermMemory',
+      parameters: 'parameters',
+      ragConfig: 'ragConfig',
+      securityConfig: 'securityConfig',
+      tools: 'tools',
+      workFlows: 'workFlows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      historyConfig: CreateAndPulishAgentRequestApplicationConfigHistoryConfig,
+      longTermMemory: CreateAndPulishAgentRequestApplicationConfigLongTermMemory,
+      parameters: CreateAndPulishAgentRequestApplicationConfigParameters,
+      ragConfig: CreateAndPulishAgentRequestApplicationConfigRagConfig,
+      securityConfig: CreateAndPulishAgentRequestApplicationConfigSecurityConfig,
+      tools: { 'type': 'array', 'itemType': CreateAndPulishAgentRequestApplicationConfigTools },
+      workFlows: { 'type': 'array', 'itemType': CreateAndPulishAgentRequestApplicationConfigWorkFlows },
     };
   }
 
@@ -2753,6 +3379,234 @@ export class GetIndexJobStatusResponseBodyData extends $tea.Model {
       documents: { 'type': 'array', 'itemType': GetIndexJobStatusResponseBodyDataDocuments },
       jobId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublishedAgentResponseBodyDataApplicationConfigHistoryConfig extends $tea.Model {
+  enableAdbRecord?: boolean;
+  enableRecord?: boolean;
+  instanceId?: string;
+  region?: string;
+  storeCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableAdbRecord: 'enableAdbRecord',
+      enableRecord: 'enableRecord',
+      instanceId: 'instanceId',
+      region: 'region',
+      storeCode: 'storeCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableAdbRecord: 'boolean',
+      enableRecord: 'boolean',
+      instanceId: 'string',
+      region: 'string',
+      storeCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublishedAgentResponseBodyDataApplicationConfigLongTermMemory extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublishedAgentResponseBodyDataApplicationConfigParameters extends $tea.Model {
+  dialogRound?: number;
+  maxTokens?: number;
+  temperature?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dialogRound: 'dialogRound',
+      maxTokens: 'maxTokens',
+      temperature: 'temperature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogRound: 'number',
+      maxTokens: 'number',
+      temperature: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublishedAgentResponseBodyDataApplicationConfigRagConfig extends $tea.Model {
+  enableCitation?: boolean;
+  enableSearch?: boolean;
+  knowledgeBaseCodeList?: string[];
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableCitation: 'enableCitation',
+      enableSearch: 'enableSearch',
+      knowledgeBaseCodeList: 'knowledgeBaseCodeList',
+      topK: 'topK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableCitation: 'boolean',
+      enableSearch: 'boolean',
+      knowledgeBaseCodeList: { 'type': 'array', 'itemType': 'string' },
+      topK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublishedAgentResponseBodyDataApplicationConfigSecurity extends $tea.Model {
+  processingStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processingStrategy: 'processingStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processingStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublishedAgentResponseBodyDataApplicationConfigTools extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublishedAgentResponseBodyDataApplicationConfigWorkFlows extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublishedAgentResponseBodyDataApplicationConfig extends $tea.Model {
+  historyConfig?: GetPublishedAgentResponseBodyDataApplicationConfigHistoryConfig;
+  longTermMemory?: GetPublishedAgentResponseBodyDataApplicationConfigLongTermMemory;
+  parameters?: GetPublishedAgentResponseBodyDataApplicationConfigParameters;
+  ragConfig?: GetPublishedAgentResponseBodyDataApplicationConfigRagConfig;
+  security?: GetPublishedAgentResponseBodyDataApplicationConfigSecurity;
+  tools?: GetPublishedAgentResponseBodyDataApplicationConfigTools[];
+  workFlows?: GetPublishedAgentResponseBodyDataApplicationConfigWorkFlows[];
+  static names(): { [key: string]: string } {
+    return {
+      historyConfig: 'historyConfig',
+      longTermMemory: 'longTermMemory',
+      parameters: 'parameters',
+      ragConfig: 'ragConfig',
+      security: 'security',
+      tools: 'tools',
+      workFlows: 'workFlows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      historyConfig: GetPublishedAgentResponseBodyDataApplicationConfigHistoryConfig,
+      longTermMemory: GetPublishedAgentResponseBodyDataApplicationConfigLongTermMemory,
+      parameters: GetPublishedAgentResponseBodyDataApplicationConfigParameters,
+      ragConfig: GetPublishedAgentResponseBodyDataApplicationConfigRagConfig,
+      security: GetPublishedAgentResponseBodyDataApplicationConfigSecurity,
+      tools: { 'type': 'array', 'itemType': GetPublishedAgentResponseBodyDataApplicationConfigTools },
+      workFlows: { 'type': 'array', 'itemType': GetPublishedAgentResponseBodyDataApplicationConfigWorkFlows },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublishedAgentResponseBodyData extends $tea.Model {
+  applicationConfig?: GetPublishedAgentResponseBodyDataApplicationConfig;
+  code?: string;
+  instructions?: string;
+  modelId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfig: 'applicationConfig',
+      code: 'code',
+      instructions: 'instructions',
+      modelId: 'modelId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfig: GetPublishedAgentResponseBodyDataApplicationConfig,
+      code: 'string',
+      instructions: 'string',
+      modelId: 'string',
+      name: 'string',
     };
   }
 
@@ -3182,6 +4036,262 @@ export class ListIndicesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListPublishedAgentResponseBodyDataListApplicationConfigHistoryConfig extends $tea.Model {
+  enableAdbRecord?: boolean;
+  enableRecord?: boolean;
+  instanceId?: string;
+  region?: string;
+  storeCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableAdbRecord: 'enableAdbRecord',
+      enableRecord: 'enableRecord',
+      instanceId: 'instanceId',
+      region: 'region',
+      storeCode: 'storeCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableAdbRecord: 'boolean',
+      enableRecord: 'boolean',
+      instanceId: 'string',
+      region: 'string',
+      storeCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponseBodyDataListApplicationConfigLongTermMemory extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponseBodyDataListApplicationConfigParameters extends $tea.Model {
+  dialogRound?: number;
+  maxTokens?: number;
+  temperature?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dialogRound: 'dialogRound',
+      maxTokens: 'maxTokens',
+      temperature: 'temperature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogRound: 'number',
+      maxTokens: 'number',
+      temperature: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponseBodyDataListApplicationConfigRagConfig extends $tea.Model {
+  enableCitation?: boolean;
+  enableSearch?: boolean;
+  knowledgeBaseCodeList?: string[];
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableCitation: 'enableCitation',
+      enableSearch: 'enableSearch',
+      knowledgeBaseCodeList: 'knowledgeBaseCodeList',
+      topK: 'topK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableCitation: 'boolean',
+      enableSearch: 'boolean',
+      knowledgeBaseCodeList: { 'type': 'array', 'itemType': 'string' },
+      topK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponseBodyDataListApplicationConfigSecurity extends $tea.Model {
+  processingStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processingStrategy: 'processingStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processingStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponseBodyDataListApplicationConfigTools extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponseBodyDataListApplicationConfigWorkFlows extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponseBodyDataListApplicationConfig extends $tea.Model {
+  historyConfig?: ListPublishedAgentResponseBodyDataListApplicationConfigHistoryConfig;
+  longTermMemory?: ListPublishedAgentResponseBodyDataListApplicationConfigLongTermMemory;
+  parameters?: ListPublishedAgentResponseBodyDataListApplicationConfigParameters;
+  ragConfig?: ListPublishedAgentResponseBodyDataListApplicationConfigRagConfig;
+  security?: ListPublishedAgentResponseBodyDataListApplicationConfigSecurity;
+  tools?: ListPublishedAgentResponseBodyDataListApplicationConfigTools[];
+  workFlows?: ListPublishedAgentResponseBodyDataListApplicationConfigWorkFlows[];
+  static names(): { [key: string]: string } {
+    return {
+      historyConfig: 'historyConfig',
+      longTermMemory: 'longTermMemory',
+      parameters: 'parameters',
+      ragConfig: 'ragConfig',
+      security: 'security',
+      tools: 'tools',
+      workFlows: 'workFlows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      historyConfig: ListPublishedAgentResponseBodyDataListApplicationConfigHistoryConfig,
+      longTermMemory: ListPublishedAgentResponseBodyDataListApplicationConfigLongTermMemory,
+      parameters: ListPublishedAgentResponseBodyDataListApplicationConfigParameters,
+      ragConfig: ListPublishedAgentResponseBodyDataListApplicationConfigRagConfig,
+      security: ListPublishedAgentResponseBodyDataListApplicationConfigSecurity,
+      tools: { 'type': 'array', 'itemType': ListPublishedAgentResponseBodyDataListApplicationConfigTools },
+      workFlows: { 'type': 'array', 'itemType': ListPublishedAgentResponseBodyDataListApplicationConfigWorkFlows },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponseBodyDataList extends $tea.Model {
+  applicationConfig?: ListPublishedAgentResponseBodyDataListApplicationConfig;
+  code?: string;
+  instructions?: string;
+  modelId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfig: 'applicationConfig',
+      code: 'code',
+      instructions: 'instructions',
+      modelId: 'modelId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfig: ListPublishedAgentResponseBodyDataListApplicationConfig,
+      code: 'string',
+      instructions: 'string',
+      modelId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPublishedAgentResponseBodyData extends $tea.Model {
+  list?: ListPublishedAgentResponseBodyDataList[];
+  pageNo?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'list',
+      pageNo: 'pageNo',
+      pageSize: 'pageSize',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListPublishedAgentResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RetrieveRequestRerank extends $tea.Model {
   /**
    * @example
@@ -3317,6 +4427,203 @@ export class SubmitIndexJobResponseBodyData extends $tea.Model {
     return {
       id: 'string',
       indexId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentRequestApplicationConfigHistoryConfig extends $tea.Model {
+  enableAdbRecord?: boolean;
+  enableRecord?: boolean;
+  instanceId?: string;
+  region?: string;
+  storeCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableAdbRecord: 'enableAdbRecord',
+      enableRecord: 'enableRecord',
+      instanceId: 'instanceId',
+      region: 'region',
+      storeCode: 'storeCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableAdbRecord: 'boolean',
+      enableRecord: 'boolean',
+      instanceId: 'string',
+      region: 'string',
+      storeCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentRequestApplicationConfigLongTermMemory extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentRequestApplicationConfigParameters extends $tea.Model {
+  dialogRound?: number;
+  maxTokens?: number;
+  temperature?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dialogRound: 'dialogRound',
+      maxTokens: 'maxTokens',
+      temperature: 'temperature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogRound: 'number',
+      maxTokens: 'number',
+      temperature: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentRequestApplicationConfigRagConfig extends $tea.Model {
+  enableCitation?: boolean;
+  enableSearch?: boolean;
+  knowledgeBaseCodeList?: string[];
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableCitation: 'enableCitation',
+      enableSearch: 'enableSearch',
+      knowledgeBaseCodeList: 'knowledgeBaseCodeList',
+      topK: 'topK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableCitation: 'boolean',
+      enableSearch: 'boolean',
+      knowledgeBaseCodeList: { 'type': 'array', 'itemType': 'string' },
+      topK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentRequestApplicationConfigSecurity extends $tea.Model {
+  processingStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processingStrategy: 'processingStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processingStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentRequestApplicationConfigTools extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentRequestApplicationConfigWorkFlows extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentRequestApplicationConfig extends $tea.Model {
+  historyConfig?: UpdateAndPublishAgentRequestApplicationConfigHistoryConfig;
+  longTermMemory?: UpdateAndPublishAgentRequestApplicationConfigLongTermMemory;
+  parameters?: UpdateAndPublishAgentRequestApplicationConfigParameters;
+  ragConfig?: UpdateAndPublishAgentRequestApplicationConfigRagConfig;
+  security?: UpdateAndPublishAgentRequestApplicationConfigSecurity;
+  tools?: UpdateAndPublishAgentRequestApplicationConfigTools[];
+  workFlows?: UpdateAndPublishAgentRequestApplicationConfigWorkFlows[];
+  static names(): { [key: string]: string } {
+    return {
+      historyConfig: 'historyConfig',
+      longTermMemory: 'longTermMemory',
+      parameters: 'parameters',
+      ragConfig: 'ragConfig',
+      security: 'security',
+      tools: 'tools',
+      workFlows: 'workFlows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      historyConfig: UpdateAndPublishAgentRequestApplicationConfigHistoryConfig,
+      longTermMemory: UpdateAndPublishAgentRequestApplicationConfigLongTermMemory,
+      parameters: UpdateAndPublishAgentRequestApplicationConfigParameters,
+      ragConfig: UpdateAndPublishAgentRequestApplicationConfigRagConfig,
+      security: UpdateAndPublishAgentRequestApplicationConfigSecurity,
+      tools: { 'type': 'array', 'itemType': UpdateAndPublishAgentRequestApplicationConfigTools },
+      workFlows: { 'type': 'array', 'itemType': UpdateAndPublishAgentRequestApplicationConfigWorkFlows },
     };
   }
 
@@ -3504,6 +4811,69 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建并发布智能体应用
+   * 
+   * @param tmpReq - CreateAndPulishAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAndPulishAgentResponse
+   */
+  async createAndPulishAgentWithOptions(workspaceId: string, tmpReq: CreateAndPulishAgentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAndPulishAgentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateAndPulishAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.applicationConfig)) {
+      request.applicationConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationConfig, "applicationConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationConfigShrink)) {
+      body["applicationConfig"] = request.applicationConfigShrink;
+    }
+
+    if (!Util.isUnset(request.instructions)) {
+      body["instructions"] = request.instructions;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAndPulishAgent",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/application/agents`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAndPulishAgentResponse>(await this.callApi(params, req, runtime), new CreateAndPulishAgentResponse({}));
+  }
+
+  /**
+   * 创建并发布智能体应用
+   * 
+   * @param request - CreateAndPulishAgentRequest
+   * @returns CreateAndPulishAgentResponse
+   */
+  async createAndPulishAgent(workspaceId: string, request: CreateAndPulishAgentRequest): Promise<CreateAndPulishAgentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAndPulishAgentWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 创建并运行pipeline
    * 
    * @param tmpReq - CreateIndexRequest
@@ -3620,6 +4990,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIndexWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 删除智能体
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentResponse
+   */
+  async deleteAgentWithOptions(workspaceId: string, appCode: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAgentResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAgent",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/application/agents/${OpenApiUtil.getEncodeParam(appCode)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAgentResponse>(await this.callApi(params, req, runtime), new DeleteAgentResponse({}));
+  }
+
+  /**
+   * 删除智能体
+   * @returns DeleteAgentResponse
+   */
+  async deleteAgent(workspaceId: string, appCode: string): Promise<DeleteAgentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAgentWithOptions(workspaceId, appCode, headers, runtime);
   }
 
   /**
@@ -3874,6 +5279,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取发布态智能体应用
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPublishedAgentResponse
+   */
+  async getPublishedAgentWithOptions(workspaceId: string, appCode: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPublishedAgentResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPublishedAgent",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/application/agents/${OpenApiUtil.getEncodeParam(appCode)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPublishedAgentResponse>(await this.callApi(params, req, runtime), new GetPublishedAgentResponse({}));
+  }
+
+  /**
+   * 获取发布态智能体应用
+   * @returns GetPublishedAgentResponse
+   */
+  async getPublishedAgent(workspaceId: string, appCode: string): Promise<GetPublishedAgentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPublishedAgentWithOptions(workspaceId, appCode, headers, runtime);
+  }
+
+  /**
    * ListCategory
    * 
    * @param request - ListCategoryRequest
@@ -4106,6 +5546,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询已发布的智能体应用列表
+   * 
+   * @param request - ListPublishedAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublishedAgentResponse
+   */
+  async listPublishedAgentWithOptions(workspaceId: string, request: ListPublishedAgentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPublishedAgentResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["pageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPublishedAgent",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/application/agents`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPublishedAgentResponse>(await this.callApi(params, req, runtime), new ListPublishedAgentResponse({}));
+  }
+
+  /**
+   * 查询已发布的智能体应用列表
+   * 
+   * @param request - ListPublishedAgentRequest
+   * @returns ListPublishedAgentResponse
+   */
+  async listPublishedAgent(workspaceId: string, request: ListPublishedAgentRequest): Promise<ListPublishedAgentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPublishedAgentWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 召回测试
    * 
    * @param tmpReq - RetrieveRequest
@@ -4318,6 +5807,69 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.submitIndexJobWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新并发布智能体应用
+   * 
+   * @param tmpReq - UpdateAndPublishAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAndPublishAgentResponse
+   */
+  async updateAndPublishAgentWithOptions(workspaceId: string, appCode: string, tmpReq: UpdateAndPublishAgentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAndPublishAgentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateAndPublishAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.applicationConfig)) {
+      request.applicationConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationConfig, "applicationConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationConfigShrink)) {
+      body["applicationConfig"] = request.applicationConfigShrink;
+    }
+
+    if (!Util.isUnset(request.instructions)) {
+      body["instructions"] = request.instructions;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAndPublishAgent",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/application/agents/${OpenApiUtil.getEncodeParam(appCode)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAndPublishAgentResponse>(await this.callApi(params, req, runtime), new UpdateAndPublishAgentResponse({}));
+  }
+
+  /**
+   * 更新并发布智能体应用
+   * 
+   * @param request - UpdateAndPublishAgentRequest
+   * @returns UpdateAndPublishAgentResponse
+   */
+  async updateAndPublishAgent(workspaceId: string, appCode: string, request: UpdateAndPublishAgentRequest): Promise<UpdateAndPublishAgentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAndPublishAgentWithOptions(workspaceId, appCode, request, headers, runtime);
   }
 
 }
