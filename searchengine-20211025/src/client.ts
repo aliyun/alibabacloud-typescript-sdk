@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,8 +8,20 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ErrorResponse extends $tea.Model {
+  /**
+   * @example
+   * InternalServerError
+   */
   code?: string;
+  /**
+   * @example
+   * internal server error
+   */
   message?: string;
+  /**
+   * @example
+   * 90D6B8F5-FE97-4509-9AAB-367836C51818
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,7 +45,21 @@ export class ErrorResponse extends $tea.Model {
 }
 
 export class ResultClusterValue extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of full indexes that can be concurrently built.
+   * 
+   * @example
+   * 2
+   */
   buildParallelNum?: number;
+  /**
+   * @remarks
+   * The maximum number of full indexes that can be concurrently merged.
+   * 
+   * @example
+   * 2
+   */
   mergeParallelNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -56,7 +81,15 @@ export class ResultClusterValue extends $tea.Model {
 }
 
 export class ResultDatabasesFunctionsValue extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * gfasdds2****2wfrkv
+   */
   signatures?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,10 +111,45 @@ export class ResultDatabasesFunctionsValue extends $tea.Model {
 }
 
 export class ResultValue extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether all pushes are suspended.
+   * 
+   * @example
+   * true
+   */
   pauseAll?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the push is suspended for the new full index version.
+   * 
+   * @example
+   * true
+   */
   pauseIndex?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the push is suspended for the incremental indexes.
+   * 
+   * @example
+   * true
+   */
   pauseIndexBatch?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the push is suspended for the configuration.
+   * 
+   * @example
+   * true
+   */
   pauseBiz?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the push is suspended for the real-time incremental indexes.
+   * 
+   * @example
+   * true
+   */
   pauseRuntime?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -109,12 +177,61 @@ export class ResultValue extends $tea.Model {
 }
 
 export class VariablesValue extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether the variable is not allowed to be modified.
+   * 
+   * @example
+   * false
+   */
   disableModify?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the variable is modified.
+   * 
+   * @example
+   * false
+   */
   isModify?: boolean;
+  /**
+   * @remarks
+   * The variable value.
+   * 
+   * @example
+   * ""
+   */
   value?: string;
+  /**
+   * @remarks
+   * The description of the variable.
+   * 
+   * @example
+   * ""
+   */
   description?: string;
+  /**
+   * @remarks
+   * The template value of the variable.
+   * 
+   * @example
+   * ""
+   */
   templateValue?: string;
+  /**
+   * @remarks
+   * The variable type. Valid values:
+   * 
+   * *   NORMAL: common variable
+   * *   FUNCTION: function variable
+   * 
+   * @example
+   * NORMAL
+   */
   type?: string;
+  /**
+   * @remarks
+   * The function variables.
+   */
   funcValue?: VariablesValueFuncValue;
   static names(): { [key: string]: string } {
     return {
@@ -146,7 +263,18 @@ export class VariablesValue extends $tea.Model {
 }
 
 export class ConfigValue extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the offline configuration.
+   * 
+   * @example
+   * test
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The files to be modified.
+   */
   files?: ConfigValueFiles[];
   static names(): { [key: string]: string } {
     return {
@@ -168,10 +296,45 @@ export class ConfigValue extends $tea.Model {
 }
 
 export class BodyValue extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to suspend all pushes.
+   * 
+   * @example
+   * true
+   */
   pauseAll?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to suspend the push for the new full index version.
+   * 
+   * @example
+   * true
+   */
   pauseIndex?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to suspend the push for the incremental indexes.
+   * 
+   * @example
+   * true
+   */
   pauseIndexBatch?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to suspend the push for the configuration.
+   * 
+   * @example
+   * true
+   */
   pauseBiz?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to suspend the push for the real-time incremental indexes.
+   * 
+   * @example
+   * true
+   */
   pauseRuntime?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -199,10 +362,45 @@ export class BodyValue extends $tea.Model {
 }
 
 export class FilesConfigVariablesValue extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the variable.
+   * 
+   * @example
+   * Custom variable
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether the variable is not allowed to be modified.
+   * 
+   * @example
+   * true
+   */
   disableModify?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the variable is modified.
+   * 
+   * @example
+   * true
+   */
   isModify?: boolean;
+  /**
+   * @remarks
+   * The variable type. Valid values: NORMAL: common variable. FUNCTION: function variable.
+   * 
+   * @example
+   * NORMAL
+   */
   type?: string;
+  /**
+   * @remarks
+   * The variable value.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -230,10 +428,45 @@ export class FilesConfigVariablesValue extends $tea.Model {
 }
 
 export class ConfigValueFilesConfigVariablesValue extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the variable.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether the variable is not allowed to be modified.
+   * 
+   * @example
+   * true
+   */
   disableModify?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the variable is modified.
+   * 
+   * @example
+   * false
+   */
   isModify?: boolean;
+  /**
+   * @remarks
+   * The variable type. Valid values: NORMAL: common variable. FUNCTION: function variable.
+   * 
+   * @example
+   * NORMAL
+   */
   type?: string;
+  /**
+   * @remarks
+   * The variable value.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -261,12 +494,61 @@ export class ConfigValueFilesConfigVariablesValue extends $tea.Model {
 }
 
 export class BuildIndexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The reindexing method. Valid values: api: API data source. indexRecover: data recovery by using indexing.
+   * 
+   * @example
+   * indexRecover
+   */
   buildMode?: string;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * my_data_source
+   */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * The type of the data source.
+   * 
+   * @example
+   * swift
+   */
   dataSourceType?: string;
+  /**
+   * @remarks
+   * The timestamp in seconds. The value must be of the INTEGER type. This parameter is required if you specify an API data source.
+   * 
+   * @example
+   * 1640867288
+   */
   dataTimeSec?: number;
+  /**
+   * @remarks
+   * The data center in which the data source is deployed.
+   * 
+   * @example
+   * test
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The data restoration version.
+   * 
+   * @example
+   * 160131146
+   */
   generation?: number;
+  /**
+   * @remarks
+   * The partition in the MaxCompute table. This parameter is required if type is set to odps.
+   * 
+   * @example
+   * 20201010
+   */
   partition?: string;
   static names(): { [key: string]: string } {
     return {
@@ -298,7 +580,21 @@ export class BuildIndexRequest extends $tea.Model {
 }
 
 export class BuildIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 407BFD91-DE7D-50BA-8F88-CDE52A3B5E46
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of clusters
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -345,7 +641,21 @@ export class BuildIndexResponse extends $tea.Model {
 }
 
 export class ChangeResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * new resource group id
+   * 
+   * @example
+   * rg-acfmxr3gs*****
+   */
   newResourceGroupId?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -367,6 +677,13 @@ export class ChangeResourceGroupRequest extends $tea.Model {
 }
 
 export class ChangeResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -411,7 +728,21 @@ export class ChangeResourceGroupResponse extends $tea.Model {
 }
 
 export class CloneSqlInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   targetFolderId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -433,7 +764,18 @@ export class CloneSqlInstanceRequest extends $tea.Model {
 }
 
 export class CloneSqlInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * NodeVO
+   */
   result?: CloneSqlInstanceResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -480,8 +822,29 @@ export class CloneSqlInstanceResponse extends $tea.Model {
 }
 
 export class CreateAliasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * alias name
+   * 
+   * @example
+   * test
+   */
   alias?: string;
+  /**
+   * @remarks
+   * index name
+   * 
+   * @example
+   * index
+   */
   index?: string;
+  /**
+   * @remarks
+   * Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
+   * 
+   * @example
+   * true
+   */
   newMode?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -505,7 +868,21 @@ export class CreateAliasRequest extends $tea.Model {
 }
 
 export class CreateAliasResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Map
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -552,10 +929,39 @@ export class CreateAliasResponse extends $tea.Model {
 }
 
 export class CreateClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic connection.
+   * 
+   * @example
+   * true
+   */
   autoLoad?: boolean;
+  /**
+   * @remarks
+   * The details of the Searcher workers.
+   */
   dataNode?: CreateClusterRequestDataNode;
+  /**
+   * @remarks
+   * The description of the cluster.
+   * 
+   * @example
+   * "ha-tets"
+   */
   description?: string;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * ha-cn-zvp2qr1sk01_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The details of the Query Result Searcher (QRS) workers.
+   */
   queryNode?: CreateClusterRequestQueryNode;
   static names(): { [key: string]: string } {
     return {
@@ -583,7 +989,21 @@ export class CreateClusterRequest extends $tea.Model {
 }
 
 export class CreateClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -630,7 +1050,21 @@ export class CreateClusterResponse extends $tea.Model {
 }
 
 export class CreateConfigDirRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The directory name.
+   * 
+   * @example
+   * /clusters
+   */
   dirName?: string;
+  /**
+   * @remarks
+   * The path of the parent directory.
+   * 
+   * @example
+   * /
+   */
   parentFullPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -652,7 +1086,21 @@ export class CreateConfigDirRequest extends $tea.Model {
 }
 
 export class CreateConfigDirResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -699,8 +1147,29 @@ export class CreateConfigDirResponse extends $tea.Model {
 }
 
 export class CreateConfigFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the directory.
+   * 
+   * @example
+   * /schemas/device_event_xt_schema.json
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) URL of the file.
+   * 
+   * @example
+   * oss://xxx/xxxx/xxx
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The path of the parent directory.
+   * 
+   * @example
+   * /
+   */
   parentFullPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -724,7 +1193,21 @@ export class CreateConfigFileRequest extends $tea.Model {
 }
 
 export class CreateConfigFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * FE03180A-0E29-5474-8A86-33F0683294A4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -771,12 +1254,55 @@ export class CreateConfigFileResponse extends $tea.Model {
 }
 
 export class CreateDataSourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically rebuild the index.
+   * 
+   * @example
+   * true
+   */
   autoBuildIndex?: boolean;
+  /**
+   * @remarks
+   * The configuration information.
+   */
   config?: CreateDataSourceRequestConfig;
+  /**
+   * @remarks
+   * The data center in which the data source is deployed.
+   * 
+   * @example
+   * vpc_hz_domain_1
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_test_api
+   */
   name?: string;
+  /**
+   * @remarks
+   * The configurations of the SARO data source.
+   */
   saroConfig?: CreateDataSourceRequestSaroConfig;
+  /**
+   * @remarks
+   * The type of the data source. Valid values: odps, oss, and swift.
+   * 
+   * @example
+   * odps
+   */
   type?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run. This parameter is only used to check whether the data source is valid. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -808,7 +1334,21 @@ export class CreateDataSourceRequest extends $tea.Model {
 }
 
 export class CreateDataSourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned results.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -855,8 +1395,31 @@ export class CreateDataSourceResponse extends $tea.Model {
 }
 
 export class CreateFolderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gist_qc
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   parent?: number;
+  /**
+   * @remarks
+   * table, instance, template, function
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -880,7 +1443,18 @@ export class CreateFolderRequest extends $tea.Model {
 }
 
 export class CreateFolderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * NodeVO
+   */
   result?: CreateFolderResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -927,15 +1501,96 @@ export class CreateFolderResponse extends $tea.Model {
 }
 
 export class CreateIndexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of full indexes that can be concurrently built.
+   * 
+   * @example
+   * 2
+   */
   buildParallelNum?: number;
+  /**
+   * @remarks
+   * The index schema.
+   * 
+   * @example
+   * {\\"summarys\\":{\\"summary_fields\\":[\\"id\\"]},\\"indexs\\":[{\\"index_name\\":\\"index_id\\",\\"index_type\\":\\"PRIMARYKEY64\\",\\"index_fields\\":\\"id\\",\\"has_primary_key_attribute\\":true,\\"is_primary_key_sorted\\":false}],\\"attributes\\":[\\"id\\"],\\"fields\\":[{\\"field_name\\":\\"id\\",\\"field_type\\":\\"UINT16\\"}],\\"table_name\\":\\"index_2\\"}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * test1
+   */
   dataSource?: string;
+  /**
+   * @remarks
+   * The information about the data source. This parameter is required for an OpenSearch Vector Search Edition instance of the new version.
+   */
   dataSourceInfo?: CreateIndexRequestDataSourceInfo;
+  /**
+   * @remarks
+   * The data center in which the data source is deployed.
+   * 
+   * @example
+   * vpc_hz_domain_1
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The extended content of the field configuration. key specifies the vector field and the field that requires embedding.
+   * 
+   * @example
+   * {
+   *         "vector":
+   *         [
+   *             "source_image_vector"
+   *         ],
+   *         "embeding":
+   *         [
+   *             "source_image"
+   *         ],
+   *         "description":
+   *         []
+   *     }
+   */
   extend?: { [key: string]: any };
+  /**
+   * @remarks
+   * The maximum number of full indexes that can be concurrently merged.
+   * 
+   * @example
+   * 2
+   */
   mergeParallelNum?: number;
+  /**
+   * @remarks
+   * The index name.
+   * 
+   * @example
+   * ha-cn-zvp2qr1sk01_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of data shards.
+   * 
+   * @example
+   * 20211202
+   */
   partition?: number;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -973,7 +1628,21 @@ export class CreateIndexRequest extends $tea.Model {
 }
 
 export class CreateIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 407BFD91-DE7D-50BA-8F88-CDE52A3B5E46
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The results returned.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1020,8 +1689,23 @@ export class CreateIndexResponse extends $tea.Model {
 }
 
 export class CreateInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values: PREPAY: subscription. If you set this parameter to PREPAY, make sure that your Alibaba Cloud account supports balance payment or credit card payment. Otherwise, the system returns the InvalidPayMethod error message. If you set this parameter to PREPAY, you must also specify paymentInfo. POSTPAY: pay-as-you-go. This billing method is not supported.
+   * 
+   * @example
+   * ""
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The information about the instance specification.
+   */
   components?: CreateInstanceRequestComponents[];
+  /**
+   * @remarks
+   * The billing information.
+   */
   order?: CreateInstanceRequestOrder;
   static names(): { [key: string]: string } {
     return {
@@ -1045,7 +1729,18 @@ export class CreateInstanceRequest extends $tea.Model {
 }
 
 export class CreateInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * D39EE0F1-D7EF-5F46-B781-6BF4185308B0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The results returned.
+   */
   result?: CreateInstanceResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -1092,7 +1787,21 @@ export class CreateInstanceResponse extends $tea.Model {
 }
 
 export class CreatePublicUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1139,7 +1848,21 @@ export class CreatePublicUrlResponse extends $tea.Model {
 }
 
 export class CreateSqlInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * -1
+   */
   parent?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1161,7 +1884,18 @@ export class CreateSqlInstanceRequest extends $tea.Model {
 }
 
 export class CreateSqlInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * B43CD1BB-ABD7-59C5-B89A-6E5F6FE60A84
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * NodeVO
+   */
   result?: CreateSqlInstanceResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -1208,15 +1942,76 @@ export class CreateSqlInstanceResponse extends $tea.Model {
 }
 
 export class CreateTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations about field processing.
+   */
   dataProcessConfig?: CreateTableRequestDataProcessConfig[];
+  /**
+   * @remarks
+   * The number of resources used for data update.
+   * 
+   * @example
+   * 1
+   */
   dataProcessorCount?: number;
+  /**
+   * @remarks
+   * The configurations of the data source.
+   */
   dataSource?: CreateTableRequestDataSource;
+  /**
+   * @remarks
+   * The fields.
+   */
   fieldSchema?: { [key: string]: string };
+  /**
+   * @remarks
+   * The index name.
+   * 
+   * @example
+   * index_1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of data shards.
+   * 
+   * @example
+   * 1
+   */
   partitionCount?: number;
+  /**
+   * @remarks
+   * The primary key field.
+   * 
+   * @example
+   * id
+   */
   primaryKey?: string;
+  /**
+   * @remarks
+   * The instance schema. If this parameter is specified, the parameters about the index are not required.
+   * 
+   * @example
+   * {}
+   */
   rawSchema?: string;
+  /**
+   * @remarks
+   * The index schema.
+   */
   vectorIndex?: CreateTableRequestVectorIndex[];
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1254,7 +2049,21 @@ export class CreateTableRequest extends $tea.Model {
 }
 
 export class CreateTableResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Map
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1301,7 +2110,21 @@ export class CreateTableResponse extends $tea.Model {
 }
 
 export class DeleteAdvanceConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1348,7 +2171,21 @@ export class DeleteAdvanceConfigResponse extends $tea.Model {
 }
 
 export class DeleteAliasResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * FE03180A-0E29-5474-8A86-33F0683294A4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Map
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1395,7 +2232,25 @@ export class DeleteAliasResponse extends $tea.Model {
 }
 
 export class DeleteConfigDirRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The directory name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /clusters
+   */
   dirName?: string;
+  /**
+   * @remarks
+   * The path of the parent directory.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /
+   */
   parentFullPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1417,7 +2272,21 @@ export class DeleteConfigDirRequest extends $tea.Model {
 }
 
 export class DeleteConfigDirResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F43E8AB4-419C-5F4C-90D6-615590DFAA3C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1464,7 +2333,25 @@ export class DeleteConfigDirResponse extends $tea.Model {
 }
 
 export class DeleteConfigFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /schemas/automobile_vector_schema.json
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * The path of the parent directory.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /
+   */
   parentFullPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1486,7 +2373,21 @@ export class DeleteConfigFileRequest extends $tea.Model {
 }
 
 export class DeleteConfigFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1533,7 +2434,21 @@ export class DeleteConfigFileResponse extends $tea.Model {
 }
 
 export class DeleteDataSourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result returned
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1580,7 +2495,18 @@ export class DeleteDataSourceResponse extends $tea.Model {
 }
 
 export class DeleteFolderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Response<Map<String, String>>
+   */
   result?: DeleteFolderResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -1627,7 +2553,23 @@ export class DeleteFolderResponse extends $tea.Model {
 }
 
 export class DeleteIndexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The data source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ha-cn-pl32rf0js04_test
+   */
   dataSource?: string;
+  /**
+   * @remarks
+   * Specifies whether to delete the data source.
+   * 
+   * @example
+   * true
+   */
   deleteDataSource?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1649,7 +2591,21 @@ export class DeleteIndexRequest extends $tea.Model {
 }
 
 export class DeleteIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the index
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1696,7 +2652,21 @@ export class DeleteIndexResponse extends $tea.Model {
 }
 
 export class DeleteIndexVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1743,7 +2713,21 @@ export class DeleteIndexVersionResponse extends $tea.Model {
 }
 
 export class DeleteInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * E45380E8-994A-5402-9806-F114B3295FCF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result returned
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1790,7 +2774,21 @@ export class DeleteInstanceResponse extends $tea.Model {
 }
 
 export class DeletePublicUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F43E8AB4-419C-5F4C-90D6-615590DFAA3C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1837,7 +2835,18 @@ export class DeletePublicUrlResponse extends $tea.Model {
 }
 
 export class DeleteSqlInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Response<Map<String, String>>
+   */
   result?: DeleteSqlInstanceResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -1884,7 +2893,21 @@ export class DeleteSqlInstanceResponse extends $tea.Model {
 }
 
 export class DeleteTableResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Map
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -1931,6 +2954,13 @@ export class DeleteTableResponse extends $tea.Model {
 }
 
 export class DescribeRegionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response. Default value: zh-cn.
+   * 
+   * @example
+   * zh-cn
+   */
   acceptLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1950,7 +2980,18 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: DescribeRegionsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -1998,7 +3039,18 @@ export class DescribeRegionsResponse extends $tea.Model {
 
 export class ExecuteSqlInstanceRequest extends $tea.Model {
   combineParam?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * select * from test
+   */
   content?: string;
+  /**
+   * @example
+   * vpc_hz_domain_1
+   */
   domain?: string;
   dynamicParam?: { [key: string]: any };
   kvpair?: { [key: string]: any };
@@ -2034,7 +3086,18 @@ export class ExecuteSqlInstanceRequest extends $tea.Model {
 }
 
 export class ExecuteSqlInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * FE03180A-0E29-5474-8A86-33F0683294A4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * NodeVO
+   */
   result?: ExecuteSqlInstanceResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2081,7 +3144,21 @@ export class ExecuteSqlInstanceResponse extends $tea.Model {
 }
 
 export class ForceSwitchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0B1FF998-BB8D-5182-BFC0-E471AA77095A
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The index information.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -2128,6 +3205,21 @@ export class ForceSwitchResponse extends $tea.Model {
 }
 
 export class GetAdvanceConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * *   The type of the advanced configuration. Valid values: -ONLINE: online configuration
+   * *   \\-ONLINE_CAVA: online Cava configuration
+   * *   \\-ONLINE_PLUGIN: online plug-in configuration
+   * *   \\-ONLINE_QUERY: query configuration
+   * *   \\-OFFLINE_DICT: offline dictionary configuration
+   * *   \\-OFFLINE_TABLE: offline table configuration
+   * *   \\-OFFLINE_COMMON: offline configuration
+   * *   \\-OFFLINE_PLUGIN: offline plug-in configuration
+   * *   \\-OFFLINE_INDEX: index configuration
+   * 
+   * @example
+   * ONLINE
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2147,7 +3239,18 @@ export class GetAdvanceConfigRequest extends $tea.Model {
 }
 
 export class GetAdvanceConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E45380E8-994A-5402-9806-F114B3295FCF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: GetAdvanceConfigResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2194,6 +3297,15 @@ export class GetAdvanceConfigResponse extends $tea.Model {
 }
 
 export class GetAdvanceConfigFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the file
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /intervene_dict/chn_ecommerce_general.dict
+   */
   fileName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2213,7 +3325,18 @@ export class GetAdvanceConfigFileRequest extends $tea.Model {
 }
 
 export class GetAdvanceConfigFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: GetAdvanceConfigFileResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2260,7 +3383,18 @@ export class GetAdvanceConfigFileResponse extends $tea.Model {
 }
 
 export class GetClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The clusters.
+   */
   result?: GetClusterResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2307,7 +3441,18 @@ export class GetClusterResponse extends $tea.Model {
 }
 
 export class GetClusterRunTimeInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E45380E8-994A-5402-9806-F114B3295FCF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: GetClusterRunTimeInfoResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -2354,7 +3499,18 @@ export class GetClusterRunTimeInfoResponse extends $tea.Model {
 }
 
 export class GetDataSourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FE03180A-0E29-5474-8A86-33F0683294A4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the data source.
+   */
   result?: GetDataSourceResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2401,7 +3557,18 @@ export class GetDataSourceResponse extends $tea.Model {
 }
 
 export class GetDataSourceDeployResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: GetDataSourceDeployResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2448,7 +3615,18 @@ export class GetDataSourceDeployResponse extends $tea.Model {
 }
 
 export class GetDatabaseSchemaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * List
+   */
   result?: GetDatabaseSchemaResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -2495,7 +3673,21 @@ export class GetDatabaseSchemaResponse extends $tea.Model {
 }
 
 export class GetDeployGraphResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The results returned.
+   * 
+   * @example
+   * {}
+   */
   result?: GetDeployGraphResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2542,6 +3734,15 @@ export class GetDeployGraphResponse extends $tea.Model {
 }
 
 export class GetFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the file in full path
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /schemas/automobile_vector_schema.json
+   */
   fileName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2561,7 +3762,18 @@ export class GetFileRequest extends $tea.Model {
 }
 
 export class GetFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The index information.
+   */
   result?: GetFileResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2608,7 +3820,18 @@ export class GetFileResponse extends $tea.Model {
 }
 
 export class GetIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4FB0325E-8C37-5525-96AC-0333523170A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The index information.
+   */
   result?: GetIndexResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2655,7 +3878,18 @@ export class GetIndexResponse extends $tea.Model {
 }
 
 export class GetIndexOnlineStrategyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * FE03180A-0E29-5474-8A86-33F0683294A4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: GetIndexOnlineStrategyResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2702,7 +3936,18 @@ export class GetIndexOnlineStrategyResponse extends $tea.Model {
 }
 
 export class GetIndexVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The clusters.
+   */
   result?: GetIndexVersionResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2749,7 +3994,18 @@ export class GetIndexVersionResponse extends $tea.Model {
 }
 
 export class GetInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The results returned.
+   */
   result?: GetInstanceResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2796,8 +4052,34 @@ export class GetInstanceResponse extends $tea.Model {
 }
 
 export class GetNodeConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the cluster
+   * 
+   * @example
+   * vpc_sh_domain_2
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * The node name.
+   * 
+   * @example
+   * ha-cn-30174dhoz53_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   qrs: Query Result Searcher (QRS) worker
+   * *   search: Search worker
+   * *   index: index
+   * *   cluster: cluster
+   * 
+   * @example
+   * index
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2821,7 +4103,18 @@ export class GetNodeConfigRequest extends $tea.Model {
 }
 
 export class GetNodeConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result set.
+   */
   result?: GetNodeConfigResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2868,6 +4161,10 @@ export class GetNodeConfigResponse extends $tea.Model {
 }
 
 export class GetSqlInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2887,7 +4184,18 @@ export class GetSqlInstanceRequest extends $tea.Model {
 }
 
 export class GetSqlInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * InstanceVersionVO
+   */
   result?: GetSqlInstanceResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2934,7 +4242,18 @@ export class GetSqlInstanceResponse extends $tea.Model {
 }
 
 export class GetTableResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The results returned.
+   */
   result?: GetTableResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -2981,7 +4300,18 @@ export class GetTableResponse extends $tea.Model {
 }
 
 export class GetTableGenerationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result returned.
+   */
   result?: GetTableGenerationResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -3028,6 +4358,15 @@ export class GetTableGenerationResponse extends $tea.Model {
 }
 
 export class ListAdvanceConfigDirRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the directory
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /zones/general
+   */
   dirName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3047,7 +4386,18 @@ export class ListAdvanceConfigDirRequest extends $tea.Model {
 }
 
 export class ListAdvanceConfigDirResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The advanced configuration files.
+   */
   result?: ListAdvanceConfigDirResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3094,9 +4444,37 @@ export class ListAdvanceConfigDirResponse extends $tea.Model {
 }
 
 export class ListAdvanceConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_test_api
+   */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * The index name.
+   * 
+   * @example
+   * test_api
+   */
   indexName?: string;
+  /**
+   * @remarks
+   * Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
+   * 
+   * @example
+   * true
+   */
   newMode?: boolean;
+  /**
+   * @remarks
+   * The type of advanced configurations that you want to query. Valid values: - online -offline (default)
+   * 
+   * @example
+   * online
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3122,7 +4500,18 @@ export class ListAdvanceConfigsRequest extends $tea.Model {
 }
 
 export class ListAdvanceConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 4FB0325E-8C37-5525-96AC-0333523170A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The advanced configurations.
+   */
   result?: ListAdvanceConfigsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3169,7 +4558,18 @@ export class ListAdvanceConfigsResponse extends $tea.Model {
 }
 
 export class ListAliasesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * List
+   */
   result?: ListAliasesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3216,7 +4616,18 @@ export class ListAliasesResponse extends $tea.Model {
 }
 
 export class ListClusterNamesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * F6E3D968-529C-5C40-AFDD-133A8B8FD930
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result set.
+   */
   result?: ListClusterNamesResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -3263,7 +4674,18 @@ export class ListClusterNamesResponse extends $tea.Model {
 }
 
 export class ListClusterTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * CC5EC8FA-5C0D-56AF-BEF4-6FCCEABD0511
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The index information.
+   */
   result?: ListClusterTasksResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3310,7 +4732,18 @@ export class ListClusterTasksResponse extends $tea.Model {
 }
 
 export class ListClustersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * F43E8AB4-419C-5F4C-90D6-615590DFAA3C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The clusters.
+   */
   result?: ListClustersResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3357,7 +4790,18 @@ export class ListClustersResponse extends $tea.Model {
 }
 
 export class ListDataSourceSchemasResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The results returned.
+   */
   result?: ListDataSourceSchemasResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3404,7 +4848,18 @@ export class ListDataSourceSchemasResponse extends $tea.Model {
 }
 
 export class ListDataSourceTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * CC5EC8FA-5C0D-56AF-BEF4-6FCCEABD0511
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The index information.
+   */
   result?: ListDataSourceTasksResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3451,7 +4906,18 @@ export class ListDataSourceTasksResponse extends $tea.Model {
 }
 
 export class ListDataSourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 93A9E542-8CF8-5BA6-99AB-94C0FE520429
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The results returned.
+   */
   result?: ListDataSourcesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3498,7 +4964,18 @@ export class ListDataSourcesResponse extends $tea.Model {
 }
 
 export class ListDatabasesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * E45380E8-994A-5402-9806-F114B3295FCF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * NodeTreeVO
+   */
   result?: ListDatabasesResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -3545,7 +5022,26 @@ export class ListDatabasesResponse extends $tea.Model {
 }
 
 export class ListDateSourceGenerationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The data center where the data source is deployed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bj_vpc_domain_1
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * Specifies the index versions to be returned. Valid values:
+   * 
+   * 1.  true (default): returns the index versions that are complete and not expired.
+   * 2.  false: returns all index versions.
+   * 
+   * @example
+   * true
+   */
   validStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3567,7 +5063,18 @@ export class ListDateSourceGenerationsRequest extends $tea.Model {
 }
 
 export class ListDateSourceGenerationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * List
+   */
   result?: ListDateSourceGenerationsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3614,8 +5121,29 @@ export class ListDateSourceGenerationsResponse extends $tea.Model {
 }
 
 export class ListIndexRecoverRecordsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The time when the index version was published.
+   * 
+   * @example
+   * 2024-06-07 16:43:00
+   */
   finishedTime?: string;
+  /**
+   * @remarks
+   * The ID of the full index version.
+   * 
+   * @example
+   * 1708674867
+   */
   generationId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3664,6 +5192,13 @@ export class ListIndexRecoverRecordsResponse extends $tea.Model {
 }
 
 export class ListIndexesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
+   * 
+   * @example
+   * true
+   */
   newMode?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3683,7 +5218,18 @@ export class ListIndexesRequest extends $tea.Model {
 }
 
 export class ListIndexesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4FB0325E-8C37-5525-96AC-0333523170A3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of indexes.
+   */
   result?: ListIndexesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3730,6 +5276,20 @@ export class ListIndexesResponse extends $tea.Model {
 }
 
 export class ListInstanceSpecsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The node type. Valid values:
+   * 
+   * *   qrs: Query Result Searcher (QRS) Worker
+   * *   search: Searcher Worker
+   * *   index: index node
+   * *   cluster: cluster
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * search
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3749,7 +5309,18 @@ export class ListInstanceSpecsRequest extends $tea.Model {
 }
 
 export class ListInstanceSpecsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The instance types.
+   */
   result?: ListInstanceSpecsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -3796,12 +5367,58 @@ export class ListInstanceSpecsResponse extends $tea.Model {
 }
 
 export class ListInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the instance. You can use this description to filter instances. Fuzzy match is supported.
+   * 
+   * @example
+   * Havenask instance
+   */
   description?: string;
+  /**
+   * @remarks
+   * The instance type. Valid values: vector: OpenSearch Vector Search Edition instance. engine: OpenSearch Retrieval Engine Edition instance.
+   * 
+   * @example
+   * vector
+   */
   edition?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ha-cn-83570439y0n
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-aekzgpiswzbksdi
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags of the instance.
+   */
   tags?: ListInstancesRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -3833,12 +5450,58 @@ export class ListInstancesRequest extends $tea.Model {
 }
 
 export class ListInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the instance. You can use this description to filter instances. Fuzzy match is supported.
+   * 
+   * @example
+   * Havenask instance
+   */
   description?: string;
+  /**
+   * @remarks
+   * The instance type. Valid values: vector: OpenSearch Vector Search Edition instance. engine: OpenSearch Retrieval Engine Edition instance.
+   * 
+   * @example
+   * vector
+   */
   edition?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ha-cn-83570439y0n
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-aekzgpiswzbksdi
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags of the instance.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3870,8 +5533,26 @@ export class ListInstancesShrinkRequest extends $tea.Model {
 }
 
 export class ListInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * 89B968E6-1E41-58DF-BB25-5F98ECC759CE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The results returned.
+   */
   result?: ListInstancesResponseBodyResult[];
+  /**
+   * @remarks
+   * The total number of entries returned
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3920,11 +5601,53 @@ export class ListInstancesResponse extends $tea.Model {
 }
 
 export class ListLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end tim. The value is a timestamp in seconds.
+   * 
+   * @example
+   * 1710432000
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The number of entries per num. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @remarks
+   * The query statement
+   * 
+   * @example
+   * status: 200 AND totalTime > 0.01
+   */
   query?: string;
+  /**
+   * @remarks
+   * The start time. The value is a timestamp in seconds.
+   * 
+   * @example
+   * 1706340600
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * -push   -select
+   * 
+   * @example
+   * push
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3954,7 +5677,18 @@ export class ListLogsRequest extends $tea.Model {
 }
 
 export class ListLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * ListResult
+   */
   result?: ListLogsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -4001,6 +5735,15 @@ export class ListLogsResponse extends $tea.Model {
 }
 
 export class ListOnlineConfigsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the domain
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sz_vpc_domain_1
+   */
   domain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4020,7 +5763,18 @@ export class ListOnlineConfigsRequest extends $tea.Model {
 }
 
 export class ListOnlineConfigsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * E45380E8-994A-5402-9806-F114B3295FCF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * List
+   */
   result?: ListOnlineConfigsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -4067,7 +5821,18 @@ export class ListOnlineConfigsResponse extends $tea.Model {
 }
 
 export class ListPausePolicysResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: { [key: string]: ResultValue };
   static names(): { [key: string]: string } {
     return {
@@ -4114,8 +5879,29 @@ export class ListPausePolicysResponse extends $tea.Model {
 }
 
 export class ListPostQueryResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance endpoint.
+   * 
+   * @example
+   * 127.0.0.1
+   */
   address?: string;
+  /**
+   * @remarks
+   * The request body.
+   * 
+   * @example
+   * {}
+   */
   body?: { [key: string]: any };
+  /**
+   * @remarks
+   * The query type. Valid values: sql: SQL query. ha3: Havenask query.
+   * 
+   * @example
+   * ha3
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4139,7 +5925,21 @@ export class ListPostQueryResultRequest extends $tea.Model {
 }
 
 export class ListPostQueryResultResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: any;
   static names(): { [key: string]: string } {
     return {
@@ -4186,7 +5986,21 @@ export class ListPostQueryResultResponse extends $tea.Model {
 }
 
 export class ListQueryResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The query statement
+   * 
+   * @example
+   * query%3D1%26%26config%3Dstart%3A0%2Chit%3A10%2Cformat%3Ajson%26%26cluster%3Dgeneral
+   */
   query?: string;
+  /**
+   * @remarks
+   * The SQL statement that is executed in the query
+   * 
+   * @example
+   * query%3Dselect%20max(content_id)%20from%20generation
+   */
   sql?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4208,6 +6022,13 @@ export class ListQueryResultRequest extends $tea.Model {
 }
 
 export class ListQueryResultResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * 9E5BCFAA-98B3-51D0-9188-B1BC07589337
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4252,8 +6073,29 @@ export class ListQueryResultResponse extends $tea.Model {
 }
 
 export class ListRestQueryResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance endpoint.
+   * 
+   * @example
+   * 127.0.0.1
+   */
   address?: string;
+  /**
+   * @remarks
+   * The name of the index table.
+   * 
+   * @example
+   * main_index
+   */
   indexName?: string;
+  /**
+   * @remarks
+   * The rest query statement.
+   * 
+   * @example
+   * query%3Drelation_id%3A%221151274675_2%22%26%26cluster%3Dgeneral%26%26config%3Dstart%3A0%2Chit%3A10%2Cformat%3Ajson
+   */
   query?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -4277,7 +6119,21 @@ export class ListRestQueryResultRequest extends $tea.Model {
 }
 
 export class ListRestQueryResultResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F43E8AB4-419C-5F4C-90D6-615590DFAA3C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: any;
   static names(): { [key: string]: string } {
     return {
@@ -4324,13 +6180,71 @@ export class ListRestQueryResultResponse extends $tea.Model {
 }
 
 export class ListSchemasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the MaxCompute data source.
+   * 
+   * @example
+   * ak
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the MaxCompute data source.
+   * 
+   * @example
+   * as
+   */
   accessSecret?: string;
+  /**
+   * @remarks
+   * The endpoint of the MaxCompute data source.
+   * 
+   * @example
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The namespace of the SARO data source.
+   * 
+   * @example
+   * igraph-cn-tl32wnrhi04
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The shard name.
+   * 
+   * @example
+   * dt=20230520
+   */
   partition?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute project that is used as the data source.
+   * 
+   * @example
+   * start-flask-v3-obcc
+   */
   project?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute table that is used as the data source.
+   * 
+   * @example
+   * item
+   */
   table?: string;
+  /**
+   * @remarks
+   * The type of the data source. Valid values: odps, swift, saro, oss, and unKnow.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * odps
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4364,7 +6278,21 @@ export class ListSchemasRequest extends $tea.Model {
 }
 
 export class ListSchemasResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * FE03180A-0E29-5474-8A86-33F0683294A4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: any;
   static names(): { [key: string]: string } {
     return {
@@ -4411,7 +6339,18 @@ export class ListSchemasResponse extends $tea.Model {
 }
 
 export class ListTableGenerationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * F6E3D968-529C-5C40-AFDD-133A8B8FD930
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: ListTableGenerationsResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -4458,6 +6397,13 @@ export class ListTableGenerationsResponse extends $tea.Model {
 }
 
 export class ListTablesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether the OpenSearch Vector Search Edition instance is of the new version.
+   * 
+   * @example
+   * true
+   */
   newMode?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4477,7 +6423,18 @@ export class ListTablesRequest extends $tea.Model {
 }
 
 export class ListTablesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: ListTablesResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
@@ -4524,8 +6481,19 @@ export class ListTablesResponse extends $tea.Model {
 }
 
 export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * 600********33
+   */
   nextToken?: string;
   resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
   resourceType?: string;
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
@@ -4552,8 +6520,19 @@ export class ListTagResourcesRequest extends $tea.Model {
 }
 
 export class ListTagResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 600********33
+   */
   nextToken?: string;
   resourceIdShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
   resourceType?: string;
   tagShrink?: string;
   static names(): { [key: string]: string } {
@@ -4580,7 +6559,15 @@ export class ListTagResourcesShrinkRequest extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * b56*******de4a7eca
+   */
   nextToken?: string;
+  /**
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {
@@ -4630,7 +6617,21 @@ export class ListTagResourcesResponse extends $tea.Model {
 }
 
 export class ListTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp that indicates the end of the time range to query.
+   * 
+   * @example
+   * 1690423741577
+   */
   end?: number;
+  /**
+   * @remarks
+   * The timestamp that indicates the beginning of the time range to query.
+   * 
+   * @example
+   * 1687238865434
+   */
   start?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4652,7 +6653,21 @@ export class ListTasksRequest extends $tea.Model {
 }
 
 export class ListTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D39EE0F1-D7EF-5F46-B781-6BF4185308B0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: any;
   static names(): { [key: string]: string } {
     return {
@@ -4699,9 +6714,37 @@ export class ListTasksResponse extends $tea.Model {
 }
 
 export class ListVectorQueryResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance endpoint.
+   * 
+   * @example
+   * 127.0.0.1
+   */
   address?: string;
+  /**
+   * @remarks
+   * The request body.
+   * 
+   * @example
+   * {}
+   */
   body?: { [key: string]: any };
+  /**
+   * @remarks
+   * The query type. Valid values: vector, primary_key, and vector_text.
+   * 
+   * @example
+   * primary_key
+   */
   queryType?: string;
+  /**
+   * @remarks
+   * The vector query type. Valid values: vector, image, and text.
+   * 
+   * @example
+   * image
+   */
   vectorQueryType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4727,7 +6770,21 @@ export class ListVectorQueryResultRequest extends $tea.Model {
 }
 
 export class ListVectorQueryResultResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: any;
   static names(): { [key: string]: string } {
     return {
@@ -4774,12 +6831,58 @@ export class ListVectorQueryResultResponse extends $tea.Model {
 }
 
 export class ModifyAdvanceConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the advanced configuration that is returned.
+   * 
+   * @example
+   * ""
+   */
   content?: string;
+  /**
+   * @remarks
+   * The type of the configuration content. Valid values: FILE, GIT, HTTP, and ODPS.
+   * 
+   * @example
+   * FILE
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * The description of the advanced configuration.
+   * 
+   * @example
+   * test
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The files.
+   */
   files?: ModifyAdvanceConfigRequestFiles[];
+  /**
+   * @remarks
+   * The name of the advanced configuration.
+   * 
+   * @example
+   * ha-cn-zvp2qr1sk01_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the advanced configuration. Valid values: drafting: The advanced configuration is in the draft state. used: The advanced configuration is being used. unused: The advanced configuration is not used. trash: The advanced configuration is being deleted.
+   * 
+   * @example
+   * used
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the advanced configuration was updated.
+   * 
+   * @example
+   * 2024-02-27T07:50:55Z
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4811,7 +6914,21 @@ export class ModifyAdvanceConfigRequest extends $tea.Model {
 }
 
 export class ModifyAdvanceConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -4858,8 +6975,28 @@ export class ModifyAdvanceConfigResponse extends $tea.Model {
 }
 
 export class ModifyAdvanceConfigFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The file content.
+   * 
+   * @example
+   * "ha3"
+   */
   content?: string;
+  /**
+   * @remarks
+   * The variables.
+   */
   variables?: { [key: string]: VariablesValue };
+  /**
+   * @remarks
+   * The name of the file.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /qrs.json
+   */
   fileName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4883,7 +7020,21 @@ export class ModifyAdvanceConfigFileRequest extends $tea.Model {
 }
 
 export class ModifyAdvanceConfigFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 93A9E542-8CF8-5BA6-99AB-94C0FE520429
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -4930,7 +7081,21 @@ export class ModifyAdvanceConfigFileResponse extends $tea.Model {
 }
 
 export class ModifyAliasRequest extends $tea.Model {
+  /**
+   * @remarks
+   * alias name
+   * 
+   * @example
+   * test
+   */
   alias?: string;
+  /**
+   * @remarks
+   * index name
+   * 
+   * @example
+   * index
+   */
   index?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4952,7 +7117,21 @@ export class ModifyAliasRequest extends $tea.Model {
 }
 
 export class ModifyAliasResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * F6E3D968-529C-5C40-AFDD-133A8B8FD930
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Map
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -4999,6 +7178,13 @@ export class ModifyAliasResponse extends $tea.Model {
 }
 
 export class ModifyClusterDescRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request body.
+   * 
+   * @example
+   * {}
+   */
   body?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5018,7 +7204,21 @@ export class ModifyClusterDescRequest extends $tea.Model {
 }
 
 export class ModifyClusterDescResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * D39EE0F1-D7EF-5F46-B781-6BF4185308B0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5065,14 +7265,74 @@ export class ModifyClusterDescResponse extends $tea.Model {
 }
 
 export class ModifyClusterOfflineConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The reindexing method. Valid values: api: API data source. indexRecover: data recovery by using indexing.
+   * 
+   * @example
+   * indexRecover
+   */
   buildMode?: string;
+  /**
+   * @remarks
+   * The configuration name, which is stored as a key.
+   */
   config?: { [key: string]: number };
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * test1
+   */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * The type of the data source. Valid values: odps: MaxCompute. swift: Swift. unKnow: unknown type.
+   * 
+   * @example
+   * maxComputer
+   */
   dataSourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required when index building by using API data sources is triggered.
+   * 
+   * @example
+   * 1640867288
+   */
   dataTimeSec?: number;
+  /**
+   * @remarks
+   * The data center in which the data source is deployed.
+   * 
+   * @example
+   * vpc_hz_domain_1
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the full index version.
+   * 
+   * @example
+   * 160142641
+   */
   generation?: number;
+  /**
+   * @remarks
+   * This parameter is required when index building for full data in a MaxCompute data source is triggered.
+   * 
+   * @example
+   * 20211202
+   */
   partition?: string;
+  /**
+   * @remarks
+   * The push mode of the configuration. By default, only the configuration is pushed.
+   * 
+   * @example
+   * PUSH_ONLY
+   */
   pushMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5108,7 +7368,21 @@ export class ModifyClusterOfflineConfigRequest extends $tea.Model {
 }
 
 export class ModifyClusterOfflineConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5155,7 +7429,15 @@ export class ModifyClusterOfflineConfigResponse extends $tea.Model {
 }
 
 export class ModifyClusterOnlineConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster information.
+   */
   clusters?: string[];
+  /**
+   * @remarks
+   * The configuration information.
+   */
   config?: { [key: string]: number };
   static names(): { [key: string]: string } {
     return {
@@ -5177,7 +7459,21 @@ export class ModifyClusterOnlineConfigRequest extends $tea.Model {
 }
 
 export class ModifyClusterOnlineConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Map
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5224,12 +7520,49 @@ export class ModifyClusterOnlineConfigResponse extends $tea.Model {
 }
 
 export class ModifyDataSourceDeployRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the automatic full indexing feature.
+   * 
+   * @example
+   * true
+   */
   autoBuildIndex?: boolean;
+  /**
+   * @remarks
+   * The extended information.
+   */
   extend?: ModifyDataSourceDeployRequestExtend;
+  /**
+   * @remarks
+   * The parameters of the process.
+   */
   processor?: ModifyDataSourceDeployRequestProcessor;
+  /**
+   * @remarks
+   * The information about the data source.
+   */
   storage?: ModifyDataSourceDeployRequestStorage;
+  /**
+   * @remarks
+   * The information about the incremental data source Swift.
+   */
   swift?: ModifyDataSourceDeployRequestSwift;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the full index version.
+   * 
+   * @example
+   * 1708674867
+   */
   generationId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5261,7 +7594,21 @@ export class ModifyDataSourceDeployRequest extends $tea.Model {
 }
 
 export class ModifyDataSourceDeployResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 93A9E542-8CF8-5BA6-99AB-94C0FE520429
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5308,8 +7655,31 @@ export class ModifyDataSourceDeployResponse extends $tea.Model {
 }
 
 export class ModifyFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The file content.
+   * 
+   * @example
+   * ""
+   */
   content?: string;
+  /**
+   * @remarks
+   * The number of shards.
+   * 
+   * @example
+   * ds=20220713
+   */
   partition?: number;
+  /**
+   * @remarks
+   * The name of the file in the full path
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /schemas/generation_schema.json
+   */
   fileName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5333,7 +7703,21 @@ export class ModifyFileRequest extends $tea.Model {
 }
 
 export class ModifyFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 89B968E6-1E41-58DF-BB25-5F98ECC759CE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the index
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5380,18 +7764,105 @@ export class ModifyFileResponse extends $tea.Model {
 }
 
 export class ModifyIndexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of full indexes that can be concurrently built.
+   * 
+   * @example
+   * 2
+   */
   buildParallelNum?: number;
+  /**
+   * @remarks
+   * The cluster information.
+   */
   cluster?: { [key: string]: {[key: string]: any} };
+  /**
+   * @remarks
+   * The name of the configuration file.
+   * 
+   * @example
+   * ha-cn-35t3r02iq03@ha-cn-35t3r02iq03_test_api@hz_pre_vpc_domain_1@test_api@index_config_v1
+   */
   clusterConfigName?: string;
+  /**
+   * @remarks
+   * The information about the offline configuration.
+   */
   config?: { [key: string]: ConfigValue };
+  /**
+   * @remarks
+   * The file content.
+   * 
+   * @example
+   * {\\"summarys\\":{\\"summary_fields\\":[\\"id\\"]},\\"indexs\\":[{\\"index_name\\":\\"index_id\\",\\"index_type\\":\\"PRIMARYKEY64\\",\\"index_fields\\":\\"id\\",\\"has_primary_key_attribute\\":true,\\"is_primary_key_sorted\\":false}],\\"attributes\\":[\\"id\\"],\\"fields\\":[{\\"field_name\\":\\"id\\",\\"field_type\\":\\"UINT16\\"}],\\"table_name\\":\\"index_2\\"}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-35t3n1yuj0d_index_1
+   */
   dataSource?: string;
+  /**
+   * @remarks
+   * The information about the data source, which is required for the new version of OpenSearch Vector Search Edition.
+   */
   dataSourceInfo?: ModifyIndexRequestDataSourceInfo;
+  /**
+   * @remarks
+   * The description of the data source.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the data center in which the data source is deployed.
+   * 
+   * @example
+   * vpc_hz_domain_1
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The maximum number of full indexes that can be concurrently merged.
+   * 
+   * @example
+   * 2
+   */
   mergeParallelNum?: number;
+  /**
+   * @remarks
+   * The number of shards.
+   * 
+   * @example
+   * 2
+   */
   partition?: number;
+  /**
+   * @remarks
+   * The push mode of the configuration. By default, only the configuration is pushed.
+   * 
+   * @example
+   * PUSH_ONLY
+   */
   pushMode?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the validity of input parameters. Default value: false.
+   * 
+   * Valid values:
+   * 
+   * *   **true**: checks only the validity of input parameters.
+   * *   **false**: checks the validity of input parameters and creates an attribution configuration.
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5435,7 +7906,21 @@ export class ModifyIndexRequest extends $tea.Model {
 }
 
 export class ModifyIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 93A9E542-8CF8-5BA6-99AB-94C0FE520429
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: any;
   static names(): { [key: string]: string } {
     return {
@@ -5482,6 +7967,13 @@ export class ModifyIndexResponse extends $tea.Model {
 }
 
 export class ModifyIndexOnlineStrategyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The index change rate.
+   * 
+   * @example
+   * 20
+   */
   changeRate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5501,7 +7993,21 @@ export class ModifyIndexOnlineStrategyRequest extends $tea.Model {
 }
 
 export class ModifyIndexOnlineStrategyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5548,9 +8054,34 @@ export class ModifyIndexOnlineStrategyResponse extends $tea.Model {
 }
 
 export class ModifyIndexPartitionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * test1
+   */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * The data center.
+   * 
+   * @example
+   * pre_domain_1
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The primary key.
+   * 
+   * @example
+   * 1633293829
+   */
   generation?: number;
+  /**
+   * @remarks
+   * The index information.
+   */
   indexInfos?: ModifyIndexPartitionRequestIndexInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -5576,7 +8107,21 @@ export class ModifyIndexPartitionRequest extends $tea.Model {
 }
 
 export class ModifyIndexPartitionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 93A9E542-8CF8-5BA6-99AB-94C0FE520429
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Map
+   * 
+   * @example
+   * []
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5623,6 +8168,13 @@ export class ModifyIndexPartitionResponse extends $tea.Model {
 }
 
 export class ModifyIndexVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request body.
+   * 
+   * @example
+   * {}
+   */
   body?: ModifyIndexVersionRequestBody[];
   static names(): { [key: string]: string } {
     return {
@@ -5642,7 +8194,21 @@ export class ModifyIndexVersionRequest extends $tea.Model {
 }
 
 export class ModifyIndexVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * F43E8AB4-419C-5F4C-90D6-615590DFAA3C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * result
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5689,15 +8255,95 @@ export class ModifyIndexVersionResponse extends $tea.Model {
 }
 
 export class ModifyNodeConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the index.
+   * 
+   * @example
+   * true
+   */
   active?: boolean;
+  /**
+   * @remarks
+   * The number of data replicas.
+   * 
+   * @example
+   * 1
+   */
   dataDuplicateNumber?: number;
+  /**
+   * @remarks
+   * The number of data shards.
+   * 
+   * @example
+   * 1
+   */
   dataFragmentNumber?: number;
+  /**
+   * @remarks
+   * The traffic percentage.
+   * 
+   * @example
+   * -100
+   */
   flowRatio?: number;
+  /**
+   * @remarks
+   * The minimum service ratio.
+   * 
+   * @example
+   * 10
+   */
   minServicePercent?: number;
+  /**
+   * @remarks
+   * Specifies whether to mount the cluster.
+   * 
+   * @example
+   * true
+   */
   published?: boolean;
+  /**
+   * @remarks
+   * The name of the cluster.
+   * 
+   * @example
+   * vpc_sh_domain_2
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * The name of the data source. Valid values: -search: search for data. -not_search: do not search for data.
+   * 
+   * @example
+   * ha-cn-2r42ostoc01_0704
+   */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * The name of the configuration before the modification.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ha-cn-zvp2iv9a401_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of the algorithm. Valid values:
+   * 
+   * *   pop: a popularity model.
+   * *   cp: a category prediction model.
+   * *   hot: a top search model.
+   * *   hint: a hint model.
+   * *   suggest: a drop-down suggestions model.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * " "
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5735,7 +8381,21 @@ export class ModifyNodeConfigRequest extends $tea.Model {
 }
 
 export class ModifyNodeConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * D39EE0F1-D7EF-5F46-B781-6BF4185308B0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the index
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5782,6 +8442,10 @@ export class ModifyNodeConfigResponse extends $tea.Model {
 }
 
 export class ModifyOnlineConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -5801,7 +8465,21 @@ export class ModifyOnlineConfigRequest extends $tea.Model {
 }
 
 export class ModifyOnlineConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Map
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5848,7 +8526,21 @@ export class ModifyOnlineConfigResponse extends $tea.Model {
 }
 
 export class ModifyPasswordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The password.
+   * 
+   * @example
+   * ******************************
+   */
   password?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * "username"
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5870,7 +8562,21 @@ export class ModifyPasswordRequest extends $tea.Model {
 }
 
 export class ModifyPasswordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * 407BFD91-DE7D-50BA-8F88-CDE52A3B5E46
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5917,6 +8623,10 @@ export class ModifyPasswordResponse extends $tea.Model {
 }
 
 export class ModifyPausePolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: { [key: string]: BodyValue };
   static names(): { [key: string]: string } {
     return {
@@ -5936,7 +8646,21 @@ export class ModifyPausePolicyRequest extends $tea.Model {
 }
 
 export class ModifyPausePolicyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0B1FF998-BB8D-5182-BFC0-E471AA77095A
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -5983,6 +8707,10 @@ export class ModifyPausePolicyResponse extends $tea.Model {
 }
 
 export class ModifyPublicUrlIpListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -6002,7 +8730,21 @@ export class ModifyPublicUrlIpListRequest extends $tea.Model {
 }
 
 export class ModifyPublicUrlIpListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E45380E8-994A-5402-9806-F114B3295FCF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6049,13 +8791,60 @@ export class ModifyPublicUrlIpListResponse extends $tea.Model {
 }
 
 export class ModifyTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations about field processing.
+   */
   dataProcessConfig?: ModifyTableRequestDataProcessConfig[];
+  /**
+   * @remarks
+   * The configurations of the data source.
+   */
   dataSource?: ModifyTableRequestDataSource;
+  /**
+   * @remarks
+   * The fields.
+   */
   fieldSchema?: { [key: string]: string };
+  /**
+   * @remarks
+   * The number of data shards.
+   * 
+   * @example
+   * 1
+   */
   partitionCount?: number;
+  /**
+   * @remarks
+   * The primary key field.
+   * 
+   * @example
+   * id
+   */
   primaryKey?: string;
+  /**
+   * @remarks
+   * The instance schema. If this parameter is specified, the parameters about the index are not required.
+   * 
+   * @example
+   * {}
+   */
   rawSchema?: string;
+  /**
+   * @remarks
+   * The index schema.
+   */
   vectorIndex?: ModifyTableRequestVectorIndex[];
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. The system only checks the validity of the data source. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   dryRun?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6089,7 +8878,21 @@ export class ModifyTableRequest extends $tea.Model {
 }
 
 export class ModifyTableResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * FE03180A-0E29-5474-8A86-33F0683294A4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Map
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6136,7 +8939,18 @@ export class ModifyTableResponse extends $tea.Model {
 }
 
 export class PublishAdvanceConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the advanced configuration.
+   * 
+   * @example
+   * Custom configuration
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The files.
+   */
   files?: PublishAdvanceConfigRequestFiles[];
   static names(): { [key: string]: string } {
     return {
@@ -6158,7 +8972,21 @@ export class PublishAdvanceConfigRequest extends $tea.Model {
 }
 
 export class PublishAdvanceConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result returned
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6205,6 +9033,13 @@ export class PublishAdvanceConfigResponse extends $tea.Model {
 }
 
 export class PublishIndexVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request body.
+   * 
+   * @example
+   * {}
+   */
   body?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6224,7 +9059,21 @@ export class PublishIndexVersionRequest extends $tea.Model {
 }
 
 export class PublishIndexVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * E45380E8-994A-5402-9806-F114B3295FCF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the index
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6271,7 +9120,18 @@ export class PublishIndexVersionResponse extends $tea.Model {
 }
 
 export class PushDocumentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The request body.
+   */
   body?: any[];
+  /**
+   * @remarks
+   * The primary key field.
+   * 
+   * @example
+   * id
+   */
   pkField?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6293,7 +9153,21 @@ export class PushDocumentsRequest extends $tea.Model {
 }
 
 export class PushDocumentsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6340,9 +9214,37 @@ export class PushDocumentsResponse extends $tea.Model {
 }
 
 export class RecoverIndexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The deployment ID of the data source.
+   * 
+   * @example
+   * 277
+   */
   buildDeployId?: number;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-pl32rf0js04_odps_first
+   */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * The ID of the full index version.
+   * 
+   * @example
+   * 1653018575
+   */
   generation?: string;
+  /**
+   * @remarks
+   * The index name.
+   * 
+   * @example
+   * main_index
+   */
   indexName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6368,7 +9270,21 @@ export class RecoverIndexRequest extends $tea.Model {
 }
 
 export class RecoverIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result returned by data search.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6415,8 +9331,29 @@ export class RecoverIndexResponse extends $tea.Model {
 }
 
 export class ReindexRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The timestamp in seconds. The value must be of the INTEGER type. This parameter is required if you specify an API data source.
+   * 
+   * @example
+   * 1640867288
+   */
   dataTimeSec?: number;
+  /**
+   * @remarks
+   * oss data path
+   * 
+   * @example
+   * oss://opensearch
+   */
   ossDataPath?: string;
+  /**
+   * @remarks
+   * The partition in the MaxCompute table. This parameter is required if type is set to odps.
+   * 
+   * @example
+   * ds=20220713
+   */
   partition?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6440,7 +9377,21 @@ export class ReindexRequest extends $tea.Model {
 }
 
 export class ReindexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Map
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6487,7 +9438,21 @@ export class ReindexResponse extends $tea.Model {
 }
 
 export class RemoveClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * E45380E8-994A-5402-9806-F114B3295FCF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6534,6 +9499,13 @@ export class RemoveClusterResponse extends $tea.Model {
 }
 
 export class RenameFolderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6553,7 +9525,18 @@ export class RenameFolderRequest extends $tea.Model {
 }
 
 export class RenameFolderResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 10D5E615-69F7-5F49-B850-00169ADE513C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * NodeVO
+   */
   result?: RenameFolderResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -6600,7 +9583,21 @@ export class RenameFolderResponse extends $tea.Model {
 }
 
 export class StartIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D39EE0F1-D7EF-5F46-B781-6BF4185308B0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The index map.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6647,7 +9644,21 @@ export class StartIndexResponse extends $tea.Model {
 }
 
 export class StopIndexResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The index map.
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6694,7 +9705,21 @@ export class StopIndexResponse extends $tea.Model {
 }
 
 export class StopTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * FE03180A-0E29-5474-8A86-33F0683294A4
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the index
+   * 
+   * @example
+   * {}
+   */
   result?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -6741,8 +9766,23 @@ export class StopTaskResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -6766,6 +9806,10 @@ export class TagResourcesRequest extends $tea.Model {
 }
 
 export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6810,8 +9854,23 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
   resourceType?: string;
   tagKey?: string[];
   static names(): { [key: string]: string } {
@@ -6838,8 +9897,23 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   resourceIdShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
   resourceType?: string;
   tagKeyShrink?: string;
   static names(): { [key: string]: string } {
@@ -6866,6 +9940,10 @@ export class UntagResourcesShrinkRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   tequestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6910,8 +9988,26 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UpdateInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the instance specification.
+   */
   components?: UpdateInstanceRequestComponents[];
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * ""
+   */
   description?: string;
+  /**
+   * @remarks
+   * The type of the order. Valid values: UPGRADE and DOWNGRADE. UPGRADE upgrades the instance specifications. DOWNGRADE: downgrades the instance specifications.
+   * 
+   * @example
+   * ""
+   */
   orderType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6935,7 +10031,18 @@ export class UpdateInstanceRequest extends $tea.Model {
 }
 
 export class UpdateInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request
+   * 
+   * @example
+   * 90D6B8F5-FE97-4509-9AAB-367836C51818
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The results returned.
+   */
   result?: UpdateInstanceResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -6982,6 +10089,13 @@ export class UpdateInstanceResponse extends $tea.Model {
 }
 
 export class UpdateSqlInstanceContentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * select * from test
+   */
   content?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7001,7 +10115,18 @@ export class UpdateSqlInstanceContentRequest extends $tea.Model {
 }
 
 export class UpdateSqlInstanceContentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * E45380E8-994A-5402-9806-F114B3295FCF
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * InstanceVersionVO
+   */
   result?: UpdateSqlInstanceContentResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -7048,6 +10173,13 @@ export class UpdateSqlInstanceContentResponse extends $tea.Model {
 }
 
 export class UpdateSqlInstanceNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7067,7 +10199,18 @@ export class UpdateSqlInstanceNameRequest extends $tea.Model {
 }
 
 export class UpdateSqlInstanceNameResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * NodeVO
+   */
   result?: UpdateSqlInstanceNameResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -7145,7 +10288,18 @@ export class UpdateSqlInstanceParamsRequest extends $tea.Model {
 }
 
 export class UpdateSqlInstanceParamsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * InstanceVersionVO
+   */
   result?: UpdateSqlInstanceParamsResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -7192,7 +10346,21 @@ export class UpdateSqlInstanceParamsResponse extends $tea.Model {
 }
 
 export class VariablesValueFuncValue extends $tea.Model {
+  /**
+   * @remarks
+   * The class name of the function variable.
+   * 
+   * @example
+   * ""
+   */
   funcClassName?: string;
+  /**
+   * @remarks
+   * The template of the function variable.
+   * 
+   * @example
+   * ""
+   */
   template?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7214,7 +10382,18 @@ export class VariablesValueFuncValue extends $tea.Model {
 }
 
 export class ConfigValueFilesConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The file content.
+   * 
+   * @example
+   * $dictContent
+   */
   content?: string;
+  /**
+   * @remarks
+   * The variables.
+   */
   variables?: { [key: string]: ConfigValueFilesConfigVariablesValue };
   static names(): { [key: string]: string } {
     return {
@@ -7236,10 +10415,42 @@ export class ConfigValueFilesConfig extends $tea.Model {
 }
 
 export class ConfigValueFiles extends $tea.Model {
+  /**
+   * @remarks
+   * The operation type. Valid values: UPDATE and DELETE. Default value: UPDATE.
+   * 
+   * @example
+   * UPDATE
+   */
   operateType?: string;
+  /**
+   * @remarks
+   * The path of the parent directory.
+   * 
+   * @example
+   * /
+   */
   parentFullPath?: string;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * /intervene_dict/中文-通用分析器.dict
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * The configuration to be modified.
+   */
   config?: ConfigValueFilesConfig;
+  /**
+   * @remarks
+   * The directory name.
+   * 
+   * @example
+   * /test
+   */
   dirName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7267,14 +10478,53 @@ export class ConfigValueFiles extends $tea.Model {
 }
 
 export class CloneSqlInstanceResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * -cn-pl32rf0****
+   */
   instanceId?: number;
+  /**
+   * @example
+   * True
+   */
   isDir?: number;
+  /**
+   * @example
+   * general
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   parent?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * table, instance, template, function
+   * 
+   * @example
+   * instance
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7310,7 +10560,21 @@ export class CloneSqlInstanceResponseBodyResult extends $tea.Model {
 }
 
 export class CreateClusterRequestDataNode extends $tea.Model {
+  /**
+   * @remarks
+   * The number of Searcher workers.
+   * 
+   * @example
+   * 2
+   */
   number?: number;
+  /**
+   * @remarks
+   * The number of shards.
+   * 
+   * @example
+   * 2
+   */
   partition?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7332,6 +10596,13 @@ export class CreateClusterRequestDataNode extends $tea.Model {
 }
 
 export class CreateClusterRequestQueryNode extends $tea.Model {
+  /**
+   * @remarks
+   * The number of QRS workers.
+   * 
+   * @example
+   * 2
+   */
   number?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7351,15 +10622,85 @@ export class CreateClusterRequestQueryNode extends $tea.Model {
 }
 
 export class CreateDataSourceRequestConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the MaxCompute data source.
+   * 
+   * @example
+   * L***p
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the MaxCompute data source.
+   * 
+   * @example
+   * 5**9a6
+   */
   accessSecret?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * opensearch
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The endpoint of the MaxCompute or Object Storage Service (OSS) data source.
+   * 
+   * @example
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The namespace.
+   * 
+   * @example
+   * aegis-ops
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The path of the OSS object.
+   * 
+   * @example
+   * /opensearch/search
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The partition in the MaxCompute table.
+   * 
+   * @example
+   * ds=20220713
+   */
   partition?: string;
+  /**
+   * @remarks
+   * The file path in the Apsara File Storage for HDFS file system.
+   * 
+   * @example
+   * test-hdfs-path
+   */
   path?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute project that is used as the data source.
+   * 
+   * @example
+   * kubenest
+   */
   project?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute table that is used as the data source.
+   * 
+   * @example
+   * item
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7397,7 +10738,21 @@ export class CreateDataSourceRequestConfig extends $tea.Model {
 }
 
 export class CreateDataSourceRequestSaroConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The namespace of the SARO data source.
+   * 
+   * @example
+   * igraph-cn-x0r3e3abe02
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The name of the SARO table.
+   * 
+   * @example
+   * index_hdfs
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7419,14 +10774,53 @@ export class CreateDataSourceRequestSaroConfig extends $tea.Model {
 }
 
 export class CreateFolderResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 25030
+   */
   id?: number;
+  /**
+   * @example
+   * ha-cn-pl32rf0****
+   */
   instanceId?: number;
+  /**
+   * @example
+   * True
+   */
   isDir?: number;
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parent?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * table, instance, template, function
+   * 
+   * @example
+   * instance
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7462,15 +10856,85 @@ export class CreateFolderResponseBodyResult extends $tea.Model {
 }
 
 export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the MaxCompute data source.
+   * 
+   * @example
+   * L***p
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the MaxCompute data source.
+   * 
+   * @example
+   * 5**9a6
+   */
   accessSecret?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * test-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The endpoint of the MaxCompute or Object Storage Service (OSS) data source.
+   * 
+   * @example
+   * https://oss-cn-hangzhou.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The namespace name.
+   * 
+   * @example
+   * test-namespace
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The path of the OSS object.
+   * 
+   * @example
+   * /opensearch/oss.json
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The partition in the MaxCompute table. This parameter is required if type is set to odps.
+   * 
+   * @example
+   * ds=20230114
+   */
   partition?: string;
+  /**
+   * @remarks
+   * The path of the Apsara File Storage for HDFS data source.
+   * 
+   * @example
+   * test-hdfs-path
+   */
   path?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute project that is used as the data source.
+   * 
+   * @example
+   * bbt_algo_pai
+   */
   project?: string;
+  /**
+   * @remarks
+   * The table name.
+   * 
+   * @example
+   * bbt_rec_swing_u2i2i_score_be_v1
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7508,7 +10972,21 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
 }
 
 export class CreateIndexRequestDataSourceInfoSaroConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The namespace of the SARO data source.
+   * 
+   * @example
+   * flink-test-fjx-default
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The name of the SARO table.
+   * 
+   * @example
+   * device_event_shy_summary_
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7530,14 +11008,76 @@ export class CreateIndexRequestDataSourceInfoSaroConfig extends $tea.Model {
 }
 
 export class CreateIndexRequestDataSourceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic full indexing.
+   * 
+   * @example
+   * true
+   */
   autoBuildIndex?: boolean;
+  /**
+   * @remarks
+   * The information about the MaxCompute data source.
+   */
   config?: CreateIndexRequestDataSourceInfoConfig;
+  /**
+   * @remarks
+   * The start timestamp from which incremental data is retrieved.
+   * 
+   * @example
+   * 1709715164
+   */
   dataTimeSec?: number;
+  /**
+   * @remarks
+   * The data center in which the data source is deployed.
+   * 
+   * @example
+   * vpc_hz_domain_1
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-35t3n1yuj0d_index_1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The maximum number of full indexes that can be concurrently processed.
+   * 
+   * @example
+   * 2
+   */
   processParallelNum?: number;
+  /**
+   * @remarks
+   * The number of resources used for data update.
+   * 
+   * @example
+   * 4
+   */
   processPartitionCount?: number;
+  /**
+   * @remarks
+   * The configurations of the SARO data source.
+   */
   saroConfig?: CreateIndexRequestDataSourceInfoSaroConfig;
+  /**
+   * @remarks
+   * The type of the data source. Valid values:
+   * 
+   * *   odps
+   * *   swift
+   * *   saro
+   * *   oss
+   * 
+   * @example
+   * odps
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7573,7 +11113,21 @@ export class CreateIndexRequestDataSourceInfo extends $tea.Model {
 }
 
 export class CreateInstanceRequestComponents extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the specification, which must be consistent with the value that you specify on the buy page.
+   * 
+   * @example
+   * ""
+   */
   code?: string;
+  /**
+   * @remarks
+   * The value of the specification.
+   * 
+   * @example
+   * ""
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7595,8 +11149,29 @@ export class CreateInstanceRequestComponents extends $tea.Model {
 }
 
 export class CreateInstanceRequestOrder extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The billing duration. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 12.
+   * 
+   * @example
+   * 29
+   */
   duration?: number;
+  /**
+   * @remarks
+   * The unit of the billing duration. Valid values: Month and Year.
+   * 
+   * @example
+   * ""
+   */
   pricingCycle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7620,6 +11195,13 @@ export class CreateInstanceRequestOrder extends $tea.Model {
 }
 
 export class CreateInstanceResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ha-cn-2r42ppr7901
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7639,14 +11221,53 @@ export class CreateInstanceResponseBodyResult extends $tea.Model {
 }
 
 export class CreateSqlInstanceResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 1719220182844
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 1719220182844
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 22
+   */
   id?: number;
+  /**
+   * @example
+   * ha-cn-pl32rf0****
+   */
   instanceId?: number;
+  /**
+   * @example
+   * true
+   */
   isDir?: number;
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parent?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * table, instance, template, function
+   * 
+   * @example
+   * instance
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7682,8 +11303,29 @@ export class CreateSqlInstanceResponseBodyResult extends $tea.Model {
 }
 
 export class CreateTableRequestDataProcessConfigParamsSrcFieldConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The OSS bucket.
+   * 
+   * @example
+   * test
+   */
   ossBucket?: string;
+  /**
+   * @remarks
+   * The OSS endpoint.
+   * 
+   * @example
+   * oss-cn-hangzhou-internal.aliyuncs.com
+   */
   ossEndpoint?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * uid
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7707,8 +11349,26 @@ export class CreateTableRequestDataProcessConfigParamsSrcFieldConfig extends $te
 }
 
 export class CreateTableRequestDataProcessConfigParams extends $tea.Model {
+  /**
+   * @remarks
+   * The source of the data to be vectorized.
+   */
   srcFieldConfig?: CreateTableRequestDataProcessConfigParamsSrcFieldConfig;
+  /**
+   * @remarks
+   * The data type.
+   * 
+   * @example
+   * image
+   */
   vectorModal?: string;
+  /**
+   * @remarks
+   * The vectorization model.
+   * 
+   * @example
+   * clip
+   */
   vectorModel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7732,9 +11392,34 @@ export class CreateTableRequestDataProcessConfigParams extends $tea.Model {
 }
 
 export class CreateTableRequestDataProcessConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The destination field.
+   * 
+   * @example
+   * source_image_vector
+   */
   dstField?: string;
+  /**
+   * @remarks
+   * The method used to process the field. Valid values: copy and vectorize. A value of copy specifies that the value of the source field is copied to the destination field. A value of vectorize specifies that the value of the source field is vectorized by a vectorization model and the output vector is stored in the destination field.
+   * 
+   * @example
+   * vectorize
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The information about the model.
+   */
   params?: CreateTableRequestDataProcessConfigParams;
+  /**
+   * @remarks
+   * The source field.
+   * 
+   * @example
+   * source_image
+   */
   srcField?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7760,13 +11445,69 @@ export class CreateTableRequestDataProcessConfig extends $tea.Model {
 }
 
 export class CreateTableRequestDataSourceConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the MaxCompute data source.
+   * 
+   * @example
+   * ak
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the MaxCompute data source.
+   * 
+   * @example
+   * as
+   */
   accessSecret?: string;
+  /**
+   * @remarks
+   * The OSS bucket.
+   * 
+   * @example
+   * antsys-flytest-ci
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The endpoint of the MaxCompute data source.
+   * 
+   * @example
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) path.
+   * 
+   * @example
+   * oss://opensearch
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The partition in the MaxCompute table. This parameter is required if type is set to odps.
+   * 
+   * @example
+   * ds=20220713
+   */
   partition?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute project that is used as the data source.
+   * 
+   * @example
+   * project_20210220122847_3218
+   */
   project?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute table that is used as the data source.
+   * 
+   * @example
+   * test56
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7800,9 +11541,34 @@ export class CreateTableRequestDataSourceConfig extends $tea.Model {
 }
 
 export class CreateTableRequestDataSource extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically rebuild the index.
+   * 
+   * @example
+   * true
+   */
   autoBuildIndex?: boolean;
+  /**
+   * @remarks
+   * The configurations of the data source.
+   */
   config?: CreateTableRequestDataSourceConfig;
+  /**
+   * @remarks
+   * The start timestamp from which incremental data is retrieved.
+   * 
+   * @example
+   * 1715160176
+   */
   dataTimeSec?: number;
+  /**
+   * @remarks
+   * The data source type. Valid values: odps, swift, and oss.
+   * 
+   * @example
+   * odps
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7828,9 +11594,37 @@ export class CreateTableRequestDataSource extends $tea.Model {
 }
 
 export class CreateTableRequestVectorIndexAdvanceParams extends $tea.Model {
+  /**
+   * @remarks
+   * The index building parameters.
+   * 
+   * @example
+   * {}
+   */
   buildIndexParams?: string;
+  /**
+   * @remarks
+   * The threshold for linear building.
+   * 
+   * @example
+   * 5000
+   */
   linearBuildThreshold?: string;
+  /**
+   * @remarks
+   * The minimum number of retrieved candidate sets.
+   * 
+   * @example
+   * 20000
+   */
   minScanDocCnt?: string;
+  /**
+   * @remarks
+   * The index retrieval parameters.
+   * 
+   * @example
+   * {}
+   */
   searchIndexParams?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7856,14 +11650,74 @@ export class CreateTableRequestVectorIndexAdvanceParams extends $tea.Model {
 }
 
 export class CreateTableRequestVectorIndex extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the index schema.
+   */
   advanceParams?: CreateTableRequestVectorIndexAdvanceParams;
+  /**
+   * @remarks
+   * The dimension of the vector.
+   * 
+   * @example
+   * 128
+   */
   dimension?: string;
+  /**
+   * @remarks
+   * The distance type.
+   * 
+   * @example
+   * SquaredEuclidean
+   */
   distanceType?: string;
+  /**
+   * @remarks
+   * The name of the index schema.
+   * 
+   * @example
+   * case_index
+   */
   indexName?: string;
+  /**
+   * @remarks
+   * The namespace field.
+   * 
+   * @example
+   * namespace
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The field that stores the indexes of the elements in sparse vectors.
+   * 
+   * @example
+   * sparse_indices
+   */
   sparseIndexField?: string;
+  /**
+   * @remarks
+   * The field that stores the elements in sparse vectors.
+   * 
+   * @example
+   * sparse_values
+   */
   sparseValueField?: string;
+  /**
+   * @remarks
+   * The vector field.
+   * 
+   * @example
+   * source_image_vector
+   */
   vectorField?: string;
+  /**
+   * @remarks
+   * The vector retrieval algorithm.
+   * 
+   * @example
+   * Qc
+   */
   vectorIndexType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7899,7 +11753,18 @@ export class CreateTableRequestVectorIndex extends $tea.Model {
 }
 
 export class DeleteFolderResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 022F36C7-9FB4-5D67-BEBC-3D14B0984463
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result
+   */
   result?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -7921,7 +11786,18 @@ export class DeleteFolderResponseBodyResult extends $tea.Model {
 }
 
 export class DeleteSqlInstanceResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * id of request
+   * 
+   * @example
+   * 2AE63638-5420-56DC-BF59-37D8174039A0
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The result.
+   */
   result?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -7943,8 +11819,57 @@ export class DeleteSqlInstanceResponseBodyResult extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The endpoint of the region.
+   * 
+   * @example
+   * endpoint
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
   localName?: string;
+  /**
+   * @remarks
+   * The ID of the region. Valid values:
+   * 
+   * cn-hangzhou: China (Hangzhou)
+   * 
+   * cn-shanghai: China (Shanghai)
+   * 
+   * cn-qingdao: China (Qingdao)
+   * 
+   * cn-beijing: China (Beijing)
+   * 
+   * cn-zhangjiakou: China (Zhangjiakou)
+   * 
+   * cn-shenzhen: China (Shenzhen)
+   * 
+   * ap-southeast-1: Singapore (Singapore)
+   * 
+   * cn-internal: Internal Center
+   * 
+   * cn-zhangbei-in: Internal Center (Zhangjiakou)
+   * 
+   * us-west-1-in: Internal Center (US)
+   * 
+   * rus-west-1-in: Internal Center (Russia)
+   * 
+   * cn-daily: Daily Environment
+   * 
+   * cn-test: Joint Debugging
+   * 
+   * pre-hangzhou: China (Hangzhou)-Staging
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7968,14 +11893,53 @@ export class DescribeRegionsResponseBodyResult extends $tea.Model {
 }
 
 export class ExecuteSqlInstanceResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 1719220182844
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 22
+   */
   id?: number;
+  /**
+   * @example
+   * ha-cn-pl32rf0****
+   */
   instanceId?: number;
+  /**
+   * @example
+   * true
+   */
   isDir?: number;
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parent?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * table, instance, template, function
+   * 
+   * @example
+   * instance
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8011,9 +11975,37 @@ export class ExecuteSqlInstanceResponseBodyResult extends $tea.Model {
 }
 
 export class GetAdvanceConfigResponseBodyResultFiles extends $tea.Model {
+  /**
+   * @remarks
+   * The file path.
+   * 
+   * @example
+   * ""
+   */
   fullPathName?: string;
+  /**
+   * @remarks
+   * Indicates whether the file is a directory.
+   * 
+   * @example
+   * True
+   */
   isDir?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the file is a container.
+   * 
+   * @example
+   * True
+   */
   isTemplate?: boolean;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * ha-cn-2r42ostoc01_qrs
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8039,12 +12031,58 @@ export class GetAdvanceConfigResponseBodyResultFiles extends $tea.Model {
 }
 
 export class GetAdvanceConfigResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the advanced configuration that is returned.
+   * 
+   * @example
+   * {\\"url\\":\\"http://xxxxxx.aliyuncs.com/outnet_hz/packages/xxxxx/opensearch_offline_plugins_xxxxx.tar\\"}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The type of the configuration content. Valid values: FILE, GIT, HTTP, and ODPS.
+   * 
+   * @example
+   * FILE
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * The description of the advanced configuration.
+   * 
+   * @example
+   * close alarm, chiji id 37080
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The files.
+   */
   files?: GetAdvanceConfigResponseBodyResultFiles[];
+  /**
+   * @remarks
+   * The name of the advanced configuration.
+   * 
+   * @example
+   * ha-cn-0ju2s170b03_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the advanced configuration. Valid values: drafting: The advanced configuration is in the draft state. used: The advanced configuration is being used. unused: The advanced configuration is not used. trash: The advanced configuration is being deleted.
+   * 
+   * @example
+   * 0,1,3,6,8
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the advanced configuration was updated.
+   * 
+   * @example
+   * ""
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8076,6 +12114,13 @@ export class GetAdvanceConfigResponseBodyResult extends $tea.Model {
 }
 
 export class GetAdvanceConfigFileResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The file content.
+   * 
+   * @example
+   * {"summarys":{"parameter":{"file_compressor":"zstd"},"summary_fields":["id"]},"file_compress":[{"name":"file_compressor","type":"zstd"},{"name":"no_compressor","type":""}],"indexs":[{"index_fields":"name","index_name":"ids","index_type":"STRING"},{"has_primary_key_attribute":true,"index_fields":"id","is_primary_key_sorted":false,"index_name":"id","index_type":"PRIMARYKEY64"}],"attributes":[{"file_compress":"no_compressor","field_name":"id"}],"fields":[{"user_defined_param":{},"compress_type":"uniq","field_type":"STRING","field_name":"id"},{"compress_type":"uniq","field_type":"STRING","field_name":"name"}],"table_name":"api"}
+   */
   content?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8095,8 +12140,29 @@ export class GetAdvanceConfigFileResponseBodyResult extends $tea.Model {
 }
 
 export class GetClusterResponseBodyResultDataNode extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Searcher worker.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of replicas.
+   * 
+   * @example
+   * 1
+   */
   number?: number;
+  /**
+   * @remarks
+   * The number of partitions.
+   * 
+   * @example
+   * 2
+   */
   partition?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8120,8 +12186,29 @@ export class GetClusterResponseBodyResultDataNode extends $tea.Model {
 }
 
 export class GetClusterResponseBodyResultQueryNode extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the QRS worker.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of nodes.
+   * 
+   * @example
+   * 1
+   */
   number?: number;
+  /**
+   * @remarks
+   * The number of replicas.
+   * 
+   * @example
+   * 2
+   */
   partition?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8145,17 +12232,92 @@ export class GetClusterResponseBodyResultQueryNode extends $tea.Model {
 }
 
 export class GetClusterResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration information.
+   */
   config?: { [key: string]: {[key: string]: any} };
+  /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
+   * @example
+   * 2021-08-09 00:01:02
+   */
   configUpdateTime?: string;
+  /**
+   * @remarks
+   * The time when the cluster was created.
+   * 
+   * @example
+   * 2024-05-21 16:05:26
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The effective advanced configuration version.
+   * 
+   * @example
+   * test_yyds_data1
+   */
   currentAdvanceConfigVersion?: string;
+  /**
+   * @remarks
+   * The effective online configuration version.
+   * 
+   * @example
+   * test_yyds_data1
+   */
   currentOnlineConfigVersion?: string;
+  /**
+   * @remarks
+   * The specifications of Searcher workers.
+   */
   dataNode?: GetClusterResponseBodyResultDataNode;
+  /**
+   * @remarks
+   * The description of the cluster.
+   * 
+   * @example
+   * fzz_test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The latest advanced configuration version.
+   * 
+   * @example
+   * test_yyds_data1
+   */
   latestAdvanceConfigVersion?: string;
+  /**
+   * @remarks
+   * The latest online configuration version.
+   * 
+   * @example
+   * test_yyds_data1
+   */
   latestOnlineConfigVersion?: string;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * general
+   */
   name?: string;
+  /**
+   * @remarks
+   * The specifications of Query Result Searcher (QRS) workers.
+   */
   queryNode?: GetClusterResponseBodyResultQueryNode;
+  /**
+   * @remarks
+   * The creation status of the cluster. Valid values: NEW and PUBLISH. NEW indicates that the cluster is being created. PUBLISH indicates that the cluster is created.
+   * 
+   * @example
+   * NEW
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8197,10 +12359,45 @@ export class GetClusterResponseBodyResult extends $tea.Model {
 }
 
 export class GetClusterRunTimeInfoResponseBodyResultDataNodesConfigStatusList extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the configuration was last updated.
+   * 
+   * @example
+   * ""
+   */
   configUpdateTime?: string;
+  /**
+   * @remarks
+   * The configuration progress. Unit: percentage.
+   * 
+   * @example
+   * 100
+   */
   donePercent?: number;
+  /**
+   * @remarks
+   * The number of processed Searcher workers in the cluster.
+   * 
+   * @example
+   * 1
+   */
   doneSize?: number;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * test_0704
+   */
   name?: string;
+  /**
+   * @remarks
+   * The total number of Searcher workers in the cluster.
+   * 
+   * @example
+   * 0
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8228,7 +12425,21 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesConfigStatusList ex
 }
 
 export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusListAdvanceConfigInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the index configuration.
+   * 
+   * @example
+   * index_meta_name
+   */
   configMetaName?: string;
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * @example
+   * 1.0
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8250,7 +12461,21 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusListAdvan
 }
 
 export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusListIndexConfigInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the index configuration.
+   * 
+   * @example
+   * index_meta_name
+   */
   configMetaName?: string;
+  /**
+   * @remarks
+   * The version of the index template.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8272,21 +12497,118 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusListIndex
 }
 
 export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusList extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the advanced configuration.
+   */
   advanceConfigInfo?: GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusListAdvanceConfigInfo;
+  /**
+   * @remarks
+   * The name of the worker that failed due to a deployment failure.
+   */
   deployFailedWorker?: string[];
+  /**
+   * @remarks
+   * The storage capacity. Unit: GB.
+   * 
+   * @example
+   * 2
+   */
   docSize?: number;
+  /**
+   * @remarks
+   * The configuration progress. Unit: percentage.
+   * 
+   * @example
+   * 100
+   */
   donePercent?: number;
+  /**
+   * @remarks
+   * The number of processed QRS workers in the cluster.
+   * 
+   * @example
+   * 100
+   */
   doneSize?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * 0A3B1C48006A6C0905F6375F4821EB50
+   */
   errorMsg?: string;
+  /**
+   * @remarks
+   * The time when full data in the index was last updated.
+   * 
+   * @example
+   * " "
+   */
   fullUpdateTime?: string;
+  /**
+   * @remarks
+   * The time when the full index version was generated.
+   * 
+   * @example
+   * 123423
+   */
   fullVersion?: number;
+  /**
+   * @remarks
+   * The time when incremental data in the index was last updated.
+   * 
+   * @example
+   * ""
+   */
   incUpdateTime?: string;
+  /**
+   * @remarks
+   * The time when the incremental index version was generated.
+   * 
+   * @example
+   * 123423
+   */
   incVersion?: number;
+  /**
+   * @remarks
+   * The information about the index configuration.
+   */
   indexConfigInfo?: GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusListIndexConfigInfo;
+  /**
+   * @remarks
+   * The index size.
+   * 
+   * @example
+   * 100
+   */
   indexSize?: number;
+  /**
+   * @remarks
+   * The name of the worker that failed due to insufficient disks.
+   */
   lackDiskWorker?: string[];
+  /**
+   * @remarks
+   * The name of the worker that failed due to insufficient memory.
+   */
   lackMemWorker?: string[];
+  /**
+   * @remarks
+   * The name of the QRS worker.
+   * 
+   * @example
+   * ha-cn-c4d2rq7nt04_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The total number of QRS workers in the cluster.
+   * 
+   * @example
+   * 1
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8336,9 +12658,37 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusList exte
 }
 
 export class GetClusterRunTimeInfoResponseBodyResultDataNodesServiceStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The process progress of QRS workers in the cluster. Unit: percentage.
+   * 
+   * @example
+   * 100
+   */
   donePercent?: number;
+  /**
+   * @remarks
+   * The number of processed QRS workers in the cluster.
+   * 
+   * @example
+   * 100
+   */
   doneSize?: number;
+  /**
+   * @remarks
+   * The name of the QRS worker.
+   * 
+   * @example
+   * ha-cn-0ju2s170b03_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The total number of QRS workers in the cluster.
+   * 
+   * @example
+   * 100
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8364,8 +12714,20 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodesServiceStatus exten
 }
 
 export class GetClusterRunTimeInfoResponseBodyResultDataNodes extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration status.
+   */
   configStatusList?: GetClusterRunTimeInfoResponseBodyResultDataNodesConfigStatusList[];
+  /**
+   * @remarks
+   * The data of the Searcher worker.
+   */
   dataStatusList?: GetClusterRunTimeInfoResponseBodyResultDataNodesDataStatusList[];
+  /**
+   * @remarks
+   * The service status of the QRS worker.
+   */
   serviceStatus?: GetClusterRunTimeInfoResponseBodyResultDataNodesServiceStatus;
   static names(): { [key: string]: string } {
     return {
@@ -8389,10 +12751,45 @@ export class GetClusterRunTimeInfoResponseBodyResultDataNodes extends $tea.Model
 }
 
 export class GetClusterRunTimeInfoResponseBodyResultQueryNodeConfigStatusList extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the configuration was last updated.
+   * 
+   * @example
+   * " "
+   */
   configUpdateTime?: string;
+  /**
+   * @remarks
+   * The process progress of QRS workers in the cluster. Unit: percentage.
+   * 
+   * @example
+   * 100
+   */
   donePercent?: number;
+  /**
+   * @remarks
+   * The number of processed QRS workers in the cluster.
+   * 
+   * @example
+   * 100
+   */
   doneSize?: number;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * ha-cn-zvp2qr1sk01_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The total number of QRS workers in the cluster.
+   * 
+   * @example
+   * 6
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8420,9 +12817,37 @@ export class GetClusterRunTimeInfoResponseBodyResultQueryNodeConfigStatusList ex
 }
 
 export class GetClusterRunTimeInfoResponseBodyResultQueryNodeServiceStatus extends $tea.Model {
+  /**
+   * @remarks
+   * The process progress of QRS workers in the cluster. Unit: percentage.
+   * 
+   * @example
+   * 100
+   */
   donePercent?: number;
+  /**
+   * @remarks
+   * The number of processed QRS workers in the cluster.
+   * 
+   * @example
+   * 100
+   */
   doneSize?: number;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * ha-cn-c4d2rq7nt04_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The total number of QRS workers in the cluster.
+   * 
+   * @example
+   * 100
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8448,7 +12873,15 @@ export class GetClusterRunTimeInfoResponseBodyResultQueryNodeServiceStatus exten
 }
 
 export class GetClusterRunTimeInfoResponseBodyResultQueryNode extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration status.
+   */
   configStatusList?: GetClusterRunTimeInfoResponseBodyResultQueryNodeConfigStatusList[];
+  /**
+   * @remarks
+   * The service status of the QRS worker.
+   */
   serviceStatus?: GetClusterRunTimeInfoResponseBodyResultQueryNodeServiceStatus;
   static names(): { [key: string]: string } {
     return {
@@ -8470,8 +12903,23 @@ export class GetClusterRunTimeInfoResponseBodyResultQueryNode extends $tea.Model
 }
 
 export class GetClusterRunTimeInfoResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * vpc_hz_domain_1
+   */
   clusterName?: string;
+  /**
+   * @remarks
+   * The information about the Searcher workers.
+   */
   dataNodes?: GetClusterRunTimeInfoResponseBodyResultDataNodes[];
+  /**
+   * @remarks
+   * The information about the Query Result Searcher (QRS) workers.
+   */
   queryNode?: GetClusterRunTimeInfoResponseBodyResultQueryNode;
   static names(): { [key: string]: string } {
     return {
@@ -8495,11 +12943,50 @@ export class GetClusterRunTimeInfoResponseBodyResult extends $tea.Model {
 }
 
 export class GetDataSourceResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The data center where the data source is deployed in offline mode
+   * 
+   * @example
+   * vpc_hz_domain_1
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The list of index information
+   */
   indexes?: string[];
+  /**
+   * @remarks
+   * The time when the full data of the data source was last queried.
+   * 
+   * @example
+   * 1718787219
+   */
   lastFulTime?: number;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * my_index
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the data source. Valid values: new: The data source is being created. publish: The data source is in the normal state. trash: The data source is being deleted.
+   * 
+   * @example
+   * NEW
+   */
   status?: string;
+  /**
+   * @remarks
+   * The type of the data source
+   * 
+   * @example
+   * odps
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8529,6 +13016,10 @@ export class GetDataSourceResponseBodyResult extends $tea.Model {
 }
 
 export class GetDataSourceDeployResponseBodyResultExtendHdfs extends $tea.Model {
+  /**
+   * @example
+   * dist-dmj-job/src/main/java
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8567,6 +13058,10 @@ export class GetDataSourceDeployResponseBodyResultExtendOdps extends $tea.Model 
 }
 
 export class GetDataSourceDeployResponseBodyResultExtendOss extends $tea.Model {
+  /**
+   * @example
+   * oss://opensearch
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8586,7 +13081,15 @@ export class GetDataSourceDeployResponseBodyResultExtendOss extends $tea.Model {
 }
 
 export class GetDataSourceDeployResponseBodyResultExtendSaro extends $tea.Model {
+  /**
+   * @example
+   * dist-dmj-job/src/main/java
+   */
   path?: string;
+  /**
+   * @example
+   * 0.6.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8636,7 +13139,21 @@ export class GetDataSourceDeployResponseBodyResultExtend extends $tea.Model {
 }
 
 export class GetDataSourceDeployResponseBodyResultProcessor extends $tea.Model {
+  /**
+   * @remarks
+   * The startup parameters of the process.
+   * 
+   * @example
+   * {}
+   */
   args?: string;
+  /**
+   * @remarks
+   * The resource information.
+   * 
+   * @example
+   * {}
+   */
   resource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8658,15 +13175,73 @@ export class GetDataSourceDeployResponseBodyResultProcessor extends $tea.Model {
 }
 
 export class GetDataSourceDeployResponseBodyResultStorage extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the MaxCompute data source.
+   * 
+   * @example
+   * ak
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the MaxCompute data source.
+   * 
+   * @example
+   * as
+   */
   accessSecret?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * antsys-miniapp-chongwen-static
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The endpoint of the MaxCompute data source.
+   * 
+   * @example
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   */
   endpoint?: string;
+  /**
+   * @example
+   * lazada-campaign-flink
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) path.
+   * 
+   * @example
+   * oss://opensearch
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The partition in the MaxCompute table. Example: ds=20180102.
+   * 
+   * @example
+   * ds=20220926
+   */
   partition?: string;
+  /**
+   * @example
+   * /beiming_xobject/dwd_xobjectsandbox__list_create_action_by_new/
+   */
   path?: string;
+  /**
+   * @example
+   * wireless_1688_personal_rec
+   */
   project?: string;
+  /**
+   * @example
+   * behavior
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8704,7 +13279,21 @@ export class GetDataSourceDeployResponseBodyResultStorage extends $tea.Model {
 }
 
 export class GetDataSourceDeployResponseBodyResultSwift extends $tea.Model {
+  /**
+   * @remarks
+   * The topic.
+   * 
+   * @example
+   * topic
+   */
   topic?: string;
+  /**
+   * @remarks
+   * zk
+   * 
+   * @example
+   * zk
+   */
   zk?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8726,10 +13315,26 @@ export class GetDataSourceDeployResponseBodyResultSwift extends $tea.Model {
 }
 
 export class GetDataSourceDeployResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   autoBuildIndex?: boolean;
   extend?: GetDataSourceDeployResponseBodyResultExtend;
+  /**
+   * @remarks
+   * The parameters of the process.
+   */
   processor?: GetDataSourceDeployResponseBodyResultProcessor;
+  /**
+   * @remarks
+   * The information about the data source.
+   */
   storage?: GetDataSourceDeployResponseBodyResultStorage;
+  /**
+   * @remarks
+   * The information about the incremental data source Swift.
+   */
   swift?: GetDataSourceDeployResponseBodyResultSwift;
   static names(): { [key: string]: string } {
     return {
@@ -8757,10 +13362,30 @@ export class GetDataSourceDeployResponseBodyResult extends $tea.Model {
 }
 
 export class GetDatabaseSchemaResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * id
+   */
   fieldName?: string;
+  /**
+   * @example
+   * STRING
+   */
   fieldType?: string;
+  /**
+   * @example
+   * FT_UINT64
+   */
   fieldTypeDetail?: { [key: string]: any };
+  /**
+   * @example
+   * test_tusou_v2
+   */
   indexName?: string;
+  /**
+   * @example
+   * NUMBER
+   */
   indexType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8788,11 +13413,53 @@ export class GetDatabaseSchemaResponseBodyResult extends $tea.Model {
 }
 
 export class GetDeployGraphResponseBodyResultGraphIndexMetas extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the data center.
+   * 
+   * @example
+   * hz_pre_vpc_domain_1
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The index name.
+   * 
+   * @example
+   * test_api
+   */
   name?: string;
+  /**
+   * @remarks
+   * The deployment ID of the table.
+   * 
+   * @example
+   * 2409
+   */
   tableDeployId?: number;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_test_api
+   */
   tableName?: string;
+  /**
+   * @remarks
+   * The tag.
+   * 
+   * @example
+   * test_api_hz_pre_vpc_domain_1
+   */
   tag?: string;
+  /**
+   * @remarks
+   * The name of the QRS worker.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_qrs
+   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8822,9 +13489,37 @@ export class GetDeployGraphResponseBodyResultGraphIndexMetas extends $tea.Model 
 }
 
 export class GetDeployGraphResponseBodyResultGraphOnlineMaster extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the data center.
+   * 
+   * @example
+   * hz_pre_vpc_domain_1
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * 5377
+   */
   hippoId?: string;
+  /**
+   * @remarks
+   * The ID of the data center.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The name of the online cluster.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_hz_pre_vpc_domain_1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8850,11 +13545,53 @@ export class GetDeployGraphResponseBodyResultGraphOnlineMaster extends $tea.Mode
 }
 
 export class GetDeployGraphResponseBodyResultGraphTableMetas extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the offline deployment.
+   * 
+   * @example
+   * 1
+   */
   buildDeployId?: number;
+  /**
+   * @remarks
+   * The name of the data center.
+   * 
+   * @example
+   * hz_pre_vpc_domain_1
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_test_api
+   */
   name?: string;
+  /**
+   * @remarks
+   * The deployment ID of the table.
+   * 
+   * @example
+   * 2177
+   */
   tableDeployId?: number;
+  /**
+   * @remarks
+   * The tag.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_test_api_hz_pre_vpc_domain_1
+   */
   tag?: string;
+  /**
+   * @remarks
+   * The type of the data source.
+   * 
+   * @example
+   * odps
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8884,10 +13621,45 @@ export class GetDeployGraphResponseBodyResultGraphTableMetas extends $tea.Model 
 }
 
 export class GetDeployGraphResponseBodyResultGraphZoneMetas extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the data center.
+   * 
+   * @example
+   * hz_pre_vpc_domain_1
+   */
   domainInfo?: string;
+  /**
+   * @remarks
+   * The name of the Query Result Searcher (QRS) worker.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The name of the service that is used to manage the relationships between online clusters and indexes.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_hz_pre_vpc_domain_1
+   */
   suezAdminName?: string;
+  /**
+   * @remarks
+   * The tag.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_qrs_hz_pre_vpc_domain_1
+   */
   tag?: string;
+  /**
+   * @remarks
+   * The node type.
+   * 
+   * @example
+   * qrs
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8915,11 +13687,35 @@ export class GetDeployGraphResponseBodyResultGraphZoneMetas extends $tea.Model {
 }
 
 export class GetDeployGraphResponseBodyResultGraph extends $tea.Model {
+  /**
+   * @remarks
+   * The index metadata.
+   */
   indexMetas?: GetDeployGraphResponseBodyResultGraphIndexMetas[];
+  /**
+   * @remarks
+   * The metadata of online clusters.
+   */
   onlineMaster?: GetDeployGraphResponseBodyResultGraphOnlineMaster[];
+  /**
+   * @remarks
+   * The association relationships between data sources and indexes.
+   */
   tableIndexRelation?: { [key: string]: string[] };
+  /**
+   * @remarks
+   * The metadata of data sources.
+   */
   tableMetas?: GetDeployGraphResponseBodyResultGraphTableMetas[];
+  /**
+   * @remarks
+   * The association relationships between zones and indexes.
+   */
   zoneIndexRelation?: { [key: string]: string[] };
+  /**
+   * @remarks
+   * The zone metadata.
+   */
   zoneMetas?: GetDeployGraphResponseBodyResultGraphZoneMetas[];
   static names(): { [key: string]: string } {
     return {
@@ -8949,6 +13745,10 @@ export class GetDeployGraphResponseBodyResultGraph extends $tea.Model {
 }
 
 export class GetDeployGraphResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The deployment information.
+   */
   graph?: GetDeployGraphResponseBodyResultGraph;
   static names(): { [key: string]: string } {
     return {
@@ -8968,16 +13768,60 @@ export class GetDeployGraphResponseBodyResult extends $tea.Model {
 }
 
 export class GetFileResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The file content.
+   * 
+   * @example
+   * None
+   */
   content?: string;
+  /**
+   * @remarks
+   * The data source.
+   * 
+   * @example
+   * ha-cn-2r42p5oi202_xijie_test
+   */
   dataSource?: string;
+  extend?: { [key: string]: string[] };
+  /**
+   * @remarks
+   * The full path of the file.
+   * 
+   * @example
+   * ""
+   */
   fullPathName?: string;
+  /**
+   * @remarks
+   * Indicates whether the file is a directory.
+   * 
+   * @example
+   * True
+   */
   isDir?: boolean;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * ha-cn-2r42ostoc01_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of shards.
+   * 
+   * @example
+   * ds=20210828
+   */
   partition?: number;
   static names(): { [key: string]: string } {
     return {
       content: 'content',
       dataSource: 'dataSource',
+      extend: 'extend',
       fullPathName: 'fullPathName',
       isDir: 'isDir',
       name: 'name',
@@ -8989,6 +13833,7 @@ export class GetFileResponseBodyResult extends $tea.Model {
     return {
       content: 'string',
       dataSource: 'string',
+      extend: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       fullPathName: 'string',
       isDir: 'boolean',
       name: 'string',
@@ -9002,15 +13847,85 @@ export class GetFileResponseBodyResult extends $tea.Model {
 }
 
 export class GetIndexResponseBodyResultDataSourceInfoConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the MaxCompute data source.
+   * 
+   * @example
+   * L***p
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the MaxCompute data source.
+   * 
+   * @example
+   * 5**9a6
+   */
   accessSecret?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * ha3test-oss
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The endpoint of the MaxCompute data source.
+   * 
+   * @example
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+   * 
+   * @example
+   * TEST_dump_demo_sj_na61hunbu2_share_holo
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) path.
+   * 
+   * @example
+   * /test_opensearch/sift_oss_test.data
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The partition in the MaxCompute table. Example: ds=20180102.
+   * 
+   * @example
+   * ds=20220713
+   */
   partition?: string;
+  /**
+   * @remarks
+   * The file path in the Apsara File Storage for HDFS file system.
+   * 
+   * @example
+   * http://test_opensearch/sift_oss_test.data
+   */
   path?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute project that is used as the data source.
+   * 
+   * @example
+   * tisplus_dev
+   */
   project?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute table that is used as the data source.
+   * 
+   * @example
+   * dump_odps_demo
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9048,7 +13963,21 @@ export class GetIndexResponseBodyResultDataSourceInfoConfig extends $tea.Model {
 }
 
 export class GetIndexResponseBodyResultDataSourceInfoSaroConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The namespace of the SARO data source.
+   * 
+   * @example
+   * TEST_dump_demo_sj_na61hunbu2_share_holo
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The name of the SARO table.
+   * 
+   * @example
+   * llm
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9070,13 +13999,63 @@ export class GetIndexResponseBodyResultDataSourceInfoSaroConfig extends $tea.Mod
 }
 
 export class GetIndexResponseBodyResultDataSourceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the automatic full indexing feature is enabled.
+   * 
+   * @example
+   * true
+   */
   autoBuildIndex?: boolean;
+  /**
+   * @remarks
+   * The configuration of MaxCompute data sources.
+   */
   config?: GetIndexResponseBodyResultDataSourceInfoConfig;
+  /**
+   * @remarks
+   * The data center in which the data source is deployed.
+   * 
+   * @example
+   * vpc_hz_domain_1
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_test_api
+   */
   name?: string;
+  /**
+   * @remarks
+   * The maximum number of full indexes that can be concurrently processed.
+   * 
+   * @example
+   * 2
+   */
   processParallelNum?: number;
+  /**
+   * @remarks
+   * The number of resources used for data update.
+   * 
+   * @example
+   * 2
+   */
   processPartitionCount?: number;
+  /**
+   * @remarks
+   * The configurations of the SARO data source.
+   */
   saroConfig?: GetIndexResponseBodyResultDataSourceInfoSaroConfig;
+  /**
+   * @remarks
+   * The type of the data source. Valid values: odps, swift, saro, oss, and unKnow.
+   * 
+   * @example
+   * odps
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9110,9 +14089,37 @@ export class GetIndexResponseBodyResultDataSourceInfo extends $tea.Model {
 }
 
 export class GetIndexResponseBodyResultVersionsFiles extends $tea.Model {
+  /**
+   * @remarks
+   * The full path of the file.
+   * 
+   * @example
+   * " "
+   */
   fullPathName?: string;
+  /**
+   * @remarks
+   * Indicates whether the file is a directory.
+   * 
+   * @example
+   * True
+   */
   isDir?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the file is a template.
+   * 
+   * @example
+   * True
+   */
   isTemplate?: boolean;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * qrs.json
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9138,11 +14145,58 @@ export class GetIndexResponseBodyResultVersionsFiles extends $tea.Model {
 }
 
 export class GetIndexResponseBodyResultVersions extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the version.
+   * 
+   * @example
+   * close alarm, by 3.9.2 hotfix workflow
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The information about the files.
+   */
   files?: GetIndexResponseBodyResultVersionsFiles[];
+  /**
+   * @remarks
+   * The version name.
+   * 
+   * @example
+   * ha-cn-7pp2ngv4s02_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the index version. Valid values:
+   * 
+   * *   NEW: The index version is created.
+   * *   PUBLISH: The index version is normal.
+   * *   IN_USE: The index version is in use.
+   * *   NOT_USE: The index version is not used.
+   * *   STOP_USE: The index version is being stopped.
+   * *   RESTORE_USE: The index version is being restored.
+   * *   FAIL: The index version failed to be created.
+   * 
+   * @example
+   * 2
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the index version was updated.
+   * 
+   * @example
+   * " "
+   */
   updateTime?: number;
+  /**
+   * @remarks
+   * The version ID.
+   * 
+   * @example
+   * 1
+   */
   versionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9172,21 +14226,127 @@ export class GetIndexResponseBodyResultVersions extends $tea.Model {
 }
 
 export class GetIndexResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster information.
+   */
   cluster?: { [key: string]: ResultClusterValue };
+  /**
+   * @remarks
+   * The configuration information.
+   */
   config?: { [key: string]: {[key: string]: any} };
+  /**
+   * @remarks
+   * The configuration that takes effect next time.
+   */
   configWhenBuild?: { [key: string]: {[key: string]: any} };
+  /**
+   * @remarks
+   * The file content.
+   * 
+   * @example
+   * {"summarys":{"parameter":{"file_compressor":"zstd"},"summary_fields":["id"]},"file_compress":[{"name":"file_compressor","type":"zstd"},{"name":"no_compressor","type":""}],"indexs":[{"index_fields":"name","index_name":"ids","index_type":"STRING"},{"has_primary_key_attribute":true,"index_fields":"id","is_primary_key_sorted":false,"index_name":"id","index_type":"PRIMARYKEY64"}],"attributes":[{"file_compress":"no_compressor","field_name":"id"}],"fields":[{"user_defined_param":{},"compress_type":"uniq","field_type":"STRING","field_name":"id"},{"compress_type":"uniq","field_type":"STRING","field_name":"name"}],"table_name":"api"}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-tl32nd2nq01_00
+   */
   dataSource?: string;
+  /**
+   * @remarks
+   * The information about the data source.
+   */
   dataSourceInfo?: GetIndexResponseBodyResultDataSourceInfo;
+  /**
+   * @remarks
+   * The description of the index version.
+   * 
+   * @example
+   * test index
+   */
   description?: string;
+  /**
+   * @remarks
+   * The deployment name of the index.
+   * 
+   * @example
+   * sz_vpc_domain_1
+   */
   domain?: string;
+  extend?: { [key: string]: string[] };
+  /**
+   * @remarks
+   * The time when full data in the index was last updated.
+   * 
+   * @example
+   * 2024-06-20 08:52:54
+   */
   fullUpdateTime?: string;
+  /**
+   * @remarks
+   * The data version.
+   * 
+   * @example
+   * 1688523414
+   */
   fullVersion?: number;
+  /**
+   * @remarks
+   * The time when incremental data in the index was last updated.
+   * 
+   * @example
+   * 2024-06-20 08:52:54
+   */
   incUpdateTime?: string;
+  /**
+   * @remarks
+   * The index size.
+   * 
+   * @example
+   * 4689
+   */
   indexSize?: number;
+  /**
+   * @remarks
+   * The status of the index version. Valid values:
+   * 
+   * *   NEW: The index version is created.
+   * *   PUBLISH: The index version is normal.
+   * *   IN_USE: The index version is in use.
+   * *   NOT_USE: The index version is not used.
+   * *   STOP_USE: The index version is being stopped.
+   * *   RESTORE_USE: The index version is being restored.
+   * *   FAIL: The index version failed to be created.
+   * 
+   * @example
+   * IN_USE
+   */
   indexStatus?: string;
+  /**
+   * @remarks
+   * The index name.
+   * 
+   * @example
+   * general
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of shards.
+   * 
+   * @example
+   * 2
+   */
   partition?: number;
+  /**
+   * @remarks
+   * The information about the versions.
+   */
   versions?: GetIndexResponseBodyResultVersions[];
   static names(): { [key: string]: string } {
     return {
@@ -9198,6 +14358,7 @@ export class GetIndexResponseBodyResult extends $tea.Model {
       dataSourceInfo: 'dataSourceInfo',
       description: 'description',
       domain: 'domain',
+      extend: 'extend',
       fullUpdateTime: 'fullUpdateTime',
       fullVersion: 'fullVersion',
       incUpdateTime: 'incUpdateTime',
@@ -9219,6 +14380,7 @@ export class GetIndexResponseBodyResult extends $tea.Model {
       dataSourceInfo: GetIndexResponseBodyResultDataSourceInfo,
       description: 'string',
       domain: 'string',
+      extend: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       fullUpdateTime: 'string',
       fullVersion: 'number',
       incUpdateTime: 'string',
@@ -9236,6 +14398,13 @@ export class GetIndexResponseBodyResult extends $tea.Model {
 }
 
 export class GetIndexOnlineStrategyResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The index change rate.
+   * 
+   * @example
+   * 20
+   */
   changeRate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9255,9 +14424,34 @@ export class GetIndexOnlineStrategyResponseBodyResult extends $tea.Model {
 }
 
 export class GetIndexVersionResponseBodyResultIndexVersions extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the offline deployment.
+   * 
+   * @example
+   * " "
+   */
   buildDeployId?: string;
+  /**
+   * @remarks
+   * The current online version number.
+   * 
+   * @example
+   * 1
+   */
   currentVersion?: number;
+  /**
+   * @remarks
+   * The name of the index table.
+   * 
+   * @example
+   * table4
+   */
   indexName?: string;
+  /**
+   * @remarks
+   * The index versions.
+   */
   versions?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -9283,7 +14477,18 @@ export class GetIndexVersionResponseBodyResultIndexVersions extends $tea.Model {
 }
 
 export class GetIndexVersionResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * ayoss-cn-zhangjiakou-b
+   */
   cluster?: string;
+  /**
+   * @remarks
+   * The index versions.
+   */
   indexVersions?: GetIndexVersionResponseBodyResultIndexVersions[];
   static names(): { [key: string]: string } {
     return {
@@ -9420,7 +14625,21 @@ export class GetInstanceResponseBodyResultSpec extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyResultTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * prod
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9442,22 +14661,108 @@ export class GetInstanceResponseBodyResultTags extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * @example
+   * POSYPAY
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The commodity code of the instance.
+   * 
+   * @example
+   * commodityCode
+   */
   commodityCode?: string;
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * 2022-06-17T02:01:26Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * ha3_test
+   */
   description?: string;
   edition?: string;
+  /**
+   * @remarks
+   * The time when the instance expires.
+   * 
+   * @example
+   * 1634609702
+   */
   expiredTime?: string;
+  /**
+   * @remarks
+   * Indicates whether an overdue payment is involved.
+   * 
+   * @example
+   * false
+   */
   inDebt?: boolean;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ha-cn-7mz2qsgq301
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The lock status.
+   * 
+   * @example
+   * Unlock
+   */
   lockMode?: string;
   network?: GetInstanceResponseBodyResultNetwork;
   newMode?: boolean;
   noQrs?: boolean;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aekzjvw24el5lma
+   */
   resourceGroupId?: string;
   spec?: GetInstanceResponseBodyResultSpec;
+  /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   INIT: being initialized
+   * *   WAIT_CONFIG: to be configured
+   * *   CONFIG_UPDATING: configuration taking effect
+   * *   READY: normal
+   * 
+   * @example
+   * INIT
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the instance.
+   */
   tags?: GetInstanceResponseBodyResultTags[];
+  /**
+   * @remarks
+   * The time when the instance was updated.
+   * 
+   * @example
+   * 1634609702
+   */
   updateTime?: string;
   userName?: string;
   version?: string;
@@ -9515,11 +14820,53 @@ export class GetInstanceResponseBodyResult extends $tea.Model {
 }
 
 export class GetNodeConfigResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the index is effective online.
+   * 
+   * @example
+   * 1
+   */
   active?: boolean;
+  /**
+   * @remarks
+   * The number of data replicas.
+   * 
+   * @example
+   * 2
+   */
   dataDuplicateNumber?: number;
+  /**
+   * @remarks
+   * The number of data shards.
+   * 
+   * @example
+   * 2
+   */
   dataFragmentNumber?: number;
+  /**
+   * @remarks
+   * The traffic percentage.
+   * 
+   * @example
+   * 0
+   */
   flowRatio?: number;
+  /**
+   * @remarks
+   * The minimum service ratio.
+   * 
+   * @example
+   * 100
+   */
   minServicePercent?: number;
+  /**
+   * @remarks
+   * Indicates whether the cluster is mounted.
+   * 
+   * @example
+   * true
+   */
   published?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9549,17 +14896,65 @@ export class GetNodeConfigResponseBodyResult extends $tea.Model {
 }
 
 export class GetSqlInstanceResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   combineParams?: string;
+  /**
+   * @example
+   * init version
+   */
   comment?: string;
+  /**
+   * @example
+   * select * from test
+   */
   content?: string;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   dynamicParams?: string;
+  /**
+   * @example
+   * 1719220182844
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * ha-cn-pl32rf0****
+   */
   instanceId?: number;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   kvpairs?: string;
+  /**
+   * @example
+   * 1
+   */
   relatedTemplateId?: number;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   staticParams?: string;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   templateParams?: string;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9601,8 +14996,29 @@ export class GetSqlInstanceResponseBodyResult extends $tea.Model {
 }
 
 export class GetTableResponseBodyResultDataProcessConfigParamsSrcFieldConfig extends $tea.Model {
+  /**
+   * @remarks
+   * OSS Bucket
+   * 
+   * @example
+   * test
+   */
   ossBucket?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) endpoint.
+   * 
+   * @example
+   * oss-cn-hangzhou-internal.aliyuncs.com
+   */
   ossEndpoint?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * uid
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9626,8 +15042,26 @@ export class GetTableResponseBodyResultDataProcessConfigParamsSrcFieldConfig ext
 }
 
 export class GetTableResponseBodyResultDataProcessConfigParams extends $tea.Model {
+  /**
+   * @remarks
+   * The source of the data to be vectorized.
+   */
   srcFieldConfig?: GetTableResponseBodyResultDataProcessConfigParamsSrcFieldConfig;
+  /**
+   * @remarks
+   * The data type.
+   * 
+   * @example
+   * image
+   */
   vectorModal?: string;
+  /**
+   * @remarks
+   * The vectorization model.
+   * 
+   * @example
+   * clip
+   */
   vectorModel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9651,9 +15085,34 @@ export class GetTableResponseBodyResultDataProcessConfigParams extends $tea.Mode
 }
 
 export class GetTableResponseBodyResultDataProcessConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The destination field.
+   * 
+   * @example
+   * source_image_vector
+   */
   dstField?: string;
+  /**
+   * @remarks
+   * The method used to process the field. Valid values: copy and vectorize. A value of copy indicates that the value of the source field is copied to the destination field. A value of vectorize indicates that the value of the source field is vectorized by a vectorization model and the output vector is stored in the destination field.
+   * 
+   * @example
+   * vectorize
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The information about the model.
+   */
   params?: GetTableResponseBodyResultDataProcessConfigParams;
+  /**
+   * @remarks
+   * The source field.
+   * 
+   * @example
+   * source_image
+   */
   srcField?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9679,15 +15138,61 @@ export class GetTableResponseBodyResultDataProcessConfig extends $tea.Model {
 }
 
 export class GetTableResponseBodyResultDataSourceConfig extends $tea.Model {
+  /**
+   * @remarks
+   * AK
+   * 
+   * @example
+   * ak
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * AS
+   * 
+   * @example
+   * as
+   */
   accessSecret?: string;
+  /**
+   * @example
+   * heytea-ops-oss
+   */
   bucket?: string;
+  /**
+   * @example
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   */
   endpoint?: string;
+  /**
+   * @example
+   * namespace
+   */
   namespace?: string;
+  /**
+   * @example
+   * /opensearch_index_data/sift_oss_test.data
+   */
   ossPath?: string;
+  /**
+   * @example
+   * ds=20220808
+   */
   partition?: string;
+  /**
+   * @example
+   * vendor/sebastian/comparator/src/exceptions
+   */
   path?: string;
+  /**
+   * @example
+   * dp_pdm_marketing_prod
+   */
   project?: string;
+  /**
+   * @example
+   * test_add
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9725,9 +15230,21 @@ export class GetTableResponseBodyResultDataSourceConfig extends $tea.Model {
 }
 
 export class GetTableResponseBodyResultDataSource extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   autoBuildIndex?: boolean;
   config?: GetTableResponseBodyResultDataSourceConfig;
+  /**
+   * @example
+   * 1715160176
+   */
   dataTimeSec?: number;
+  /**
+   * @example
+   * odps
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9753,9 +15270,37 @@ export class GetTableResponseBodyResultDataSource extends $tea.Model {
 }
 
 export class GetTableResponseBodyResultVectorIndexAdvanceParams extends $tea.Model {
+  /**
+   * @remarks
+   * The index building parameters.
+   * 
+   * @example
+   * {}
+   */
   buildIndexParams?: string;
+  /**
+   * @remarks
+   * The threshold for linear building.
+   * 
+   * @example
+   * 5000
+   */
   linearBuildThreshold?: string;
+  /**
+   * @remarks
+   * The minimum number of retrieved candidate sets.
+   * 
+   * @example
+   * 20000
+   */
   minScanDocCnt?: string;
+  /**
+   * @remarks
+   * The index retrieval parameters.
+   * 
+   * @example
+   * {}
+   */
   searchIndexParams?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9781,14 +15326,74 @@ export class GetTableResponseBodyResultVectorIndexAdvanceParams extends $tea.Mod
 }
 
 export class GetTableResponseBodyResultVectorIndex extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the index schema.
+   */
   advanceParams?: GetTableResponseBodyResultVectorIndexAdvanceParams;
+  /**
+   * @remarks
+   * The dimension of the vector.
+   * 
+   * @example
+   * 128
+   */
   dimension?: string;
+  /**
+   * @remarks
+   * The distance type.
+   * 
+   * @example
+   * SquaredEuclidean
+   */
   distanceType?: string;
+  /**
+   * @remarks
+   * The name of the index schema.
+   * 
+   * @example
+   * test_odps
+   */
   indexName?: string;
+  /**
+   * @remarks
+   * The namespace field.
+   * 
+   * @example
+   * namespace
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The field that stores the indexes of the elements in sparse vectors.
+   * 
+   * @example
+   * sparse_indices
+   */
   sparseIndexField?: string;
+  /**
+   * @remarks
+   * The field that stores the elements in sparse vectors.
+   * 
+   * @example
+   * sparse_values
+   */
   sparseValueField?: string;
+  /**
+   * @remarks
+   * The vector field.
+   * 
+   * @example
+   * source_image_vector
+   */
   vectorField?: string;
+  /**
+   * @remarks
+   * The vector retrieval algorithm.
+   * 
+   * @example
+   * Qc
+   */
   vectorIndexType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9824,15 +15429,54 @@ export class GetTableResponseBodyResultVectorIndex extends $tea.Model {
 }
 
 export class GetTableResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations about field processing.
+   */
   dataProcessConfig?: GetTableResponseBodyResultDataProcessConfig[];
+  /**
+   * @example
+   * 1
+   */
   dataProcessorCount?: number;
   dataSource?: GetTableResponseBodyResultDataSource;
+  /**
+   * @remarks
+   * The field. The value is a key-value pair in which the key indicates the field name and value indicates the field type.
+   */
   fieldSchema?: { [key: string]: string };
+  /**
+   * @example
+   * test_oss
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   partitionCount?: number;
+  /**
+   * @example
+   * id
+   */
   primaryKey?: string;
+  /**
+   * @example
+   * {}
+   */
   rawSchema?: string;
+  /**
+   * @remarks
+   * The state of the index table. Valid values: NEW, PUBLISH, IN_USE, NOT_USE, STOP_USE, RESTORE_USE, and FAIL. After an index is created in an OpenSearch Retrieval Engine Edition instance, the index enters the IN_USE state. If the first full index fails to be created in an OpenSearch Vector Search Edition instance of the new version, the index is in the FAIL state.
+   * 
+   * @example
+   * IN_USE
+   */
   status?: string;
+  /**
+   * @remarks
+   * The index schema.
+   */
   vectorIndex?: GetTableResponseBodyResultVectorIndex[];
   static names(): { [key: string]: string } {
     return {
@@ -9870,7 +15514,21 @@ export class GetTableResponseBodyResult extends $tea.Model {
 }
 
 export class GetTableGenerationResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * generationId
+   * 
+   * @example
+   * 1708674867
+   */
   generationId?: number;
+  /**
+   * @remarks
+   * starting, building, ready, stopped, failed
+   * 
+   * @example
+   * ready
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9892,9 +15550,37 @@ export class GetTableGenerationResponseBodyResult extends $tea.Model {
 }
 
 export class ListAdvanceConfigDirResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The absolute path in which the file is stored.
+   * 
+   * @example
+   * "/path/wpd/nae"
+   */
   fullPathName?: string;
+  /**
+   * @remarks
+   * Indicates whether the file is a directory. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   isDir?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the file is a template. Valid values: **true** and **false**.
+   * 
+   * @example
+   * true
+   */
   isTemplate?: boolean;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * file_name_1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9920,9 +15606,37 @@ export class ListAdvanceConfigDirResponseBodyResult extends $tea.Model {
 }
 
 export class ListAdvanceConfigsResponseBodyResultFiles extends $tea.Model {
+  /**
+   * @remarks
+   * The absolute path in which the file is stored.
+   * 
+   * @example
+   * /path/wpd/nae
+   */
   fullPathName?: string;
+  /**
+   * @remarks
+   * Indicates whether the file is a directory. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   isDir?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the file is a template. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
   isTemplate?: boolean;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * file_name_1
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9948,14 +15662,82 @@ export class ListAdvanceConfigsResponseBodyResultFiles extends $tea.Model {
 }
 
 export class ListAdvanceConfigsResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * *   The type of the advanced configuration. Valid values: -ONLINE: online configuration
+   * *   \\-ONLINE_CAVA: online Cava configuration
+   * *   \\-ONLINE_PLUGIN: online plug-in configuration
+   * *   \\-ONLINE_QUERY: query configuration
+   * *   \\-OFFLINE_DICT: offline dictionary configuration
+   * *   \\-OFFLINE_TABLE: offline table configuration
+   * *   \\-OFFLINE_COMMON: offline configuration
+   * *   \\-OFFLINE_PLUGIN: offline plug-in configuration
+   * *   \\-OFFLINE_INDEX: index configuration
+   * 
+   * @example
+   * ONLINE
+   */
   advanceConfigType?: string;
+  /**
+   * @remarks
+   * The content of the advanced configuration that is returned.
+   * 
+   * @example
+   * {\\"url\\":\\"http://xxxxxx.aliyuncs.com/outnet_hz/packages/xxxxx/opensearch_offline_plugins_xxxxx.tar\\"}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The type of the configuration content. Valid values: FILE, GIT, HTTP, and ODPS.
+   * 
+   * @example
+   * FILE
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the user who created the advanced configuration.
+   * 
+   * @example
+   * 123456
+   */
   creator?: string;
+  /**
+   * @remarks
+   * The description of the advanced configuration.
+   * 
+   * @example
+   * test
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The files.
+   */
   files?: ListAdvanceConfigsResponseBodyResultFiles[];
+  /**
+   * @remarks
+   * The name of the advanced configuration.
+   * 
+   * @example
+   * my_index
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the advanced configuration. Valid values: drafting: The advanced configuration is in the draft state. used: The advanced configuration is being used. unused: The advanced configuration is not used. trash: The advanced configuration is being deleted.
+   * 
+   * @example
+   * drafting
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the advanced configuration was updated.
+   * 
+   * @example
+   * 1631070464000
+   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9991,7 +15773,21 @@ export class ListAdvanceConfigsResponseBodyResult extends $tea.Model {
 }
 
 export class ListAliasesResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * alias name
+   * 
+   * @example
+   * test
+   */
   alias?: string;
+  /**
+   * @remarks
+   * index name
+   * 
+   * @example
+   * index
+   */
   index?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10013,8 +15809,29 @@ export class ListAliasesResponseBodyResult extends $tea.Model {
 }
 
 export class ListClusterNamesResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the cluster.
+   * 
+   * @example
+   * ha3_test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * 25030
+   */
   id?: number;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * my_index
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10038,7 +15855,21 @@ export class ListClusterNamesResponseBodyResult extends $tea.Model {
 }
 
 export class ListClusterTasksResponseBodyResultTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag content.
+   * 
+   * @example
+   * succeed in handling request
+   */
   msg?: string;
+  /**
+   * @remarks
+   * The tag level.
+   * 
+   * @example
+   * " "
+   */
   tagLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10060,9 +15891,37 @@ export class ListClusterTasksResponseBodyResultTags extends $tea.Model {
 }
 
 export class ListClusterTasksResponseBodyResultTaskNodes extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the task was complete.
+   * 
+   * @example
+   * " "
+   */
   finishDate?: string;
+  /**
+   * @remarks
+   * The ordinal number of the task.
+   * 
+   * @example
+   * 100
+   */
   index?: number;
+  /**
+   * @remarks
+   * The task name.
+   * 
+   * @example
+   * general
+   */
   name?: string;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * @example
+   * 2
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10088,16 +15947,87 @@ export class ListClusterTasksResponseBodyResultTaskNodes extends $tea.Model {
 }
 
 export class ListClusterTasksResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The additional attributes of the card.
+   * 
+   * @example
+   * " "
+   */
   extraAttribute?: string;
+  /**
+   * @remarks
+   * The field3 field that was passed when the FSM was created.
+   * 
+   * @example
+   * " "
+   */
   field3?: string;
+  /**
+   * @remarks
+   * The ID of the finite state machine (FSM).
+   * 
+   * @example
+   * tisplus_opensearch@datasource_flow_fsm@1865410598556969-ha-cn-zvp2ljiwe01_api2@bj_vpc_domain_1@null@MANUAL-ha-cn-zvp2ljiwe01_api2@1649729867698@028315
+   */
   fsmId?: string;
+  /**
+   * @remarks
+   * The change group type.
+   * 
+   * @example
+   * " "
+   */
   groupType?: string;
+  /**
+   * @remarks
+   * The card name.
+   * 
+   * @example
+   * ha-cn-pl32rf0js04_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The FSM status.
+   * 
+   * @example
+   * onlyPublished
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the progress bar.
+   */
   tags?: ListClusterTasksResponseBodyResultTags[];
+  /**
+   * @remarks
+   * The task information.
+   */
   taskNodes?: ListClusterTasksResponseBodyResultTaskNodes[];
+  /**
+   * @remarks
+   * The timestamp of the card.
+   * 
+   * @example
+   * 1657610520
+   */
   time?: string;
+  /**
+   * @remarks
+   * The card type.
+   * 
+   * @example
+   * qrs
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who triggered the generation of the FSM process.
+   * 
+   * @example
+   * " "
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10137,8 +16067,29 @@ export class ListClusterTasksResponseBodyResult extends $tea.Model {
 }
 
 export class ListClustersResponseBodyResultDataNode extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Searcher worker.
+   * 
+   * @example
+   * ha-cn-8ed2k7brm05_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of Searcher workers.
+   * 
+   * @example
+   * 1
+   */
   number?: number;
+  /**
+   * @remarks
+   * The ID of the partition that is stored on the Searcher worker.
+   * 
+   * @example
+   * dt=20220216
+   */
   partition?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10162,8 +16113,29 @@ export class ListClustersResponseBodyResultDataNode extends $tea.Model {
 }
 
 export class ListClustersResponseBodyResultQueryNode extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the QRS worker.
+   * 
+   * @example
+   * test_0704
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of QRS workers.
+   * 
+   * @example
+   * 1
+   */
   number?: number;
+  /**
+   * @remarks
+   * The ID of the partition that is stored on the QRS worker.
+   * 
+   * @example
+   * dt=20211216
+   */
   partition?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10187,21 +16159,124 @@ export class ListClustersResponseBodyResultQueryNode extends $tea.Model {
 }
 
 export class ListClustersResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration information.
+   */
   config?: { [key: string]: {[key: string]: any} };
+  /**
+   * @remarks
+   * The time when the configuration was updated.
+   * 
+   * @example
+   * " "
+   */
   configUpdateTime?: string;
+  /**
+   * @remarks
+   * The time when the cluster was created.
+   * 
+   * @example
+   * 2024-05-21 16:05:26
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The effective advanced configuration version.
+   * 
+   * @example
+   * " "
+   */
   currentAdvanceConfigVersion?: string;
+  /**
+   * @remarks
+   * The effective dictionary configuration version.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_offline_adv_v1
+   */
   currentOfflineDictConfigVersion?: string;
+  /**
+   * @remarks
+   * The effective online configuration version.
+   * 
+   * @example
+   * " "
+   */
   currentOnlineConfigVersion?: string;
+  /**
+   * @remarks
+   * The effective query configuration version.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_offline_adv_v1
+   */
   currentOnlineQueryConfigVersion?: string;
+  /**
+   * @remarks
+   * The information about Searcher workers.
+   */
   dataNode?: ListClustersResponseBodyResultDataNode;
+  /**
+   * @remarks
+   * The description of the cluster.
+   * 
+   * @example
+   * fzz_test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The latest advanced configuration version.
+   * 
+   * @example
+   * " "
+   */
   latestAdvanceConfigVersion?: string;
+  /**
+   * @remarks
+   * The latest dictionary configuration version.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_offline_adv_v1
+   */
   latestOfflineDictConfigVersion?: string;
+  /**
+   * @remarks
+   * The latest online configuration version.
+   * 
+   * @example
+   * " "
+   */
   latestOnlineConfigVersion?: string;
+  /**
+   * @remarks
+   * The latest query configuration version.
+   * 
+   * @example
+   * ha-cn-pl32rf0****_offline_adv_v1
+   */
   latestOnlineQueryConfigVersion?: string;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * ha-cn-7pp2pcna701_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The information about Query Result Searcher (QRS) workers.
+   */
   queryNode?: ListClustersResponseBodyResultQueryNode;
+  /**
+   * @remarks
+   * The cluster status. Valid values: running: The cluster is running. starting: The cluster is being started. stopping: The cluster is being stopped. stopped: The cluster is stopped.
+   * 
+   * @example
+   * "starting"
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10251,8 +16326,29 @@ export class ListClustersResponseBodyResult extends $tea.Model {
 }
 
 export class ListDataSourceSchemasResponseBodyResultPrimaryKey extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the field has the primary key attribute. Valid values: **true** and **false**.
+   * 
+   * @example
+   * false
+   */
   hasPrimaryKeyAttribute?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the field is the primary key. Valid values: **true** and **false**.
+   * 
+   * @example
+   * false
+   */
   isPrimaryKey?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the field can be sorted. Valid values: **true** and **false**.
+   * 
+   * @example
+   * false
+   */
   isPrimaryKeySorted?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10276,12 +16372,58 @@ export class ListDataSourceSchemasResponseBodyResultPrimaryKey extends $tea.Mode
 }
 
 export class ListDataSourceSchemasResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the field has the index attribute. Valid values: **true** and **false**.
+   * 
+   * @example
+   * false
+   */
   addIndex?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the field is an attribute field. Valid values: **true** and **false**.
+   * 
+   * @example
+   * false
+   */
   attribute?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the field is a custom field. Valid values: **true** and **false**.
+   * 
+   * @example
+   * false
+   */
   custom?: boolean;
+  /**
+   * @remarks
+   * The field name.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The primary key field.
+   */
   primaryKey?: ListDataSourceSchemasResponseBodyResultPrimaryKey;
+  /**
+   * @remarks
+   * Indicates whether the field can be displayed. Valid values: **true** and **false**.
+   * 
+   * @example
+   * false
+   */
   summary?: boolean;
+  /**
+   * @remarks
+   * The field type.
+   * 
+   * @example
+   * STRING
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10313,7 +16455,21 @@ export class ListDataSourceSchemasResponseBodyResult extends $tea.Model {
 }
 
 export class ListDataSourceTasksResponseBodyResultTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag content.
+   * 
+   * @example
+   * succeed in handling request
+   */
   msg?: string;
+  /**
+   * @remarks
+   * The tag level.
+   * 
+   * @example
+   * ""
+   */
   tagLevel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10335,9 +16491,37 @@ export class ListDataSourceTasksResponseBodyResultTags extends $tea.Model {
 }
 
 export class ListDataSourceTasksResponseBodyResultTaskNodes extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the task was complete.
+   * 
+   * @example
+   * ""
+   */
   finishDate?: string;
+  /**
+   * @remarks
+   * The ordinal number of the task.
+   * 
+   * @example
+   * 100
+   */
   index?: number;
+  /**
+   * @remarks
+   * The task name.
+   * 
+   * @example
+   * ha-cn-7pp2ngv4s02_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * @example
+   * onlyPublished
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10363,16 +16547,87 @@ export class ListDataSourceTasksResponseBodyResultTaskNodes extends $tea.Model {
 }
 
 export class ListDataSourceTasksResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The additional attributes of the card.
+   * 
+   * @example
+   * ""
+   */
   extraAttribute?: string;
+  /**
+   * @remarks
+   * The field3 field that was passed when the FSM was created.
+   * 
+   * @example
+   * ""
+   */
   field3?: string;
+  /**
+   * @remarks
+   * The ID of the finite state machine (FSM).
+   * 
+   * @example
+   * tisplus_opensearch@datasource_flow_fsm@1062017779051424-ha-cn-2r42ostoc01_ecom_table@vpc_hz_domain_1@null@MANUAL-ha-cn-2r42ostoc01_ecom_table@1655974525756@006754
+   */
   fsmId?: string;
+  /**
+   * @remarks
+   * The change group type.
+   * 
+   * @example
+   * " "
+   */
   groupType?: string;
+  /**
+   * @remarks
+   * The card name.
+   * 
+   * @example
+   * general
+   */
   name?: string;
+  /**
+   * @remarks
+   * The FSM status.
+   * 
+   * @example
+   * 2
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the progress bar.
+   */
   tags?: ListDataSourceTasksResponseBodyResultTags[];
+  /**
+   * @remarks
+   * The task information.
+   */
   taskNodes?: ListDataSourceTasksResponseBodyResultTaskNodes[];
+  /**
+   * @remarks
+   * The timestamp of the card.
+   * 
+   * @example
+   * 1646279473
+   */
   time?: string;
+  /**
+   * @remarks
+   * The card type.
+   * 
+   * @example
+   * search
+   */
   type?: string;
+  /**
+   * @remarks
+   * The user who triggered the generation of the FSM process.
+   * 
+   * @example
+   * ""
+   */
   user?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10412,11 +16667,50 @@ export class ListDataSourceTasksResponseBodyResult extends $tea.Model {
 }
 
 export class ListDataSourcesResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The data center in which the data source is deployed.
+   * 
+   * @example
+   * test
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The indexes.
+   */
   indexes?: string[];
+  /**
+   * @remarks
+   * The time when the full data of the data source was last queried.
+   * 
+   * @example
+   * 1718787785
+   */
   lastFulTime?: number;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * data_source_name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the data source. Valid values: new: The data source is being created. publish: The data source is in the normal state. trash: The data source is being deleted.
+   * 
+   * @example
+   * new
+   */
   status?: string;
+  /**
+   * @remarks
+   * The type of the data source.
+   * 
+   * @example
+   * odps
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10447,12 +16741,43 @@ export class ListDataSourcesResponseBodyResult extends $tea.Model {
 
 export class ListDatabasesResponseBodyResultDatabasesSqlInstances extends $tea.Model {
   children?: any[];
+  /**
+   * @example
+   * 12190
+   */
   id?: number;
+  /**
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @example
+   * true
+   */
   isDir?: number;
+  /**
+   * @example
+   * general
+   */
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parent?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * table, instance, template, function
+   * 
+   * @example
+   * instance
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10487,12 +16812,43 @@ export class ListDatabasesResponseBodyResultDatabasesSqlInstances extends $tea.M
 
 export class ListDatabasesResponseBodyResultDatabasesTables extends $tea.Model {
   children?: any[];
+  /**
+   * @example
+   * 56
+   */
   id?: number;
+  /**
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @example
+   * true
+   */
   isDir?: number;
+  /**
+   * @example
+   * general
+   */
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parent?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * table, instance, template, function
+   * 
+   * @example
+   * table
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10527,12 +16883,43 @@ export class ListDatabasesResponseBodyResultDatabasesTables extends $tea.Model {
 
 export class ListDatabasesResponseBodyResultDatabasesTemplates extends $tea.Model {
   children?: any[];
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @example
+   * true
+   */
   isDir?: number;
+  /**
+   * @example
+   * c26_schema
+   */
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parent?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * table, instance, template, function
+   * 
+   * @example
+   * template
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10566,6 +16953,10 @@ export class ListDatabasesResponseBodyResultDatabasesTemplates extends $tea.Mode
 }
 
 export class ListDatabasesResponseBodyResultDatabases extends $tea.Model {
+  /**
+   * @example
+   * general
+   */
   database?: string;
   functions?: { [key: string]: ResultDatabasesFunctionsValue[] };
   sqlInstances?: ListDatabasesResponseBodyResultDatabasesSqlInstances[];
@@ -10616,12 +17007,58 @@ export class ListDatabasesResponseBodyResult extends $tea.Model {
 }
 
 export class ListDateSourceGenerationsResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the offline deployment.
+   * 
+   * @example
+   * 122
+   */
   buildDeployId?: number;
+  /**
+   * @remarks
+   * The timestamp that was generated when the index building was started.
+   * 
+   * @example
+   * 1626143673
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The path of the dumped index in the Apsara File Storage for HDFS file system.
+   * 
+   * @example
+   * ""
+   */
   dataDumpRoot?: string;
+  /**
+   * @remarks
+   * The ID of the full index version.
+   * 
+   * @example
+   * 1626143930
+   */
   generation?: number;
+  /**
+   * @remarks
+   * The shards of the index version. The value is a key-value pair in which the key indicates the index name and the value indicates the number of shards. The number of value shards.
+   */
   partition?: { [key: string]: number };
+  /**
+   * @remarks
+   * The status of the index version.
+   * 
+   * @example
+   * STOPPED
+   */
   status?: string;
+  /**
+   * @remarks
+   * The start timestamp from which incremental data is retrieved.
+   * 
+   * @example
+   * 1626143673
+   */
   timestamp?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10653,15 +17090,85 @@ export class ListDateSourceGenerationsResponseBodyResult extends $tea.Model {
 }
 
 export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the MaxCompute data source.
+   * 
+   * @example
+   * root
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the MaxCompute data source.
+   * 
+   * @example
+   * root123
+   */
   accessSecret?: string;
+  /**
+   * @remarks
+   * The OSS bucket.
+   * 
+   * @example
+   * ha3test-oss
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The endpoint of the MaxCompute data source.
+   * 
+   * @example
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+   * 
+   * @example
+   * TEST_dump_demo_sj_na61hunbu2_share_holo
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) path.
+   * 
+   * @example
+   * /test_opensearch/sift_oss_test.data
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The shard name.
+   * 
+   * @example
+   * ds=12345
+   */
   partition?: string;
+  /**
+   * @remarks
+   * The file path in the Apsara File Storage for HDFS file system.
+   * 
+   * @example
+   * http://test_opensearch/sift_oss_test.data
+   */
   path?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute project that is used as the data source.
+   * 
+   * @example
+   * tisplus_dev
+   */
   project?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute table that is used as the data source.
+   * 
+   * @example
+   * dump_odps_demo
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10699,7 +17206,21 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $tea.Mode
 }
 
 export class ListIndexesResponseBodyResultDataSourceInfoSaroConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The namespace of the SARO data source.
+   * 
+   * @example
+   * TEST_dump_demo_sj_na61hunbu2_share_holo
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The name of the SARO table.
+   * 
+   * @example
+   * dump_odps_demo
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10721,12 +17242,55 @@ export class ListIndexesResponseBodyResultDataSourceInfoSaroConfig extends $tea.
 }
 
 export class ListIndexesResponseBodyResultDataSourceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the automatic full indexing feature is enabled.
+   * 
+   * @example
+   * true
+   */
   autoBuildIndex?: boolean;
+  /**
+   * @remarks
+   * The configuration of MaxCompute data sources.
+   */
   config?: ListIndexesResponseBodyResultDataSourceInfoConfig;
+  /**
+   * @remarks
+   * The data center in which the data source is deployed.
+   * 
+   * @example
+   * test
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * index1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of resources used for data update.
+   * 
+   * @example
+   * 2
+   */
   processPartitionCount?: number;
+  /**
+   * @remarks
+   * The configurations of the SARO data source.
+   */
   saroConfig?: ListIndexesResponseBodyResultDataSourceInfoSaroConfig;
+  /**
+   * @remarks
+   * The type of the data source. Valid values: odps, swift, saro, oss, and unKnow.
+   * 
+   * @example
+   * odps
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10758,9 +17322,37 @@ export class ListIndexesResponseBodyResultDataSourceInfo extends $tea.Model {
 }
 
 export class ListIndexesResponseBodyResultVersionsFiles extends $tea.Model {
+  /**
+   * @remarks
+   * The full path of the file.
+   * 
+   * @example
+   * " "
+   */
   fullPathName?: string;
+  /**
+   * @remarks
+   * Indicates whether the file is a directory.
+   * 
+   * @example
+   * True
+   */
   isDir?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the file is a template.
+   * 
+   * @example
+   * True
+   */
   isTemplate?: boolean;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * ha-cn-7mz2iv7sq01_qrs
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10786,11 +17378,58 @@ export class ListIndexesResponseBodyResultVersionsFiles extends $tea.Model {
 }
 
 export class ListIndexesResponseBodyResultVersions extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the index version.
+   * 
+   * @example
+   * close alarm, by 3.9.2 hotfix workflow
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The files.
+   */
   files?: ListIndexesResponseBodyResultVersionsFiles[];
+  /**
+   * @remarks
+   * The name of the index version.
+   * 
+   * @example
+   * ha-cn-7pp2ngv4s02_qrs
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of the index version. Valid values:
+   * 
+   * *   NEW: The index version is created.
+   * *   PUBLISH: The index version is normal.
+   * *   IN_USE: The index version is in use.
+   * *   NOT_USE: The index version is not used.
+   * *   STOP_USE: The index version is being stopped.
+   * *   RESTORE_USE: The index version is being restored.
+   * *   FAIL: The index version failed to be created.
+   * 
+   * @example
+   * 2
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the index version was updated.
+   * 
+   * @example
+   * " "
+   */
   updateTime?: number;
+  /**
+   * @remarks
+   * The ID of the index version. If the index version is modified, the returned value is null.
+   * 
+   * @example
+   * 1
+   */
   versionId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10820,18 +17459,103 @@ export class ListIndexesResponseBodyResultVersions extends $tea.Model {
 }
 
 export class ListIndexesResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The index schema, which is a JSON string.
+   * 
+   * @example
+   * {"summarys":{"parameter":{"file_compressor":"zstd"},"summary_fields":["id"]},"file_compress":[{"name":"file_compressor","type":"zstd"},{"name":"no_compressor","type":""}],"indexs":[{"index_fields":"name","index_name":"ids","index_type":"STRING"},{"has_primary_key_attribute":true,"index_fields":"id","is_primary_key_sorted":false,"index_name":"id","index_type":"PRIMARYKEY64"}],"attributes":[{"file_compress":"no_compressor","field_name":"id"}],"fields":[{"user_defined_param":{},"compress_type":"uniq","field_type":"STRING","field_name":"id"},{"compress_type":"uniq","field_type":"STRING","field_name":"name"}],"table_name":"api"}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-7mz2kvu2c01_table4
+   */
   dataSource?: string;
+  /**
+   * @remarks
+   * The information about the data source.
+   */
   dataSourceInfo?: ListIndexesResponseBodyResultDataSourceInfo;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The deployment name of the index.
+   * 
+   * @example
+   * test
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The time when full data in the index was last updated.
+   * 
+   * @example
+   * 2023-07-05 10:40:38
+   */
   fullUpdateTime?: string;
+  /**
+   * @remarks
+   * The full version of the index.
+   * 
+   * @example
+   * 1688523414
+   */
   fullVersion?: number;
+  /**
+   * @remarks
+   * The time when incremental data in the index was last updated.
+   * 
+   * @example
+   * 2023-07-05 10:58:33
+   */
   incUpdateTime?: string;
+  /**
+   * @remarks
+   * The index size.
+   * 
+   * @example
+   * 4689
+   */
   indexSize?: number;
+  /**
+   * @remarks
+   * The index ststus. Valid values: NEW and PUBLISH.
+   * 
+   * @example
+   * " "
+   */
   indexStatus?: string;
+  /**
+   * @remarks
+   * The index name.
+   * 
+   * @example
+   * general
+   */
   name?: string;
+  /**
+   * @remarks
+   * The number of shards.
+   * 
+   * @example
+   * 2
+   */
   partition?: number;
+  /**
+   * @remarks
+   * The index versions.
+   */
   versions?: ListIndexesResponseBodyResultVersions[];
   static names(): { [key: string]: string } {
     return {
@@ -10875,9 +17599,37 @@ export class ListIndexesResponseBodyResult extends $tea.Model {
 }
 
 export class ListInstanceSpecsResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The number of vCPUs.
+   * 
+   * @example
+   * 1
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The maximum storage of a single data node. Unit: GB.
+   * 
+   * @example
+   * 600
+   */
   maxDisk?: number;
+  /**
+   * @remarks
+   * The memory of the instance. Unit: GB.
+   * 
+   * @example
+   * 4
+   */
   mem?: number;
+  /**
+   * @remarks
+   * The minimum storage of a single data node. Unit: GB.
+   * 
+   * @example
+   * 100
+   */
   minDisk?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10903,7 +17655,21 @@ export class ListInstanceSpecsResponseBodyResult extends $tea.Model {
 }
 
 export class ListInstancesRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * backup
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * oboms-disk
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10926,9 +17692,30 @@ export class ListInstancesRequestTags extends $tea.Model {
 
 export class ListInstancesResponseBodyResultNetwork extends $tea.Model {
   allow?: string;
+  /**
+   * @remarks
+   * The instance endpoint.
+   * 
+   * @example
+   * ""
+   */
   endpoint?: string;
   publicEndpoint?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-bp11ldcf59q2nbwkqgj6z
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) in which the instance is deployed.
+   * 
+   * @example
+   * vpc-wz9axk41d9vffoc79x0oe
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11040,7 +17827,21 @@ export class ListInstancesResponseBodyResultSpec extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyResultTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * env
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * oboms-disk
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11062,21 +17863,106 @@ export class ListInstancesResponseBodyResultTags extends $tea.Model {
 }
 
 export class ListInstancesResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The commodity code of the instance.
+   * 
+   * @example
+   * ""
+   */
   commodityCode?: string;
+  /**
+   * @remarks
+   * The time when the instance was created.
+   * 
+   * @example
+   * 2022-06-04T02:03:21Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * Emergency test
+   */
   description?: string;
   edition?: string;
+  /**
+   * @remarks
+   * The time when the instance expires.
+   * 
+   * @example
+   * 1634885083
+   */
   expiredTime?: string;
+  /**
+   * @remarks
+   * Indicates whether an overdue payment is involved.
+   * 
+   * @example
+   * false
+   */
   inDebt?: boolean;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ha-cn-2r42n8oh001
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The lock state of the instance.
+   * 
+   * @example
+   * Unlock
+   */
   lockMode?: string;
+  /**
+   * @remarks
+   * The network information of the instance.
+   */
   network?: ListInstancesResponseBodyResultNetwork;
   noQrs?: boolean;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aekzgpiswzbksdi
+   */
   resourceGroupId?: string;
   spec?: ListInstancesResponseBodyResultSpec;
+  /**
+   * @remarks
+   * The instance status.
+   * 
+   * @example
+   * 2
+   */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the instance.
+   */
   tags?: ListInstancesResponseBodyResultTags[];
+  /**
+   * @remarks
+   * The time when the instance was updated.
+   * 
+   * @example
+   * 2018-12-06T11:17:49.0
+   */
   updateTime?: string;
   userName?: string;
   version?: string;
@@ -11132,7 +18018,18 @@ export class ListInstancesResponseBodyResult extends $tea.Model {
 }
 
 export class ListLogsResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The result.
+   */
   result?: any[];
+  /**
+   * @remarks
+   * The total number of entries returned
+   * 
+   * @example
+   * 5
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11154,7 +18051,21 @@ export class ListLogsResponseBodyResult extends $tea.Model {
 }
 
 export class ListOnlineConfigsResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration information
+   * 
+   * @example
+   * {\\"specItems\\":[{\\"specKey\\":\\"YQ_KEYWORD_NUMBER_PLUS\\",\\"value\\":\\"1\\"}]}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The name of the index
+   * 
+   * @example
+   * generation
+   */
   indexName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11176,6 +18087,13 @@ export class ListOnlineConfigsResponseBodyResult extends $tea.Model {
 }
 
 export class ListTableGenerationsResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the full index version.
+   * 
+   * @example
+   * 1708674867
+   */
   generationId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11195,8 +18113,29 @@ export class ListTableGenerationsResponseBodyResult extends $tea.Model {
 }
 
 export class ListTablesResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The state of the index table. Valid values: NEW, PUBLISH, IN_USE, NOT_USE, STOP_USE, RESTORE_USE, and FAIL. After an index is created in an OpenSearch Retrieval Engine Edition instance, the index enters the IN_USE state. If the first full index fails to be created in an OpenSearch Vector Search Edition instance of the new version, the index is in the FAIL state.
+   * 
+   * @example
+   * IN_USE
+   */
   indexStatus?: string;
+  /**
+   * @remarks
+   * The index name.
+   * 
+   * @example
+   * es_test_1b
+   */
   name?: string;
+  /**
+   * @remarks
+   * The state of the index table. Valid values: NEW, PUBLISH, IN_USE, NOT_USE, STOP_USE, RESTORE_USE, and FAIL. After an index is created in an OpenSearch Retrieval Engine Edition instance, the index enters the IN_USE state. If the first full index fails to be created in an OpenSearch Vector Search Edition instance of the new version, the index is in the FAIL state.
+   * 
+   * @example
+   * IN_USE
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11220,7 +18159,15 @@ export class ListTablesResponseBodyResult extends $tea.Model {
 }
 
 export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * opensearch
+   */
   key?: string;
+  /**
+   * @example
+   * opensearch
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11242,9 +18189,25 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  /**
+   * @example
+   * rmq-cn-jeo3mn55j01
+   */
   resourceId?: string;
+  /**
+   * @example
+   * instance
+   */
   resourceType?: string;
+  /**
+   * @example
+   * opensearch
+   */
   tagKey?: string;
+  /**
+   * @example
+   * opensearch
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11270,9 +18233,37 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 }
 
 export class ModifyAdvanceConfigRequestFiles extends $tea.Model {
+  /**
+   * @remarks
+   * The full path of the file.
+   * 
+   * @example
+   * /cluster.json
+   */
   fullPathName?: string;
+  /**
+   * @remarks
+   * Specifies whether the file is a directory.
+   * 
+   * @example
+   * true
+   */
   isDir?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the file is a template.
+   * 
+   * @example
+   * true
+   */
   isTemplate?: boolean;
+  /**
+   * @remarks
+   * The node name.
+   * 
+   * @example
+   * general
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11298,6 +18289,13 @@ export class ModifyAdvanceConfigRequestFiles extends $tea.Model {
 }
 
 export class ModifyDataSourceDeployRequestExtendHdfs extends $tea.Model {
+  /**
+   * @remarks
+   * The path of the Apsara File Storage for HDFS data source.
+   * 
+   * @example
+   * ymsh-service/src/main/java/cn/ymsh/util/jd
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11317,6 +18315,10 @@ export class ModifyDataSourceDeployRequestExtendHdfs extends $tea.Model {
 }
 
 export class ModifyDataSourceDeployRequestExtendOdps extends $tea.Model {
+  /**
+   * @remarks
+   * The partitions in the MaxCompute table.
+   */
   partitions?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -11336,6 +18338,13 @@ export class ModifyDataSourceDeployRequestExtendOdps extends $tea.Model {
 }
 
 export class ModifyDataSourceDeployRequestExtendOss extends $tea.Model {
+  /**
+   * @remarks
+   * The path of the OSS data source.
+   * 
+   * @example
+   * oss://test
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11355,7 +18364,21 @@ export class ModifyDataSourceDeployRequestExtendOss extends $tea.Model {
 }
 
 export class ModifyDataSourceDeployRequestExtendSaro extends $tea.Model {
+  /**
+   * @remarks
+   * The path of the SARO data source.
+   * 
+   * @example
+   * /
+   */
   path?: string;
+  /**
+   * @remarks
+   * The version number of the SARO data source.
+   * 
+   * @example
+   * 1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11377,9 +18400,25 @@ export class ModifyDataSourceDeployRequestExtendSaro extends $tea.Model {
 }
 
 export class ModifyDataSourceDeployRequestExtend extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the Apsara File Storage for HDFS data source.
+   */
   hdfs?: ModifyDataSourceDeployRequestExtendHdfs;
+  /**
+   * @remarks
+   * The information about the MaxCompute data source.
+   */
   odps?: ModifyDataSourceDeployRequestExtendOdps;
+  /**
+   * @remarks
+   * The information about the OSS data source.
+   */
   oss?: ModifyDataSourceDeployRequestExtendOss;
+  /**
+   * @remarks
+   * The information about the SARO data source. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+   */
   saro?: ModifyDataSourceDeployRequestExtendSaro;
   static names(): { [key: string]: string } {
     return {
@@ -11405,7 +18444,21 @@ export class ModifyDataSourceDeployRequestExtend extends $tea.Model {
 }
 
 export class ModifyDataSourceDeployRequestProcessor extends $tea.Model {
+  /**
+   * @remarks
+   * The startup parameters of the process.
+   * 
+   * @example
+   * {}
+   */
   args?: string;
+  /**
+   * @remarks
+   * The resource information.
+   * 
+   * @example
+   * {}
+   */
   resource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11427,15 +18480,85 @@ export class ModifyDataSourceDeployRequestProcessor extends $tea.Model {
 }
 
 export class ModifyDataSourceDeployRequestStorage extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the MaxCompute data source.
+   * 
+   * @example
+   * ak
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the MaxCompute data source.
+   * 
+   * @example
+   * as
+   */
   accessSecret?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * test-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The endpoint of the MaxCompute data source.
+   * 
+   * @example
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+   * 
+   * @example
+   * dp-dev
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) path.
+   * 
+   * @example
+   * /opensearch
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The partition in the MaxCompute table.
+   * 
+   * @example
+   * ds=20220713
+   */
   partition?: string;
+  /**
+   * @remarks
+   * The file path in the Apsara File Storage for HDFS file system.
+   * 
+   * @example
+   * /ude_jobs/iflow_offline_data_access
+   */
   path?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute project that is used as the data source.
+   * 
+   * @example
+   * kubenest
+   */
   project?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute table that is used as the data source.
+   * 
+   * @example
+   * item
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11473,7 +18596,21 @@ export class ModifyDataSourceDeployRequestStorage extends $tea.Model {
 }
 
 export class ModifyDataSourceDeployRequestSwift extends $tea.Model {
+  /**
+   * @remarks
+   * The topic.
+   * 
+   * @example
+   * ha-cn-0ju2rps6c08_api
+   */
   topic?: string;
+  /**
+   * @remarks
+   * zk
+   * 
+   * @example
+   * zk
+   */
   zk?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11495,15 +18632,85 @@ export class ModifyDataSourceDeployRequestSwift extends $tea.Model {
 }
 
 export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the MaxCompute data source.
+   * 
+   * @example
+   * L***p
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the MaxCompute data source.
+   * 
+   * @example
+   * 5**9a6
+   */
   accessSecret?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * test-bucket
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The endpoint of the MaxCompute data source.
+   * 
+   * @example
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
+   * 
+   * @example
+   * test-namespace
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) path.
+   * 
+   * @example
+   * /opensearch/oss.json
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The partition in the MaxCompute table. Example: ds=20180102.
+   * 
+   * @example
+   * ds=20230114
+   */
   partition?: string;
+  /**
+   * @remarks
+   * The file path in the Apsara File Storage for HDFS file system.
+   * 
+   * @example
+   * test-hdfs-path
+   */
   path?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute project that is used as the data source.
+   * 
+   * @example
+   * bbt_algo_pai
+   */
   project?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute table that is used as the data source.
+   * 
+   * @example
+   * item
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11541,7 +18748,21 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
 }
 
 export class ModifyIndexRequestDataSourceInfoSaroConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The namespace to which the SARO data source belongs.
+   * 
+   * @example
+   * flink-test-fjx-default
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The name of the SARO table.
+   * 
+   * @example
+   * device_event_shy_summary_
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11563,16 +18784,87 @@ export class ModifyIndexRequestDataSourceInfoSaroConfig extends $tea.Model {
 }
 
 export class ModifyIndexRequestDataSourceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the automatic full indexing feature.
+   * 
+   * @example
+   * true
+   */
   autoBuildIndex?: boolean;
+  /**
+   * @remarks
+   * The reindexing method. Valid values: api: API data source. indexRecover: data recovery by using indexing.
+   * 
+   * @example
+   * api
+   */
   buildMode?: string;
+  /**
+   * @remarks
+   * The configurations of the MaxCompute data source.
+   */
   config?: ModifyIndexRequestDataSourceInfoConfig;
+  /**
+   * @remarks
+   * The start timestamp from which incremental data is retrieved.
+   * 
+   * @example
+   * 1709715164
+   */
   dataTimeSec?: number;
+  /**
+   * @remarks
+   * The offline deployment name of the data source.
+   * 
+   * @example
+   * vpc_hz_domain_1
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The ID of the index version from which data is restored.
+   * 
+   * @example
+   * 4
+   */
   generation?: number;
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * ha-cn-35t3n1yuj0d_index_1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The maximum number of full indexes that can be concurrently processed.
+   * 
+   * @example
+   * 2
+   */
   processParallelNum?: number;
+  /**
+   * @remarks
+   * The number of resources used for data update.
+   * 
+   * @example
+   * 4
+   */
   processPartitionCount?: number;
+  /**
+   * @remarks
+   * The configurations of the SARO data source.
+   */
   saroConfig?: ModifyIndexRequestDataSourceInfoSaroConfig;
+  /**
+   * @remarks
+   * The type of the data source. Valid values: odps, swift, saro, oss, and unKnow.
+   * 
+   * @example
+   * odps
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11612,8 +18904,29 @@ export class ModifyIndexRequestDataSourceInfo extends $tea.Model {
 }
 
 export class ModifyIndexPartitionRequestIndexInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The index name.
+   * 
+   * @example
+   * atest2
+   */
   indexName?: string;
+  /**
+   * @remarks
+   * The concurrency. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   parallelNum?: number;
+  /**
+   * @remarks
+   * The number of shards.
+   * 
+   * @example
+   * 3
+   */
   partitionCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11637,8 +18950,29 @@ export class ModifyIndexPartitionRequestIndexInfos extends $tea.Model {
 }
 
 export class ModifyIndexVersionRequestBody extends $tea.Model {
+  /**
+   * @remarks
+   * The deployment ID of the data source.
+   * 
+   * @example
+   * 277
+   */
   buildDeployId?: string;
+  /**
+   * @remarks
+   * The index name.
+   * 
+   * @example
+   * main_index
+   */
   indexName?: string;
+  /**
+   * @remarks
+   * The index version.
+   * 
+   * @example
+   * 1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11662,8 +18996,29 @@ export class ModifyIndexVersionRequestBody extends $tea.Model {
 }
 
 export class ModifyTableRequestDataProcessConfigParamsSrcFieldConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * test
+   */
   ossBucket?: string;
+  /**
+   * @remarks
+   * The OSS endpoint.
+   * 
+   * @example
+   * oss-cn-hangzhou-internal.aliyuncs.com
+   */
   ossEndpoint?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * uid
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11687,8 +19042,26 @@ export class ModifyTableRequestDataProcessConfigParamsSrcFieldConfig extends $te
 }
 
 export class ModifyTableRequestDataProcessConfigParams extends $tea.Model {
+  /**
+   * @remarks
+   * The source of the data to be vectorized.
+   */
   srcFieldConfig?: ModifyTableRequestDataProcessConfigParamsSrcFieldConfig;
+  /**
+   * @remarks
+   * The data type.
+   * 
+   * @example
+   * image
+   */
   vectorModal?: string;
+  /**
+   * @remarks
+   * The vectorization model.
+   * 
+   * @example
+   * clip
+   */
   vectorModel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11712,9 +19085,34 @@ export class ModifyTableRequestDataProcessConfigParams extends $tea.Model {
 }
 
 export class ModifyTableRequestDataProcessConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The destination field.
+   * 
+   * @example
+   * source_image_vector
+   */
   dstField?: string;
+  /**
+   * @remarks
+   * The method used to process the field. Valid values: copy and vectorize. A value of copy specifies that the value of the source field is copied to the destination field. A value of vectorize specifies that the value of the source field is vectorized by a vectorization model and the output vector is stored in the destination field.
+   * 
+   * @example
+   * vectorize
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The information about the model.
+   */
   params?: ModifyTableRequestDataProcessConfigParams;
+  /**
+   * @remarks
+   * The source field.
+   * 
+   * @example
+   * source_image
+   */
   srcField?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11740,13 +19138,69 @@ export class ModifyTableRequestDataProcessConfig extends $tea.Model {
 }
 
 export class ModifyTableRequestDataSourceConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The AccessKey ID of the MaxCompute data source.
+   * 
+   * @example
+   * AK
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The AccessKey secret of the MaxCompute data source.
+   * 
+   * @example
+   * AS
+   */
   accessSecret?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * antsys-shujiang-osstest
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * The endpoint of the MaxCompute data source.
+   * 
+   * @example
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The path of the Object Storage Service (OSS) object.
+   * 
+   * @example
+   * oss://opensearch
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The partition in the MaxCompute table.
+   * 
+   * @example
+   * ds=20231220
+   */
   partition?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute project that is used as the data source.
+   * 
+   * @example
+   * yw_dw_rpt
+   */
   project?: string;
+  /**
+   * @remarks
+   * The name of the MaxCompute table that is used as the data source.
+   * 
+   * @example
+   * behavior
+   */
   table?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11780,8 +19234,26 @@ export class ModifyTableRequestDataSourceConfig extends $tea.Model {
 }
 
 export class ModifyTableRequestDataSource extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically rebuild the index.
+   * 
+   * @example
+   * true
+   */
   autoBuildIndex?: boolean;
+  /**
+   * @remarks
+   * The configurations of the data source.
+   */
   config?: ModifyTableRequestDataSourceConfig;
+  /**
+   * @remarks
+   * The start timestamp from which incremental data is retrieved.
+   * 
+   * @example
+   * 1715160176
+   */
   dataTimeSec?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11805,9 +19277,37 @@ export class ModifyTableRequestDataSource extends $tea.Model {
 }
 
 export class ModifyTableRequestVectorIndexAdvanceParams extends $tea.Model {
+  /**
+   * @remarks
+   * The index building parameters.
+   * 
+   * @example
+   * {}
+   */
   buildIndexParams?: string;
+  /**
+   * @remarks
+   * The threshold for linear building.
+   * 
+   * @example
+   * 5000
+   */
   linearBuildThreshold?: string;
+  /**
+   * @remarks
+   * The minimum number of retrieved candidate sets.
+   * 
+   * @example
+   * 20000
+   */
   minScanDocCnt?: string;
+  /**
+   * @remarks
+   * The index retrieval parameters.
+   * 
+   * @example
+   * {}
+   */
   searchIndexParams?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11833,14 +19333,74 @@ export class ModifyTableRequestVectorIndexAdvanceParams extends $tea.Model {
 }
 
 export class ModifyTableRequestVectorIndex extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the index schema.
+   */
   advanceParams?: ModifyTableRequestVectorIndexAdvanceParams;
+  /**
+   * @remarks
+   * The dimension of the vector.
+   * 
+   * @example
+   * 128
+   */
   dimension?: string;
+  /**
+   * @remarks
+   * The distance type.
+   * 
+   * @example
+   * SquaredEuclidean
+   */
   distanceType?: string;
+  /**
+   * @remarks
+   * The name of the index schema.
+   * 
+   * @example
+   * test_api
+   */
   indexName?: string;
+  /**
+   * @remarks
+   * The namespace field.
+   * 
+   * @example
+   * namespace
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The field that stores the indexes of the elements in sparse vectors.
+   * 
+   * @example
+   * sparse_indices
+   */
   sparseIndexField?: string;
+  /**
+   * @remarks
+   * The field that stores the elements in sparse vectors.
+   * 
+   * @example
+   * sparse_values
+   */
   sparseValueField?: string;
+  /**
+   * @remarks
+   * The vector field.
+   * 
+   * @example
+   * source_image_vector
+   */
   vectorField?: string;
+  /**
+   * @remarks
+   * The vector retrieval algorithm.
+   * 
+   * @example
+   * Qc
+   */
   vectorIndexType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11876,7 +19436,18 @@ export class ModifyTableRequestVectorIndex extends $tea.Model {
 }
 
 export class PublishAdvanceConfigRequestFilesConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The file content.
+   * 
+   * @example
+   * {\\"url\\":\\"http://xxxxxx.aliyuncs.com/outnet_hz/packages/xxxxx/opensearch_offline_plugins_xxxxx.tar\\"}
+   */
   content?: string;
+  /**
+   * @remarks
+   * The variables.
+   */
   variables?: { [key: string]: FilesConfigVariablesValue };
   static names(): { [key: string]: string } {
     return {
@@ -11898,11 +19469,50 @@ export class PublishAdvanceConfigRequestFilesConfig extends $tea.Model {
 }
 
 export class PublishAdvanceConfigRequestFiles extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the advanced configuration.
+   */
   config?: PublishAdvanceConfigRequestFilesConfig;
+  /**
+   * @remarks
+   * The directory name.
+   * 
+   * @example
+   * /clusters
+   */
   dirName?: string;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * vector_question_schema.json
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * The operation type. Valid values: UPDATE and DELETE. Default value: UPDATE.
+   * 
+   * @example
+   * UPDATE
+   */
   operateType?: string;
+  /**
+   * @remarks
+   * The path of the Object Storage Service (OSS) object.
+   * 
+   * @example
+   * oss://opensearch/test.json
+   */
   ossPath?: string;
+  /**
+   * @remarks
+   * The path of the parent directory.
+   * 
+   * @example
+   * /
+   */
   parentFullPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11932,14 +19542,53 @@ export class PublishAdvanceConfigRequestFiles extends $tea.Model {
 }
 
 export class RenameFolderResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @example
+   * True
+   */
   isDir?: number;
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parent?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * table, instance, template, function
+   * 
+   * @example
+   * template
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11975,7 +19624,15 @@ export class RenameFolderResponseBodyResult extends $tea.Model {
 }
 
 export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * opensearch
+   */
   key?: string;
+  /**
+   * @example
+   * opensearch
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11997,7 +19654,21 @@ export class TagResourcesRequestTag extends $tea.Model {
 }
 
 export class UpdateInstanceRequestComponents extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the specification, which must be consistent with the value that you specify on the buy page.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The value of the specification.
+   * 
+   * @example
+   * ""
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12019,16 +19690,93 @@ export class UpdateInstanceRequestComponents extends $tea.Model {
 }
 
 export class UpdateInstanceResponseBodyResult extends $tea.Model {
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * @example
+   * PrePaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * The commodity code of the instance.
+   * 
+   * @example
+   * ha3-code
+   */
   commodityCode?: string;
+  /**
+   * @remarks
+   * The time when the instance was created
+   * 
+   * @example
+   * 2018-12-06T11:17:49.0
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the instance
+   * 
+   * @example
+   * Test instance
+   */
   description?: string;
+  /**
+   * @remarks
+   * The time when the instance expires
+   * 
+   * @example
+   * 2019-01-06T16:00:00.0
+   */
   expiredTime?: string;
+  /**
+   * @remarks
+   * Indicates whether an overdue payment is involved
+   * 
+   * @example
+   * false
+   */
   inDebt?: boolean;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * ha-cn-0ju2s170b03
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The lock status
+   * 
+   * @example
+   * Unlock
+   */
   lockMode?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aeky6hthboewpuy
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The instance status.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the instance was last updated
+   * 
+   * @example
+   * 2018-12-06T11:17:49.0
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12068,17 +19816,61 @@ export class UpdateInstanceResponseBodyResult extends $tea.Model {
 }
 
 export class UpdateSqlInstanceContentResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   combineParams?: string;
   comment?: string;
+  /**
+   * @example
+   * select * from test
+   */
   content?: string;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   dynamicParams?: string;
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   kvpairs?: string;
+  /**
+   * @example
+   * 1
+   */
   relatedTemplateId?: number;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   staticParams?: string;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   templateParams?: string;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12120,14 +19912,53 @@ export class UpdateSqlInstanceContentResponseBodyResult extends $tea.Model {
 }
 
 export class UpdateSqlInstanceNameResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 1719220182844
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 22
+   */
   id?: number;
+  /**
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @example
+   * true
+   */
   isDir?: number;
+  /**
+   * @example
+   * general
+   */
   name?: string;
+  /**
+   * @example
+   * -1
+   */
   parent?: number;
+  /**
+   * @example
+   * 1
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * table, instance, template, function
+   * 
+   * @example
+   * instance
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12163,17 +19994,61 @@ export class UpdateSqlInstanceNameResponseBodyResult extends $tea.Model {
 }
 
 export class UpdateSqlInstanceParamsResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   combineParams?: string;
   comment?: string;
+  /**
+   * @example
+   * select * from test
+   */
   content?: string;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   dynamicParams?: string;
+  /**
+   * @example
+   * 1719221186114
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 1719220182844
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * 1
+   */
   instanceId?: number;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   kvpairs?: string;
+  /**
+   * @example
+   * 1
+   */
   relatedTemplateId?: number;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   staticParams?: string;
+  /**
+   * @example
+   * {\\"trace\\":\\"INFO\\",\\"databaseName\\":\\"general\\",\\"iquan.plan.cache.enable\\":true,\\"iquan.plan.prepare.level\\":\\"jni.post.optimize\\",\\"urlencode_data\\":false,\\"formatType\\":\\"string\\",\\"timeout\\":1000}
+   */
   templateParams?: string;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12238,17 +20113,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Triggers reindexing.
-   *
-   * @description ## Method
+   * Triggers reindexing.
+   * 
+   * @remarks
+   * ## Method
    *     POST
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/actions/build-index
-   *
-   * @param request BuildIndexRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BuildIndexResponse
+   * 
+   * @param request - BuildIndexRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BuildIndexResponse
    */
   async buildIndexWithOptions(instanceId: string, request: BuildIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BuildIndexResponse> {
     Util.validateModel(request);
@@ -12300,15 +20176,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Triggers reindexing.
-   *
-   * @description ## Method
+   * Triggers reindexing.
+   * 
+   * @remarks
+   * ## Method
    *     POST
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/actions/build-index
-   *
-   * @param request BuildIndexRequest
-   * @return BuildIndexResponse
+   * 
+   * @param request - BuildIndexRequest
+   * @returns BuildIndexResponse
    */
   async buildIndex(instanceId: string, request: BuildIndexRequest): Promise<BuildIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12317,12 +20194,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更换实例资源组
-   *
-   * @param request ChangeResourceGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ChangeResourceGroupResponse
+   * 更换实例资源组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroupWithOptions(instanceId: string, request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
@@ -12354,10 +20231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更换实例资源组
-   *
-   * @param request ChangeResourceGroupRequest
-   * @return ChangeResourceGroupResponse
+   * 更换实例资源组
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroup(instanceId: string, request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12366,10 +20243,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CloneSqlInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CloneSqlInstanceResponse
+   * @param request - CloneSqlInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneSqlInstanceResponse
    */
   async cloneSqlInstanceWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: CloneSqlInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneSqlInstanceResponse> {
     Util.validateModel(request);
@@ -12401,8 +20278,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CloneSqlInstanceRequest
-   * @return CloneSqlInstanceResponse
+   * @param request - CloneSqlInstanceRequest
+   * @returns CloneSqlInstanceResponse
    */
   async cloneSqlInstance(instanceId: string, database: string, sqlInstanceId: string, request: CloneSqlInstanceRequest): Promise<CloneSqlInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12411,10 +20288,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAliasRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateAliasResponse
+   * @param request - CreateAliasRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAliasResponse
    */
   async createAliasWithOptions(instanceId: string, request: CreateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
     Util.validateModel(request);
@@ -12452,8 +20329,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateAliasRequest
-   * @return CreateAliasResponse
+   * @param request - CreateAliasRequest
+   * @returns CreateAliasResponse
    */
   async createAlias(instanceId: string, request: CreateAliasRequest): Promise<CreateAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12462,17 +20339,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a cluster.
-   *
-   * @description ### [](#method)Method
+   * Creates a cluster.
+   * 
+   * @remarks
+   * ### [](#method)Method
    * `POST`
    * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/clusters`
-   *
-   * @param request CreateClusterRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateClusterResponse
+   * 
+   * @param request - CreateClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateClusterResponse
    */
   async createClusterWithOptions(instanceId: string, request: CreateClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
     Util.validateModel(request);
@@ -12516,15 +20394,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a cluster.
-   *
-   * @description ### [](#method)Method
+   * Creates a cluster.
+   * 
+   * @remarks
+   * ### [](#method)Method
    * `POST`
    * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/clusters`
-   *
-   * @param request CreateClusterRequest
-   * @return CreateClusterResponse
+   * 
+   * @param request - CreateClusterRequest
+   * @returns CreateClusterResponse
    */
   async createCluster(instanceId: string, request: CreateClusterRequest): Promise<CreateClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12533,10 +20412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateConfigDirRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateConfigDirResponse
+   * @param request - CreateConfigDirRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConfigDirResponse
    */
   async createConfigDirWithOptions(instanceId: string, configName: string, request: CreateConfigDirRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConfigDirResponse> {
     Util.validateModel(request);
@@ -12568,8 +20447,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateConfigDirRequest
-   * @return CreateConfigDirResponse
+   * @param request - CreateConfigDirRequest
+   * @returns CreateConfigDirResponse
    */
   async createConfigDir(instanceId: string, configName: string, request: CreateConfigDirRequest): Promise<CreateConfigDirResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12578,10 +20457,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateConfigFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateConfigFileResponse
+   * @param request - CreateConfigFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConfigFileResponse
    */
   async createConfigFileWithOptions(instanceId: string, configName: string, request: CreateConfigFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConfigFileResponse> {
     Util.validateModel(request);
@@ -12617,8 +20496,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateConfigFileRequest
-   * @return CreateConfigFileResponse
+   * @param request - CreateConfigFileRequest
+   * @returns CreateConfigFileResponse
    */
   async createConfigFile(instanceId: string, configName: string, request: CreateConfigFileRequest): Promise<CreateConfigFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12627,12 +20506,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates data sources.
-   *
-   * @param request CreateDataSourceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDataSourceResponse
+   * Creates data sources.
+   * 
+   * @param request - CreateDataSourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataSourceResponse
    */
   async createDataSourceWithOptions(instanceId: string, request: CreateDataSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDataSourceResponse> {
     Util.validateModel(request);
@@ -12686,10 +20565,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates data sources.
-   *
-   * @param request CreateDataSourceRequest
-   * @return CreateDataSourceResponse
+   * Creates data sources.
+   * 
+   * @param request - CreateDataSourceRequest
+   * @returns CreateDataSourceResponse
    */
   async createDataSource(instanceId: string, request: CreateDataSourceRequest): Promise<CreateDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12698,10 +20577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateFolderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFolderResponse
+   * @param request - CreateFolderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFolderResponse
    */
   async createFolderWithOptions(instanceId: string, database: string, request: CreateFolderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
     Util.validateModel(request);
@@ -12737,8 +20616,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateFolderRequest
-   * @return CreateFolderResponse
+   * @param request - CreateFolderRequest
+   * @returns CreateFolderResponse
    */
   async createFolder(instanceId: string, database: string, request: CreateFolderRequest): Promise<CreateFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12747,9 +20626,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an index.
-   *
-   * @description ### Method
+   * Creates an index.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * POST
    * ```
@@ -12757,11 +20637,11 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/indexes
    * ```
-   *
-   * @param request CreateIndexRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIndexResponse
+   * 
+   * @param request - CreateIndexRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIndexResponse
    */
   async createIndexWithOptions(instanceId: string, request: CreateIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndexResponse> {
     Util.validateModel(request);
@@ -12827,9 +20707,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an index.
-   *
-   * @description ### Method
+   * Creates an index.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * POST
    * ```
@@ -12837,9 +20718,9 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/indexes
    * ```
-   *
-   * @param request CreateIndexRequest
-   * @return CreateIndexResponse
+   * 
+   * @param request - CreateIndexRequest
+   * @returns CreateIndexResponse
    */
   async createIndex(instanceId: string, request: CreateIndexRequest): Promise<CreateIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12848,17 +20729,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a Havenask instance.
-   *
-   * @description ### [](#)Method
+   * Creates a Havenask instance.
+   * 
+   * @remarks
+   * ### [](#)Method
    * `POST`
    * ### [](#uri)URI
    * `/api/instances?dryRun=false`
-   *
-   * @param request CreateInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateInstanceResponse
+   * 
+   * @param request - CreateInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceResponse
    */
   async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
@@ -12894,15 +20776,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a Havenask instance.
-   *
-   * @description ### [](#)Method
+   * Creates a Havenask instance.
+   * 
+   * @remarks
+   * ### [](#)Method
    * `POST`
    * ### [](#uri)URI
    * `/api/instances?dryRun=false`
-   *
-   * @param request CreateInstanceRequest
-   * @return CreateInstanceResponse
+   * 
+   * @param request - CreateInstanceRequest
+   * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12911,11 +20794,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a public endpoint.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreatePublicUrlResponse
+   * Creates a public endpoint.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePublicUrlResponse
    */
   async createPublicUrlWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreatePublicUrlResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -12936,9 +20819,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a public endpoint.
-   *
-   * @return CreatePublicUrlResponse
+   * Creates a public endpoint.
+   * @returns CreatePublicUrlResponse
    */
   async createPublicUrl(instanceId: string): Promise<CreatePublicUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12947,10 +20829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateSqlInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSqlInstanceResponse
+   * @param request - CreateSqlInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSqlInstanceResponse
    */
   async createSqlInstanceWithOptions(instanceId: string, database: string, request: CreateSqlInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSqlInstanceResponse> {
     Util.validateModel(request);
@@ -12982,8 +20864,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateSqlInstanceRequest
-   * @return CreateSqlInstanceResponse
+   * @param request - CreateSqlInstanceRequest
+   * @returns CreateSqlInstanceResponse
    */
   async createSqlInstance(instanceId: string, database: string, request: CreateSqlInstanceRequest): Promise<CreateSqlInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -12992,12 +20874,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an index table.
-   *
-   * @param request CreateTableRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTableResponse
+   * Creates an index table.
+   * 
+   * @param request - CreateTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTableResponse
    */
   async createTableWithOptions(instanceId: string, request: CreateTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTableResponse> {
     Util.validateModel(request);
@@ -13063,10 +20945,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates an index table.
-   *
-   * @param request CreateTableRequest
-   * @return CreateTableResponse
+   * Creates an index table.
+   * 
+   * @param request - CreateTableRequest
+   * @returns CreateTableResponse
    */
   async createTable(instanceId: string, request: CreateTableRequest): Promise<CreateTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13075,16 +20957,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the details about advanced configurations.
-   *
-   * @description ## Method
+   * Deletes the details about advanced configurations.
+   * 
+   * @remarks
+   * ## Method
    *     DELETE
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAdvanceConfigResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAdvanceConfigResponse
    */
   async deleteAdvanceConfigWithOptions(instanceId: string, configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAdvanceConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13105,14 +20988,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the details about advanced configurations.
-   *
-   * @description ## Method
+   * Deletes the details about advanced configurations.
+   * 
+   * @remarks
+   * ## Method
    *     DELETE
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-   *
-   * @return DeleteAdvanceConfigResponse
+   * @returns DeleteAdvanceConfigResponse
    */
   async deleteAdvanceConfig(instanceId: string, configName: string): Promise<DeleteAdvanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13121,9 +21004,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteAliasResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAliasResponse
    */
   async deleteAliasWithOptions(instanceId: string, alias: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAliasResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13144,7 +21027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return DeleteAliasResponse
+   * @returns DeleteAliasResponse
    */
   async deleteAlias(instanceId: string, alias: string): Promise<DeleteAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13153,10 +21036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteConfigDirRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteConfigDirResponse
+   * @param request - DeleteConfigDirRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConfigDirResponse
    */
   async deleteConfigDirWithOptions(instanceId: string, configName: string, request: DeleteConfigDirRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConfigDirResponse> {
     Util.validateModel(request);
@@ -13188,8 +21071,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteConfigDirRequest
-   * @return DeleteConfigDirResponse
+   * @param request - DeleteConfigDirRequest
+   * @returns DeleteConfigDirResponse
    */
   async deleteConfigDir(instanceId: string, configName: string, request: DeleteConfigDirRequest): Promise<DeleteConfigDirResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13198,10 +21081,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteConfigFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteConfigFileResponse
+   * @param request - DeleteConfigFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConfigFileResponse
    */
   async deleteConfigFileWithOptions(instanceId: string, configName: string, request: DeleteConfigFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConfigFileResponse> {
     Util.validateModel(request);
@@ -13233,8 +21116,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteConfigFileRequest
-   * @return DeleteConfigFileResponse
+   * @param request - DeleteConfigFileRequest
+   * @returns DeleteConfigFileResponse
    */
   async deleteConfigFile(instanceId: string, configName: string, request: DeleteConfigFileRequest): Promise<DeleteConfigFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13243,16 +21126,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a specified data source.
-   *
-   * @description ## Method
+   * Deletes a specified data source.
+   * 
+   * @remarks
+   * ## Method
    * `DELETE`
    * ## URI
    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDataSourceResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataSourceResponse
    */
   async deleteDataSourceWithOptions(instanceId: string, dataSourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13273,14 +21157,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a specified data source.
-   *
-   * @description ## Method
+   * Deletes a specified data source.
+   * 
+   * @remarks
+   * ## Method
    * `DELETE`
    * ## URI
    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-   *
-   * @return DeleteDataSourceResponse
+   * @returns DeleteDataSourceResponse
    */
   async deleteDataSource(instanceId: string, dataSourceName: string): Promise<DeleteDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13289,9 +21173,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFolderResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFolderResponse
    */
   async deleteFolderWithOptions(instanceId: string, database: string, folderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13312,7 +21196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return DeleteFolderResponse
+   * @returns DeleteFolderResponse
    */
   async deleteFolder(instanceId: string, database: string, folderId: string): Promise<DeleteFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13321,17 +21205,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an index.
-   *
-   * @description ## Method
+   * Deletes an index.
+   * 
+   * @remarks
+   * ## Method
    *     DELETE
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
-   *
-   * @param request DeleteIndexRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIndexResponse
+   * 
+   * @param request - DeleteIndexRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIndexResponse
    */
   async deleteIndexWithOptions(instanceId: string, indexName: string, request: DeleteIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexResponse> {
     Util.validateModel(request);
@@ -13363,15 +21248,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an index.
-   *
-   * @description ## Method
+   * Deletes an index.
+   * 
+   * @remarks
+   * ## Method
    *     DELETE
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}?dataSource=xxx
-   *
-   * @param request DeleteIndexRequest
-   * @return DeleteIndexResponse
+   * 
+   * @param request - DeleteIndexRequest
+   * @returns DeleteIndexResponse
    */
   async deleteIndex(instanceId: string, indexName: string, request: DeleteIndexRequest): Promise<DeleteIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13380,16 +21266,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the version of an index.
-   *
-   * @description ## Method
+   * Deletes the version of an index.
+   * 
+   * @remarks
+   * ## Method
    *     DELETE
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteIndexVersionResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIndexVersionResponse
    */
   async deleteIndexVersionWithOptions(instanceId: string, indexName: string, versionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndexVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13410,14 +21297,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes the version of an index.
-   *
-   * @description ## Method
+   * Deletes the version of an index.
+   * 
+   * @remarks
+   * ## Method
    *     DELETE
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}
-   *
-   * @return DeleteIndexVersionResponse
+   * @returns DeleteIndexVersionResponse
    */
   async deleteIndexVersion(instanceId: string, indexName: string, versionName: string): Promise<DeleteIndexVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13426,16 +21313,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a specified instance.
-   *
-   * @description ### Method
+   * Deletes a specified instance.
+   * 
+   * @remarks
+   * ### Method
    * `DELETE`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}`
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteInstanceResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceResponse
    */
   async deleteInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13456,14 +21344,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a specified instance.
-   *
-   * @description ### Method
+   * Deletes a specified instance.
+   * 
+   * @remarks
+   * ### Method
    * `DELETE`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}`
-   *
-   * @return DeleteInstanceResponse
+   * @returns DeleteInstanceResponse
    */
   async deleteInstance(instanceId: string): Promise<DeleteInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13472,11 +21360,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a public endpoint.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeletePublicUrlResponse
+   * 删除公网域名
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePublicUrlResponse
    */
   async deletePublicUrlWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePublicUrlResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13497,9 +21385,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a public endpoint.
-   *
-   * @return DeletePublicUrlResponse
+   * 删除公网域名
+   * @returns DeletePublicUrlResponse
    */
   async deletePublicUrl(instanceId: string): Promise<DeletePublicUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13508,9 +21395,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteSqlInstanceResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSqlInstanceResponse
    */
   async deleteSqlInstanceWithOptions(instanceId: string, database: string, sqlInstanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteSqlInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13531,7 +21418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return DeleteSqlInstanceResponse
+   * @returns DeleteSqlInstanceResponse
    */
   async deleteSqlInstance(instanceId: string, database: string, sqlInstanceId: string): Promise<DeleteSqlInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13540,11 +21427,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an index table.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTableResponse
+   * Deletes an index table.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTableResponse
    */
   async deleteTableWithOptions(instanceId: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13565,9 +21452,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes an index table.
-   *
-   * @return DeleteTableResponse
+   * Deletes an index table.
+   * @returns DeleteTableResponse
    */
   async deleteTable(instanceId: string, tableName: string): Promise<DeleteTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13576,12 +21462,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries available regions.
-   *
-   * @param request DescribeRegionsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescribeRegionsResponse
+   * Queries available regions.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
    */
   async describeRegionsWithOptions(request: DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
@@ -13609,10 +21495,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries available regions.
-   *
-   * @param request DescribeRegionsRequest
-   * @return DescribeRegionsResponse
+   * Queries available regions.
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13621,10 +21507,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ExecuteSqlInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ExecuteSqlInstanceResponse
+   * @param request - ExecuteSqlInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteSqlInstanceResponse
    */
   async executeSqlInstanceWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: ExecuteSqlInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExecuteSqlInstanceResponse> {
     Util.validateModel(request);
@@ -13676,8 +21562,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ExecuteSqlInstanceRequest
-   * @return ExecuteSqlInstanceResponse
+   * @param request - ExecuteSqlInstanceRequest
+   * @returns ExecuteSqlInstanceResponse
    */
   async executeSqlInstance(instanceId: string, database: string, sqlInstanceId: string, request: ExecuteSqlInstanceRequest): Promise<ExecuteSqlInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13686,20 +21572,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Performs a forced switchover.
-   *
-   * @description \\### Method
+   * Performs a forced switchover.
+   * 
+   * @remarks
+   * ### [](#)Method
    * ```java
    * PUT
    * ```
-   * ### URI
+   * ### [](#uri)URI
    * ```java
    * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
    * ```
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ForceSwitchResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ForceSwitchResponse
    */
   async forceSwitchWithOptions(instanceId: string, fsmId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ForceSwitchResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13720,18 +21607,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Performs a forced switchover.
-   *
-   * @description \\### Method
+   * Performs a forced switchover.
+   * 
+   * @remarks
+   * ### [](#)Method
    * ```java
    * PUT
    * ```
-   * ### URI
+   * ### [](#uri)URI
    * ```java
    * /openapi/ha3/instances/{instanceId}/force-switch/{fsmId}
    * ```
-   *
-   * @return ForceSwitchResponse
+   * @returns ForceSwitchResponse
    */
   async forceSwitch(instanceId: string, fsmId: string): Promise<ForceSwitchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13740,17 +21627,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an advanced configuration.
-   *
-   * @description ## Method
+   * Queries the information about an advanced configuration.
+   * 
+   * @remarks
+   * ## Method
    *     GET
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-   *
-   * @param request GetAdvanceConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAdvanceConfigResponse
+   * 
+   * @param request - GetAdvanceConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAdvanceConfigResponse
    */
   async getAdvanceConfigWithOptions(instanceId: string, configName: string, request: GetAdvanceConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAdvanceConfigResponse> {
     Util.validateModel(request);
@@ -13778,15 +21666,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an advanced configuration.
-   *
-   * @description ## Method
+   * Queries the information about an advanced configuration.
+   * 
+   * @remarks
+   * ## Method
    *     GET
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}
-   *
-   * @param request GetAdvanceConfigRequest
-   * @return GetAdvanceConfigResponse
+   * 
+   * @param request - GetAdvanceConfigRequest
+   * @returns GetAdvanceConfigResponse
    */
   async getAdvanceConfig(instanceId: string, configName: string, request: GetAdvanceConfigRequest): Promise<GetAdvanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13795,17 +21684,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an advanced configuration file.
-   *
-   * @description ## Method
+   * Queries the information about an advanced configuration file.
+   * 
+   * @remarks
+   * ## Method
    *     GET
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-   *
-   * @param request GetAdvanceConfigFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAdvanceConfigFileResponse
+   * 
+   * @param request - GetAdvanceConfigFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAdvanceConfigFileResponse
    */
   async getAdvanceConfigFileWithOptions(instanceId: string, configName: string, request: GetAdvanceConfigFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAdvanceConfigFileResponse> {
     Util.validateModel(request);
@@ -13833,15 +21723,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an advanced configuration file.
-   *
-   * @description ## Method
+   * Queries the information about an advanced configuration file.
+   * 
+   * @remarks
+   * ## Method
    *     GET
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-   *
-   * @param request GetAdvanceConfigFileRequest
-   * @return GetAdvanceConfigFileResponse
+   * 
+   * @param request - GetAdvanceConfigFileRequest
+   * @returns GetAdvanceConfigFileResponse
    */
   async getAdvanceConfigFile(instanceId: string, configName: string, request: GetAdvanceConfigFileRequest): Promise<GetAdvanceConfigFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13850,16 +21741,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a cluster.
-   *
-   * @description ### Method
+   * Queries the details of a cluster.
+   * 
+   * @remarks
+   * ### Method
    * `GET`
    * ### URI
    * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetClusterResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClusterResponse
    */
   async getClusterWithOptions(instanceId: string, clusterName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13880,14 +21772,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of a cluster.
-   *
-   * @description ### Method
+   * Queries the details of a cluster.
+   * 
+   * @remarks
+   * ### Method
    * `GET`
    * ### URI
    * `/openapi/ha3/instance/{instanceId}/clusters/{clusterName}`
-   *
-   * @return GetClusterResponse
+   * @returns GetClusterResponse
    */
   async getCluster(instanceId: string, clusterName: string): Promise<GetClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13896,16 +21788,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the runtime information about a specified cluster.
-   *
-   * @description ### Method
+   * Queries the runtime information about a specified cluster.
+   * 
+   * @remarks
+   * ### Method
    * GET
    * ### URI
    * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetClusterRunTimeInfoResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClusterRunTimeInfoResponse
    */
   async getClusterRunTimeInfoWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetClusterRunTimeInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13926,14 +21819,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the runtime information about a specified cluster.
-   *
-   * @description ### Method
+   * Queries the runtime information about a specified cluster.
+   * 
+   * @remarks
+   * ### Method
    * GET
    * ### URI
    * /openapi/ha3/instances/{instanceId}/cluster-run-time-info
-   *
-   * @return GetClusterRunTimeInfoResponse
+   * @returns GetClusterRunTimeInfoResponse
    */
   async getClusterRunTimeInfo(instanceId: string): Promise<GetClusterRunTimeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13942,16 +21835,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a data source.
-   *
-   * @description ### Method
+   * Obtains a data source.
+   * 
+   * @remarks
+   * ### Method
    * `GET`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDataSourceResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataSourceResponse
    */
   async getDataSourceWithOptions(instanceId: string, dataSourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDataSourceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -13972,14 +21866,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a data source.
-   *
-   * @description ### Method
+   * Obtains a data source.
+   * 
+   * @remarks
+   * ### Method
    * `GET`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}`
-   *
-   * @return GetDataSourceResponse
+   * @returns GetDataSourceResponse
    */
   async getDataSource(instanceId: string, dataSourceName: string): Promise<GetDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13988,11 +21882,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源部署信息
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDataSourceDeployResponse
+   * 获取数据源部署信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataSourceDeployResponse
    */
   async getDataSourceDeployWithOptions(instanceId: string, deployName: string, dataSourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDataSourceDeployResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14013,9 +21907,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取数据源部署信息
-   *
-   * @return GetDataSourceDeployResponse
+   * 获取数据源部署信息
+   * @returns GetDataSourceDeployResponse
    */
   async getDataSourceDeploy(instanceId: string, deployName: string, dataSourceName: string): Promise<GetDataSourceDeployResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14024,9 +21917,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDatabaseSchemaResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatabaseSchemaResponse
    */
   async getDatabaseSchemaWithOptions(instanceId: string, database: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDatabaseSchemaResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14047,7 +21940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return GetDatabaseSchemaResponse
+   * @returns GetDatabaseSchemaResponse
    */
   async getDatabaseSchema(instanceId: string, database: string, tableName: string): Promise<GetDatabaseSchemaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14056,18 +21949,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Displays the overview of the deployment.
-   *
-   * @description ## Method
+   * Displays the overview of the deployment.
+   * 
+   * @remarks
+   * ## Method
    * GET
    * ## URI
    * ```java
    * /openapi/ha3/instances/{instanceId}/deploy-graph
    * ```
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDeployGraphResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeployGraphResponse
    */
   async getDeployGraphWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDeployGraphResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14088,16 +21982,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Displays the overview of the deployment.
-   *
-   * @description ## Method
+   * Displays the overview of the deployment.
+   * 
+   * @remarks
+   * ## Method
    * GET
    * ## URI
    * ```java
    * /openapi/ha3/instances/{instanceId}/deploy-graph
    * ```
-   *
-   * @return GetDeployGraphResponse
+   * @returns GetDeployGraphResponse
    */
   async getDeployGraph(instanceId: string): Promise<GetDeployGraphResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14106,17 +22000,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an index table version.
-   *
-   * @description ## Method
+   * Queries the details of an index table version.
+   * 
+   * @remarks
+   * ## Method
    *     GET
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-   *
-   * @param request GetFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFileResponse
+   * 
+   * @param request - GetFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileResponse
    */
   async getFileWithOptions(instanceId: string, indexName: string, versionName: string, request: GetFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
     Util.validateModel(request);
@@ -14144,15 +22039,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an index table version.
-   *
-   * @description ## Method
+   * Queries the details of an index table version.
+   * 
+   * @remarks
+   * ## Method
    *     GET
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-   *
-   * @param request GetFileRequest
-   * @return GetFileResponse
+   * 
+   * @param request - GetFileRequest
+   * @returns GetFileResponse
    */
   async getFile(instanceId: string, indexName: string, versionName: string, request: GetFileRequest): Promise<GetFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14161,11 +22057,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an index version.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIndexResponse
+   * Queries the information about an index version.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIndexResponse
    */
   async getIndexWithOptions(instanceId: string, indexName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14186,9 +22082,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an index version.
-   *
-   * @return GetIndexResponse
+   * Queries the information about an index version.
+   * @returns GetIndexResponse
    */
   async getIndex(instanceId: string, indexName: string): Promise<GetIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14197,11 +22092,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the online effective policy of an index.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIndexOnlineStrategyResponse
+   * Queries the online effective policy of an index.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIndexOnlineStrategyResponse
    */
   async getIndexOnlineStrategyWithOptions(instanceId: string, dataSourceName: string, deployName: string, indexName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexOnlineStrategyResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14222,9 +22117,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the online effective policy of an index.
-   *
-   * @return GetIndexOnlineStrategyResponse
+   * Queries the online effective policy of an index.
+   * @returns GetIndexOnlineStrategyResponse
    */
   async getIndexOnlineStrategy(instanceId: string, dataSourceName: string, deployName: string, indexName: string): Promise<GetIndexOnlineStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14233,16 +22127,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about index versions that the current index version can be rolled back to.
-   *
-   * @description ## Method
+   * Queries the information about index versions that the current index version can be rolled back to.
+   * 
+   * @remarks
+   * ## Method
    *     GET
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIndexVersionResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIndexVersionResponse
    */
   async getIndexVersionWithOptions(instanceId: string, clusterName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIndexVersionResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14263,14 +22158,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about index versions that the current index version can be rolled back to.
-   *
-   * @description ## Method
+   * Queries the information about index versions that the current index version can be rolled back to.
+   * 
+   * @remarks
+   * ## Method
    *     GET
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-   *
-   * @return GetIndexVersionResponse
+   * @returns GetIndexVersionResponse
    */
   async getIndexVersion(instanceId: string, clusterName: string): Promise<GetIndexVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14279,16 +22174,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an instance based on the instance ID.
-   *
-   * @description ### Method
+   * Queries the details of an instance based on the instance ID.
+   * 
+   * @remarks
+   * ### Method
    * `GET`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}`
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetInstanceResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceResponse
    */
   async getInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14309,14 +22205,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an instance based on the instance ID.
-   *
-   * @description ### Method
+   * Queries the details of an instance based on the instance ID.
+   * 
+   * @remarks
+   * ### Method
    * `GET`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}`
-   *
-   * @return GetInstanceResponse
+   * @returns GetInstanceResponse
    */
   async getInstance(instanceId: string): Promise<GetInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14325,12 +22221,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Gets the configuration information of a node.
-   *
-   * @param request GetNodeConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetNodeConfigResponse
+   * Gets the configuration information of a node.
+   * 
+   * @param request - GetNodeConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNodeConfigResponse
    */
   async getNodeConfigWithOptions(instanceId: string, request: GetNodeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetNodeConfigResponse> {
     Util.validateModel(request);
@@ -14366,10 +22262,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Gets the configuration information of a node.
-   *
-   * @param request GetNodeConfigRequest
-   * @return GetNodeConfigResponse
+   * Gets the configuration information of a node.
+   * 
+   * @param request - GetNodeConfigRequest
+   * @returns GetNodeConfigResponse
    */
   async getNodeConfig(instanceId: string, request: GetNodeConfigRequest): Promise<GetNodeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14378,10 +22274,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetSqlInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSqlInstanceResponse
+   * @param request - GetSqlInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSqlInstanceResponse
    */
   async getSqlInstanceWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: GetSqlInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSqlInstanceResponse> {
     Util.validateModel(request);
@@ -14409,8 +22305,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetSqlInstanceRequest
-   * @return GetSqlInstanceResponse
+   * @param request - GetSqlInstanceRequest
+   * @returns GetSqlInstanceResponse
    */
   async getSqlInstance(instanceId: string, database: string, sqlInstanceId: string, request: GetSqlInstanceRequest): Promise<GetSqlInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14419,11 +22315,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an index table.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTableResponse
+   * Queries the information about an index table.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableResponse
    */
   async getTableWithOptions(instanceId: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTableResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14444,9 +22340,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an index table.
-   *
-   * @return GetTableResponse
+   * Queries the information about an index table.
+   * @returns GetTableResponse
    */
   async getTable(instanceId: string, tableName: string): Promise<GetTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14455,11 +22350,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of an index version based on the ID of the full index version.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTableGenerationResponse
+   * Queries the status of an index version based on the ID of the full index version.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableGenerationResponse
    */
   async getTableGenerationWithOptions(instanceId: string, tableName: string, generationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTableGenerationResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14480,9 +22375,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the status of an index version based on the ID of the full index version.
-   *
-   * @return GetTableGenerationResponse
+   * Queries the status of an index version based on the ID of the full index version.
+   * @returns GetTableGenerationResponse
    */
   async getTableGeneration(instanceId: string, tableName: string, generationId: string): Promise<GetTableGenerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14491,17 +22385,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the files in an advanced configuration directory.
-   *
-   * @description ## Method
+   * Queries the files in an advanced configuration directory.
+   * 
+   * @remarks
+   * ## Method
    * `GET`
    * ## URI
    * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
-   *
-   * @param request ListAdvanceConfigDirRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAdvanceConfigDirResponse
+   * 
+   * @param request - ListAdvanceConfigDirRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAdvanceConfigDirResponse
    */
   async listAdvanceConfigDirWithOptions(instanceId: string, configName: string, request: ListAdvanceConfigDirRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAdvanceConfigDirResponse> {
     Util.validateModel(request);
@@ -14529,15 +22424,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the files in an advanced configuration directory.
-   *
-   * @description ## Method
+   * Queries the files in an advanced configuration directory.
+   * 
+   * @remarks
+   * ## Method
    * `GET`
    * ## URI
    * `/openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/dir?dirName={dirName}`
-   *
-   * @param request ListAdvanceConfigDirRequest
-   * @return ListAdvanceConfigDirResponse
+   * 
+   * @param request - ListAdvanceConfigDirRequest
+   * @returns ListAdvanceConfigDirResponse
    */
   async listAdvanceConfigDir(instanceId: string, configName: string, request: ListAdvanceConfigDirRequest): Promise<ListAdvanceConfigDirResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14546,15 +22442,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a list of advanced configurations.
-   *
-   * @description ## Sample requests
+   * Obtains a list of advanced configurations.
+   * 
+   * @remarks
+   * ## Sample requests
    * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
-   *
-   * @param request ListAdvanceConfigsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAdvanceConfigsResponse
+   * 
+   * @param request - ListAdvanceConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAdvanceConfigsResponse
    */
   async listAdvanceConfigsWithOptions(instanceId: string, request: ListAdvanceConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAdvanceConfigsResponse> {
     Util.validateModel(request);
@@ -14594,13 +22491,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a list of advanced configurations.
-   *
-   * @description ## Sample requests
+   * Obtains a list of advanced configurations.
+   * 
+   * @remarks
+   * ## Sample requests
    * `GET /openapi/ha3/instances/ose-test1/advanced-configs`
-   *
-   * @param request ListAdvanceConfigsRequest
-   * @return ListAdvanceConfigsResponse
+   * 
+   * @param request - ListAdvanceConfigsRequest
+   * @returns ListAdvanceConfigsResponse
    */
   async listAdvanceConfigs(instanceId: string, request: ListAdvanceConfigsRequest): Promise<ListAdvanceConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14609,9 +22507,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAliasesResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAliasesResponse
    */
   async listAliasesWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14632,7 +22530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return ListAliasesResponse
+   * @returns ListAliasesResponse
    */
   async listAliases(instanceId: string): Promise<ListAliasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14641,16 +22539,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries cluster names.
-   *
-   * @description ### Method
+   * Queries cluster names.
+   * 
+   * @remarks
+   * ### Method
    * GET
    * ### URI
    * /openapi/ha3/instances/{instanceId}/cluster-names
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListClusterNamesResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClusterNamesResponse
    */
   async listClusterNamesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterNamesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14671,14 +22570,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries cluster names.
-   *
-   * @description ### Method
+   * Queries cluster names.
+   * 
+   * @remarks
+   * ### Method
    * GET
    * ### URI
    * /openapi/ha3/instances/{instanceId}/cluster-names
-   *
-   * @return ListClusterNamesResponse
+   * @returns ListClusterNamesResponse
    */
   async listClusterNames(): Promise<ListClusterNamesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14687,9 +22586,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries cluster tasks.
-   *
-   * @description ### Method
+   * Queries cluster tasks.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * GET
    * ```
@@ -14697,10 +22597,10 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/cluster-tasks
    * ```
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListClusterTasksResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClusterTasksResponse
    */
   async listClusterTasksWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClusterTasksResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14721,9 +22621,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries cluster tasks.
-   *
-   * @description ### Method
+   * Queries cluster tasks.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * GET
    * ```
@@ -14731,8 +22632,7 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/cluster-tasks
    * ```
-   *
-   * @return ListClusterTasksResponse
+   * @returns ListClusterTasksResponse
    */
   async listClusterTasks(instanceId: string): Promise<ListClusterTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14741,9 +22641,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries clusters.
-   *
-   * @description ### Method
+   * Queries clusters.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * GET
    * ```
@@ -14751,10 +22652,10 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/clusters
    * ```
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListClustersResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClustersResponse
    */
   async listClustersWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14775,9 +22676,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries clusters.
-   *
-   * @description ### Method
+   * Queries clusters.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * GET
    * ```
@@ -14785,8 +22687,7 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/clusters
    * ```
-   *
-   * @return ListClustersResponse
+   * @returns ListClustersResponse
    */
   async listClusters(instanceId: string): Promise<ListClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14795,16 +22696,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the schema information about a data source.
-   *
-   * @description ## Method
+   * Queries the schema information about a data source.
+   * 
+   * @remarks
+   * ## Method
    * `GET`
    * ## URI
    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDataSourceSchemasResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataSourceSchemasResponse
    */
   async listDataSourceSchemasWithOptions(instanceId: string, dataSourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourceSchemasResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14825,14 +22727,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the schema information about a data source.
-   *
-   * @description ## Method
+   * Queries the schema information about a data source.
+   * 
+   * @remarks
+   * ## Method
    * `GET`
    * ## URI
    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/schemas`
-   *
-   * @return ListDataSourceSchemasResponse
+   * @returns ListDataSourceSchemasResponse
    */
   async listDataSourceSchemas(instanceId: string, dataSourceName: string): Promise<ListDataSourceSchemasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14841,9 +22743,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Displays data source tasks.
-   *
-   * @description ### [](#)Method
+   * Displays data source tasks.
+   * 
+   * @remarks
+   * ### [](#)Method
    * ```java
    * GET
    * ```
@@ -14851,10 +22754,10 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/data-source-tasks
    * ```
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDataSourceTasksResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataSourceTasksResponse
    */
   async listDataSourceTasksWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourceTasksResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14875,9 +22778,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Displays data source tasks.
-   *
-   * @description ### [](#)Method
+   * Displays data source tasks.
+   * 
+   * @remarks
+   * ### [](#)Method
    * ```java
    * GET
    * ```
@@ -14885,8 +22789,7 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/data-source-tasks
    * ```
-   *
-   * @return ListDataSourceTasksResponse
+   * @returns ListDataSourceTasksResponse
    */
   async listDataSourceTasks(instanceId: string): Promise<ListDataSourceTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14895,16 +22798,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the list of data sources.
-   *
-   * @description ## Method
+   * Obtains the list of data sources.
+   * 
+   * @remarks
+   * ## Method
    * `GET`
    * ## URI
    * `/openapi/ha3/instances/{instanceId}/data-sources`
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDataSourcesResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataSourcesResponse
    */
   async listDataSourcesWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDataSourcesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14925,14 +22829,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the list of data sources.
-   *
-   * @description ## Method
+   * Obtains the list of data sources.
+   * 
+   * @remarks
+   * ## Method
    * `GET`
    * ## URI
    * `/openapi/ha3/instances/{instanceId}/data-sources`
-   *
-   * @return ListDataSourcesResponse
+   * @returns ListDataSourcesResponse
    */
   async listDataSources(instanceId: string): Promise<ListDataSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14941,9 +22845,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDatabasesResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatabasesResponse
    */
   async listDatabasesWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDatabasesResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -14964,7 +22868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return ListDatabasesResponse
+   * @returns ListDatabasesResponse
    */
   async listDatabases(instanceId: string): Promise<ListDatabasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14973,17 +22877,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the historical index versions of a data source.
-   *
-   * @description ### Method
+   * Queries the historical index versions of a data source.
+   * 
+   * @remarks
+   * ### Method
    * `GET`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
-   *
-   * @param request ListDateSourceGenerationsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDateSourceGenerationsResponse
+   * 
+   * @param request - ListDateSourceGenerationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDateSourceGenerationsResponse
    */
   async listDateSourceGenerationsWithOptions(instanceId: string, dataSourceName: string, request: ListDateSourceGenerationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDateSourceGenerationsResponse> {
     Util.validateModel(request);
@@ -15015,15 +22920,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the historical index versions of a data source.
-   *
-   * @description ### Method
+   * Queries the historical index versions of a data source.
+   * 
+   * @remarks
+   * ### Method
    * `GET`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/data-sources/{dataSourceName}/generations?domainName={domainName}`
-   *
-   * @param request ListDateSourceGenerationsRequest
-   * @return ListDateSourceGenerationsResponse
+   * 
+   * @param request - ListDateSourceGenerationsRequest
+   * @returns ListDateSourceGenerationsResponse
    */
   async listDateSourceGenerations(instanceId: string, dataSourceName: string, request: ListDateSourceGenerationsRequest): Promise<ListDateSourceGenerationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15032,9 +22938,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIndexRecoverRecordsResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIndexRecoverRecordsResponse
    */
   async listIndexRecoverRecordsWithOptions(indexName: string, instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexRecoverRecordsResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -15055,7 +22961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return ListIndexRecoverRecordsResponse
+   * @returns ListIndexRecoverRecordsResponse
    */
   async listIndexRecoverRecords(indexName: string, instanceId: string): Promise<ListIndexRecoverRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15064,17 +22970,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the index list.
-   *
-   * @description ## Method
+   * Obtains the index list.
+   * 
+   * @remarks
+   * ## Method
    *     GET
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes
-   *
-   * @param request ListIndexesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIndexesResponse
+   * 
+   * @param request - ListIndexesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIndexesResponse
    */
   async listIndexesWithOptions(instanceId: string, request: ListIndexesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIndexesResponse> {
     Util.validateModel(request);
@@ -15102,15 +23009,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the index list.
-   *
-   * @description ## Method
+   * Obtains the index list.
+   * 
+   * @remarks
+   * ## Method
    *     GET
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes
-   *
-   * @param request ListIndexesRequest
-   * @return ListIndexesResponse
+   * 
+   * @param request - ListIndexesRequest
+   * @returns ListIndexesResponse
    */
   async listIndexes(instanceId: string, request: ListIndexesRequest): Promise<ListIndexesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15119,17 +23027,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the specifications of an instance.
-   *
-   * @description ### Method
+   * Queries the specifications of an instance.
+   * 
+   * @remarks
+   * ### Method
    * `GET`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`
-   *
-   * @param request ListInstanceSpecsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstanceSpecsResponse
+   * 
+   * @param request - ListInstanceSpecsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceSpecsResponse
    */
   async listInstanceSpecsWithOptions(instanceId: string, request: ListInstanceSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceSpecsResponse> {
     Util.validateModel(request);
@@ -15157,15 +23066,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the specifications of an instance.
-   *
-   * @description ### Method
+   * Queries the specifications of an instance.
+   * 
+   * @remarks
+   * ### Method
    * `GET`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/specs?type=qrs`
-   *
-   * @param request ListInstanceSpecsRequest
-   * @return ListInstanceSpecsResponse
+   * 
+   * @param request - ListInstanceSpecsRequest
+   * @returns ListInstanceSpecsResponse
    */
   async listInstanceSpecs(instanceId: string, request: ListInstanceSpecsRequest): Promise<ListInstanceSpecsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15174,17 +23084,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of instances.
-   *
-   * @description ### [](#)Method
+   * Queries a list of instances.
+   * 
+   * @remarks
+   * ### [](#)Method
    * `GET`
    * ### [](#uri)URI
    * `/openapi/ha3/instances`
-   *
-   * @param tmpReq ListInstancesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListInstancesResponse
+   * 
+   * @param tmpReq - ListInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesResponse
    */
   async listInstancesWithOptions(tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(tmpReq);
@@ -15242,15 +23153,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of instances.
-   *
-   * @description ### [](#)Method
+   * Queries a list of instances.
+   * 
+   * @remarks
+   * ### [](#)Method
    * `GET`
    * ### [](#uri)URI
    * `/openapi/ha3/instances`
-   *
-   * @param request ListInstancesRequest
-   * @return ListInstancesResponse
+   * 
+   * @param request - ListInstancesRequest
+   * @returns ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15259,10 +23171,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListLogsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListLogsResponse
+   * @param request - ListLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLogsResponse
    */
   async listLogsWithOptions(instanceId: string, request: ListLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLogsResponse> {
     Util.validateModel(request);
@@ -15310,8 +23222,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListLogsRequest
-   * @return ListLogsResponse
+   * @param request - ListLogsRequest
+   * @returns ListLogsResponse
    */
   async listLogs(instanceId: string, request: ListLogsRequest): Promise<ListLogsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15320,9 +23232,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an online configuration.
-   *
-   * @description ### Method
+   * Queries the details of an online configuration.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * GET
    * ```
@@ -15330,11 +23243,11 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
    * ```
-   *
-   * @param request ListOnlineConfigsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListOnlineConfigsResponse
+   * 
+   * @param request - ListOnlineConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOnlineConfigsResponse
    */
   async listOnlineConfigsWithOptions(instanceId: string, nodeName: string, request: ListOnlineConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListOnlineConfigsResponse> {
     Util.validateModel(request);
@@ -15362,9 +23275,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details of an online configuration.
-   *
-   * @description ### Method
+   * Queries the details of an online configuration.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * GET
    * ```
@@ -15372,9 +23286,9 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs?domain={domain}
    * ```
-   *
-   * @param request ListOnlineConfigsRequest
-   * @return ListOnlineConfigsResponse
+   * 
+   * @param request - ListOnlineConfigsRequest
+   * @returns ListOnlineConfigsResponse
    */
   async listOnlineConfigs(instanceId: string, nodeName: string, request: ListOnlineConfigsRequest): Promise<ListOnlineConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15383,9 +23297,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPausePolicysResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPausePolicysResponse
    */
   async listPausePolicysWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPausePolicysResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -15406,7 +23320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return ListPausePolicysResponse
+   * @returns ListPausePolicysResponse
    */
   async listPausePolicys(instanceId: string): Promise<ListPausePolicysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15415,10 +23329,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPostQueryResultRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListPostQueryResultResponse
+   * @param request - ListPostQueryResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPostQueryResultResponse
    */
   async listPostQueryResultWithOptions(instanceId: string, request: ListPostQueryResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPostQueryResultResponse> {
     Util.validateModel(request);
@@ -15456,8 +23370,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListPostQueryResultRequest
-   * @return ListPostQueryResultResponse
+   * @param request - ListPostQueryResultRequest
+   * @returns ListPostQueryResultResponse
    */
   async listPostQueryResult(instanceId: string, request: ListPostQueryResultRequest): Promise<ListPostQueryResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15466,17 +23380,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the query result.
-   *
-   * @description ### [](#)Method
+   * Queries the query result.
+   * 
+   * @remarks
+   * ### [](#)Method
    * `GET`
    * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
-   *
-   * @param request ListQueryResultRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListQueryResultResponse
+   * 
+   * @param request - ListQueryResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQueryResultResponse
    */
   async listQueryResultWithOptions(instanceId: string, request: ListQueryResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListQueryResultResponse> {
     Util.validateModel(request);
@@ -15508,15 +23423,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the query result.
-   *
-   * @description ### [](#)Method
+   * Queries the query result.
+   * 
+   * @remarks
+   * ### [](#)Method
    * `GET`
    * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/query?query=xxxx`
-   *
-   * @param request ListQueryResultRequest
-   * @return ListQueryResultResponse
+   * 
+   * @param request - ListQueryResultRequest
+   * @returns ListQueryResultResponse
    */
   async listQueryResult(instanceId: string, request: ListQueryResultRequest): Promise<ListQueryResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15525,10 +23441,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRestQueryResultRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRestQueryResultResponse
+   * @param request - ListRestQueryResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRestQueryResultResponse
    */
   async listRestQueryResultWithOptions(instanceId: string, request: ListRestQueryResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRestQueryResultResponse> {
     Util.validateModel(request);
@@ -15566,8 +23482,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListRestQueryResultRequest
-   * @return ListRestQueryResultResponse
+   * @param request - ListRestQueryResultRequest
+   * @returns ListRestQueryResultResponse
    */
   async listRestQueryResult(instanceId: string, request: ListRestQueryResultRequest): Promise<ListRestQueryResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15576,12 +23492,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过数据源配置获取schema信息
-   *
-   * @param request ListSchemasRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSchemasResponse
+   * 通过数据源配置获取schema信息
+   * 
+   * @param request - ListSchemasRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSchemasResponse
    */
   async listSchemasWithOptions(instanceId: string, request: ListSchemasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSchemasResponse> {
     Util.validateModel(request);
@@ -15637,10 +23553,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 通过数据源配置获取schema信息
-   *
-   * @param request ListSchemasRequest
-   * @return ListSchemasResponse
+   * 通过数据源配置获取schema信息
+   * 
+   * @param request - ListSchemasRequest
+   * @returns ListSchemasResponse
    */
   async listSchemas(instanceId: string, request: ListSchemasRequest): Promise<ListSchemasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15649,11 +23565,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of index versions.
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTableGenerationsResponse
+   * Queries a list of index versions.
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTableGenerationsResponse
    */
   async listTableGenerationsWithOptions(instanceId: string, tableName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTableGenerationsResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -15674,9 +23590,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of index versions.
-   *
-   * @return ListTableGenerationsResponse
+   * Queries a list of index versions.
+   * @returns ListTableGenerationsResponse
    */
   async listTableGenerations(instanceId: string, tableName: string): Promise<ListTableGenerationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15685,12 +23600,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of index tables.
-   *
-   * @param request ListTablesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTablesResponse
+   * Queries a list of index tables.
+   * 
+   * @param request - ListTablesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTablesResponse
    */
   async listTablesWithOptions(instanceId: string, request: ListTablesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTablesResponse> {
     Util.validateModel(request);
@@ -15718,10 +23633,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of index tables.
-   *
-   * @param request ListTablesRequest
-   * @return ListTablesResponse
+   * Queries a list of index tables.
+   * 
+   * @param request - ListTablesRequest
+   * @returns ListTablesResponse
    */
   async listTables(instanceId: string, request: ListTablesRequest): Promise<ListTablesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15730,12 +23645,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查标签接口
-   *
-   * @param tmpReq ListTagResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagResourcesResponse
+   * 查标签接口
+   * 
+   * @param tmpReq - ListTagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
    */
   async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(tmpReq);
@@ -15785,10 +23700,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查标签接口
-   *
-   * @param request ListTagResourcesRequest
-   * @return ListTagResourcesResponse
+   * 查标签接口
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15797,12 +23712,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取集群任务列表（数据源+集群）
-   *
-   * @param request ListTasksRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTasksResponse
+   * 获取集群任务列表（数据源+集群）
+   * 
+   * @param request - ListTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTasksResponse
    */
   async listTasksWithOptions(instanceId: string, request: ListTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(request);
@@ -15834,10 +23749,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取集群任务列表（数据源+集群）
-   *
-   * @param request ListTasksRequest
-   * @return ListTasksResponse
+   * 获取集群任务列表（数据源+集群）
+   * 
+   * @param request - ListTasksRequest
+   * @returns ListTasksResponse
    */
   async listTasks(instanceId: string, request: ListTasksRequest): Promise<ListTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15846,10 +23761,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListVectorQueryResultRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListVectorQueryResultResponse
+   * @param request - ListVectorQueryResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVectorQueryResultResponse
    */
   async listVectorQueryResultWithOptions(instanceId: string, request: ListVectorQueryResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVectorQueryResultResponse> {
     Util.validateModel(request);
@@ -15891,8 +23806,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ListVectorQueryResultRequest
-   * @return ListVectorQueryResultResponse
+   * @param request - ListVectorQueryResultRequest
+   * @returns ListVectorQueryResultResponse
    */
   async listVectorQueryResult(instanceId: string, request: ListVectorQueryResultRequest): Promise<ListVectorQueryResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15901,10 +23816,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyAdvanceConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAdvanceConfigResponse
+   * @param request - ModifyAdvanceConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAdvanceConfigResponse
    */
   async modifyAdvanceConfigWithOptions(instanceId: string, configName: string, request: ModifyAdvanceConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyAdvanceConfigResponse> {
     Util.validateModel(request);
@@ -15956,8 +23871,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyAdvanceConfigRequest
-   * @return ModifyAdvanceConfigResponse
+   * @param request - ModifyAdvanceConfigRequest
+   * @returns ModifyAdvanceConfigResponse
    */
   async modifyAdvanceConfig(instanceId: string, configName: string, request: ModifyAdvanceConfigRequest): Promise<ModifyAdvanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15966,17 +23881,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the advanced configurations.
-   *
-   * @description ## Method
+   * Modifies the advanced configurations.
+   * 
+   * @remarks
+   * ## Method
    *     put
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-   *
-   * @param request ModifyAdvanceConfigFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAdvanceConfigFileResponse
+   * 
+   * @param request - ModifyAdvanceConfigFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAdvanceConfigFileResponse
    */
   async modifyAdvanceConfigFileWithOptions(instanceId: string, configName: string, request: ModifyAdvanceConfigFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyAdvanceConfigFileResponse> {
     Util.validateModel(request);
@@ -16014,15 +23930,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the advanced configurations.
-   *
-   * @description ## Method
+   * Modifies the advanced configurations.
+   * 
+   * @remarks
+   * ## Method
    *     put
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/file?fileName={fileName}
-   *
-   * @param request ModifyAdvanceConfigFileRequest
-   * @return ModifyAdvanceConfigFileResponse
+   * 
+   * @param request - ModifyAdvanceConfigFileRequest
+   * @returns ModifyAdvanceConfigFileResponse
    */
   async modifyAdvanceConfigFile(instanceId: string, configName: string, request: ModifyAdvanceConfigFileRequest): Promise<ModifyAdvanceConfigFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16031,10 +23948,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyAliasRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyAliasResponse
+   * @param request - ModifyAliasRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAliasResponse
    */
   async modifyAliasWithOptions(instanceId: string, alias: string, request: ModifyAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyAliasResponse> {
     Util.validateModel(request);
@@ -16066,8 +23983,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyAliasRequest
-   * @return ModifyAliasResponse
+   * @param request - ModifyAliasRequest
+   * @returns ModifyAliasResponse
    */
   async modifyAlias(instanceId: string, alias: string, request: ModifyAliasRequest): Promise<ModifyAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16076,17 +23993,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of a specified cluster.
-   *
-   * @description ### [](#)Method
+   * Modifies the description of a specified cluster.
+   * 
+   * @remarks
+   * ### [](#)Method
    * `PUT`
    * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
-   *
-   * @param request ModifyClusterDescRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyClusterDescResponse
+   * 
+   * @param request - ModifyClusterDescRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyClusterDescResponse
    */
   async modifyClusterDescWithOptions(instanceId: string, clusterName: string, request: ModifyClusterDescRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterDescResponse> {
     Util.validateModel(request);
@@ -16114,15 +24032,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the description of a specified cluster.
-   *
-   * @description ### [](#)Method
+   * Modifies the description of a specified cluster.
+   * 
+   * @remarks
+   * ### [](#)Method
    * `PUT`
    * ### [](#uri)URI
    * `/openapi/ha3/instances/{instanceId}/clusters/{clusterName}/desc`
-   *
-   * @param request ModifyClusterDescRequest
-   * @return ModifyClusterDescResponse
+   * 
+   * @param request - ModifyClusterDescRequest
+   * @returns ModifyClusterDescResponse
    */
   async modifyClusterDesc(instanceId: string, clusterName: string, request: ModifyClusterDescRequest): Promise<ModifyClusterDescResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16131,15 +24050,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configuration information of a cluster.
-   *
-   * @description ## Request syntax
+   * Modifies the configuration information of a cluster.
+   * 
+   * @remarks
+   * ## Request syntax
    *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
-   *
-   * @param request ModifyClusterOfflineConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyClusterOfflineConfigResponse
+   * 
+   * @param request - ModifyClusterOfflineConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyClusterOfflineConfigResponse
    */
   async modifyClusterOfflineConfigWithOptions(instanceId: string, request: ModifyClusterOfflineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterOfflineConfigResponse> {
     Util.validateModel(request);
@@ -16199,13 +24119,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configuration information of a cluster.
-   *
-   * @description ## Request syntax
+   * Modifies the configuration information of a cluster.
+   * 
+   * @remarks
+   * ## Request syntax
    *     PUT /openapi/ha3/instances/{instanceId}/cluster-offline-config
-   *
-   * @param request ModifyClusterOfflineConfigRequest
-   * @return ModifyClusterOfflineConfigResponse
+   * 
+   * @param request - ModifyClusterOfflineConfigRequest
+   * @returns ModifyClusterOfflineConfigResponse
    */
   async modifyClusterOfflineConfig(instanceId: string, request: ModifyClusterOfflineConfigRequest): Promise<ModifyClusterOfflineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16214,17 +24135,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the online configuration of a cluster.
-   *
-   * @description ### Method
+   * Modifies the online configuration of a cluster.
+   * 
+   * @remarks
+   * ### Method
    * `PUT`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/cluster-online-config`
-   *
-   * @param request ModifyClusterOnlineConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyClusterOnlineConfigResponse
+   * 
+   * @param request - ModifyClusterOnlineConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyClusterOnlineConfigResponse
    */
   async modifyClusterOnlineConfigWithOptions(instanceId: string, request: ModifyClusterOnlineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterOnlineConfigResponse> {
     Util.validateModel(request);
@@ -16256,15 +24178,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the online configuration of a cluster.
-   *
-   * @description ### Method
+   * Modifies the online configuration of a cluster.
+   * 
+   * @remarks
+   * ### Method
    * `PUT`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/cluster-online-config`
-   *
-   * @param request ModifyClusterOnlineConfigRequest
-   * @return ModifyClusterOnlineConfigResponse
+   * 
+   * @param request - ModifyClusterOnlineConfigRequest
+   * @returns ModifyClusterOnlineConfigResponse
    */
   async modifyClusterOnlineConfig(instanceId: string, request: ModifyClusterOnlineConfigRequest): Promise<ModifyClusterOnlineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16273,12 +24196,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改数据源部署信息
-   *
-   * @param request ModifyDataSourceDeployRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyDataSourceDeployResponse
+   * 修改数据源部署信息
+   * 
+   * @param request - ModifyDataSourceDeployRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDataSourceDeployResponse
    */
   async modifyDataSourceDeployWithOptions(instanceId: string, deployName: string, dataSourceName: string, request: ModifyDataSourceDeployRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyDataSourceDeployResponse> {
     Util.validateModel(request);
@@ -16332,10 +24255,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改数据源部署信息
-   *
-   * @param request ModifyDataSourceDeployRequest
-   * @return ModifyDataSourceDeployResponse
+   * 修改数据源部署信息
+   * 
+   * @param request - ModifyDataSourceDeployRequest
+   * @returns ModifyDataSourceDeployResponse
    */
   async modifyDataSourceDeploy(instanceId: string, deployName: string, dataSourceName: string, request: ModifyDataSourceDeployRequest): Promise<ModifyDataSourceDeployResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16344,17 +24267,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a file.
-   *
-   * @description ## Method
+   * Modifies a file.
+   * 
+   * @remarks
+   * ## Method
    *     PUT
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-   *
-   * @param request ModifyFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyFileResponse
+   * 
+   * @param request - ModifyFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyFileResponse
    */
   async modifyFileWithOptions(instanceId: string, indexName: string, versionName: string, request: ModifyFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyFileResponse> {
     Util.validateModel(request);
@@ -16392,15 +24316,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a file.
-   *
-   * @description ## Method
+   * Modifies a file.
+   * 
+   * @remarks
+   * ## Method
    *     PUT
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
-   *
-   * @param request ModifyFileRequest
-   * @return ModifyFileResponse
+   * 
+   * @param request - ModifyFileRequest
+   * @returns ModifyFileResponse
    */
   async modifyFile(instanceId: string, indexName: string, versionName: string, request: ModifyFileRequest): Promise<ModifyFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16409,10 +24334,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyIndexRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyIndexResponse
+   * @param request - ModifyIndexRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyIndexResponse
    */
   async modifyIndexWithOptions(instanceId: string, indexName: string, request: ModifyIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyIndexResponse> {
     Util.validateModel(request);
@@ -16490,8 +24415,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyIndexRequest
-   * @return ModifyIndexResponse
+   * @param request - ModifyIndexRequest
+   * @returns ModifyIndexResponse
    */
   async modifyIndex(instanceId: string, indexName: string, request: ModifyIndexRequest): Promise<ModifyIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16500,12 +24425,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies an online policy of an index.
-   *
-   * @param request ModifyIndexOnlineStrategyRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyIndexOnlineStrategyResponse
+   * Modifies the online policy of an index.
+   * 
+   * @param request - ModifyIndexOnlineStrategyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyIndexOnlineStrategyResponse
    */
   async modifyIndexOnlineStrategyWithOptions(instanceId: string, dataSourceName: string, deployName: string, indexName: string, request: ModifyIndexOnlineStrategyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyIndexOnlineStrategyResponse> {
     Util.validateModel(request);
@@ -16533,10 +24458,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies an online policy of an index.
-   *
-   * @param request ModifyIndexOnlineStrategyRequest
-   * @return ModifyIndexOnlineStrategyResponse
+   * Modifies the online policy of an index.
+   * 
+   * @param request - ModifyIndexOnlineStrategyRequest
+   * @returns ModifyIndexOnlineStrategyResponse
    */
   async modifyIndexOnlineStrategy(instanceId: string, dataSourceName: string, deployName: string, indexName: string, request: ModifyIndexOnlineStrategyRequest): Promise<ModifyIndexOnlineStrategyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16545,17 +24470,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information about index partitions.
-   *
-   * @description ### Method
+   * Modifies the information about index partitions.
+   * 
+   * @remarks
+   * ### Method
    * `PUT`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/index-partition`
-   *
-   * @param request ModifyIndexPartitionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyIndexPartitionResponse
+   * 
+   * @param request - ModifyIndexPartitionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyIndexPartitionResponse
    */
   async modifyIndexPartitionWithOptions(instanceId: string, request: ModifyIndexPartitionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyIndexPartitionResponse> {
     Util.validateModel(request);
@@ -16595,15 +24521,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information about index partitions.
-   *
-   * @description ### Method
+   * Modifies the information about index partitions.
+   * 
+   * @remarks
+   * ### Method
    * `PUT`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/index-partition`
-   *
-   * @param request ModifyIndexPartitionRequest
-   * @return ModifyIndexPartitionResponse
+   * 
+   * @param request - ModifyIndexPartitionRequest
+   * @returns ModifyIndexPartitionResponse
    */
   async modifyIndexPartition(instanceId: string, request: ModifyIndexPartitionRequest): Promise<ModifyIndexPartitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16612,17 +24539,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the index version of a cluster (an index version rollback).
-   *
-   * @description ## [](#)Method
+   * Modifies the index version of a cluster (an index version rollback).
+   * 
+   * @remarks
+   * ## [](#)Method
    *     PUT
    * ## [](#uri)URI
    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-   *
-   * @param request ModifyIndexVersionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyIndexVersionResponse
+   * 
+   * @param request - ModifyIndexVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyIndexVersionResponse
    */
   async modifyIndexVersionWithOptions(instanceId: string, clusterName: string, request: ModifyIndexVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyIndexVersionResponse> {
     Util.validateModel(request);
@@ -16645,15 +24573,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the index version of a cluster (an index version rollback).
-   *
-   * @description ## [](#)Method
+   * Modifies the index version of a cluster (an index version rollback).
+   * 
+   * @remarks
+   * ## [](#)Method
    *     PUT
    * ## [](#uri)URI
    *     /openapi/ha3/instances/{instanceId}/clusters/{clusterName}/index-version
-   *
-   * @param request ModifyIndexVersionRequest
-   * @return ModifyIndexVersionResponse
+   * 
+   * @param request - ModifyIndexVersionRequest
+   * @returns ModifyIndexVersionResponse
    */
   async modifyIndexVersion(instanceId: string, clusterName: string, request: ModifyIndexVersionRequest): Promise<ModifyIndexVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16662,9 +24591,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a node.
-   *
-   * @description ### Method
+   * Modifies the configurations of a node.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * PUT
    * ```
@@ -16672,11 +24602,11 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
    * ```
-   *
-   * @param request ModifyNodeConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyNodeConfigResponse
+   * 
+   * @param request - ModifyNodeConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyNodeConfigResponse
    */
   async modifyNodeConfigWithOptions(instanceId: string, request: ModifyNodeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyNodeConfigResponse> {
     Util.validateModel(request);
@@ -16742,9 +24672,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configurations of a node.
-   *
-   * @description ### Method
+   * Modifies the configurations of a node.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * PUT
    * ```
@@ -16752,9 +24683,9 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/node-config?type=qrs&name=test
    * ```
-   *
-   * @param request ModifyNodeConfigRequest
-   * @return ModifyNodeConfigResponse
+   * 
+   * @param request - ModifyNodeConfigRequest
+   * @returns ModifyNodeConfigResponse
    */
   async modifyNodeConfig(instanceId: string, request: ModifyNodeConfigRequest): Promise<ModifyNodeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16763,9 +24694,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies online configurations.
-   *
-   * @description ### Method
+   * Modifies online configurations.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * put
    * ```
@@ -16773,11 +24705,11 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
    * ```
-   *
-   * @param request ModifyOnlineConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyOnlineConfigResponse
+   * 
+   * @param request - ModifyOnlineConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyOnlineConfigResponse
    */
   async modifyOnlineConfigWithOptions(instanceId: string, nodeName: string, indexName: string, request: ModifyOnlineConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyOnlineConfigResponse> {
     Util.validateModel(request);
@@ -16805,9 +24737,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies online configurations.
-   *
-   * @description ### Method
+   * Modifies online configurations.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * put
    * ```
@@ -16815,9 +24748,9 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/node/{nodeName}/online-configs/{indexName}
    * ```
-   *
-   * @param request ModifyOnlineConfigRequest
-   * @return ModifyOnlineConfigResponse
+   * 
+   * @param request - ModifyOnlineConfigRequest
+   * @returns ModifyOnlineConfigResponse
    */
   async modifyOnlineConfig(instanceId: string, nodeName: string, indexName: string, request: ModifyOnlineConfigRequest): Promise<ModifyOnlineConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16826,17 +24759,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改实例的密码
-   *
-   * @description ### Method
+   * 修改实例的密码
+   * 
+   * @remarks
+   * ### Method
    * `PUT`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/password`
-   *
-   * @param request ModifyPasswordRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyPasswordResponse
+   * 
+   * @param request - ModifyPasswordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPasswordResponse
    */
   async modifyPasswordWithOptions(instanceId: string, request: ModifyPasswordRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyPasswordResponse> {
     Util.validateModel(request);
@@ -16868,15 +24802,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改实例的密码
-   *
-   * @description ### Method
+   * 修改实例的密码
+   * 
+   * @remarks
+   * ### Method
    * `PUT`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/password`
-   *
-   * @param request ModifyPasswordRequest
-   * @return ModifyPasswordResponse
+   * 
+   * @param request - ModifyPasswordRequest
+   * @returns ModifyPasswordResponse
    */
   async modifyPassword(instanceId: string, request: ModifyPasswordRequest): Promise<ModifyPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16885,10 +24820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyPausePolicyRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyPausePolicyResponse
+   * @param request - ModifyPausePolicyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPausePolicyResponse
    */
   async modifyPausePolicyWithOptions(instanceId: string, request: ModifyPausePolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyPausePolicyResponse> {
     Util.validateModel(request);
@@ -16916,8 +24851,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyPausePolicyRequest
-   * @return ModifyPausePolicyResponse
+   * @param request - ModifyPausePolicyRequest
+   * @returns ModifyPausePolicyResponse
    */
   async modifyPausePolicy(instanceId: string, request: ModifyPausePolicyRequest): Promise<ModifyPausePolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16926,12 +24861,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改公网域名访问白名单
-   *
-   * @param request ModifyPublicUrlIpListRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyPublicUrlIpListResponse
+   * 修改公网域名访问白名单
+   * 
+   * @param request - ModifyPublicUrlIpListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPublicUrlIpListResponse
    */
   async modifyPublicUrlIpListWithOptions(instanceId: string, request: ModifyPublicUrlIpListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyPublicUrlIpListResponse> {
     Util.validateModel(request);
@@ -16959,10 +24894,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改公网域名访问白名单
-   *
-   * @param request ModifyPublicUrlIpListRequest
-   * @return ModifyPublicUrlIpListResponse
+   * 修改公网域名访问白名单
+   * 
+   * @param request - ModifyPublicUrlIpListRequest
+   * @returns ModifyPublicUrlIpListResponse
    */
   async modifyPublicUrlIpList(instanceId: string, request: ModifyPublicUrlIpListRequest): Promise<ModifyPublicUrlIpListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16971,12 +24906,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies an index table.
-   *
-   * @param request ModifyTableRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTableResponse
+   * Modifies an index table.
+   * 
+   * @param request - ModifyTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTableResponse
    */
   async modifyTableWithOptions(instanceId: string, tableName: string, request: ModifyTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyTableResponse> {
     Util.validateModel(request);
@@ -17034,10 +24969,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies an index table.
-   *
-   * @param request ModifyTableRequest
-   * @return ModifyTableResponse
+   * Modifies an index table.
+   * 
+   * @param request - ModifyTableRequest
+   * @returns ModifyTableResponse
    */
   async modifyTable(instanceId: string, tableName: string, request: ModifyTableRequest): Promise<ModifyTableResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17046,9 +24981,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Publishes a version of advanced configurations.
-   *
-   * @description ## Method
+   * Publishes a version of advanced configurations.
+   * 
+   * @remarks
+   * ## Method
    * ~~~
    * POST
    * ~~~
@@ -17056,11 +24992,11 @@ export default class Client extends OpenApi {
    * ~~~
    * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
    * ~~~
-   *
-   * @param request PublishAdvanceConfigRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PublishAdvanceConfigResponse
+   * 
+   * @param request - PublishAdvanceConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishAdvanceConfigResponse
    */
   async publishAdvanceConfigWithOptions(instanceId: string, configName: string, request: PublishAdvanceConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishAdvanceConfigResponse> {
     Util.validateModel(request);
@@ -17092,9 +25028,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Publishes a version of advanced configurations.
-   *
-   * @description ## Method
+   * Publishes a version of advanced configurations.
+   * 
+   * @remarks
+   * ## Method
    * ~~~
    * POST
    * ~~~
@@ -17102,9 +25039,9 @@ export default class Client extends OpenApi {
    * ~~~
    * /openapi/ha3/instances/{instanceId}/advanced-configs/{configName}/actions/publish
    * ~~~
-   *
-   * @param request PublishAdvanceConfigRequest
-   * @return PublishAdvanceConfigResponse
+   * 
+   * @param request - PublishAdvanceConfigRequest
+   * @returns PublishAdvanceConfigResponse
    */
   async publishAdvanceConfig(instanceId: string, configName: string, request: PublishAdvanceConfigRequest): Promise<PublishAdvanceConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17113,17 +25050,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Publishes a specified index version.
-   *
-   * @description ## Method
+   * Publishes a specified index version.
+   * 
+   * @remarks
+   * ## Method
    *     POST
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
-   *
-   * @param request PublishIndexVersionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PublishIndexVersionResponse
+   * 
+   * @param request - PublishIndexVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishIndexVersionResponse
    */
   async publishIndexVersionWithOptions(instanceId: string, indexName: string, request: PublishIndexVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishIndexVersionResponse> {
     Util.validateModel(request);
@@ -17151,15 +25089,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Publishes a specified index version.
-   *
-   * @description ## Method
+   * Publishes a specified index version.
+   * 
+   * @remarks
+   * ## Method
    *     POST
    * ## URI
    *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/actions/publish
-   *
-   * @param request PublishIndexVersionRequest
-   * @return PublishIndexVersionResponse
+   * 
+   * @param request - PublishIndexVersionRequest
+   * @returns PublishIndexVersionResponse
    */
   async publishIndexVersion(instanceId: string, indexName: string, request: PublishIndexVersionRequest): Promise<PublishIndexVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17168,10 +25107,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushDocumentsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return PushDocumentsResponse
+   * @param request - PushDocumentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushDocumentsResponse
    */
   async pushDocumentsWithOptions(instanceId: string, dataSourceName: string, request: PushDocumentsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PushDocumentsResponse> {
     Util.validateModel(request);
@@ -17200,8 +25139,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request PushDocumentsRequest
-   * @return PushDocumentsResponse
+   * @param request - PushDocumentsRequest
+   * @returns PushDocumentsResponse
    */
   async pushDocuments(instanceId: string, dataSourceName: string, request: PushDocumentsRequest): Promise<PushDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17210,17 +25149,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restores data from an index.
-   *
-   * @description ### Method
+   * Restores data from an index.
+   * 
+   * @remarks
+   * ### Method
    * `POST`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/recover-index`
-   *
-   * @param request RecoverIndexRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RecoverIndexResponse
+   * 
+   * @param request - RecoverIndexRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RecoverIndexResponse
    */
   async recoverIndexWithOptions(instanceId: string, request: RecoverIndexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RecoverIndexResponse> {
     Util.validateModel(request);
@@ -17260,15 +25200,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restores data from an index.
-   *
-   * @description ### Method
+   * Restores data from an index.
+   * 
+   * @remarks
+   * ### Method
    * `POST`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}/recover-index`
-   *
-   * @param request RecoverIndexRequest
-   * @return RecoverIndexResponse
+   * 
+   * @param request - RecoverIndexRequest
+   * @returns RecoverIndexResponse
    */
   async recoverIndex(instanceId: string, request: RecoverIndexRequest): Promise<RecoverIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17277,12 +25218,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Rebuilds an index.
-   *
-   * @param request ReindexRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ReindexResponse
+   * Rebuilds an index.
+   * 
+   * @param request - ReindexRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReindexResponse
    */
   async reindexWithOptions(instanceId: string, tableName: string, request: ReindexRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReindexResponse> {
     Util.validateModel(request);
@@ -17318,10 +25259,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Rebuilds an index.
-   *
-   * @param request ReindexRequest
-   * @return ReindexResponse
+   * Rebuilds an index.
+   * 
+   * @param request - ReindexRequest
+   * @returns ReindexResponse
    */
   async reindex(instanceId: string, tableName: string, request: ReindexRequest): Promise<ReindexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17330,9 +25271,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a cluster.
-   *
-   * @description ### Method
+   * Deletes a cluster.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * DELETE
    * ```
@@ -17340,10 +25282,10 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
    * ```
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveClusterResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveClusterResponse
    */
   async removeClusterWithOptions(instanceId: string, clusterName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveClusterResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -17364,9 +25306,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a cluster.
-   *
-   * @description ### Method
+   * Deletes a cluster.
+   * 
+   * @remarks
+   * ### Method
    * ```java
    * DELETE
    * ```
@@ -17374,8 +25317,7 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/clusters/{clusterName}
    * ```
-   *
-   * @return RemoveClusterResponse
+   * @returns RemoveClusterResponse
    */
   async removeCluster(instanceId: string, clusterName: string): Promise<RemoveClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17384,10 +25326,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RenameFolderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RenameFolderResponse
+   * @param request - RenameFolderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenameFolderResponse
    */
   async renameFolderWithOptions(instanceId: string, database: string, folderId: string, request: RenameFolderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RenameFolderResponse> {
     Util.validateModel(request);
@@ -17415,8 +25357,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request RenameFolderRequest
-   * @return RenameFolderResponse
+   * @param request - RenameFolderRequest
+   * @returns RenameFolderResponse
    */
   async renameFolder(instanceId: string, database: string, folderId: string, request: RenameFolderRequest): Promise<RenameFolderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17425,9 +25367,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StartIndexResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartIndexResponse
    */
   async startIndexWithOptions(instanceId: string, indexName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartIndexResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -17448,7 +25390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return StartIndexResponse
+   * @returns StartIndexResponse
    */
   async startIndex(instanceId: string, indexName: string): Promise<StartIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17457,9 +25399,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopIndexResponse
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopIndexResponse
    */
   async stopIndexWithOptions(instanceId: string, indexName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopIndexResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -17480,7 +25422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @return StopIndexResponse
+   * @returns StopIndexResponse
    */
   async stopIndex(instanceId: string, indexName: string): Promise<StopIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17489,9 +25431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Stops an FSM task.
-   *
-   * @description ### [](#)Method
+   * Stops an FSM task.
+   * 
+   * @remarks
+   * ### [](#)Method
    * ```java
    * PUT
    * ```
@@ -17499,10 +25442,10 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
    * ```
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return StopTaskResponse
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopTaskResponse
    */
   async stopTaskWithOptions(instanceId: string, fsmId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopTaskResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -17523,9 +25466,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Stops an FSM task.
-   *
-   * @description ### [](#)Method
+   * Stops an FSM task.
+   * 
+   * @remarks
+   * ### [](#)Method
    * ```java
    * PUT
    * ```
@@ -17533,8 +25477,7 @@ export default class Client extends OpenApi {
    * ```java
    * /openapi/ha3/instances/{instanceId}/stop-task/{fsmId}
    * ```
-   *
-   * @return StopTaskResponse
+   * @returns StopTaskResponse
    */
   async stopTask(instanceId: string, fsmId: string): Promise<StopTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17543,12 +25486,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 打标签接口
-   *
-   * @param request TagResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TagResourcesResponse
+   * 打标签接口
+   * 
+   * @param request - TagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
    */
   async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
@@ -17584,10 +25527,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 打标签接口
-   *
-   * @param request TagResourcesRequest
-   * @return TagResourcesResponse
+   * 打标签接口
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17596,12 +25539,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删标签接口
-   *
-   * @param tmpReq UntagResourcesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UntagResourcesResponse
+   * 删标签接口
+   * 
+   * @param tmpReq - UntagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
    */
   async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(tmpReq);
@@ -17651,10 +25594,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删标签接口
-   *
-   * @param request UntagResourcesRequest
-   * @return UntagResourcesResponse
+   * 删标签接口
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17663,17 +25606,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configuration of a specified instance.
-   *
-   * @description ### Method
+   * Modifies the configuration of a specified instance.
+   * 
+   * @remarks
+   * ### Method
    * `PUT`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}`
-   *
-   * @param request UpdateInstanceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateInstanceResponse
+   * 
+   * @param request - UpdateInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstanceResponse
    */
   async updateInstanceWithOptions(instanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
     Util.validateModel(request);
@@ -17709,15 +25653,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the configuration of a specified instance.
-   *
-   * @description ### Method
+   * Modifies the configuration of a specified instance.
+   * 
+   * @remarks
+   * ### Method
    * `PUT`
    * ### URI
    * `/openapi/ha3/instances/{instanceId}`
-   *
-   * @param request UpdateInstanceRequest
-   * @return UpdateInstanceResponse
+   * 
+   * @param request - UpdateInstanceRequest
+   * @returns UpdateInstanceResponse
    */
   async updateInstance(instanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17726,10 +25671,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateSqlInstanceContentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSqlInstanceContentResponse
+   * @param request - UpdateSqlInstanceContentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSqlInstanceContentResponse
    */
   async updateSqlInstanceContentWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceContentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSqlInstanceContentResponse> {
     Util.validateModel(request);
@@ -17757,8 +25702,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateSqlInstanceContentRequest
-   * @return UpdateSqlInstanceContentResponse
+   * @param request - UpdateSqlInstanceContentRequest
+   * @returns UpdateSqlInstanceContentResponse
    */
   async updateSqlInstanceContent(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceContentRequest): Promise<UpdateSqlInstanceContentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17767,10 +25712,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateSqlInstanceNameRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSqlInstanceNameResponse
+   * @param request - UpdateSqlInstanceNameRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSqlInstanceNameResponse
    */
   async updateSqlInstanceNameWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceNameRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSqlInstanceNameResponse> {
     Util.validateModel(request);
@@ -17798,8 +25743,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateSqlInstanceNameRequest
-   * @return UpdateSqlInstanceNameResponse
+   * @param request - UpdateSqlInstanceNameRequest
+   * @returns UpdateSqlInstanceNameResponse
    */
   async updateSqlInstanceName(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceNameRequest): Promise<UpdateSqlInstanceNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17808,10 +25753,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateSqlInstanceParamsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateSqlInstanceParamsResponse
+   * @param request - UpdateSqlInstanceParamsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSqlInstanceParamsResponse
    */
   async updateSqlInstanceParamsWithOptions(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceParamsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateSqlInstanceParamsResponse> {
     Util.validateModel(request);
@@ -17855,8 +25800,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request UpdateSqlInstanceParamsRequest
-   * @return UpdateSqlInstanceParamsResponse
+   * @param request - UpdateSqlInstanceParamsRequest
+   * @returns UpdateSqlInstanceParamsResponse
    */
   async updateSqlInstanceParams(instanceId: string, database: string, sqlInstanceId: string, request: UpdateSqlInstanceParamsRequest): Promise<UpdateSqlInstanceParamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
