@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -8,15 +7,347 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class EnrollAccountRequest extends $tea.Model {
-  accountNamePrefix?: string;
-  accountUid?: number;
+export class BatchEnrollAccountsRequest extends $tea.Model {
+  accounts?: BatchEnrollAccountsRequestAccounts[];
+  /**
+   * @example
+   * afb-bp1durvn3lgqe28v****
+   */
   baselineId?: string;
-  baselineItems?: EnrollAccountRequestBaselineItems[];
-  displayName?: string;
-  folderId?: string;
-  payerAccountUid?: number;
+  baselineItems?: BatchEnrollAccountsRequestBaselineItems[];
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accounts: 'Accounts',
+      baselineId: 'BaselineId',
+      baselineItems: 'BaselineItems',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accounts: { 'type': 'array', 'itemType': BatchEnrollAccountsRequestAccounts },
+      baselineId: 'string',
+      baselineItems: { 'type': 'array', 'itemType': BatchEnrollAccountsRequestBaselineItems },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchEnrollAccountsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16B208DD-86BD-5E7D-AC93-FFD44B6FBDF1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchEnrollAccountsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchEnrollAccountsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchEnrollAccountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccountFactoryBaselineRequest extends $tea.Model {
+  baselineItems?: CreateAccountFactoryBaselineRequestBaselineItems[];
+  baselineName?: string;
+  description?: string;
+  /**
+   * @remarks
+   * RegionId
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineItems: 'BaselineItems',
+      baselineName: 'BaselineName',
+      description: 'Description',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineItems: { 'type': 'array', 'itemType': CreateAccountFactoryBaselineRequestBaselineItems },
+      baselineName: 'string',
+      description: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccountFactoryBaselineResponseBody extends $tea.Model {
+  baselineId?: string;
+  /**
+   * @example
+   * A5592E2E-0FC4-557C-B989-DF229B5EBE13
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccountFactoryBaselineResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccountFactoryBaselineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAccountFactoryBaselineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountFactoryBaselineRequest extends $tea.Model {
+  /**
+   * @example
+   * afb-bp1durvn3lgqe28v****
+   */
+  baselineId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountFactoryBaselineResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0F45D888-8C4D-55E5-ACA2-D1515159181D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountFactoryBaselineResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccountFactoryBaselineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAccountFactoryBaselineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnrollAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The prefix for the account name of the member.
+   * 
+   * *   If the account baseline is applied to an account that is newly created, you must configure this parameter.
+   * *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+   * 
+   * @example
+   * test-account
+   */
+  accountNamePrefix?: string;
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * *   If the account baseline is applied to an account that is newly created, you do not need to configure this parameter.
+   * *   If the account baseline is applied to an existing account, you must configure this parameter.
+   * 
+   * @example
+   * 12868156179****
+   */
+  accountUid?: number;
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * If this parameter is left empty, the default baseline is used.
+   * 
+   * @example
+   * afb-bp1durvn3lgqe28v****
+   */
+  baselineId?: string;
+  /**
+   * @remarks
+   * An array that contains baseline items.
+   * 
+   * If this parameter is specified, the configurations of the baseline items are merged with the baseline of the specified account. The configurations of the same baseline items are subject to the configuration of this parameter. We recommend that you leave this parameter empty and configure the `BaselineId` parameter to specify an account baseline and apply the configuration of the account baseline to the account.
+   */
+  baselineItems?: EnrollAccountRequestBaselineItems[];
+  /**
+   * @remarks
+   * The display name of the account.
+   * 
+   * *   If the account baseline is applied to an account that is newly created, you must configure this parameter.
+   * *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+   * 
+   * @example
+   * test-account
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * *   If the account baseline is applied to an account that is newly created, you need to specify a parent folder. If you do not configure this parameter, the account is created in the Root folder.
+   * *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+   * 
+   * @example
+   * fd-5ESoku****
+   */
+  folderId?: string;
+  /**
+   * @remarks
+   * The ID of the billing account.
+   * 
+   * *   If the account baseline is applied to an account that is newly created, you need to specify a billing account. If you do not configure this parameter, the self-pay settlement method is used for the account.
+   * *   If the account baseline is applied to an existing account, you do not need to configure this parameter.
+   * 
+   * @example
+   * 19534534552****
+   */
+  payerAccountUid?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The identity type of the member. Valid values:
+   * 
+   * *   resell (default): The member is an account for a reseller. A relationship is automatically established between the member and the reseller. The management account of the resource directory must be used as the billing account of the member.
+   * *   non_resell: The member is not an account for a reseller. The member is an account that is not associated with a reseller. You can directly use the account to purchase Alibaba Cloud resources. The member is used as its own billing account.
+   * 
+   * > This parameter is available only for resellers at the international site (alibabacloud.com).
+   * 
+   * @example
+   * resell
+   */
   resellAccountType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52,7 +383,21 @@ export class EnrollAccountRequest extends $tea.Model {
 }
 
 export class EnrollAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * 143165363236****
+   */
   accountUid?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7071E5FA-515E-5F53-B335-B87D619C6A66
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,7 +444,21 @@ export class EnrollAccountResponse extends $tea.Model {
 }
 
 export class GetAccountFactoryBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * @example
+   * afb-bp1nf0enuzb89az*****
+   */
   baselineId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,13 +480,69 @@ export class GetAccountFactoryBaselineRequest extends $tea.Model {
 }
 
 export class GetAccountFactoryBaselineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * @example
+   * afb-bp16ae2k8a3yo3d*****
+   */
   baselineId?: string;
+  /**
+   * @remarks
+   * The baseline items.
+   */
   baselineItems?: GetAccountFactoryBaselineResponseBodyBaselineItems[];
+  /**
+   * @remarks
+   * The name of the baseline.
+   * 
+   * @example
+   * Default
+   */
   baselineName?: string;
+  /**
+   * @remarks
+   * The time when the baseline was created.
+   * 
+   * @example
+   * 2022-11-28T00:46:34Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The description of the baseline.
+   * 
+   * @example
+   * Default baseline
+   */
   description?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 60D54503-F1F6-51B6-B6FA-A70CBDA2A68C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The type of the baseline. Valid values:
+   * 
+   * *   System: default baseline.
+   * *   Custom: custom baseline.
+   * 
+   * @example
+   * Custom
+   */
   type?: string;
+  /**
+   * @remarks
+   * The time when the baseline was updated.
+   * 
+   * @example
+   * 2022-11-02T01:00:07Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -186,7 +601,23 @@ export class GetAccountFactoryBaselineResponse extends $tea.Model {
 }
 
 export class GetEnrolledAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 19534534552****
+   */
   accountUid?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -208,20 +639,125 @@ export class GetEnrolledAccountRequest extends $tea.Model {
 }
 
 export class GetEnrolledAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * 12868156179*****
+   */
   accountUid?: number;
+  /**
+   * @remarks
+   * The ID of the baseline that is implemented.
+   * 
+   * @example
+   * afb-bp1adadfadsf***
+   */
   baselineId?: string;
+  /**
+   * @remarks
+   * An array that contains baseline items.
+   */
   baselineItems?: GetEnrolledAccountResponseBodyBaselineItems[];
+  /**
+   * @remarks
+   * The time when the account was created.
+   * 
+   * @example
+   * 2021-11-01T02:38:27Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The display name of the account.
+   * 
+   * @example
+   * test-account
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * >  This parameter is returned if the value of `Status` is `Failed` or `ScheduleFailed`.
+   */
   errorInfo?: GetEnrolledAccountResponseBodyErrorInfo;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * @example
+   * fd-5ESoku****
+   */
   folderId?: string;
+  /**
+   * @remarks
+   * Indicates whether the initialization is complete. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * true
+   */
   initialized?: boolean;
+  /**
+   * @remarks
+   * The input parameters that are used when the account was registered.
+   */
   inputs?: GetEnrolledAccountResponseBodyInputs;
+  /**
+   * @remarks
+   * The ID of the management account of the resource directory to which the account belongs.
+   * 
+   * @example
+   * 19534534552*****
+   */
   masterAccountUid?: number;
+  /**
+   * @remarks
+   * The ID of the settlement account.
+   * 
+   * @example
+   * 19534534552*****
+   */
   payerAccountUid?: number;
+  /**
+   * @remarks
+   * The progress of the applying the baseline to the account.
+   */
   progress?: GetEnrolledAccountResponseBodyProgress[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 768F908D-A66A-5A5D-816C-20C93CBBFEE3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the account. Valid values:
+   * 
+   * *   Pending: The account is pending to be created.
+   * *   Running: The account is being created.
+   * *   Finished: The account is created.
+   * *   Failed: The account fails to be created.
+   * *   Scheduling: The account is being scheduled.
+   * *   ScheduleFailed: The account fails to be scheduled.
+   * 
+   * @example
+   * Finished
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the information about the account was updated.
+   * 
+   * @example
+   * 2021-11-01T02:38:27Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -293,9 +829,143 @@ export class GetEnrolledAccountResponse extends $tea.Model {
   }
 }
 
-export class ListAccountFactoryBaselinesRequest extends $tea.Model {
+export class ListAccountFactoryBaselineItemsRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  names?: string[];
+  /**
+   * @example
+   * AAAAACDGQdAEX3m42z3sQ+f3VTK2Xr2DzYbz/SAfc/zJRqod
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * RegionId
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * AccountFactory
+   */
+  type?: string;
+  versions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      names: 'Names',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      type: 'Type',
+      versions: 'Versions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      names: { 'type': 'array', 'itemType': 'string' },
+      nextToken: 'string',
+      regionId: 'string',
+      type: 'string',
+      versions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselineItemsResponseBody extends $tea.Model {
+  baselineItems?: ListAccountFactoryBaselineItemsResponseBodyBaselineItems[];
+  /**
+   * @example
+   * AAAAACDGQdAEX3m42z3sQ+f3VTK2Xr2DzYbz/SAfc/zJRqod
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * B40D73D8-76AC-5D3C-AC63-4FC8AFCE6671
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineItems: 'BaselineItems',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineItems: { 'type': 'array', 'itemType': ListAccountFactoryBaselineItemsResponseBodyBaselineItems },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselineItemsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAccountFactoryBaselineItemsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAccountFactoryBaselineItemsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselinesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * AAAAALHWGpGoYCcYMxiFfmlhvh62Xr2DzYbz/SAfc*****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * RegionId
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -319,8 +989,26 @@ export class ListAccountFactoryBaselinesRequest extends $tea.Model {
 }
 
 export class ListAccountFactoryBaselinesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * An array that consists of baselines.
+   */
   baselines?: ListAccountFactoryBaselinesResponseBodyBaselines[];
+  /**
+   * @remarks
+   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAALHWGpGoYCcYMxiFfmlhvh62Xr2DzYbz/SAfc*****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3245E413-7CDD-5287-8988-6A94DE8A8369
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -369,8 +1057,31 @@ export class ListAccountFactoryBaselinesResponse extends $tea.Model {
 }
 
 export class ListEnrolledAccountsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
+   * @example
+   * AAAAALHWGpGoYCcYMxiFfmlhvh62Xr2DzYbz/SAfc*****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -394,8 +1105,26 @@ export class ListEnrolledAccountsRequest extends $tea.Model {
 }
 
 export class ListEnrolledAccountsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The accounts.
+   */
   enrolledAccounts?: ListEnrolledAccountsResponseBodyEnrolledAccounts[];
+  /**
+   * @remarks
+   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAALHWGpGoYCcYMxiFfmlhvh62Xr2DzYbz/SAfc*****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 768F908D-A66A-5A5D-816C-20C93CBBFEE3
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -443,10 +1172,231 @@ export class ListEnrolledAccountsResponse extends $tea.Model {
   }
 }
 
-export class EnrollAccountRequestBaselineItems extends $tea.Model {
+export class UpdateAccountFactoryBaselineRequest extends $tea.Model {
+  baselineId?: string;
+  baselineItems?: UpdateAccountFactoryBaselineRequestBaselineItems[];
+  baselineName?: string;
+  description?: string;
+  /**
+   * @remarks
+   * RegionId
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      baselineItems: 'BaselineItems',
+      baselineName: 'BaselineName',
+      description: 'Description',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'string',
+      baselineItems: { 'type': 'array', 'itemType': UpdateAccountFactoryBaselineRequestBaselineItems },
+      baselineName: 'string',
+      description: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccountFactoryBaselineResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C18A891D-7B04-51A1-AAC6-201727A361CE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccountFactoryBaselineResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAccountFactoryBaselineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAccountFactoryBaselineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchEnrollAccountsRequestAccounts extends $tea.Model {
+  /**
+   * @example
+   * 12868156179****
+   */
+  accountUid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountUid: 'AccountUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountUid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchEnrollAccountsRequestBaselineItems extends $tea.Model {
+  /**
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
   config?: string;
+  /**
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
   name?: string;
+  /**
+   * @example
+   * false
+   */
   skip?: boolean;
+  /**
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      skip: 'Skip',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      skip: 'boolean',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccountFactoryBaselineRequestBaselineItems extends $tea.Model {
+  /**
+   * @example
+   * {\\"EnabledServices\\":[\\"CEN_TR\\",\\"CDT\\",\\"CMS\\",\\"KMS\\"]}
+   */
+  config?: string;
+  /**
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnrollAccountRequestBaselineItems extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Specifies whether to skip the baseline item. Valid values:
+   * 
+   * *   false: The baseline item is not skipped.
+   * *   true: The baseline item is skipped.
+   * 
+   * @example
+   * false
+   */
+  skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -472,8 +1422,31 @@ export class EnrollAccountRequestBaselineItems extends $tea.Model {
 }
 
 export class GetAccountFactoryBaselineResponseBodyBaselineItems extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the baseline item.
+   * 
+   * The value is a JSON string.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * 1097526274671790
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -497,9 +1470,40 @@ export class GetAccountFactoryBaselineResponseBodyBaselineItems extends $tea.Mod
 }
 
 export class GetEnrolledAccountResponseBodyBaselineItems extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
+   * @example
+   * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
   name?: string;
+  /**
+   * @remarks
+   * Indicates whether baseline item is skipped. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * false
+   */
   skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -525,9 +1529,37 @@ export class GetEnrolledAccountResponseBodyBaselineItems extends $tea.Model {
 }
 
 export class GetEnrolledAccountResponseBodyErrorInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * CompliancePackExists
+   */
   code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The compliance pack already exists.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The recommended solution.
+   * 
+   * @example
+   * https://next.api.aliyun.com/troubleshoot?q=CompliancePackExists\\\\u0026product=Config
+   */
   recommend?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6D5EAA86-2D41-5CB7-8DA7-B60093ACAA4E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -553,9 +1585,40 @@ export class GetEnrolledAccountResponseBodyErrorInfo extends $tea.Model {
 }
 
 export class GetEnrolledAccountResponseBodyInputsBaselineItems extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
+   * @example
+   * {\\"Contacts\\":[{\\"Name\\":\\"governance\\",\\"Email\\":\\"wibud****@gmail.com\\",\\"Mobile\\":\\"1234\\",\\"Position\\":\\"Other\\"}]}
+   */
   config?: string;
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
   name?: string;
+  /**
+   * @remarks
+   * Indicates whether baseline item is skipped. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * false
+   */
   skip?: boolean;
+  /**
+   * @remarks
+   * The version of the baseline item.
+   * 
+   * @example
+   * 1.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -581,11 +1644,50 @@ export class GetEnrolledAccountResponseBodyInputsBaselineItems extends $tea.Mode
 }
 
 export class GetEnrolledAccountResponseBodyInputs extends $tea.Model {
+  /**
+   * @remarks
+   * The prefix of the account name.
+   * 
+   * @example
+   * test-account
+   */
   accountNamePrefix?: string;
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * 12868156179*****
+   */
   accountUid?: number;
+  /**
+   * @remarks
+   * The baseline items.
+   */
   baselineItems?: GetEnrolledAccountResponseBodyInputsBaselineItems[];
+  /**
+   * @remarks
+   * The display name of the account.
+   * 
+   * @example
+   * test-account
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * @example
+   * fd-5ESoku****
+   */
   folderId?: string;
+  /**
+   * @remarks
+   * The ID of the settlement account.
+   * 
+   * @example
+   * 19534534552*****
+   */
   payerAccountUid?: number;
   static names(): { [key: string]: string } {
     return {
@@ -615,7 +1717,26 @@ export class GetEnrolledAccountResponseBodyInputs extends $tea.Model {
 }
 
 export class GetEnrolledAccountResponseBodyProgress extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the baseline item.
+   * 
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
   name?: string;
+  /**
+   * @remarks
+   * The status of applying the baseline to the account. Valid values:
+   * 
+   * *   Pending: The baseline is pending to be applied to the account.
+   * *   Running: The baseline is being applied to the account.
+   * *   Finished: : The baseline is applied to the account.
+   * *   Failed: : The baseline fails to be applied to the account.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -636,12 +1757,141 @@ export class GetEnrolledAccountResponseBodyProgress extends $tea.Model {
   }
 }
 
-export class ListAccountFactoryBaselinesResponseBodyBaselines extends $tea.Model {
-  baselineId?: string;
-  baselineName?: string;
-  createTime?: string;
-  description?: string;
+export class ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn extends $tea.Model {
+  /**
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @example
+   * AccountFactory
+   */
   type?: string;
+  /**
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselineItemsResponseBodyBaselineItems extends $tea.Model {
+  dependsOn?: ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn[];
+  /**
+   * @example
+   * Notification.
+   */
+  description?: string;
+  /**
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_ACCOUNT_NOTIFICATION
+   */
+  name?: string;
+  /**
+   * @example
+   * AccountFactory
+   */
+  type?: string;
+  /**
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dependsOn: 'DependsOn',
+      description: 'Description',
+      name: 'Name',
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dependsOn: { 'type': 'array', 'itemType': ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn },
+      description: 'string',
+      name: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccountFactoryBaselinesResponseBodyBaselines extends $tea.Model {
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * @example
+   * afb-bp1durvn3lgqe28v****
+   */
+  baselineId?: string;
+  /**
+   * @remarks
+   * The name of the baseline.
+   * 
+   * @example
+   * Default
+   */
+  baselineName?: string;
+  /**
+   * @remarks
+   * The time at which the baseline was created.
+   * 
+   * @example
+   * 2021-11-30T09:09:28Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The description of the baseline.
+   * 
+   * @example
+   * Default baseline
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The type of the baseline. Valid values:
+   * 
+   * *   System: default baseline
+   * *   Custom: custom baseline
+   * 
+   * @example
+   * Custom
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The time when the baseline was updated.
+   * 
+   * @example
+   * 2022-12-29T07:08:40Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -671,13 +1921,76 @@ export class ListAccountFactoryBaselinesResponseBodyBaselines extends $tea.Model
 }
 
 export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $tea.Model {
+  /**
+   * @remarks
+   * The account ID.
+   * 
+   * @example
+   * 19534534552*****
+   */
   accountUid?: number;
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * @example
+   * afb-bp1durvn3lgqe28v****
+   */
   baselineId?: string;
+  /**
+   * @remarks
+   * The time at which the account was created.
+   * 
+   * @example
+   * 2021-11-01T02:38:27Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The display name of the account.
+   * 
+   * @example
+   * TestAccount
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The ID of the parent folder.
+   * 
+   * @example
+   * fd-5ESoku****
+   */
   folderId?: string;
+  /**
+   * @remarks
+   * The ID of the billing account.
+   * 
+   * @example
+   * 13161210500*****
+   */
   payerAccountUid?: number;
+  /**
+   * @remarks
+   * The creation status of the account. Valid values:
+   * 
+   * *   Pending: The account is waiting to be created.
+   * *   Running: The account is being created.
+   * *   Finished: The account is created.
+   * *   Failed: The account failed to be created.
+   * *   Scheduling: The account is being scheduled.
+   * *   ScheduleFailed: The account failed to be scheduled.
+   * 
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the information about the account was updated.
+   * 
+   * @example
+   * 2021-11-01T02:38:27Z
+   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -702,6 +2015,43 @@ export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $tea.Model
       payerAccountUid: 'number',
       status: 'string',
       updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAccountFactoryBaselineRequestBaselineItems extends $tea.Model {
+  /**
+   * @example
+   * {\\"EnabledServices\\":[\\"CEN_TR\\",\\"CDT\\",\\"CMS\\",\\"KMS\\"]}
+   */
+  config?: string;
+  /**
+   * @example
+   * ACS-BP_ACCOUNT_FACTORY_VPC
+   */
+  name?: string;
+  /**
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      name: 'string',
+      version: 'string',
     };
   }
 
@@ -734,14 +2084,169 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enrolls an account. You can create a new account or manage an existing account in the account factory.
-   *
-   * @description You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+   * 账号工厂批量注册账号
+   * 
+   * @param request - BatchEnrollAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchEnrollAccountsResponse
+   */
+  async batchEnrollAccountsWithOptions(request: BatchEnrollAccountsRequest, runtime: $Util.RuntimeOptions): Promise<BatchEnrollAccountsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accounts)) {
+      query["Accounts"] = request.accounts;
+    }
+
+    if (!Util.isUnset(request.baselineId)) {
+      query["BaselineId"] = request.baselineId;
+    }
+
+    if (!Util.isUnset(request.baselineItems)) {
+      query["BaselineItems"] = request.baselineItems;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchEnrollAccounts",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchEnrollAccountsResponse>(await this.callApi(params, req, runtime), new BatchEnrollAccountsResponse({}));
+  }
+
+  /**
+   * 账号工厂批量注册账号
+   * 
+   * @param request - BatchEnrollAccountsRequest
+   * @returns BatchEnrollAccountsResponse
+   */
+  async batchEnrollAccounts(request: BatchEnrollAccountsRequest): Promise<BatchEnrollAccountsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchEnrollAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建账号工厂基线
+   * 
+   * @param request - CreateAccountFactoryBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAccountFactoryBaselineResponse
+   */
+  async createAccountFactoryBaselineWithOptions(request: CreateAccountFactoryBaselineRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountFactoryBaselineResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baselineItems)) {
+      query["BaselineItems"] = request.baselineItems;
+    }
+
+    if (!Util.isUnset(request.baselineName)) {
+      query["BaselineName"] = request.baselineName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAccountFactoryBaseline",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new CreateAccountFactoryBaselineResponse({}));
+  }
+
+  /**
+   * 创建账号工厂基线
+   * 
+   * @param request - CreateAccountFactoryBaselineRequest
+   * @returns CreateAccountFactoryBaselineResponse
+   */
+  async createAccountFactoryBaseline(request: CreateAccountFactoryBaselineRequest): Promise<CreateAccountFactoryBaselineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAccountFactoryBaselineWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除账号工厂基线
+   * 
+   * @param request - DeleteAccountFactoryBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAccountFactoryBaselineResponse
+   */
+  async deleteAccountFactoryBaselineWithOptions(request: DeleteAccountFactoryBaselineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountFactoryBaselineResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baselineId)) {
+      query["BaselineId"] = request.baselineId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAccountFactoryBaseline",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new DeleteAccountFactoryBaselineResponse({}));
+  }
+
+  /**
+   * 删除账号工厂基线
+   * 
+   * @param request - DeleteAccountFactoryBaselineRequest
+   * @returns DeleteAccountFactoryBaselineResponse
+   */
+  async deleteAccountFactoryBaseline(request: DeleteAccountFactoryBaselineRequest): Promise<DeleteAccountFactoryBaselineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAccountFactoryBaselineWithOptions(request, runtime);
+  }
+
+  /**
+   * Enrolls an account. You can create a new account or manage an existing account in the account factory.
+   * 
+   * @remarks
+   * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
    * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
-   *
-   * @param request EnrollAccountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return EnrollAccountResponse
+   * 
+   * @param request - EnrollAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnrollAccountResponse
    */
   async enrollAccountWithOptions(request: EnrollAccountRequest, runtime: $Util.RuntimeOptions): Promise<EnrollAccountResponse> {
     Util.validateModel(request);
@@ -800,13 +2305,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Enrolls an account. You can create a new account or manage an existing account in the account factory.
-   *
-   * @description You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
+   * Enrolls an account. You can create a new account or manage an existing account in the account factory.
+   * 
+   * @remarks
+   * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
    * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
-   *
-   * @param request EnrollAccountRequest
-   * @return EnrollAccountResponse
+   * 
+   * @param request - EnrollAccountRequest
+   * @returns EnrollAccountResponse
    */
   async enrollAccount(request: EnrollAccountRequest): Promise<EnrollAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -814,11 +2320,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the details of an account factory baseline.
-   *
-   * @param request GetAccountFactoryBaselineRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAccountFactoryBaselineResponse
+   * Obtains the details of an account factory baseline.
+   * 
+   * @param request - GetAccountFactoryBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccountFactoryBaselineResponse
    */
   async getAccountFactoryBaselineWithOptions(request: GetAccountFactoryBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountFactoryBaselineResponse> {
     Util.validateModel(request);
@@ -849,10 +2355,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains the details of an account factory baseline.
-   *
-   * @param request GetAccountFactoryBaselineRequest
-   * @return GetAccountFactoryBaselineResponse
+   * Obtains the details of an account factory baseline.
+   * 
+   * @param request - GetAccountFactoryBaselineRequest
+   * @returns GetAccountFactoryBaselineResponse
    */
   async getAccountFactoryBaseline(request: GetAccountFactoryBaselineRequest): Promise<GetAccountFactoryBaselineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -860,11 +2366,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about an account that is enrolled in the account factory.
-   *
-   * @param request GetEnrolledAccountRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetEnrolledAccountResponse
+   * Queries the details about an account that is enrolled in the account factory.
+   * 
+   * @param request - GetEnrolledAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEnrolledAccountResponse
    */
   async getEnrolledAccountWithOptions(request: GetEnrolledAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetEnrolledAccountResponse> {
     Util.validateModel(request);
@@ -895,10 +2401,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the details about an account that is enrolled in the account factory.
-   *
-   * @param request GetEnrolledAccountRequest
-   * @return GetEnrolledAccountResponse
+   * Queries the details about an account that is enrolled in the account factory.
+   * 
+   * @param request - GetEnrolledAccountRequest
+   * @returns GetEnrolledAccountResponse
    */
   async getEnrolledAccount(request: GetEnrolledAccountRequest): Promise<GetEnrolledAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -906,11 +2412,73 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a list of baselines in the account factory.
-   *
-   * @param request ListAccountFactoryBaselinesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAccountFactoryBaselinesResponse
+   * 获取账号工厂基线元素列表
+   * 
+   * @param request - ListAccountFactoryBaselineItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAccountFactoryBaselineItemsResponse
+   */
+  async listAccountFactoryBaselineItemsWithOptions(request: ListAccountFactoryBaselineItemsRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountFactoryBaselineItemsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.names)) {
+      query["Names"] = request.names;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.versions)) {
+      query["Versions"] = request.versions;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAccountFactoryBaselineItems",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAccountFactoryBaselineItemsResponse>(await this.callApi(params, req, runtime), new ListAccountFactoryBaselineItemsResponse({}));
+  }
+
+  /**
+   * 获取账号工厂基线元素列表
+   * 
+   * @param request - ListAccountFactoryBaselineItemsRequest
+   * @returns ListAccountFactoryBaselineItemsResponse
+   */
+  async listAccountFactoryBaselineItems(request: ListAccountFactoryBaselineItemsRequest): Promise<ListAccountFactoryBaselineItemsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAccountFactoryBaselineItemsWithOptions(request, runtime);
+  }
+
+  /**
+   * Obtains a list of baselines in the account factory.
+   * 
+   * @param request - ListAccountFactoryBaselinesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAccountFactoryBaselinesResponse
    */
   async listAccountFactoryBaselinesWithOptions(request: ListAccountFactoryBaselinesRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountFactoryBaselinesResponse> {
     Util.validateModel(request);
@@ -945,10 +2513,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Obtains a list of baselines in the account factory.
-   *
-   * @param request ListAccountFactoryBaselinesRequest
-   * @return ListAccountFactoryBaselinesResponse
+   * Obtains a list of baselines in the account factory.
+   * 
+   * @param request - ListAccountFactoryBaselinesRequest
+   * @returns ListAccountFactoryBaselinesResponse
    */
   async listAccountFactoryBaselines(request: ListAccountFactoryBaselinesRequest): Promise<ListAccountFactoryBaselinesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -956,11 +2524,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of accounts that are enrolled in the account factory.
-   *
-   * @param request ListEnrolledAccountsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListEnrolledAccountsResponse
+   * Queries a list of accounts that are enrolled in the account factory.
+   * 
+   * @param request - ListEnrolledAccountsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEnrolledAccountsResponse
    */
   async listEnrolledAccountsWithOptions(request: ListEnrolledAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnrolledAccountsResponse> {
     Util.validateModel(request);
@@ -995,14 +2563,72 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of accounts that are enrolled in the account factory.
-   *
-   * @param request ListEnrolledAccountsRequest
-   * @return ListEnrolledAccountsResponse
+   * Queries a list of accounts that are enrolled in the account factory.
+   * 
+   * @param request - ListEnrolledAccountsRequest
+   * @returns ListEnrolledAccountsResponse
    */
   async listEnrolledAccounts(request: ListEnrolledAccountsRequest): Promise<ListEnrolledAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnrolledAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新账号工厂基线
+   * 
+   * @param request - UpdateAccountFactoryBaselineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAccountFactoryBaselineResponse
+   */
+  async updateAccountFactoryBaselineWithOptions(request: UpdateAccountFactoryBaselineRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccountFactoryBaselineResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baselineId)) {
+      query["BaselineId"] = request.baselineId;
+    }
+
+    if (!Util.isUnset(request.baselineItems)) {
+      query["BaselineItems"] = request.baselineItems;
+    }
+
+    if (!Util.isUnset(request.baselineName)) {
+      query["BaselineName"] = request.baselineName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAccountFactoryBaseline",
+      version: "2021-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAccountFactoryBaselineResponse>(await this.callApi(params, req, runtime), new UpdateAccountFactoryBaselineResponse({}));
+  }
+
+  /**
+   * 更新账号工厂基线
+   * 
+   * @param request - UpdateAccountFactoryBaselineRequest
+   * @returns UpdateAccountFactoryBaselineResponse
+   */
+  async updateAccountFactoryBaseline(request: UpdateAccountFactoryBaselineRequest): Promise<UpdateAccountFactoryBaselineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAccountFactoryBaselineWithOptions(request, runtime);
   }
 
 }

@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/governance20210120",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
