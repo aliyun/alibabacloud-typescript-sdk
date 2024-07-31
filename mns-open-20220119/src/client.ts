@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,13 +8,67 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateQueueRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The period after which all messages sent to the queue are consumed. Valid values: 0 to 604800. Unit: seconds. Default value: 0
+   * 
+   * @example
+   * 0
+   */
   delaySeconds?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the logging feature. Valid values:
+   * 
+   * *   True
+   * *   False (default)
+   * 
+   * @example
+   * true
+   */
   enableLogging?: boolean;
+  /**
+   * @remarks
+   * The maximum length of the message that is sent to the queue. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
+   * 
+   * @example
+   * 65536
+   */
   maximumMessageSize?: number;
+  /**
+   * @remarks
+   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
+   * 
+   * @example
+   * 345600
+   */
   messageRetentionPeriod?: number;
+  /**
+   * @remarks
+   * The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Valid values: 0 to 30. Unit: seconds. Default value: 0
+   * 
+   * @example
+   * 0
+   */
   pollingWaitSeconds?: number;
+  /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   queueName?: string;
   tag?: CreateQueueRequestTag[];
+  /**
+   * @remarks
+   * The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
+   * 
+   * @example
+   * 60
+   */
   visibilityTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -49,11 +102,50 @@ export class CreateQueueRequest extends $tea.Model {
 }
 
 export class CreateQueueResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateQueueResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123E62C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -108,9 +200,39 @@ export class CreateQueueResponse extends $tea.Model {
 }
 
 export class CreateTopicRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the logging feature. Valid values:
+   * 
+   * *   True
+   * *   False (default)
+   * 
+   * @example
+   * true
+   */
   enableLogging?: boolean;
+  /**
+   * @remarks
+   * The maximum length of the message that is sent to the topic. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
+   * 
+   * @example
+   * 10240
+   */
   maxMessageSize?: number;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateTopicRequestTag[];
+  /**
+   * @remarks
+   * The name of the topic that you want to create.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -136,11 +258,50 @@ export class CreateTopicRequest extends $tea.Model {
 }
 
 export class CreateTopicResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: CreateTopicResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123E62C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -195,6 +356,15 @@ export class CreateTopicResponse extends $tea.Model {
 }
 
 export class DeleteQueueRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tf-testAccMNSQueue-525478433321945943
+   */
   queueName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -214,11 +384,50 @@ export class DeleteQueueRequest extends $tea.Model {
 }
 
 export class DeleteQueueResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DeleteQueueResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -273,6 +482,15 @@ export class DeleteQueueResponse extends $tea.Model {
 }
 
 export class DeleteTopicRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the topic that you want to delete.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tf-testAccMNSTopic-112965059402264645
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -292,11 +510,50 @@ export class DeleteTopicRequest extends $tea.Model {
 }
 
 export class DeleteTopicResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: { [key: string]: any };
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -351,6 +608,15 @@ export class DeleteTopicResponse extends $tea.Model {
 }
 
 export class GetQueueAttributesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * demo-queue
+   */
   queueName?: string;
   tag?: GetQueueAttributesRequestTag[];
   static names(): { [key: string]: string } {
@@ -373,11 +639,50 @@ export class GetQueueAttributesRequest extends $tea.Model {
 }
 
 export class GetQueueAttributesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetQueueAttributesResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -432,7 +737,25 @@ export class GetQueueAttributesResponse extends $tea.Model {
 }
 
 export class GetSubscriptionAttributesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the subscription.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySubscription
+   */
   subscriptionName?: string;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MyTopic
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -454,11 +777,50 @@ export class GetSubscriptionAttributesRequest extends $tea.Model {
 }
 
 export class GetSubscriptionAttributesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetSubscriptionAttributesResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -514,6 +876,15 @@ export class GetSubscriptionAttributesResponse extends $tea.Model {
 
 export class GetTopicAttributesRequest extends $tea.Model {
   tag?: GetTopicAttributesRequestTag[];
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * demo-topic
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -535,11 +906,50 @@ export class GetTopicAttributesRequest extends $tea.Model {
 }
 
 export class GetTopicAttributesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetTopicAttributesResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -594,8 +1004,29 @@ export class GetTopicAttributesResponse extends $tea.Model {
 }
 
 export class ListQueueRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Valid values: 1 to 100000000. If you set this parameter to a value smaller than 1, the value of this parameter is 1 by default. If you set this parameter to a value greater than 100000000, the value of this parameter is 100000000 by default.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Value values: 10 to 50. If you set this parameter to a value smaller than 10, the value of this parameter is 10 by default. If you set this parameter to a value greater than 50, the value of this parameter is 50 by default.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * @example
+   * demo-queue
+   */
   queueName?: string;
   tag?: ListQueueRequestTag[];
   static names(): { [key: string]: string } {
@@ -622,11 +1053,50 @@ export class ListQueueRequest extends $tea.Model {
 }
 
 export class ListQueueResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListQueueResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -681,9 +1151,37 @@ export class ListQueueResponse extends $tea.Model {
 }
 
 export class ListSubscriptionByTopicRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Valid values: 1 to 100000000. If you set this parameter to a value smaller than 1, the value of this parameter is 1 by default. If you set this parameter to a value greater than 100000000, the value of this parameter is 100000000 by default.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Value values: 10 to 50. If you set this parameter to a value smaller than 10, the value of this parameter is 10 by default. If you set this parameter to a value greater than 50, the value of this parameter is 50 by default.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The name of the subscription.
+   * 
+   * @example
+   * demo-subscription
+   */
   subscriptionName?: string;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * @example
+   * test
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -709,11 +1207,50 @@ export class ListSubscriptionByTopicRequest extends $tea.Model {
 }
 
 export class ListSubscriptionByTopicResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListSubscriptionByTopicResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -768,9 +1305,30 @@ export class ListSubscriptionByTopicResponse extends $tea.Model {
 }
 
 export class ListTopicRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number. Valid values: 1 to 100000000. If you set this parameter to a value smaller than 1, the value of this parameter is 1 by default. If you set this parameter to a value greater than 100000000, the value of this parameter is 100000000 by default.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Value values: 10 to 50. If you set this parameter to a value smaller than 10, the value of this parameter is 10 by default. If you set this parameter to a value greater than 50, the value of this parameter is 50 by default.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   tag?: ListTopicRequestTag[];
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * @example
+   * test
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -796,11 +1354,50 @@ export class ListTopicRequest extends $tea.Model {
 }
 
 export class ListTopicResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListTopicResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -855,12 +1452,66 @@ export class ListTopicResponse extends $tea.Model {
 }
 
 export class SetQueueAttributesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The period after which all messages sent to the queue are consumed. Valid values: 0 to 604800. Unit: seconds. Default value: 0
+   * 
+   * @example
+   * 0
+   */
   delaySeconds?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the logging feature. Valid values:
+   * 
+   * *   True
+   * *   False (default)
+   * 
+   * @example
+   * True
+   */
   enableLogging?: boolean;
+  /**
+   * @remarks
+   * The maximum length of the message that is sent to the queue. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
+   * 
+   * @example
+   * 1024
+   */
   maximumMessageSize?: number;
+  /**
+   * @remarks
+   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Valid values: 60 to 604800. Unit: seconds. Default value: 345600.
+   * 
+   * @example
+   * 120
+   */
   messageRetentionPeriod?: number;
+  /**
+   * @remarks
+   * The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Valid values: 0 to 30. Unit: seconds. Default value: 0
+   * 
+   * @example
+   * 0
+   */
   pollingWaitSeconds?: number;
+  /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testqueue
+   */
   queueName?: string;
+  /**
+   * @remarks
+   * The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
+   * 
+   * @example
+   * 60
+   */
   visibilityTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -892,11 +1543,50 @@ export class SetQueueAttributesRequest extends $tea.Model {
 }
 
 export class SetQueueAttributesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: SetQueueAttributesResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -951,8 +1641,36 @@ export class SetQueueAttributesResponse extends $tea.Model {
 }
 
 export class SetSubscriptionAttributesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+   * 
+   * *   BACKOFF_RETRY
+   * *   EXPONENTIAL_DECAY_RETRY
+   * 
+   * @example
+   * BACKOFF_RETRY
+   */
   notifyStrategy?: string;
+  /**
+   * @remarks
+   * The name of the subscription.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySubscription
+   */
   subscriptionName?: string;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -976,11 +1694,50 @@ export class SetSubscriptionAttributesRequest extends $tea.Model {
 }
 
 export class SetSubscriptionAttributesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: SetSubscriptionAttributesResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1035,8 +1792,34 @@ export class SetSubscriptionAttributesResponse extends $tea.Model {
 }
 
 export class SetTopicAttributesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the logging feature. Valid values:
+   * 
+   * *   True
+   * *   False (default)
+   * 
+   * @example
+   * True
+   */
   enableLogging?: boolean;
+  /**
+   * @remarks
+   * The maximum length of the message that is sent to the topic. Valid values: 1024 to 65536. Unit: bytes. Default value: 65536.
+   * 
+   * @example
+   * 65536
+   */
   maxMessageSize?: number;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1060,11 +1843,50 @@ export class SetTopicAttributesRequest extends $tea.Model {
 }
 
 export class SetTopicAttributesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: SetTopicAttributesResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1119,12 +1941,90 @@ export class SetTopicAttributesResponse extends $tea.Model {
 }
 
 export class SubscribeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The receiver endpoint. The format of the endpoint varies based on the terminal type.
+   * 
+   * *   If you set PushType to http, set Endpoint to an `HTTP URL that starts with http:// or https://`.
+   * *   If you set PushType to queue, set Endpoint to a `queue name`.
+   * *   If you set PushType to mpush, set Endpoint to an `AppKey`.
+   * *   If you set PushType to alisms, set Endpoint to a `mobile number`.
+   * *   If you set PushType to email, set Endpoint to an `email address`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http://example.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The tag that is used to filter messages. Only messages that have the same tag can be pushed. Set the value to a string of no more than 16 characters.
+   * 
+   * By default, no tag is specified to filter messages.
+   * 
+   * @example
+   * important
+   */
   messageTag?: string;
+  /**
+   * @remarks
+   * The content format of the messages that are pushed to the endpoint. Valid values:
+   * 
+   * *   XML
+   * *   JSON
+   * *   SIMPLIFIED
+   * 
+   * @example
+   * XML
+   */
   notifyContentFormat?: string;
+  /**
+   * @remarks
+   * The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+   * 
+   * *   BACKOFF_RETRY
+   * *   EXPONENTIAL_DECAY_RETRY
+   * 
+   * @example
+   * BACKOFF_RETRY
+   */
   notifyStrategy?: string;
+  /**
+   * @remarks
+   * The terminal type. Valid values:
+   * 
+   * *   http: HTTP services
+   * *   queue: queues
+   * *   mpush: mobile devices
+   * *   alisms: Alibaba Cloud Short Message Service (SMS)
+   * *   email: emails
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * queue
+   */
   pushType?: string;
+  /**
+   * @remarks
+   * The name of the subscription.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testSubscription
+   */
   subscriptionName?: string;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1156,11 +2056,53 @@ export class SubscribeRequest extends $tea.Model {
 }
 
 export class SubscribeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * {\\"Code\\": 200, \\"Success\\": True}
+   */
   data?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1215,7 +2157,25 @@ export class SubscribeResponse extends $tea.Model {
 }
 
 export class UnsubscribeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the subscription.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MySubscription
+   */
   subscriptionName?: string;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1237,11 +2197,50 @@ export class UnsubscribeRequest extends $tea.Model {
 }
 
 export class UnsubscribeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: UnsubscribeResponseBodyData;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * operation success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06273500-249F-5863-121D-74D51123****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The response status.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1318,8 +2317,26 @@ export class CreateQueueRequestTag extends $tea.Model {
 }
 
 export class CreateQueueResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1343,7 +2360,21 @@ export class CreateQueueResponseBodyData extends $tea.Model {
 }
 
 export class CreateTopicRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag1
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * joyce.wang
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1365,8 +2396,26 @@ export class CreateTopicRequestTag extends $tea.Model {
 }
 
 export class CreateTopicResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1390,8 +2439,26 @@ export class CreateTopicResponseBodyData extends $tea.Model {
 }
 
 export class DeleteQueueResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1459,18 +2526,105 @@ export class GetQueueAttributesResponseBodyDataTags extends $tea.Model {
 }
 
 export class GetQueueAttributesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of messages that are in the Active state in the queue. The value is an approximate number.
+   * 
+   * @example
+   * 20
+   */
   activeMessages?: number;
+  /**
+   * @remarks
+   * The time when the queue was created.
+   * 
+   * @example
+   * 1250700999
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The total number of the messages that are in the Delayed state in the queue. The value is an approximate number.
+   * 
+   * @example
+   * 0
+   */
   delayMessages?: number;
+  /**
+   * @remarks
+   * The period after which all messages sent to the queue are consumed. Unit: seconds.
+   * 
+   * @example
+   * 30
+   */
   delaySeconds?: number;
+  /**
+   * @remarks
+   * The total number of the messages that are in the Inactive state in the queue. The value is an approximate number.
+   * 
+   * @example
+   * 0
+   */
   inactiveMessages?: number;
+  /**
+   * @remarks
+   * The time when the queue was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1250700999
+   */
   lastModifyTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the logging feature is enabled. Valid values:
+   * 
+   * *   True
+   * *   False
+   * 
+   * @example
+   * True
+   */
   loggingEnabled?: boolean;
+  /**
+   * @remarks
+   * The maximum length of the message that is sent to the queue. Unit: bytes.
+   * 
+   * @example
+   * 65536
+   */
   maximumMessageSize?: number;
+  /**
+   * @remarks
+   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Unit: seconds.
+   * 
+   * @example
+   * 65536
+   */
   messageRetentionPeriod?: number;
+  /**
+   * @remarks
+   * The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Unit: seconds.
+   * 
+   * @example
+   * 0
+   */
   pollingWaitSeconds?: number;
+  /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * @example
+   * demo-queue
+   */
   queueName?: string;
   tags?: GetQueueAttributesResponseBodyDataTags[];
+  /**
+   * @remarks
+   * The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
+   * 
+   * @example
+   * 60
+   */
   visibilityTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1514,14 +2668,84 @@ export class GetQueueAttributesResponseBodyData extends $tea.Model {
 }
 
 export class GetSubscriptionAttributesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the subscription was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1449554806
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The endpoint to which the messages are pushed.
+   * 
+   * @example
+   * http://example.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The tag that is used to filter messages. Only the messages that are attached with the specified tag can be pushed.
+   * 
+   * @example
+   * important
+   */
   filterTag?: string;
+  /**
+   * @remarks
+   * The time when the subscription was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1449554962
+   */
   lastModifyTime?: number;
+  /**
+   * @remarks
+   * The content format of the messages that are pushed to the endpoint. Valid values:
+   * 
+   * *   XML
+   * *   JSON
+   * *   SIMPLIFIED
+   * 
+   * @example
+   * XML
+   */
   notifyContentFormat?: string;
+  /**
+   * @remarks
+   * The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+   * 
+   * *   BACKOFF_RETRY
+   * *   EXPONENTIAL_DECAY_RETRY
+   * 
+   * @example
+   * BACKOFF_RETRY
+   */
   notifyStrategy?: string;
+  /**
+   * @remarks
+   * The name of the subscription.
+   * 
+   * @example
+   * MySubscription
+   */
   subscriptionName?: string;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * @example
+   * MyTopic
+   */
   topicName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the topic owner.
+   * 
+   * @example
+   * 123456789098****
+   */
   topicOwner?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1601,13 +2825,65 @@ export class GetTopicAttributesResponseBodyDataTags extends $tea.Model {
 }
 
 export class GetTopicAttributesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the topic was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1449554277
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The time when the topic was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1449554460
+   */
   lastModifyTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the logging feature is enabled. Valid values:
+   * 
+   * *   True
+   * *   False
+   * 
+   * @example
+   * True
+   */
   loggingEnabled?: boolean;
+  /**
+   * @remarks
+   * The maximum length of the message that is sent to the topic. Unit: bytes.
+   * 
+   * @example
+   * 65536
+   */
   maxMessageSize?: number;
+  /**
+   * @remarks
+   * The number of messages in the topic.
+   * 
+   * @example
+   * 0
+   */
   messageCount?: number;
+  /**
+   * @remarks
+   * The maximum duration for which a message is retained in the topic. After the specified retention period ends, the message is deleted regardless of whether the message is received. Unit: seconds.
+   * 
+   * @example
+   * 86400
+   */
   messageRetentionPeriod?: number;
   tags?: GetTopicAttributesResponseBodyDataTags[];
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * @example
+   * demo-topic
+   */
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1685,18 +2961,105 @@ export class ListQueueResponseBodyDataPageDataTags extends $tea.Model {
 }
 
 export class ListQueueResponseBodyDataPageData extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of messages that are in the Active state in the queue. The value is an approximate number.
+   * 
+   * @example
+   * 20
+   */
   activeMessages?: number;
+  /**
+   * @remarks
+   * The time when the queue was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1250700999
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The total number of the messages that are in the Delayed state in the queue. The value is an approximate number.
+   * 
+   * @example
+   * 0
+   */
   delayMessages?: number;
+  /**
+   * @remarks
+   * The period after which all messages sent to the queue are consumed. Unit: seconds.
+   * 
+   * @example
+   * 30
+   */
   delaySeconds?: number;
+  /**
+   * @remarks
+   * The total number of the messages that are in the Inactive state in the queue. The value is an approximate number.
+   * 
+   * @example
+   * 0
+   */
   inactiveMessages?: number;
+  /**
+   * @remarks
+   * The time when the queue was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1250700999
+   */
   lastModifyTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the logging feature is enabled. Valid values:
+   * 
+   * *   True
+   * *   False
+   * 
+   * @example
+   * True
+   */
   loggingEnabled?: boolean;
+  /**
+   * @remarks
+   * The maximum length of the message that is sent to the queue. Unit: bytes.
+   * 
+   * @example
+   * 65536
+   */
   maximumMessageSize?: number;
+  /**
+   * @remarks
+   * The maximum duration for which a message is retained in the queue. After the specified retention period ends, the message is deleted regardless of whether the message is received. Unit: seconds.
+   * 
+   * @example
+   * 65536
+   */
   messageRetentionPeriod?: number;
+  /**
+   * @remarks
+   * The maximum duration for which long polling requests are held after the ReceiveMessage operation is called. Unit: seconds.
+   * 
+   * @example
+   * 0
+   */
   pollingWaitSeconds?: number;
+  /**
+   * @remarks
+   * The name of the queue.
+   * 
+   * @example
+   * demo-queue
+   */
   queueName?: string;
   tags?: ListQueueResponseBodyDataPageDataTags[];
+  /**
+   * @remarks
+   * The duration for which a message stays in the Inactive state after the message is received from the queue. Valid values: 1 to 43200. Unit: seconds. Default value: 30.
+   * 
+   * @example
+   * 60
+   */
   visibilityTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1740,11 +3103,50 @@ export class ListQueueResponseBodyDataPageData extends $tea.Model {
 }
 
 export class ListQueueResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned on the current page.
+   */
   pageData?: ListQueueResponseBodyDataPageData[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 3
+   */
   pages?: number;
+  /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
+   * @example
+   * 20
+   */
   size?: number;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 130
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1774,14 +3176,84 @@ export class ListQueueResponseBodyData extends $tea.Model {
 }
 
 export class ListSubscriptionByTopicResponseBodyDataPageData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the subscription was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1449554806
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The endpoint to which the messages are pushed.
+   * 
+   * @example
+   * http://example.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The tag that is used to filter messages. Only the messages that are attached with the specified tag can be pushed.
+   * 
+   * @example
+   * important
+   */
   filterTag?: string;
+  /**
+   * @remarks
+   * The time when the subscription was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1449554806
+   */
   lastModifyTime?: number;
+  /**
+   * @remarks
+   * The content format of the messages that are pushed to the endpoint. Valid values:
+   * 
+   * *   XML
+   * *   JSON
+   * *   SIMPLIFIED
+   * 
+   * @example
+   * XML
+   */
   notifyContentFormat?: string;
+  /**
+   * @remarks
+   * The retry policy that is applied if an error occurs when Message Service (MNS) pushes messages to the endpoint. Valid values:
+   * 
+   * *   BACKOFF_RETRY
+   * *   EXPONENTIAL_DECAY_RETRY
+   * 
+   * @example
+   * BACKOFF_RETRY
+   */
   notifyStrategy?: string;
+  /**
+   * @remarks
+   * The name of the subscription.
+   * 
+   * @example
+   * MySubscription
+   */
   subscriptionName?: string;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * @example
+   * MyTopic
+   */
   topicName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the topic owner.
+   * 
+   * @example
+   * 123456789098****
+   */
   topicOwner?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1817,11 +3289,50 @@ export class ListSubscriptionByTopicResponseBodyDataPageData extends $tea.Model 
 }
 
 export class ListSubscriptionByTopicResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned on the current page.
+   */
   pageData?: ListSubscriptionByTopicResponseBodyDataPageData[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 3
+   */
   pages?: number;
+  /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
+   * @example
+   * 20
+   */
   size?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 130
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1895,14 +3406,66 @@ export class ListTopicResponseBodyDataPageDataTags extends $tea.Model {
 }
 
 export class ListTopicResponseBodyDataPageData extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the subscription was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1449554962
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The time when the subscription was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1449554962
+   */
   lastModifyTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the logging feature is enabled.
+   * 
+   * *   True
+   * *   False
+   * 
+   * @example
+   * True
+   */
   loggingEnabled?: boolean;
+  /**
+   * @remarks
+   * The maximum length of the message that is sent to the topic. Unit: bytes.
+   * 
+   * @example
+   * 65536
+   */
   maxMessageSize?: number;
+  /**
+   * @remarks
+   * The number of messages in the topic.
+   * 
+   * @example
+   * 0
+   */
   messageCount?: number;
+  /**
+   * @remarks
+   * The maximum duration for which a message is retained in the topic. After the specified retention period ends, the message is deleted regardless of whether the message is received. Unit: seconds.
+   * 
+   * @example
+   * 86400
+   */
   messageRetentionPeriod?: number;
   tags?: ListTopicResponseBodyDataPageDataTags[];
   topicInnerUrl?: string;
+  /**
+   * @remarks
+   * The name of the topic.
+   * 
+   * @example
+   * demo-topic
+   */
   topicName?: string;
   topicUrl?: string;
   static names(): { [key: string]: string } {
@@ -1941,9 +3504,34 @@ export class ListTopicResponseBodyDataPageData extends $tea.Model {
 }
 
 export class ListTopicResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned on the current page.
+   */
   pageData?: ListTopicResponseBodyDataPageData[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 50
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 130
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1969,8 +3557,26 @@ export class ListTopicResponseBodyData extends $tea.Model {
 }
 
 export class SetQueueAttributesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1994,8 +3600,26 @@ export class SetQueueAttributesResponseBodyData extends $tea.Model {
 }
 
 export class SetSubscriptionAttributesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2019,8 +3643,26 @@ export class SetSubscriptionAttributesResponseBodyData extends $tea.Model {
 }
 
 export class SetTopicAttributesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2044,8 +3686,26 @@ export class SetTopicAttributesResponseBodyData extends $tea.Model {
 }
 
 export class UnsubscribeResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: number;
+  /**
+   * @remarks
+   * The returned message.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2092,11 +3752,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CreateQueue
-   *
-   * @param request CreateQueueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateQueueResponse
+   * Creates a queue.
+   * 
+   * @param request - CreateQueueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateQueueResponse
    */
   async createQueueWithOptions(request: CreateQueueRequest, runtime: $Util.RuntimeOptions): Promise<CreateQueueResponse> {
     Util.validateModel(request);
@@ -2151,10 +3811,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CreateQueue
-   *
-   * @param request CreateQueueRequest
-   * @return CreateQueueResponse
+   * Creates a queue.
+   * 
+   * @param request - CreateQueueRequest
+   * @returns CreateQueueResponse
    */
   async createQueue(request: CreateQueueRequest): Promise<CreateQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2162,11 +3822,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CreateTopic
-   *
-   * @param request CreateTopicRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTopicResponse
+   * Creates a topic.
+   * 
+   * @param request - CreateTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTopicResponse
    */
   async createTopicWithOptions(request: CreateTopicRequest, runtime: $Util.RuntimeOptions): Promise<CreateTopicResponse> {
     Util.validateModel(request);
@@ -2207,10 +3867,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CreateTopic
-   *
-   * @param request CreateTopicRequest
-   * @return CreateTopicResponse
+   * Creates a topic.
+   * 
+   * @param request - CreateTopicRequest
+   * @returns CreateTopicResponse
    */
   async createTopic(request: CreateTopicRequest): Promise<CreateTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2218,11 +3878,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DeleteQueue
-   *
-   * @param request DeleteQueueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteQueueResponse
+   * Deletes a queue.
+   * 
+   * @param request - DeleteQueueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteQueueResponse
    */
   async deleteQueueWithOptions(request: DeleteQueueRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQueueResponse> {
     Util.validateModel(request);
@@ -2249,10 +3909,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DeleteQueue
-   *
-   * @param request DeleteQueueRequest
-   * @return DeleteQueueResponse
+   * Deletes a queue.
+   * 
+   * @param request - DeleteQueueRequest
+   * @returns DeleteQueueResponse
    */
   async deleteQueue(request: DeleteQueueRequest): Promise<DeleteQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2260,11 +3920,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除订阅主题
-   *
-   * @param request DeleteTopicRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTopicResponse
+   * Deletes a topic.
+   * 
+   * @param request - DeleteTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTopicResponse
    */
   async deleteTopicWithOptions(request: DeleteTopicRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTopicResponse> {
     Util.validateModel(request);
@@ -2291,10 +3951,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除订阅主题
-   *
-   * @param request DeleteTopicRequest
-   * @return DeleteTopicResponse
+   * Deletes a topic.
+   * 
+   * @param request - DeleteTopicRequest
+   * @returns DeleteTopicResponse
    */
   async deleteTopic(request: DeleteTopicRequest): Promise<DeleteTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2302,11 +3962,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetQueueAttributes
-   *
-   * @param request GetQueueAttributesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetQueueAttributesResponse
+   * Queries the attributes of an existing queue.
+   * 
+   * @param request - GetQueueAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQueueAttributesResponse
    */
   async getQueueAttributesWithOptions(request: GetQueueAttributesRequest, runtime: $Util.RuntimeOptions): Promise<GetQueueAttributesResponse> {
     Util.validateModel(request);
@@ -2337,10 +3997,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetQueueAttributes
-   *
-   * @param request GetQueueAttributesRequest
-   * @return GetQueueAttributesResponse
+   * Queries the attributes of an existing queue.
+   * 
+   * @param request - GetQueueAttributesRequest
+   * @returns GetQueueAttributesResponse
    */
   async getQueueAttributes(request: GetQueueAttributesRequest): Promise<GetQueueAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2348,11 +4008,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetSubscription
-   *
-   * @param request GetSubscriptionAttributesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetSubscriptionAttributesResponse
+   * Queries the attributes of a subscription.
+   * 
+   * @param request - GetSubscriptionAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSubscriptionAttributesResponse
    */
   async getSubscriptionAttributesWithOptions(request: GetSubscriptionAttributesRequest, runtime: $Util.RuntimeOptions): Promise<GetSubscriptionAttributesResponse> {
     Util.validateModel(request);
@@ -2383,10 +4043,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary GetSubscription
-   *
-   * @param request GetSubscriptionAttributesRequest
-   * @return GetSubscriptionAttributesResponse
+   * Queries the attributes of a subscription.
+   * 
+   * @param request - GetSubscriptionAttributesRequest
+   * @returns GetSubscriptionAttributesResponse
    */
   async getSubscriptionAttributes(request: GetSubscriptionAttributesRequest): Promise<GetSubscriptionAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2394,11 +4054,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询主题
-   *
-   * @param request GetTopicAttributesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTopicAttributesResponse
+   * Queries the attributes of a topic.
+   * 
+   * @param request - GetTopicAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTopicAttributesResponse
    */
   async getTopicAttributesWithOptions(request: GetTopicAttributesRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicAttributesResponse> {
     Util.validateModel(request);
@@ -2429,10 +4089,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询主题
-   *
-   * @param request GetTopicAttributesRequest
-   * @return GetTopicAttributesResponse
+   * Queries the attributes of a topic.
+   * 
+   * @param request - GetTopicAttributesRequest
+   * @returns GetTopicAttributesResponse
    */
   async getTopicAttributes(request: GetTopicAttributesRequest): Promise<GetTopicAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2440,11 +4100,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListQueue
-   *
-   * @param request ListQueueRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListQueueResponse
+   * Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
+   * 
+   * @param request - ListQueueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQueueResponse
    */
   async listQueueWithOptions(request: ListQueueRequest, runtime: $Util.RuntimeOptions): Promise<ListQueueResponse> {
     Util.validateModel(request);
@@ -2483,10 +4143,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListQueue
-   *
-   * @param request ListQueueRequest
-   * @return ListQueueResponse
+   * Queries all queues that belong to an Alibaba Cloud account. The queues are displayed by page.
+   * 
+   * @param request - ListQueueRequest
+   * @returns ListQueueResponse
    */
   async listQueue(request: ListQueueRequest): Promise<ListQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2494,11 +4154,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListSubscription
-   *
-   * @param request ListSubscriptionByTopicRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListSubscriptionByTopicResponse
+   * Queries all subscriptions to a topic. The subscriptions are displayed by page.
+   * 
+   * @param request - ListSubscriptionByTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSubscriptionByTopicResponse
    */
   async listSubscriptionByTopicWithOptions(request: ListSubscriptionByTopicRequest, runtime: $Util.RuntimeOptions): Promise<ListSubscriptionByTopicResponse> {
     Util.validateModel(request);
@@ -2537,10 +4197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListSubscription
-   *
-   * @param request ListSubscriptionByTopicRequest
-   * @return ListSubscriptionByTopicResponse
+   * Queries all subscriptions to a topic. The subscriptions are displayed by page.
+   * 
+   * @param request - ListSubscriptionByTopicRequest
+   * @returns ListSubscriptionByTopicResponse
    */
   async listSubscriptionByTopic(request: ListSubscriptionByTopicRequest): Promise<ListSubscriptionByTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2548,11 +4208,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListTopic
-   *
-   * @param request ListTopicRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTopicResponse
+   * Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
+   * 
+   * @param request - ListTopicRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTopicResponse
    */
   async listTopicWithOptions(request: ListTopicRequest, runtime: $Util.RuntimeOptions): Promise<ListTopicResponse> {
     Util.validateModel(request);
@@ -2591,10 +4251,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ListTopic
-   *
-   * @param request ListTopicRequest
-   * @return ListTopicResponse
+   * Queries the topics that belong to an Alibaba Cloud account. The topics are displayed by page.
+   * 
+   * @param request - ListTopicRequest
+   * @returns ListTopicResponse
    */
   async listTopic(request: ListTopicRequest): Promise<ListTopicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2602,11 +4262,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SetQueueAttributes
-   *
-   * @param request SetQueueAttributesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetQueueAttributesResponse
+   * Modifies a queue.
+   * 
+   * @param request - SetQueueAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetQueueAttributesResponse
    */
   async setQueueAttributesWithOptions(request: SetQueueAttributesRequest, runtime: $Util.RuntimeOptions): Promise<SetQueueAttributesResponse> {
     Util.validateModel(request);
@@ -2657,10 +4317,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary SetQueueAttributes
-   *
-   * @param request SetQueueAttributesRequest
-   * @return SetQueueAttributesResponse
+   * Modifies a queue.
+   * 
+   * @param request - SetQueueAttributesRequest
+   * @returns SetQueueAttributesResponse
    */
   async setQueueAttributes(request: SetQueueAttributesRequest): Promise<SetQueueAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2668,11 +4328,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ModifySubscription
-   *
-   * @param request SetSubscriptionAttributesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetSubscriptionAttributesResponse
+   * Modifies the attributes of a subscription.
+   * 
+   * @param request - SetSubscriptionAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetSubscriptionAttributesResponse
    */
   async setSubscriptionAttributesWithOptions(request: SetSubscriptionAttributesRequest, runtime: $Util.RuntimeOptions): Promise<SetSubscriptionAttributesResponse> {
     Util.validateModel(request);
@@ -2707,10 +4367,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary ModifySubscription
-   *
-   * @param request SetSubscriptionAttributesRequest
-   * @return SetSubscriptionAttributesResponse
+   * Modifies the attributes of a subscription.
+   * 
+   * @param request - SetSubscriptionAttributesRequest
+   * @returns SetSubscriptionAttributesResponse
    */
   async setSubscriptionAttributes(request: SetSubscriptionAttributesRequest): Promise<SetSubscriptionAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2718,11 +4378,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑订阅主题
-   *
-   * @param request SetTopicAttributesRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SetTopicAttributesResponse
+   * Modifies the attributes of a topic.
+   * 
+   * @param request - SetTopicAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetTopicAttributesResponse
    */
   async setTopicAttributesWithOptions(request: SetTopicAttributesRequest, runtime: $Util.RuntimeOptions): Promise<SetTopicAttributesResponse> {
     Util.validateModel(request);
@@ -2757,10 +4417,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 编辑订阅主题
-   *
-   * @param request SetTopicAttributesRequest
-   * @return SetTopicAttributesResponse
+   * Modifies the attributes of a topic.
+   * 
+   * @param request - SetTopicAttributesRequest
+   * @returns SetTopicAttributesResponse
    */
   async setTopicAttributes(request: SetTopicAttributesRequest): Promise<SetTopicAttributesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2768,11 +4428,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CreateSubscription
-   *
-   * @param request SubscribeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SubscribeResponse
+   * Creates a subscription to a topic.
+   * 
+   * @param request - SubscribeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubscribeResponse
    */
   async subscribeWithOptions(request: SubscribeRequest, runtime: $Util.RuntimeOptions): Promise<SubscribeResponse> {
     Util.validateModel(request);
@@ -2823,10 +4483,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary CreateSubscription
-   *
-   * @param request SubscribeRequest
-   * @return SubscribeResponse
+   * Creates a subscription to a topic.
+   * 
+   * @param request - SubscribeRequest
+   * @returns SubscribeResponse
    */
   async subscribe(request: SubscribeRequest): Promise<SubscribeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -2834,11 +4494,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DeleteSubscription
-   *
-   * @param request UnsubscribeRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnsubscribeResponse
+   * Deletes a subscription.
+   * 
+   * @param request - UnsubscribeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnsubscribeResponse
    */
   async unsubscribeWithOptions(request: UnsubscribeRequest, runtime: $Util.RuntimeOptions): Promise<UnsubscribeResponse> {
     Util.validateModel(request);
@@ -2869,10 +4529,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary DeleteSubscription
-   *
-   * @param request UnsubscribeRequest
-   * @return UnsubscribeResponse
+   * Deletes a subscription.
+   * 
+   * @param request - UnsubscribeRequest
+   * @returns UnsubscribeResponse
    */
   async unsubscribe(request: UnsubscribeRequest): Promise<UnsubscribeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
