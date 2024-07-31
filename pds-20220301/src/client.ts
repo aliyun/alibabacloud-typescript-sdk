@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import GatewayClient from '@alicloud/gateway-pds';
@@ -177,10 +176,30 @@ export class Activity extends $tea.Model {
 }
 
 export class Address extends $tea.Model {
+  /**
+   * @example
+   * 杭州市
+   */
   city?: string;
+  /**
+   * @example
+   * 中国
+   */
   country?: string;
+  /**
+   * @example
+   * 余杭区
+   */
   district?: string;
+  /**
+   * @example
+   * 浙江省
+   */
   province?: string;
+  /**
+   * @example
+   * 文一西路
+   */
   township?: string;
   static names(): { [key: string]: string } {
     return {
@@ -782,25 +801,73 @@ export class BaseDriveResponse extends $tea.Model {
   actionList?: string[];
   category?: string;
   createdAt?: string;
+  /**
+   * @example
+   * ccp
+   */
   creator?: string;
   deltaEnabled?: boolean;
+  /**
+   * @example
+   * ccp team drive
+   */
   description?: string;
+  /**
+   * @example
+   * hz999
+   */
   domainId?: string;
+  /**
+   * @example
+   * 123
+   */
   driveId?: string;
+  /**
+   * @example
+   * ccpdrive
+   */
   driveName?: string;
+  /**
+   * @example
+   * normal
+   */
   driveType?: string;
   encryptDataAccess?: boolean;
   encryptMode?: string;
   isHandover?: boolean;
+  /**
+   * @example
+   * ccp
+   */
   owner?: string;
+  /**
+   * @example
+   * user
+   */
   ownerType?: string;
   pathStatus?: string;
   permission?: { [key: string]: IDPermission };
   relativePath?: string;
+  /**
+   * @example
+   * enabled
+   */
   status?: string;
+  /**
+   * @example
+   * 123
+   */
   storeId?: string;
+  /**
+   * @example
+   * 102400
+   */
   totalSize?: number;
   updatedAt?: string;
+  /**
+   * @example
+   * 1024
+   */
   usedSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -864,14 +931,42 @@ export class BaseDriveResponse extends $tea.Model {
 }
 
 export class BaseGroupResponse extends $tea.Model {
+  /**
+   * @example
+   * 111111
+   */
   createdAt?: number;
+  /**
+   * @example
+   * system
+   */
   creator?: string;
+  /**
+   * @example
+   * desc-111
+   */
   description?: string;
+  /**
+   * @example
+   * bj123
+   */
   domainId?: string;
+  /**
+   * @example
+   * b38b5681bd964950ad8bc0f8ea504793
+   */
   groupId?: string;
+  /**
+   * @example
+   * name-111
+   */
   groupName?: string;
   isSync?: boolean;
   permission?: { [key: string]: IDPermission };
+  /**
+   * @example
+   * 111111
+   */
   updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
@@ -947,29 +1042,89 @@ export class BaseRoleMemberResponse extends $tea.Model {
 }
 
 export class BaseUserResponse extends $tea.Model {
+  /**
+   * @example
+   * http://a.b.c/ccp.jpg
+   */
   avatar?: string;
+  /**
+   * @example
+   * 1567407718386
+   */
   createdAt?: string;
+  /**
+   * @example
+   * system
+   */
   creator?: string;
+  /**
+   * @example
+   * 123
+   */
   defaultDriveId?: string;
   defaultLocation?: string;
   denyChangePasswordBySelf?: boolean;
+  /**
+   * @example
+   * ccp team user
+   */
   description?: string;
+  /**
+   * @example
+   * hz999
+   */
   domainId?: string;
+  /**
+   * @example
+   * 123@ccp.com
+   */
   email?: string;
+  /**
+   * @example
+   * 0
+   */
   expiredAt?: number;
   isSync?: boolean;
   lastLoginTime?: number;
   needChangePasswordNextLogin?: boolean;
+  /**
+   * @example
+   * abc
+   */
   nickName?: string;
   pathStatus?: string;
   permission?: { [key: string]: IDPermission };
+  /**
+   * @example
+   * 13700000000
+   */
   phone?: string;
   phoneRegion?: string;
+  /**
+   * @example
+   * user
+   */
   role?: string;
+  /**
+   * @example
+   * enabled
+   */
   status?: string;
+  /**
+   * @example
+   * 1567407718386
+   */
   updatedAt?: string;
   userData?: { [key: string]: any };
+  /**
+   * @example
+   * ccpuserid
+   */
   userId?: string;
+  /**
+   * @example
+   * name
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1063,8 +1218,20 @@ export class BenefitPkgDeliveryInfo extends $tea.Model {
 }
 
 export class CNameStatus extends $tea.Model {
+  /**
+   * @example
+   * BINDING/BOUND
+   */
   bingdingState?: string;
+  /**
+   * @example
+   * NORMAL/ABNORMAL
+   */
   legalState?: string;
+  /**
+   * @example
+   * beian
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1088,13 +1255,51 @@ export class CNameStatus extends $tea.Model {
 }
 
 export class CdnFileDownloadCallbackInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccp-bj1-bj-1234
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   expire?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   object?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * md5.Sum([]byte(fmt.Sprintf("%v%v%v%v%v%v...%v", 		req.Object, req.Range, req.DomainID, req.DriveID, req.UserID, req.FileID, req.Expire)))
+   */
   token?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1128,8 +1333,20 @@ export class CdnFileDownloadCallbackInfo extends $tea.Model {
 }
 
 export class CertInfo extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
   certBody?: string;
+  /**
+   * @example
+   * xxx
+   */
   certName?: string;
+  /**
+   * @example
+   * xxx
+   */
   certPrivatekey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1937,16 +2154,52 @@ export class ExternalMultiFileRevisionConfig extends $tea.Model {
 }
 
 export class FaceGroup extends $tea.Model {
+  /**
+   * @example
+   * 2022-01-14T10:10:52.83948013+08:00
+   */
   createdAt?: string;
   groupCoverFaceBoundary?: FaceGroupGroupCoverFaceBoundary;
+  /**
+   * @example
+   * 6549c959640fbd517c9b4d93b3b36aecc45xxxxx
+   */
   groupCoverFileId?: string;
+  /**
+   * @example
+   * 1080
+   */
   groupCoverHeight?: number;
+  /**
+   * @example
+   * https://xxx
+   */
   groupCoverUrl?: string;
+  /**
+   * @example
+   * 1920
+   */
   groupCoverWidth?: number;
+  /**
+   * @example
+   * Cluster-ae6e3472-999e-410b-b54e-cd5dba****
+   */
   groupId?: string;
+  /**
+   * @example
+   * name
+   */
   groupName?: string;
+  /**
+   * @example
+   * 10
+   */
   imageCount?: number;
   remarks?: string;
+  /**
+   * @example
+   * 2022-01-14T10:10:52.83948013+08:00
+   */
   updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1986,8 +2239,22 @@ export class FaceGroup extends $tea.Model {
 }
 
 export class FaceThumbnail extends $tea.Model {
+  /**
+   * @example
+   * Cluster-e3b7fb52-22b3-44f2-9746-8c1804bd6af0
+   */
   faceGroupId?: string;
+  /**
+   * @example
+   * a9a66a86-73dd-4c95-8b79-1d8a49db5226
+   */
   faceId?: string;
+  /**
+   * @example
+   * https://pds-domain.region.aliyuncs.com/QieGeH98%2F1001%2F63e5e551ee621482ab934a0687c6cda75fc07864%2F642a8a40c00f1ad379df421694713ee65170f09b?security-token=CAIS%2BgF1q6Ft5B2yfSjIr5bjHPCNnrdR8aSaSW7woVlmVd1Bt5HorDz2IHpPfHdoBe0btvU%2BlWxX6fwZlq5rR4QAXlDfNSyFeX20qFHPWZHInuDox55m4cTXNAr%2BIhr%2F29CoEIedZdjBe%2FCrRknZnytou9XTfimjWFrXWv%2Fgy%2BQQDLItUxK%2FcCBNCfpPOwJms7V6D3bKMuu3OROY6Qi5TmgQ41En1DIlt%2FXuk5DCtkqB12eXkLFF%2B97DRbG%2FdNRpMZtFVNO44fd7bKKp0lQLsUMSqv8q0fEcqGaW4o7CWQJLnzyCMvvJ9OVDFyN0aKEnH7J%2Bq%2FzxhTPrMnpkSlacGoABPMvZ8rSESUEP96Vbf%2Bk0JRg9Qb1MnaIJqWAgo8K6K0UP1CtqL2zrUtugpKKDHOYiKbq2O0S5yLUPVX5vBHqEi%2FFc7i6ZnHCMcXLJs4rKDKwRBEhovUXXlklq2q43OSVtLrXkBy9Xs1ers%2FhJhcxpNA0Vl3EWfJxa2BTylEdnLOQ%3D&x-oss-access-key-id=STS.NUVWJ9shpFfqKHAEY3YRmXTCN&x-oss-expires=1686455451&x-oss-process=image%2Fcrop%2Cx_1128%2Cy_1211%2Cw_914%2Ch_914%2Fformat%2Cjpg&x-oss-signature=jmhOz91Tww1ciMEwadDiioU7d93FDiBNr8s8mHyMqW0%3D&x-oss-signature-version=OSS2
+   * 
+   * @deprecated
+   */
   faceThumbnail?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2120,11 +2387,38 @@ export class File extends $tea.Model {
 }
 
 export class FileDownloadCallbackInfo extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccp-bj1-bj-1234
+   */
   bucket?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   object?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2391,6 +2685,10 @@ export class Group extends $tea.Model {
 export class IDPermission extends $tea.Model {
   disinheritSubGroup?: boolean;
   expireTime?: number;
+  /**
+   * **if can be null:**
+   * false
+   */
   permission?: Permission;
   roles?: string[];
   static names(): { [key: string]: string } {
@@ -2418,6 +2716,10 @@ export class IDPermission extends $tea.Model {
 
 export class Identity extends $tea.Model {
   identityId?: string;
+  /**
+   * @example
+   * IT_User
+   */
   identityType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2488,19 +2790,63 @@ export class IdentityToBenefitPkgMapping extends $tea.Model {
 }
 
 export class ImageMediaMetadata extends $tea.Model {
+  /**
+   * @example
+   * 浙江省杭州市滨江区西兴街道江陵路
+   */
   addressLine?: string;
+  /**
+   * @example
+   * 杭州市
+   */
   city?: string;
+  /**
+   * @example
+   * 中国
+   */
   country?: string;
+  /**
+   * @example
+   * 滨江区
+   */
   district?: string;
+  /**
+   * @example
+   * {"Compression":{"value":"6"},"DateTime":{"value":"2020:08:19 17:11:11"}}
+   */
   exif?: string;
   facesThumbnail?: FaceThumbnail[];
+  /**
+   * @example
+   * 1080
+   */
   height?: number;
   imageQuality?: ImageQuality;
   imageTags?: SystemTag[];
+  /**
+   * @example
+   * 30.185453,120.218522
+   */
   location?: string;
+  /**
+   * @example
+   * 浙江省
+   */
   province?: string;
+  /**
+   * @example
+   * 2006-01-02T15:04:05.000Z07:00
+   */
   time?: string;
+  /**
+   * @example
+   * 西兴街道
+   */
   township?: string;
+  /**
+   * @example
+   * 1920
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2571,6 +2917,10 @@ export class ImageProcess extends $tea.Model {
 }
 
 export class ImageQuality extends $tea.Model {
+  /**
+   * @example
+   * 0.736
+   */
   overallScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2590,12 +2940,40 @@ export class ImageQuality extends $tea.Model {
 }
 
 export class ImageTag extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   count?: number;
+  /**
+   * @example
+   * image
+   */
   coverFileCategory?: string;
+  /**
+   * @example
+   * 5d79206586bb5dd69fb34c349282718146c55da7
+   */
   coverFileId?: string;
+  /**
+   * @example
+   * 0.736
+   */
   coverOverallScore?: number;
+  /**
+   * @example
+   * 1
+   */
   coverTagConfidence?: number;
+  /**
+   * @example
+   * https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899eff525?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
+   */
   coverUrl?: string;
+  /**
+   * @example
+   * 动物
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2716,8 +3094,77 @@ export class JWTPayload extends $tea.Model {
   }
 }
 
-export class KnowledgeFileItem extends $tea.Model {
+export class KnowledgeFile extends $tea.Model {
+  creatorId?: string;
   driveId?: string;
+  fileCategory?: string;
+  fileCreatedAt?: number;
+  fileCreatorId?: string;
+  fileId?: string;
+  fileImageTime?: number;
+  fileName?: string;
+  fileNamePath?: string;
+  fileSize?: number;
+  fileUpdatedAt?: number;
+  joinedAt?: number;
+  knowledgeBaseId?: string;
+  knowledgeCategoryId?: string;
+  revisionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creatorId: 'creator_id',
+      driveId: 'drive_id',
+      fileCategory: 'file_category',
+      fileCreatedAt: 'file_created_at',
+      fileCreatorId: 'file_creator_id',
+      fileId: 'file_id',
+      fileImageTime: 'file_image_time',
+      fileName: 'file_name',
+      fileNamePath: 'file_name_path',
+      fileSize: 'file_size',
+      fileUpdatedAt: 'file_updated_at',
+      joinedAt: 'joined_at',
+      knowledgeBaseId: 'knowledge_base_id',
+      knowledgeCategoryId: 'knowledge_category_id',
+      revisionId: 'revision_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creatorId: 'string',
+      driveId: 'string',
+      fileCategory: 'string',
+      fileCreatedAt: 'number',
+      fileCreatorId: 'string',
+      fileId: 'string',
+      fileImageTime: 'number',
+      fileName: 'string',
+      fileNamePath: 'string',
+      fileSize: 'number',
+      fileUpdatedAt: 'number',
+      joinedAt: 'number',
+      knowledgeBaseId: 'string',
+      knowledgeCategoryId: 'string',
+      revisionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KnowledgeFileItem extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  driveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2999,7 +3446,7 @@ export class PersonalRightsInfoResponse extends $tea.Model {
   isExpires?: boolean;
   name?: string;
   otherRights?: PersonalRightsInfoResponse;
-  privileges?: DataBoxPrivileges;
+  privileges?: DataBoxPrivileges[];
   spuId?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -3024,7 +3471,7 @@ export class PersonalRightsInfoResponse extends $tea.Model {
       isExpires: 'boolean',
       name: 'string',
       otherRights: PersonalRightsInfoResponse,
-      privileges: DataBoxPrivileges,
+      privileges: { 'type': 'array', 'itemType': DataBoxPrivileges },
       spuId: 'string',
       title: 'string',
     };
@@ -3525,10 +3972,30 @@ export class Story extends $tea.Model {
 }
 
 export class SystemTag extends $tea.Model {
+  /**
+   * @example
+   * 0.877
+   */
   centricScore?: number;
+  /**
+   * @example
+   * 0.98
+   */
   confidence?: number;
+  /**
+   * @example
+   * 篮球
+   */
   name?: string;
+  /**
+   * @example
+   * 运动
+   */
   parentName?: string;
+  /**
+   * @example
+   * 3
+   */
   tagLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3744,12 +4211,31 @@ export class UploadFormInfo extends $tea.Model {
 }
 
 export class UploadPartInfo extends $tea.Model {
+  /**
+   * @example
+   * 0CC175B9C0F1B6A831C399E269772661
+   */
   etag?: string;
   internalUploadUrl?: string;
   parallelSha1Ctx?: UploadPartInfoParallelSha1Ctx;
   parallelSha256Ctx?: UploadPartInfoParallelSha256Ctx;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   partNumber?: number;
+  /**
+   * @example
+   * 1024
+   */
   partSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   uploadUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3843,31 +4329,95 @@ export class User extends $tea.Model {
 
 export class UserExtraItem extends $tea.Model {
   account?: AccountLinkInfo[];
+  /**
+   * @example
+   * http://a.b.c/ccp.jpg
+   */
   avatar?: string;
+  /**
+   * @example
+   * 1567407718386
+   */
   createdAt?: string;
+  /**
+   * @example
+   * system
+   */
   creator?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
   defaultDrive?: BaseDriveResponse;
+  /**
+   * @example
+   * 123
+   */
   defaultDriveId?: string;
   defaultLocation?: string;
   denyChangePasswordBySelf?: boolean;
+  /**
+   * @example
+   * ccp team user
+   */
   description?: string;
+  /**
+   * @example
+   * hz999
+   */
   domainId?: string;
+  /**
+   * @example
+   * 123@ccp.com
+   */
   email?: string;
+  /**
+   * @example
+   * 0
+   */
   expiredAt?: number;
   isSync?: boolean;
   lastLoginTime?: number;
   needChangePasswordNextLogin?: boolean;
+  /**
+   * @example
+   * abc
+   */
   nickName?: string;
   parentGroup?: BaseDriveResponse[];
   pathStatus?: string;
   permission?: { [key: string]: IDPermission };
+  /**
+   * @example
+   * 13700000000
+   */
   phone?: string;
   phoneRegion?: string;
+  /**
+   * @example
+   * user
+   */
   role?: string;
+  /**
+   * @example
+   * enabled
+   */
   status?: string;
+  /**
+   * @example
+   * 1567407718386
+   */
   updatedAt?: string;
   userData?: { [key: string]: any };
+  /**
+   * @example
+   * ccpuserid
+   */
   userId?: string;
+  /**
+   * @example
+   * name
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3973,7 +4523,15 @@ export class UserLogDetail extends $tea.Model {
 }
 
 export class UserTag extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3995,8 +4553,20 @@ export class UserTag extends $tea.Model {
 }
 
 export class VideoMediaAudioStream extends $tea.Model {
+  /**
+   * @example
+   * 129280
+   */
   bitRate?: string;
+  /**
+   * @example
+   * aac
+   */
   codeName?: string;
+  /**
+   * @example
+   * 7704.573000
+   */
   duration?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4020,9 +4590,17 @@ export class VideoMediaAudioStream extends $tea.Model {
 }
 
 export class VideoMediaMetadata extends $tea.Model {
+  /**
+   * @example
+   * 1080
+   */
   height?: number;
   videoMediaAudioStream?: VideoMediaAudioStream[];
   videoMediaVideoStream?: VideoMediaVideoStream[];
+  /**
+   * @example
+   * 1920
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4048,9 +4626,25 @@ export class VideoMediaMetadata extends $tea.Model {
 }
 
 export class VideoMediaVideoStream extends $tea.Model {
+  /**
+   * @example
+   * 108420
+   */
   bitrate?: string;
+  /**
+   * @example
+   * h264
+   */
   codeName?: string;
+  /**
+   * @example
+   * 22.88
+   */
   duration?: string;
+  /**
+   * @example
+   * 90
+   */
   frameCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4076,6 +4670,10 @@ export class VideoMediaVideoStream extends $tea.Model {
 }
 
 export class VideoPreviewPlayInfo extends $tea.Model {
+  /**
+   * @example
+   * live_transcoding
+   */
   category?: string;
   liveTranscodingTaskList?: VideoPreviewPlayInfoLiveTranscodingTaskList[];
   meta?: VideoPreviewPlayInfoMeta;
@@ -4104,6 +4702,10 @@ export class VideoPreviewPlayInfo extends $tea.Model {
 }
 
 export class VideoPreviewPlayMeta extends $tea.Model {
+  /**
+   * @example
+   * live_transcoding
+   */
   category?: string;
   liveTranscodingTaskList?: VideoPreviewPlayMetaLiveTranscodingTaskList[];
   meta?: VideoPreviewPlayMetaMeta;
@@ -4340,8 +4942,39 @@ export class WxTrustedDomainConfig extends $tea.Model {
 }
 
 export class AddGroupMemberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the destination group to which the member is added.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3e5***2c2
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The member ID. If member_type is set to user, set this parameter to a user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2e4***1b1
+   */
   memberId?: string;
+  /**
+   * @remarks
+   * The type of the member. Set the value to user. When you create a group, you can directly add the group to a parent group.
+   * 
+   * * user
+   * 
+   * Note: A group can be added to only one group. A user can be added to multiple groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   memberType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4387,8 +5020,22 @@ export class AddGroupMemberResponse extends $tea.Model {
 }
 
 export class AddStoryFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
   files?: AddStoryFilesRequestFiles[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4412,7 +5059,15 @@ export class AddStoryFilesRequest extends $tea.Model {
 }
 
 export class AddStoryFilesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4459,9 +5114,42 @@ export class AddStoryFilesResponse extends $tea.Model {
 }
 
 export class AssignRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The unique identifier of a user. The group administrator role can only be assigned to a user.
+   * 
+   * This parameter is required.
+   */
   identity?: Identity;
+  /**
+   * @remarks
+   * The ID of the resource that the role can manage. You can only set this parameter to the ID of a group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 105***b82
+   */
   manageResourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource that the role can manage. Valid value: RT_Group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * RT_Group
+   */
   manageResourceType?: string;
+  /**
+   * @remarks
+   * The ID of the role that is assigned to a user. Valid value: SystemGroupAdmin.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SystemGroupAdmin
+   */
   roleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4509,12 +5197,73 @@ export class AssignRoleResponse extends $tea.Model {
 }
 
 export class AuthorizeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID returned when the application was created.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 47eUHhrzgWBvlLWj
+   */
   clientId?: string;
+  /**
+   * @remarks
+   * Specifies whether to hide the consent page.
+   * 
+   * @example
+   * true
+   */
   hideConsent?: boolean;
+  /**
+   * @remarks
+   * The authentication method. Valid values:
+   * 
+   * *   default: all logon methods that are integrated on the default logon page provided by Drive and Photo Service.
+   * *   ding: logs on by scanning a DingTalk QR code.
+   * *   ding_sns: logs on by entering a DingTalk account and its password.
+   * *   ram: logs on as an Alibaba Cloud Resource Access Management (RAM) user.
+   * *   wechat: logs on by scanning a WeCom QR code.
+   * *   wechat_app: logs on without authentication in WeCom.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   loginType?: string;
+  /**
+   * @remarks
+   * The callback URL specified when the application was created.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * https://www.aliyunpds.com/sign/callback
+   */
   redirectUri?: string;
+  /**
+   * @remarks
+   * The format in which to return the response. Set the value to code.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * code
+   */
   responseType?: string;
+  /**
+   * @remarks
+   * The requested permissions. By default, all permissions are requested.
+   */
   scope?: string[];
+  /**
+   * @remarks
+   * The user-defined parameter to return in the callback URL after the requested permissions are granted.
+   * 
+   * @example
+   * customdata
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4546,12 +5295,73 @@ export class AuthorizeRequest extends $tea.Model {
 }
 
 export class AuthorizeShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The application ID returned when the application was created.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 47eUHhrzgWBvlLWj
+   */
   clientId?: string;
+  /**
+   * @remarks
+   * Specifies whether to hide the consent page.
+   * 
+   * @example
+   * true
+   */
   hideConsent?: boolean;
+  /**
+   * @remarks
+   * The authentication method. Valid values:
+   * 
+   * *   default: all logon methods that are integrated on the default logon page provided by Drive and Photo Service.
+   * *   ding: logs on by scanning a DingTalk QR code.
+   * *   ding_sns: logs on by entering a DingTalk account and its password.
+   * *   ram: logs on as an Alibaba Cloud Resource Access Management (RAM) user.
+   * *   wechat: logs on by scanning a WeCom QR code.
+   * *   wechat_app: logs on without authentication in WeCom.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
   loginType?: string;
+  /**
+   * @remarks
+   * The callback URL specified when the application was created.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * https://www.aliyunpds.com/sign/callback
+   */
   redirectUri?: string;
+  /**
+   * @remarks
+   * The format in which to return the response. Set the value to code.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * code
+   */
   responseType?: string;
+  /**
+   * @remarks
+   * The requested permissions. By default, all permissions are requested.
+   */
   scopeShrink?: string;
+  /**
+   * @remarks
+   * The user-defined parameter to return in the callback URL after the requested permissions are granted.
+   * 
+   * @example
+   * customdata
+   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4605,7 +5415,32 @@ export class AuthorizeResponse extends $tea.Model {
 }
 
 export class BatchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The child requests.
+   * 
+   * The number of child requests. Valid value: 1 to 100.
+   * 
+   * This parameter is required.
+   */
   requests?: BatchRequestRequests[];
+  /**
+   * @remarks
+   * The type of the resource that you want to manage. Valid values:
+   * 
+   * *   file: a file.
+   * *   drive: an individual drive or a team drive.
+   * *   user: a user.
+   * *   group: a group.
+   * *   membership: a group member.
+   * *   share_link: a share.
+   * *   async_task: an asynchronous task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * file
+   */
   resource?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4627,6 +5462,10 @@ export class BatchRequest extends $tea.Model {
 }
 
 export class BatchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * All responses of the child requests.
+   */
   responses?: BatchResponseBodyResponses[];
   static names(): { [key: string]: string } {
     return {
@@ -4671,9 +5510,42 @@ export class BatchResponse extends $tea.Model {
 }
 
 export class CancelAssignRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The unique identifier. You can cancel only the role assigned to a user.
+   * 
+   * This parameter is required.
+   */
   identity?: Identity;
+  /**
+   * @remarks
+   * The ID of the resource that the role manages. Set the value to a group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 105***b82
+   */
   manageResourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource that the role manages. Set the value to RT_Group, which specifies group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * RT_Group
+   */
   manageResourceType?: string;
+  /**
+   * @remarks
+   * The ID of the role to be canceled. Set the value to SystemGroupAdmin, which is the ID of the group administrator role.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SystemGroupAdmin
+   */
   roleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4721,6 +5593,15 @@ export class CancelAssignRoleResponse extends $tea.Model {
 }
 
 export class CancelShareLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The share ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4762,6 +5643,13 @@ export class CancelShareLinkResponse extends $tea.Model {
 }
 
 export class ClearRecyclebinRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4781,8 +5669,31 @@ export class ClearRecyclebinRequest extends $tea.Model {
 }
 
 export class ClearRecyclebinResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * You can call the GetAsyncTask operation to query the information about the asynchronous task based on the task ID.
+   * 
+   * @example
+   * 13ebd3a24dba4166b1527add676ef2866051b4d5dele16
+   */
   asyncTaskId?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4831,8 +5742,35 @@ export class ClearRecyclebinResponse extends $tea.Model {
 }
 
 export class CompleteFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The upload ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * C9DCFE5A82644AC7A02DB74C30C934A6
+   */
   uploadId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4881,11 +5819,57 @@ export class CompleteFileResponse extends $tea.Model {
 }
 
 export class CopyFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically rename the file if the file name already exists in the destination folder. Default value: false.
+   * 
+   * @example
+   * true
+   */
   autoRename?: boolean;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID or folder ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The share ID. If you want to manage a file by using a share link, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The ID of the drive to which you want to copy the file or folder. Default value: the value of drive_id.
+   * 
+   * @example
+   * 1
+   */
   toDriveId?: string;
+  /**
+   * @remarks
+   * The ID of the destination parent folder. If you want to copy the file or folder to a root directory, set this parameter to root.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6520943DC261
+   */
   toParentFileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4915,9 +5899,39 @@ export class CopyFileRequest extends $tea.Model {
 }
 
 export class CopyFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * If a file is copied, this parameter is not returned. If a folder is copied, the folder is asynchronously copied in the background and this parameter is returned. You can call the GetAsyncTask operation to query the information about the asynchronous task based on the task ID.
+   * 
+   * @example
+   * 000e89fb-cf8f-11e9-8ab4-b6e980803a3b
+   */
   asyncTaskId?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The ID of the copied file or folder.
+   * 
+   * @example
+   * 4221bf6e6ab43a255edc4463bffa6f5f5d317401
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4968,12 +5982,51 @@ export class CopyFileResponse extends $tea.Model {
 }
 
 export class CreateCustomizedStoryRequest extends $tea.Model {
+  /**
+   * @deprecated
+   */
   customLabels?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   storyCover?: CreateCustomizedStoryRequestStoryCover;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   storyFiles?: CreateCustomizedStoryRequestStoryFiles[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_name
+   */
   storyName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_created
+   */
   storySubType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user_created
+   */
   storyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5005,7 +6058,15 @@ export class CreateCustomizedStoryRequest extends $tea.Model {
 }
 
 export class CreateCustomizedStoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5052,12 +6113,63 @@ export class CreateCustomizedStoryResponse extends $tea.Model {
 }
 
 export class CreateDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the domain.
+   * 
+   * @example
+   * domain for test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the domain.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_domain
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the default drive feature. A value of true specifies that all users are assigned a drive by default on the first logon. Default value: false.
+   * 
+   * @example
+   * true
+   */
   initDriveEnable?: boolean;
+  /**
+   * @remarks
+   * The size of the default drive. Unit: bytes. You must specify init_drive_size if you set init_drive_enable to true. Default value: 0. A value of 0 specifies that the size of the default drive is 0 bytes and you cannot upload files to the drive. To initialize the default drive, set init_drive_size to 0. A value of -1 specifies that the size is unlimited.
+   * 
+   * @example
+   * 1073741824
+   */
   initDriveSize?: number;
+  /**
+   * @remarks
+   * The ID of the parent domain. If you want to create a child domain, specify parent_domain_id. In most cases, you do not need to create a child domain. If you want to perform secondary operations based on Drive and Photo Service, contact the customer service.
+   * 
+   * @example
+   * bj1
+   */
   parentDomainId?: string;
+  /**
+   * @remarks
+   * The total storage quota for all drives in the domain. A value of 0 specifies that the quota is unlimited.
+   * 
+   * @example
+   * 1099511627776
+   */
   sizeQuota?: number;
+  /**
+   * @remarks
+   * The largest number of users that can be created in the domain. A value of 0 specifies that the number is unlimited.
+   * 
+   * @example
+   * 50
+   */
   userCountQuota?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5114,13 +6226,81 @@ export class CreateDomainResponse extends $tea.Model {
 }
 
 export class CreateDriveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether the drive is the default drive. Default value: false.
+   * 
+   * @example
+   * true
+   */
   default?: boolean;
+  /**
+   * @remarks
+   * The description of the drive. The description can be up to 1,024 characters in length.
+   * 
+   * @example
+   * drive for test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the drive. The name can be up to 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test_drive
+   */
   driveName?: string;
+  /**
+   * @remarks
+   * The type of the drive. Set the value to normal.
+   * 
+   * @example
+   * normal
+   */
   driveType?: string;
+  /**
+   * @remarks
+   * The owner of the drive.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3b3d7245c159488da17d081ad6c64687
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The type of the owner. Valid values:
+   * 
+   * user and group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   ownerType?: string;
+  /**
+   * @remarks
+   * The state of the drive. Valid values:
+   * 
+   * enabled and disabled.
+   * 
+   * Default value: enabled.
+   * 
+   * @example
+   * enabled
+   */
   status?: string;
+  /**
+   * @remarks
+   * The total size of the drive. Unit: bytes. By default, the size is unlimited.
+   * 
+   * @example
+   * 1024
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5157,7 +6337,21 @@ export class CreateDriveResponseBody extends $tea.Model {
   createdAt?: string;
   creator?: string;
   description?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
   driveName?: string;
   driveType?: string;
@@ -5231,26 +6425,219 @@ export class CreateDriveResponse extends $tea.Model {
 }
 
 export class CreateFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The processing method that is used if the file that you want to create has the same name as an existing file in the cloud. Valid values:
+   * 
+   * ignore: allows you to create the file by using the same name as an existing file in the cloud.
+   * 
+   * auto_rename: automatically renames the file that you want to create. By default, the current point in time is added to the end of the file name. Example: xxx_20060102_150405.
+   * 
+   * refuse: does not create the file that you want to create but returns the information about the file that has the same name in the cloud.
+   * 
+   * Default value: ignore.
+   * 
+   * @example
+   * ignore
+   * 
+   * **if can be null:**
+   * true
+   */
   checkNameMode?: string;
+  /**
+   * @remarks
+   * The hash value of the file content. The value is calculated based on the algorithm specified by content_hash_name.
+   * 
+   * @example
+   * 7C4A8D09CA3762AF61E59520943DC26494F8941B
+   * 
+   * **if can be null:**
+   * true
+   */
   contentHash?: string;
+  /**
+   * @remarks
+   * The name of the algorithm that is used to calculate the hash value of the file content. Only SHA1 is supported.
+   * 
+   * @example
+   * sha1
+   * 
+   * **if can be null:**
+   * true
+   */
   contentHashName?: string;
+  /**
+   * @remarks
+   * The type of the file content. Default value: application/oct-stream.
+   * 
+   * @example
+   * application/json
+   * 
+   * **if can be null:**
+   * true
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * The description of the file. The description can be up to 1,024 characters in length. By default, this parameter is left empty.
+   * 
+   * @example
+   * 重要文件
+   * 
+   * **if can be null:**
+   * true
+   */
   description?: string;
+  /**
+   * @remarks
+   * The drive ID. This parameter is required if the file is not uploaded by using the share URL of the file.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID. This parameter is required if check_name_mode is set to ignore.
+   * 
+   * @example
+   * 9520943DC264
+   * 
+   * **if can be null:**
+   * true
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * Specifies whether to hide the file or folder. By default, the file or folder is not hidden.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
   hidden?: boolean;
+  /**
+   * @remarks
+   * The information about the image specified by the client.
+   */
   imageMediaMetadata?: ImageMediaMetadata;
+  /**
+   * @remarks
+   * The time when the local file was created. By default, this parameter is left empty. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
+   * 
+   * @example
+   * 2019-08-20T06:51:27.292Z
+   * 
+   * **if can be null:**
+   * true
+   */
   localCreatedAt?: string;
+  /**
+   * @remarks
+   * The time when the local file was modified. By default, this parameter is left empty. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
+   * 
+   * @example
+   * 2019-08-20T06:51:27.292Z
+   */
   localModifiedAt?: string;
+  /**
+   * @remarks
+   * The name of the file. The name can be up to 1,024 bytes in length based on the UTF-8 encoding rule and cannot end with a forward slash (/).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a.txt
+   * 
+   * **if can be null:**
+   * false
+   */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the parallel upload feature.
+   * 
+   * @example
+   * true
+   * 
+   * **if can be null:**
+   * true
+   */
   parallelUpload?: boolean;
+  /**
+   * @remarks
+   * The ID of the parent directory. If you want to create a file or folder in the root directory, set this parameter to root.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fileid1
+   */
   parentFileId?: string;
+  /**
+   * @remarks
+   * The information about the file parts. You can specify up to 10,000 parts. By default, if you do not specify this parameter, only one part is returned.
+   */
   partInfoList?: CreateFileRequestPartInfoList[];
+  /**
+   * @remarks
+   * The SHA-1 hash value of the first 1 KB data of the file. This parameter is required if you perform instant file upload by using the pre-hashing feature. If the SHA-1 hash value is not matched on the cloud, the client does not need to calculate the SHA-1 hash value of the entire file.
+   * 
+   * @example
+   * 7C4A8D09CA3762AF61E59520943DC26494F89411
+   * 
+   * **if can be null:**
+   * true
+   */
   preHash?: string;
+  /**
+   * @remarks
+   * The share ID. This parameter is required if the file is uploaded by using the share URL of the file.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   * 
+   * **if can be null:**
+   * true
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The size of the file. Unit: bytes.
+   * 
+   * @example
+   * 1024
+   * 
+   * **if can be null:**
+   * true
+   */
   size?: number;
+  /**
+   * @remarks
+   * The type of the file. Valid values:
+   * 
+   * file folder
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * file
+   * 
+   * **if can be null:**
+   * true
+   */
   type?: string;
+  /**
+   * @remarks
+   * The custom tags. You can specify up to 1,000 tags.
+   */
   userTags?: UserTag[];
+  /**
+   * @remarks
+   * The information about the video specified by the client.
+   */
   videoMediaMetadata?: VideoMediaMetadata;
   static names(): { [key: string]: string } {
     return {
@@ -5310,16 +6697,90 @@ export class CreateFileRequest extends $tea.Model {
 }
 
 export class CreateFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * Indicates whether the file exists.
+   * 
+   * @example
+   * false
+   */
   exist?: boolean;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * @example
+   * fileid1
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The file name.
+   * 
+   * @example
+   * a.txt
+   */
   fileName?: string;
+  /**
+   * @remarks
+   * The ID of the parent directory.
+   * 
+   * @example
+   * fileid5
+   */
   parentFileId?: string;
+  /**
+   * @remarks
+   * The information about the file parts.
+   */
   partInfoList?: UploadPartInfo[];
+  /**
+   * @remarks
+   * Indicates whether the file is instantly uploaded.
+   * 
+   * @example
+   * true
+   */
   rapidUpload?: boolean;
+  /**
+   * @remarks
+   * The state of the file.
+   * 
+   * @example
+   * uploading
+   */
   status?: string;
+  /**
+   * @remarks
+   * The type of the file.
+   * 
+   * @example
+   * file
+   */
   type?: string;
+  /**
+   * @remarks
+   * The ID of the upload task.
+   * 
+   * @example
+   * uploadid1
+   */
   uploadId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5384,9 +6845,39 @@ export class CreateFileResponse extends $tea.Model {
 }
 
 export class CreateGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the group. The description can be up to 1,024 characters in length.
+   * 
+   * @example
+   * test group description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The name of the group. The name must be 1 to 128 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test group
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * Specifies whether the group is a root group. A root group cannot be added to any other group. In most cases, a root group is the top-level organization in the organizational structure.
+   * 
+   * @example
+   * false
+   */
   isRoot?: boolean;
+  /**
+   * @remarks
+   * The ID of the parent group to which the group is added. If this parameter is specified, the system automatically adds the group to the specified parent group after the group is created.
+   * 
+   * @example
+   * 2e43ec8427dd45f19431b7504649a1b3
+   */
   parentGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5437,10 +6928,59 @@ export class CreateGroupResponse extends $tea.Model {
 }
 
 export class CreateIdentityToBenefitPkgMappingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of benefit packages.
+   * 
+   * This parameter takes effect only for the benefit packages of the resource type. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   amount?: number;
+  /**
+   * @remarks
+   * The unique identifier of the benefit package.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 40cb7794c9294
+   */
   benefitPkgId?: string;
+  /**
+   * @remarks
+   * The time when the benefit package expires. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * By default, the benefit package never expires.
+   * 
+   * @example
+   * 1633167071000
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * The unique identifier of the entity.
+   * 
+   * If you want to manage the benefits of a user, set this parameter to a user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user123
+   */
   identityId?: string;
+  /**
+   * @remarks
+   * The type of the entity.
+   * 
+   * If you want to manage the benefits of a user, set this parameter to user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   identityType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5492,13 +7032,45 @@ export class CreateIdentityToBenefitPkgMappingResponse extends $tea.Model {
 export class CreateOrderRequest extends $tea.Model {
   autoPay?: boolean;
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   package?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   totalSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5585,19 +7157,113 @@ export class CreateOrderResponse extends $tea.Model {
 export class CreateShareLinkRequest extends $tea.Model {
   creatable?: boolean;
   creatableFileIdList?: string[];
+  /**
+   * @remarks
+   * The description of the share. The description must be 0 to 1,024 characters in length.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to disable the download feature.
+   * 
+   * @example
+   * false
+   */
   disableDownload?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to disable the preview feature.
+   * 
+   * @example
+   * false
+   */
   disablePreview?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to disable the dump feature.
+   * 
+   * @example
+   * false
+   */
   disableSave?: boolean;
+  /**
+   * @remarks
+   * The limit on the number of times that the shared files can be downloaded. The value of this parameter must be equal to or greater than 0. A value of 0 indicates no limit.
+   * 
+   * @example
+   * 100
+   */
   downloadLimit?: number;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The time when the share URL expires. The value of this parameter follows the RFC 3339 standard. Example: "2020-06-28T11:33:00.000+08:00". If expiration is set to "", the share URL never expires.
+   * 
+   * @example
+   * 2020-06-28T11:33:00.000+08:00
+   */
   expiration?: string;
+  /**
+   * @remarks
+   * The IDs of the files to share in the parent path. The number of files in the parent path ranges from 1 to 100. If share_all_files is set to true, this parameter does not take effect. Otherwise, you must specify this parameter.``
+   * 
+   * @example
+   * ["520b217f13adf4fc24f2191991b1664ce045b393"]
+   */
   fileIdList?: string[];
+  /**
+   * @remarks
+   * The limit on the number of times that the shared files can be previewed. The value of this parameter must be equal to or greater than 0. A value of 0 indicates no limit.
+   * 
+   * @example
+   * 100
+   */
   previewLimit?: number;
+  /**
+   * @remarks
+   * The limit on the number of times that the shared files can be dumped. The value of this parameter must be equal to or greater than 0. A value of 0 indicates no limit.
+   * 
+   * @example
+   * 100
+   */
   saveLimit?: number;
+  /**
+   * @remarks
+   * Specifies whether to share all files in the drive.
+   * 
+   * @example
+   * true
+   */
   shareAllFiles?: boolean;
+  /**
+   * @remarks
+   * The name of the share. If you leave this parameter empty, the file name that corresponds to the first ID in the file ID list is used. The name must be 0 to 128 characters in length.
+   */
   shareName?: string;
+  /**
+   * @remarks
+   * The access code. An access code must be 0 to 64 bytes in length. If you do not specify this parameter or leave this parameter empty, the files can be accessed without an access code. In this case, you do not need to specify the share_pwd parameter when you call an operation to query the share URL. The access code can contain only visible ASCII characters.
+   * 
+   * @example
+   * abcF123x
+   */
   sharePwd?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * u123
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5672,6 +7338,13 @@ export class CreateShareLinkResponse extends $tea.Model {
 }
 
 export class CreateSimilarImageClusterTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   driveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5691,6 +7364,10 @@ export class CreateSimilarImageClusterTaskRequest extends $tea.Model {
 }
 
 export class CreateSimilarImageClusterTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * i:SimilarImageClustering-b67d53e7-2fe8-460f-9b95-1e93636923eb
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5736,15 +7413,62 @@ export class CreateSimilarImageClusterTaskResponse extends $tea.Model {
 
 export class CreateStoryRequest extends $tea.Model {
   address?: Address;
+  /**
+   * @deprecated
+   */
   customLabels?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @example
+   * 30
+   * 
+   * **if can be null:**
+   * true
+   */
   maxImageCount?: number;
+  /**
+   * @example
+   * 1
+   * 
+   * **if can be null:**
+   * true
+   */
   minImageCount?: number;
+  /**
+   * @example
+   * 2022-12-30T16:00:00Z
+   */
   storyEndTime?: string;
+  /**
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
   storyName?: string;
+  /**
+   * @example
+   * 2016-12-30T16:00:00Z
+   */
   storyStartTime?: string;
+  /**
+   * @example
+   * Food
+   */
   storySubType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TagMemory
+   */
   storyType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5784,6 +7508,10 @@ export class CreateStoryRequest extends $tea.Model {
 }
 
 export class CreateStoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   driveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5828,16 +7556,147 @@ export class CreateStoryResponse extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the profile picture.
+   * 
+   * If you specify the parameter in the HTTP URL format, the URL must start with http:// or https:// and can be up to 4 KB in size.
+   * 
+   * If you specify the parameter in the data URL format, the URL must start with data:// and be encoded in Base64. The URL can be up to 300 KB in size.
+   * 
+   * @example
+   * http://a.b.c/pds.jpg
+   */
   avatar?: string;
+  /**
+   * @remarks
+   * The description of the user. The description can be up to 1,024 characters in length.
+   * 
+   * @example
+   * The VIP user
+   */
   description?: string;
+  /**
+   * @remarks
+   * The email address.
+   * 
+   * @example
+   * 123@pds.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The information about the group.
+   */
   groupInfoList?: CreateUserRequestGroupInfoList[];
+  /**
+   * @remarks
+   * The nickname of the user. The nickname can be up to 128 characters in length.
+   * 
+   * @example
+   * pdsuer
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 13900001111
+   */
   phone?: string;
+  /**
+   * @remarks
+   * The role of the user. Default value: user. Valid values:
+   * 
+   * *   superadmin
+   * *   admin
+   * *   user
+   * 
+   * If the domain can be divided into subdomains, the subdomain_super_admin and subdomain_admin roles are also supported.
+   * 
+   * Valid values:
+   * 
+   * *   subdomain_super_admin
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   subdomain_admin
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   superadmin
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   admin
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   user
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * user
+   */
   role?: string;
+  /**
+   * @remarks
+   * The state of the user. Default value: enabled. Valid values:
+   * 
+   * *   enabled: The user is in a normal state.
+   * *   disabled: The user is prohibited from logon.
+   * 
+   * @example
+   * enabled
+   */
   status?: string;
+  /**
+   * @remarks
+   * The custom data. The data can be up to 1,024 characters in length.
+   * 
+   * @example
+   * md
+   */
   userData?: { [key: string]: any };
+  /**
+   * @remarks
+   * The user ID. The ID can be up to 64 characters in length and cannot contain number signs (#).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pdsuserid1
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The username. The username can be up to 128 characters in length.
+   * 
+   * @example
+   * pdsusername
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5877,20 +7736,129 @@ export class CreateUserRequest extends $tea.Model {
 }
 
 export class CreateUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the profile picture.
+   * 
+   * @example
+   * http://aa.com/1.jpg
+   */
   avatar?: string;
+  /**
+   * @remarks
+   * The time when the user was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1639762579768
+   */
   createdAt?: number;
+  /**
+   * @remarks
+   * The user who created the user.
+   * 
+   * @example
+   * user1
+   */
   creator?: string;
+  /**
+   * @remarks
+   * The ID of the default drive.
+   * 
+   * @example
+   * 1
+   */
   defaultDriveId?: string;
+  /**
+   * @remarks
+   * The description of the user.
+   * 
+   * @example
+   * vipuser
+   */
   description?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The email address.
+   * 
+   * @example
+   * a@a.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The nickname of the user.
+   * 
+   * @example
+   * 001
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * The phone number.
+   * 
+   * @example
+   * 13900001111
+   */
   phone?: string;
+  /**
+   * @remarks
+   * The role of the user. Valid values:
+   * 
+   * *   superadmin
+   * *   admin
+   * *   user
+   * 
+   * @example
+   * admin
+   */
   role?: string;
+  /**
+   * @remarks
+   * The state of the user. Valid values:
+   * 
+   * *   disabled: The user is prohibited from logon.
+   * *   enabled: The user is in a normal state.
+   * 
+   * @example
+   * enabled
+   */
   status?: string;
+  /**
+   * @remarks
+   * The time when the user was modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1639762579768
+   */
   updatedAt?: number;
+  /**
+   * @remarks
+   * The custom data.
+   */
   userData?: { [key: string]: any };
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * dingding_abc001
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * pds
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5963,8 +7931,26 @@ export class CreateUserResponse extends $tea.Model {
 }
 
 export class CsiGetFileInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @example
+   * 100
+   */
   urlExpireSec?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5989,6 +7975,10 @@ export class CsiGetFileInfoRequest extends $tea.Model {
 
 export class CsiGetFileInfoResponseBody extends $tea.Model {
   investigationInfo?: InvestigationInfo;
+  /**
+   * @example
+   * https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899eff525?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6035,6 +8025,13 @@ export class CsiGetFileInfoResponse extends $tea.Model {
 }
 
 export class DeleteDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6076,6 +8073,15 @@ export class DeleteDomainResponse extends $tea.Model {
 }
 
 export class DeleteDriveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6117,7 +8123,25 @@ export class DeleteDriveResponse extends $tea.Model {
 }
 
 export class DeleteFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID or folder ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6139,9 +8163,37 @@ export class DeleteFileRequest extends $tea.Model {
 }
 
 export class DeleteFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task. This parameter is returned only in asynchronous processing scenarios. You can call the [GetAsyncTask](https://help.aliyun.com/document_detail/440456.html) operation to query the information about the asynchronous task based on the task ID.
+   * 
+   * @example
+   * 000e89fb-cf8f-11e9-8ab4-b6e980803a3b
+   */
   asyncTaskId?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6192,6 +8244,15 @@ export class DeleteFileResponse extends $tea.Model {
 }
 
 export class DeleteGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * g123
+   */
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6233,8 +8294,35 @@ export class DeleteGroupResponse extends $tea.Model {
 }
 
 export class DeleteRevisionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The version ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 40CB7794C929
+   */
   revisionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6280,7 +8368,21 @@ export class DeleteRevisionResponse extends $tea.Model {
 }
 
 export class DeleteStoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6302,6 +8404,10 @@ export class DeleteStoryRequest extends $tea.Model {
 }
 
 export class DeleteStoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   driveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6346,6 +8452,15 @@ export class DeleteStoryResponse extends $tea.Model {
 }
 
 export class DeleteUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c9b7a5aa04d14ae3867fdc886fa01da4
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6387,7 +8502,23 @@ export class DeleteUserResponse extends $tea.Model {
 }
 
 export class DeltaGetLastCursorRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The ID of the root file of the synced folder.
+   * 
+   * @example
+   * 622fb09598ae66777c7040109a16f49381f6abe1
+   */
   syncRootId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6409,6 +8540,13 @@ export class DeltaGetLastCursorRequest extends $tea.Model {
 }
 
 export class DeltaGetLastCursorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The latest cursor of incremental information in the specified drive or synced folder.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   cursor?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6453,11 +8591,55 @@ export class DeltaGetLastCursorResponse extends $tea.Model {
 }
 
 export class DownloadFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The method used to generate the thumbnail of an image. If this parameter is specified, you are redirected to the URL of the generated thumbnail.
+   * 
+   * @example
+   * image/resize,m_fill,h_128,w_128,limit_0
+   */
   imageThumbnailProcess?: string;
+  /**
+   * @remarks
+   * The method used to generate the thumbnail of a document. If this parameter is specified, you are redirected to the URL of the generated thumbnail.
+   * 
+   * @example
+   * image/resize,w_200
+   */
   officeThumbnailProcess?: string;
+  /**
+   * @remarks
+   * The share ID. If you want to manage a file by using a share link, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The method used to generate the thumbnail of a video. If this parameter is specified, you are redirected to the URL of the generated thumbnail.
+   * 
+   * @example
+   * video/snapshot,t_7000,f_jpg,w_800,h_600,m_fast
+   */
   videoThumbnailProcess?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6509,8 +8691,32 @@ export class DownloadFileResponse extends $tea.Model {
 }
 
 export class FileAddPermissionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The ID of the folder. If you want to authorize a user or group to access a team drive, set this parameter to root. If you want to authorize a user or group to access an individual drive, you cannot set this parameter to root.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The members that are authorized to access files.
+   * 
+   * This parameter is required.
+   */
   memberList?: FilePermissionMember[];
   static names(): { [key: string]: string } {
     return {
@@ -6556,8 +8762,32 @@ export class FileAddPermissionResponse extends $tea.Model {
 }
 
 export class FileDeleteUserTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The tags that you want to remove from a file. You cannot leave this parameter empty. You can specify up to 1,000 tags.
+   * 
+   * This parameter is required.
+   */
   keyList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6603,7 +8833,21 @@ export class FileDeleteUserTagsResponse extends $tea.Model {
 }
 
 export class FileListPermissionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * @example
+   * 4221bf6e6ab43a255edc4463bffa6f5f5d317401
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6650,8 +8894,32 @@ export class FileListPermissionResponse extends $tea.Model {
 }
 
 export class FilePutUserTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The tags to be added to the file. You cannot leave this parameter empty. You can specify up to 1,000 tags. You cannot specify tags that have the same name.
+   * 
+   * This parameter is required.
+   */
   userTags?: FilePutUserTagsRequestUserTags[];
   static names(): { [key: string]: string } {
     return {
@@ -6675,6 +8943,15 @@ export class FilePutUserTagsRequest extends $tea.Model {
 }
 
 export class FilePutUserTagsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6719,8 +8996,32 @@ export class FilePutUserTagsResponse extends $tea.Model {
 }
 
 export class FileRemovePermissionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The identities with whom the file is shared.
+   * 
+   * This parameter is required.
+   */
   memberList?: FileRemovePermissionRequestMemberList[];
   static names(): { [key: string]: string } {
     return {
@@ -6766,6 +9067,15 @@ export class FileRemovePermissionResponse extends $tea.Model {
 }
 
 export class GetAsyncTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 000e89fb-cf8f-11e9-8ab4-b6e980803a3b
+   */
   asyncTaskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6785,22 +9095,140 @@ export class GetAsyncTaskRequest extends $tea.Model {
 }
 
 export class GetAsyncTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * @example
+   * 000e89fb-cf8f-11e9-8ab4-b6e980803a3b
+   */
   asyncTaskId?: string;
+  /**
+   * @remarks
+   * The custom category of the task.
+   * 
+   * @example
+   * album
+   */
   category?: string;
+  /**
+   * @remarks
+   * The total amount of work that is done in the asynchronous task, such as the number of files that are packaged for package download on the server.
+   * 
+   * @example
+   * 100
+   */
   consumedProcess?: number;
+  /**
+   * @remarks
+   * The time when the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2019-03-28T13:03:29.298Z.
+   * 
+   * @example
+   * 2019-08-20T06:51:27.292Z
+   */
   createdAt?: string;
+  /**
+   * @remarks
+   * <warning>This parameter is no longer used. We recommend that you use error_code instead.</warning>
+   * 
+   * The error code returned if the asynchronous task failed.
+   * 
+   * @example
+   * InternalError
+   */
   errCode?: number;
+  /**
+   * @remarks
+   * The error code returned if the asynchronous task failed.
+   * 
+   * @example
+   * InternalError
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned if the asynchronous task failed.
+   * 
+   * @example
+   * The request has been failed due to some unknown error. Please try again later.
+   */
   errorMessage?: string;
   failedProcess?: number;
+  /**
+   * @remarks
+   * The time when the task was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2019-03-28T13:03:29.298Z.
+   * 
+   * @example
+   * 2019-08-20T06:51:27.292Z
+   */
   finishedAt?: string;
+  /**
+   * @remarks
+   * <warning>This parameter is no longer used. We recommend that you use error_message instead.</warning>
+   * 
+   * The error message returned if the asynchronous task failed.
+   * 
+   * @example
+   * The request has been failed due to some unknown error. Please try again later.
+   */
   message?: string;
   skippedProcess?: number;
+  /**
+   * @remarks
+   * The time when the task was started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. Example: 2019-03-28T13:03:29.298Z.
+   * 
+   * @example
+   * 2019-08-20T06:51:27.292Z
+   */
   startedAt?: string;
+  /**
+   * @remarks
+   * The state of the task. Valid values:
+   * 
+   * *   Failed
+   * *   Running
+   * *   PartialSucceed
+   * *   Succeed
+   * 
+   * @example
+   * Succeed
+   */
   state?: string;
+  /**
+   * @remarks
+   * <warning>This parameter is no longer used. We recommend that you use state instead.</warning>
+   * 
+   * The state of the task. Valid values:
+   * 
+   * *   Failed
+   * *   Running
+   * *   PartialSucceed
+   * *   Succeed
+   * 
+   * @example
+   * Succeed
+   */
   status?: string;
+  /**
+   * @remarks
+   * The total amount of work to be done in the asynchronous task, such as the number of files to be packaged for package download on the server.
+   * 
+   * @example
+   * 1000
+   */
   totalProcess?: number;
+  /**
+   * @remarks
+   * The extracted files.
+   */
   uncompressFileList?: UncompressedFileInfo[];
+  /**
+   * @remarks
+   * The download URL of the data generated by the asynchronous task, such as the download URL of the packaged files generated by the task of package download on the server.
+   * 
+   * @example
+   * https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899eff525?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6877,6 +9305,13 @@ export class GetAsyncTaskResponse extends $tea.Model {
 }
 
 export class GetDefaultDriveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The user ID. If you use an AccessKey pair for authentication, you must specify this parameter. If you use an access token for authentication, this parameter is optional. By default, the user ID associated with the access token is used.
+   * 
+   * @example
+   * c9b7a5aa04d14ae3867fdc886fa01da4
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6921,8 +9356,24 @@ export class GetDefaultDriveResponse extends $tea.Model {
 }
 
 export class GetDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the domain.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
   fields?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the used quota of the domain. Default value: false. If the quota of the domain is greater than 0 and you set this parameter to true, the used quota of the domain is returned.
+   * 
+   * @example
+   * true
+   */
   getQuotaUsed?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7024,11 +9475,52 @@ export class GetDomainQuotaResponse extends $tea.Model {
 }
 
 export class GetDownloadUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The validity period of the download URL. Maximum value: 115200. Default value: 900. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   expireSec?: number;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The name of the file. The name can be up to 1,024 characters in length.
+   * 
+   * @example
+   * 1.txt
+   */
   fileName?: string;
+  /**
+   * @example
+   * video/mp4
+   */
   responseContentType?: string;
+  /**
+   * @remarks
+   * The share ID. If you want to manage a file by using a sharing link, carry the `x-share-token` header in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify at least either `share_id` or `drive_id`.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7058,13 +9550,69 @@ export class GetDownloadUrlRequest extends $tea.Model {
 }
 
 export class GetDownloadUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The download URL of a file that is downloaded by using Alibaba Cloud CDN.
+   * 
+   * @example
+   * https://data-cdn.aliyunpds.com/hz22%2F5d79219b0aa9a7c995a94a96993ba3205cd91c5a%2F5d79219bf3261a5d38744da0834ed489b677a27a?Expires=xxxOSSAccessKeyId=xxx&Signature=xxx&response-content-disposition=attachment%3Bfilename%3DtBiZAoJPC2c8b13450eda4292b7f5f8010618e078.txt
+   */
   cdnUrl?: string;
+  /**
+   * @remarks
+   * The hash value of the file content.
+   * 
+   * @example
+   * EA4942AA8761213890A5C386F88E6464D2C31CA1
+   */
   contentHash?: string;
+  /**
+   * @remarks
+   * The name of the algorithm that is used to calculate the hash value of the file content.
+   * 
+   * @example
+   * sha1
+   */
   contentHashName?: string;
+  /**
+   * @remarks
+   * The hash value calculated by using 64-bit cyclic redundancy check (CRC-64).
+   * 
+   * @example
+   * 5498595269368962671
+   */
   crc64Hash?: string;
+  /**
+   * @remarks
+   * The time when the download URL expires.
+   * 
+   * @example
+   * 2022-01-02T15:04:05.999Z07:00
+   */
   expiration?: string;
+  /**
+   * @remarks
+   * The download URL of a file that is downloaded over a virtual private cloud (VPC).
+   * 
+   * @example
+   * https://data-vpc.aliyunpds.com/hz22%2F5d79219b0aa9a7c995a94a96993ba3205cd91c5a%2F5d79219bf3261a5d38744da0834ed489b677a27a?Expires=xxxOSSAccessKeyId=xxx&Signature=xxx&response-content-disposition=attachment%3Bfilename%3DtBiZAoJPC2c8b13450eda4292b7f5f8010618e078.txt
+   */
   internalUrl?: string;
+  /**
+   * @remarks
+   * The size of the file. Unit: bytes.
+   * 
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @remarks
+   * The download URL of a file that is downloaded over the Internet.
+   * 
+   * @example
+   * https://data.aliyunpds.com/hz22%2F5d79219b0aa9a7c995a94a96993ba3205cd91c5a%2F5d79219bf3261a5d38744da0834ed489b677a27a?Expires=xxxOSSAccessKeyId=xxx&Signature=xxx&response-content-disposition=attachment%3Bfilename%3DtBiZAoJPC2c8b13450eda4292b7f5f8010618e078.txt
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7123,6 +9671,15 @@ export class GetDownloadUrlResponse extends $tea.Model {
 }
 
 export class GetDriveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7167,11 +9724,58 @@ export class GetDriveResponse extends $tea.Model {
 }
 
 export class GetFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The fields to return.
+   * 
+   * 1.  If this parameter is set to \\*, all fields of the file except the fields that must be specified are returned.
+   * 2.  If only specific fields are required, you can specify the following fields: url, thumbnail, exif, cropping_suggestion, characteristic_hash, video_metadata, and video_preview_metadata. If multiple fields are required, separate them with commas (,). Example: url,thumbnail.
+   * 3.  The investigation_info field is returned only if you specify this field.
+   * 
+   * By default, all fields except the fields that must be specified are returned.
+   * 
+   * @example
+   * *
+   */
   fields?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The share ID. If you want to manage a file by using a share link, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * 缩略图配置，可一次性返回最多5个缩略图，map的key可以自定义，返回时按key返回对应的缩略图链接
+   */
   thumbnailProcesses?: { [key: string]: ImageProcess };
+  /**
+   * @remarks
+   * The time when the file expires. Unit: seconds. Valid values: 10 to 14400.
+   * 
+   * @example
+   * 100
+   */
   urlExpireSec?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7226,6 +9830,15 @@ export class GetFileResponse extends $tea.Model {
 }
 
 export class GetGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2e43ec8427dd45f19431b7504649a1b1
+   */
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7270,8 +9883,37 @@ export class GetGroupResponse extends $tea.Model {
 }
 
 export class GetIdentityToBenefitPkgMappingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The unique identifier of the benefit package.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 40cb7794c9294
+   */
   benefitPkgId?: string;
+  /**
+   * @remarks
+   * The unique identifier of the entity.
+   * 
+   * If you want to manage the benefits of a user, set this parameter to a user ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user123
+   */
   identityId?: string;
+  /**
+   * @remarks
+   * The type of the entity. If you want to manage the benefits of a user, set this parameter to user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   identityType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7321,7 +9963,21 @@ export class GetIdentityToBenefitPkgMappingResponse extends $tea.Model {
 
 export class GetLinkInfoRequest extends $tea.Model {
   extra?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 130***
+   */
   identity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mobile
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7370,6 +10026,13 @@ export class GetLinkInfoResponse extends $tea.Model {
 }
 
 export class GetLinkInfoByUserIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * xxx
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7389,6 +10052,10 @@ export class GetLinkInfoByUserIdRequest extends $tea.Model {
 }
 
 export class GetLinkInfoByUserIdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the users.
+   */
   items?: AccountLinkInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -7433,10 +10100,55 @@ export class GetLinkInfoByUserIdResponse extends $tea.Model {
 }
 
 export class GetRevisionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * Specifies the returned fields.
+   * 
+   * By default, this parameter is left empty. If you set this parameter to \\*, all fields are returned. If you leave this parameter empty, the creator of the file is not returned.
+   * 
+   * @example
+   * *
+   */
   fields?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The version ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 40CB7794C929
+   */
   revisionId?: string;
+  /**
+   * @remarks
+   * The validity period of the file download or preview. Valid values: 10 to 86400.
+   * 
+   * Default value: 900. Unit: seconds.
+   * 
+   * @example
+   * 900
+   */
   urlExpireSec?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7489,6 +10201,15 @@ export class GetRevisionResponse extends $tea.Model {
 }
 
 export class GetShareLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The share ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7533,6 +10254,15 @@ export class GetShareLinkResponse extends $tea.Model {
 }
 
 export class GetShareLinkByAnonymousRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The share ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7552,25 +10282,162 @@ export class GetShareLinkByAnonymousRequest extends $tea.Model {
 }
 
 export class GetShareLinkByAnonymousResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of times that the shared files are visited.
+   * 
+   * @example
+   * 30
+   */
   accessCount?: number;
+  /**
+   * @remarks
+   * The profile picture of the user who created the share link.
+   * 
+   * @example
+   * https://aliyunpds.com/a.jpg
+   */
   avatar?: string;
+  /**
+   * @remarks
+   * The ID of the user who created the share link.
+   * 
+   * @example
+   * c9b7a5aa04d14ae3867fdc886fa01da4
+   */
   creatorId?: string;
+  /**
+   * @remarks
+   * The name of the user who created the share link. The value is masked.
+   * 
+   * @example
+   * AB***CD
+   */
   creatorName?: string;
+  /**
+   * @remarks
+   * The mobile number of the user who created the share link. The value is masked.
+   * 
+   * @example
+   * 136****00
+   */
   creatorPhone?: string;
+  /**
+   * @remarks
+   * Indicates whether the downloads of the shared files are prohibited.
+   * 
+   * @example
+   * false
+   */
   disableDownload?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the previews of the shared files are prohibited.
+   * 
+   * @example
+   * false
+   */
   disablePreview?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the saves of the shared files are prohibited.
+   * 
+   * @example
+   * false
+   */
   disableSave?: boolean;
+  /**
+   * @remarks
+   * The number of times that the shared files are downloaded.
+   * 
+   * @example
+   * 50
+   */
   downloadCount?: number;
+  /**
+   * @remarks
+   * The maximum number of times that the shared files can be downloaded.
+   * 
+   * @example
+   * 100
+   */
   downloadLimit?: number;
+  /**
+   * @remarks
+   * The time when the share link expires.
+   * 
+   * @example
+   * 2020-08-20T06:51:27.292Z
+   */
   expiration?: string;
+  /**
+   * @remarks
+   * The number of times that the shared files are previewed.
+   * 
+   * @example
+   * 80
+   */
   previewCount?: number;
+  /**
+   * @remarks
+   * The maximum number of times that the shared files can be previewed.
+   * 
+   * @example
+   * 100
+   */
   previewLimit?: number;
+  /**
+   * @remarks
+   * The number of times that the shared files are reported.
+   * 
+   * @example
+   * 0
+   */
   reportCount?: number;
+  /**
+   * @remarks
+   * The number of times that the shared files are saved.
+   * 
+   * @example
+   * 2
+   */
   saveCount?: number;
+  /**
+   * @remarks
+   * The maximum number of times that the shared files can be saved and downloaded.
+   * 
+   * @example
+   * 200
+   */
   saveDownloadLimit?: number;
+  /**
+   * @remarks
+   * The maximum number of times that the shared files can be saved.
+   * 
+   * @example
+   * 100
+   */
   saveLimit?: number;
+  /**
+   * @remarks
+   * The name of the share link.
+   */
   shareName?: string;
+  /**
+   * @remarks
+   * The time when the share link was last modified.
+   * 
+   * @example
+   * 2019-08-20T06:51:27.292Z
+   */
   updatedAt?: string;
+  /**
+   * @remarks
+   * The number of times that the videos are previewed in the shared files.
+   * 
+   * @example
+   * 5
+   */
   videoPreviewCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7653,8 +10520,31 @@ export class GetShareLinkByAnonymousResponse extends $tea.Model {
 }
 
 export class GetShareLinkTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The validity period of the token. Valid values: (0,7200]. Default value: 7200. Unit: seconds.
+   * 
+   * @example
+   * 7200
+   */
   expireSec?: number;
+  /**
+   * @remarks
+   * The share ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The access code.
+   * 
+   * @example
+   * abcF123x
+   */
   sharePwd?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7678,7 +10568,21 @@ export class GetShareLinkTokenRequest extends $tea.Model {
 }
 
 export class GetShareLinkTokenResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The validity period of the token. Unit: seconds. For example, a value of 7200 indicates two hours.
+   * 
+   * @example
+   * 7200
+   */
   expiresIn?: number;
+  /**
+   * @remarks
+   * The JSON Web Token (JWT).
+   * 
+   * @example
+   * eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJjOWI3YTVhYTA0ZDE0YWUzODY3ZmRjODg2ZmEwMWRhNCIsImN1c3RvbUpzb24iOiJ7XCJjbGllbnRJZFwiOlwiMjVkelgzdmJZcWt0Vnh5WFwiLFwiZG9tYWluSWRcIjpcImJqMjlcIixcInNjb3BlXCI6W1wiRFJJVkUuQUxMXCIsXCJTSEFSRS5BTExcIixcIkZJTEUuQUxMXCIsXCJVU0VSLkFMTFwiLFwiVklFVy5BTExcIixcIlNUT1JBR0UuQUxMXCIsXCJTVE9SQUdFRklMRS5MSVNUXCIsXCJCQVRDSFwiLFwiT0FVVEguQUxMXCIsXCJJTUFHRS5BTExcIixcIklOVklURS5BTExcIixcIkFDQ09VTlQuQUxMXCJdLFwicm9sZVwiOlwidXNlclwiLFwicmVmXCI6XCJodHRwczovL3d3dy5hbGl5dW5kcml2ZS5jb20vXCIsXCJkZXZpY2VfaWRcIjpcImIyODIwNWU1YzU5NzRjY2JiODI3MDNiNjhkYjhjNDUxXCJ9IiwiZXhwIjoxNjQ4NjE0NDkzLCJpYXQiOjE2NDg2MDcyMzN9.d3HVLvv_LFw2QhPrhvjH_kICWQJX9sKKt7NjQEqI_xE2JO_b7D8rPsFTZz93PLvZ7MhCmudTjGImUpd-ehFnI4Go-1S7BGaKaHFILvP-sWy18Wpikowjxx9mSbzBM_cO6D1LI-kyYhXKWHgVdADfVIPniTDA7-ffhUpi7cAebEs
+   */
   shareToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7725,13 +10629,63 @@ export class GetShareLinkTokenResponse extends $tea.Model {
 }
 
 export class GetStoryRequest extends $tea.Model {
+  /**
+   * @example
+   * image/resize,m_fill,h_128,w_128,limit_0/format,jpg
+   * 
+   * @deprecated
+   */
   coverImageThumbnailProcess?: string;
+  /**
+   * @example
+   * video/snapshot,t_1000,f_jpg,w_0,h_0,m_fast,ar_auto
+   * 
+   * @deprecated
+   */
   coverVideoThumbnailProcess?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @example
+   * image/resize,m_fill,h_128,w_128,limit_0/format,jpg
+   * 
+   * @deprecated
+   */
   imageThumbnailProcess?: string;
+  /**
+   * @example
+   * image/resize,m_fill,h_128,w_128,limit_0/format,jpg
+   * 
+   * @deprecated
+   */
   imageUrlProcess?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
+  /**
+   * @example
+   * 900
+   * 
+   * @deprecated
+   */
   urlExpireSec?: number;
+  /**
+   * @example
+   * video/snapshot,t_1000,f_jpg,w_0,h_0,m_fast,ar_auto
+   * 
+   * @deprecated
+   */
   videoThumbnailProcess?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7790,7 +10744,25 @@ export class GetStoryResponse extends $tea.Model {
 }
 
 export class GetTaskStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * i:SimilarImageClustering-b67d53e7-2fe8-460f-9b95-1e93636923eb
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7812,6 +10784,57 @@ export class GetTaskStatusRequest extends $tea.Model {
 }
 
 export class GetTaskStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The state of the task.
+   * 
+   * Valid values:
+   * 
+   * *   running
+   * 
+   *     <!-- -->
+   * 
+   *     : The task is
+   * 
+   *     <!-- -->
+   * 
+   *     running
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   failed
+   * 
+   *     <!-- -->
+   * 
+   *     : The task
+   * 
+   *     <!-- -->
+   * 
+   *     fails
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   succeeded
+   * 
+   *     <!-- -->
+   * 
+   *     : The task is
+   * 
+   *     <!-- -->
+   * 
+   *     successful
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * @example
+   * running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7856,10 +10879,50 @@ export class GetTaskStatusResponse extends $tea.Model {
 }
 
 export class GetUploadUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5d5b846942cf94fa72324c14a4bda34e81da635d
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The information about the file parts.
+   * 
+   * This parameter is required.
+   */
   partInfoList?: GetUploadUrlRequestPartInfoList[];
+  /**
+   * @remarks
+   * The share ID.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The ID of the upload task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10166D06127B413BA1EC8ABB1144D111
+   */
   uploadId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7887,11 +10950,50 @@ export class GetUploadUrlRequest extends $tea.Model {
 }
 
 export class GetUploadUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the upload task was created.
+   * 
+   * @example
+   * 2019-09-11T16:34:36.977Z
+   */
   createAt?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * @example
+   * 5d5b846942cf94fa72324c14a4bda34e81da635d
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The information about the file parts.
+   */
   partInfoList?: UploadPartInfo[];
+  /**
+   * @remarks
+   * The ID of the upload task.
+   * 
+   * @example
+   * 10166D06127B413BA1EC8ABB1144D111
+   */
   uploadId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7946,6 +11048,13 @@ export class GetUploadUrlResponse extends $tea.Model {
 }
 
 export class GetUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The user ID. If you use an AccessKey pair to access Drive and Photo Service, you must specify this parameter. If you use an access token to access Drive and Photo Service, you do not need to specify this parameter, and Drive and Photo Service automatically finds the user ID contained in the access token.
+   * 
+   * @example
+   * c9b7a5aa04d14ae3867fdc886fa01da4
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7990,13 +11099,71 @@ export class GetUserResponse extends $tea.Model {
 }
 
 export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The preview type. You must enable the corresponding video transcoding feature. Valid values:
+   * 
+   * *   live_transcoding: previews a live stream while transcoding is in progress.
+   * *   quick_video: previews a video while transcoding is in progress.
+   * *   offline_audio: previews a piece of audio after the audio is transcoded offline.
+   * *   offline_video: previews a video after the video is transcoded offline.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * live_transcoding
+   */
   category?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
   getMasterUrl?: boolean;
+  /**
+   * @remarks
+   * Specifies whether not to query the playback URL. If you set this parameter to true, only transcoding metadata is returned. The video is not transcoded in the TS format, and the playback URL is not returned. If you set this parameter to false, the playback URL is returned. If the video has not been transcoded by using the template specified by template_id, the transcoding process is triggered. You are charged for the value-added service fees generated for transcoding.
+   * 
+   * @example
+   * true
+   */
   getWithoutUrl?: boolean;
+  /**
+   * @remarks
+   * The share ID. If you want to manage a file by using a sharing link, carry the `x-share-token` header in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify at least either `share_id` or `drive_id`.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The ID of the definition template. If you leave this parameter empty, all definition templates are available.
+   * 
+   * @example
+   * 264_480p
+   */
   templateId?: string;
+  /**
+   * @remarks
+   * The validity period of the video preview. Unit: seconds. Default value: 900. Maximum value: 14400.
+   * 
+   * @example
+   * 3600
+   */
   urlExpireSec?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8030,13 +11197,53 @@ export class GetVideoPreviewPlayInfoRequest extends $tea.Model {
 }
 
 export class GetVideoPreviewPlayInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * VideoPreviewWaitAndRetry
+   */
   code?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * @example
+   * fileid1
+   */
   fileId?: string;
   masterUrl?: string;
+  /**
+   * @example
+   * media is transcoding, please wait and retry.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The share ID.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The information about video playback.
+   */
   videoPreviewPlayInfo?: VideoPreviewPlayInfo;
   static names(): { [key: string]: string } {
     return {
@@ -8095,9 +11302,46 @@ export class GetVideoPreviewPlayInfoResponse extends $tea.Model {
 }
 
 export class GetVideoPreviewPlayMetaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The preview type. You must enable the corresponding video transcoding feature. Valid values:
+   * 
+   * *   live_transcoding: previews a live stream while transcoding is in progress.
+   * *   quick_video: previews a video while transcoding is in progress.
+   * *   offline_audio: previews a piece of audio after the audio is transcoded offline.
+   * *   offline_video: previews a video after the video is transcoded offline.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * live_transcoding
+   */
   category?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The share ID. If you want to manage a file by using a sharing link, carry the `x-share-token` header in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify at least either `share_id` or `drive_id`.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8123,10 +11367,42 @@ export class GetVideoPreviewPlayMetaRequest extends $tea.Model {
 }
 
 export class GetVideoPreviewPlayMetaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * @example
+   * fileid1
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The share ID.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The preview metadata of the video.
+   */
   videoPreviewPlayMeta?: VideoPreviewPlayMeta;
   static names(): { [key: string]: string } {
     return {
@@ -8179,6 +11455,10 @@ export class GetVideoPreviewPlayMetaResponse extends $tea.Model {
 }
 
 export class GroupUpdateNameRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   groupId?: string;
   name?: string;
   static names(): { [key: string]: string } {
@@ -8223,13 +11503,85 @@ export class GroupUpdateNameResponse extends $tea.Model {
 }
 
 export class ImportUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The display name of the authentication type.
+   * 
+   * @example
+   * 10000
+   */
   authenticationDisplayName?: string;
+  /**
+   * @remarks
+   * The authentication type. Valid values:
+   * 
+   * *   mobile: mobile number.
+   * *   email: email address.
+   * *   ding: DingTalk account.
+   * *   ram: Alibaba Cloud Resource Access Management (RAM) user.
+   * *   wechat: WeCom account.
+   * *   ldap: Lightweight Directory Access Protocol (LDAP) account.
+   * *   custom: custom account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mobile
+   */
   authenticationType?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically create a drive.
+   * 
+   * @example
+   * false
+   */
   autoCreateDrive?: boolean;
+  /**
+   * @remarks
+   * The size of the drive. The value cannot be smaller than -1. A value of -1 specifies that the size is unlimited.
+   * 
+   * @example
+   * 10240
+   */
   driveTotalSize?: number;
+  /**
+   * @remarks
+   * The additional information.
+   * 
+   * If authentication_type is set to mobile, set this parameter to a country code. If you do not specify this parameter, 86 is used by default.
+   * 
+   * @example
+   * 1
+   */
   extra?: string;
+  /**
+   * @remarks
+   * The unique identifier.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 130****
+   */
   identity?: string;
+  /**
+   * @remarks
+   * The nickname of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pdsuer
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * The ID of the group to which the user is added.
+   * 
+   * @example
+   * g12
+   */
   parentGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8288,6 +11640,10 @@ export class ImportUserResponse extends $tea.Model {
 }
 
 export class InvestigateFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   driveFileIds?: InvestigateFileRequestDriveFileIds[];
   policy?: InvestigateFileRequestPolicy;
   recursive?: boolean;
@@ -8338,9 +11694,51 @@ export class InvestigateFileResponse extends $tea.Model {
 }
 
 export class LinkAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The additional information about the unique identifier of the account. For example, if type is set to mobile, set the value of extra to a country code. For example, a value of 86 specifies a mobile number in the Chinese mainland. If you do not specify this parameter, 86 is used by default.
+   * 
+   * @example
+   * 86
+   */
   extra?: string;
+  /**
+   * @remarks
+   * The unique identifier of the account, such as a mobile number.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eyy***
+   */
   identity?: string;
+  /**
+   * @remarks
+   * The account type. Valid values:
+   * 
+   * *   mobile: a mobile number.
+   * *   email: an email address.
+   * *   ding: a DingTalk account.
+   * *   ram: an Alibaba Cloud Resource Access Management (RAM) user.
+   * *   wechat: a WeCom account.
+   * *   ldap: a Lightweight Directory Access Protocol (LDAP) account.
+   * *   custom: a custom account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ding
+   */
   type?: string;
+  /**
+   * @remarks
+   * The ID of the user with which you want to associate an account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8391,10 +11789,47 @@ export class LinkAccountResponse extends $tea.Model {
 }
 
 export class ListAddressGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The method that is used to generate a thumbnail of an image.
+   * 
+   * @example
+   * image/resize,w_200
+   */
   imageThumbnailProcess?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The method that is used to generate a thumbnail of a video.
+   * 
+   * @example
+   * video_thumbnail_process
+   */
   videoThumbnailProcess?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8422,7 +11857,18 @@ export class ListAddressGroupsRequest extends $tea.Model {
 }
 
 export class ListAddressGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the location-based groups.
+   */
   items?: AddressGroup[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8469,9 +11915,39 @@ export class ListAddressGroupsResponse extends $tea.Model {
 }
 
 export class ListAssignmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100.
+   * 
+   * The number of returned results must be less than or equal to the specified number.
+   * 
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The ID of the managed resource, such as a group ID.
+   * 
+   * @example
+   * 105***b82
+   */
   manageResourceId?: string;
+  /**
+   * @remarks
+   * The type of the managed resource. Set the value to RT_Group, which specifies that the administrators of a group are queried.
+   * 
+   * @example
+   * RT_Group
+   */
   manageResourceType?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8497,7 +11973,18 @@ export class ListAssignmentRequest extends $tea.Model {
 }
 
 export class ListAssignmentResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The assigned roles.
+   */
   assignmentList?: ListAssignmentResponseBodyAssignmentList[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8544,9 +12031,41 @@ export class ListAssignmentResponse extends $tea.Model {
 }
 
 export class ListDeltaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cursor of the incremental information.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   cursor?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 0 to 100. Default value: 100.
+   * 
+   * The number of returned results must be less than or equal to the specified number.
+   * 
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The ID of the root file of the synced folder.
+   * 
+   * @example
+   * 622fb09598ae66777c7040109a16f49381f6abe1
+   */
   syncRootId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8572,8 +12091,26 @@ export class ListDeltaRequest extends $tea.Model {
 }
 
 export class ListDeltaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The cursor of the incremental information.
+   * 
+   * @example
+   * 1WQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   cursor?: string;
+  /**
+   * @remarks
+   * Indicates whether more information is returned.
+   * 
+   * @example
+   * true
+   */
   hasMore?: boolean;
+  /**
+   * @remarks
+   * The incremental information returned.
+   */
   items?: ListDeltaResponseBodyItems[];
   static names(): { [key: string]: string } {
     return {
@@ -8622,8 +12159,29 @@ export class ListDeltaResponse extends $tea.Model {
 }
 
 export class ListDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 50.
+   * 
+   * @example
+   * 60
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The ID of the parent domain.
+   * 
+   * @example
+   * bj1
+   */
   parentDomainId?: string;
   serviceCode?: string;
   static names(): { [key: string]: string } {
@@ -8650,7 +12208,18 @@ export class ListDomainsRequest extends $tea.Model {
 }
 
 export class ListDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the domains.
+   */
   items?: Domain[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8697,9 +12266,41 @@ export class ListDomainsResponse extends $tea.Model {
 }
 
 export class ListDriveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The owner of the drive. If this parameter is not specified, all drives are returned.
+   * 
+   * @example
+   * c9b7a5aa04d14ae3867fdc886fa01da4
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The type of the owner. Valid values:
+   * 
+   * user and group.
+   * 
+   * By default, drives of all owner types are returned.
+   * 
+   * @example
+   * user
+   */
   ownerType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8725,7 +12326,18 @@ export class ListDriveRequest extends $tea.Model {
 }
 
 export class ListDriveResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried drives.
+   */
   items?: Drive[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8772,9 +12384,36 @@ export class ListDriveResponse extends $tea.Model {
 }
 
 export class ListFacegroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The filter condition that is used to query groups. The value can be up to 128 characters in length. An exact match is used.
+   */
   remarks?: string;
   returnTotalCount?: boolean;
   static names(): { [key: string]: string } {
@@ -8803,7 +12442,18 @@ export class ListFacegroupsRequest extends $tea.Model {
 }
 
 export class ListFacegroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the face-based groups.
+   */
   items?: FaceGroup[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -8853,17 +12503,185 @@ export class ListFacegroupsResponse extends $tea.Model {
 }
 
 export class ListFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The category of the file. Valid values:
+   * 
+   * app: installation package. zip: compressed package. image: image. doc: document. video: video. audio: audio. others: other files.
+   * 
+   * By default, files of all categories are returned.
+   * 
+   * @example
+   * image
+   */
   category?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The fields to return.
+   * 
+   * 1.  If this parameter is set to \\*, all fields of the file except the fields that must be specified are returned.
+   * 2.  If only specific fields are required, you can specify the following fields: url, exif, cropping_suggestion, characteristic_hash, video_metadata, and video_preview_metadata. If multiple fields are required, separate them with commas (,). Example: url,exif.
+   * 3.  The investigation_info field is returned only if you specify this field.
+   * 
+   * By default, all fields except the fields that must be specified are returned.
+   * 
+   * @example
+   * *
+   */
   fields?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100.
+   * 
+   * The number of returned results must be less than or equal to the specified number.
+   * 
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
+   * By default, this parameter is empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The sorting field.
+   * 
+   * Default value: created_at.
+   * 
+   * Valid values:
+   * 
+   * *   updated_at
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     sorts the results based on the time when the file was last modified
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   size
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     sorts the results based on the size of the file
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   name
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     sorts the results based on the name of the file
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   created_at
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     sorts the results based on the time when the file was created
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * @example
+   * updated_at
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The sorting direction. Valid values:
+   * 
+   * ASC: ascending order. DESC: descending order.
+   * 
+   * Default value: ASC.
+   * 
+   * @example
+   * ASC
+   */
   orderDirection?: string;
+  /**
+   * @remarks
+   * The ID of the parent folder. If the parent folder is a root directory, set this parameter to root.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * root
+   */
   parentFileId?: string;
+  /**
+   * @remarks
+   * The share ID. If you want to manage a file by using a share link, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The state of the file. Valid values:
+   * 
+   * available: Only normal files are returned. uploading: Only files that are being uploaded are returned.
+   * 
+   * By default, only files in the available state are returned.
+   * 
+   * @example
+   * available
+   */
   status?: string;
+  /**
+   * @remarks
+   * The thumbnail configurations. Up to five thumbnails can be returned at a time. The value contains key-value pairs. You can customize the keys. The URL of a thumbnail is returned based on the key.
+   */
   thumbnailProcesses?: { [key: string]: ImageProcess };
+  /**
+   * @remarks
+   * The type of the file. Valid values:
+   * 
+   * file: Only files are returned. folder: Only folders are returned.
+   * 
+   * By default, files of all types are returned.
+   * 
+   * @example
+   * file
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8905,7 +12723,18 @@ export class ListFileRequest extends $tea.Model {
 }
 
 export class ListFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried files.
+   */
   items?: File[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8952,7 +12781,21 @@ export class ListFileResponse extends $tea.Model {
 }
 
 export class ListGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8974,7 +12817,18 @@ export class ListGroupRequest extends $tea.Model {
 }
 
 export class ListGroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the groups.
+   */
   items?: Group[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9021,9 +12875,45 @@ export class ListGroupResponse extends $tea.Model {
 }
 
 export class ListGroupMemberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the group of which you want to query members.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3e5***2c2
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
+   * By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The member type. If you do not specify this parameter, both types of members are returned. Valid values:
+   * 
+   * *   user
+   * *   group
+   * 
+   * Note: A group can be a member of only one group. It cannot be a member of multiple groups. A user can be a member of multiple groups.
+   * 
+   * @example
+   * user
+   */
   memberType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9049,8 +12939,23 @@ export class ListGroupMemberRequest extends $tea.Model {
 }
 
 export class ListGroupMemberResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the groups.
+   */
   groupItems?: Group[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhM1
+   */
   nextMarker?: string;
+  /**
+   * @remarks
+   * The information about the users.
+   */
   userItems?: User[];
   static names(): { [key: string]: string } {
     return {
@@ -9099,6 +13004,10 @@ export class ListGroupMemberResponse extends $tea.Model {
 }
 
 export class ListIdentityRoleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   identity?: Identity;
   static names(): { [key: string]: string } {
     return {
@@ -9143,8 +13052,35 @@ export class ListIdentityRoleResponse extends $tea.Model {
 }
 
 export class ListIdentityToBenefitPkgMappingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The unique identifier of the entity.
+   * 
+   * If you call this operation to manage the benefits of a user, set this parameter to the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user123
+   */
   identityId?: string;
+  /**
+   * @remarks
+   * The type of the entity. If you call this operation to manage the benefits of a user, set this parameter to user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   identityType?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the benefit packages that expire. Default value: false.
+   * 
+   * @example
+   * false
+   */
   includeExpired?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9168,6 +13104,10 @@ export class ListIdentityToBenefitPkgMappingRequest extends $tea.Model {
 }
 
 export class ListIdentityToBenefitPkgMappingResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the benefit packages that are associated with an entity.
+   */
   items?: IdentityToBenefitPkgMapping[];
   static names(): { [key: string]: string } {
     return {
@@ -9212,7 +13152,21 @@ export class ListIdentityToBenefitPkgMappingResponse extends $tea.Model {
 }
 
 export class ListMyDrivesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return. Default value: 100. Valid values: 1 to 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9234,7 +13188,18 @@ export class ListMyDrivesRequest extends $tea.Model {
 }
 
 export class ListMyDrivesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried drives.
+   */
   items?: Drive[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9281,7 +13246,21 @@ export class ListMyDrivesResponse extends $tea.Model {
 }
 
 export class ListMyGroupDriveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9303,7 +13282,18 @@ export class ListMyGroupDriveRequest extends $tea.Model {
 }
 
 export class ListMyGroupDriveResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the team drives.
+   */
   items?: Drive[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   rootGroupDrive?: Drive;
   static names(): { [key: string]: string } {
@@ -9353,7 +13343,21 @@ export class ListMyGroupDriveResponse extends $tea.Model {
 }
 
 export class ListReceivedFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is empty.
+   * 
+   * @example
+   * eym***
+   */
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9375,7 +13379,18 @@ export class ListReceivedFileRequest extends $tea.Model {
 }
 
 export class ListReceivedFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried files.
+   */
   items?: File[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * eym***
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9422,9 +13437,47 @@ export class ListReceivedFileResponse extends $tea.Model {
 }
 
 export class ListRecyclebinRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * Specifies the returned fields.
+   * 
+   * 1\\. If you set this parameter to \\*, all fields of the file are returned.
+   * 
+   * 2\\. If you set this parameter to a null value or leave this parameter empty, the fields, such as file creator, file modifier, and custom tags, are not returned.
+   * 
+   * The default value is a null value, which indicates that only some fields are returned.
+   * 
+   * @example
+   * *
+   */
   fields?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 200. Default value: 50.
+   * 
+   * The number of returned results must be less than or equal to the specified number.
+   * 
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9450,7 +13503,18 @@ export class ListRecyclebinRequest extends $tea.Model {
 }
 
 export class ListRecyclebinResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the files and folders in the recycle bin.
+   */
   items?: File[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhM1
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9497,10 +13561,57 @@ export class ListRecyclebinResponse extends $tea.Model {
 }
 
 export class ListRevisionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * Specifies the returned fields.
+   * 
+   * By default, this parameter is left empty. If you set this parameter to \\*, all fields are returned. If you leave this parameter empty, the creator of the file is not returned.
+   * 
+   * @example
+   * *
+   */
   fields?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100.
+   * 
+   * Default value: 50.
+   * 
+   * The number of returned results must be less than or equal to the specified number.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.
+   * 
+   * By default, this parameter is left empty.
+   * 
+   * @example
+   * 40CB7794C929
+   */
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9528,7 +13639,18 @@ export class ListRevisionRequest extends $tea.Model {
 }
 
 export class ListRevisionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the versions.
+   */
   items?: Revision[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9575,11 +13697,64 @@ export class ListRevisionResponse extends $tea.Model {
 }
 
 export class ListShareLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The creator of the share.
+   * 
+   * @example
+   * c9b7a5aa04d14ae3867fdc886fa01da4
+   */
   creator?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the shares that are canceled.
+   * 
+   * @example
+   * true
+   */
   includeCancelled?: boolean;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 0 to 100.
+   * 
+   * The number of returned results must be less than or equal to the specified number.
+   * 
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
+   * By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The field by which to sort the returned results. Default value: created_at. Valid values:
+   * 
+   * *   share_name: sorts the results by the name of the share.
+   * *   updated_at: sorts the results by the time when the share was modified.
+   * *   description: sorts the results by the description of the share.
+   * *   created_at: sorts the results by the time when the share was created.
+   * 
+   * @example
+   * share_name
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the returned results. By default, order_direction is set to DESC if order_by is set to created_at or updated_at, and is set to ASC if order_by is set to other values. Valid values:
+   * 
+   * *   ASC: sorts the results in ascending order.
+   * *   DESC: sorts the results in descending order.
+   * 
+   * @example
+   * ASC
+   */
   orderDirection?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9609,7 +13784,18 @@ export class ListShareLinkRequest extends $tea.Model {
 }
 
 export class ListShareLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the shares.
+   */
   items?: ShareLink[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9656,8 +13842,31 @@ export class ListShareLinkResponse extends $tea.Model {
 }
 
 export class ListTagsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The method that is used to generate the thumbnail of an image.
+   * 
+   * @example
+   * image/resize,w_200
+   */
   imageThumbnailProcess?: string;
+  /**
+   * @remarks
+   * The method that is used to generate the thumbnail of a video.
+   * 
+   * @example
+   * video/snapshot,t_7000,f_jpg,w_800,h_600,m_fast
+   */
   videoThumbnailProcess?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9681,6 +13890,10 @@ export class ListTagsRequest extends $tea.Model {
 }
 
 export class ListTagsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the tags.
+   */
   tags?: ImageTag[];
   static names(): { [key: string]: string } {
     return {
@@ -9725,11 +13938,57 @@ export class ListTagsResponse extends $tea.Model {
 }
 
 export class ListUploadedPartsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID. This parameter is required if the file is not uploaded by using the share URL of the file.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 322fb07b975f4b0ae1b543fe8475eee4c19eb2b2
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   partNumberMarker?: number;
+  /**
+   * @remarks
+   * The share ID. This parameter is required if the file is uploaded by using the share URL of the file.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The ID of the upload task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 00166D06127B413BA1EC8ABB1144D101
+   */
   uploadId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9759,10 +14018,42 @@ export class ListUploadedPartsRequest extends $tea.Model {
 }
 
 export class ListUploadedPartsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * @example
+   * 322fb07b975f4b0ae1b543fe8475eee4c19eb2b2
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextPartNumberMarker?: string;
+  /**
+   * @remarks
+   * Indicates whether the parallel upload feature is enabled.
+   * 
+   * @example
+   * false
+   */
   parallelUpload?: boolean;
+  /**
+   * @remarks
+   * The ID of the upload task.
+   * 
+   * @example
+   * 00166D06127B413BA1EC8ABB1144D101
+   */
   uploadId?: string;
+  /**
+   * @remarks
+   * The information about the file parts.
+   */
   uploadedParts?: UploadPartInfo[];
   static names(): { [key: string]: string } {
     return {
@@ -9815,7 +14106,21 @@ export class ListUploadedPartsResponse extends $tea.Model {
 }
 
 export class ListUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9837,7 +14142,18 @@ export class ListUserRequest extends $tea.Model {
 }
 
 export class ListUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the users.
+   */
   items?: User[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9884,9 +14200,51 @@ export class ListUserResponse extends $tea.Model {
 }
 
 export class MoveFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The processing method that is used if the file that you want to move has the same name as an existing file in the destination directory. Valid values:
+   * 
+   * ignore: allows you to move the file by using the same name as an existing file in the destination directory.
+   * 
+   * auto_rename: automatically renames the file that has the same name exists in the destination directory. By default, the current point in time is added to the end of the file name. Example: xxx_20060102_150405.
+   * 
+   * refuse: does not move the file that you want to move but returns the information about the file that has the same name in the destination directory.
+   * 
+   * Default value: ignore.
+   * 
+   * @example
+   * ignore
+   */
   checkNameMode?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The ID of the destination parent directory to which you want to move a file or folder. If you want to move a file or folder to the root directory, set this parameter to root.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 6520943DC261
+   */
   toParentFileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9912,10 +14270,49 @@ export class MoveFileRequest extends $tea.Model {
 }
 
 export class MoveFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * If an empty string is returned, the file is moved.
+   * 
+   * If a non-empty string is returned, an asynchronous task is required. You can call the GetAsyncTask operation to obtain the information about an asynchronous task based on the task ID.
+   * 
+   * @example
+   * 23ebd1a24dba4166b1527add476ef2866051b4d5del106
+   */
   asyncTaskId?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * Indicates whether the file already exists in the destination directory.
+   * 
+   * @example
+   * false
+   */
   exist?: boolean;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * @example
+   * fileid1
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9968,13 +14365,45 @@ export class MoveFileResponse extends $tea.Model {
 }
 
 export class QueryOrderPriceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   package?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   period?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   totalSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   userCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10058,8 +14487,29 @@ export class QueryOrderPriceResponse extends $tea.Model {
 }
 
 export class RemoveFaceGroupFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Cluster-abc
+   */
   faceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * abcd
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10105,8 +14555,39 @@ export class RemoveFaceGroupFileResponse extends $tea.Model {
 }
 
 export class RemoveGroupMemberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the group from which you want to remove a member.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3e5***2c2
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The ID of the member. If member_type is set to user, set this parameter to the ID of the corresponding user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2e4***1b1
+   */
   memberId?: string;
+  /**
+   * @remarks
+   * The type of the member that you want to remove from the group. Only common users can be removed. If you want to remove all members from a group, you can directly delete the group. Valid value:
+   * 
+   * *   user
+   * 
+   * Note: A group can be a member of only one group. It cannot be a member of multiple groups. A user can be a member of multiple groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   memberType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10152,8 +14633,22 @@ export class RemoveGroupMemberResponse extends $tea.Model {
 }
 
 export class RemoveStoryFilesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
   files?: RemoveStoryFilesRequestFiles[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10177,7 +14672,15 @@ export class RemoveStoryFilesRequest extends $tea.Model {
 }
 
 export class RemoveStoryFilesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10224,7 +14727,25 @@ export class RemoveStoryFilesResponse extends $tea.Model {
 }
 
 export class RestoreFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The ID of the file or folder.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 4221bf6e6ab43a255edc4463bffa6f5f5d317401
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10246,9 +14767,41 @@ export class RestoreFileRequest extends $tea.Model {
 }
 
 export class RestoreFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * If an empty string is returned, the file or folder is restored.
+   * 
+   * If a non-empty string is returned, an asynchronous task is required. You can call the GetAsyncTask operation to obtain the information about an asynchronous task based on the task ID.
+   * 
+   * @example
+   * 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
+   */
   asyncTaskId?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The ID of the file or folder.
+   * 
+   * @example
+   * 4221bf6e6ab43a255edc4463bffa6f5f5d317401
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10299,8 +14852,35 @@ export class RestoreFileResponse extends $tea.Model {
 }
 
 export class RestoreRevisionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The version ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 40CB7794C929
+   */
   revisionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10349,9 +14929,46 @@ export class RestoreRevisionResponse extends $tea.Model {
 }
 
 export class ScanFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file properties to return.
+   * 
+   * *   If you want to return all file properties, set this parameter to \\*.
+   * *   By default, if you do not specify this parameter, the following properties of a file are returned: - file_id, - drive_id, - parent_file_id, - type, - created_at, - updated_at, - file_extention, - size, - starred, - status, - category, and - permissions.
+   * *   You can also specify properties to return. Separate multiple properties with commas (,).
+   * 
+   * @example
+   * *
+   */
   fields?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100.
+   * 
+   * The number of returned results must be less than or equal to the specified number.
+   * 
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
+   * By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10377,7 +14994,18 @@ export class ScanFileRequest extends $tea.Model {
 }
 
 export class ScanFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the files.
+   */
   items?: File[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10424,12 +15052,99 @@ export class ScanFileResponse extends $tea.Model {
 }
 
 export class SearchAddressGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The level of the location.
+   * 
+   * Valid values:
+   * 
+   * *   country
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   province
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   city
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   district
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   township
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   */
   addressLevel?: string;
+  /**
+   * @remarks
+   * The locations.
+   */
   addressNames?: string[];
+  /**
+   * @remarks
+   * The coordinates of the bottom right vertex of the rectangle. Set the value in the format of latitude,longitude.
+   * 
+   * @example
+   * 40.121,105.2121
+   */
   brGeoPoint?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The method used to generate the thumbnail of an image.
+   * 
+   * @example
+   * image/resize,w_200
+   */
   imageThumbnailProcess?: string;
+  /**
+   * @remarks
+   * The coordinates of the top left vertex of the rectangle. Set the value in the format of latitude,longitude.
+   * 
+   * @example
+   * 39.121,101.2121
+   */
   tlGeoPoint?: string;
+  /**
+   * @remarks
+   * The method used to generate the thumbnail of a video.
+   * 
+   * @example
+   * video/snapshot,t_7000,f_jpg,w_800,h_600,m_fast
+   */
   videoThumbnailProcess?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10461,6 +15176,10 @@ export class SearchAddressGroupsRequest extends $tea.Model {
 }
 
 export class SearchAddressGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The location-based groups.
+   */
   items?: AddressGroup[];
   static names(): { [key: string]: string } {
     return {
@@ -10505,9 +15224,37 @@ export class SearchAddressGroupsResponse extends $tea.Model {
 }
 
 export class SearchDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * The number of returned results must be less than or equal to the specified number.
+   * 
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
+   * By default, this parameter is empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The name of the domain. Fuzzy search is supported.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The sorting rule. Set the value to created_at, which specifies that the results are sorted based on the time when the domain was created.
+   * 
+   * @example
+   * created_at
+   */
   orderBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10533,7 +15280,18 @@ export class SearchDomainsRequest extends $tea.Model {
 }
 
 export class SearchDomainsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried domains.
+   */
   items?: Domain[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10580,10 +15338,45 @@ export class SearchDomainsResponse extends $tea.Model {
 }
 
 export class SearchDriveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive name.
+   */
   driveName?: string;
+  /**
+   * @remarks
+   * The maximum number of asynchronous tasks to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
+   * By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The owner of the drive.
+   * 
+   * @example
+   * c9b7a5aa04d14ae3867fdc886fa01da4
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The type of the owner. Valid values:
+   * 
+   * user group
+   * 
+   * @example
+   * user
+   */
   ownerType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10611,7 +15404,18 @@ export class SearchDriveRequest extends $tea.Model {
 }
 
 export class SearchDriveResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the drives.
+   */
   items?: Drive[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10658,13 +15462,82 @@ export class SearchDriveResponse extends $tea.Model {
 }
 
 export class SearchFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @example
+   * url,thumbnail
+   * 
+   * @deprecated
+   */
   fields?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100.
+   * 
+   * The number of returned results must be less than or equal to the specified number.
+   * 
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
+   * By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The field by which to sort the returned results. Default value: created_at. Valid values:
+   * 
+   * *   created_at: sorts the results by the time when the file was created.
+   * *   updated_at: sorts the results by the time when the file was modified.
+   * *   size: sorts the results by the size of the file.
+   * *   name: sorts the results by the name of the file.
+   * 
+   * The order in which you want to sort the returned results. Valid values:
+   * 
+   * *   ASC: sorts the results in ascending order.
+   * *   DESC: sorts the results in descending order.
+   * 
+   * You must specify this parameter in the \\<field name> \\<ASC or DESC> format. Separate multiple field names with commas (,). A preceding field has a higher priority than a following field. Examples:
+   * 
+   * *   If you want to sort the results based on the file name in ascending order, set this parameter to "name ASC".
+   * *   If you want to sort the results based on the creation time in descending order, set this parameter to "created_at DESC".
+   * *   If you want to sort the results based on the creation time in descending order first, and then sort the results based on the file name in ascending order if the creation time is the same, set this parameter to "created_at DESC,name ASC".
+   * 
+   * @example
+   * name
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The search condition. Fuzzy searches based on the file name or directory name are supported. The search condition can be up to 4,096 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * not name=123
+   */
   query?: string;
   recursive?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to return the total number of retrieved files.
+   * 
+   * @example
+   * true
+   */
   returnTotalCount?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10698,8 +15571,26 @@ export class SearchFileRequest extends $tea.Model {
 }
 
 export class SearchFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the files.
+   */
   items?: File[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
+  /**
+   * @remarks
+   * The total number of retrieved files.
+   * 
+   * @example
+   * 1022
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10748,12 +15639,71 @@ export class SearchFileResponse extends $tea.Model {
 }
 
 export class SearchShareLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The creators of shares. Set this parameter to a user ID. If you do not specify this parameter, Drive and Photo Service automatically queries shares based on your permissions. If you are a drive administrator or the super administrator, the shares created by all members are queried. If you are a team administrator, the shares created by all team members are queried. If you are a common user, only the shares created by yourself are queried.
+   * 
+   * If you specify this parameter, this parameter must be set to the ID of the super administrator, a drive administrator, or a team administrator.
+   */
   creators?: string[];
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * The number of returned results must be less than or equal to the specified number.
+   * 
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
+   * By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The field by which to sort the returned results. Default value: created_at. Valid values:
+   * 
+   * *   share_name: sorts the results by the name of the share.
+   * *   updated_at: sorts the results by the time when the share was modified.
+   * *   description: sorts the results by the description of the share.
+   * *   created_at: sorts the results by the time when the share was created.
+   * 
+   * @example
+   * created_at
+   */
   orderBy?: string;
+  /**
+   * @remarks
+   * The order in which you want to sort the returned results. By default, order_direction is set to DESC if order_by is set to created_at or updated_at, and is set to ASC if order_by is set to other values. Valid values:
+   * 
+   * *   ASC: sorts the results in ascending order.
+   * *   DESC: sorts the results in descending order.
+   * 
+   * @example
+   * ASC
+   */
   orderDirection?: string;
+  /**
+   * @remarks
+   * The query condition that is used to search for share URLs. You can use the following fields to specify query conditions: created_at: queries a share URL based on the time when the share URL was created. updated_at: queries a share URL based on the time when the share URL was modified. share_name_for_fuzzy: queries a share URL based on the name of the share. A fuzzy match is supported. status: queries a share URL based on the status of the share. Valid values: enabled and disabled. A value of enabled indicates that the share is valid. A value of disabled indicates that the share is canceled. expired_time: queries a share URL based on the expiration time of the share. If the share never expires, set this field to 1970-01-01T00:00:00. Otherwise, set this field to 1970-01-02T00:00:00.
+   * 
+   * @example
+   * created_at>=\\"2022-01-18T02:50:00\\" and created_at<\\"2022-01-19T09:45:28\\" and share_name_for_fuzzy match \\"HD.mp4\\" and status in [\\"enabled\\", \\"disabled\\"] and expired_time=\\"1970-01-01T00:00:00\\"
+   */
   query?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the total number of returned results.
+   * 
+   * @example
+   * false
+   */
   returnTotalCount?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10785,8 +15735,26 @@ export class SearchShareLinkRequest extends $tea.Model {
 }
 
 export class SearchShareLinkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The share URLs.
+   */
   items?: ShareLink[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 101
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10835,10 +15803,35 @@ export class SearchShareLinkResponse extends $tea.Model {
 }
 
 export class SearchSimilarImageClustersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @example
+   * image/resize,m_fill,h_128,w_128,limit_0/format,jpg
+   * 
+   * @deprecated
+   */
   imageThumbnailProcess?: string;
+  /**
+   * @example
+   * 50
+   */
   limit?: number;
+  /**
+   * @example
+   * YWRzX3VzZXJfcHJvZmlsZV9je1bnQh***
+   */
   marker?: string;
+  /**
+   * @example
+   * desc
+   */
   order?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10866,6 +15859,10 @@ export class SearchSimilarImageClustersRequest extends $tea.Model {
 }
 
 export class SearchSimilarImageClustersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0***
+   */
   nextMarker?: string;
   similarImageClusters?: SearchSimilarImageClustersResponseBodySimilarImageClusters[];
   static names(): { [key: string]: string } {
@@ -10913,22 +15910,96 @@ export class SearchSimilarImageClustersResponse extends $tea.Model {
 }
 
 export class SearchStoriesRequest extends $tea.Model {
+  /**
+   * @example
+   * image/resize,m_fill,h_128,w_128,limit_0/format,jpg
+   * 
+   * @deprecated
+   */
   coverImageThumbnailProcess?: string;
+  /**
+   * @example
+   * video/snapshot,t_1000,f_jpg,w_0,h_0,m_fast,ar_auto
+   * 
+   * @deprecated
+   */
   coverVideoThumbnailProcess?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
   createTimeRange?: SearchStoriesRequestCreateTimeRange;
+  /**
+   * @example
+   * key1=value1,key2!=value2
+   * 
+   * @deprecated
+   */
   customLabels?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
   faceGroupIds?: string[];
+  /**
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @example
+   * NWQ1Yjk4YmI1ZDODBhNDQ2Nzhl***
+   */
   marker?: string;
+  /**
+   * @example
+   * desc
+   */
   order?: string;
+  /**
+   * @example
+   * CreateTime
+   */
   sort?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
   storyEndTimeRange?: SearchStoriesRequestStoryEndTimeRange;
+  /**
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
   storyName?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
   storyStartTimeRange?: SearchStoriesRequestStoryStartTimeRange;
+  /**
+   * @example
+   * PeopleMemory
+   */
   storyType?: string;
+  /**
+   * @example
+   * 900
+   * 
+   * @deprecated
+   */
   urlExpireSec?: number;
+  /**
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
   withEmptyStories?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10981,6 +16052,10 @@ export class SearchStoriesRequest extends $tea.Model {
 
 export class SearchStoriesResponseBody extends $tea.Model {
   items?: Story[];
+  /**
+   * @example
+   * Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJ***
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11027,14 +16102,85 @@ export class SearchStoriesResponse extends $tea.Model {
 }
 
 export class SearchUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The email address of the user.
+   * 
+   * @example
+   * 123@pds.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
+   * 
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
+   * By default, this parameter is left empty.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The nickname of the user. The nickname can be up to 128 characters in length.
+   * 
+   * @example
+   * pdsuer
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * The nickname used for fuzzy searches. The nickname can be up to 128 characters in length.
+   * 
+   * @example
+   * la
+   */
   nickNameForFuzzy?: string;
+  /**
+   * @remarks
+   * The mobile number of the user.
+   * 
+   * @example
+   * 13900001111
+   */
   phone?: string;
+  /**
+   * @remarks
+   * The role of the user. Valid values:
+   * 
+   * *   superadmin
+   * *   admin
+   * *   user
+   * 
+   * @example
+   * user
+   */
   role?: string;
+  /**
+   * @remarks
+   * The state of the user. Valid values:
+   * 
+   * *   disabled: The user is prohibited from logon.
+   * *   enabled: The user is in a normal state.
+   * 
+   * @example
+   * enabled
+   */
   status?: string;
+  /**
+   * @remarks
+   * The name of the user. The name can be up to 128 characters in length.
+   * 
+   * @example
+   * pds
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11070,7 +16216,18 @@ export class SearchUserRequest extends $tea.Model {
 }
 
 export class SearchUserResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the users.
+   */
   items?: User[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If next_marker is empty, no next page exists.
+   * 
+   * @example
+   * NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
+   */
   nextMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11117,12 +16274,71 @@ export class SearchUserResponse extends $tea.Model {
 }
 
 export class TokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The JWT assertion that is signed by using the JWT private key. The JWT assertion contains the information about the user to be authorized and the authorization parameters. For more information about the structure of the JWT assertion, see JWTPayload. This parameter is required if grant_type is set to urn:ietf:params:oauth:grant-type:jwt-bearer.
+   * 
+   * @example
+   * ey***asd
+   */
   assertion?: string;
+  /**
+   * @remarks
+   * The AppId of the application that is created in the Drive and Photo Service console.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1Zu***flH
+   */
   clientId?: string;
+  /**
+   * @remarks
+   * The AppSecret of the application that is created in the Drive and Photo Service console. This parameter is required if the application is of the WebServer type.
+   * 
+   * @example
+   * 80D***3i5
+   */
   clientSecret?: string;
+  /**
+   * @remarks
+   * The authorization code in the redirect URI that is specified after the authorization process is complete. This parameter is required if grant_type is set to authorization_code.
+   * 
+   * @example
+   * 0045157fa8e24f4f9a0d9e3ff158c1e0
+   */
   code?: string;
+  /**
+   * @remarks
+   * The method that is used to generate an access token. Valid values:
+   * 
+   * authorization_code: generates an access token by using the authorization code that is returned after the authorization process is complete.
+   * 
+   * refresh_token: generates an access token by using the refresh token that is returned after the authorization process is complete.
+   * 
+   * urn:ietf:params:oauth:grant-type:jwt-bearer: generates an access token by using a JWT assertion.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * refresh_token
+   */
   grantType?: string;
+  /**
+   * @remarks
+   * The redirect URI that is specified when you initiate the authorization request. This parameter is required if grant_type is set to authorization_code.
+   * 
+   * @example
+   * https://aliyun.com/pds
+   */
   redirectUri?: string;
+  /**
+   * @remarks
+   * The refresh token that is used to refresh the access token. This parameter is required if grant_type is set to refresh_token.
+   * 
+   * @example
+   * 399623e13353490391266c7d48a13ed1
+   */
   refreshToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11179,7 +16395,25 @@ export class TokenResponse extends $tea.Model {
 }
 
 export class TrashFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The ID of the file or folder.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11201,9 +16435,41 @@ export class TrashFileRequest extends $tea.Model {
 }
 
 export class TrashFileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
+   * If an empty string is returned, the file or folder is moved to the recycle bin.
+   * 
+   * If a non-empty string is returned, an asynchronous task is required. You can call the GetAsyncTask operation to obtain the information about an asynchronous task based on the task ID.
+   * 
+   * @example
+   * 13ebd3a24dba4166b1527add676ef2866051b4d5dele16
+   */
   asyncTaskId?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The ID of the file or folder.
+   * 
+   * @example
+   * 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11254,9 +16520,34 @@ export class TrashFileResponse extends $tea.Model {
 }
 
 export class UnLinkAccountRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   extra?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 139****
+   */
   identity?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mobile
+   */
   type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * uid1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11304,13 +16595,62 @@ export class UnLinkAccountResponse extends $tea.Model {
 }
 
 export class UpdateDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the domain.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * bj1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The name of the domain.
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the default drive feature. A value of true specifies that all users are assigned a drive by default on the first logon. Default value: false.
+   * 
+   * @example
+   * true
+   */
   initDriveEnable?: boolean;
+  /**
+   * @remarks
+   * The size of the default drive. Unit: bytes. You must specify init_drive_size if you set init_drive_enable to true. Default value: 0. A value of 0 specifies that the size of the default drive is 0 bytes and you cannot upload files to the drive. To initialize the default drive, set init_drive_size to 0. A value of -1 specifies that the size is unlimited.
+   * 
+   * @example
+   * 1073741824
+   */
   initDriveSize?: number;
+  /**
+   * @remarks
+   * The access policy of the application.
+   */
   publishedAppAccessStrategy?: AppAccessStrategy;
+  /**
+   * @remarks
+   * The total storage quota for all drives in the domain. A value of 0 specifies that the quota is unlimited.
+   * 
+   * @example
+   * 1099511627776
+   */
   sizeQuota?: number;
+  /**
+   * @remarks
+   * The maximum number of users that can be created in the domain.
+   * 
+   * @example
+   * 50
+   */
   userCountQuota?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11369,11 +16709,54 @@ export class UpdateDomainResponse extends $tea.Model {
 }
 
 export class UpdateDriveRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the drive. The description can be up to 1,024 characters in length.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The name of the drive. The name can be up to 128 characters in length.
+   * 
+   * @example
+   * my_drive
+   */
   driveName?: string;
+  /**
+   * @remarks
+   * The owner of the drive. Note: You can modify the owner of a personal drive only by using an AccessKey pair.
+   * 
+   * @example
+   * user1
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The state of the drive. Valid values:
+   * 
+   * enabled and disabled.
+   * 
+   * @example
+   * enabled
+   */
   status?: string;
+  /**
+   * @remarks
+   * The total size of the drive. Unit: bytes. A value of -1 specifies that the size is unlimited.
+   * 
+   * @example
+   * 10240
+   */
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11428,10 +16811,43 @@ export class UpdateDriveResponse extends $tea.Model {
 }
 
 export class UpdateFacegroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The face ID of the thumbnail of the face-based group. You can obtain the face ID from the **image_media_metadata** parameter in the returned results of the GetFile, ListFile, or SearchFile operation.
+   * 
+   * @example
+   * face1
+   */
   groupCoverFaceId?: string;
+  /**
+   * @remarks
+   * The ID of the face-based group. You can call the ListFacegroups operation to query the group ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * group-abc
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the face-based group. The name can be up to 128 characters in length.
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The remarks. The remarks can be up to 128 characters in length.
+   */
   remarks?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11459,7 +16875,21 @@ export class UpdateFacegroupRequest extends $tea.Model {
 }
 
 export class UpdateFacegroupResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The group ID.
+   * 
+   * @example
+   * group-abc
+   */
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11506,14 +16936,83 @@ export class UpdateFacegroupResponse extends $tea.Model {
 }
 
 export class UpdateFileRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The processing method that is used if the file that you want to modify has the same name as an existing file on the cloud. Valid values:
+   * 
+   * ignore: allows you to modify the file by using the same name as an existing file on the cloud.
+   * 
+   * auto_rename: automatically renames the file that has the same name on the cloud. By default, the current point in time is added to the end of the file name. Example: xxx_20060102_150405.
+   * 
+   * refuse: does not modify the file that you want to modify but returns the information about the file that has the same name on the cloud.
+   * 
+   * Default value: ignore.
+   * 
+   * @example
+   * ignore
+   */
   checkNameMode?: string;
+  /**
+   * @remarks
+   * The description of the file. The description can be up to 1,024 characters in length.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * Specifies whether to hide the file.
+   * 
+   * @example
+   * true
+   */
   hidden?: boolean;
+  /**
+   * @remarks
+   * The tags of the file. You can specify up to 100 tags.
+   */
   labels?: string[];
+  /**
+   * @remarks
+   * The local time when the file was modified. The time is in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
+   * 
+   * @example
+   * 2019-08-20T06:51:27.292Z
+   */
   localModifiedAt?: string;
+  /**
+   * @remarks
+   * The name of the file. The name can be up to 1,024 bytes in length based on the UTF-8 encoding rule.
+   * 
+   * @example
+   * a.jpg
+   */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether to add the file to favorites.
+   * 
+   * @example
+   * true
+   */
   starred?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11574,8 +17073,31 @@ export class UpdateFileResponse extends $tea.Model {
 }
 
 export class UpdateGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the group after modification.
+   * 
+   * @example
+   * test group description
+   */
   description?: string;
+  /**
+   * @remarks
+   * The ID of the group that you want to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2e43ec8427dd45f19431b7504649a1b4
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the group after modification.
+   * 
+   * @example
+   * test group
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11624,10 +17146,57 @@ export class UpdateGroupResponse extends $tea.Model {
 }
 
 export class UpdateIdentityToBenefitPkgMappingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of benefit packages.
+   * 
+   * This parameter specifies the number of benefit packages of the resource type. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   amount?: number;
+  /**
+   * @remarks
+   * The unique identifier of the benefit package.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 40cb7794c9294
+   */
   benefitPkgId?: string;
+  /**
+   * @remarks
+   * The expiration time of the benefit package. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * By default, the benefit package never expires.
+   * 
+   * @example
+   * 1633167071000
+   */
   expireTime?: number;
+  /**
+   * @remarks
+   * The unique identifier of the entity.
+   * 
+   * If you call this operation to manage the benefits of a user, set this parameter to the ID of the user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user123
+   */
   identityId?: string;
+  /**
+   * @remarks
+   * The type of the entity. If you call this operation to manage the benefits of a user, set this parameter to user.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
   identityType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11677,10 +17246,55 @@ export class UpdateIdentityToBenefitPkgMappingResponse extends $tea.Model {
 }
 
 export class UpdateRevisionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The drive ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * Specifies whether to permanently retain a version.
+   * 
+   * By default, this parameter is not specified, which indicates that you do not modify the permanent retention configuration of the version.
+   * 
+   * @example
+   * true
+   */
   keepForever?: boolean;
+  /**
+   * @remarks
+   * The description of the version. The description can be up to 1,024 characters in length.
+   * 
+   * By default, this parameter is not specified, which indicates that you do not modify the description of the version.
+   * 
+   * @example
+   * aaa
+   */
   revisionDescription?: string;
+  /**
+   * @remarks
+   * The version ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 40CB7794C929
+   */
   revisionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11733,22 +17347,140 @@ export class UpdateRevisionResponse extends $tea.Model {
 }
 
 export class UpdateShareLinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the share link. The description can be up to 1,024 characters in length.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to prohibit the downloads of the shared files.
+   * 
+   * @example
+   * false
+   */
   disableDownload?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to prohibit the previews of the shared files.
+   * 
+   * @example
+   * false
+   */
   disablePreview?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to prohibit the saves of the shared files.
+   * 
+   * @example
+   * false
+   */
   disableSave?: boolean;
+  /**
+   * @remarks
+   * The number of times that the shared files are downloaded. The value must be greater than or equal to 0.
+   * 
+   * @example
+   * 30
+   */
   downloadCount?: number;
+  /**
+   * @remarks
+   * The maximum number of times that the shared files can be downloaded. The value must be greater than or equal to 0. A value of 0 specifies that the number is unlimited.
+   * 
+   * @example
+   * 100
+   */
   downloadLimit?: number;
+  /**
+   * @remarks
+   * The time when the share link expires. The time follows the RFC 3339 standard. Example: 2020-06-28T11:33:00.000+08:00. If you leave this parameter empty, the share link never expires.
+   * 
+   * @example
+   * 2020-06-28T11:33:00.000+08:00
+   */
   expiration?: string;
+  /**
+   * @remarks
+   * The number of times that the shared files are previewed. The value must be greater than or equal to 0.
+   * 
+   * @example
+   * 3
+   */
   previewCount?: number;
+  /**
+   * @remarks
+   * The maximum number of times that the shared files can be previewed. The value must be greater than or equal to 0. A value of 0 specifies that the number is unlimited.
+   * 
+   * @example
+   * 100
+   */
   previewLimit?: number;
+  /**
+   * @remarks
+   * The number of times that the shared files are reported. The value must be greater than or equal to 0.
+   * 
+   * @example
+   * 1
+   */
   reportCount?: number;
+  /**
+   * @remarks
+   * The number of times that the shared files are saved. The value must be greater than or equal to 0.
+   * 
+   * @example
+   * 5
+   */
   saveCount?: number;
+  /**
+   * @remarks
+   * The maximum number of times that the shared files can be saved. The value must be greater than or equal to 0. A value of 0 specifies that the number is unlimited.
+   * 
+   * @example
+   * 100
+   */
   saveLimit?: number;
+  /**
+   * @remarks
+   * The share ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7JQX1FswpQ8
+   */
   shareId?: string;
+  /**
+   * @remarks
+   * The name of the share link. By default, the name of the first file is used. The name can be up to 128 characters in length.
+   */
   shareName?: string;
+  /**
+   * @remarks
+   * The access code. The access code can be up to 64 characters in length. A value of 0 specifies an empty string.
+   * 
+   * @example
+   * abcF123x
+   */
   sharePwd?: string;
+  /**
+   * @remarks
+   * The state of the share link. Valid values:
+   * 
+   * *   disabled: The share link is canceled.
+   * *   enabled: The share link is effective.
+   * 
+   * @example
+   * enabled
+   */
   status?: string;
+  /**
+   * @remarks
+   * The number of times that the videos are previewed in the shared files. The value must be greater than or equal to 0.
+   * 
+   * @example
+   * 100
+   */
   videoPreviewCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11825,10 +17557,38 @@ export class UpdateShareLinkResponse extends $tea.Model {
 }
 
 export class UpdateStoryRequest extends $tea.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
   cover?: UpdateStoryRequestCover;
+  /**
+   * @deprecated
+   */
   customLabels?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
+  /**
+   * @example
+   * name1
+   * 
+   * **if can be null:**
+   * true
+   */
   storyName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11856,7 +17616,15 @@ export class UpdateStoryRequest extends $tea.Model {
 }
 
 export class UpdateStoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @example
+   * 9132e0d8-fe92-4e56-86c3-f5f112308003
+   */
   storyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11903,15 +17671,89 @@ export class UpdateStoryResponse extends $tea.Model {
 }
 
 export class UpdateUserRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the profile picture.
+   * 
+   * If you specify the parameter in the HTTP URL format, the URL must start with http:// or https:// and can be up to 4 KB in size.
+   * 
+   * If you specify the parameter in the DATA URL format, the URL must start with data:// and be encoded in Base64. The URL can be up to 300 KB in size.
+   * 
+   * @example
+   * http://a.b.c/pds.jpg
+   */
   avatar?: string;
+  /**
+   * @remarks
+   * The description of the user. The description can be up to 1,024 characters in length.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The email address of the user.
+   * 
+   * @example
+   * a@aliyunpds.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The information about the group.
+   */
   groupInfoList?: UpdateUserRequestGroupInfoList[];
+  /**
+   * @remarks
+   * The nickname of the user. The nickname can be up to 128 characters in length.
+   * 
+   * @example
+   * pdsuer
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * The mobile number of the user.
+   * 
+   * @example
+   * 13900001111
+   */
   phone?: string;
+  /**
+   * @remarks
+   * The role of the user. Valid values:
+   * 
+   * *   superadmin
+   * *   admin
+   * *   user
+   * 
+   * @example
+   * user
+   */
   role?: string;
+  /**
+   * @remarks
+   * The state of the user. Valid values:
+   * 
+   * *   disabled: The user is prohibited from logon.
+   * *   enabled: The user is in a normal state.
+   * 
+   * @example
+   * enabled
+   */
   status?: string;
+  /**
+   * @remarks
+   * The custom data. The data can be up to 1,024 characters in length.
+   */
   userData?: { [key: string]: string };
+  /**
+   * @remarks
+   * The user ID. The ID can be up to 64 characters in length and cannot contain a number sign (#).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c9b7a5aa04d14ae3867fdc886fa01da4
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12005,9 +17847,25 @@ export class DriveLogDetailUpdateTo extends $tea.Model {
 }
 
 export class FaceGroupGroupCoverFaceBoundary extends $tea.Model {
+  /**
+   * @example
+   * 300
+   */
   height?: number;
+  /**
+   * @example
+   * 10
+   */
   left?: number;
+  /**
+   * @example
+   * 30
+   */
   top?: number;
+  /**
+   * @example
+   * 200
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12330,6 +18188,10 @@ export class VideoPreviewPlayInfoOfflineVideoTranscodingList extends $tea.Model 
 export class VideoPreviewPlayMetaLiveTranscodingTaskList extends $tea.Model {
   keepOriginalResolution?: boolean;
   status?: string;
+  /**
+   * @example
+   * 264_720p
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12353,8 +18215,20 @@ export class VideoPreviewPlayMetaLiveTranscodingTaskList extends $tea.Model {
 }
 
 export class VideoPreviewPlayMetaMeta extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   duration?: number;
+  /**
+   * @example
+   * 720
+   */
   height?: number;
+  /**
+   * @example
+   * 1280
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12400,7 +18274,18 @@ export class ViewFileInvestigationInfo extends $tea.Model {
 }
 
 export class AddStoryFilesRequestFiles extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 63e5e4340f76cb3ead5f40f68163f0f967c1a7bf
+   */
   fileId?: string;
+  /**
+   * @example
+   * 642a88dd06e49d9c0a14411ebae606f70edd9a59
+   */
   revisionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12422,10 +18307,76 @@ export class AddStoryFilesRequestFiles extends $tea.Model {
 }
 
 export class BatchRequestRequests extends $tea.Model {
+  /**
+   * @remarks
+   * The request parameters of a child request. The parameter value must be a JSON string. For more information, see the topic of the corresponding child request.
+   * 
+   * Before you specify the request body, you must specify a header by using Content-Type. Content-Type can only be set to application/json.
+   */
   body?: { [key: string]: any };
+  /**
+   * @remarks
+   * The header of a child request, which indicates the type of the data specified in the request body.
+   */
   headers?: { [key: string]: string };
+  /**
+   * @remarks
+   * The ID of the child request. The ID is used to associate a child request with a response. The ID of a child request must be unique.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 93433894994ad2e1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The method of a child request. Valid values:
+   * 
+   * *   POST
+   * *   GET
+   * *   PUT
+   * *   DELETE
+   * *   HEAD
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * POST
+   */
   method?: string;
+  /**
+   * @remarks
+   * The API path of a child request. Valid values:
+   * 
+   * *   /file/get: queries the information about a file.
+   * *   /file/update: modifies the information about a file.
+   * *   /file/search: searches for a file.
+   * *   /file/copy: copies a file or folder.
+   * *   /file/move: moves a file or folder.
+   * *   /file/delete: deletes a file or folder.
+   * *   /file/get_download_url: queries the download URL of a file.
+   * *   /file/get_share_link_download_url: queries the download URL of a file in a share.
+   * *   /recyclebin/trash: moves a file or folder to the recycle bin.
+   * *   /recyclebin/restore: restores a file or folder.
+   * *   /file/put_usertags: adds tags to a user.
+   * *   /file/delete_usertags: removes tags from a user.
+   * *   /drive/get: queries the information about a drive.
+   * *   /user/get: queries the information about a user.
+   * *   /group/get: queries the information about a group.
+   * *   /share_link/create: creates a share.
+   * *   /share_link/update: modifies a share.
+   * *   /share_link/cancel: cancels a share.
+   * *   /share_link/list: queries shares.
+   * *   /share_link/get: queries the information about a share.
+   * *   /share_link/get_share_token: queries an access token of a share.
+   * *   /async_task/get: queries the information about an asynchronous task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /file/get
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12453,8 +18404,26 @@ export class BatchRequestRequests extends $tea.Model {
 }
 
 export class BatchResponseBodyResponses extends $tea.Model {
+  /**
+   * @remarks
+   * The response parameters of a child request. For more information, see the topic of the corresponding child request.
+   */
   body?: { [key: string]: any };
+  /**
+   * @remarks
+   * The ID of the child request. The ID is used to associate a child request with a response.
+   * 
+   * @example
+   * 93433894994ad2e1
+   */
   id?: string;
+  /**
+   * @remarks
+   * The returned HTTP status code of a child request. For more information, see the topic of the corresponding child request.
+   * 
+   * @example
+   * 200
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12478,7 +18447,18 @@ export class BatchResponseBodyResponses extends $tea.Model {
 }
 
 export class CreateCustomizedStoryRequestStoryCover extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 63e5e4340f76cb3ead5f40f68163f0f967c1a7bf
+   */
   fileId?: string;
+  /**
+   * @example
+   * 642a88d4aff041ee68fd4fc89beb80e1119da343
+   */
   revisionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12500,7 +18480,18 @@ export class CreateCustomizedStoryRequestStoryCover extends $tea.Model {
 }
 
 export class CreateCustomizedStoryRequestStoryFiles extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 63e5e4340f76cb3ead5f40f68163f0f967c1a7bf
+   */
   fileId?: string;
+  /**
+   * @example
+   * 642a88d4aff041ee68fd4fc89beb80e1119da343
+   */
   revisionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12522,7 +18513,18 @@ export class CreateCustomizedStoryRequestStoryFiles extends $tea.Model {
 }
 
 export class CreateFileRequestPartInfoListParallelSha1Ctx extends $tea.Model {
+  /**
+   * @remarks
+   * The first to fifth 32-bit variables of the SHA-1 hash value of the file content before the file part. This parameter takes effect only if the parallel upload feature is enabled.
+   */
   h?: number[];
+  /**
+   * @remarks
+   * The size of the file content before the file part. Unit: bytes. The value must be a multiple of 64. This parameter takes effect only if the parallel upload feature is enabled.
+   * 
+   * @example
+   * 10240
+   */
   partOffset?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12544,8 +18546,26 @@ export class CreateFileRequestPartInfoListParallelSha1Ctx extends $tea.Model {
 }
 
 export class CreateFileRequestPartInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The MD5 hash value of the file part. This parameter is required when the MD5 hash value of the file part needs to be verified during part upload.
+   * 
+   * @example
+   * ASKJDJSKDJJSJDJS
+   */
   contentMd5?: string;
+  /**
+   * @remarks
+   * The SHA-1 hash value of the file content before the file part. This parameter takes effect only if the parallel upload feature is enabled.
+   */
   parallelSha1Ctx?: CreateFileRequestPartInfoListParallelSha1Ctx;
+  /**
+   * @remarks
+   * The serial number of a file part. The number starts from 1.
+   * 
+   * @example
+   * 1
+   */
   partNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12569,6 +18589,13 @@ export class CreateFileRequestPartInfoList extends $tea.Model {
 }
 
 export class CreateUserRequestGroupInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The group ID.
+   * 
+   * @example
+   * g123
+   */
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12588,7 +18615,23 @@ export class CreateUserRequestGroupInfoList extends $tea.Model {
 }
 
 export class FilePutUserTagsRequestUserTags extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the tag. The tag name cannot be empty and cannot contain number signs (#).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * tag
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the tag. The tag value cannot contain number signs (#).
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12610,7 +18653,48 @@ export class FilePutUserTagsRequestUserTags extends $tea.Model {
 }
 
 export class FileRemovePermissionRequestMemberList extends $tea.Model {
+  /**
+   * @remarks
+   * The identity to whom the permissions are granted, which is a user or a group.
+   * 
+   * This parameter is required.
+   */
   identity?: Identity;
+  /**
+   * @remarks
+   * The role ID. You can grant permissions by assigning roles to identities, or you can customize the permissions. To grant permissions by assigning roles to identities, specify role_id. role_id and action_list are mutually exclusive. If both parameters are specified, role_id has a higher priority.
+   * 
+   * Valid values:
+   * 
+   * SystemFileOwner: collaborator.
+   * 
+   * SystemFileDownloader: downloader.
+   * 
+   * SystemFileEditor: editor.
+   * 
+   * SystemFileEditorWithoutDelete: editor without permissions to delete the file.
+   * 
+   * SystemFileEditorWithoutShareLink: editor without permissions to share the file.
+   * 
+   * SystemFileMetaViewer: viewer of lists.
+   * 
+   * SystemFileUploader: uploader. SystemFileUploaderAndDownloader: uploader and downloader.
+   * 
+   * SystemFileDownloaderWithShareLink: downloader and sharer.
+   * 
+   * SystemFileUploaderAndDownloaderWithShareLink: uploader, downloader, and sharer.
+   * 
+   * SystemFileUploaderAndViewer: viewer and uploader.
+   * 
+   * SystemFileUploaderWithShareLink: uploader and sharer.
+   * 
+   * SystemFileViewer: viewer.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SystemFileDownloader
+   */
   roleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12632,7 +18716,18 @@ export class FileRemovePermissionRequestMemberList extends $tea.Model {
 }
 
 export class GetUploadUrlRequestPartInfoListParallelSha1Ctx extends $tea.Model {
+  /**
+   * @remarks
+   * The first to fifth 32-bit variables of the SHA-1 hash value of the file content before the file part. This parameter takes effect only if the parallel upload feature is enabled.
+   */
   h?: number[];
+  /**
+   * @remarks
+   * The size of the file part. Unit: bytes. The value must be a multiple of 64. This parameter takes effect only if the parallel upload feature is enabled.
+   * 
+   * @example
+   * 10240
+   */
   partOffset?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12678,8 +18773,19 @@ export class GetUploadUrlRequestPartInfoListParallelSha256Ctx extends $tea.Model
 export class GetUploadUrlRequestPartInfoList extends $tea.Model {
   contentMd5?: string;
   contentType?: string;
+  /**
+   * @remarks
+   * The SHA-1 hash value of the file content before the file part. This parameter takes effect only if the parallel upload feature is enabled.
+   */
   parallelSha1Ctx?: GetUploadUrlRequestPartInfoListParallelSha1Ctx;
   parallelSha256Ctx?: GetUploadUrlRequestPartInfoListParallelSha256Ctx;
+  /**
+   * @remarks
+   * The serial number of a part.
+   * 
+   * @example
+   * 1
+   */
   partNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12707,7 +18813,21 @@ export class GetUploadUrlRequestPartInfoList extends $tea.Model {
 }
 
 export class InvestigateFileRequestDriveFileIds extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   driveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9520943DC264
+   */
   fileId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12754,12 +18874,58 @@ export class InvestigateFileRequestPolicy extends $tea.Model {
 }
 
 export class ListAssignmentResponseBodyAssignmentList extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the role was assigned. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
+   * @example
+   * 1622682267564
+   */
   createdAt?: number;
+  /**
+   * @remarks
+   * The ID of the user who assigned the role.
+   * 
+   * @example
+   * 216***c83
+   */
   creator?: string;
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * hz1
+   */
   domainId?: string;
+  /**
+   * @remarks
+   * The identity to whom the role is assigned, which is a user or a group.
+   */
   identity?: Identity;
+  /**
+   * @remarks
+   * The ID of the managed resource, such as a group ID.
+   * 
+   * @example
+   * 105***b82
+   */
   manageResourceId?: string;
+  /**
+   * @remarks
+   * The type of the managed resource. For example, a value of RT_Group indicates group.
+   * 
+   * @example
+   * RT_Group
+   */
   manageResourceType?: string;
+  /**
+   * @remarks
+   * The ID of the role assigned to the identity.
+   * 
+   * @example
+   * SystemGroupAdmin
+   */
   roleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12791,8 +18957,35 @@ export class ListAssignmentResponseBodyAssignmentList extends $tea.Model {
 }
 
 export class ListDeltaResponseBodyItems extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the file.
+   */
   file?: File;
+  /**
+   * @remarks
+   * The file ID.
+   * 
+   * @example
+   * 122fb09598ae66777c7040109a16f49381f6abe2
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The operation that is performed. Valid values: Valid values:
+   * 
+   * *   create
+   * *   overwrite
+   * *   delete
+   * *   update
+   * *   move
+   * *   trash
+   * *   restore
+   * *   rename
+   * 
+   * @example
+   * create
+   */
   op?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12816,7 +19009,18 @@ export class ListDeltaResponseBodyItems extends $tea.Model {
 }
 
 export class RemoveStoryFilesRequestFiles extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 63e5e4340f76cb3ead5f40f68163f0f967c1a7bf
+   */
   fileId?: string;
+  /**
+   * @example
+   * 642a88dd06e49d9c0a14411ebae606f70edd9a59
+   */
   revisionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12857,7 +19061,15 @@ export class SearchSimilarImageClustersResponseBodySimilarImageClusters extends 
 }
 
 export class SearchStoriesRequestCreateTimeRange extends $tea.Model {
+  /**
+   * @example
+   * 2022-12-31T00:00:00+08:00
+   */
   end?: string;
+  /**
+   * @example
+   * 2016-12-31T00:00:00+08:00
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12879,7 +19091,15 @@ export class SearchStoriesRequestCreateTimeRange extends $tea.Model {
 }
 
 export class SearchStoriesRequestStoryEndTimeRange extends $tea.Model {
+  /**
+   * @example
+   * 2022-12-31T00:00:00+08:00
+   */
   end?: string;
+  /**
+   * @example
+   * 2016-12-31T00:00:00+08:00
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12901,7 +19121,15 @@ export class SearchStoriesRequestStoryEndTimeRange extends $tea.Model {
 }
 
 export class SearchStoriesRequestStoryStartTimeRange extends $tea.Model {
+  /**
+   * @example
+   * 2022-12-31T00:00:00+08:00
+   */
   end?: string;
+  /**
+   * @example
+   * 2016-12-31T00:00:00+08:00
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12923,7 +19151,15 @@ export class SearchStoriesRequestStoryStartTimeRange extends $tea.Model {
 }
 
 export class UpdateStoryRequestCover extends $tea.Model {
+  /**
+   * @example
+   * 63e5e4340f76cb3ead5f40f68163f0f967c1a7bf
+   */
   fileId?: string;
+  /**
+   * @example
+   * 642a88dd06e49d9c0a14411ebae606f70edd9a59
+   */
   revisionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12945,6 +19181,13 @@ export class UpdateStoryRequestCover extends $tea.Model {
 }
 
 export class UpdateUserRequestGroupInfoList extends $tea.Model {
+  /**
+   * @remarks
+   * The group ID.
+   * 
+   * @example
+   * g123
+   */
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12977,12 +19220,12 @@ export default class Client extends OpenApi {
 
 
   /**
-   * @summary Adds a member to a group.
-   *
-   * @param request AddGroupMemberRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddGroupMemberResponse
+   * Adds a member to a group.
+   * 
+   * @param request - AddGroupMemberRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddGroupMemberResponse
    */
   async addGroupMemberWithOptions(request: AddGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddGroupMemberResponse> {
     Util.validateModel(request);
@@ -13018,10 +19261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds a member to a group.
-   *
-   * @param request AddGroupMemberRequest
-   * @return AddGroupMemberResponse
+   * Adds a member to a group.
+   * 
+   * @param request - AddGroupMemberRequest
+   * @returns AddGroupMemberResponse
    */
   async addGroupMember(request: AddGroupMemberRequest): Promise<AddGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13030,12 +19273,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 故事添加文件
-   *
-   * @param request AddStoryFilesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddStoryFilesResponse
+   * 故事添加文件
+   * 
+   * @param request - AddStoryFilesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddStoryFilesResponse
    */
   async addStoryFilesWithOptions(request: AddStoryFilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddStoryFilesResponse> {
     Util.validateModel(request);
@@ -13071,10 +19314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 故事添加文件
-   *
-   * @param request AddStoryFilesRequest
-   * @return AddStoryFilesResponse
+   * 故事添加文件
+   * 
+   * @param request - AddStoryFilesRequest
+   * @returns AddStoryFilesResponse
    */
   async addStoryFiles(request: AddStoryFilesRequest): Promise<AddStoryFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13083,14 +19326,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Assigns a group administrator role to a user.
-   *
-   * @description You can call this operation to assign a group administrator role to a user.
-   *
-   * @param request AssignRoleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AssignRoleResponse
+   * Assigns a group administrator role to a user.
+   * 
+   * @remarks
+   * You can call this operation to assign a group administrator role to a user.
+   * 
+   * @param request - AssignRoleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssignRoleResponse
    */
   async assignRoleWithOptions(request: AssignRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AssignRoleResponse> {
     Util.validateModel(request);
@@ -13130,12 +19374,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Assigns a group administrator role to a user.
-   *
-   * @description You can call this operation to assign a group administrator role to a user.
-   *
-   * @param request AssignRoleRequest
-   * @return AssignRoleResponse
+   * Assigns a group administrator role to a user.
+   * 
+   * @remarks
+   * You can call this operation to assign a group administrator role to a user.
+   * 
+   * @param request - AssignRoleRequest
+   * @returns AssignRoleResponse
    */
   async assignRole(request: AssignRoleRequest): Promise<AssignRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13144,14 +19389,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Requests permissions by using OAuth 2.0.
-   *
-   * @description For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
-   *
-   * @param tmpReq AuthorizeRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AuthorizeResponse
+   * Requests permissions by using OAuth 2.0.
+   * 
+   * @remarks
+   * For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
+   * 
+   * @param tmpReq - AuthorizeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeResponse
    */
   async authorizeWithOptions(tmpReq: AuthorizeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AuthorizeResponse> {
     Util.validateModel(tmpReq);
@@ -13209,12 +19455,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Requests permissions by using OAuth 2.0.
-   *
-   * @description For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
-   *
-   * @param request AuthorizeRequest
-   * @return AuthorizeResponse
+   * Requests permissions by using OAuth 2.0.
+   * 
+   * @remarks
+   * For more information, see "OAuth 2.0 For Web Server Applications" at [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/en/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications) in User Guide.
+   * 
+   * @param request - AuthorizeRequest
+   * @returns AuthorizeResponse
    */
   async authorize(request: AuthorizeRequest): Promise<AuthorizeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13223,12 +19470,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Calls multiple operations at a time to improve call efficiency.
-   *
-   * @param request BatchRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchResponse
+   * Calls multiple operations at a time to improve call efficiency.
+   * 
+   * @param request - BatchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchResponse
    */
   async batchWithOptions(request: BatchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchResponse> {
     Util.validateModel(request);
@@ -13260,10 +19507,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Calls multiple operations at a time to improve call efficiency.
-   *
-   * @param request BatchRequest
-   * @return BatchResponse
+   * Calls multiple operations at a time to improve call efficiency.
+   * 
+   * @param request - BatchRequest
+   * @returns BatchResponse
    */
   async batch(request: BatchRequest): Promise<BatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13272,14 +19519,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Cancels a role.
-   *
-   * @description You can cancel only the group administrator role.
-   *
-   * @param request CancelAssignRoleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelAssignRoleResponse
+   * Cancels a role.
+   * 
+   * @remarks
+   * You can cancel only the group administrator role.
+   * 
+   * @param request - CancelAssignRoleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAssignRoleResponse
    */
   async cancelAssignRoleWithOptions(request: CancelAssignRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelAssignRoleResponse> {
     Util.validateModel(request);
@@ -13319,12 +19567,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Cancels a role.
-   *
-   * @description You can cancel only the group administrator role.
-   *
-   * @param request CancelAssignRoleRequest
-   * @return CancelAssignRoleResponse
+   * Cancels a role.
+   * 
+   * @remarks
+   * You can cancel only the group administrator role.
+   * 
+   * @param request - CancelAssignRoleRequest
+   * @returns CancelAssignRoleResponse
    */
   async cancelAssignRole(request: CancelAssignRoleRequest): Promise<CancelAssignRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13333,12 +19582,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a share link.
-   *
-   * @param request CancelShareLinkRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CancelShareLinkResponse
+   * Deletes a share link.
+   * 
+   * @param request - CancelShareLinkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelShareLinkResponse
    */
   async cancelShareLinkWithOptions(request: CancelShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelShareLinkResponse> {
     Util.validateModel(request);
@@ -13366,10 +19615,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a share link.
-   *
-   * @param request CancelShareLinkRequest
-   * @return CancelShareLinkResponse
+   * Deletes a share link.
+   * 
+   * @param request - CancelShareLinkRequest
+   * @returns CancelShareLinkResponse
    */
   async cancelShareLink(request: CancelShareLinkRequest): Promise<CancelShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13378,12 +19627,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Empties the recycle bin.
-   *
-   * @param request ClearRecyclebinRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ClearRecyclebinResponse
+   * Empties the recycle bin.
+   * 
+   * @param request - ClearRecyclebinRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClearRecyclebinResponse
    */
   async clearRecyclebinWithOptions(request: ClearRecyclebinRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ClearRecyclebinResponse> {
     Util.validateModel(request);
@@ -13411,10 +19660,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Empties the recycle bin.
-   *
-   * @param request ClearRecyclebinRequest
-   * @return ClearRecyclebinResponse
+   * Empties the recycle bin.
+   * 
+   * @param request - ClearRecyclebinRequest
+   * @returns ClearRecyclebinResponse
    */
   async clearRecyclebin(request: ClearRecyclebinRequest): Promise<ClearRecyclebinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13423,12 +19672,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Completes the upload of a file.
-   *
-   * @param request CompleteFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CompleteFileResponse
+   * Completes the upload of a file.
+   * 
+   * @param request - CompleteFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CompleteFileResponse
    */
   async completeFileWithOptions(request: CompleteFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CompleteFileResponse> {
     Util.validateModel(request);
@@ -13464,10 +19713,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Completes the upload of a file.
-   *
-   * @param request CompleteFileRequest
-   * @return CompleteFileResponse
+   * Completes the upload of a file.
+   * 
+   * @param request - CompleteFileRequest
+   * @returns CompleteFileResponse
    */
   async completeFile(request: CompleteFileRequest): Promise<CompleteFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13476,12 +19725,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Copies a file or folder.
-   *
-   * @param request CopyFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CopyFileResponse
+   * Copies a file or folder.
+   * 
+   * @param request - CopyFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CopyFileResponse
    */
   async copyFileWithOptions(request: CopyFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CopyFileResponse> {
     Util.validateModel(request);
@@ -13529,10 +19778,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Copies a file or folder.
-   *
-   * @param request CopyFileRequest
-   * @return CopyFileResponse
+   * Copies a file or folder.
+   * 
+   * @param request - CopyFileRequest
+   * @returns CopyFileResponse
    */
   async copyFile(request: CopyFileRequest): Promise<CopyFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13541,12 +19790,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义故事
-   *
-   * @param request CreateCustomizedStoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateCustomizedStoryResponse
+   * 创建自定义故事
+   * 
+   * @param request - CreateCustomizedStoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomizedStoryResponse
    */
   async createCustomizedStoryWithOptions(request: CreateCustomizedStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCustomizedStoryResponse> {
     Util.validateModel(request);
@@ -13598,10 +19847,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建自定义故事
-   *
-   * @param request CreateCustomizedStoryRequest
-   * @return CreateCustomizedStoryResponse
+   * 创建自定义故事
+   * 
+   * @param request - CreateCustomizedStoryRequest
+   * @returns CreateCustomizedStoryResponse
    */
   async createCustomizedStory(request: CreateCustomizedStoryRequest): Promise<CreateCustomizedStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13610,14 +19859,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Create domain.
-   *
-   * @description If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
-   *
-   * @param request CreateDomainRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDomainResponse
+   * Create domain.
+   * 
+   * @remarks
+   * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+   * 
+   * @param request - CreateDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDomainResponse
    */
   async createDomainWithOptions(request: CreateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
@@ -13669,12 +19919,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Create domain.
-   *
-   * @description If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
-   *
-   * @param request CreateDomainRequest
-   * @return CreateDomainResponse
+   * Create domain.
+   * 
+   * @remarks
+   * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+   * 
+   * @param request - CreateDomainRequest
+   * @returns CreateDomainResponse
    */
   async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13683,12 +19934,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a drive.
-   *
-   * @param request CreateDriveRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDriveResponse
+   * Creates a drive.
+   * 
+   * @param request - CreateDriveRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDriveResponse
    */
   async createDriveWithOptions(request: CreateDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDriveResponse> {
     Util.validateModel(request);
@@ -13744,10 +19995,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a drive.
-   *
-   * @param request CreateDriveRequest
-   * @return CreateDriveResponse
+   * Creates a drive.
+   * 
+   * @param request - CreateDriveRequest
+   * @returns CreateDriveResponse
    */
   async createDrive(request: CreateDriveRequest): Promise<CreateDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13756,12 +20007,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a file or folder.
-   *
-   * @param request CreateFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateFileResponse
+   * Creates a file or folder.
+   * 
+   * @param request - CreateFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFileResponse
    */
   async createFileWithOptions(request: CreateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
     Util.validateModel(request);
@@ -13869,10 +20120,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a file or folder.
-   *
-   * @param request CreateFileRequest
-   * @return CreateFileResponse
+   * Creates a file or folder.
+   * 
+   * @param request - CreateFileRequest
+   * @returns CreateFileResponse
    */
   async createFile(request: CreateFileRequest): Promise<CreateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13881,12 +20132,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a group.
-   *
-   * @param request CreateGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateGroupResponse
+   * Creates a group.
+   * 
+   * @param request - CreateGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGroupResponse
    */
   async createGroupWithOptions(request: CreateGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
     Util.validateModel(request);
@@ -13926,10 +20177,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a group.
-   *
-   * @param request CreateGroupRequest
-   * @return CreateGroupResponse
+   * Creates a group.
+   * 
+   * @param request - CreateGroupRequest
+   * @returns CreateGroupResponse
    */
   async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -13938,14 +20189,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
-   *
-   * @description If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
-   *
-   * @param request CreateIdentityToBenefitPkgMappingRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateIdentityToBenefitPkgMappingResponse
+   * Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+   * 
+   * @remarks
+   * If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
+   * 
+   * @param request - CreateIdentityToBenefitPkgMappingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIdentityToBenefitPkgMappingResponse
    */
   async createIdentityToBenefitPkgMappingWithOptions(request: CreateIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIdentityToBenefitPkgMappingResponse> {
     Util.validateModel(request);
@@ -13989,12 +20241,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
-   *
-   * @description If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
-   *
-   * @param request CreateIdentityToBenefitPkgMappingRequest
-   * @return CreateIdentityToBenefitPkgMappingResponse
+   * Creates a mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+   * 
+   * @remarks
+   * If you need to manage a large number of users based on Drive and Photo Service, you can control the features and quotas that users can use based on the benefits to which they are entitled. For more information, join the DingTalk group (ID 23146118).
+   * 
+   * @param request - CreateIdentityToBenefitPkgMappingRequest
+   * @returns CreateIdentityToBenefitPkgMappingResponse
    */
   async createIdentityToBenefitPkgMapping(request: CreateIdentityToBenefitPkgMappingRequest): Promise<CreateIdentityToBenefitPkgMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14003,12 +20256,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建凌霄订单
-   *
-   * @param request CreateOrderRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateOrderResponse
+   * 创建凌霄订单
+   * 
+   * @param request - CreateOrderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOrderResponse
    */
   async createOrderWithOptions(request: CreateOrderRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
     Util.validateModel(request);
@@ -14072,10 +20325,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建凌霄订单
-   *
-   * @param request CreateOrderRequest
-   * @return CreateOrderResponse
+   * 创建凌霄订单
+   * 
+   * @param request - CreateOrderRequest
+   * @returns CreateOrderResponse
    */
   async createOrder(request: CreateOrderRequest): Promise<CreateOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14084,14 +20337,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a share URL.
-   *
-   * @description A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
-   *
-   * @param request CreateShareLinkRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateShareLinkResponse
+   * Creates a share URL.
+   * 
+   * @remarks
+   * A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
+   * 
+   * @param request - CreateShareLinkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateShareLinkResponse
    */
   async createShareLinkWithOptions(request: CreateShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateShareLinkResponse> {
     Util.validateModel(request);
@@ -14179,12 +20433,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a share URL.
-   *
-   * @description A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
-   *
-   * @param request CreateShareLinkRequest
-   * @return CreateShareLinkResponse
+   * Creates a share URL.
+   * 
+   * @remarks
+   * A share is a file view container. You can grant anonymous users the permissions to access files in the user drive by using the share URL. Anonymous users can access the files based on the granted permissions.
+   * 
+   * @param request - CreateShareLinkRequest
+   * @returns CreateShareLinkResponse
    */
   async createShareLink(request: CreateShareLinkRequest): Promise<CreateShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14193,12 +20448,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建相似图片聚类任务
-   *
-   * @param request CreateSimilarImageClusterTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateSimilarImageClusterTaskResponse
+   * 创建相似图片聚类任务
+   * 
+   * @param request - CreateSimilarImageClusterTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSimilarImageClusterTaskResponse
    */
   async createSimilarImageClusterTaskWithOptions(request: CreateSimilarImageClusterTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateSimilarImageClusterTaskResponse> {
     Util.validateModel(request);
@@ -14226,10 +20481,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建相似图片聚类任务
-   *
-   * @param request CreateSimilarImageClusterTaskRequest
-   * @return CreateSimilarImageClusterTaskResponse
+   * 创建相似图片聚类任务
+   * 
+   * @param request - CreateSimilarImageClusterTaskRequest
+   * @returns CreateSimilarImageClusterTaskResponse
    */
   async createSimilarImageClusterTask(request: CreateSimilarImageClusterTaskRequest): Promise<CreateSimilarImageClusterTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14238,12 +20493,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建推荐故事
-   *
-   * @param request CreateStoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateStoryResponse
+   * 创建推荐故事
+   * 
+   * @param request - CreateStoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStoryResponse
    */
   async createStoryWithOptions(request: CreateStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateStoryResponse> {
     Util.validateModel(request);
@@ -14311,10 +20566,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 创建推荐故事
-   *
-   * @param request CreateStoryRequest
-   * @return CreateStoryResponse
+   * 创建推荐故事
+   * 
+   * @param request - CreateStoryRequest
+   * @returns CreateStoryResponse
    */
   async createStory(request: CreateStoryRequest): Promise<CreateStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14323,12 +20578,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a user.
-   *
-   * @param request CreateUserRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateUserResponse
+   * Creates a user.
+   * 
+   * @param request - CreateUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserResponse
    */
   async createUserWithOptions(request: CreateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
@@ -14396,10 +20651,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Creates a user.
-   *
-   * @param request CreateUserRequest
-   * @return CreateUserResponse
+   * Creates a user.
+   * 
+   * @param request - CreateUserRequest
+   * @returns CreateUserResponse
    */
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14408,12 +20663,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文件内容安全信息
-   *
-   * @param request CsiGetFileInfoRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CsiGetFileInfoResponse
+   * 获取文件内容安全信息
+   * 
+   * @param request - CsiGetFileInfoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CsiGetFileInfoResponse
    */
   async csiGetFileInfoWithOptions(request: CsiGetFileInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CsiGetFileInfoResponse> {
     Util.validateModel(request);
@@ -14449,10 +20704,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取文件内容安全信息
-   *
-   * @param request CsiGetFileInfoRequest
-   * @return CsiGetFileInfoResponse
+   * 获取文件内容安全信息
+   * 
+   * @param request - CsiGetFileInfoRequest
+   * @returns CsiGetFileInfoResponse
    */
   async csiGetFileInfo(request: CsiGetFileInfoRequest): Promise<CsiGetFileInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14461,12 +20716,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete the domain
-   *
-   * @param request DeleteDomainRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDomainResponse
+   * Delete the domain
+   * 
+   * @param request - DeleteDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDomainResponse
    */
   async deleteDomainWithOptions(request: DeleteDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
@@ -14494,10 +20749,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Delete the domain
-   *
-   * @param request DeleteDomainRequest
-   * @return DeleteDomainResponse
+   * Delete the domain
+   * 
+   * @param request - DeleteDomainRequest
+   * @returns DeleteDomainResponse
    */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14506,12 +20761,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a drive.
-   *
-   * @param request DeleteDriveRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDriveResponse
+   * Deletes a drive.
+   * 
+   * @param request - DeleteDriveRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDriveResponse
    */
   async deleteDriveWithOptions(request: DeleteDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDriveResponse> {
     Util.validateModel(request);
@@ -14539,10 +20794,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a drive.
-   *
-   * @param request DeleteDriveRequest
-   * @return DeleteDriveResponse
+   * Deletes a drive.
+   * 
+   * @param request - DeleteDriveRequest
+   * @returns DeleteDriveResponse
    */
   async deleteDrive(request: DeleteDriveRequest): Promise<DeleteDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14551,12 +20806,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a file or folder.
-   *
-   * @param request DeleteFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteFileResponse
+   * Deletes a file or folder.
+   * 
+   * @param request - DeleteFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFileResponse
    */
   async deleteFileWithOptions(request: DeleteFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
     Util.validateModel(request);
@@ -14588,10 +20843,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a file or folder.
-   *
-   * @param request DeleteFileRequest
-   * @return DeleteFileResponse
+   * Deletes a file or folder.
+   * 
+   * @param request - DeleteFileRequest
+   * @returns DeleteFileResponse
    */
   async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14600,12 +20855,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
-   *
-   * @param request DeleteGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteGroupResponse
+   * Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
+   * 
+   * @param request - DeleteGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGroupResponse
    */
   async deleteGroupWithOptions(request: DeleteGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
@@ -14633,10 +20888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
-   *
-   * @param request DeleteGroupRequest
-   * @return DeleteGroupResponse
+   * Deletes groups. Before you delete a group, make sure that no other groups or users exist in the group. Otherwise, the group fails to be deleted.
+   * 
+   * @param request - DeleteGroupRequest
+   * @returns DeleteGroupResponse
    */
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14645,12 +20900,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a historical version of a file. You cannot delete the latest version of a file.
-   *
-   * @param request DeleteRevisionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteRevisionResponse
+   * Deletes a historical version of a file. You cannot delete the latest version of a file.
+   * 
+   * @param request - DeleteRevisionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRevisionResponse
    */
   async deleteRevisionWithOptions(request: DeleteRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRevisionResponse> {
     Util.validateModel(request);
@@ -14686,10 +20941,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a historical version of a file. You cannot delete the latest version of a file.
-   *
-   * @param request DeleteRevisionRequest
-   * @return DeleteRevisionResponse
+   * Deletes a historical version of a file. You cannot delete the latest version of a file.
+   * 
+   * @param request - DeleteRevisionRequest
+   * @returns DeleteRevisionResponse
    */
   async deleteRevision(request: DeleteRevisionRequest): Promise<DeleteRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14698,12 +20953,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除故事
-   *
-   * @param request DeleteStoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteStoryResponse
+   * 删除故事
+   * 
+   * @param request - DeleteStoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStoryResponse
    */
   async deleteStoryWithOptions(request: DeleteStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteStoryResponse> {
     Util.validateModel(request);
@@ -14735,10 +20990,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 删除故事
-   *
-   * @param request DeleteStoryRequest
-   * @return DeleteStoryResponse
+   * 删除故事
+   * 
+   * @param request - DeleteStoryRequest
+   * @returns DeleteStoryResponse
    */
   async deleteStory(request: DeleteStoryRequest): Promise<DeleteStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14747,12 +21002,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a user.
-   *
-   * @param request DeleteUserRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteUserResponse
+   * Deletes a user.
+   * 
+   * @param request - DeleteUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUserResponse
    */
   async deleteUserWithOptions(request: DeleteUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
@@ -14780,10 +21035,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Deletes a user.
-   *
-   * @param request DeleteUserRequest
-   * @return DeleteUserResponse
+   * Deletes a user.
+   * 
+   * @param request - DeleteUserRequest
+   * @returns DeleteUserResponse
    */
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14792,12 +21047,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the cursor of incremental information.
-   *
-   * @param request DeltaGetLastCursorRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeltaGetLastCursorResponse
+   * Queries the cursor of incremental information.
+   * 
+   * @param request - DeltaGetLastCursorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeltaGetLastCursorResponse
    */
   async deltaGetLastCursorWithOptions(request: DeltaGetLastCursorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeltaGetLastCursorResponse> {
     Util.validateModel(request);
@@ -14829,10 +21084,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the cursor of incremental information.
-   *
-   * @param request DeltaGetLastCursorRequest
-   * @return DeltaGetLastCursorResponse
+   * Queries the cursor of incremental information.
+   * 
+   * @param request - DeltaGetLastCursorRequest
+   * @returns DeltaGetLastCursorResponse
    */
   async deltaGetLastCursor(request: DeltaGetLastCursorRequest): Promise<DeltaGetLastCursorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14841,14 +21096,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Downloads a file.
-   *
-   * @description For information about best practices for downloading a file.
-   *
-   * @param request DownloadFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DownloadFileResponse
+   * Downloads a file.
+   * 
+   * @remarks
+   * For information about best practices for downloading a file.
+   * 
+   * @param request - DownloadFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadFileResponse
    */
   async downloadFileWithOptions(request: DownloadFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DownloadFileResponse> {
     Util.validateModel(request);
@@ -14896,12 +21152,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Downloads a file.
-   *
-   * @description For information about best practices for downloading a file.
-   *
-   * @param request DownloadFileRequest
-   * @return DownloadFileResponse
+   * Downloads a file.
+   * 
+   * @remarks
+   * For information about best practices for downloading a file.
+   * 
+   * @param request - DownloadFileRequest
+   * @returns DownloadFileResponse
    */
   async downloadFile(request: DownloadFileRequest): Promise<DownloadFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14910,12 +21167,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Grants permissions to access files to a user or group.
-   *
-   * @param request FileAddPermissionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FileAddPermissionResponse
+   * Grants permissions to access files to a user or group.
+   * 
+   * @param request - FileAddPermissionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FileAddPermissionResponse
    */
   async fileAddPermissionWithOptions(request: FileAddPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileAddPermissionResponse> {
     Util.validateModel(request);
@@ -14951,10 +21208,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Grants permissions to access files to a user or group.
-   *
-   * @param request FileAddPermissionRequest
-   * @return FileAddPermissionResponse
+   * Grants permissions to access files to a user or group.
+   * 
+   * @param request - FileAddPermissionRequest
+   * @returns FileAddPermissionResponse
    */
   async fileAddPermission(request: FileAddPermissionRequest): Promise<FileAddPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -14963,12 +21220,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes custom tags from a file.
-   *
-   * @param request FileDeleteUserTagsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FileDeleteUserTagsResponse
+   * Removes custom tags from a file.
+   * 
+   * @param request - FileDeleteUserTagsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FileDeleteUserTagsResponse
    */
   async fileDeleteUserTagsWithOptions(request: FileDeleteUserTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileDeleteUserTagsResponse> {
     Util.validateModel(request);
@@ -15004,10 +21261,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes custom tags from a file.
-   *
-   * @param request FileDeleteUserTagsRequest
-   * @return FileDeleteUserTagsResponse
+   * Removes custom tags from a file.
+   * 
+   * @param request - FileDeleteUserTagsRequest
+   * @returns FileDeleteUserTagsResponse
    */
   async fileDeleteUserTags(request: FileDeleteUserTagsRequest): Promise<FileDeleteUserTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15016,12 +21273,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the sharing authorization records of a file.
-   *
-   * @param request FileListPermissionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FileListPermissionResponse
+   * Queries the sharing authorization records of a file.
+   * 
+   * @param request - FileListPermissionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FileListPermissionResponse
    */
   async fileListPermissionWithOptions(request: FileListPermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileListPermissionResponse> {
     Util.validateModel(request);
@@ -15053,10 +21310,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the sharing authorization records of a file.
-   *
-   * @param request FileListPermissionRequest
-   * @return FileListPermissionResponse
+   * Queries the sharing authorization records of a file.
+   * 
+   * @param request - FileListPermissionRequest
+   * @returns FileListPermissionResponse
    */
   async fileListPermission(request: FileListPermissionRequest): Promise<FileListPermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15065,17 +21322,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds custom tags to a file.
-   *
-   * @description This operation is an incremental update operation. Take note of the following items:
+   * Adds custom tags to a file.
+   * 
+   * @remarks
+   * This operation is an incremental update operation. Take note of the following items:
    * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
    * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
    * *   The existing tags with unique names are not affected.
-   *
-   * @param request FilePutUserTagsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FilePutUserTagsResponse
+   * 
+   * @param request - FilePutUserTagsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FilePutUserTagsResponse
    */
   async filePutUserTagsWithOptions(request: FilePutUserTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FilePutUserTagsResponse> {
     Util.validateModel(request);
@@ -15111,15 +21369,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Adds custom tags to a file.
-   *
-   * @description This operation is an incremental update operation. Take note of the following items:
+   * Adds custom tags to a file.
+   * 
+   * @remarks
+   * This operation is an incremental update operation. Take note of the following items:
    * *   If a tag name specified in the request is the same as an existing tag name, the existing tag is overwritten.
    * *   If a tag name specified in the request is different from the existing tag names, the specified tag is added.
    * *   The existing tags with unique names are not affected.
-   *
-   * @param request FilePutUserTagsRequest
-   * @return FilePutUserTagsResponse
+   * 
+   * @param request - FilePutUserTagsRequest
+   * @returns FilePutUserTagsResponse
    */
   async filePutUserTags(request: FilePutUserTagsRequest): Promise<FilePutUserTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15128,12 +21387,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Cancels the permissions on a shared file.
-   *
-   * @param request FileRemovePermissionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return FileRemovePermissionResponse
+   * Cancels the permissions on a shared file.
+   * 
+   * @param request - FileRemovePermissionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FileRemovePermissionResponse
    */
   async fileRemovePermissionWithOptions(request: FileRemovePermissionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FileRemovePermissionResponse> {
     Util.validateModel(request);
@@ -15169,10 +21428,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Cancels the permissions on a shared file.
-   *
-   * @param request FileRemovePermissionRequest
-   * @return FileRemovePermissionResponse
+   * Cancels the permissions on a shared file.
+   * 
+   * @param request - FileRemovePermissionRequest
+   * @returns FileRemovePermissionResponse
    */
   async fileRemovePermission(request: FileRemovePermissionRequest): Promise<FileRemovePermissionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15181,12 +21440,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an asynchronous task.
-   *
-   * @param request GetAsyncTaskRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAsyncTaskResponse
+   * Queries the information about an asynchronous task.
+   * 
+   * @param request - GetAsyncTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAsyncTaskResponse
    */
   async getAsyncTaskWithOptions(request: GetAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncTaskResponse> {
     Util.validateModel(request);
@@ -15214,10 +21473,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about an asynchronous task.
-   *
-   * @param request GetAsyncTaskRequest
-   * @return GetAsyncTaskResponse
+   * Queries the information about an asynchronous task.
+   * 
+   * @param request - GetAsyncTaskRequest
+   * @returns GetAsyncTaskResponse
    */
   async getAsyncTask(request: GetAsyncTaskRequest): Promise<GetAsyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15226,12 +21485,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the default drive of a user.
-   *
-   * @param request GetDefaultDriveRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDefaultDriveResponse
+   * Queries the default drive of a user.
+   * 
+   * @param request - GetDefaultDriveRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDefaultDriveResponse
    */
   async getDefaultDriveWithOptions(request: GetDefaultDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDefaultDriveResponse> {
     Util.validateModel(request);
@@ -15259,10 +21518,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the default drive of a user.
-   *
-   * @param request GetDefaultDriveRequest
-   * @return GetDefaultDriveResponse
+   * Queries the default drive of a user.
+   * 
+   * @param request - GetDefaultDriveRequest
+   * @returns GetDefaultDriveResponse
    */
   async getDefaultDrive(request: GetDefaultDriveRequest): Promise<GetDefaultDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15271,12 +21530,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Get domain information.
-   *
-   * @param request GetDomainRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDomainResponse
+   * Get domain information.
+   * 
+   * @param request - GetDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDomainResponse
    */
   async getDomainWithOptions(request: GetDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDomainResponse> {
     Util.validateModel(request);
@@ -15312,10 +21571,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Get domain information.
-   *
-   * @param request GetDomainRequest
-   * @return GetDomainResponse
+   * Get domain information.
+   * 
+   * @param request - GetDomainRequest
+   * @returns GetDomainResponse
    */
   async getDomain(request: GetDomainRequest): Promise<GetDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15324,11 +21583,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取domain限额
-   *
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDomainQuotaResponse
+   * 获取domain限额
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDomainQuotaResponse
    */
   async getDomainQuotaWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDomainQuotaResponse> {
     let req = new $OpenApi.OpenApiRequest({
@@ -15349,9 +21608,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取domain限额
-   *
-   * @return GetDomainQuotaResponse
+   * 获取domain限额
+   * @returns GetDomainQuotaResponse
    */
   async getDomainQuota(): Promise<GetDomainQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15360,12 +21618,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
-   *
-   * @param request GetDownloadUrlRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDownloadUrlResponse
+   * Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
+   * 
+   * @param request - GetDownloadUrlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDownloadUrlResponse
    */
   async getDownloadUrlWithOptions(request: GetDownloadUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDownloadUrlResponse> {
     Util.validateModel(request);
@@ -15413,10 +21671,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
-   *
-   * @param request GetDownloadUrlRequest
-   * @return GetDownloadUrlResponse
+   * Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
+   * 
+   * @param request - GetDownloadUrlRequest
+   * @returns GetDownloadUrlResponse
    */
   async getDownloadUrl(request: GetDownloadUrlRequest): Promise<GetDownloadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15425,12 +21683,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a drive.
-   *
-   * @param request GetDriveRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetDriveResponse
+   * Queries the information about a drive.
+   * 
+   * @param request - GetDriveRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDriveResponse
    */
   async getDriveWithOptions(request: GetDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDriveResponse> {
     Util.validateModel(request);
@@ -15458,10 +21716,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a drive.
-   *
-   * @param request GetDriveRequest
-   * @return GetDriveResponse
+   * Queries the information about a drive.
+   * 
+   * @param request - GetDriveRequest
+   * @returns GetDriveResponse
    */
   async getDrive(request: GetDriveRequest): Promise<GetDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15470,12 +21728,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a file.
-   *
-   * @param request GetFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetFileResponse
+   * Queries the information about a file.
+   * 
+   * @param request - GetFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileResponse
    */
   async getFileWithOptions(request: GetFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
     Util.validateModel(request);
@@ -15523,10 +21781,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a file.
-   *
-   * @param request GetFileRequest
-   * @return GetFileResponse
+   * Queries the information about a file.
+   * 
+   * @param request - GetFileRequest
+   * @returns GetFileResponse
    */
   async getFile(request: GetFileRequest): Promise<GetFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15535,12 +21793,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a group.
-   *
-   * @param request GetGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetGroupResponse
+   * Queries the information about a group.
+   * 
+   * @param request - GetGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGroupResponse
    */
   async getGroupWithOptions(request: GetGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
     Util.validateModel(request);
@@ -15568,10 +21826,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a group.
-   *
-   * @param request GetGroupRequest
-   * @return GetGroupResponse
+   * Queries the information about a group.
+   * 
+   * @param request - GetGroupRequest
+   * @returns GetGroupResponse
    */
   async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15580,12 +21838,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
-   *
-   * @param request GetIdentityToBenefitPkgMappingRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetIdentityToBenefitPkgMappingResponse
+   * Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
+   * 
+   * @param request - GetIdentityToBenefitPkgMappingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIdentityToBenefitPkgMappingResponse
    */
   async getIdentityToBenefitPkgMappingWithOptions(request: GetIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetIdentityToBenefitPkgMappingResponse> {
     Util.validateModel(request);
@@ -15621,10 +21879,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
-   *
-   * @param request GetIdentityToBenefitPkgMappingRequest
-   * @return GetIdentityToBenefitPkgMappingResponse
+   * Queries the mapping between an entity and a benefit package. You can call this operation to query the benefit package that is associated with a user.
+   * 
+   * @param request - GetIdentityToBenefitPkgMappingRequest
+   * @returns GetIdentityToBenefitPkgMappingResponse
    */
   async getIdentityToBenefitPkgMapping(request: GetIdentityToBenefitPkgMappingRequest): Promise<GetIdentityToBenefitPkgMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15633,12 +21891,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户认证方式详情
-   *
-   * @param request GetLinkInfoRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLinkInfoResponse
+   * 获取用户认证方式详情
+   * 
+   * @param request - GetLinkInfoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLinkInfoResponse
    */
   async getLinkInfoWithOptions(request: GetLinkInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLinkInfoResponse> {
     Util.validateModel(request);
@@ -15674,10 +21932,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取用户认证方式详情
-   *
-   * @param request GetLinkInfoRequest
-   * @return GetLinkInfoResponse
+   * 获取用户认证方式详情
+   * 
+   * @param request - GetLinkInfoRequest
+   * @returns GetLinkInfoResponse
    */
   async getLinkInfo(request: GetLinkInfoRequest): Promise<GetLinkInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15686,12 +21944,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a user based on the user ID.
-   *
-   * @param request GetLinkInfoByUserIdRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetLinkInfoByUserIdResponse
+   * Queries the information about a user based on the user ID.
+   * 
+   * @param request - GetLinkInfoByUserIdRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLinkInfoByUserIdResponse
    */
   async getLinkInfoByUserIdWithOptions(request: GetLinkInfoByUserIdRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLinkInfoByUserIdResponse> {
     Util.validateModel(request);
@@ -15719,10 +21977,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a user based on the user ID.
-   *
-   * @param request GetLinkInfoByUserIdRequest
-   * @return GetLinkInfoByUserIdResponse
+   * Queries the information about a user based on the user ID.
+   * 
+   * @param request - GetLinkInfoByUserIdRequest
+   * @returns GetLinkInfoByUserIdResponse
    */
   async getLinkInfoByUserId(request: GetLinkInfoByUserIdRequest): Promise<GetLinkInfoByUserIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15731,12 +21989,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a version.
-   *
-   * @param request GetRevisionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetRevisionResponse
+   * Queries the information about a version.
+   * 
+   * @param request - GetRevisionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRevisionResponse
    */
   async getRevisionWithOptions(request: GetRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRevisionResponse> {
     Util.validateModel(request);
@@ -15780,10 +22038,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a version.
-   *
-   * @param request GetRevisionRequest
-   * @return GetRevisionResponse
+   * Queries the information about a version.
+   * 
+   * @param request - GetRevisionRequest
+   * @returns GetRevisionResponse
    */
   async getRevision(request: GetRevisionRequest): Promise<GetRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15792,12 +22050,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the share URL of a file.
-   *
-   * @param request GetShareLinkRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetShareLinkResponse
+   * Queries the share URL of a file.
+   * 
+   * @param request - GetShareLinkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetShareLinkResponse
    */
   async getShareLinkWithOptions(request: GetShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShareLinkResponse> {
     Util.validateModel(request);
@@ -15825,10 +22083,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the share URL of a file.
-   *
-   * @param request GetShareLinkRequest
-   * @return GetShareLinkResponse
+   * Queries the share URL of a file.
+   * 
+   * @param request - GetShareLinkRequest
+   * @returns GetShareLinkResponse
    */
   async getShareLink(request: GetShareLinkRequest): Promise<GetShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15837,12 +22095,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a share link anonymously.
-   *
-   * @param request GetShareLinkByAnonymousRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetShareLinkByAnonymousResponse
+   * Queries the information about a share link anonymously.
+   * 
+   * @param request - GetShareLinkByAnonymousRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetShareLinkByAnonymousResponse
    */
   async getShareLinkByAnonymousWithOptions(request: GetShareLinkByAnonymousRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShareLinkByAnonymousResponse> {
     Util.validateModel(request);
@@ -15870,10 +22128,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a share link anonymously.
-   *
-   * @param request GetShareLinkByAnonymousRequest
-   * @return GetShareLinkByAnonymousResponse
+   * Queries the information about a share link anonymously.
+   * 
+   * @param request - GetShareLinkByAnonymousRequest
+   * @returns GetShareLinkByAnonymousResponse
    */
   async getShareLinkByAnonymous(request: GetShareLinkByAnonymousRequest): Promise<GetShareLinkByAnonymousResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15882,14 +22140,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a share token anonymously.
-   *
-   * @description To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
-   *
-   * @param request GetShareLinkTokenRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetShareLinkTokenResponse
+   * Queries a share token anonymously.
+   * 
+   * @remarks
+   * To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
+   * 
+   * @param request - GetShareLinkTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetShareLinkTokenResponse
    */
   async getShareLinkTokenWithOptions(request: GetShareLinkTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetShareLinkTokenResponse> {
     Util.validateModel(request);
@@ -15925,12 +22184,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a share token anonymously.
-   *
-   * @description To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
-   *
-   * @param request GetShareLinkTokenRequest
-   * @return GetShareLinkTokenResponse
+   * Queries a share token anonymously.
+   * 
+   * @remarks
+   * To access a file by using a share link, you must first obtain a share token, even if the value of share_pwd of this share is an empty string, which specifies that the share is not private.
+   * 
+   * @param request - GetShareLinkTokenRequest
+   * @returns GetShareLinkTokenResponse
    */
   async getShareLinkToken(request: GetShareLinkTokenRequest): Promise<GetShareLinkTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -15939,12 +22199,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取故事详情
-   *
-   * @param request GetStoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetStoryResponse
+   * 获取故事详情
+   * 
+   * @param request - GetStoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStoryResponse
    */
   async getStoryWithOptions(request: GetStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetStoryResponse> {
     Util.validateModel(request);
@@ -16000,10 +22260,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取故事详情
-   *
-   * @param request GetStoryRequest
-   * @return GetStoryResponse
+   * 获取故事详情
+   * 
+   * @param request - GetStoryRequest
+   * @returns GetStoryResponse
    */
   async getStory(request: GetStoryRequest): Promise<GetStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16012,16 +22272,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
-   *
-   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
+   * Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
    * To call this operation, make sure that the value-added image processing feature is enabled.
    * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
-   *
-   * @param request GetTaskStatusRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTaskStatusResponse
+   * 
+   * @param request - GetTaskStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskStatusResponse
    */
   async getTaskStatusWithOptions(request: GetTaskStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskStatusResponse> {
     Util.validateModel(request);
@@ -16053,14 +22314,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
-   *
-   * @description **Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
+   * Queries the execution status of a value-added asynchronous task. You can call this operation to query the execution status of an asynchronous task that is created by calling the CreateSimilarImageClusterTask operation.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/425220.html) of Drive and Photo Service**.
    * To call this operation, make sure that the value-added image processing feature is enabled.
    * Before you call this operation, a value-added asynchronous task must be created. For example, you can call the CreateSimilarImageClusterTask operation to create an asynchronous task. Then, you can call this operation to query the execution status of the asynchronous task based on the task ID.
-   *
-   * @param request GetTaskStatusRequest
-   * @return GetTaskStatusResponse
+   * 
+   * @param request - GetTaskStatusRequest
+   * @returns GetTaskStatusResponse
    */
   async getTaskStatus(request: GetTaskStatusRequest): Promise<GetTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16069,12 +22331,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the upload URL of a file.
-   *
-   * @param request GetUploadUrlRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUploadUrlResponse
+   * Queries the upload URL of a file.
+   * 
+   * @param request - GetUploadUrlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUploadUrlResponse
    */
   async getUploadUrlWithOptions(request: GetUploadUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUploadUrlResponse> {
     Util.validateModel(request);
@@ -16118,10 +22380,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the upload URL of a file.
-   *
-   * @param request GetUploadUrlRequest
-   * @return GetUploadUrlResponse
+   * Queries the upload URL of a file.
+   * 
+   * @param request - GetUploadUrlRequest
+   * @returns GetUploadUrlResponse
    */
   async getUploadUrl(request: GetUploadUrlRequest): Promise<GetUploadUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16130,12 +22392,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a user.
-   *
-   * @param request GetUserRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetUserResponse
+   * Queries the information about a user.
+   * 
+   * @param request - GetUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserResponse
    */
   async getUserWithOptions(request: GetUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
@@ -16163,10 +22425,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about a user.
-   *
-   * @param request GetUserRequest
-   * @return GetUserResponse
+   * Queries the information about a user.
+   * 
+   * @param request - GetUserRequest
+   * @returns GetUserResponse
    */
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16175,14 +22437,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about video playback.
-   *
-   * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
-   *
-   * @param request GetVideoPreviewPlayInfoRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetVideoPreviewPlayInfoResponse
+   * Queries the information about video playback.
+   * 
+   * @remarks
+   * For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+   * 
+   * @param request - GetVideoPreviewPlayInfoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoPreviewPlayInfoResponse
    */
   async getVideoPreviewPlayInfoWithOptions(request: GetVideoPreviewPlayInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVideoPreviewPlayInfoResponse> {
     Util.validateModel(request);
@@ -16238,12 +22501,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about video playback.
-   *
-   * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
-   *
-   * @param request GetVideoPreviewPlayInfoRequest
-   * @return GetVideoPreviewPlayInfoResponse
+   * Queries the information about video playback.
+   * 
+   * @remarks
+   * For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+   * 
+   * @param request - GetVideoPreviewPlayInfoRequest
+   * @returns GetVideoPreviewPlayInfoResponse
    */
   async getVideoPreviewPlayInfo(request: GetVideoPreviewPlayInfoRequest): Promise<GetVideoPreviewPlayInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16252,14 +22516,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the preview metadata of a video.
-   *
-   * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
-   *
-   * @param request GetVideoPreviewPlayMetaRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetVideoPreviewPlayMetaResponse
+   * Queries the preview metadata of a video.
+   * 
+   * @remarks
+   * For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+   * 
+   * @param request - GetVideoPreviewPlayMetaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoPreviewPlayMetaResponse
    */
   async getVideoPreviewPlayMetaWithOptions(request: GetVideoPreviewPlayMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVideoPreviewPlayMetaResponse> {
     Util.validateModel(request);
@@ -16299,12 +22564,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the preview metadata of a video.
-   *
-   * @description For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
-   *
-   * @param request GetVideoPreviewPlayMetaRequest
-   * @return GetVideoPreviewPlayMetaResponse
+   * Queries the preview metadata of a video.
+   * 
+   * @remarks
+   * For more information about best practices, see [Preview videos online](https://help.aliyun.com/document_detail/427477.html).
+   * 
+   * @param request - GetVideoPreviewPlayMetaRequest
+   * @returns GetVideoPreviewPlayMetaResponse
    */
   async getVideoPreviewPlayMeta(request: GetVideoPreviewPlayMetaRequest): Promise<GetVideoPreviewPlayMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16313,12 +22579,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新用户组名字
-   *
-   * @param request GroupUpdateNameRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GroupUpdateNameResponse
+   * 更新用户组名字
+   * 
+   * @param request - GroupUpdateNameRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GroupUpdateNameResponse
    */
   async groupUpdateNameWithOptions(request: GroupUpdateNameRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GroupUpdateNameResponse> {
     Util.validateModel(request);
@@ -16350,10 +22616,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新用户组名字
-   *
-   * @param request GroupUpdateNameRequest
-   * @return GroupUpdateNameResponse
+   * 更新用户组名字
+   * 
+   * @param request - GroupUpdateNameRequest
+   * @returns GroupUpdateNameResponse
    */
   async groupUpdateName(request: GroupUpdateNameRequest): Promise<GroupUpdateNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16362,12 +22628,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Imports a user.
-   *
-   * @param request ImportUserRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ImportUserResponse
+   * Imports a user.
+   * 
+   * @param request - ImportUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportUserResponse
    */
   async importUserWithOptions(request: ImportUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ImportUserResponse> {
     Util.validateModel(request);
@@ -16423,10 +22689,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Imports a user.
-   *
-   * @param request ImportUserRequest
-   * @return ImportUserResponse
+   * Imports a user.
+   * 
+   * @param request - ImportUserRequest
+   * @returns ImportUserResponse
    */
   async importUser(request: ImportUserRequest): Promise<ImportUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16435,12 +22701,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 送审文件
-   *
-   * @param request InvestigateFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return InvestigateFileResponse
+   * 送审文件
+   * 
+   * @param request - InvestigateFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvestigateFileResponse
    */
   async investigateFileWithOptions(request: InvestigateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<InvestigateFileResponse> {
     Util.validateModel(request);
@@ -16480,10 +22746,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 送审文件
-   *
-   * @param request InvestigateFileRequest
-   * @return InvestigateFileResponse
+   * 送审文件
+   * 
+   * @param request - InvestigateFileRequest
+   * @returns InvestigateFileResponse
    */
   async investigateFile(request: InvestigateFileRequest): Promise<InvestigateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16492,12 +22758,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Associates an account with a user.
-   *
-   * @param request LinkAccountRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return LinkAccountResponse
+   * Associates an account with a user.
+   * 
+   * @param request - LinkAccountRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LinkAccountResponse
    */
   async linkAccountWithOptions(request: LinkAccountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LinkAccountResponse> {
     Util.validateModel(request);
@@ -16537,10 +22803,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Associates an account with a user.
-   *
-   * @param request LinkAccountRequest
-   * @return LinkAccountResponse
+   * Associates an account with a user.
+   * 
+   * @param request - LinkAccountRequest
+   * @returns LinkAccountResponse
    */
   async linkAccount(request: LinkAccountRequest): Promise<LinkAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16549,12 +22815,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries location-based groups.
-   *
-   * @param request ListAddressGroupsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAddressGroupsResponse
+   * Queries location-based groups.
+   * 
+   * @param request - ListAddressGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAddressGroupsResponse
    */
   async listAddressGroupsWithOptions(request: ListAddressGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAddressGroupsResponse> {
     Util.validateModel(request);
@@ -16598,10 +22864,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries location-based groups.
-   *
-   * @param request ListAddressGroupsRequest
-   * @return ListAddressGroupsResponse
+   * Queries location-based groups.
+   * 
+   * @param request - ListAddressGroupsRequest
+   * @returns ListAddressGroupsResponse
    */
   async listAddressGroups(request: ListAddressGroupsRequest): Promise<ListAddressGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16610,12 +22876,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
-   *
-   * @param request ListAssignmentRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListAssignmentResponse
+   * Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
+   * 
+   * @param request - ListAssignmentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAssignmentResponse
    */
   async listAssignmentWithOptions(request: ListAssignmentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAssignmentResponse> {
     Util.validateModel(request);
@@ -16655,10 +22921,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
-   *
-   * @param request ListAssignmentRequest
-   * @return ListAssignmentResponse
+   * Queries a list of assigned roles. For example, you can query the administrators of a group by group ID.
+   * 
+   * @param request - ListAssignmentRequest
+   * @returns ListAssignmentResponse
    */
   async listAssignment(request: ListAssignmentRequest): Promise<ListAssignmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16667,12 +22933,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries incremental information.
-   *
-   * @param request ListDeltaRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDeltaResponse
+   * Queries incremental information.
+   * 
+   * @param request - ListDeltaRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDeltaResponse
    */
   async listDeltaWithOptions(request: ListDeltaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDeltaResponse> {
     Util.validateModel(request);
@@ -16712,10 +22978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries incremental information.
-   *
-   * @param request ListDeltaRequest
-   * @return ListDeltaResponse
+   * Queries incremental information.
+   * 
+   * @param request - ListDeltaRequest
+   * @returns ListDeltaResponse
    */
   async listDelta(request: ListDeltaRequest): Promise<ListDeltaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16724,12 +22990,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列举 domain
-   *
-   * @param request ListDomainsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDomainsResponse
+   * 列举 domain
+   * 
+   * @param request - ListDomainsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDomainsResponse
    */
   async listDomainsWithOptions(request: ListDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDomainsResponse> {
     Util.validateModel(request);
@@ -16769,10 +23035,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列举 domain
-   *
-   * @param request ListDomainsRequest
-   * @return ListDomainsResponse
+   * 列举 domain
+   * 
+   * @param request - ListDomainsRequest
+   * @returns ListDomainsResponse
    */
   async listDomains(request: ListDomainsRequest): Promise<ListDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16781,12 +23047,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of drives.
-   *
-   * @param request ListDriveRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListDriveResponse
+   * Queries a list of drives.
+   * 
+   * @param request - ListDriveRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDriveResponse
    */
   async listDriveWithOptions(request: ListDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListDriveResponse> {
     Util.validateModel(request);
@@ -16826,10 +23092,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of drives.
-   *
-   * @param request ListDriveRequest
-   * @return ListDriveResponse
+   * Queries a list of drives.
+   * 
+   * @param request - ListDriveRequest
+   * @returns ListDriveResponse
    */
   async listDrive(request: ListDriveRequest): Promise<ListDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16838,12 +23104,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries face-based groups.
-   *
-   * @param request ListFacegroupsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFacegroupsResponse
+   * Queries face-based groups.
+   * 
+   * @param request - ListFacegroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFacegroupsResponse
    */
   async listFacegroupsWithOptions(request: ListFacegroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFacegroupsResponse> {
     Util.validateModel(request);
@@ -16887,10 +23153,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries face-based groups.
-   *
-   * @param request ListFacegroupsRequest
-   * @return ListFacegroupsResponse
+   * Queries face-based groups.
+   * 
+   * @param request - ListFacegroupsRequest
+   * @returns ListFacegroupsResponse
    */
   async listFacegroups(request: ListFacegroupsRequest): Promise<ListFacegroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16899,12 +23165,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of files and folders.
-   *
-   * @param request ListFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListFileResponse
+   * Queries a list of files and folders.
+   * 
+   * @param request - ListFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFileResponse
    */
   async listFileWithOptions(request: ListFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFileResponse> {
     Util.validateModel(request);
@@ -16976,10 +23242,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of files and folders.
-   *
-   * @param request ListFileRequest
-   * @return ListFileResponse
+   * Queries a list of files and folders.
+   * 
+   * @param request - ListFileRequest
+   * @returns ListFileResponse
    */
   async listFile(request: ListFileRequest): Promise<ListFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -16988,12 +23254,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries groups.
-   *
-   * @param request ListGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGroupResponse
+   * Queries groups.
+   * 
+   * @param request - ListGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGroupResponse
    */
   async listGroupWithOptions(request: ListGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupResponse> {
     Util.validateModel(request);
@@ -17025,10 +23291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries groups.
-   *
-   * @param request ListGroupRequest
-   * @return ListGroupResponse
+   * Queries groups.
+   * 
+   * @param request - ListGroupRequest
+   * @returns ListGroupResponse
    */
   async listGroup(request: ListGroupRequest): Promise<ListGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17037,12 +23303,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the members of a group.
-   *
-   * @param request ListGroupMemberRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListGroupMemberResponse
+   * Queries the members of a group.
+   * 
+   * @param request - ListGroupMemberRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGroupMemberResponse
    */
   async listGroupMemberWithOptions(request: ListGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupMemberResponse> {
     Util.validateModel(request);
@@ -17082,10 +23348,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the members of a group.
-   *
-   * @param request ListGroupMemberRequest
-   * @return ListGroupMemberResponse
+   * Queries the members of a group.
+   * 
+   * @param request - ListGroupMemberRequest
+   * @returns ListGroupMemberResponse
    */
   async listGroupMember(request: ListGroupMemberRequest): Promise<ListGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17094,12 +23360,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列举用户或团队已分配的角色列表
-   *
-   * @param request ListIdentityRoleRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIdentityRoleResponse
+   * 列举用户或团队已分配的角色列表
+   * 
+   * @param request - ListIdentityRoleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIdentityRoleResponse
    */
   async listIdentityRoleWithOptions(request: ListIdentityRoleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIdentityRoleResponse> {
     Util.validateModel(request);
@@ -17127,10 +23393,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 列举用户或团队已分配的角色列表
-   *
-   * @param request ListIdentityRoleRequest
-   * @return ListIdentityRoleResponse
+   * 列举用户或团队已分配的角色列表
+   * 
+   * @param request - ListIdentityRoleRequest
+   * @returns ListIdentityRoleResponse
    */
   async listIdentityRole(request: ListIdentityRoleRequest): Promise<ListIdentityRoleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17139,12 +23405,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
-   *
-   * @param request ListIdentityToBenefitPkgMappingRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListIdentityToBenefitPkgMappingResponse
+   * Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
+   * 
+   * @param request - ListIdentityToBenefitPkgMappingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIdentityToBenefitPkgMappingResponse
    */
   async listIdentityToBenefitPkgMappingWithOptions(request: ListIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListIdentityToBenefitPkgMappingResponse> {
     Util.validateModel(request);
@@ -17180,10 +23446,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
-   *
-   * @param request ListIdentityToBenefitPkgMappingRequest
-   * @return ListIdentityToBenefitPkgMappingResponse
+   * Queries the mappings between entities and benefit packages. You can call this operation to query the benefit packages that are associated with a user.
+   * 
+   * @param request - ListIdentityToBenefitPkgMappingRequest
+   * @returns ListIdentityToBenefitPkgMappingResponse
    */
   async listIdentityToBenefitPkgMapping(request: ListIdentityToBenefitPkgMappingRequest): Promise<ListIdentityToBenefitPkgMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17192,12 +23458,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the drives of the current user.
-   *
-   * @param request ListMyDrivesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMyDrivesResponse
+   * Queries the drives of the current user.
+   * 
+   * @param request - ListMyDrivesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMyDrivesResponse
    */
   async listMyDrivesWithOptions(request: ListMyDrivesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMyDrivesResponse> {
     Util.validateModel(request);
@@ -17229,10 +23495,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the drives of the current user.
-   *
-   * @param request ListMyDrivesRequest
-   * @return ListMyDrivesResponse
+   * Queries the drives of the current user.
+   * 
+   * @param request - ListMyDrivesRequest
+   * @returns ListMyDrivesResponse
    */
   async listMyDrives(request: ListMyDrivesRequest): Promise<ListMyDrivesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17241,12 +23507,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the team drives that can be accessed by the authorized users.
-   *
-   * @param request ListMyGroupDriveRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListMyGroupDriveResponse
+   * Queries the team drives that can be accessed by the authorized users.
+   * 
+   * @param request - ListMyGroupDriveRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMyGroupDriveResponse
    */
   async listMyGroupDriveWithOptions(request: ListMyGroupDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMyGroupDriveResponse> {
     Util.validateModel(request);
@@ -17278,10 +23544,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the team drives that can be accessed by the authorized users.
-   *
-   * @param request ListMyGroupDriveRequest
-   * @return ListMyGroupDriveResponse
+   * Queries the team drives that can be accessed by the authorized users.
+   * 
+   * @param request - ListMyGroupDriveRequest
+   * @returns ListMyGroupDriveResponse
    */
   async listMyGroupDrive(request: ListMyGroupDriveRequest): Promise<ListMyGroupDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17290,12 +23556,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
-   *
-   * @param request ListReceivedFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListReceivedFileResponse
+   * Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
+   * 
+   * @param request - ListReceivedFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListReceivedFileResponse
    */
   async listReceivedFileWithOptions(request: ListReceivedFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListReceivedFileResponse> {
     Util.validateModel(request);
@@ -17327,10 +23593,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
-   *
-   * @param request ListReceivedFileRequest
-   * @return ListReceivedFileResponse
+   * Queries a list of files that are shared with a user. You can call this operation to query a list of files in a personal drive on which a user is granted permissions.
+   * 
+   * @param request - ListReceivedFileRequest
+   * @returns ListReceivedFileResponse
    */
   async listReceivedFile(request: ListReceivedFileRequest): Promise<ListReceivedFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17339,12 +23605,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about files and folders in the recycle bin.
-   *
-   * @param request ListRecyclebinRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRecyclebinResponse
+   * Queries the information about files and folders in the recycle bin.
+   * 
+   * @param request - ListRecyclebinRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRecyclebinResponse
    */
   async listRecyclebinWithOptions(request: ListRecyclebinRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRecyclebinResponse> {
     Util.validateModel(request);
@@ -17384,10 +23650,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the information about files and folders in the recycle bin.
-   *
-   * @param request ListRecyclebinRequest
-   * @return ListRecyclebinResponse
+   * Queries the information about files and folders in the recycle bin.
+   * 
+   * @param request - ListRecyclebinRequest
+   * @returns ListRecyclebinResponse
    */
   async listRecyclebin(request: ListRecyclebinRequest): Promise<ListRecyclebinResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17396,12 +23662,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the versions of a file.
-   *
-   * @param request ListRevisionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListRevisionResponse
+   * Queries the versions of a file.
+   * 
+   * @param request - ListRevisionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRevisionResponse
    */
   async listRevisionWithOptions(request: ListRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRevisionResponse> {
     Util.validateModel(request);
@@ -17445,10 +23711,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the versions of a file.
-   *
-   * @param request ListRevisionRequest
-   * @return ListRevisionResponse
+   * Queries the versions of a file.
+   * 
+   * @param request - ListRevisionRequest
+   * @returns ListRevisionResponse
    */
   async listRevision(request: ListRevisionRequest): Promise<ListRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17457,14 +23723,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries shares.
-   *
-   * @description This operation is discontinued. To query shares, you can call the SearchShareLink operation.
-   *
-   * @param request ListShareLinkRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListShareLinkResponse
+   * Queries shares.
+   * 
+   * @remarks
+   * This operation is discontinued. To query shares, you can call the SearchShareLink operation.
+   * 
+   * @param request - ListShareLinkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListShareLinkResponse
    */
   async listShareLinkWithOptions(request: ListShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListShareLinkResponse> {
     Util.validateModel(request);
@@ -17512,12 +23779,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries shares.
-   *
-   * @description This operation is discontinued. To query shares, you can call the SearchShareLink operation.
-   *
-   * @param request ListShareLinkRequest
-   * @return ListShareLinkResponse
+   * Queries shares.
+   * 
+   * @remarks
+   * This operation is discontinued. To query shares, you can call the SearchShareLink operation.
+   * 
+   * @param request - ListShareLinkRequest
+   * @returns ListShareLinkResponse
    */
   async listShareLink(request: ListShareLinkRequest): Promise<ListShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17526,14 +23794,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tags.
-   *
-   * @description You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
-   *
-   * @param request ListTagsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListTagsResponse
+   * Queries tags.
+   * 
+   * @remarks
+   * You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
+   * 
+   * @param request - ListTagsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagsResponse
    */
   async listTagsWithOptions(request: ListTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagsResponse> {
     Util.validateModel(request);
@@ -17569,12 +23838,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries tags.
-   *
-   * @description You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
-   *
-   * @param request ListTagsRequest
-   * @return ListTagsResponse
+   * Queries tags.
+   * 
+   * @remarks
+   * You can call this operation to query the tags within the specified drive at a time. The top 2,000 tags of the images are returned.
+   * 
+   * @param request - ListTagsRequest
+   * @returns ListTagsResponse
    */
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17583,12 +23853,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the file parts that are uploaded.
-   *
-   * @param request ListUploadedPartsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUploadedPartsResponse
+   * Queries the file parts that are uploaded.
+   * 
+   * @param request - ListUploadedPartsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUploadedPartsResponse
    */
   async listUploadedPartsWithOptions(request: ListUploadedPartsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUploadedPartsResponse> {
     Util.validateModel(request);
@@ -17636,10 +23906,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries the file parts that are uploaded.
-   *
-   * @param request ListUploadedPartsRequest
-   * @return ListUploadedPartsResponse
+   * Queries the file parts that are uploaded.
+   * 
+   * @param request - ListUploadedPartsRequest
+   * @returns ListUploadedPartsResponse
    */
   async listUploadedParts(request: ListUploadedPartsRequest): Promise<ListUploadedPartsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17648,12 +23918,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries users.
-   *
-   * @param request ListUserRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ListUserResponse
+   * Queries users.
+   * 
+   * @param request - ListUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserResponse
    */
   async listUserWithOptions(request: ListUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListUserResponse> {
     Util.validateModel(request);
@@ -17685,10 +23955,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries users.
-   *
-   * @param request ListUserRequest
-   * @return ListUserResponse
+   * Queries users.
+   * 
+   * @param request - ListUserRequest
+   * @returns ListUserResponse
    */
   async listUser(request: ListUserRequest): Promise<ListUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17697,12 +23967,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Moves files or folders.
-   *
-   * @param request MoveFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return MoveFileResponse
+   * Moves files or folders.
+   * 
+   * @param request - MoveFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveFileResponse
    */
   async moveFileWithOptions(request: MoveFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<MoveFileResponse> {
     Util.validateModel(request);
@@ -17742,10 +24012,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Moves files or folders.
-   *
-   * @param request MoveFileRequest
-   * @return MoveFileResponse
+   * Moves files or folders.
+   * 
+   * @param request - MoveFileRequest
+   * @returns MoveFileResponse
    */
   async moveFile(request: MoveFileRequest): Promise<MoveFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17754,12 +24024,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询凌霄订单价格
-   *
-   * @param request QueryOrderPriceRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryOrderPriceResponse
+   * 查询凌霄订单价格
+   * 
+   * @param request - QueryOrderPriceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryOrderPriceResponse
    */
   async queryOrderPriceWithOptions(request: QueryOrderPriceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryOrderPriceResponse> {
     Util.validateModel(request);
@@ -17815,10 +24085,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询凌霄订单价格
-   *
-   * @param request QueryOrderPriceRequest
-   * @return QueryOrderPriceResponse
+   * 查询凌霄订单价格
+   * 
+   * @param request - QueryOrderPriceRequest
+   * @returns QueryOrderPriceResponse
    */
   async queryOrderPrice(request: QueryOrderPriceRequest): Promise<QueryOrderPriceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17827,12 +24097,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 从人脸分组中的移除指定的文件
-   *
-   * @param request RemoveFaceGroupFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveFaceGroupFileResponse
+   * 从人脸分组中的移除指定的文件
+   * 
+   * @param request - RemoveFaceGroupFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveFaceGroupFileResponse
    */
   async removeFaceGroupFileWithOptions(request: RemoveFaceGroupFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveFaceGroupFileResponse> {
     Util.validateModel(request);
@@ -17868,10 +24138,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 从人脸分组中的移除指定的文件
-   *
-   * @param request RemoveFaceGroupFileRequest
-   * @return RemoveFaceGroupFileResponse
+   * 从人脸分组中的移除指定的文件
+   * 
+   * @param request - RemoveFaceGroupFileRequest
+   * @returns RemoveFaceGroupFileResponse
    */
   async removeFaceGroupFile(request: RemoveFaceGroupFileRequest): Promise<RemoveFaceGroupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17880,12 +24150,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes a member from a group.
-   *
-   * @param request RemoveGroupMemberRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveGroupMemberResponse
+   * Removes a member from a group.
+   * 
+   * @param request - RemoveGroupMemberRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveGroupMemberResponse
    */
   async removeGroupMemberWithOptions(request: RemoveGroupMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveGroupMemberResponse> {
     Util.validateModel(request);
@@ -17921,10 +24191,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Removes a member from a group.
-   *
-   * @param request RemoveGroupMemberRequest
-   * @return RemoveGroupMemberResponse
+   * Removes a member from a group.
+   * 
+   * @param request - RemoveGroupMemberRequest
+   * @returns RemoveGroupMemberResponse
    */
   async removeGroupMember(request: RemoveGroupMemberRequest): Promise<RemoveGroupMemberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17933,12 +24203,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 故事移除文件
-   *
-   * @param request RemoveStoryFilesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RemoveStoryFilesResponse
+   * 故事移除文件
+   * 
+   * @param request - RemoveStoryFilesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveStoryFilesResponse
    */
   async removeStoryFilesWithOptions(request: RemoveStoryFilesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RemoveStoryFilesResponse> {
     Util.validateModel(request);
@@ -17974,10 +24244,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 故事移除文件
-   *
-   * @param request RemoveStoryFilesRequest
-   * @return RemoveStoryFilesResponse
+   * 故事移除文件
+   * 
+   * @param request - RemoveStoryFilesRequest
+   * @returns RemoveStoryFilesResponse
    */
   async removeStoryFiles(request: RemoveStoryFilesRequest): Promise<RemoveStoryFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -17986,12 +24256,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restores a file or folder from the recycle bin.
-   *
-   * @param request RestoreFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RestoreFileResponse
+   * Restores a file or folder from the recycle bin.
+   * 
+   * @param request - RestoreFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestoreFileResponse
    */
   async restoreFileWithOptions(request: RestoreFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestoreFileResponse> {
     Util.validateModel(request);
@@ -18023,10 +24293,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restores a file or folder from the recycle bin.
-   *
-   * @param request RestoreFileRequest
-   * @return RestoreFileResponse
+   * Restores a file or folder from the recycle bin.
+   * 
+   * @param request - RestoreFileRequest
+   * @returns RestoreFileResponse
    */
   async restoreFile(request: RestoreFileRequest): Promise<RestoreFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18035,12 +24305,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restores a historical version of a file. You cannot restore the latest version of a file.
-   *
-   * @param request RestoreRevisionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return RestoreRevisionResponse
+   * Restores a historical version of a file. You cannot restore the latest version of a file.
+   * 
+   * @param request - RestoreRevisionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestoreRevisionResponse
    */
   async restoreRevisionWithOptions(request: RestoreRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestoreRevisionResponse> {
     Util.validateModel(request);
@@ -18076,10 +24346,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Restores a historical version of a file. You cannot restore the latest version of a file.
-   *
-   * @param request RestoreRevisionRequest
-   * @return RestoreRevisionResponse
+   * Restores a historical version of a file. You cannot restore the latest version of a file.
+   * 
+   * @param request - RestoreRevisionRequest
+   * @returns RestoreRevisionResponse
    */
   async restoreRevision(request: RestoreRevisionRequest): Promise<RestoreRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18088,12 +24358,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Scans files.
-   *
-   * @param request ScanFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ScanFileResponse
+   * Scans files.
+   * 
+   * @param request - ScanFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ScanFileResponse
    */
   async scanFileWithOptions(request: ScanFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ScanFileResponse> {
     Util.validateModel(request);
@@ -18133,10 +24403,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Scans files.
-   *
-   * @param request ScanFileRequest
-   * @return ScanFileResponse
+   * Scans files.
+   * 
+   * @param request - ScanFileRequest
+   * @returns ScanFileResponse
    */
   async scanFile(request: ScanFileRequest): Promise<ScanFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18145,12 +24415,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries location-based groups based on specific locations.
-   *
-   * @param request SearchAddressGroupsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchAddressGroupsResponse
+   * Queries location-based groups based on specific locations.
+   * 
+   * @param request - SearchAddressGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchAddressGroupsResponse
    */
   async searchAddressGroupsWithOptions(request: SearchAddressGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchAddressGroupsResponse> {
     Util.validateModel(request);
@@ -18202,10 +24472,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries location-based groups based on specific locations.
-   *
-   * @param request SearchAddressGroupsRequest
-   * @return SearchAddressGroupsResponse
+   * Queries location-based groups based on specific locations.
+   * 
+   * @param request - SearchAddressGroupsRequest
+   * @returns SearchAddressGroupsResponse
    */
   async searchAddressGroups(request: SearchAddressGroupsRequest): Promise<SearchAddressGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18214,12 +24484,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Search domain with specified attributes
-   *
-   * @param request SearchDomainsRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchDomainsResponse
+   * Search domain with specified attributes
+   * 
+   * @param request - SearchDomainsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchDomainsResponse
    */
   async searchDomainsWithOptions(request: SearchDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchDomainsResponse> {
     Util.validateModel(request);
@@ -18259,10 +24529,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Search domain with specified attributes
-   *
-   * @param request SearchDomainsRequest
-   * @return SearchDomainsResponse
+   * Search domain with specified attributes
+   * 
+   * @param request - SearchDomainsRequest
+   * @returns SearchDomainsResponse
    */
   async searchDomains(request: SearchDomainsRequest): Promise<SearchDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18271,12 +24541,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries drives.
-   *
-   * @param request SearchDriveRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchDriveResponse
+   * Queries drives.
+   * 
+   * @param request - SearchDriveRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchDriveResponse
    */
   async searchDriveWithOptions(request: SearchDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchDriveResponse> {
     Util.validateModel(request);
@@ -18320,10 +24590,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries drives.
-   *
-   * @param request SearchDriveRequest
-   * @return SearchDriveResponse
+   * Queries drives.
+   * 
+   * @param request - SearchDriveRequest
+   * @returns SearchDriveResponse
    */
   async searchDrive(request: SearchDriveRequest): Promise<SearchDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18332,12 +24602,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
-   *
-   * @param request SearchFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchFileResponse
+   * Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
+   * 
+   * @param request - SearchFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchFileResponse
    */
   async searchFileWithOptions(request: SearchFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchFileResponse> {
     Util.validateModel(request);
@@ -18393,10 +24663,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
-   *
-   * @param request SearchFileRequest
-   * @return SearchFileResponse
+   * Queries files. For more information about best practices, visit https://help.aliyun.com/document_detail/175890.html.
+   * 
+   * @param request - SearchFileRequest
+   * @returns SearchFileResponse
    */
   async searchFile(request: SearchFileRequest): Promise<SearchFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18405,12 +24675,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries share URLs.
-   *
-   * @param request SearchShareLinkRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchShareLinkResponse
+   * Queries share URLs.
+   * 
+   * @param request - SearchShareLinkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchShareLinkResponse
    */
   async searchShareLinkWithOptions(request: SearchShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchShareLinkResponse> {
     Util.validateModel(request);
@@ -18462,10 +24732,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Queries share URLs.
-   *
-   * @param request SearchShareLinkRequest
-   * @return SearchShareLinkResponse
+   * Queries share URLs.
+   * 
+   * @param request - SearchShareLinkRequest
+   * @returns SearchShareLinkResponse
    */
   async searchShareLink(request: SearchShareLinkRequest): Promise<SearchShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18474,12 +24744,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取相似图片聚类结果
-   *
-   * @param request SearchSimilarImageClustersRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchSimilarImageClustersResponse
+   * 获取相似图片聚类结果
+   * 
+   * @param request - SearchSimilarImageClustersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchSimilarImageClustersResponse
    */
   async searchSimilarImageClustersWithOptions(request: SearchSimilarImageClustersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchSimilarImageClustersResponse> {
     Util.validateModel(request);
@@ -18523,10 +24793,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取相似图片聚类结果
-   *
-   * @param request SearchSimilarImageClustersRequest
-   * @return SearchSimilarImageClustersResponse
+   * 获取相似图片聚类结果
+   * 
+   * @param request - SearchSimilarImageClustersRequest
+   * @returns SearchSimilarImageClustersResponse
    */
   async searchSimilarImageClusters(request: SearchSimilarImageClustersRequest): Promise<SearchSimilarImageClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18535,12 +24805,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询故事列表
-   *
-   * @param request SearchStoriesRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchStoriesResponse
+   * 查询故事列表
+   * 
+   * @param request - SearchStoriesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchStoriesResponse
    */
   async searchStoriesWithOptions(request: SearchStoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchStoriesResponse> {
     Util.validateModel(request);
@@ -18632,10 +24902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 查询故事列表
-   *
-   * @param request SearchStoriesRequest
-   * @return SearchStoriesResponse
+   * 查询故事列表
+   * 
+   * @param request - SearchStoriesRequest
+   * @returns SearchStoriesResponse
    */
   async searchStories(request: SearchStoriesRequest): Promise<SearchStoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18644,12 +24914,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Searches for users.
-   *
-   * @param request SearchUserRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SearchUserResponse
+   * Searches for users.
+   * 
+   * @param request - SearchUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchUserResponse
    */
   async searchUserWithOptions(request: SearchUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SearchUserResponse> {
     Util.validateModel(request);
@@ -18709,10 +24979,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Searches for users.
-   *
-   * @param request SearchUserRequest
-   * @return SearchUserResponse
+   * Searches for users.
+   * 
+   * @param request - SearchUserRequest
+   * @returns SearchUserResponse
    */
   async searchUser(request: SearchUserRequest): Promise<SearchUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18721,15 +24991,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates an access token based on Open Authorization (OAuth) 2.0.
-   *
-   * @description For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
+   * Generates an access token based on Open Authorization (OAuth) 2.0.
+   * 
+   * @remarks
+   * For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
    * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).
-   *
-   * @param request TokenRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TokenResponse
+   * 
+   * @param request - TokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TokenResponse
    */
   async tokenWithOptions(request: TokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TokenResponse> {
     Util.validateModel(request);
@@ -18781,13 +25052,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Generates an access token based on Open Authorization (OAuth) 2.0.
-   *
-   * @description For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
+   * Generates an access token based on Open Authorization (OAuth) 2.0.
+   * 
+   * @remarks
+   * For more information about how to access Drive and Photo Service from a web server application by using OAuth 2.0, visit [OAuth 2.0 For Web Server Applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/oauth-2-0-access-process-for-web-server-applications).
    * For more information about how to access Drive and Photo Service by using a JSON Web Token (JWT) application, visit [Access process for JWT applications](https://www.alibabacloud.com/help/zh/pds/drive-and-photo-service-dev/user-guide/access-process-for-jwt-applications).
-   *
-   * @param request TokenRequest
-   * @return TokenResponse
+   * 
+   * @param request - TokenRequest
+   * @returns TokenResponse
    */
   async token(request: TokenRequest): Promise<TokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18796,12 +25068,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Moves a file or folder to the recycle bin.
-   *
-   * @param request TrashFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return TrashFileResponse
+   * Moves a file or folder to the recycle bin.
+   * 
+   * @param request - TrashFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TrashFileResponse
    */
   async trashFileWithOptions(request: TrashFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TrashFileResponse> {
     Util.validateModel(request);
@@ -18833,10 +25105,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Moves a file or folder to the recycle bin.
-   *
-   * @param request TrashFileRequest
-   * @return TrashFileResponse
+   * Moves a file or folder to the recycle bin.
+   * 
+   * @param request - TrashFileRequest
+   * @returns TrashFileResponse
    */
   async trashFile(request: TrashFileRequest): Promise<TrashFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18845,12 +25117,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消账号绑定
-   *
-   * @param request UnLinkAccountRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UnLinkAccountResponse
+   * 取消账号绑定
+   * 
+   * @param request - UnLinkAccountRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnLinkAccountResponse
    */
   async unLinkAccountWithOptions(request: UnLinkAccountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UnLinkAccountResponse> {
     Util.validateModel(request);
@@ -18890,10 +25162,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 取消账号绑定
-   *
-   * @param request UnLinkAccountRequest
-   * @return UnLinkAccountResponse
+   * 取消账号绑定
+   * 
+   * @param request - UnLinkAccountRequest
+   * @returns UnLinkAccountResponse
    */
   async unLinkAccount(request: UnLinkAccountRequest): Promise<UnLinkAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18902,12 +25174,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update domain information.
-   *
-   * @param request UpdateDomainRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDomainResponse
+   * Update domain information.
+   * 
+   * @param request - UpdateDomainRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDomainResponse
    */
   async updateDomainWithOptions(request: UpdateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDomainResponse> {
     Util.validateModel(request);
@@ -18963,10 +25235,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Update domain information.
-   *
-   * @param request UpdateDomainRequest
-   * @return UpdateDomainResponse
+   * Update domain information.
+   * 
+   * @param request - UpdateDomainRequest
+   * @returns UpdateDomainResponse
    */
   async updateDomain(request: UpdateDomainRequest): Promise<UpdateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -18975,12 +25247,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a drive.
-   *
-   * @param request UpdateDriveRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateDriveResponse
+   * Modifies a drive.
+   * 
+   * @param request - UpdateDriveRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDriveResponse
    */
   async updateDriveWithOptions(request: UpdateDriveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateDriveResponse> {
     Util.validateModel(request);
@@ -19028,10 +25300,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a drive.
-   *
-   * @param request UpdateDriveRequest
-   * @return UpdateDriveResponse
+   * Modifies a drive.
+   * 
+   * @param request - UpdateDriveRequest
+   * @returns UpdateDriveResponse
    */
   async updateDrive(request: UpdateDriveRequest): Promise<UpdateDriveResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19040,12 +25312,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a face-based group.
-   *
-   * @param request UpdateFacegroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateFacegroupResponse
+   * Updates a face-based group.
+   * 
+   * @param request - UpdateFacegroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFacegroupResponse
    */
   async updateFacegroupWithOptions(request: UpdateFacegroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFacegroupResponse> {
     Util.validateModel(request);
@@ -19089,10 +25361,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates a face-based group.
-   *
-   * @param request UpdateFacegroupRequest
-   * @return UpdateFacegroupResponse
+   * Updates a face-based group.
+   * 
+   * @param request - UpdateFacegroupRequest
+   * @returns UpdateFacegroupResponse
    */
   async updateFacegroup(request: UpdateFacegroupRequest): Promise<UpdateFacegroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19101,12 +25373,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information about a file instead of the file data.
-   *
-   * @param request UpdateFileRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateFileResponse
+   * Modifies the information about a file instead of the file data.
+   * 
+   * @param request - UpdateFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFileResponse
    */
   async updateFileWithOptions(request: UpdateFileRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
     Util.validateModel(request);
@@ -19166,10 +25438,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information about a file instead of the file data.
-   *
-   * @param request UpdateFileRequest
-   * @return UpdateFileResponse
+   * Modifies the information about a file instead of the file data.
+   * 
+   * @param request - UpdateFileRequest
+   * @returns UpdateFileResponse
    */
   async updateFile(request: UpdateFileRequest): Promise<UpdateFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19178,12 +25450,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information about a group.
-   *
-   * @param request UpdateGroupRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateGroupResponse
+   * Modifies the information about a group.
+   * 
+   * @param request - UpdateGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGroupResponse
    */
   async updateGroupWithOptions(request: UpdateGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
     Util.validateModel(request);
@@ -19219,10 +25491,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information about a group.
-   *
-   * @param request UpdateGroupRequest
-   * @return UpdateGroupResponse
+   * Modifies the information about a group.
+   * 
+   * @param request - UpdateGroupRequest
+   * @returns UpdateGroupResponse
    */
   async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19231,12 +25503,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
-   *
-   * @param request UpdateIdentityToBenefitPkgMappingRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateIdentityToBenefitPkgMappingResponse
+   * Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+   * 
+   * @param request - UpdateIdentityToBenefitPkgMappingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIdentityToBenefitPkgMappingResponse
    */
   async updateIdentityToBenefitPkgMappingWithOptions(request: UpdateIdentityToBenefitPkgMappingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateIdentityToBenefitPkgMappingResponse> {
     Util.validateModel(request);
@@ -19280,10 +25552,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
-   *
-   * @param request UpdateIdentityToBenefitPkgMappingRequest
-   * @return UpdateIdentityToBenefitPkgMappingResponse
+   * Updates the mapping between an entity and a benefit package. You can call this operation to associate a benefit package with a user.
+   * 
+   * @param request - UpdateIdentityToBenefitPkgMappingRequest
+   * @returns UpdateIdentityToBenefitPkgMappingResponse
    */
   async updateIdentityToBenefitPkgMapping(request: UpdateIdentityToBenefitPkgMappingRequest): Promise<UpdateIdentityToBenefitPkgMappingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19292,12 +25564,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
-   *
-   * @param request UpdateRevisionRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateRevisionResponse
+   * Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
+   * 
+   * @param request - UpdateRevisionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRevisionResponse
    */
   async updateRevisionWithOptions(request: UpdateRevisionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRevisionResponse> {
     Util.validateModel(request);
@@ -19341,10 +25613,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
-   *
-   * @param request UpdateRevisionRequest
-   * @return UpdateRevisionResponse
+   * Updates the version information. You can call this operation to permanently retain a version or modify the description of a version. You can permanently retain up to 50 versions of a file.
+   * 
+   * @param request - UpdateRevisionRequest
+   * @returns UpdateRevisionResponse
    */
   async updateRevision(request: UpdateRevisionRequest): Promise<UpdateRevisionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19353,12 +25625,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a share link.
-   *
-   * @param request UpdateShareLinkRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateShareLinkResponse
+   * Modifies a share link.
+   * 
+   * @param request - UpdateShareLinkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateShareLinkResponse
    */
   async updateShareLinkWithOptions(request: UpdateShareLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateShareLinkResponse> {
     Util.validateModel(request);
@@ -19450,10 +25722,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies a share link.
-   *
-   * @param request UpdateShareLinkRequest
-   * @return UpdateShareLinkResponse
+   * Modifies a share link.
+   * 
+   * @param request - UpdateShareLinkRequest
+   * @returns UpdateShareLinkResponse
    */
   async updateShareLink(request: UpdateShareLinkRequest): Promise<UpdateShareLinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19462,12 +25734,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新故事
-   *
-   * @param request UpdateStoryRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateStoryResponse
+   * 更新故事
+   * 
+   * @param request - UpdateStoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStoryResponse
    */
   async updateStoryWithOptions(request: UpdateStoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateStoryResponse> {
     Util.validateModel(request);
@@ -19511,10 +25783,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 更新故事
-   *
-   * @param request UpdateStoryRequest
-   * @return UpdateStoryResponse
+   * 更新故事
+   * 
+   * @param request - UpdateStoryRequest
+   * @returns UpdateStoryResponse
    */
   async updateStory(request: UpdateStoryRequest): Promise<UpdateStoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -19523,12 +25795,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information about a user.
-   *
-   * @param request UpdateUserRequest
-   * @param headers map
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return UpdateUserResponse
+   * Modifies the information about a user.
+   * 
+   * @param request - UpdateUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserResponse
    */
   async updateUserWithOptions(request: UpdateUserRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
@@ -19592,10 +25864,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary Modifies the information about a user.
-   *
-   * @param request UpdateUserRequest
-   * @return UpdateUserResponse
+   * Modifies the information about a user.
+   * 
+   * @param request - UpdateUserRequest
+   * @returns UpdateUserResponse
    */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
