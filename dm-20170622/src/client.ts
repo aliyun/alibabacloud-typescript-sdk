@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,6 +8,10 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddIpfilterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ipAddress?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -37,7 +40,15 @@ export class AddIpfilterRequest extends $tea.Model {
 }
 
 export class AddIpfilterResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10795
+   */
   ipFilterId?: string;
+  /**
+   * @example
+   * F814E960-5AEE-5CB1-881B-6F1A3250B55A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,16 +95,32 @@ export class AddIpfilterResponse extends $tea.Model {
 }
 
 export class BatchSendMailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   addressType?: number;
   clickTrace?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   receiversName?: string;
   replyAddress?: string;
   replyAddressAlias?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tagName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateName?: string;
   unSubscribeFilterLevel?: string;
   unSubscribeLinkType?: string;
@@ -186,6 +213,10 @@ export class BatchSendMailResponse extends $tea.Model {
 }
 
 export class CheckDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainId?: number;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -261,6 +292,10 @@ export class CheckDomainResponse extends $tea.Model {
 }
 
 export class CheckDomainDnsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainId?: number;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -339,6 +374,10 @@ export class CheckDomainDnsResponse extends $tea.Model {
 }
 
 export class CreateDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainName?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -414,11 +453,19 @@ export class CreateDomainResponse extends $tea.Model {
 }
 
 export class CreateMailAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accountName?: string;
   ownerId?: number;
   replyAddress?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   sendtype?: string;
   static names(): { [key: string]: string } {
     return {
@@ -497,7 +544,15 @@ export class CreateMailAddressResponse extends $tea.Model {
 export class CreateReceiverRequest extends $tea.Model {
   desc?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   receiversAlias?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   receiversName?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -579,7 +634,18 @@ export class CreateTagRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * test description
+   */
   tagDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -661,6 +727,10 @@ export class CreateTemplateRequest extends $tea.Model {
   resourceOwnerId?: number;
   smsContent?: string;
   smsType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateName?: string;
   templateNickName?: string;
   templateSubject?: string;
@@ -753,6 +823,10 @@ export class CreateTemplateResponse extends $tea.Model {
 }
 
 export class DeleteDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainId?: number;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -825,6 +899,10 @@ export class DeleteDomainResponse extends $tea.Model {
 }
 
 export class DeleteMailAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   mailAddressId?: number;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -898,6 +976,10 @@ export class DeleteMailAddressResponse extends $tea.Model {
 
 export class DeleteReceiverRequest extends $tea.Model {
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   receiverId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -971,6 +1053,10 @@ export class DeleteReceiverResponse extends $tea.Model {
 export class DeleteReceiverDetailRequest extends $tea.Model {
   email?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   receiverId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1047,6 +1133,10 @@ export class DeleteTagRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   tagId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1120,6 +1210,10 @@ export class DeleteTemplateRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1217,6 +1311,7 @@ export class DescAccountSummaryRequest extends $tea.Model {
 
 export class DescAccountSummaryResponseBody extends $tea.Model {
   dailyQuota?: number;
+  dailyRemainFreeQuota?: string;
   dayuStatus?: number;
   domains?: number;
   enableTimes?: number;
@@ -1236,6 +1331,7 @@ export class DescAccountSummaryResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       dailyQuota: 'DailyQuota',
+      dailyRemainFreeQuota: 'DailyRemainFreeQuota',
       dayuStatus: 'DayuStatus',
       domains: 'Domains',
       enableTimes: 'EnableTimes',
@@ -1258,6 +1354,7 @@ export class DescAccountSummaryResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dailyQuota: 'number',
+      dailyRemainFreeQuota: 'string',
       dayuStatus: 'number',
       domains: 'number',
       enableTimes: 'number',
@@ -1308,6 +1405,10 @@ export class DescAccountSummaryResponse extends $tea.Model {
 }
 
 export class DescDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainId?: number;
   ownerId?: number;
   requireRealTimeDnsRecords?: boolean;
@@ -1471,6 +1572,10 @@ export class DescTemplateRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1671,6 +1776,10 @@ export class GetAccountListResponse extends $tea.Model {
 }
 
 export class GetMailAddressMsgCallBackUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   mailFrom?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -1750,15 +1859,37 @@ export class GetMailAddressMsgCallBackUrlResponse extends $tea.Model {
 
 export class GetTrackListRequest extends $tea.Model {
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-09-29
+   */
   endTime?: string;
   offset?: string;
   offsetCreateTime?: string;
   offsetCreateTimeDesc?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-09-29
+   */
   startTime?: string;
   tagName?: string;
   total?: string;
@@ -1806,9 +1937,25 @@ export class GetTrackListRequest extends $tea.Model {
 export class GetTrackListResponseBody extends $tea.Model {
   offsetCreateTime?: string;
   offsetCreateTimeDesc?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10A1AD70-E48E-476D-98D9-39BD92193837
+   */
   requestId?: string;
+  /**
+   * @example
+   * 100
+   */
   total?: number;
   data?: GetTrackListResponseBodyData;
   static names(): { [key: string]: string } {
@@ -1866,6 +2013,10 @@ export class GetTrackListResponse extends $tea.Model {
 }
 
 export class ModifyMailAddressRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   mailAddressId?: number;
   ownerId?: number;
   password?: string;
@@ -1944,7 +2095,15 @@ export class ModifyMailAddressResponse extends $tea.Model {
 }
 
 export class ModifyPWByDomainRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   password?: string;
   resourceOwnerId?: string;
   static names(): { [key: string]: string } {
@@ -2025,8 +2184,26 @@ export class ModifyTagRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * test description
+   */
   tagDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   tagId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2107,7 +2284,15 @@ export class ModifyTemplateRequest extends $tea.Model {
   resourceOwnerId?: number;
   smsContent?: string;
   smsType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   templateName?: string;
   templateNickName?: string;
   templateSubject?: string;
@@ -2572,6 +2757,10 @@ export class QueryReceiverDetailRequest extends $tea.Model {
   nextStart?: string;
   ownerId?: number;
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   receiverId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -2695,9 +2884,25 @@ export class QueryTagByParamRequest extends $tea.Model {
 }
 
 export class QueryTagByParamResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10A1AD70-E48E-476D-98D9-39BD92193837
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2
+   */
   totalCount?: number;
   data?: QueryTagByParamResponseBodyData;
   static names(): { [key: string]: string } {
@@ -2940,8 +3145,16 @@ export class QueryTemplateByParamResponse extends $tea.Model {
 }
 
 export class SaveReceiverDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   detail?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   receiverId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -3025,10 +3238,18 @@ export class SaveReceiverDetailResponse extends $tea.Model {
 
 export class SenderStatisticsByTagNameAndBatchIDRequest extends $tea.Model {
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endTime?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   startTime?: string;
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -3210,7 +3431,15 @@ export class SenderStatisticsDetailByParamResponse extends $tea.Model {
 }
 
 export class SingleSendMailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   addressType?: number;
   clickTrace?: string;
   fromAlias?: string;
@@ -3218,12 +3447,24 @@ export class SingleSendMailRequest extends $tea.Model {
   ownerId?: number;
   replyAddress?: string;
   replyAddressAlias?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   replyToAddress?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   subject?: string;
   tagName?: string;
   textBody?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   toAddress?: string;
   unSubscribeFilterLevel?: string;
   unSubscribeLinkType?: string;
@@ -3324,21 +3565,76 @@ export class SingleSendMailResponse extends $tea.Model {
 }
 
 export class SingleSendMailV2Request extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test***@example.net
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   addressType?: number;
+  /**
+   * @example
+   * 0
+   */
   clickTrace?: string;
   fromAlias?: string;
+  /**
+   * @example
+   * body
+   */
   htmlBody?: string;
   htmlBodyPlaceHolders?: SingleSendMailV2RequestHtmlBodyPlaceHolders[];
   ownerId?: number;
+  /**
+   * @example
+   * test2***@example.net
+   */
   replyAddress?: string;
   replyAddressAlias?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   replyToAddress?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Subject
+   */
   subject?: string;
+  /**
+   * @example
+   * test
+   */
   tagName?: string;
+  /**
+   * @example
+   * body
+   */
   textBody?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test1***@example.net
+   */
   toAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3388,21 +3684,76 @@ export class SingleSendMailV2Request extends $tea.Model {
 }
 
 export class SingleSendMailV2ShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test***@example.net
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   addressType?: number;
+  /**
+   * @example
+   * 0
+   */
   clickTrace?: string;
   fromAlias?: string;
+  /**
+   * @example
+   * body
+   */
   htmlBody?: string;
   htmlBodyPlaceHoldersShrink?: string;
   ownerId?: number;
+  /**
+   * @example
+   * test2***@example.net
+   */
   replyAddress?: string;
   replyAddressAlias?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   replyToAddress?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Subject
+   */
   subject?: string;
+  /**
+   * @example
+   * test
+   */
   tagName?: string;
+  /**
+   * @example
+   * body
+   */
   textBody?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test1***@example.net
+   */
   toAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3452,7 +3803,15 @@ export class SingleSendMailV2ShrinkRequest extends $tea.Model {
 }
 
 export class SingleSendMailV2ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
   envId?: string;
+  /**
+   * @example
+   * 2D086F6-8F31-4658-84C1-006DED011A85
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3543,15 +3902,55 @@ export class GetAccountListResponseBodyData extends $tea.Model {
 }
 
 export class GetTrackListResponseBodyDataStat extends $tea.Model {
+  /**
+   * @example
+   * 2019-09-29T13:28Z
+   */
   createTime?: number;
+  /**
+   * @example
+   * 0
+   */
   rcptClickCount?: number;
+  /**
+   * @example
+   * 0
+   */
   rcptClickRate?: string;
+  /**
+   * @example
+   * 0
+   */
   rcptOpenCount?: number;
+  /**
+   * @example
+   * 0
+   */
   rcptOpenRate?: string;
+  /**
+   * @example
+   * 0
+   */
   rcptUniqueClickCount?: number;
+  /**
+   * @example
+   * 0
+   */
   rcptUniqueClickRate?: string;
+  /**
+   * @example
+   * 0
+   */
   rcptUniqueOpenCount?: number;
+  /**
+   * @example
+   * 0
+   */
   rcptUniqueOpenRate?: string;
+  /**
+   * @example
+   * 0
+   */
   totalNumber?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3897,8 +4296,20 @@ export class QueryReceiverDetailResponseBodyData extends $tea.Model {
 }
 
 export class QueryTagByParamResponseBodyDataTag extends $tea.Model {
+  /**
+   * @example
+   * test description
+   */
   tagDescription?: string;
+  /**
+   * @example
+   * 52366
+   */
   tagId?: string;
+  /**
+   * @example
+   * test
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4222,6 +4633,10 @@ export class SenderStatisticsDetailByParamResponseBodyData extends $tea.Model {
 
 export class SingleSendMailV2RequestHtmlBodyPlaceHolders extends $tea.Model {
   placeHolders?: { [key: string]: string };
+  /**
+   * @example
+   * test1***@example.net
+   */
   toAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4266,11 +4681,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加IP白名单
-   *
-   * @param request AddIpfilterRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return AddIpfilterResponse
+   * 添加IP白名单
+   * 
+   * @param request - AddIpfilterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddIpfilterResponse
    */
   async addIpfilterWithOptions(request: AddIpfilterRequest, runtime: $Util.RuntimeOptions): Promise<AddIpfilterResponse> {
     Util.validateModel(request);
@@ -4309,10 +4724,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 添加IP白名单
-   *
-   * @param request AddIpfilterRequest
-   * @return AddIpfilterResponse
+   * 添加IP白名单
+   * 
+   * @param request - AddIpfilterRequest
+   * @returns AddIpfilterResponse
    */
   async addIpfilter(request: AddIpfilterRequest): Promise<AddIpfilterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4320,9 +4735,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BatchSendMailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return BatchSendMailResponse
+   * @param request - BatchSendMailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchSendMailResponse
    */
   async batchSendMailWithOptions(request: BatchSendMailRequest, runtime: $Util.RuntimeOptions): Promise<BatchSendMailResponse> {
     Util.validateModel(request);
@@ -4397,8 +4812,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request BatchSendMailRequest
-   * @return BatchSendMailResponse
+   * @param request - BatchSendMailRequest
+   * @returns BatchSendMailResponse
    */
   async batchSendMail(request: BatchSendMailRequest): Promise<BatchSendMailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4406,11 +4821,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 校验域名状态
-   *
-   * @param request CheckDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckDomainResponse
+   * 校验域名状态
+   * 
+   * @param request - CheckDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckDomainResponse
    */
   async checkDomainWithOptions(request: CheckDomainRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainResponse> {
     Util.validateModel(request);
@@ -4449,10 +4864,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 校验域名状态
-   *
-   * @param request CheckDomainRequest
-   * @return CheckDomainResponse
+   * 校验域名状态
+   * 
+   * @param request - CheckDomainRequest
+   * @returns CheckDomainResponse
    */
   async checkDomain(request: CheckDomainRequest): Promise<CheckDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4460,11 +4875,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 校验域名Dns状态
-   *
-   * @param request CheckDomainDnsRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CheckDomainDnsResponse
+   * 校验域名Dns状态
+   * 
+   * @param request - CheckDomainDnsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckDomainDnsResponse
    */
   async checkDomainDnsWithOptions(request: CheckDomainDnsRequest, runtime: $Util.RuntimeOptions): Promise<CheckDomainDnsResponse> {
     Util.validateModel(request);
@@ -4507,10 +4922,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 校验域名Dns状态
-   *
-   * @param request CheckDomainDnsRequest
-   * @return CheckDomainDnsResponse
+   * 校验域名Dns状态
+   * 
+   * @param request - CheckDomainDnsRequest
+   * @returns CheckDomainDnsResponse
    */
   async checkDomainDns(request: CheckDomainDnsRequest): Promise<CheckDomainDnsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4518,9 +4933,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateDomainResponse
+   * @param request - CreateDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDomainResponse
    */
   async createDomainWithOptions(request: CreateDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
@@ -4559,8 +4974,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateDomainRequest
-   * @return CreateDomainResponse
+   * @param request - CreateDomainRequest
+   * @returns CreateDomainResponse
    */
   async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4568,9 +4983,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateMailAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateMailAddressResponse
+   * @param request - CreateMailAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMailAddressResponse
    */
   async createMailAddressWithOptions(request: CreateMailAddressRequest, runtime: $Util.RuntimeOptions): Promise<CreateMailAddressResponse> {
     Util.validateModel(request);
@@ -4617,8 +5032,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateMailAddressRequest
-   * @return CreateMailAddressResponse
+   * @param request - CreateMailAddressRequest
+   * @returns CreateMailAddressResponse
    */
   async createMailAddress(request: CreateMailAddressRequest): Promise<CreateMailAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4626,9 +5041,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateReceiverRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateReceiverResponse
+   * @param request - CreateReceiverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateReceiverResponse
    */
   async createReceiverWithOptions(request: CreateReceiverRequest, runtime: $Util.RuntimeOptions): Promise<CreateReceiverResponse> {
     Util.validateModel(request);
@@ -4675,8 +5090,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateReceiverRequest
-   * @return CreateReceiverResponse
+   * @param request - CreateReceiverRequest
+   * @returns CreateReceiverResponse
    */
   async createReceiver(request: CreateReceiverRequest): Promise<CreateReceiverResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4684,9 +5099,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTagResponse
+   * @param request - CreateTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTagResponse
    */
   async createTagWithOptions(request: CreateTagRequest, runtime: $Util.RuntimeOptions): Promise<CreateTagResponse> {
     Util.validateModel(request);
@@ -4729,8 +5144,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateTagRequest
-   * @return CreateTagResponse
+   * @param request - CreateTagRequest
+   * @returns CreateTagResponse
    */
   async createTag(request: CreateTagRequest): Promise<CreateTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4738,9 +5153,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return CreateTemplateResponse
+   * @param request - CreateTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTemplateResponse
    */
   async createTemplateWithOptions(request: CreateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
     Util.validateModel(request);
@@ -4811,8 +5226,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request CreateTemplateRequest
-   * @return CreateTemplateResponse
+   * @param request - CreateTemplateRequest
+   * @returns CreateTemplateResponse
    */
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4820,9 +5235,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteDomainResponse
+   * @param request - DeleteDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDomainResponse
    */
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
@@ -4861,8 +5276,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteDomainRequest
-   * @return DeleteDomainResponse
+   * @param request - DeleteDomainRequest
+   * @returns DeleteDomainResponse
    */
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4870,9 +5285,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteMailAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteMailAddressResponse
+   * @param request - DeleteMailAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMailAddressResponse
    */
   async deleteMailAddressWithOptions(request: DeleteMailAddressRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMailAddressResponse> {
     Util.validateModel(request);
@@ -4911,8 +5326,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteMailAddressRequest
-   * @return DeleteMailAddressResponse
+   * @param request - DeleteMailAddressRequest
+   * @returns DeleteMailAddressResponse
    */
   async deleteMailAddress(request: DeleteMailAddressRequest): Promise<DeleteMailAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4920,9 +5335,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteReceiverRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteReceiverResponse
+   * @param request - DeleteReceiverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteReceiverResponse
    */
   async deleteReceiverWithOptions(request: DeleteReceiverRequest, runtime: $Util.RuntimeOptions): Promise<DeleteReceiverResponse> {
     Util.validateModel(request);
@@ -4961,8 +5376,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteReceiverRequest
-   * @return DeleteReceiverResponse
+   * @param request - DeleteReceiverRequest
+   * @returns DeleteReceiverResponse
    */
   async deleteReceiver(request: DeleteReceiverRequest): Promise<DeleteReceiverResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4970,9 +5385,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteReceiverDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteReceiverDetailResponse
+   * @param request - DeleteReceiverDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteReceiverDetailResponse
    */
   async deleteReceiverDetailWithOptions(request: DeleteReceiverDetailRequest, runtime: $Util.RuntimeOptions): Promise<DeleteReceiverDetailResponse> {
     Util.validateModel(request);
@@ -5015,8 +5430,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteReceiverDetailRequest
-   * @return DeleteReceiverDetailResponse
+   * @param request - DeleteReceiverDetailRequest
+   * @returns DeleteReceiverDetailResponse
    */
   async deleteReceiverDetail(request: DeleteReceiverDetailRequest): Promise<DeleteReceiverDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5024,9 +5439,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTagResponse
+   * @param request - DeleteTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTagResponse
    */
   async deleteTagWithOptions(request: DeleteTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagResponse> {
     Util.validateModel(request);
@@ -5065,8 +5480,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteTagRequest
-   * @return DeleteTagResponse
+   * @param request - DeleteTagRequest
+   * @returns DeleteTagResponse
    */
   async deleteTag(request: DeleteTagRequest): Promise<DeleteTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5074,9 +5489,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DeleteTemplateResponse
+   * @param request - DeleteTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTemplateResponse
    */
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
@@ -5119,8 +5534,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DeleteTemplateRequest
-   * @return DeleteTemplateResponse
+   * @param request - DeleteTemplateRequest
+   * @returns DeleteTemplateResponse
    */
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5128,9 +5543,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescAccountSummaryRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescAccountSummaryResponse
+   * @param request - DescAccountSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescAccountSummaryResponse
    */
   async descAccountSummaryWithOptions(request: DescAccountSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescAccountSummaryResponse> {
     Util.validateModel(request);
@@ -5165,8 +5580,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescAccountSummaryRequest
-   * @return DescAccountSummaryResponse
+   * @param request - DescAccountSummaryRequest
+   * @returns DescAccountSummaryResponse
    */
   async descAccountSummary(request: DescAccountSummaryRequest): Promise<DescAccountSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5174,9 +5589,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescDomainResponse
+   * @param request - DescDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescDomainResponse
    */
   async descDomainWithOptions(request: DescDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescDomainResponse> {
     Util.validateModel(request);
@@ -5219,8 +5634,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescDomainRequest
-   * @return DescDomainResponse
+   * @param request - DescDomainRequest
+   * @returns DescDomainResponse
    */
   async descDomain(request: DescDomainRequest): Promise<DescDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5228,9 +5643,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return DescTemplateResponse
+   * @param request - DescTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescTemplateResponse
    */
   async descTemplateWithOptions(request: DescTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescTemplateResponse> {
     Util.validateModel(request);
@@ -5273,8 +5688,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request DescTemplateRequest
-   * @return DescTemplateResponse
+   * @param request - DescTemplateRequest
+   * @returns DescTemplateResponse
    */
   async descTemplate(request: DescTemplateRequest): Promise<DescTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5282,9 +5697,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAccountListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetAccountListResponse
+   * @param request - GetAccountListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccountListResponse
    */
   async getAccountListWithOptions(request: GetAccountListRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountListResponse> {
     Util.validateModel(request);
@@ -5343,8 +5758,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request GetAccountListRequest
-   * @return GetAccountListResponse
+   * @param request - GetAccountListRequest
+   * @returns GetAccountListResponse
    */
   async getAccountList(request: GetAccountListRequest): Promise<GetAccountListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5352,13 +5767,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询发信地址消息回调地址信息
+   * 
    * @deprecated OpenAPI GetMailAddressMsgCallBackUrl is deprecated
-   *
-   * @summary 查询发信地址消息回调地址信息
-   *
-   * @param request GetMailAddressMsgCallBackUrlRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetMailAddressMsgCallBackUrlResponse
+   * 
+   * @param request - GetMailAddressMsgCallBackUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMailAddressMsgCallBackUrlResponse
    */
   // Deprecated
   async getMailAddressMsgCallBackUrlWithOptions(request: GetMailAddressMsgCallBackUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetMailAddressMsgCallBackUrlResponse> {
@@ -5398,12 +5813,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询发信地址消息回调地址信息
+   * 
    * @deprecated OpenAPI GetMailAddressMsgCallBackUrl is deprecated
-   *
-   * @summary 查询发信地址消息回调地址信息
-   *
-   * @param request GetMailAddressMsgCallBackUrlRequest
-   * @return GetMailAddressMsgCallBackUrlResponse
+   * 
+   * @param request - GetMailAddressMsgCallBackUrlRequest
+   * @returns GetMailAddressMsgCallBackUrlResponse
    */
   // Deprecated
   async getMailAddressMsgCallBackUrl(request: GetMailAddressMsgCallBackUrlRequest): Promise<GetMailAddressMsgCallBackUrlResponse> {
@@ -5412,11 +5827,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取打开、点击等跟踪行为的统计结果
-   *
-   * @param request GetTrackListRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return GetTrackListResponse
+   * 获取打开、点击等跟踪行为的统计结果
+   * 
+   * @param request - GetTrackListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTrackListResponse
    */
   async getTrackListWithOptions(request: GetTrackListRequest, runtime: $Util.RuntimeOptions): Promise<GetTrackListResponse> {
     Util.validateModel(request);
@@ -5491,10 +5906,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 获取打开、点击等跟踪行为的统计结果
-   *
-   * @param request GetTrackListRequest
-   * @return GetTrackListResponse
+   * 获取打开、点击等跟踪行为的统计结果
+   * 
+   * @param request - GetTrackListRequest
+   * @returns GetTrackListResponse
    */
   async getTrackList(request: GetTrackListRequest): Promise<GetTrackListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5502,9 +5917,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyMailAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyMailAddressResponse
+   * @param request - ModifyMailAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyMailAddressResponse
    */
   async modifyMailAddressWithOptions(request: ModifyMailAddressRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMailAddressResponse> {
     Util.validateModel(request);
@@ -5551,8 +5966,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyMailAddressRequest
-   * @return ModifyMailAddressResponse
+   * @param request - ModifyMailAddressRequest
+   * @returns ModifyMailAddressResponse
    */
   async modifyMailAddress(request: ModifyMailAddressRequest): Promise<ModifyMailAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5560,9 +5975,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyPWByDomainRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyPWByDomainResponse
+   * @param request - ModifyPWByDomainRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyPWByDomainResponse
    */
   async modifyPWByDomainWithOptions(request: ModifyPWByDomainRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPWByDomainResponse> {
     Util.validateModel(request);
@@ -5597,8 +6012,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyPWByDomainRequest
-   * @return ModifyPWByDomainResponse
+   * @param request - ModifyPWByDomainRequest
+   * @returns ModifyPWByDomainResponse
    */
   async modifyPWByDomain(request: ModifyPWByDomainRequest): Promise<ModifyPWByDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5606,9 +6021,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyTagRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTagResponse
+   * @param request - ModifyTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTagResponse
    */
   async modifyTagWithOptions(request: ModifyTagRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTagResponse> {
     Util.validateModel(request);
@@ -5655,8 +6070,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request ModifyTagRequest
-   * @return ModifyTagResponse
+   * @param request - ModifyTagRequest
+   * @returns ModifyTagResponse
    */
   async modifyTag(request: ModifyTagRequest): Promise<ModifyTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5664,11 +6079,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改模板信息
-   *
-   * @param request ModifyTemplateRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return ModifyTemplateResponse
+   * 修改模板信息
+   * 
+   * @param request - ModifyTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTemplateResponse
    */
   async modifyTemplateWithOptions(request: ModifyTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTemplateResponse> {
     Util.validateModel(request);
@@ -5739,10 +6154,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 修改模板信息
-   *
-   * @param request ModifyTemplateRequest
-   * @return ModifyTemplateResponse
+   * 修改模板信息
+   * 
+   * @param request - ModifyTemplateRequest
+   * @returns ModifyTemplateResponse
    */
   async modifyTemplate(request: ModifyTemplateRequest): Promise<ModifyTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5750,9 +6165,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDomainByParamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryDomainByParamResponse
+   * @param request - QueryDomainByParamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDomainByParamResponse
    */
   async queryDomainByParamWithOptions(request: QueryDomainByParamRequest, runtime: $Util.RuntimeOptions): Promise<QueryDomainByParamResponse> {
     Util.validateModel(request);
@@ -5803,8 +6218,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryDomainByParamRequest
-   * @return QueryDomainByParamResponse
+   * @param request - QueryDomainByParamRequest
+   * @returns QueryDomainByParamResponse
    */
   async queryDomainByParam(request: QueryDomainByParamRequest): Promise<QueryDomainByParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5812,9 +6227,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryInvalidAddressRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryInvalidAddressResponse
+   * @param request - QueryInvalidAddressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryInvalidAddressResponse
    */
   async queryInvalidAddressWithOptions(request: QueryInvalidAddressRequest, runtime: $Util.RuntimeOptions): Promise<QueryInvalidAddressResponse> {
     Util.validateModel(request);
@@ -5869,8 +6284,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryInvalidAddressRequest
-   * @return QueryInvalidAddressResponse
+   * @param request - QueryInvalidAddressRequest
+   * @returns QueryInvalidAddressResponse
    */
   async queryInvalidAddress(request: QueryInvalidAddressRequest): Promise<QueryInvalidAddressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5878,9 +6293,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryMailAddressByParamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryMailAddressByParamResponse
+   * @param request - QueryMailAddressByParamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMailAddressByParamResponse
    */
   async queryMailAddressByParamWithOptions(request: QueryMailAddressByParamRequest, runtime: $Util.RuntimeOptions): Promise<QueryMailAddressByParamResponse> {
     Util.validateModel(request);
@@ -5931,8 +6346,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryMailAddressByParamRequest
-   * @return QueryMailAddressByParamResponse
+   * @param request - QueryMailAddressByParamRequest
+   * @returns QueryMailAddressByParamResponse
    */
   async queryMailAddressByParam(request: QueryMailAddressByParamRequest): Promise<QueryMailAddressByParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -5940,9 +6355,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryReceiverByParamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryReceiverByParamResponse
+   * @param request - QueryReceiverByParamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryReceiverByParamResponse
    */
   async queryReceiverByParamWithOptions(request: QueryReceiverByParamRequest, runtime: $Util.RuntimeOptions): Promise<QueryReceiverByParamResponse> {
     Util.validateModel(request);
@@ -5993,8 +6408,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryReceiverByParamRequest
-   * @return QueryReceiverByParamResponse
+   * @param request - QueryReceiverByParamRequest
+   * @returns QueryReceiverByParamResponse
    */
   async queryReceiverByParam(request: QueryReceiverByParamRequest): Promise<QueryReceiverByParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6002,9 +6417,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryReceiverDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryReceiverDetailResponse
+   * @param request - QueryReceiverDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryReceiverDetailResponse
    */
   async queryReceiverDetailWithOptions(request: QueryReceiverDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryReceiverDetailResponse> {
     Util.validateModel(request);
@@ -6055,8 +6470,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryReceiverDetailRequest
-   * @return QueryReceiverDetailResponse
+   * @param request - QueryReceiverDetailRequest
+   * @returns QueryReceiverDetailResponse
    */
   async queryReceiverDetail(request: QueryReceiverDetailRequest): Promise<QueryReceiverDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6064,9 +6479,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryTagByParamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryTagByParamResponse
+   * @param request - QueryTagByParamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTagByParamResponse
    */
   async queryTagByParamWithOptions(request: QueryTagByParamRequest, runtime: $Util.RuntimeOptions): Promise<QueryTagByParamResponse> {
     Util.validateModel(request);
@@ -6113,8 +6528,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryTagByParamRequest
-   * @return QueryTagByParamResponse
+   * @param request - QueryTagByParamRequest
+   * @returns QueryTagByParamResponse
    */
   async queryTagByParam(request: QueryTagByParamRequest): Promise<QueryTagByParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6122,9 +6537,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryTaskByParamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryTaskByParamResponse
+   * @param request - QueryTaskByParamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTaskByParamResponse
    */
   async queryTaskByParamWithOptions(request: QueryTaskByParamRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskByParamResponse> {
     Util.validateModel(request);
@@ -6175,8 +6590,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryTaskByParamRequest
-   * @return QueryTaskByParamResponse
+   * @param request - QueryTaskByParamRequest
+   * @returns QueryTaskByParamResponse
    */
   async queryTaskByParam(request: QueryTaskByParamRequest): Promise<QueryTaskByParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6184,9 +6599,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryTemplateByParamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return QueryTemplateByParamResponse
+   * @param request - QueryTemplateByParamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTemplateByParamResponse
    */
   async queryTemplateByParamWithOptions(request: QueryTemplateByParamRequest, runtime: $Util.RuntimeOptions): Promise<QueryTemplateByParamResponse> {
     Util.validateModel(request);
@@ -6241,8 +6656,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request QueryTemplateByParamRequest
-   * @return QueryTemplateByParamResponse
+   * @param request - QueryTemplateByParamRequest
+   * @returns QueryTemplateByParamResponse
    */
   async queryTemplateByParam(request: QueryTemplateByParamRequest): Promise<QueryTemplateByParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6250,9 +6665,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveReceiverDetailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SaveReceiverDetailResponse
+   * @param request - SaveReceiverDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveReceiverDetailResponse
    */
   async saveReceiverDetailWithOptions(request: SaveReceiverDetailRequest, runtime: $Util.RuntimeOptions): Promise<SaveReceiverDetailResponse> {
     Util.validateModel(request);
@@ -6295,8 +6710,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SaveReceiverDetailRequest
-   * @return SaveReceiverDetailResponse
+   * @param request - SaveReceiverDetailRequest
+   * @returns SaveReceiverDetailResponse
    */
   async saveReceiverDetail(request: SaveReceiverDetailRequest): Promise<SaveReceiverDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6304,9 +6719,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SenderStatisticsByTagNameAndBatchIDRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SenderStatisticsByTagNameAndBatchIDResponse
+   * @param request - SenderStatisticsByTagNameAndBatchIDRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SenderStatisticsByTagNameAndBatchIDResponse
    */
   async senderStatisticsByTagNameAndBatchIDWithOptions(request: SenderStatisticsByTagNameAndBatchIDRequest, runtime: $Util.RuntimeOptions): Promise<SenderStatisticsByTagNameAndBatchIDResponse> {
     Util.validateModel(request);
@@ -6357,8 +6772,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SenderStatisticsByTagNameAndBatchIDRequest
-   * @return SenderStatisticsByTagNameAndBatchIDResponse
+   * @param request - SenderStatisticsByTagNameAndBatchIDRequest
+   * @returns SenderStatisticsByTagNameAndBatchIDResponse
    */
   async senderStatisticsByTagNameAndBatchID(request: SenderStatisticsByTagNameAndBatchIDRequest): Promise<SenderStatisticsByTagNameAndBatchIDResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6366,9 +6781,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SenderStatisticsDetailByParamRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SenderStatisticsDetailByParamResponse
+   * @param request - SenderStatisticsDetailByParamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SenderStatisticsDetailByParamResponse
    */
   async senderStatisticsDetailByParamWithOptions(request: SenderStatisticsDetailByParamRequest, runtime: $Util.RuntimeOptions): Promise<SenderStatisticsDetailByParamResponse> {
     Util.validateModel(request);
@@ -6435,8 +6850,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SenderStatisticsDetailByParamRequest
-   * @return SenderStatisticsDetailByParamResponse
+   * @param request - SenderStatisticsDetailByParamRequest
+   * @returns SenderStatisticsDetailByParamResponse
    */
   async senderStatisticsDetailByParam(request: SenderStatisticsDetailByParamRequest): Promise<SenderStatisticsDetailByParamResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6444,9 +6859,9 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SingleSendMailRequest
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SingleSendMailResponse
+   * @param request - SingleSendMailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SingleSendMailResponse
    */
   async singleSendMailWithOptions(request: SingleSendMailRequest, runtime: $Util.RuntimeOptions): Promise<SingleSendMailResponse> {
     Util.validateModel(request);
@@ -6537,8 +6952,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request SingleSendMailRequest
-   * @return SingleSendMailResponse
+   * @param request - SingleSendMailRequest
+   * @returns SingleSendMailResponse
    */
   async singleSendMail(request: SingleSendMailRequest): Promise<SingleSendMailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -6546,11 +6961,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 极高发信专用API
-   *
-   * @param tmpReq SingleSendMailV2Request
-   * @param runtime runtime options for this request RuntimeOptions
-   * @return SingleSendMailV2Response
+   * 极高发信专用API
+   * 
+   * @param tmpReq - SingleSendMailV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SingleSendMailV2Response
    */
   async singleSendMailV2WithOptions(tmpReq: SingleSendMailV2Request, runtime: $Util.RuntimeOptions): Promise<SingleSendMailV2Response> {
     Util.validateModel(tmpReq);
@@ -6643,10 +7058,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @summary 极高发信专用API
-   *
-   * @param request SingleSendMailV2Request
-   * @return SingleSendMailV2Response
+   * 极高发信专用API
+   * 
+   * @param request - SingleSendMailV2Request
+   * @returns SingleSendMailV2Response
    */
   async singleSendMailV2(request: SingleSendMailV2Request): Promise<SingleSendMailV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
