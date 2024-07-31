@@ -4948,6 +4948,118 @@ export class DescribePlayListResponse extends $tea.Model {
   }
 }
 
+export class DescribeRtcRobotInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * 727dc0e296014bb58670940a3da95592
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcRobotInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * **********
+   */
+  authToken?: string;
+  /**
+   * @example
+   * testId
+   */
+  channelId?: string;
+  config?: DescribeRtcRobotInstanceResponseBodyConfig;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 20B3A1B6-4BD2-5DE6-BCBC-098C9B4F4E91
+   */
+  requestId?: string;
+  /**
+   * @example
+   * Executing
+   */
+  status?: string;
+  /**
+   * @example
+   * {}
+   */
+  userData?: string;
+  /**
+   * @example
+   * my-robot
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authToken: 'AuthToken',
+      channelId: 'ChannelId',
+      config: 'Config',
+      requestId: 'RequestId',
+      status: 'Status',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authToken: 'string',
+      channelId: 'string',
+      config: DescribeRtcRobotInstanceResponseBodyConfig,
+      requestId: 'string',
+      status: 'string',
+      userData: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcRobotInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRtcRobotInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRtcRobotInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetectAudioForCustomizedVoiceJobRequest extends $tea.Model {
   /**
    * @remarks
@@ -15666,6 +15778,196 @@ export class SetEventCallbackResponse extends $tea.Model {
   }
 }
 
+export class StartRtcRobotInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * **********
+   */
+  authToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testId
+   */
+  channelId?: string;
+  config?: StartRtcRobotInstanceRequestConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ca28b08ad3464ebcb42e5c0f7c6d2e89
+   */
+  robotId?: string;
+  /**
+   * @example
+   * {}
+   */
+  userData?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my-robot
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authToken: 'AuthToken',
+      channelId: 'ChannelId',
+      config: 'Config',
+      robotId: 'RobotId',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authToken: 'string',
+      channelId: 'string',
+      config: StartRtcRobotInstanceRequestConfig,
+      robotId: 'string',
+      userData: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartRtcRobotInstanceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * **********
+   */
+  authToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testId
+   */
+  channelId?: string;
+  configShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ca28b08ad3464ebcb42e5c0f7c6d2e89
+   */
+  robotId?: string;
+  /**
+   * @example
+   * {}
+   */
+  userData?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my-robot
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authToken: 'AuthToken',
+      channelId: 'ChannelId',
+      configShrink: 'Config',
+      robotId: 'RobotId',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authToken: 'string',
+      channelId: 'string',
+      configShrink: 'string',
+      robotId: 'string',
+      userData: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartRtcRobotInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 727dc0e296014bb58670940a3da95592
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 11DE0AB3-603B-5055-8A72-9C424854F983
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartRtcRobotInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartRtcRobotInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartRtcRobotInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartWorkflowRequest extends $tea.Model {
   /**
    * @example
@@ -15749,6 +16051,83 @@ export class StartWorkflowResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartWorkflowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopRtcRobotInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 727dc0e296014bb58670940a3da95592
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopRtcRobotInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * AC84E5DD-AB56-56C0-A992-07ECB82008CA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopRtcRobotInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopRtcRobotInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopRtcRobotInstanceResponseBody,
     };
   }
 
@@ -21004,6 +21383,115 @@ export class UpdatePipelineResponse extends $tea.Model {
   }
 }
 
+export class UpdateRtcRobotInstanceRequest extends $tea.Model {
+  config?: UpdateRtcRobotInstanceRequestConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 727dc0e296014bb58670940a3da95592
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: UpdateRtcRobotInstanceRequestConfig,
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRtcRobotInstanceShrinkRequest extends $tea.Model {
+  configShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 727dc0e296014bb58670940a3da95592
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configShrink: 'Config',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configShrink: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRtcRobotInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 7707F0A2-C6FD-5959-87EB-7C4D02384FD4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRtcRobotInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRtcRobotInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRtcRobotInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTemplateRequest extends $tea.Model {
   /**
    * @example
@@ -23099,6 +23587,39 @@ export class DescribePlayListResponseBodyPlayList extends $tea.Model {
       traceId: 'string',
       videoDuration: 'string',
       videoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRtcRobotInstanceResponseBodyConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enableVoiceInterrupt?: boolean;
+  greeting?: string;
+  /**
+   * @example
+   * zhixiaoxia
+   */
+  voiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableVoiceInterrupt: 'EnableVoiceInterrupt',
+      greeting: 'Greeting',
+      voiceId: 'VoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableVoiceInterrupt: 'boolean',
+      greeting: 'string',
+      voiceId: 'string',
     };
   }
 
@@ -40844,6 +41365,39 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $tea.Mode
   }
 }
 
+export class StartRtcRobotInstanceRequestConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enableVoiceInterrupt?: boolean;
+  greeting?: string;
+  /**
+   * @example
+   * zhixiaoxia
+   */
+  voiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableVoiceInterrupt: 'EnableVoiceInterrupt',
+      greeting: 'Greeting',
+      voiceId: 'VoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableVoiceInterrupt: 'boolean',
+      greeting: 'string',
+      voiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitAvatarTrainingJobResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -47365,6 +47919,39 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfig extends $tea.Model
   }
 }
 
+export class UpdateRtcRobotInstanceRequestConfig extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  enableVoiceInterrupt?: boolean;
+  greeting?: string;
+  /**
+   * @example
+   * zhixiaoxia
+   */
+  voiceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableVoiceInterrupt: 'EnableVoiceInterrupt',
+      greeting: 'Greeting',
+      voiceId: 'VoiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableVoiceInterrupt: 'boolean',
+      greeting: 'string',
+      voiceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadMediaByURLResponseBodyUploadJobs extends $tea.Model {
   /**
    * @example
@@ -50066,6 +50653,48 @@ export default class Client extends OpenApi {
   async describePlayList(request: DescribePlayListRequest): Promise<DescribePlayListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePlayListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例
+   * 
+   * @param request - DescribeRtcRobotInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRtcRobotInstanceResponse
+   */
+  async describeRtcRobotInstanceWithOptions(request: DescribeRtcRobotInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRtcRobotInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRtcRobotInstance",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRtcRobotInstanceResponse>(await this.callApi(params, req, runtime), new DescribeRtcRobotInstanceResponse({}));
+  }
+
+  /**
+   * 查询实例
+   * 
+   * @param request - DescribeRtcRobotInstanceRequest
+   * @returns DescribeRtcRobotInstanceResponse
+   */
+  async describeRtcRobotInstance(request: DescribeRtcRobotInstanceRequest): Promise<DescribeRtcRobotInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRtcRobotInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -55313,6 +55942,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启一个机器人实例
+   * 
+   * @param tmpReq - StartRtcRobotInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartRtcRobotInstanceResponse
+   */
+  async startRtcRobotInstanceWithOptions(tmpReq: StartRtcRobotInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartRtcRobotInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartRtcRobotInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.config)) {
+      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.authToken)) {
+      query["AuthToken"] = request.authToken;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.configShrink)) {
+      query["Config"] = request.configShrink;
+    }
+
+    if (!Util.isUnset(request.robotId)) {
+      query["RobotId"] = request.robotId;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartRtcRobotInstance",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartRtcRobotInstanceResponse>(await this.callApi(params, req, runtime), new StartRtcRobotInstanceResponse({}));
+  }
+
+  /**
+   * 开启一个机器人实例
+   * 
+   * @param request - StartRtcRobotInstanceRequest
+   * @returns StartRtcRobotInstanceResponse
+   */
+  async startRtcRobotInstance(request: StartRtcRobotInstanceRequest): Promise<StartRtcRobotInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startRtcRobotInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * 启动工作流
    * 
    * @param request - StartWorkflowRequest
@@ -55360,6 +56057,48 @@ export default class Client extends OpenApi {
   async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startWorkflowWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止一个机器人实例
+   * 
+   * @param request - StopRtcRobotInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopRtcRobotInstanceResponse
+   */
+  async stopRtcRobotInstanceWithOptions(request: StopRtcRobotInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopRtcRobotInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopRtcRobotInstance",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopRtcRobotInstanceResponse>(await this.callApi(params, req, runtime), new StopRtcRobotInstanceResponse({}));
+  }
+
+  /**
+   * 停止一个机器人实例
+   * 
+   * @param request - StopRtcRobotInstanceRequest
+   * @returns StopRtcRobotInstanceResponse
+   */
+  async stopRtcRobotInstance(request: StopRtcRobotInstanceRequest): Promise<StopRtcRobotInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopRtcRobotInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -57904,6 +58643,58 @@ export default class Client extends OpenApi {
   async updatePipeline(request: UpdatePipelineRequest): Promise<UpdatePipelineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updatePipelineWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改实例的配置
+   * 
+   * @param tmpReq - UpdateRtcRobotInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRtcRobotInstanceResponse
+   */
+  async updateRtcRobotInstanceWithOptions(tmpReq: UpdateRtcRobotInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRtcRobotInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateRtcRobotInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.config)) {
+      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.configShrink)) {
+      query["Config"] = request.configShrink;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRtcRobotInstance",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRtcRobotInstanceResponse>(await this.callApi(params, req, runtime), new UpdateRtcRobotInstanceResponse({}));
+  }
+
+  /**
+   * 修改实例的配置
+   * 
+   * @param request - UpdateRtcRobotInstanceRequest
+   * @returns UpdateRtcRobotInstanceResponse
+   */
+  async updateRtcRobotInstance(request: UpdateRtcRobotInstanceRequest): Promise<UpdateRtcRobotInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateRtcRobotInstanceWithOptions(request, runtime);
   }
 
   /**
