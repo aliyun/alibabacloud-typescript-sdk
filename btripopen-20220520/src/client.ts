@@ -21090,6 +21090,107 @@ export class HotelOrderDetailInfoResponse extends $tea.Model {
   }
 }
 
+export class HotelOrderInfoQueryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * feth00jqwls
+   */
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  code?: string;
+  message?: string;
+  module?: HotelOrderInfoQueryResponseBodyModule;
+  /**
+   * @example
+   * A5009956-1077-52FB-B520-EA8C7E91D722
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 210f079e16603757182131635d866a
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: HotelOrderInfoQueryResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HotelOrderInfoQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HotelOrderInfoQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelOrderListQueryHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -22948,6 +23049,168 @@ export class HotelStaticInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: HotelStaticInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestV2Headers extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * feth00jqwls
+   */
+  xAcsBtripCorpToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsBtripCorpToken: 'x-acs-btrip-corp-token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsBtripCorpToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestV2Request extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
+  btripUserId?: string;
+  /**
+   * @example
+   * 2024-05-15
+   */
+  checkIn?: string;
+  /**
+   * @example
+   * 2024-06-04
+   */
+  checkOut?: string;
+  /**
+   * @example
+   * 330100
+   */
+  cityCode?: string;
+  keyword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  searchType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      btripUserId: 'btrip_user_id',
+      checkIn: 'check_in',
+      checkOut: 'check_out',
+      cityCode: 'city_code',
+      keyword: 'keyword',
+      searchType: 'search_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      btripUserId: 'string',
+      checkIn: 'string',
+      checkOut: 'string',
+      cityCode: 'string',
+      keyword: 'string',
+      searchType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestV2ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * None
+   */
+  message?: string;
+  module?: HotelSuggestV2ResponseBodyModule;
+  /**
+   * @example
+   * C61ECFF6-606B-5F66-B81D-D77369043A5F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 21041ce316577904808056433edbb2
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+      module: 'module',
+      requestId: 'requestId',
+      success: 'success',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      module: HotelSuggestV2ResponseBodyModule,
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestV2Response extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HotelSuggestV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HotelSuggestV2ResponseBody,
     };
   }
 
@@ -67557,6 +67820,796 @@ export class HotelOrderDetailInfoResponseBodyModule extends $tea.Model {
   }
 }
 
+export class HotelOrderInfoQueryResponseBodyModuleBaseOrderInfo extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  bookMode?: string;
+  /**
+   * @example
+   * 1430378
+   */
+  bookerId?: string;
+  bookerName?: string;
+  /**
+   * @example
+   * btripkvxtn1321g49wtul
+   */
+  btripCorpId?: string;
+  /**
+   * @example
+   * 2
+   */
+  category?: number;
+  /**
+   * @example
+   * 1721145600000
+   */
+  checkInTime?: number;
+  /**
+   * @example
+   * 1721145600000
+   */
+  checkOutTime?: number;
+  /**
+   * @example
+   * true
+   */
+  isAgreementPrice?: boolean;
+  /**
+   * @example
+   * 4
+   */
+  nights?: number;
+  /**
+   * @example
+   * 1721145600000
+   */
+  orderCreateTime?: number;
+  /**
+   * @example
+   * 1012053198307958626
+   */
+  orderId?: number;
+  /**
+   * @example
+   * 2
+   */
+  orderStatus?: number;
+  orderStatusDesc?: string;
+  /**
+   * @example
+   * 1
+   */
+  payStatus?: number;
+  /**
+   * @example
+   * 1721145600000
+   */
+  payTime?: number;
+  /**
+   * @example
+   * 2
+   */
+  roomNum?: number;
+  /**
+   * @example
+   * 4
+   */
+  settleType?: number;
+  /**
+   * @example
+   * 1
+   */
+  tripMode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bookMode: 'book_mode',
+      bookerId: 'booker_id',
+      bookerName: 'booker_name',
+      btripCorpId: 'btrip_corp_id',
+      category: 'category',
+      checkInTime: 'check_in_time',
+      checkOutTime: 'check_out_time',
+      isAgreementPrice: 'is_agreement_price',
+      nights: 'nights',
+      orderCreateTime: 'order_create_time',
+      orderId: 'order_id',
+      orderStatus: 'order_status',
+      orderStatusDesc: 'order_status_desc',
+      payStatus: 'pay_status',
+      payTime: 'pay_time',
+      roomNum: 'room_num',
+      settleType: 'settle_type',
+      tripMode: 'trip_mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bookMode: 'string',
+      bookerId: 'string',
+      bookerName: 'string',
+      btripCorpId: 'string',
+      category: 'number',
+      checkInTime: 'number',
+      checkOutTime: 'number',
+      isAgreementPrice: 'boolean',
+      nights: 'number',
+      orderCreateTime: 'number',
+      orderId: 'number',
+      orderStatus: 'number',
+      orderStatusDesc: 'string',
+      payStatus: 'number',
+      payTime: 'number',
+      roomNum: 'number',
+      settleType: 'number',
+      tripMode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleBookerInfoDepartment extends $tea.Model {
+  /**
+   * @example
+   * 0rCUI20hjOsk0sTwlu
+   */
+  cascadeDeptMask?: string;
+  cascadeDeptName?: string;
+  /**
+   * @example
+   * 35
+   */
+  departId?: string;
+  departName?: string;
+  /**
+   * @example
+   * 330000001815
+   */
+  outDepartId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cascadeDeptMask: 'cascade_dept_mask',
+      cascadeDeptName: 'cascade_dept_name',
+      departId: 'depart_id',
+      departName: 'depart_name',
+      outDepartId: 'out_depart_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cascadeDeptMask: 'string',
+      cascadeDeptName: 'string',
+      departId: 'string',
+      departName: 'string',
+      outDepartId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleBookerInfo extends $tea.Model {
+  /**
+   * @example
+   * UN_APPLY
+   */
+  bookerRole?: string;
+  /**
+   * @example
+   * 13311112222@qq.com
+   */
+  contactEmail?: string;
+  /**
+   * @example
+   * 13311112222
+   */
+  contactPhone?: string;
+  /**
+   * @example
+   * open12gddn2kn1i47v10wRJNkMFx00
+   */
+  corpId?: string;
+  department?: HotelOrderInfoQueryResponseBodyModuleBookerInfoDepartment;
+  /**
+   * @example
+   * Tom
+   */
+  enName?: string;
+  /**
+   * @example
+   * 1001
+   */
+  jobNo?: string;
+  /**
+   * @example
+   * true
+   */
+  needApply?: boolean;
+  realName?: string;
+  /**
+   * @example
+   * 1430378
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bookerRole: 'booker_role',
+      contactEmail: 'contact_email',
+      contactPhone: 'contact_phone',
+      corpId: 'corp_id',
+      department: 'department',
+      enName: 'en_name',
+      jobNo: 'job_no',
+      needApply: 'need_apply',
+      realName: 'real_name',
+      userId: 'user_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bookerRole: 'string',
+      contactEmail: 'string',
+      contactPhone: 'string',
+      corpId: 'string',
+      department: HotelOrderInfoQueryResponseBodyModuleBookerInfoDepartment,
+      enName: 'string',
+      jobNo: 'string',
+      needApply: 'boolean',
+      realName: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleHotelInfo extends $tea.Model {
+  /**
+   * @example
+   * 330100
+   */
+  cityCode?: string;
+  cityName?: string;
+  /**
+   * @example
+   * 1
+   */
+  countryCode?: string;
+  countryName?: string;
+  /**
+   * @example
+   * 330183
+   */
+  districtCode?: string;
+  districtName?: string;
+  hotelAddress?: string;
+  /**
+   * @example
+   * 3
+   */
+  hotelBrandCode?: string;
+  hotelBrandName?: string;
+  /**
+   * @example
+   * huazhu
+   */
+  hotelGroup?: string;
+  /**
+   * @example
+   * 55335212
+   */
+  hotelId?: string;
+  hotelName?: string;
+  /**
+   * @example
+   * Test Hotel Name
+   */
+  hotelNameEn?: string;
+  /**
+   * @example
+   * 5
+   */
+  star?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      countryCode: 'country_code',
+      countryName: 'country_name',
+      districtCode: 'district_code',
+      districtName: 'district_name',
+      hotelAddress: 'hotel_address',
+      hotelBrandCode: 'hotel_brand_code',
+      hotelBrandName: 'hotel_brand_name',
+      hotelGroup: 'hotel_group',
+      hotelId: 'hotel_id',
+      hotelName: 'hotel_name',
+      hotelNameEn: 'hotel_name_en',
+      star: 'star',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cityCode: 'string',
+      cityName: 'string',
+      countryCode: 'string',
+      countryName: 'string',
+      districtCode: 'string',
+      districtName: 'string',
+      hotelAddress: 'string',
+      hotelBrandCode: 'string',
+      hotelBrandName: 'string',
+      hotelGroup: 'string',
+      hotelId: 'string',
+      hotelName: 'string',
+      hotelNameEn: 'string',
+      star: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleHotelOrderFeeInfo extends $tea.Model {
+  /**
+   * @example
+   * 35000
+   */
+  orderAmount?: number;
+  /**
+   * @example
+   * 0
+   */
+  otherFee?: number;
+  /**
+   * @example
+   * 35000
+   */
+  payAmount?: number;
+  /**
+   * @example
+   * 5000
+   */
+  promotionAmount?: number;
+  /**
+   * @example
+   * 35000
+   */
+  totalRoomAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderAmount: 'order_amount',
+      otherFee: 'other_fee',
+      payAmount: 'pay_amount',
+      promotionAmount: 'promotion_amount',
+      totalRoomAmount: 'total_room_amount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderAmount: 'number',
+      otherFee: 'number',
+      payAmount: 'number',
+      promotionAmount: 'number',
+      totalRoomAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleHotelOrderRefundInfo extends $tea.Model {
+  /**
+   * @example
+   * 1000
+   */
+  cancelFine?: number;
+  /**
+   * @example
+   * 1000000002578096
+   */
+  refundApplyId?: number;
+  /**
+   * @example
+   * 1721702353700
+   */
+  refundEndTime?: number;
+  /**
+   * @example
+   * 34000
+   */
+  refundPrice?: number;
+  refundReason?: string;
+  /**
+   * @example
+   * 1721702353700
+   */
+  refundStartTime?: number;
+  /**
+   * @example
+   * 5
+   */
+  refundType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cancelFine: 'cancel_fine',
+      refundApplyId: 'refund_apply_id',
+      refundEndTime: 'refund_end_time',
+      refundPrice: 'refund_price',
+      refundReason: 'refund_reason',
+      refundStartTime: 'refund_start_time',
+      refundType: 'refund_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancelFine: 'number',
+      refundApplyId: 'number',
+      refundEndTime: 'number',
+      refundPrice: 'number',
+      refundReason: 'string',
+      refundStartTime: 'number',
+      refundType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApplyInfoExceedApply extends $tea.Model {
+  exceedReason?: string;
+  /**
+   * @example
+   * 16
+   */
+  exceedType?: number;
+  /**
+   * @example
+   * 3321
+   */
+  flowNo?: number;
+  /**
+   * @example
+   * 60853
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exceedReason: 'exceed_reason',
+      exceedType: 'exceed_type',
+      flowNo: 'flow_no',
+      id: 'id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exceedReason: 'string',
+      exceedType: 'number',
+      flowNo: 'number',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApplyInfo extends $tea.Model {
+  /**
+   * @example
+   * 1001
+   */
+  applyBusinessId?: string;
+  applyBusinessName?: string;
+  /**
+   * @example
+   * 1424031910085891196
+   */
+  applyId?: string;
+  exceedApply?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApplyInfoExceedApply[];
+  /**
+   * @example
+   * ef5e74dc1f1640b08858fb043f64e477-8
+   */
+  itineraryNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applyBusinessId: 'apply_business_id',
+      applyBusinessName: 'apply_business_name',
+      applyId: 'apply_id',
+      exceedApply: 'exceed_apply',
+      itineraryNo: 'itinerary_no',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyBusinessId: 'string',
+      applyBusinessName: 'string',
+      applyId: 'string',
+      exceedApply: { 'type': 'array', 'itemType': HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApplyInfoExceedApply },
+      itineraryNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosDepartment extends $tea.Model {
+  /**
+   * @example
+   * 0rCUI20hjOsk0sTwlu
+   */
+  cascadeDeptMask?: string;
+  cascadeDeptName?: string;
+  /**
+   * @example
+   * 35
+   */
+  departId?: string;
+  departName?: string;
+  /**
+   * @example
+   * 330000001815
+   */
+  outDepartId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cascadeDeptMask: 'cascade_dept_mask',
+      cascadeDeptName: 'cascade_dept_name',
+      departId: 'depart_id',
+      departName: 'depart_name',
+      outDepartId: 'out_depart_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cascadeDeptMask: 'string',
+      cascadeDeptName: 'string',
+      departId: 'string',
+      departName: 'string',
+      outDepartId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosTripCostCenter extends $tea.Model {
+  /**
+   * @example
+   * 323431
+   */
+  costCenterCode?: string;
+  /**
+   * @example
+   * 2312
+   */
+  costCenterId?: string;
+  costCenterName?: string;
+  /**
+   * @example
+   * {"extraKey":"extraVal"}
+   */
+  externalExtField?: string;
+  /**
+   * @example
+   * 1
+   */
+  feeType?: number;
+  /**
+   * @example
+   * 123332
+   */
+  invoiceId?: number;
+  invoiceTitle?: string;
+  /**
+   * @example
+   * 1002
+   */
+  projectCode?: string;
+  projectTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      costCenterCode: 'cost_center_code',
+      costCenterId: 'cost_center_id',
+      costCenterName: 'cost_center_name',
+      externalExtField: 'external_ext_field',
+      feeType: 'fee_type',
+      invoiceId: 'invoice_id',
+      invoiceTitle: 'invoice_title',
+      projectCode: 'project_code',
+      projectTitle: 'project_title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      costCenterCode: 'string',
+      costCenterId: 'string',
+      costCenterName: 'string',
+      externalExtField: 'string',
+      feeType: 'number',
+      invoiceId: 'number',
+      invoiceTitle: 'string',
+      projectCode: 'string',
+      projectTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfos extends $tea.Model {
+  applyInfo?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApplyInfo;
+  /**
+   * @example
+   * 342229200801010023
+   */
+  certNo?: string;
+  /**
+   * @example
+   * 0
+   */
+  certType?: number;
+  department?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosDepartment;
+  /**
+   * @example
+   * 1001
+   */
+  jobNo?: string;
+  /**
+   * @example
+   * 13311112222
+   */
+  telephone?: string;
+  /**
+   * @example
+   * 1430378
+   */
+  travelerId?: string;
+  travelerName?: string;
+  /**
+   * @example
+   * 1
+   */
+  travelerType?: number;
+  tripCostCenter?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosTripCostCenter;
+  /**
+   * @example
+   * 0
+   */
+  userType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applyInfo: 'apply_info',
+      certNo: 'cert_no',
+      certType: 'cert_type',
+      department: 'department',
+      jobNo: 'job_no',
+      telephone: 'telephone',
+      travelerId: 'traveler_id',
+      travelerName: 'traveler_name',
+      travelerType: 'traveler_type',
+      tripCostCenter: 'trip_cost_center',
+      userType: 'user_type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applyInfo: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosApplyInfo,
+      certNo: 'string',
+      certType: 'number',
+      department: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosDepartment,
+      jobNo: 'string',
+      telephone: 'string',
+      travelerId: 'string',
+      travelerName: 'string',
+      travelerType: 'number',
+      tripCostCenter: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfosTripCostCenter,
+      userType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModuleRoomTraverInfo extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  liveRoomNo?: string;
+  roomTypeName?: string;
+  traverInfos?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      liveRoomNo: 'live_room_no',
+      roomTypeName: 'room_type_name',
+      traverInfos: 'traver_infos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      liveRoomNo: 'string',
+      roomTypeName: 'string',
+      traverInfos: { 'type': 'array', 'itemType': HotelOrderInfoQueryResponseBodyModuleRoomTraverInfoTraverInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelOrderInfoQueryResponseBodyModule extends $tea.Model {
+  baseOrderInfo?: HotelOrderInfoQueryResponseBodyModuleBaseOrderInfo;
+  bookerInfo?: HotelOrderInfoQueryResponseBodyModuleBookerInfo;
+  hotelInfo?: HotelOrderInfoQueryResponseBodyModuleHotelInfo;
+  hotelOrderFeeInfo?: HotelOrderInfoQueryResponseBodyModuleHotelOrderFeeInfo;
+  hotelOrderRefundInfo?: HotelOrderInfoQueryResponseBodyModuleHotelOrderRefundInfo[];
+  roomTraverInfo?: HotelOrderInfoQueryResponseBodyModuleRoomTraverInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      baseOrderInfo: 'base_order_info',
+      bookerInfo: 'booker_info',
+      hotelInfo: 'hotel_info',
+      hotelOrderFeeInfo: 'hotel_order_fee_info',
+      hotelOrderRefundInfo: 'hotel_order_refund_info',
+      roomTraverInfo: 'room_traver_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseOrderInfo: HotelOrderInfoQueryResponseBodyModuleBaseOrderInfo,
+      bookerInfo: HotelOrderInfoQueryResponseBodyModuleBookerInfo,
+      hotelInfo: HotelOrderInfoQueryResponseBodyModuleHotelInfo,
+      hotelOrderFeeInfo: HotelOrderInfoQueryResponseBodyModuleHotelOrderFeeInfo,
+      hotelOrderRefundInfo: { 'type': 'array', 'itemType': HotelOrderInfoQueryResponseBodyModuleHotelOrderRefundInfo },
+      roomTraverInfo: { 'type': 'array', 'itemType': HotelOrderInfoQueryResponseBodyModuleRoomTraverInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HotelOrderListQueryResponseBodyModuleCostCenter extends $tea.Model {
   corpId?: string;
   /**
@@ -70182,6 +71235,304 @@ export class HotelStaticInfoResponseBodyModule extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       hotelStaticInfos: { 'type': 'array', 'itemType': HotelStaticInfoResponseBodyModuleHotelStaticInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestV2ResponseBodyModuleGuessSuggestInfos extends $tea.Model {
+  address?: string;
+  /**
+   * @example
+   * 300100
+   */
+  cityCode?: number;
+  cityName?: string;
+  displayName?: string;
+  /**
+   * @example
+   * 53853318
+   */
+  hotelId?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/O1CN01qKg25r1rKLOKxT3vB_!!6000000005612-2-tps-32-32.png
+   */
+  icon?: string;
+  point?: string;
+  /**
+   * @example
+   * 524
+   */
+  price?: string;
+  /**
+   * @example
+   * 0
+   */
+  region?: number;
+  /**
+   * @example
+   * 10
+   */
+  type?: number;
+  typeDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      displayName: 'display_name',
+      hotelId: 'hotel_id',
+      icon: 'icon',
+      point: 'point',
+      price: 'price',
+      region: 'region',
+      type: 'type',
+      typeDesc: 'type_desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      cityCode: 'number',
+      cityName: 'string',
+      displayName: 'string',
+      hotelId: 'string',
+      icon: 'string',
+      point: 'string',
+      price: 'string',
+      region: 'number',
+      type: 'number',
+      typeDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestV2ResponseBodyModuleKeywordSuggestInfosBusinessAreaWithCity extends $tea.Model {
+  address?: string;
+  /**
+   * @example
+   * 300100
+   */
+  cityCode?: number;
+  cityName?: string;
+  displayName?: string;
+  /**
+   * @example
+   * 57140953
+   */
+  hotelId?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/O1CN01qKg25r1rKLOKxT3vB_!!6000000005612-2-tps-32-32.png
+   */
+  icon?: string;
+  point?: string;
+  /**
+   * @example
+   * 524
+   */
+  price?: string;
+  /**
+   * @example
+   * 0
+   */
+  region?: number;
+  /**
+   * @example
+   * 5
+   */
+  type?: number;
+  typeDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      displayName: 'display_name',
+      hotelId: 'hotel_id',
+      icon: 'icon',
+      point: 'point',
+      price: 'price',
+      region: 'region',
+      type: 'type',
+      typeDesc: 'type_desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      cityCode: 'number',
+      cityName: 'string',
+      displayName: 'string',
+      hotelId: 'string',
+      icon: 'string',
+      point: 'string',
+      price: 'string',
+      region: 'number',
+      type: 'number',
+      typeDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestV2ResponseBodyModuleKeywordSuggestInfos extends $tea.Model {
+  address?: string;
+  businessAreaWithCity?: HotelSuggestV2ResponseBodyModuleKeywordSuggestInfosBusinessAreaWithCity[];
+  /**
+   * @example
+   * 300100
+   */
+  cityCode?: number;
+  cityName?: string;
+  displayName?: string;
+  /**
+   * @example
+   * 53853318
+   */
+  hotelId?: string;
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/O1CN01qKg25r1rKLOKxT3vB_!!6000000005612-2-tps-32-32.png
+   */
+  icon?: string;
+  point?: string;
+  /**
+   * @example
+   * 524
+   */
+  price?: string;
+  /**
+   * @example
+   * 0
+   */
+  region?: number;
+  /**
+   * @example
+   * 10
+   */
+  type?: number;
+  typeDesc?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      businessAreaWithCity: 'business_area_with_city',
+      cityCode: 'city_code',
+      cityName: 'city_name',
+      displayName: 'display_name',
+      hotelId: 'hotel_id',
+      icon: 'icon',
+      point: 'point',
+      price: 'price',
+      region: 'region',
+      type: 'type',
+      typeDesc: 'type_desc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      businessAreaWithCity: { 'type': 'array', 'itemType': HotelSuggestV2ResponseBodyModuleKeywordSuggestInfosBusinessAreaWithCity },
+      cityCode: 'number',
+      cityName: 'string',
+      displayName: 'string',
+      hotelId: 'string',
+      icon: 'string',
+      point: 'string',
+      price: 'string',
+      region: 'number',
+      type: 'number',
+      typeDesc: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestV2ResponseBodyModulePopularSuggestInfosPopularInfos extends $tea.Model {
+  displayName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'display_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestV2ResponseBodyModulePopularSuggestInfos extends $tea.Model {
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i1/O1CN01x0q19E1QZSqLHVVNh_!!6000000001990-2-tps-54-54.png
+   */
+  icon?: string;
+  popularInfos?: HotelSuggestV2ResponseBodyModulePopularSuggestInfosPopularInfos[];
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icon: 'icon',
+      popularInfos: 'popular_infos',
+      title: 'title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icon: 'string',
+      popularInfos: { 'type': 'array', 'itemType': HotelSuggestV2ResponseBodyModulePopularSuggestInfosPopularInfos },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotelSuggestV2ResponseBodyModule extends $tea.Model {
+  guessSuggestInfos?: HotelSuggestV2ResponseBodyModuleGuessSuggestInfos[];
+  keywordSuggestInfos?: HotelSuggestV2ResponseBodyModuleKeywordSuggestInfos[];
+  popularSuggestInfos?: HotelSuggestV2ResponseBodyModulePopularSuggestInfos[];
+  tips?: string;
+  static names(): { [key: string]: string } {
+    return {
+      guessSuggestInfos: 'guess_suggest_infos',
+      keywordSuggestInfos: 'keyword_suggest_infos',
+      popularSuggestInfos: 'popular_suggest_infos',
+      tips: 'tips',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      guessSuggestInfos: { 'type': 'array', 'itemType': HotelSuggestV2ResponseBodyModuleGuessSuggestInfos },
+      keywordSuggestInfos: { 'type': 'array', 'itemType': HotelSuggestV2ResponseBodyModuleKeywordSuggestInfos },
+      popularSuggestInfos: { 'type': 'array', 'itemType': HotelSuggestV2ResponseBodyModulePopularSuggestInfos },
+      tips: 'string',
     };
   }
 
@@ -78736,6 +80087,7 @@ export class MealOrderDetailQueryResponseBodyModule extends $tea.Model {
    * 1711702782
    */
   settleTime?: string;
+  thirdPartApplyId?: string;
   /**
    * @example
    * 17509140000
@@ -78765,6 +80117,7 @@ export class MealOrderDetailQueryResponseBodyModule extends $tea.Model {
       refundAmount: 'refund_amount',
       sceneName: 'scene_name',
       settleTime: 'settle_time',
+      thirdPartApplyId: 'third_part_apply_id',
       userAlipayId: 'user_alipay_id',
       userId: 'user_id',
     };
@@ -78789,6 +80142,7 @@ export class MealOrderDetailQueryResponseBodyModule extends $tea.Model {
       refundAmount: 'number',
       sceneName: 'string',
       settleTime: 'string',
+      thirdPartApplyId: 'string',
       userAlipayId: 'string',
       userId: 'string',
     };
@@ -96277,6 +97631,50 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 自营酒店订单查询
+   * 
+   * @param headers - HotelOrderInfoQueryHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HotelOrderInfoQueryResponse
+   */
+  async hotelOrderInfoQueryWithOptions(orderId: string, headers: HotelOrderInfoQueryHeaders, runtime: $Util.RuntimeOptions): Promise<HotelOrderInfoQueryResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApi.Params({
+      action: "HotelOrderInfoQuery",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/order/v1/hotelOrders/${OpenApiUtil.getEncodeParam(orderId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<HotelOrderInfoQueryResponse>(await this.callApi(params, req, runtime), new HotelOrderInfoQueryResponse({}));
+  }
+
+  /**
+   * 自营酒店订单查询
+   * @returns HotelOrderInfoQueryResponse
+   */
+  async hotelOrderInfoQuery(orderId: string): Promise<HotelOrderInfoQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new HotelOrderInfoQueryHeaders({ });
+    return await this.hotelOrderInfoQueryWithOptions(orderId, headers, runtime);
+  }
+
+  /**
    * 查询酒店订单列表
    * 
    * @param request - HotelOrderListQueryRequest
@@ -96960,6 +98358,80 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HotelStaticInfoHeaders({ });
     return await this.hotelStaticInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 酒店关键词搜索
+   * 
+   * @param request - HotelSuggestV2Request
+   * @param headers - HotelSuggestV2Headers
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HotelSuggestV2Response
+   */
+  async hotelSuggestV2WithOptions(request: HotelSuggestV2Request, headers: HotelSuggestV2Headers, runtime: $Util.RuntimeOptions): Promise<HotelSuggestV2Response> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.btripUserId)) {
+      query["btrip_user_id"] = request.btripUserId;
+    }
+
+    if (!Util.isUnset(request.checkIn)) {
+      query["check_in"] = request.checkIn;
+    }
+
+    if (!Util.isUnset(request.checkOut)) {
+      query["check_out"] = request.checkOut;
+    }
+
+    if (!Util.isUnset(request.cityCode)) {
+      query["city_code"] = request.cityCode;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.searchType)) {
+      query["search_type"] = request.searchType;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsBtripCorpToken)) {
+      realHeaders["x-acs-btrip-corp-token"] = Util.toJSONString(headers.xAcsBtripCorpToken);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "HotelSuggestV2",
+      version: "2022-05-20",
+      protocol: "HTTPS",
+      pathname: `/dtb-hotel/v2/suggest-infos`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<HotelSuggestV2Response>(await this.callApi(params, req, runtime), new HotelSuggestV2Response({}));
+  }
+
+  /**
+   * 酒店关键词搜索
+   * 
+   * @param request - HotelSuggestV2Request
+   * @returns HotelSuggestV2Response
+   */
+  async hotelSuggestV2(request: HotelSuggestV2Request): Promise<HotelSuggestV2Response> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new HotelSuggestV2Headers({ });
+    return await this.hotelSuggestV2WithOptions(request, headers, runtime);
   }
 
   /**
