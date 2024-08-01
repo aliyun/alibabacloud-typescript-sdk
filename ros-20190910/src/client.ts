@@ -2530,6 +2530,7 @@ export class CreateTemplateRequest extends $tea.Model {
    * oss://ros/template/demo
    */
   templateURL?: string;
+  validationOptions?: string[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -2538,6 +2539,7 @@ export class CreateTemplateRequest extends $tea.Model {
       templateBody: 'TemplateBody',
       templateName: 'TemplateName',
       templateURL: 'TemplateURL',
+      validationOptions: 'ValidationOptions',
     };
   }
 
@@ -2549,6 +2551,7 @@ export class CreateTemplateRequest extends $tea.Model {
       templateBody: 'string',
       templateName: 'string',
       templateURL: 'string',
+      validationOptions: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -15705,6 +15708,8 @@ export class UpdateTemplateRequest extends $tea.Model {
    * It is a demo.
    */
   description?: string;
+  isDraft?: boolean;
+  rotateStrategy?: string;
   templateBody?: string;
   /**
    * @remarks
@@ -15738,23 +15743,30 @@ export class UpdateTemplateRequest extends $tea.Model {
    * oss://ros/template/demo
    */
   templateURL?: string;
+  validationOptions?: string[];
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      isDraft: 'IsDraft',
+      rotateStrategy: 'RotateStrategy',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateName: 'TemplateName',
       templateURL: 'TemplateURL',
+      validationOptions: 'ValidationOptions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      isDraft: 'boolean',
+      rotateStrategy: 'string',
       templateBody: 'string',
       templateId: 'string',
       templateName: 'string',
       templateURL: 'string',
+      validationOptions: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -26374,6 +26386,10 @@ export default class Client extends OpenApi {
       query["TemplateURL"] = request.templateURL;
     }
 
+    if (!Util.isUnset(request.validationOptions)) {
+      query["ValidationOptions"] = request.validationOptions;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.templateBody)) {
       body["TemplateBody"] = request.templateBody;
@@ -31351,6 +31367,14 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!Util.isUnset(request.isDraft)) {
+      query["IsDraft"] = request.isDraft;
+    }
+
+    if (!Util.isUnset(request.rotateStrategy)) {
+      query["RotateStrategy"] = request.rotateStrategy;
+    }
+
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
@@ -31361,6 +31385,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.templateURL)) {
       query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.validationOptions)) {
+      query["ValidationOptions"] = request.validationOptions;
     }
 
     let body : {[key: string ]: any} = { };
