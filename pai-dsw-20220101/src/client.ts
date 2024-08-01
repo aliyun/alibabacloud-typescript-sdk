@@ -7,6 +7,39 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CredentialConfig extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  aliyunEnvRoleKey?: string;
+  configs?: CredentialConfigConfigs[];
+  /**
+   * @example
+   * true
+   */
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunEnvRoleKey: 'AliyunEnvRoleKey',
+      configs: 'Configs',
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunEnvRoleKey: 'string',
+      configs: { 'type': 'array', 'itemType': CredentialConfigConfigs },
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DemoCategory extends $tea.Model {
   /**
    * @example
@@ -283,6 +316,7 @@ export class CreateInstanceRequest extends $tea.Model {
    * []
    */
   cloudDisks?: CreateInstanceRequestCloudDisks[];
+  credentialConfig?: CredentialConfig;
   datasets?: CreateInstanceRequestDatasets[];
   /**
    * @example
@@ -356,6 +390,7 @@ export class CreateInstanceRequest extends $tea.Model {
       accessibility: 'Accessibility',
       affinity: 'Affinity',
       cloudDisks: 'CloudDisks',
+      credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
       driver: 'Driver',
       ecsSpec: 'EcsSpec',
@@ -380,6 +415,7 @@ export class CreateInstanceRequest extends $tea.Model {
       accessibility: 'string',
       affinity: CreateInstanceRequestAffinity,
       cloudDisks: { 'type': 'array', 'itemType': CreateInstanceRequestCloudDisks },
+      credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': CreateInstanceRequestDatasets },
       driver: 'string',
       ecsSpec: 'string',
@@ -3628,7 +3664,9 @@ export class UpdateInstanceRequest extends $tea.Model {
    * []
    */
   cloudDisks?: UpdateInstanceRequestCloudDisks[];
+  credentialConfig?: CredentialConfig;
   datasets?: UpdateInstanceRequestDatasets[];
+  disassociateCredential?: boolean;
   /**
    * @example
    * false
@@ -3701,7 +3739,9 @@ export class UpdateInstanceRequest extends $tea.Model {
       accessibility: 'Accessibility',
       affinity: 'Affinity',
       cloudDisks: 'CloudDisks',
+      credentialConfig: 'CredentialConfig',
       datasets: 'Datasets',
+      disassociateCredential: 'DisassociateCredential',
       disassociateDatasets: 'DisassociateDatasets',
       disassociateDriver: 'DisassociateDriver',
       disassociateForwardInfos: 'DisassociateForwardInfos',
@@ -3725,7 +3765,9 @@ export class UpdateInstanceRequest extends $tea.Model {
       accessibility: 'string',
       affinity: UpdateInstanceRequestAffinity,
       cloudDisks: { 'type': 'array', 'itemType': UpdateInstanceRequestCloudDisks },
+      credentialConfig: CredentialConfig,
       datasets: { 'type': 'array', 'itemType': UpdateInstanceRequestDatasets },
+      disassociateCredential: 'boolean',
       disassociateDatasets: 'boolean',
       disassociateDriver: 'boolean',
       disassociateForwardInfos: 'boolean',
@@ -3895,6 +3937,142 @@ export class UpdateInstanceLabelsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateInstanceLabelsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialConfigConfigsRolesUserInfo extends $tea.Model {
+  /**
+   * @example
+   * LT********
+   */
+  accessKeyId?: string;
+  /**
+   * @example
+   * 456******
+   */
+  id?: string;
+  /**
+   * @example
+   * ********
+   */
+  securityToken?: string;
+  /**
+   * @example
+   * S
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      id: 'Id',
+      securityToken: 'SecurityToken',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      id: 'string',
+      securityToken: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialConfigConfigsRoles extends $tea.Model {
+  /**
+   * @example
+   * 123******
+   */
+  assumeRoleFor?: string;
+  /**
+   * @example
+   * {}
+   */
+  policy?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * acs:ram::123******:role/****
+   */
+  roleArn?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * service
+   */
+  roleType?: string;
+  userInfo?: CredentialConfigConfigsRolesUserInfo;
+  static names(): { [key: string]: string } {
+    return {
+      assumeRoleFor: 'AssumeRoleFor',
+      policy: 'Policy',
+      roleArn: 'RoleArn',
+      roleType: 'RoleType',
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assumeRoleFor: 'string',
+      policy: 'string',
+      roleArn: 'string',
+      roleType: 'string',
+      userInfo: CredentialConfigConfigsRolesUserInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CredentialConfigConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  key?: string;
+  roles?: CredentialConfigConfigsRoles[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Role
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      roles: 'Roles',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      roles: { 'type': 'array', 'itemType': CredentialConfigConfigsRoles },
+      type: 'string',
     };
   }
 
@@ -6528,6 +6706,10 @@ export default class Client extends OpenApi {
       body["CloudDisks"] = request.cloudDisks;
     }
 
+    if (!Util.isUnset(request.credentialConfig)) {
+      body["CredentialConfig"] = request.credentialConfig;
+    }
+
     if (!Util.isUnset(request.datasets)) {
       body["Datasets"] = request.datasets;
     }
@@ -7785,8 +7967,16 @@ export default class Client extends OpenApi {
       body["CloudDisks"] = request.cloudDisks;
     }
 
+    if (!Util.isUnset(request.credentialConfig)) {
+      body["CredentialConfig"] = request.credentialConfig;
+    }
+
     if (!Util.isUnset(request.datasets)) {
       body["Datasets"] = request.datasets;
+    }
+
+    if (!Util.isUnset(request.disassociateCredential)) {
+      body["DisassociateCredential"] = request.disassociateCredential;
     }
 
     if (!Util.isUnset(request.disassociateDatasets)) {
