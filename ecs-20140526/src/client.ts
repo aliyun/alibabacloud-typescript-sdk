@@ -2456,7 +2456,7 @@ export class AuthorizeSecurityGroupRequest extends $tea.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use `Permissions.N.Ipv6SourceCidrIp` to specify the source IPv6 CIDR block.
+   * This parameter is deprecated. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
    * 
    * @example
    * 2001:250:6000::***
@@ -5597,7 +5597,7 @@ export class CreateCommandResponse extends $tea.Model {
 export class CreateDedicatedHostClusterRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the dedicated host cluster. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter. The name cannot contain `http://` or `https://`.
+   * The name of the dedicated host cluster. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * This parameter is left empty by default.
    * 
@@ -5619,7 +5619,7 @@ export class CreateDedicatedHostClusterRequest extends $tea.Model {
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized Resource Access Management (RAM) users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * Default value: false.
@@ -9575,7 +9575,7 @@ export class CreateLaunchTemplateRequest extends $tea.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * The tags of the launch template.
+   * The tags to add to the instance, disks, and primary ENI.
    */
   tag?: CreateLaunchTemplateRequestTag[];
   /**
@@ -10205,7 +10205,7 @@ export class CreateLaunchTemplateVersionRequest extends $tea.Model {
   spotStrategy?: string;
   /**
    * @remarks
-   * The tags to add to the activation code.
+   * The tags to add to the instance, disks, and primary ENI.
    */
   tag?: CreateLaunchTemplateVersionRequestTag[];
   /**
@@ -14741,18 +14741,7 @@ export class DeleteImageRequest extends $tea.Model {
    * m-bp67acfmxazb4p****
    */
   imageId?: string;
-  /**
-   * @example
-   * ECSforCloud@Alibaba.com
-   */
   ownerAccount?: string;
-  /**
-   * @remarks
-   * RAM用户的虚拟账号ID。
-   * 
-   * @example
-   * 155780923770
-   */
   ownerId?: number;
   /**
    * @remarks
@@ -14764,21 +14753,7 @@ export class DeleteImageRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * 资源主账号的账号名称。
-   * 
-   * @example
-   * ECSforCloud
-   */
   resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * 资源主账号的ID，亦即UID。
-   * 
-   * @example
-   * 155780923770
-   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17295,39 +17270,39 @@ export class DescribeAccountAttributesRequest extends $tea.Model {
    * @remarks
    * The type of resource quota N. Valid values of N: 1 to 8. Valid values:
    * 
-   * *   instance-network-type: available network types
+   * *   instance-network-type: the available network types.
    * 
-   * *   max-security-groups: the maximum number of security groups
+   * *   max-security-groups: the maximum number of security groups.
    * 
-   * *   max-elastic-network-interfaces: the maximum number of ENIs
+   * *   max-elastic-network-interfaces: the maximum number of ENIs.
    * 
-   * *   max-postpaid-instance-vcpu-count: the maximum number of vCPUs for pay-as-you-go instances
+   * *   max-postpaid-instance-vcpu-count: the maximum number of vCPUs for pay-as-you-go instances.
    * 
-   * *   max-spot-instance-vcpu-count: the maximum number of vCPUs for preemptible instances
+   * *   max-spot-instance-vcpu-count: the maximum number of vCPUs for preemptible instances.
    * 
-   * *   used-postpaid-instance-vcpu-count: the number of vCPUs that have been allocated to pay-as-you-go instances
+   * *   used-postpaid-instance-vcpu-count: the number of vCPUs that have been allocated to pay-as-you-go instances.
    * 
-   * *   used-spot-instance-vcpu-count: the number of vCPUs that have been allocated to preemptible instances
+   * *   used-spot-instance-vcpu-count: the number of vCPUs that have been allocated to preemptible instances.
    * 
-   * *   max-postpaid-yundisk-capacity: the maximum capacity of pay-as-you-go data disks(This value is deprecated)
+   * *   max-postpaid-yundisk-capacity: the maximum capacity of pay-as-you-go data disks. (The value is deprecated.)
    * 
-   * *   used-postpaid-yundisk-capacity: the capacity of pay-as-you-go disks that have been created(This value is deprecated)
+   * *   used-postpaid-yundisk-capacity: the capacity of pay-as-you-go data disks that have been created. (The value is deprecated.)
    * 
-   * *   max-dedicated-hosts: the maximum number of dedicated hosts
+   * *   max-dedicated-hosts: the maximum number of dedicated hosts.
    * 
-   * *   supported-postpaid-instance-types: the instance types of pay-as-you-go I/O optimized instances
+   * *   supported-postpaid-instance-types: the instance types of pay-as-you-go I/O optimized instances.
    * 
-   * *   max-axt-command-count: the maximum number of Cloud Assistant commands
+   * *   max-axt-command-count: the maximum number of Cloud Assistant commands.
    * 
-   * *   max-axt-invocation-daily: the maximum number of Cloud Assistant command executions per day
+   * *   max-axt-invocation-daily: the maximum number of Cloud Assistant command executions per day.
    * 
-   * *   real-name-authentication: whether the account has passed the real-name verification
+   * *   real-name-authentication: whether the account has completed the real-name verification.
    * 
    *     **
    * 
-   *     **Note**You must pass the real-name verification before you create an ECS instance in the Chinese mainland regions.
+   *     **Note** To create an ECS instance in a region in the Chinese mainland, you must complete the real-name verification.
    * 
-   * *   max-cloud-assistant-activation-count: the maximum number of activation codes that can be created to use to register managed instances
+   * *   max-cloud-assistant-activation-count: the maximum number of activation codes that can be created to use to register managed instances.
    * 
    * This parameter is empty by default.
    * 
@@ -17386,7 +17361,7 @@ export class DescribeAccountAttributesRequest extends $tea.Model {
 export class DescribeAccountAttributesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Details about account privileges specified by AccountAttributeItem in the specified region.
+   * Details about account privileges in the specified region.
    */
   accountAttributeItems?: DescribeAccountAttributesResponseBodyAccountAttributeItems;
   /**
@@ -35494,7 +35469,7 @@ export class DescribeSecurityGroupReferencesRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of security group N. Valid values of N: 1 to 10.
+   * The IDs of N security groups that you want to query. Valid values of N: 1 to 10.
    * 
    * This parameter is required.
    * 
@@ -37039,12 +37014,12 @@ export class DescribeSnapshotsRequest extends $tea.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The type of the source disk. Valid values:
+   * The source disk type of the snapshot. Valid values:
    * 
-   * *   system: system disk
-   * *   data: data disk
+   * *   system: system disk.
+   * *   data: data disk.
    * 
-   * >  The value of this parameter is not case-sensitive.
+   * >  The value of this parameter is case-insensitive.
    * 
    * @example
    * Data
@@ -42547,6 +42522,7 @@ export class InvokeCommandRequest extends $tea.Model {
    * i-bp185dy2o3o6n****
    */
   instanceId?: string[];
+  launcher?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -42681,6 +42657,7 @@ export class InvokeCommandRequest extends $tea.Model {
       containerName: 'ContainerName',
       frequency: 'Frequency',
       instanceId: 'InstanceId',
+      launcher: 'Launcher',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       parameters: 'Parameters',
@@ -42707,6 +42684,7 @@ export class InvokeCommandRequest extends $tea.Model {
       containerName: 'string',
       frequency: 'string',
       instanceId: { 'type': 'array', 'itemType': 'string' },
+      launcher: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
@@ -42832,6 +42810,7 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
    * i-bp185dy2o3o6n****
    */
   instanceId?: string[];
+  launcher?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -42966,6 +42945,7 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
       containerName: 'ContainerName',
       frequency: 'Frequency',
       instanceId: 'InstanceId',
+      launcher: 'Launcher',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       parametersShrink: 'Parameters',
@@ -42992,6 +42972,7 @@ export class InvokeCommandShrinkRequest extends $tea.Model {
       containerName: 'string',
       frequency: 'string',
       instanceId: { 'type': 'array', 'itemType': 'string' },
+      launcher: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       parametersShrink: 'string',
@@ -46484,7 +46465,7 @@ export class ModifyDiskChargeTypeRequest extends $tea.Model {
    * Specifies whether to automatically complete the payment. Valid values:
    * 
    * *   true (default): The payment is automatically completed. Maintain sufficient balance in your account. Otherwise, your order becomes invalid and must be canceled.
-   * *   false: An order is generated but no payment is made. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can go to the [Orders page](https://usercenter2-intl.aliyun.com/order/list) in the Expenses and Costs console and pay for the order.
+   * *   false: An order is generated but no payment is made. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, log on to the **Expenses and Costs console**, go to the [Orders page](https://usercenter2-intl.aliyun.com/order/list), and pay for the order.
    * 
    * @example
    * true
@@ -48200,7 +48181,7 @@ export class ModifyInstanceAttributeRequest extends $tea.Model {
    * *   The instance is moved from the current security groups to the replacement security groups. If you want the instance to remain in the current security groups, add the IDs of the current security groups to the list.
    * *   You can move the instance to security groups of a different type. However, the list cannot contain the IDs of both basic and advanced security groups.
    * *   The security groups and the instance must belong to the same VPC.
-   * *   The valid values of N vary based on the maximum number of security groups to which the instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section in the "Limits" topic.
+   * *   The valid values of N vary based on the maximum number of security groups to which the instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section in the "Limits and quotas" topic.
    * *   New security groups become valid for the instance after a short latency.
    * 
    * @example
@@ -50727,7 +50708,7 @@ export class ModifyManagedInstanceResponse extends $tea.Model {
 export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not publicly available.
    */
   connectionTrackingConfiguration?: ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration;
   /**
@@ -50753,7 +50734,7 @@ export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not publicly available.
    */
   enhancedNetwork?: ModifyNetworkInterfaceAttributeRequestEnhancedNetwork;
   /**
@@ -50822,9 +50803,9 @@ export class ModifyNetworkInterfaceAttributeRequest extends $tea.Model {
   rxQueueSize?: number;
   /**
    * @remarks
-   * The IDs of the security groups to which to add the secondary ENI. The secondary ENI is added to the specified security groups and are removed from its original security groups.
+   * The IDs of the security groups to which to add the secondary ENI. The secondary ENI is added to the specified security groups and removed from the original security groups.
    * 
-   * *   The valid value range of N varies based on the number of security groups to which an ENI can be added. For more information, see [Limits](~~25412#SecurityGroupQuota~~).
+   * *   The valid values of N vary based on the maximum number of security groups to which an ENI can be added. For more information, see the [Security group limits](~~25412#SecurityGroupQuota~~) section of the "Limits and quotas" topic.
    * *   The new security groups take effect after a short delay.
    */
   securityGroupId?: string[];
@@ -51740,7 +51721,7 @@ export class ModifyReservedInstanceAutoRenewAttributeResponse extends $tea.Model
 export class ModifyReservedInstancesRequest extends $tea.Model {
   /**
    * @remarks
-   * The configurations of reserved instance N.
+   * The configurations of reserved instances.
    */
   configuration?: ModifyReservedInstancesRequestConfiguration[];
   ownerAccount?: string;
@@ -51757,7 +51738,7 @@ export class ModifyReservedInstancesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of reserved instances. Valid values of N: 1 to 20.
+   * The ID of reserved instance N. Valid values of N: 1 to 20.
    * 
    * This parameter is required.
    * 
@@ -51807,7 +51788,7 @@ export class ModifyReservedInstancesResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the reserved instance.
+   * The IDs of the reserved instances.
    */
   reservedInstanceIdSets?: ModifyReservedInstancesResponseBodyReservedInstanceIdSets;
   static names(): { [key: string]: string } {
@@ -52074,18 +52055,7 @@ export class ModifySecurityGroupAttributeRequest extends $tea.Model {
    * TestDescription
    */
   description?: string;
-  /**
-   * @example
-   * ECSforCloud@Alibaba.com
-   */
   ownerAccount?: string;
-  /**
-   * @remarks
-   * RAM用户的虚拟账号ID。
-   * 
-   * @example
-   * 155780923770
-   */
   ownerId?: number;
   /**
    * @remarks
@@ -52097,21 +52067,7 @@ export class ModifySecurityGroupAttributeRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * 资源主账号的账号名称。
-   * 
-   * @example
-   * ECSforCloud
-   */
   resourceOwnerAccount?: string;
-  /**
-   * @remarks
-   * 资源主账号的ID，亦即UID。
-   * 
-   * @example
-   * 155780923770
-   */
   resourceOwnerId?: number;
   /**
    * @remarks
@@ -52125,9 +52081,9 @@ export class ModifySecurityGroupAttributeRequest extends $tea.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The new name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The new name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
-   * By default, this parameter is left empty.
+   * This parameter is empty by default.
    * 
    * @example
    * SecurityGroupTestName
@@ -52767,7 +52723,7 @@ export class ModifySecurityGroupRuleRequest extends $tea.Model {
    * @remarks
    * The priority of the security group rule. Valid values: 1 to 100.
    * 
-   * Default value: 1
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -58119,6 +58075,7 @@ export class RunCommandRequest extends $tea.Model {
    * false
    */
   keepCommand?: boolean;
+  launcher?: string;
   /**
    * @remarks
    * The name of the command. The name supports all character sets and can be up to 128 characters in length.
@@ -58297,6 +58254,7 @@ export class RunCommandRequest extends $tea.Model {
       frequency: 'Frequency',
       instanceId: 'InstanceId',
       keepCommand: 'KeepCommand',
+      launcher: 'Launcher',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -58330,6 +58288,7 @@ export class RunCommandRequest extends $tea.Model {
       frequency: 'string',
       instanceId: { 'type': 'array', 'itemType': 'string' },
       keepCommand: 'boolean',
+      launcher: 'string',
       name: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -58527,6 +58486,7 @@ export class RunCommandShrinkRequest extends $tea.Model {
    * false
    */
   keepCommand?: boolean;
+  launcher?: string;
   /**
    * @remarks
    * The name of the command. The name supports all character sets and can be up to 128 characters in length.
@@ -58705,6 +58665,7 @@ export class RunCommandShrinkRequest extends $tea.Model {
       frequency: 'Frequency',
       instanceId: 'InstanceId',
       keepCommand: 'KeepCommand',
+      launcher: 'Launcher',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -58738,6 +58699,7 @@ export class RunCommandShrinkRequest extends $tea.Model {
       frequency: 'string',
       instanceId: { 'type': 'array', 'itemType': 'string' },
       keepCommand: 'boolean',
+      launcher: 'string',
       name: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -64504,7 +64466,7 @@ export class CreateDedicatedHostClusterRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the dedicated host cluster. Valid values of N: 1 to 20. The tag value cannot be an empty string. The tag value can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
+   * The value of tag N to add to the dedicated host cluster. Valid values of N: 1 to 20. The tag value cannot be an empty string. The tag value can be up to 64 characters in length and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -65851,7 +65813,7 @@ export class CreateLaunchTemplateRequestNetworkInterface extends $tea.Model {
 export class CreateLaunchTemplateRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of tag N to add to the instance, EBS device, and ENI. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The key of tag N to add to the instance, disks, and primary ENI. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -65859,7 +65821,7 @@ export class CreateLaunchTemplateRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the instance, EBS device, and ENI. Valid values of N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters in length. It cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+   * The value of tag N to add to the instance, disks, and primary ENI. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -65887,7 +65849,7 @@ export class CreateLaunchTemplateRequestTag extends $tea.Model {
 export class CreateLaunchTemplateRequestTemplateTag extends $tea.Model {
   /**
    * @remarks
-   * The key of tag N to add to the launch template. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The key of tag N to add to the launch template. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
    * 
    * @example
    * TestKey
@@ -65895,7 +65857,7 @@ export class CreateLaunchTemplateRequestTemplateTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the launch template. Valid values of N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The value of tag N to add to the launch template. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
    * 
    * @example
    * TestValue
@@ -66384,7 +66346,7 @@ export class CreateLaunchTemplateVersionRequestNetworkInterface extends $tea.Mod
 export class CreateLaunchTemplateVersionRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of tag N to add to the instance, block storage devices, or primary ENI. Valid values of N: 1 to 5. The tag key cannot be an empty string. It can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The key of tag N to add to the instance, disks, and primary ENI. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -66392,7 +66354,7 @@ export class CreateLaunchTemplateVersionRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the instance, block storage devices, or primary ENI. Valid values of N: 1 to 5. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * The value of tag N to add to the instance, disks, and primary ENI. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -67809,22 +67771,22 @@ export class DescribeAccountAttributesResponseBodyAccountAttributeItemsAccountAt
    * *   max-spot-instance-vcpu-count
    * *   used-postpaid-instance-vcpu-count
    * *   used-spot-instance-vcpu-count
-   * *   max-postpaid-yundisk-capacity(This value is deprecated)
-   * *   used-postpaid-yundisk-capacity(This value is deprecated)
+   * *   max-postpaid-yundisk-capacity (the value is deprecated)
+   * *   used-postpaid-yundisk-capacity (the value is deprecated)
    * *   max-dedicated-hosts
    * *   max-axt-command-count
    * *   max-axt-invocation-daily
    * *   max-cloud-assistant-activation-count
    * 
-   * When the AttributeName parameter is set to supported-postpay-instance-types, an instance type is returned. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+   * When AttributeName is set to supported-postpay-instance-types, instance types are returned. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
-   * When the AttributeName parameter is set to real-name-authentications, one of the following values is returned:
+   * When AttributeName is set to real-name-authentications, one of the following values is returned:
    * 
    * *   yes
    * *   none
    * *   unnecessary
    * 
-   * When the AttributeName parameter is set to instance-network-type, one of the following values is returned:
+   * When AttributeName is set to instance-network-type, one of the following values is returned:
    * 
    * *   vpc
    * *   classic
@@ -67894,21 +67856,21 @@ export class DescribeAccountAttributesResponseBodyAccountAttributeItemsAccountAt
    * @remarks
    * The type of the resource quota in the specified region. Valid values:
    * 
-   * *   instance-network-type: available network types
-   * *   max-security-groups: the maximum number of security groups
-   * *   max-elastic-network-interfaces: the maximum number of ENIs
-   * *   max-postpaid-instance-vcpu-count: the maximum number of vCPUs for pay-as-you-go instances
-   * *   max-spot-instance-vcpu-count: the maximum number of vCPUs for preemptible instances
-   * *   used-postpaid-instance-vcpu-count: the number of vCPUs that have been allocated to pay-as-you-go instances
-   * *   used-spot-instance-vcpu-count: the number of vCPUs that have been allocated to preemptible instances
-   * *   max-postpaid-yundisk-capacity: the maximum capacity of pay-as-you-go data disks(This value is deprecated)
-   * *   used-postpaid-yundisk-capacity: the capacity of pay-as-you-go disks that have been created(This value is deprecated)
-   * *   max-dedicated-hosts: the maximum number of dedicated hosts
-   * *   supported-postpaid-instance-types: the instance types of pay-as-you-go I/O optimized instances
-   * *   max-axt-command-count: the maximum number of Cloud Assistant commands
-   * *   max-axt-invocation-daily: the maximum number of Cloud Assistant command executions per day
-   * *   real-name-authentication: whether the account has passed the real-name verification
-   * *   max-cloud-assistant-activation-count: the maximum number of activation codes that can be created to use to register managed instances
+   * *   instance-network-type: the available network types.
+   * *   max-security-groups: the maximum number of security groups.
+   * *   max-elastic-network-interfaces: the maximum number of ENIs.
+   * *   max-postpaid-instance-vcpu-count: the maximum number of vCPUs for pay-as-you-go instances.
+   * *   max-spot-instance-vcpu-count: the maximum number of vCPUs for preemptible instances.
+   * *   used-postpaid-instance-vcpu-count: the number of vCPUs that were allocated to pay-as-you-go instances.
+   * *   used-spot-instance-vcpu-count: the number of vCPUs that were allocated to preemptible instances.
+   * *   max-postpaid-yundisk-capacity: the maximum capacity of pay-as-you-go data disks. (The value is deprecated.)
+   * *   used-postpaid-yundisk-capacity: the capacity of pay-as-you-go data disks that were created. (The value is deprecated.)
+   * *   max-dedicated-hosts: the maximum number of dedicated hosts.
+   * *   supported-postpaid-instance-types: the instance types of pay-as-you-go I/O optimized instances.
+   * *   max-axt-command-count: the maximum number of Cloud Assistant commands.
+   * *   max-axt-invocation-daily: the maximum number of Cloud Assistant command executions per day.
+   * *   real-name-authentication: whether the account completed the real-name verification.
+   * *   max-cloud-assistant-activation-count: the maximum number of activation codes that can be created to use to register managed instances.
    * 
    * @example
    * max-security-groups
@@ -67916,7 +67878,7 @@ export class DescribeAccountAttributesResponseBodyAccountAttributeItemsAccountAt
   attributeName?: string;
   /**
    * @remarks
-   * The specific values of resource quotas.
+   * The values of resource quotas.
    */
   attributeValues?: DescribeAccountAttributesResponseBodyAccountAttributeItemsAccountAttributeItemAttributeValues;
   static names(): { [key: string]: string } {
@@ -83748,6 +83710,7 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
    * Running
    */
   invokeRecordStatus?: string;
+  launcher?: string;
   /**
    * @remarks
    * The command output.
@@ -83824,6 +83787,7 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
       invocationStatus: 'InvocationStatus',
       invokeId: 'InvokeId',
       invokeRecordStatus: 'InvokeRecordStatus',
+      launcher: 'Launcher',
       output: 'Output',
       repeats: 'Repeats',
       startTime: 'StartTime',
@@ -83848,6 +83812,7 @@ export class DescribeInvocationResultsResponseBodyInvocationInvocationResultsInv
       invocationStatus: 'string',
       invokeId: 'string',
       invokeRecordStatus: 'string',
+      launcher: 'string',
       output: 'string',
       repeats: 'number',
       startTime: 'string',
@@ -84441,6 +84406,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $tea.M
    * Finished
    */
   invokeStatus?: string;
+  launcher?: string;
   /**
    * @remarks
    * The custom parameters in the command.
@@ -84527,6 +84493,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $tea.M
       invokeId: 'InvokeId',
       invokeInstances: 'InvokeInstances',
       invokeStatus: 'InvokeStatus',
+      launcher: 'Launcher',
       parameters: 'Parameters',
       repeatMode: 'RepeatMode',
       tags: 'Tags',
@@ -84553,6 +84520,7 @@ export class DescribeInvocationsResponseBodyInvocationsInvocation extends $tea.M
       invokeId: 'string',
       invokeInstances: DescribeInvocationsResponseBodyInvocationsInvocationInvokeInstances,
       invokeStatus: 'string',
+      launcher: 'string',
       parameters: 'string',
       repeatMode: 'string',
       tags: DescribeInvocationsResponseBodyInvocationsInvocationTags,
@@ -97414,17 +97382,17 @@ export class ModifyManagedInstanceResponseBodyInstance extends $tea.Model {
 export class ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfiguration extends $tea.Model {
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not publicly available.
    */
   tcpClosedAndTimeWaitTimeout?: number;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not publicly available.
    */
   tcpEstablishedTimeout?: number;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not publicly available.
    */
   udpTimeout?: number;
   static names(): { [key: string]: string } {
@@ -97451,7 +97419,7 @@ export class ModifyNetworkInterfaceAttributeRequestConnectionTrackingConfigurati
 export class ModifyNetworkInterfaceAttributeRequestEnhancedNetwork extends $tea.Model {
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not publicly available.
    */
   enableSriov?: boolean;
   static names(): { [key: string]: string } {
@@ -97726,7 +97694,7 @@ export class ModifyPrepayInstanceSpecRequestDisk extends $tea.Model {
 export class ModifyReservedInstancesRequestConfiguration extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The number of pay-as-you-go instances of the same instance type that reserved instance N can match. The value of this parameter must be greater than or equal to 1. Valid values of N: 1 to 100.
    * 
    * @example
    * 1
@@ -97734,7 +97702,9 @@ export class ModifyReservedInstancesRequestConfiguration extends $tea.Model {
   instanceAmount?: number;
   /**
    * @remarks
-   * The number of pay-as-you-go instances of the same instance type that the reserved instance can match. The value of this parameter must be greater than or equal to 1. Valid values of N: 1 to 100.
+   * The instance type that reserved instance N can match. Valid values of N: 1 to 100.
+   * 
+   * >  The applicable instance types are continuously updated. For more information, see the "Attributes" section in [Overview of reserved instances](https://help.aliyun.com/document_detail/100370.html).
    * 
    * @example
    * ecs.c5.4xlarge
@@ -97742,11 +97712,9 @@ export class ModifyReservedInstancesRequestConfiguration extends $tea.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The zone ID of reserved instance N. Valid values of N: 1 to 100.
+   * The name of reserved instance N. Valid values of N: 1 to 100.
    * 
-   * This parameter is required when `Scope` is set to `Zone`.
-   * 
-   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent zone list.
+   * The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testReservedInstanceName
@@ -97754,9 +97722,14 @@ export class ModifyReservedInstancesRequestConfiguration extends $tea.Model {
   reservedInstanceName?: string;
   /**
    * @remarks
-   * The instance type that reserved instance N can match. Valid values of N: 1 to 100.
+   * The scope of reserved instance N. Valid values:
    * 
-   * > The supported instance types are regularly updated. For more information, see the "Attributes" section of [Overview](https://help.aliyun.com/document_detail/100370.html).
+   * *   Region: regional
+   * *   Zone: zonal
+   * 
+   * Valid values of N: 1 to 100.
+   * 
+   * Default value: Region.
    * 
    * @example
    * Zone
@@ -97764,14 +97737,11 @@ export class ModifyReservedInstancesRequestConfiguration extends $tea.Model {
   scope?: string;
   /**
    * @remarks
-   * The scope of reserved instance N. Valid values:
+   * The zone ID of reserved instance N. Valid values of N: 1 to 100.
    * 
-   * *   Region
-   * *   Zone
+   * This parameter is required when `Scope` is set to `Zone`.
    * 
-   * Valid values of N: 1 to 100.
-   * 
-   * Default value: Region.
+   * You can call the [DescribeZones](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent zone list.
    * 
    * @example
    * cn-hangzhou-i
@@ -103335,7 +103305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an auto provisioning group.
+   * Creates an auto provisioning group. When you call this operation, you can specify parameters, such as ResourceGroupId, AutoProvisioningGroupType, and ValidFrom, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -103501,7 +103471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an auto provisioning group.
+   * Creates an auto provisioning group. When you call this operation, you can specify parameters, such as ResourceGroupId, AutoProvisioningGroupType, and ValidFrom, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -103889,7 +103859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a dedicated host cluster.
+   * Creates a dedicated host cluster. When you call this operation, you can specify parameters, such as ResourceGroupId, DedicatedHostClusterName, and ZoneId, in the request.
    * 
    * @param request - CreateDedicatedHostClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -103960,7 +103930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a dedicated host cluster.
+   * Creates a dedicated host cluster. When you call this operation, you can specify parameters, such as ResourceGroupId, DedicatedHostClusterName, and ZoneId, in the request.
    * 
    * @param request - CreateDedicatedHostClusterRequest
    * @returns CreateDedicatedHostClusterResponse
@@ -105665,7 +105635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a launch template. A launch template eliminates the need to configure a large number of parameters every time you create an Elastic Compute Service (ECS) instance.
+   * Creates a launch template. When you call this operation, you can specify parameters, such as TemplateTag, LaunchTemplateName, and ImageId, in the request. A launch template eliminates the need to configure a large number of parameters every time you create an Elastic Compute Service (ECS) instance.
    * 
    * @remarks
    * ## Description
@@ -105905,7 +105875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a launch template. A launch template eliminates the need to configure a large number of parameters every time you create an Elastic Compute Service (ECS) instance.
+   * Creates a launch template. When you call this operation, you can specify parameters, such as TemplateTag, LaunchTemplateName, and ImageId, in the request. A launch template eliminates the need to configure a large number of parameters every time you create an Elastic Compute Service (ECS) instance.
    * 
    * @remarks
    * ## Description
@@ -105925,7 +105895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a version for a launch template.
+   * Creates a version for a launch template. When you call this operation, you can specify parameters, such as LaunchTemplateId, VersionDescription, and Tag, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -106156,7 +106126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a version for a launch template.
+   * Creates a version for a launch template. When you call this operation, you can specify parameters, such as LaunchTemplateId, VersionDescription, and Tag, in the request.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -107999,7 +107969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an auto provisioning group.
+   * Deletes an auto provisioning group. When you call this operation, you can specify AutoProvisioningGroupId and TerminateInstances in the request.
    * 
    * @param request - DeleteAutoProvisioningGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -108054,7 +108024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an auto provisioning group.
+   * Deletes an auto provisioning group. When you call this operation, you can specify AutoProvisioningGroupId and TerminateInstances in the request.
    * 
    * @param request - DeleteAutoProvisioningGroupRequest
    * @returns DeleteAutoProvisioningGroupResponse
@@ -108187,7 +108157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the command. You can call the [DescribeCommands](https://help.aliyun.com/document_detail/64843.html) operation to query all available command IDs.
+   * Deletes a Cloud Assistant command in a region. This operation cannot delete Cloud Assistant commands that are being run.
    * 
    * @param request - DeleteCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -108242,7 +108212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the command. You can call the [DescribeCommands](https://help.aliyun.com/document_detail/64843.html) operation to query all available command IDs.
+   * Deletes a Cloud Assistant command in a region. This operation cannot delete Cloud Assistant commands that are being run.
    * 
    * @param request - DeleteCommandRequest
    * @returns DeleteCommandResponse
@@ -108253,7 +108223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a dedicated host cluster.
+   * Deletes a dedicated host cluster. Before you call this operation, migrate the dedicated hosts in the dedicated host cluster that you want to delete to another dedicated host cluster. When you call this operation, you can specify RegionId and DedicatedHostClusterId in the request.
    * 
    * @param request - DeleteDedicatedHostClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -108304,7 +108274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a dedicated host cluster.
+   * Deletes a dedicated host cluster. Before you call this operation, migrate the dedicated hosts in the dedicated host cluster that you want to delete to another dedicated host cluster. When you call this operation, you can specify RegionId and DedicatedHostClusterId in the request.
    * 
    * @param request - DeleteDedicatedHostClusterRequest
    * @returns DeleteDedicatedHostClusterResponse
@@ -108835,7 +108805,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom image.
+   * Deletes a custom image. When you call this operation, you can specify ImageId and Force in the request.
+   * 
+   * @remarks
+   * For information about scenarios in which you cannot delete a custom image and the considerations related to custom image deletion, see [Delete a custom image](https://help.aliyun.com/document_detail/25466.html).
    * 
    * @param request - DeleteImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -108890,7 +108863,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom image.
+   * Deletes a custom image. When you call this operation, you can specify ImageId and Force in the request.
+   * 
+   * @remarks
+   * For information about scenarios in which you cannot delete a custom image and the considerations related to custom image deletion, see [Delete a custom image](https://help.aliyun.com/document_detail/25466.html).
    * 
    * @param request - DeleteImageRequest
    * @returns DeleteImageResponse
@@ -109957,7 +109933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a security group.
+   * Deletes a security group. When you call this operation, you can specify RegionId and SecurityGroupId in the request. When a security group is deleted, the rules in the security group are also deleted.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -110014,7 +109990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a security group.
+   * Deletes a security group. When you call this operation, you can specify RegionId and SecurityGroupId in the request. When a security group is deleted, the rules in the security group are also deleted.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -116497,7 +116473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the versions of a launch template.
+   * Queries the information of launch template versions, such as the total number of launch templates, launch template names, and launch template version numbers. When you call this operation, you can specify parameters, such as LaunchTemplateVersion, LaunchTemplateId, and DetailFlag, in the request.
    * 
    * @remarks
    * ## Debugging
@@ -116584,7 +116560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the versions of a launch template.
+   * Queries the information of launch template versions, such as the total number of launch templates, launch template names, and launch template version numbers. When you call this operation, you can specify parameters, such as LaunchTemplateVersion, LaunchTemplateId, and DetailFlag, in the request.
    * 
    * @remarks
    * ## Debugging
@@ -116599,7 +116575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * Queries the information of one or more available launch templates, such as the total number of launch templates, launch template names, and launch template IDs. When you call this operation, you can specify parameters, such as TemplateTag, TemplateResourceGroupId, and LaunchTemplateId, in the request.
    * 
    * @param request - DescribeLaunchTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -116670,7 +116646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * Queries the information of one or more available launch templates, such as the total number of launch templates, launch template names, and launch template IDs. When you call this operation, you can specify parameters, such as TemplateTag, TemplateResourceGroupId, and LaunchTemplateId, in the request.
    * 
    * @param request - DescribeLaunchTemplatesRequest
    * @returns DescribeLaunchTemplatesResponse
@@ -117629,7 +117605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the most recent prices of Elastic Compute Resource (ECS) resources.
+   * Queries information about the most recent prices of Elastic Compute Service (ECS) resources, such as the promotion rules, prices, and discounts. When you call this operation, you can specify parameters, such as ResourceType, ImageId, and InstanceType, in the request.
    * 
    * @remarks
    * # [](#)Usage notes
@@ -117792,7 +117768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the most recent prices of Elastic Compute Resource (ECS) resources.
+   * Queries information about the most recent prices of Elastic Compute Service (ECS) resources, such as the promotion rules, prices, and discounts. When you call this operation, you can specify parameters, such as ResourceType, ImageId, and InstanceType, in the request.
    * 
    * @remarks
    * # [](#)Usage notes
@@ -118809,7 +118785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether a security group is referenced by the rules of other security groups.
+   * Queries the security groups that are referencing specific security groups. When you call this operation, you can specify SecurityGroupId.
    * 
    * @remarks
    * When you call this operation, take note of the following items:
@@ -118866,7 +118842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether a security group is referenced by the rules of other security groups.
+   * Queries the security groups that are referencing specific security groups. When you call this operation, you can specify SecurityGroupId.
    * 
    * @remarks
    * When you call this operation, take note of the following items:
@@ -119483,7 +119459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the snapshots of an Elastic Compute Service (ECS) instance or a disk.
+   * Queries all snapshots of an Elastic Compute Service (ECS) instance or a disk. When you call this operation, you can specify parameters, such as InstanceId, DiskId, SnapshotLinkId, and Status, in the request.
    * 
    * @remarks
    * You can configure multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Configured parameters have logical AND relations. Only the configured parameters are included in the filter conditions.
@@ -119614,7 +119590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the snapshots of an Elastic Compute Service (ECS) instance or a disk.
+   * Queries all snapshots of an Elastic Compute Service (ECS) instance or a disk. When you call this operation, you can specify parameters, such as InstanceId, DiskId, SnapshotLinkId, and Status, in the request.
    * 
    * @remarks
    * You can configure multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Configured parameters have logical AND relations. Only the configured parameters are included in the filter conditions.
@@ -122709,6 +122685,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.launcher)) {
+      query["Launcher"] = request.launcher;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -122994,11 +122974,14 @@ export default class Client extends OpenApi {
    * Removes an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) from a security group.
    * 
    * @remarks
-   * > This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](https://help.aliyun.com/document_detail/25503.html) operation to add an instance to or remove an instance from a security group, and call the [ModifyNetworkInterfaceAttribute](https://help.aliyun.com/document_detail/58513.html) operation to add an ENI to or remove an ENI from a security group.
-   * When you call this operation, take note of the following items:
-   * *   Before you remove an instance from a security group, the instance must be in the **Stopped** or **Running** state.
-   * *   An instance must belong to at least one security group. Therefore, if the instance that you want to remove belongs to only one security group, the LeaveSecurityGroup operation fails.
-   * *   You cannot remove an instance and an ENI from a security group at the same time. This indicates that you cannot configure both `InstanceId` and `NetworkInterfaceId` in a request.
+   * ## [](#)Usage notes
+   * > 
+   * *   To improve user experience, Alibaba Cloud modified the verification rules for the LeaveSecurityGroup operation on July 8, 2024. When you remove an ECS instance or ENI that does not belong to a security group from the security group, the "InvalidSecurityGroupAssociation.NotFound" error code is returned instead of a success response. Update the LeaveSecurityGroup operation to use the new verification rules with the new error code based on your business requirements.
+   * *   This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](https://help.aliyun.com/document_detail/25503.html) operation to add an ECS instance to or remove an ECS instance from a security group, and call the [ModifyNetworkInterfaceAttribute](https://help.aliyun.com/document_detail/58513.html) operation to add an ENI to or remove an ENI from a security group.
+   * Take note of the following items:
+   * *   Before you remove an instance from a security group, the instance must be in the **Stopped** (Stopped) or **Running** (Running) state.
+   * *   An instance must belong to at least one security group. Therefore, if the instance to be removed belongs to only one security group, the LeaveSecurityGroup request fails.
+   * *   You cannot remove an instance and an ENI from a security group at the same time. This indicates that you cannot specify `InstanceId` and `NetworkInterfaceId` in one request.
    * 
    * @param request - LeaveSecurityGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -123060,11 +123043,14 @@ export default class Client extends OpenApi {
    * Removes an Elastic Compute Service (ECS) instance or an elastic network interface (ENI) from a security group.
    * 
    * @remarks
-   * > This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](https://help.aliyun.com/document_detail/25503.html) operation to add an instance to or remove an instance from a security group, and call the [ModifyNetworkInterfaceAttribute](https://help.aliyun.com/document_detail/58513.html) operation to add an ENI to or remove an ENI from a security group.
-   * When you call this operation, take note of the following items:
-   * *   Before you remove an instance from a security group, the instance must be in the **Stopped** or **Running** state.
-   * *   An instance must belong to at least one security group. Therefore, if the instance that you want to remove belongs to only one security group, the LeaveSecurityGroup operation fails.
-   * *   You cannot remove an instance and an ENI from a security group at the same time. This indicates that you cannot configure both `InstanceId` and `NetworkInterfaceId` in a request.
+   * ## [](#)Usage notes
+   * > 
+   * *   To improve user experience, Alibaba Cloud modified the verification rules for the LeaveSecurityGroup operation on July 8, 2024. When you remove an ECS instance or ENI that does not belong to a security group from the security group, the "InvalidSecurityGroupAssociation.NotFound" error code is returned instead of a success response. Update the LeaveSecurityGroup operation to use the new verification rules with the new error code based on your business requirements.
+   * *   This operation is not recommended. We recommend that you call the [ModifyInstanceAttribute](https://help.aliyun.com/document_detail/25503.html) operation to add an ECS instance to or remove an ECS instance from a security group, and call the [ModifyNetworkInterfaceAttribute](https://help.aliyun.com/document_detail/58513.html) operation to add an ENI to or remove an ENI from a security group.
+   * Take note of the following items:
+   * *   Before you remove an instance from a security group, the instance must be in the **Stopped** (Stopped) or **Running** (Running) state.
+   * *   An instance must belong to at least one security group. Therefore, if the instance to be removed belongs to only one security group, the LeaveSecurityGroup request fails.
+   * *   You cannot remove an instance and an ENI from a security group at the same time. This indicates that you cannot specify `InstanceId` and `NetworkInterfaceId` in one request.
    * 
    * @param request - LeaveSecurityGroupRequest
    * @returns LeaveSecurityGroupResponse
@@ -124679,7 +124665,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * # [](#)Usage notes
-   * After you change the billing method, the payment (if any) is automatically completed. Maintain sufficient balance in your account. Otherwise, your order becomes invalid and must be canceled. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can go to the [Orders page](https://usercenter2-intl.aliyun.com/order/list) in the Expenses and Costs console and pay for the order.
+   * After you change the billing method, the payment (if any) is automatically completed. Maintain sufficient balance in your account. Otherwise, your order becomes invalid and must be canceled. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, log on to the **Expenses and Costs console**, go to the [Orders page](https://usercenter2-intl.aliyun.com/order/list), and pay for the order.
    * Take note of the following items:
    * *   Only pay-as-you-go disks can be attached to pay-as-you-go instances, and the billing methods of the disks cannot be changed.
    * *   The instance cannot be in the Stopped state due to expiration.
@@ -124755,7 +124741,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * # [](#)Usage notes
-   * After you change the billing method, the payment (if any) is automatically completed. Maintain sufficient balance in your account. Otherwise, your order becomes invalid and must be canceled. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can go to the [Orders page](https://usercenter2-intl.aliyun.com/order/list) in the Expenses and Costs console and pay for the order.
+   * After you change the billing method, the payment (if any) is automatically completed. Maintain sufficient balance in your account. Otherwise, your order becomes invalid and must be canceled. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, log on to the **Expenses and Costs console**, go to the [Orders page](https://usercenter2-intl.aliyun.com/order/list), and pay for the order.
    * Take note of the following items:
    * *   Only pay-as-you-go disks can be attached to pay-as-you-go instances, and the billing methods of the disks cannot be changed.
    * *   The instance cannot be in the Stopped state due to expiration.
@@ -127739,12 +127725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ## Description
-   * When you call this operation, take note of the following items:
-   * *   For information about limits on reserved instances, see the "Limits" section in [Overview](https://help.aliyun.com/document_detail/100370.html).
-   * *   Before you call this operation to split a reserved instance, make sure that you are familiar with the limits on splitting a reserved instance. For more information, see [Split a reserved instance](https://help.aliyun.com/document_detail/100375.html).
-   * *   Before you call this operation to merge reserved instances, make sure that you are familiar with the limits on merging reserved instances. For more information, see [Merge reserved instances](https://help.aliyun.com/document_detail/132229.html).
-   * *   Before you call this operation to modify a reserved instance, make sure that you are familiar with the limits and methods of modifying a reserved instance. For more information, see [Modify a reserved instance](https://help.aliyun.com/document_detail/132230.html).
+   * Splits, merges, or modifies reserved instances. When you call this operation, you can specify parameters, such as ReservedInstanceId, ZoneId, InstanceType, and InstanceAmount, in the request.
    * 
    * @remarks
    * The region ID of the reserved instance.
@@ -127803,12 +127784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ## Description
-   * When you call this operation, take note of the following items:
-   * *   For information about limits on reserved instances, see the "Limits" section in [Overview](https://help.aliyun.com/document_detail/100370.html).
-   * *   Before you call this operation to split a reserved instance, make sure that you are familiar with the limits on splitting a reserved instance. For more information, see [Split a reserved instance](https://help.aliyun.com/document_detail/100375.html).
-   * *   Before you call this operation to merge reserved instances, make sure that you are familiar with the limits on merging reserved instances. For more information, see [Merge reserved instances](https://help.aliyun.com/document_detail/132229.html).
-   * *   Before you call this operation to modify a reserved instance, make sure that you are familiar with the limits and methods of modifying a reserved instance. For more information, see [Modify a reserved instance](https://help.aliyun.com/document_detail/132230.html).
+   * Splits, merges, or modifies reserved instances. When you call this operation, you can specify parameters, such as ReservedInstanceId, ZoneId, InstanceType, and InstanceAmount, in the request.
    * 
    * @remarks
    * The region ID of the reserved instance.
@@ -127991,7 +127967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name or description of a security group.
+   * Modifies the name or description of a security group. When you call this operation, you can specify parameters, such as SecurityGroupId, SecurityGroupName, and Description, in the request.
    * 
    * @param request - ModifySecurityGroupAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -128050,7 +128026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name or description of a security group.
+   * Modifies the name or description of a security group. When you call this operation, you can specify parameters, such as SecurityGroupId, SecurityGroupName, and Description, in the request.
    * 
    * @param request - ModifySecurityGroupAttributeRequest
    * @returns ModifySecurityGroupAttributeResponse
@@ -130423,7 +130399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews a subscription Elastic Compute Service (ECS) instance.
+   * Renews a subscription Elastic Compute Service (ECS) instance. When you call this operation, you can specify parameters, such as InstanceId, Period, and ExpectedRenewDay, in the request.
    * 
    * @remarks
    *   Before you call this operation, make sure that you are familiar with the billing methods and pricing of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
@@ -130492,7 +130468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renews a subscription Elastic Compute Service (ECS) instance.
+   * Renews a subscription Elastic Compute Service (ECS) instance. When you call this operation, you can specify parameters, such as InstanceId, Period, and ExpectedRenewDay, in the request.
    * 
    * @remarks
    *   Before you call this operation, make sure that you are familiar with the billing methods and pricing of ECS. For more information, see the [Elastic Compute Service](https://www.alibabacloud.com/product/ecs#pricing) product page.
@@ -131613,6 +131589,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.keepCommand)) {
       query["KeepCommand"] = request.keepCommand;
+    }
+
+    if (!Util.isUnset(request.launcher)) {
+      query["Launcher"] = request.launcher;
     }
 
     if (!Util.isUnset(request.name)) {
